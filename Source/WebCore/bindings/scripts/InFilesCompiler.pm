@@ -279,7 +279,7 @@ sub generateHeadersHeader()
 
         print F "#if " . $object->conditionalStringFromAttributeValue($conditional) . "\n" if $conditional;
         print F "#include \"$interfaceName.h\"\n";
-        print F "#include \"JS$interfaceName.h\"\n";
+        #print F "#include \"JS$interfaceName.h\"\n";
         print F "#endif\n" if $conditional;
     }
 

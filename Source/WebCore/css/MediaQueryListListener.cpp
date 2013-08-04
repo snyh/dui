@@ -21,17 +21,11 @@
 #include "MediaQueryListListener.h"
 
 #include "MediaQueryList.h"
-#include "ScriptFunctionCall.h"
-
-#include "JSMediaQueryList.h"
 
 namespace WebCore {
 
 void MediaQueryListListener::queryChanged(ScriptState* state, MediaQueryList* query)
 {
-    ScriptCallback callback(state, m_value);
-    callback.appendArgument(toJS(state, deprecatedGlobalObjectForPrototype(state), query));
-    callback.call();
 }
 
 }

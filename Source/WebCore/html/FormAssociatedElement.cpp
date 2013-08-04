@@ -31,7 +31,6 @@
 #include "HTMLFormControlElement.h"
 #include "HTMLFormElement.h"
 #include "HTMLNames.h"
-#include "HTMLObjectElement.h"
 #include "IdTargetObserver.h"
 #include "ValidityState.h"
 
@@ -274,12 +273,8 @@ bool FormAssociatedElement::isFormControlElementWithState() const
 
 const HTMLElement* toHTMLElement(const FormAssociatedElement* associatedElement)
 {
-    if (associatedElement->isFormControlElement())
-        return static_cast<const HTMLFormControlElement*>(associatedElement);
-    // Assumes the element is an HTMLObjectElement
-    const HTMLElement* element = static_cast<const HTMLObjectElement*>(associatedElement);
-    ASSERT(element->hasTagName(objectTag));
-    return element;
+    ASSERT(associatedElement->isFormControlElement());
+    return static_cast<const HTMLFormControlElement*>(associatedElement);
 }
 
 HTMLElement* toHTMLElement(FormAssociatedElement* associatedElement)

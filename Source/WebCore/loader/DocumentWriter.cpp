@@ -37,7 +37,6 @@
 #include "FrameLoaderStateMachine.h"
 #include "FrameView.h"
 #include "PlaceholderDocument.h"
-#include "PluginDocument.h"
 #include "RawDataDocumentParser.h"
 #include "ScriptController.h"
 #include "ScriptableDocumentParser.h"
@@ -104,8 +103,6 @@ void DocumentWriter::begin()
 
 PassRefPtr<Document> DocumentWriter::createDocument(const KURL& url)
 {
-    if (!m_frame->loader()->stateMachine()->isDisplayingInitialEmptyDocument() && m_frame->loader()->client()->shouldAlwaysUsePluginDocument(m_mimeType))
-        return PluginDocument::create(m_frame, url);
     if (!m_frame->loader()->client()->hasHTMLView())
         return PlaceholderDocument::create(m_frame, url);
     return DOMImplementation::createDocument(m_mimeType, m_frame, url, m_frame->inViewSourceMode());
@@ -122,13 +119,6 @@ void DocumentWriter::begin(const KURL& urlReference, bool dispatch, Document* ow
     // inherit an aliased security context.
     RefPtr<Document> document = createDocument(url);
     
-    // If the new document is for a Plugin but we're supposed to be sandboxed from Plugins,
-    // then replace the document with one whose parser will ignore the incoming data (bug 39323)
-    if (document->isPluginDocument() && document->isSandboxed(SandboxPlugins))
-        document = SinkDocument::create(m_frame, url);
-
-    // FIXME: Do we need to consult the content security policy here about blocked plug-ins?
-
     bool shouldReuseDefaultView = m_frame->loader()->stateMachine()->isDisplayingInitialEmptyDocument() && m_frame->document()->isSecureTransitionTo(url);
     if (shouldReuseDefaultView)
         document->takeDOMWindowFrom(m_frame->document());
@@ -137,9 +127,6 @@ void DocumentWriter::begin(const KURL& urlReference, bool dispatch, Document* ow
 
     m_frame->loader()->clear(document.get(), !shouldReuseDefaultView, !shouldReuseDefaultView);
     clear();
-
-    if (!shouldReuseDefaultView)
-        m_frame->script()->updatePlatformScriptObjects();
 
     m_frame->loader()->setOutgoingReferrer(url);
     m_frame->setDocument(document);

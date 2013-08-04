@@ -28,7 +28,6 @@
 #include "HTMLElement.h"
 #include "HTMLNameCollection.h"
 #include "HTMLNames.h"
-#include "HTMLObjectElement.h"
 #include "HTMLOptionElement.h"
 #include "NodeList.h"
 #include "NodeRareData.h"
@@ -209,8 +208,6 @@ template <> inline bool isMatchingElement(const HTMLCollection* htmlCollection, 
     switch (type) {
     case DocImages:
         return element->hasLocalName(imgTag);
-    case DocScripts:
-        return element->hasLocalName(scriptTag);
     case DocForms:
         return element->hasLocalName(formTag);
     case TableTBodies:
@@ -232,10 +229,6 @@ template <> inline bool isMatchingElement(const HTMLCollection* htmlCollection, 
         return false;
     case MapAreas:
         return element->hasLocalName(areaTag);
-    case DocApplets:
-        return element->hasLocalName(appletTag) || (element->hasLocalName(objectTag) && static_cast<HTMLObjectElement*>(element)->containsJavaApplet());
-    case DocEmbeds:
-        return element->hasLocalName(embedTag);
     case DocLinks:
         return (element->hasLocalName(aTag) || element->hasLocalName(areaTag)) && element->fastHasAttribute(hrefAttr);
     case DocAnchors:
@@ -535,12 +528,9 @@ static inline bool nameShouldBeVisibleInDocumentAll(HTMLElement* element)
 {
     // The document.all collection returns only certain types of elements by name,
     // although it returns any type of element by id.
-    return element->hasLocalName(appletTag)
-        || element->hasLocalName(embedTag)
-        || element->hasLocalName(formTag)
+    return element->hasLocalName(formTag)
         || element->hasLocalName(imgTag)
         || element->hasLocalName(inputTag)
-        || element->hasLocalName(objectTag)
         || element->hasLocalName(selectTag);
 }
 

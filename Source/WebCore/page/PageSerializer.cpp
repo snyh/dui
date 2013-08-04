@@ -85,13 +85,13 @@ static bool isCharsetSpecifyingNode(Node* node)
 
 static bool shouldIgnoreElement(Element* element)
 {
-    return element->hasTagName(HTMLNames::scriptTag) || element->hasTagName(HTMLNames::noscriptTag) || isCharsetSpecifyingNode(element);
+    return element->hasTagName(HTMLNames::noscriptTag) || isCharsetSpecifyingNode(element);
 }
 
 static const QualifiedName& frameOwnerURLAttributeName(const HTMLFrameOwnerElement& frameOwner)
 {
     // FIXME: We should support all frame owners including applets.
-    return frameOwner.hasTagName(HTMLNames::objectTag) ? HTMLNames::dataAttr : HTMLNames::srcAttr;
+    return HTMLNames::srcAttr;
 }
 
 class SerializerMarkupAccumulator : public WebCore::MarkupAccumulator {

@@ -27,7 +27,6 @@
 #include "config.h"
 #include "DOMWindow.h"
 
-#include "BackForwardController.h"
 #include "BarProp.h"
 #include "BeforeUnloadEvent.h"
 #include "CSSComputedStyleDeclaration.h"
@@ -46,7 +45,6 @@
 #include "DOMURL.h"
 #include "DOMWindowCSS.h"
 #include "DOMWindowExtension.h"
-#include "DOMWindowNotifications.h"
 #include "DeviceMotionController.h"
 #include "DeviceOrientationController.h"
 #include "Document.h"
@@ -69,7 +67,6 @@
 #include "FrameView.h"
 #include "HTMLFrameOwnerElement.h"
 #include "History.h"
-#include "InspectorInstrumentation.h"
 #include "KURL.h"
 #include "Location.h"
 #include "MediaQueryList.h"
@@ -85,8 +82,6 @@
 #include "RuntimeEnabledFeatures.h"
 #include "ScheduledAction.h"
 #include "Screen.h"
-#include "ScriptCallStack.h"
-#include "ScriptCallStackFactory.h"
 #include "ScriptController.h"
 #include "SecurityOrigin.h"
 #include "SecurityPolicy.h"
@@ -120,43 +115,6 @@ using std::min;
 using std::max;
 
 namespace WebCore {
-
-class PostMessageTimer : public TimerBase {
-public:
-    PostMessageTimer(DOMWindow* window, PassRefPtr<SerializedScriptValue> message, const String& sourceOrigin, PassRefPtr<DOMWindow> source, PassOwnPtr<MessagePortChannelArray> channels, SecurityOrigin* targetOrigin, PassRefPtr<ScriptCallStack> stackTrace)
-        : m_window(window)
-        , m_message(message)
-        , m_origin(sourceOrigin)
-        , m_source(source)
-        , m_channels(channels)
-        , m_targetOrigin(targetOrigin)
-        , m_stackTrace(stackTrace)
-    {
-    }
-
-    PassRefPtr<MessageEvent> event(ScriptExecutionContext* context)
-    {
-        OwnPtr<MessagePortArray> messagePorts = MessagePort::entanglePorts(*context, m_channels.release());
-        return MessageEvent::create(messagePorts.release(), m_message, m_origin, "", m_source);
-    }
-    SecurityOrigin* targetOrigin() const { return m_targetOrigin.get(); }
-    ScriptCallStack* stackTrace() const { return m_stackTrace.get(); }
-
-private:
-    virtual void fired()
-    {
-        m_window->postMessageTimerFired(adoptPtr(this));
-        // This object is deleted now.
-    }
-
-    RefPtr<DOMWindow> m_window;
-    RefPtr<SerializedScriptValue> m_message;
-    String m_origin;
-    RefPtr<DOMWindow> m_source;
-    OwnPtr<MessagePortChannelArray> m_channels;
-    RefPtr<SecurityOrigin> m_targetOrigin;
-    RefPtr<ScriptCallStack> m_stackTrace;
-};
 
 typedef HashCountedSet<DOMWindow*> DOMWindowSet;
 
@@ -477,7 +435,6 @@ void DOMWindow::frameDestroyed()
 
 void DOMWindow::willDetachPage()
 {
-    InspectorInstrumentation::frameWindowDiscarded(m_frame, this);
 }
 
 void DOMWindow::willDestroyCachedFrame()
@@ -816,91 +773,6 @@ Storage* DOMWindow::localStorage(ExceptionCode& ec) const
     return m_localStorage.get();
 }
 
-void DOMWindow::postMessage(PassRefPtr<SerializedScriptValue> message, MessagePort* port, const String& targetOrigin, DOMWindow* source, ExceptionCode& ec)
-{
-    MessagePortArray ports;
-    if (port)
-        ports.append(port);
-    postMessage(message, &ports, targetOrigin, source, ec);
-}
-
-void DOMWindow::postMessage(PassRefPtr<SerializedScriptValue> message, const MessagePortArray* ports, const String& targetOrigin, DOMWindow* source, ExceptionCode& ec)
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return;
-
-    Document* sourceDocument = source->document();
-
-    // Compute the target origin.  We need to do this synchronously in order
-    // to generate the SYNTAX_ERR exception correctly.
-    RefPtr<SecurityOrigin> target;
-    if (targetOrigin == "/") {
-        if (!sourceDocument)
-            return;
-        target = sourceDocument->securityOrigin();
-    } else if (targetOrigin != "*") {
-        target = SecurityOrigin::createFromString(targetOrigin);
-        // It doesn't make sense target a postMessage at a unique origin
-        // because there's no way to represent a unique origin in a string.
-        if (target->isUnique()) {
-            ec = SYNTAX_ERR;
-            return;
-        }
-    }
-
-    OwnPtr<MessagePortChannelArray> channels = MessagePort::disentanglePorts(ports, ec);
-    if (ec)
-        return;
-
-    // Capture the source of the message.  We need to do this synchronously
-    // in order to capture the source of the message correctly.
-    if (!sourceDocument)
-        return;
-    String sourceOrigin = sourceDocument->securityOrigin()->toString();
-
-    // Capture stack trace only when inspector front-end is loaded as it may be time consuming.
-    RefPtr<ScriptCallStack> stackTrace;
-    if (InspectorInstrumentation::consoleAgentEnabled(sourceDocument))
-        stackTrace = createScriptCallStack(ScriptCallStack::maxCallStackSizeToCapture, true);
-
-    // Schedule the message.
-    PostMessageTimer* timer = new PostMessageTimer(this, message, sourceOrigin, source, channels.release(), target.get(), stackTrace.release());
-    timer->startOneShot(0);
-}
-
-void DOMWindow::postMessageTimerFired(PassOwnPtr<PostMessageTimer> t)
-{
-    OwnPtr<PostMessageTimer> timer(t);
-
-    if (!document() || !isCurrentlyDisplayedInFrame())
-        return;
-
-    RefPtr<MessageEvent> event = timer->event(document());
-
-    // Give the embedder a chance to intercept this postMessage because this
-    // DOMWindow might be a proxy for another in browsers that support
-    // postMessage calls across WebKit instances.
-    if (m_frame->loader()->client()->willCheckAndDispatchMessageEvent(timer->targetOrigin(), event.get()))
-        return;
-
-    dispatchMessageEventWithOriginCheck(timer->targetOrigin(), event, timer->stackTrace());
-}
-
-void DOMWindow::dispatchMessageEventWithOriginCheck(SecurityOrigin* intendedTargetOrigin, PassRefPtr<Event> event, PassRefPtr<ScriptCallStack> stackTrace)
-{
-    if (intendedTargetOrigin) {
-        // Check target origin now since the target document may have changed since the timer was scheduled.
-        if (!intendedTargetOrigin->isSameSchemeHostPort(document()->securityOrigin())) {
-            String message = "Unable to post message to " + intendedTargetOrigin->toString() +
-                             ". Recipient has origin " + document()->securityOrigin()->toString() + ".\n";
-            pageConsole()->addMessage(SecurityMessageSource, ErrorMessageLevel, message, stackTrace);
-            return;
-        }
-    }
-
-    dispatchEvent(event);
-}
-
 DOMSelection* DOMWindow::getSelection()
 {
     if (!isCurrentlyDisplayedInFrame() || !m_frame)
@@ -991,10 +863,6 @@ void DOMWindow::close(ScriptExecutionContext* context)
     }
 
     Settings* settings = m_frame->settings();
-    bool allowScriptsToCloseWindows = settings && settings->allowScriptsToCloseWindows();
-
-    if (!(page->openedByDOM() || page->backForward()->count() <= 1 || allowScriptsToCloseWindows))
-        return;
 
     if (!m_frame->loader()->shouldClose())
         return;
@@ -1155,7 +1023,7 @@ int DOMWindow::innerHeight() const
         return 0;
 
     // If the device height is overridden, do not include the horizontal scrollbar into the innerHeight (since it is absent on the real device).
-    bool includeScrollbars = !InspectorInstrumentation::shouldApplyScreenHeightOverride(m_frame);
+    bool includeScrollbars = !false;
     return view->mapFromLayoutToCSSUnits(static_cast<int>(view->visibleContentRect(includeScrollbars ? ScrollableArea::IncludeScrollbars : ScrollableArea::ExcludeScrollbars).height()));
 }
 
@@ -1169,7 +1037,7 @@ int DOMWindow::innerWidth() const
         return 0;
 
     // If the device width is overridden, do not include the vertical scrollbar into the innerWidth (since it is absent on the real device).
-    bool includeScrollbars = !InspectorInstrumentation::shouldApplyScreenWidthOverride(m_frame);
+    bool includeScrollbars = !false;
     return view->mapFromLayoutToCSSUnits(static_cast<int>(view->visibleContentRect(includeScrollbars ? ScrollableArea::IncludeScrollbars : ScrollableArea::ExcludeScrollbars).width()));
 }
 
@@ -1696,8 +1564,6 @@ void DOMWindow::dispatchLoadEvent()
     Element* ownerElement = m_frame ? m_frame->ownerElement() : 0;
     if (ownerElement)
         ownerElement->dispatchEvent(Event::create(eventNames().loadEvent, false, false));
-
-    InspectorInstrumentation::loadEventFired(frame());
 }
 
 bool DOMWindow::dispatchEvent(PassRefPtr<Event> prpEvent, PassRefPtr<EventTarget> prpTarget)
@@ -1709,11 +1575,7 @@ bool DOMWindow::dispatchEvent(PassRefPtr<Event> prpEvent, PassRefPtr<EventTarget
     event->setCurrentTarget(this);
     event->setEventPhase(Event::AT_TARGET);
 
-    InspectorInstrumentationCookie cookie = InspectorInstrumentation::willDispatchEventOnWindow(frame(), *event, this);
-
     bool result = fireEventListeners(event.get());
-
-    InspectorInstrumentation::didDispatchEventOnWindow(cookie);
 
     return result;
 }
@@ -1792,13 +1654,6 @@ void DOMWindow::setLocation(const String& urlString, DOMWindow* activeWindow, DO
 
     if (isInsecureScriptAccess(activeWindow, completedURL))
         return;
-
-    // We want a new history item if we are processing a user gesture.
-    m_frame->navigationScheduler()->scheduleLocationChange(activeDocument->securityOrigin(),
-        // FIXME: What if activeDocument()->frame() is 0?
-        completedURL, activeDocument->frame()->loader()->outgoingReferrer(),
-        locking != LockHistoryBasedOnGestureState || !ScriptController::processingUserGesture(),
-        locking != LockHistoryBasedOnGestureState);
 }
 
 void DOMWindow::printErrorMessage(const String& message)
@@ -1911,10 +1766,6 @@ PassRefPtr<Frame> DOMWindow::createWindow(const String& urlString, const AtomicS
 
     if (created)
         newFrame->loader()->changeLocation(activeWindow->document()->securityOrigin(), completedURL, referrer, false, false);
-    else if (!urlString.isEmpty()) {
-        bool lockHistory = !ScriptController::processingUserGesture();
-        newFrame->navigationScheduler()->scheduleLocationChange(activeWindow->document()->securityOrigin(), completedURL.string(), referrer, lockHistory, false);
-    }
 
     // Navigating the new frame could result in it being detached from its page by a navigation policy delegate.
     if (!newFrame->page())
@@ -1968,12 +1819,6 @@ PassRefPtr<DOMWindow> DOMWindow::open(const String& urlString, const AtomicStrin
         // For whatever reason, Firefox uses the first window rather than the active window to
         // determine the outgoing referrer. We replicate that behavior here.
         bool lockHistory = !ScriptController::processingUserGesture();
-        targetFrame->navigationScheduler()->scheduleLocationChange(
-            activeDocument->securityOrigin(),
-            completedURL,
-            firstFrame->loader()->outgoingReferrer(),
-            lockHistory,
-            false);
         return targetFrame->document()->domWindow();
     }
 

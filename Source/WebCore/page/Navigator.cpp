@@ -30,7 +30,6 @@
 #include "Frame.h"
 #include "FrameLoader.h"
 #include "FrameLoaderClient.h"
-#include "Geolocation.h"
 #include "Language.h"
 #include "Page.h"
 #include "PluginData.h"
@@ -58,11 +57,6 @@ Navigator::~Navigator()
 // sites such as nwa.com -- the library thinks Safari is Netscape 4 if we don't do this!
 static bool shouldHideFourDot(Frame* frame)
 {
-    const String* sourceURL = frame->script()->sourceURL();
-    if (!sourceURL)
-        return false;
-    if (!(sourceURL->endsWith("/dqm_script.js") || sourceURL->endsWith("/dqm_loader.js") || sourceURL->endsWith("/tdqm_loader.js")))
-        return false;
     Settings* settings = frame->settings();
     if (!settings)
         return false;

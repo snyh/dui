@@ -32,7 +32,6 @@
 
 #include "DOMNamedFlowCollection.h"
 #include "Document.h"
-#include "InspectorInstrumentation.h"
 #include "WebKitNamedFlow.h"
 
 #include <wtf/text/StringHash.h>
@@ -81,8 +80,6 @@ PassRefPtr<WebKitNamedFlow> NamedFlowCollection::ensureFlowWithName(const String
     RefPtr<WebKitNamedFlow> newFlow = WebKitNamedFlow::create(this, flowName);
     m_namedFlows.add(newFlow.get());
 
-    InspectorInstrumentation::didCreateNamedFlow(document(), newFlow.get());
-
     return newFlow.release();
 }
 
@@ -94,8 +91,6 @@ void NamedFlowCollection::discardNamedFlow(WebKitNamedFlow* namedFlow)
 
     ASSERT(namedFlow->flowState() == WebKitNamedFlow::FlowStateNull);
     ASSERT(m_namedFlows.contains(namedFlow));
-
-    InspectorInstrumentation::willRemoveNamedFlow(document(), namedFlow);
 
     m_namedFlows.remove(namedFlow);
 }

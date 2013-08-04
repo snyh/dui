@@ -75,7 +75,6 @@
 #include "HTMLTableElement.h"
 #include "HTMLTextAreaElement.h"
 #include "InsertionPoint.h"
-#include "InspectorInstrumentation.h"
 #include "KeyframeList.h"
 #include "LinkHash.h"
 #include "LocaleToScriptMapping.h"
@@ -296,13 +295,6 @@ StyleResolver::StyleResolver(Document* document, bool matchAuthorAndUserStyles)
 
 void StyleResolver::appendAuthorStyleSheets(unsigned firstNew, const Vector<RefPtr<CSSStyleSheet> >& styleSheets)
 {
-    m_ruleSets.appendAuthorStyleSheets(firstNew, styleSheets, m_medium.get(), m_inspectorCSSOMWrappers, document()->isViewSource(), this);
-    if (document()->renderer() && document()->renderer()->style())
-        document()->renderer()->style()->font().update(fontSelector());
-
-#if ENABLE(CSS_DEVICE_ADAPTATION)
-    viewportStyleResolver()->resolve();
-#endif
 }
 
 void StyleResolver::pushParentElement(Element* parent)
@@ -678,7 +670,7 @@ bool StyleResolver::canShareStyleWithElement(StyledElement* element) const
 #if USE(ACCELERATED_COMPOSITING)
     // Turn off style sharing for elements that can gain layers for reasons outside of the style system.
     // See comments in RenderObject::setStyle().
-    if (element->hasTagName(iframeTag) || element->hasTagName(frameTag) || element->hasTagName(embedTag) || element->hasTagName(objectTag) || element->hasTagName(appletTag) || element->hasTagName(canvasTag)
+    if (element->hasTagName(iframeTag) || element->hasTagName(frameTag) || element->hasTagName(canvasTag)
 #if ENABLE(PLUGIN_PROXY_FOR_VIDEO)
         // With proxying, the media elements are backed by a RenderEmbeddedObject.
         || element->hasTagName(videoTag) || isHTMLAudioElement(element)
@@ -1007,7 +999,7 @@ PassRefPtr<RenderStyle> StyleResolver::styleForElement(Element* element, RenderS
         state.style()->setIsLink(true);
         EInsideLink linkState = state.elementLinkState();
         if (linkState != NotInsideLink) {
-            bool forceVisited = InspectorInstrumentation::forcePseudoState(element, CSSSelector::PseudoVisited);
+            bool forceVisited = false;
             if (forceVisited)
                 linkState = InsideVisitedLink;
         }
@@ -1703,8 +1695,6 @@ template <StyleResolver::StyleApplicationPass pass>
 void StyleResolver::applyProperties(const StylePropertySet* properties, StyleRule* rule, bool isImportant, bool inheritedOnly, PropertyWhitelistType propertyWhitelistType)
 {
     ASSERT((propertyWhitelistType != PropertyWhitelistRegion) || m_state.regionForStyling());
-    InspectorInstrumentationCookie cookie = InspectorInstrumentation::willProcessRule(document(), rule, this);
-
     unsigned propertyCount = properties->propertyCount();
     for (unsigned i = 0; i < propertyCount; ++i) {
         StylePropertySet::PropertyReference current = properties->propertyAt(i);
@@ -1753,7 +1743,6 @@ void StyleResolver::applyProperties(const StylePropertySet* properties, StyleRul
                 applyProperty(current.id(), current.value());
         }
     }
-    InspectorInstrumentation::didProcessRule(cookie);
 }
 
 template <StyleResolver::StyleApplicationPass pass>

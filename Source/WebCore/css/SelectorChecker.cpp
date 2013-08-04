@@ -44,7 +44,6 @@
 #include "HTMLProgressElement.h"
 #include "HTMLStyleElement.h"
 #include "InsertionPoint.h"
-#include "InspectorInstrumentation.h"
 #include "NodeRenderStyle.h"
 #include "Page.h"
 #include "RenderObject.h"
@@ -638,7 +637,7 @@ bool SelectorChecker::checkOne(const SelectorCheckingContext& context) const
                     else
                         element->setChildrenAffectedByHover(true);
                 }
-                if (element->hovered() || InspectorInstrumentation::forcePseudoState(element, CSSSelector::PseudoHover))
+                if (element->hovered())
                     return true;
             }
             break;
@@ -652,7 +651,7 @@ bool SelectorChecker::checkOne(const SelectorCheckingContext& context) const
                     else
                         element->setChildrenAffectedByActive(true);
                 }
-                if (element->active() || InspectorInstrumentation::forcePseudoState(element, CSSSelector::PseudoActive))
+                if (element->active())
                     return true;
             }
             break;
@@ -939,8 +938,6 @@ bool SelectorChecker::isFrameFocused(const Element* element)
 
 bool SelectorChecker::matchesFocusPseudoClass(const Element* element)
 {
-    if (InspectorInstrumentation::forcePseudoState(const_cast<Element*>(element), CSSSelector::PseudoFocus))
-        return true;
     return element->focused() && isFrameFocused(element);
 }
 

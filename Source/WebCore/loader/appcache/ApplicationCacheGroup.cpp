@@ -35,24 +35,19 @@
 #include "Console.h"
 #include "DOMApplicationCache.h"
 #include "DOMWindow.h"
+#include "Document.h"
 #include "DocumentLoader.h"
 #include "Frame.h"
 #include "FrameLoader.h"
 #include "FrameLoaderClient.h"
-#include "InspectorInstrumentation.h"
 #include "ManifestParser.h"
 #include "Page.h"
 #include "ResourceBuffer.h"
 #include "ResourceHandle.h"
-#include "ScriptProfile.h"
 #include "SecurityOrigin.h"
 #include "Settings.h"
 #include <wtf/HashMap.h>
 #include <wtf/MainThread.h>
-
-#if ENABLE(INSPECTOR)
-#include "ProgressTracker.h"
-#endif
 
 namespace WebCore {
 
@@ -141,9 +136,6 @@ void ApplicationCacheGroup::selectCache(Frame* frame, const KURL& passedManifest
     if (!frame->settings() || !frame->settings()->offlineWebApplicationCacheEnabled())
         return;
 
-    if (!frame->document()->securityOrigin()->canAccessApplicationCache(frame->tree()->top()->document()->securityOrigin()))
-        return;
-    
     DocumentLoader* documentLoader = frame->loader()->documentLoader();
     ASSERT(!documentLoader->applicationCacheHost()->applicationCache());
 
@@ -175,11 +167,6 @@ void ApplicationCacheGroup::selectCache(Frame* frame, const KURL& passedManifest
             resource->addType(ApplicationCacheResource::Foreign);
             if (inStorage)
                 cacheStorage().storeUpdatedType(resource, mainResourceCache);
-
-            // Restart the current navigation from the top of the navigation algorithm, undoing any changes that were made
-            // as part of the initial load.
-            // The navigation will not result in the same resource being loaded, because "foreign" entries are never picked during navigation.
-            frame->navigationScheduler()->scheduleLocationChange(frame->document()->securityOrigin(), documentLoader->url(), frame->loader()->referrer());
         }
         
         return;
@@ -519,24 +506,11 @@ PassRefPtr<ResourceHandle> ApplicationCacheGroup::createResourceHandle(const KUR
 #endif
 
     RefPtr<ResourceHandle> handle = ResourceHandle::create(m_frame->loader()->networkingContext(), request, this, false, true);
-#if ENABLE(INSPECTOR)
-    // Because willSendRequest only gets called during redirects, we initialize
-    // the identifier and the first willSendRequest here.
-    m_currentResourceIdentifier = m_frame->page()->progress()->createUniqueIdentifier();
-    ResourceResponse redirectResponse = ResourceResponse();
-    InspectorInstrumentation::willSendRequest(m_frame, m_currentResourceIdentifier, m_frame->loader()->documentLoader(), request, redirectResponse);
-#endif
     return handle;
 }
 
 void ApplicationCacheGroup::didReceiveResponse(ResourceHandle* handle, const ResourceResponse& response)
 {
-#if ENABLE(INSPECTOR)
-    DocumentLoader* loader = (handle == m_manifestHandle) ? 0 : m_frame->loader()->documentLoader();
-    InspectorInstrumentationCookie cookie = InspectorInstrumentation::willReceiveResourceResponse(m_frame, m_currentResourceIdentifier, response);
-    InspectorInstrumentation::didReceiveResourceResponse(cookie, m_currentResourceIdentifier, loader, response, 0);
-#endif
-
     if (handle == m_manifestHandle) {
         didReceiveManifestResponse(response);
         return;
@@ -607,10 +581,6 @@ void ApplicationCacheGroup::didReceiveData(ResourceHandle* handle, const char* d
 {
     UNUSED_PARAM(encodedDataLength);
 
-#if ENABLE(INSPECTOR)
-    InspectorInstrumentation::didReceiveData(m_frame, m_currentResourceIdentifier, 0, length, 0);
-#endif
-
     if (handle == m_manifestHandle) {
         didReceiveManifestData(data, length);
         return;
@@ -624,11 +594,7 @@ void ApplicationCacheGroup::didReceiveData(ResourceHandle* handle, const char* d
 
 void ApplicationCacheGroup::didFinishLoading(ResourceHandle* handle, double finishTime)
 {
-#if ENABLE(INSPECTOR)
-    InspectorInstrumentation::didFinishLoading(m_frame, m_frame->loader()->documentLoader(), m_currentResourceIdentifier, finishTime);
-#else
     UNUSED_PARAM(finishTime);
-#endif
 
     if (handle == m_manifestHandle) {
         didFinishLoadingManifest();
@@ -663,11 +629,7 @@ void ApplicationCacheGroup::didFinishLoading(ResourceHandle* handle, double fini
 
 void ApplicationCacheGroup::didFail(ResourceHandle* handle, const ResourceError& error)
 {
-#if ENABLE(INSPECTOR)
-    InspectorInstrumentation::didFailLoading(m_frame, m_frame->loader()->documentLoader(), m_currentResourceIdentifier, error);
-#else
     UNUSED_PARAM(error);
-#endif
 
     if (handle == m_manifestHandle) {
         // A network error is logged elsewhere, no need to log again. Also, it's normal for manifest fetching to fail when working offline.

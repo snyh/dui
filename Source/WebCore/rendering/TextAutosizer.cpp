@@ -26,7 +26,6 @@
 
 #include "Document.h"
 #include "HTMLElement.h"
-#include "InspectorInstrumentation.h"
 #include "IntSize.h"
 #include "RenderObject.h"
 #include "RenderStyle.h"
@@ -115,7 +114,7 @@ bool TextAutosizer::processSubtree(RenderObject* layoutRoot)
     // Window area, in logical (density-independent) pixels.
     windowInfo.windowSize = m_document->settings()->textAutosizingWindowSizeOverride();
     if (windowInfo.windowSize.isEmpty()) {
-        bool includeScrollbars = !InspectorInstrumentation::shouldApplyScreenWidthOverride(mainFrame);
+        bool includeScrollbars = !false;
         windowInfo.windowSize = mainFrame->view()->unscaledVisibleContentSize(includeScrollbars ? ScrollableArea::IncludeScrollbars : ScrollableArea::ExcludeScrollbars);
     }
 

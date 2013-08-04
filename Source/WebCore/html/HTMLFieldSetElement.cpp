@@ -28,7 +28,6 @@
 #include "HTMLCollection.h"
 #include "HTMLLegendElement.h"
 #include "HTMLNames.h"
-#include "HTMLObjectElement.h"
 #include "NodeTraversal.h"
 #include "RenderFieldset.h"
 #include <wtf/StdLibExtras.h>
@@ -114,11 +113,6 @@ void HTMLFieldSetElement::refreshElementsIfNeeded() const
     m_associatedElements.clear();
 
     for (Element* element = ElementTraversal::firstWithin(this); element; element = ElementTraversal::next(element, this)) {
-        if (element->hasTagName(objectTag)) {
-            m_associatedElements.append(static_cast<HTMLObjectElement*>(element));
-            continue;
-        }
-
         if (!element->isFormControlElement())
             continue;
 

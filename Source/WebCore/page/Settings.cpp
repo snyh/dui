@@ -26,11 +26,9 @@
 #include "config.h"
 #include "Settings.h"
 
-#include "BackForwardController.h"
 #include "CachedResourceLoader.h"
 #include "CookieStorage.h"
 #include "DOMTimer.h"
-#include "Database.h"
 #include "Document.h"
 #include "Font.h"
 #include "FontGenericFamilies.h"
@@ -38,10 +36,7 @@
 #include "FrameTree.h"
 #include "FrameView.h"
 #include "HTMLMediaElement.h"
-#include "HistoryItem.h"
-#include "InspectorInstrumentation.h"
 #include "Page.h"
-#include "PageCache.h"
 #include "StorageMap.h"
 #include "TextAutosizer.h"
 #include <limits>
@@ -359,7 +354,6 @@ void Settings::imageLoadingSettingsTimerFired(Timer<Settings>*)
 void Settings::setScriptEnabled(bool isScriptEnabled)
 {
     m_isScriptEnabled = isScriptEnabled;
-    InspectorInstrumentation::scriptsEnabled(m_page, m_isScriptEnabled);
 }
 
 void Settings::setJavaEnabled(bool isJavaEnabled)
@@ -457,12 +451,6 @@ void Settings::setUsesPageCache(bool usesPageCache)
         return;
         
     m_usesPageCache = usesPageCache;
-    if (!m_usesPageCache) {
-        int first = -m_page->backForward()->backCount();
-        int last = m_page->backForward()->forwardCount();
-        for (int i = first; i <= last; i++)
-            pageCache()->remove(m_page->backForward()->itemAtIndex(i));
-    }
 }
 
 void Settings::setFontRenderingMode(FontRenderingMode mode)

@@ -40,7 +40,6 @@
 #include "NodeTraversal.h"
 #include "RenderMenuList.h"
 #include "RenderTheme.h"
-#include "ScriptElement.h"
 #include "StyleResolver.h"
 #include "Text.h"
 #include <wtf/Vector.h>
@@ -375,11 +374,7 @@ String HTMLOptionElement::collectOptionInnerText() const
     for (Node* node = firstChild(); node; ) {
         if (node->isTextNode())
             text.append(node->nodeValue());
-        // Text nodes inside script elements are not part of the option text.
-        if (node->isElementNode() && toScriptElementIfPossible(toElement(node)))
-            node = NodeTraversal::nextSkippingChildren(node, this);
-        else
-            node = NodeTraversal::next(node, this);
+        node = NodeTraversal::next(node, this);
     }
     return text.toString();
 }

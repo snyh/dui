@@ -206,10 +206,6 @@ static KURL getURLForImageNode(Node* node)
     else if (node->hasTagName(SVGNames::imageTag))
         urlString = toElement(node)->getAttribute(XLinkNames::hrefAttr);
 #endif
-    else if (node->hasTagName(HTMLNames::embedTag) || node->hasTagName(HTMLNames::objectTag)) {
-        Element* element = toElement(node);
-        urlString = element->imageSourceURL();
-    }
     return urlString.isEmpty() ? KURL() : node->document()->completeURL(stripLeadingAndTrailingHTMLSpaces(urlString));
 }
 

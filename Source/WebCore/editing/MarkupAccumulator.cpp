@@ -317,7 +317,7 @@ EntityMask MarkupAccumulator::entityMaskForText(Text* text) const
     if (text->parentElement())
         parentName = &(text->parentElement())->tagQName();
 
-    if (parentName && (*parentName == scriptTag || *parentName == styleTag || *parentName == xmpTag))
+    if (parentName && (*parentName == styleTag || *parentName == xmpTag))
         return EntityMaskInCDATA;
 
     return text->document()->isHTMLDocument() ? EntityMaskInHTMLPCDATA : EntityMaskInPCDATA;

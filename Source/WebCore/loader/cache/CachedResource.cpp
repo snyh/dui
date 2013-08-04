@@ -31,9 +31,9 @@
 #include "CrossOriginAccessControl.h"
 #include "Document.h"
 #include "DocumentLoader.h"
+#include "Frame.h"
 #include "FrameLoader.h"
 #include "FrameLoaderClient.h"
-#include "InspectorInstrumentation.h"
 #include "KURL.h"
 #include "LoaderStrategy.h"
 #include "Logging.h"
@@ -580,7 +580,6 @@ void CachedResource::decodedDataDeletionTimerFired(DeferrableOneShotTimer<Cached
 bool CachedResource::deleteIfPossible()
 {
     if (canDelete() && !inCache()) {
-        InspectorInstrumentation::willDestroyCachedResource(this);
         delete this;
         return true;
     }

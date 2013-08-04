@@ -38,7 +38,6 @@
 #include "HTMLLIElement.h"
 #include "HTMLNames.h"
 #include "HTMLOListElement.h"
-#include "HTMLObjectElement.h"
 #include "HTMLParagraphElement.h"
 #include "HTMLTableElement.h"
 #include "HTMLTextFormControlElement.h"

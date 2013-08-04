@@ -48,9 +48,6 @@
 #include "ResourceError.h"
 #include "ResourceRequest.h"
 #include "ResourceResponse.h"
-#include "ScriptElement.h"
-#include "ScriptSourceCode.h"
-#include "ScriptValue.h"
 #include "SecurityOrigin.h"
 #include "TextResourceDecoder.h"
 #include "TransformSource.h"
@@ -822,10 +819,6 @@ void XMLDocumentParser::startElementNs(const xmlChar* xmlLocalName, const xmlCha
 
     newElement->beginParsingChildren();
 
-    ScriptElement* scriptElement = toScriptElementIfPossible(newElement.get());
-    if (scriptElement)
-        m_scriptStartPosition = textPosition();
-
     m_currentNode->parserAppendChild(newElement.get());
 
     const ContainerNode* currentNode = m_currentNode;
@@ -871,12 +864,6 @@ void XMLDocumentParser::endElementNs()
     if (hackAroundLibXMLEntityParsingBug() && context()->depth <= depthTriggeringEntityExpansion())
         setDepthTriggeringEntityExpansion(-1);
 
-    if (!scriptingContentIsAllowed(parserContentPolicy()) && n->isElementNode() && toScriptElementIfPossible(toElement(n.get()))) {
-        popCurrentNode();
-        n->remove(IGNORE_EXCEPTION);
-        return;
-    }
-
     if (!n->isElementNode() || !m_view) {
         popCurrentNode();
         return;
@@ -891,37 +878,10 @@ void XMLDocumentParser::endElementNs()
         return;
     }
 
-    ScriptElement* scriptElement = toScriptElementIfPossible(element);
-    if (!scriptElement) {
-        popCurrentNode();
-        return;
-    }
-
     // Don't load external scripts for standalone documents (for now).
     ASSERT(!m_pendingScript);
     m_requestingScript = true;
 
-    if (scriptElement->prepareScript(m_scriptStartPosition, ScriptElement::AllowLegacyTypeInTypeAttribute)) {
-        // FIXME: Script execution should be shared between
-        // the libxml2 and Qt XMLDocumentParser implementations.
-
-        if (scriptElement->readyToBeParserExecuted())
-            scriptElement->executeScript(ScriptSourceCode(scriptElement->scriptContent(), document()->url(), m_scriptStartPosition));
-        else if (scriptElement->willBeParserExecuted()) {
-            m_pendingScript = scriptElement->cachedScript();
-            m_scriptElement = element;
-            m_pendingScript->addClient(this);
-
-            // m_pendingScript will be 0 if script was already loaded and addClient() executed it.
-            if (m_pendingScript)
-                pauseParsing();
-        } else
-            m_scriptElement = 0;
-
-        // JavaScript may have detached the parser
-        if (isDetached())
-            return;
-    }
     m_requestingScript = false;
     popCurrentNode();
 }

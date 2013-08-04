@@ -35,7 +35,6 @@
 #include "FrameLoader.h"
 #include "FrameLoaderClient.h"
 #include "HTMLParserIdioms.h"
-#include "InspectorValues.h"
 #include "PingLoader.h"
 #include "SecurityOrigin.h"
 #include <wtf/text/StringBuilder.h>
@@ -75,22 +74,7 @@ static inline String buildConsoleError(const XSSInfo& xssInfo, const String& url
 PassRefPtr<FormData> XSSAuditorDelegate::generateViolationReport()
 {
     ASSERT(isMainThread());
-
-    FrameLoader* frameLoader = m_document->frame()->loader();
-    String httpBody;
-    if (frameLoader->documentLoader()) {
-        if (FormData* formData = frameLoader->documentLoader()->originalRequest().httpBody())
-            httpBody = formData->flattenToString();
-    }
-
-    RefPtr<InspectorObject> reportDetails = InspectorObject::create();
-    reportDetails->setString("request-url", m_document->url().string());
-    reportDetails->setString("request-body", httpBody);
-
-    RefPtr<InspectorObject> reportObject = InspectorObject::create();
-    reportObject->setObject("xss-report", reportDetails.release());
-
-    return FormData::create(reportObject->toJSONString().utf8().data());
+    return FormData::create();
 }
 
 void XSSAuditorDelegate::didBlockScript(const XSSInfo& xssInfo)
@@ -111,9 +95,6 @@ void XSSAuditorDelegate::didBlockScript(const XSSInfo& xssInfo)
         if (!m_reportURL.isEmpty())
             PingLoader::sendViolationReport(m_document->frame(), m_reportURL, generateViolationReport());
     }
-
-    if (xssInfo.m_didBlockEntirePage)
-        m_document->frame()->navigationScheduler()->scheduleLocationChange(m_document->securityOrigin(), SecurityOrigin::urlWithUniqueSecurityOrigin(), String());
 }
 
 } // namespace WebCore

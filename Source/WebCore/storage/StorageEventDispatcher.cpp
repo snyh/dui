@@ -30,7 +30,6 @@
 #include "DOMWindow.h"
 #include "EventNames.h"
 #include "Frame.h"
-#include "InspectorInstrumentation.h"
 #include "Page.h"
 #include "PageGroup.h"
 #include "SecurityOrigin.h"
@@ -77,7 +76,6 @@ void StorageEventDispatcher::dispatchLocalStorageEvents(const String& key, const
 
 void StorageEventDispatcher::dispatchSessionStorageEventsToFrames(Page& page, const Vector<RefPtr<Frame> >& frames, const String& key, const String& oldValue, const String& newValue, const String& url, SecurityOrigin* securityOrigin)
 {
-    InspectorInstrumentation::didDispatchDOMStorageEvent(key, oldValue, newValue, SessionStorage, securityOrigin, &page);
 
     for (unsigned i = 0; i < frames.size(); ++i) {
         ExceptionCode ec = 0;
@@ -89,10 +87,6 @@ void StorageEventDispatcher::dispatchSessionStorageEventsToFrames(Page& page, co
 
 void StorageEventDispatcher::dispatchLocalStorageEventsToFrames(PageGroup& pageGroup, const Vector<RefPtr<Frame> >& frames, const String& key, const String& oldValue, const String& newValue, const String& url, SecurityOrigin* securityOrigin)
 {
-    const HashSet<Page*>& pages = pageGroup.pages();
-    for (HashSet<Page*>::const_iterator it = pages.begin(), end = pages.end(); it != end; ++it)
-        InspectorInstrumentation::didDispatchDOMStorageEvent(key, oldValue, newValue, LocalStorage, securityOrigin, *it);
-
     for (unsigned i = 0; i < frames.size(); ++i) {
         ExceptionCode ec = 0;
         Storage* storage = frames[i]->document()->domWindow()->localStorage(ec);

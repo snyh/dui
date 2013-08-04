@@ -28,8 +28,8 @@
 #ifndef SelectorChecker_h
 #define SelectorChecker_h
 
+#include "Element.h"
 #include "CSSSelector.h"
-#include "InspectorInstrumentation.h"
 #include "SpaceSplitString.h"
 #include <wtf/HashSet.h>
 #include <wtf/Vector.h>

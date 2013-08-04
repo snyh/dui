@@ -26,7 +26,6 @@
 #include "EventNames.h"
 #include "ExceptionCode.h"
 #include "FrameSelection.h"
-#include "InspectorInstrumentation.h"
 #include "MutationEvent.h"
 #include "MutationObserverInterestGroup.h"
 #include "MutationRecord.h"
@@ -212,9 +211,6 @@ void CharacterData::dispatchModifiedEvent(const String& oldData)
             dispatchScopedEvent(MutationEvent::create(eventNames().DOMCharacterDataModifiedEvent, true, 0, oldData, m_data));
         dispatchSubtreeModifiedEvent();
     }
-#if ENABLE(INSPECTOR)
-    InspectorInstrumentation::characterDataModified(document(), this);
-#endif
 }
 
 void CharacterData::checkCharDataOperation(unsigned offset, ExceptionCode& ec)

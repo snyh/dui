@@ -33,14 +33,10 @@
 #include "FormData.h"
 #include "FormDataList.h"
 #include "Frame.h"
-#include "InspectorInstrumentation.h"
-#include "InspectorValues.h"
 #include "KURL.h"
 #include "PingLoader.h"
 #include "RuntimeEnabledFeatures.h"
 #include "SchemeRegistry.h"
-#include "ScriptCallStack.h"
-#include "ScriptCallStackFactory.h"
 #include "ScriptState.h"
 #include "SecurityOrigin.h"
 #include "SecurityPolicyViolationEvent.h"
@@ -163,15 +159,6 @@ FeatureObserver::Feature getFeatureObserverType(ContentSecurityPolicy::HeaderTyp
     }
     ASSERT_NOT_REACHED();
     return FeatureObserver::NumberOfFeatures;
-}
-
-const ScriptCallFrame& getFirstNonNativeFrame(PassRefPtr<ScriptCallStack> stack)
-{
-    int frameNumber = 0;
-    if (!stack->at(0).lineNumber() && stack->size() > 1 && stack->at(1).lineNumber())
-        frameNumber = 1;
-
-    return stack->at(frameNumber);
 }
 
 } // namespace
@@ -999,7 +986,6 @@ bool CSPDirectiveList::checkEvalAndReportViolation(SourceListDirective* directiv
 
     reportViolation(directive->text(), scriptSrc, consoleMessage + "\"" + directive->text() + "\"." + suffix + "\n", KURL(), contextURL, contextLine, state);
     if (!m_reportOnly) {
-        m_policy->reportBlockedScriptExecutionToInspector(directive->text());
         return false;
     }
     return true;
@@ -1038,8 +1024,6 @@ bool CSPDirectiveList::checkInlineAndReportViolation(SourceListDirective* direct
     reportViolation(directive->text(), isScript ? scriptSrc : styleSrc, consoleMessage + "\"" + directive->text() + "\"." + suffix + "\n", KURL(), contextURL, contextLine);
 
     if (!m_reportOnly) {
-        if (isScript)
-            m_policy->reportBlockedScriptExecutionToInspector(directive->text());
         return false;
     }
     return true;
@@ -1724,83 +1708,11 @@ static void gatherSecurityPolicyViolationEventData(SecurityPolicyViolationEventI
     RefPtr<ScriptCallStack> stack = createScriptCallStack(2, false);
     if (!stack)
         return;
-
-    const ScriptCallFrame& callFrame = getFirstNonNativeFrame(stack);
-
-    if (callFrame.lineNumber()) {
-        KURL source = KURL(ParsedURLString, callFrame.sourceURL());
-        init.sourceFile = stripURLForUseInReport(document, source);
-        init.lineNumber = callFrame.lineNumber();
-    }
 }
 #endif
 
 void ContentSecurityPolicy::reportViolation(const String& directiveText, const String& effectiveDirective, const String& consoleMessage, const KURL& blockedURL, const Vector<KURL>& reportURIs, const String& header, const String& contextURL, const WTF::OrdinalNumber& contextLine, ScriptState* state) const
 {
-    logToConsole(consoleMessage, contextURL, contextLine, state);
-
-    // FIXME: Support sending reports from worker.
-    if (!m_scriptExecutionContext->isDocument())
-        return;
-
-    Document* document = toDocument(m_scriptExecutionContext);
-    Frame* frame = document->frame();
-    if (!frame)
-        return;
-
-#if ENABLE(CSP_NEXT)
-    if (experimentalFeaturesEnabled()) {
-        // FIXME: This code means that we're gathering information like line numbers twice. Once we can bring this out from behind the flag, we should reuse the data gathered here when generating the JSON report below.
-        SecurityPolicyViolationEventInit init;
-        gatherSecurityPolicyViolationEventData(init, document, directiveText, effectiveDirective, blockedURL, header);
-        document->enqueueDocumentEvent(SecurityPolicyViolationEvent::create(eventNames().securitypolicyviolationEvent, init));
-    }
-#endif
-
-    if (reportURIs.isEmpty())
-        return;
-
-    // We need to be careful here when deciding what information to send to the
-    // report-uri. Currently, we send only the current document's URL and the
-    // directive that was violated. The document's URL is safe to send because
-    // it's the document itself that's requesting that it be sent. You could
-    // make an argument that we shouldn't send HTTPS document URLs to HTTP
-    // report-uris (for the same reasons that we supress the Referer in that
-    // case), but the Referer is sent implicitly whereas this request is only
-    // sent explicitly. As for which directive was violated, that's pretty
-    // harmless information.
-
-    RefPtr<InspectorObject> cspReport = InspectorObject::create();
-    cspReport->setString("document-uri", document->url().strippedForUseAsReferrer());
-    cspReport->setString("referrer", document->referrer());
-    cspReport->setString("violated-directive", directiveText);
-#if ENABLE(CSP_NEXT)
-    if (experimentalFeaturesEnabled())
-        cspReport->setString("effective-directive", effectiveDirective);
-#else
-    UNUSED_PARAM(effectiveDirective);
-#endif
-    cspReport->setString("original-policy", header);
-    cspReport->setString("blocked-uri", stripURLForUseInReport(document, blockedURL));
-
-    RefPtr<ScriptCallStack> stack = createScriptCallStack(2, false);
-    if (stack) {
-        const ScriptCallFrame& callFrame = getFirstNonNativeFrame(stack);
-
-        if (callFrame.lineNumber()) {
-            KURL source = KURL(ParsedURLString, callFrame.sourceURL());
-            cspReport->setString("source-file", stripURLForUseInReport(document, source));
-            cspReport->setNumber("line-number", callFrame.lineNumber());
-        }
-    }
-
-    RefPtr<InspectorObject> reportObject = InspectorObject::create();
-    reportObject->setObject("csp-report", cspReport.release());
-
-    RefPtr<FormData> report = FormData::create(reportObject->toJSONString().utf8());
-
-    for (size_t i = 0; i < reportURIs.size(); ++i)
-        PingLoader::sendViolationReport(frame, reportURIs[i], report);
 }
 
 void ContentSecurityPolicy::reportUnsupportedDirective(const String& name) const
@@ -1893,13 +1805,10 @@ void ContentSecurityPolicy::reportMissingReportURI(const String& policy) const
 
 void ContentSecurityPolicy::logToConsole(const String& message, const String& contextURL, const WTF::OrdinalNumber& contextLine, ScriptState* state) const
 {
-    // FIXME: <http://webkit.org/b/114317> ContentSecurityPolicy::logToConsole should include a column number
-    m_scriptExecutionContext->addConsoleMessage(SecurityMessageSource, ErrorMessageLevel, message, contextURL, contextLine.oneBasedInt(), 0, state);
 }
 
 void ContentSecurityPolicy::reportBlockedScriptExecutionToInspector(const String& directiveText) const
 {
-    InspectorInstrumentation::scriptExecutionBlockedByCSP(m_scriptExecutionContext, directiveText);
 }
 
 bool ContentSecurityPolicy::experimentalFeaturesEnabled() const

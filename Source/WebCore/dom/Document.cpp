@@ -90,8 +90,6 @@
 #include "HTMLNameCollection.h"
 #include "HTMLNames.h"
 #include "HTMLParserIdioms.h"
-#include "HTMLPlugInElement.h"
-#include "HTMLScriptElement.h"
 #include "HTMLStyleElement.h"
 #include "HTMLTitleElement.h"
 #include "HTTPParsers.h"
@@ -99,8 +97,6 @@
 #include "HitTestResult.h"
 #include "IconController.h"
 #include "ImageLoader.h"
-#include "InspectorCounters.h"
-#include "InspectorInstrumentation.h"
 #include "Language.h"
 #include "Logging.h"
 #include "MediaCanStartListener.h"
@@ -120,8 +116,6 @@
 #include "PageGroup.h"
 #include "PageTransitionEvent.h"
 #include "PlatformLocale.h"
-#include "PlugInsResources.h"
-#include "PluginDocument.h"
 #include "PointerLockController.h"
 #include "PopStateEvent.h"
 #include "ProcessingInstruction.h"
@@ -133,11 +127,6 @@
 #include "RuntimeEnabledFeatures.h"
 #include "SchemeRegistry.h"
 #include "ScopedEventQueue.h"
-#include "ScriptCallStack.h"
-#include "ScriptController.h"
-#include "ScriptRunner.h"
-#include "ScriptSourceCode.h"
-#include "ScriptValue.h"
 #include "ScrollingCoordinator.h"
 #include "SecurityOrigin.h"
 #include "SecurityPolicy.h"
@@ -433,7 +422,6 @@ Document::Document(Frame* frame, const KURL& url, unsigned documentClasses)
     , m_loadEventFinished(false)
     , m_startTime(currentTime())
     , m_overMinimumLayoutThreshold(false)
-    , m_scriptRunner(ScriptRunner::create(this))
     , m_xmlVersion(ASCIILiteral("1.0"))
     , m_xmlStandalone(StandaloneUnspecified)
     , m_hasXMLDeclaration(0)
@@ -484,7 +472,6 @@ Document::Document(Frame* frame, const KURL& url, unsigned documentClasses)
     , m_fontloader(0)
 #endif
     , m_didAssociateFormControlsTimer(this, &Document::didAssociateFormControlsTimerFired)
-    , m_hasInjectedPlugInsScript(false)
 {
     if (m_frame)
         provideContextFeaturesToDocumentFrom(this, m_frame->page());
@@ -518,8 +505,6 @@ Document::Document(Frame* frame, const KURL& url, unsigned documentClasses)
 
     for (unsigned i = 0; i < WTF_ARRAY_LENGTH(m_nodeListCounts); i++)
         m_nodeListCounts[i] = 0;
-
-    InspectorCounters::incrementCounter(InspectorCounters::DocumentCounter);
 }
 
 static void histogramMutationEventUsage(const unsigned short& listenerTypes)
@@ -568,8 +553,6 @@ Document::~Document()
     if (m_domWindow)
         m_domWindow->resetUnlessSuspendedForPageCache();
 
-    m_scriptRunner.clear();
-
     histogramMutationEventUsage(m_listenerTypes);
 
     removeAllEventListeners();
@@ -617,8 +600,6 @@ Document::~Document()
         ASSERT(!m_nodeListCounts[i]);
 
     clearDocumentScope();
-
-    InspectorCounters::decrementCounter(InspectorCounters::DocumentCounter);
 }
 
 void Document::dispose()
@@ -1712,8 +1693,6 @@ void Document::scheduleStyleRecalc()
     invalidateAccessKeyMap();
     
     m_styleRecalcTimer.startOneShot(0);
-
-    InspectorInstrumentation::didScheduleStyleRecalculation(this);
 }
 
 void Document::unscheduleStyleRecalc()
@@ -1766,8 +1745,6 @@ void Document::recalcStyle(StyleChange change)
 
     if (m_styleSheetCollection->needsUpdateActiveStylesheetsOnStyleRecalc())
         m_styleSheetCollection->updateActiveStyleSheets(DocumentStyleSheetCollection::FullUpdate);
-
-    InspectorInstrumentationCookie cookie = InspectorInstrumentation::willRecalculateStyle(this);
 
     if (m_elemSheet && m_elemSheet->contents()->usesRemUnits())
         m_styleSheetCollection->setUsesRemUnit(true);
@@ -1837,8 +1814,6 @@ void Document::recalcStyle(StyleChange change)
         implicitClose();
     }
 
-    InspectorInstrumentation::didRecalculateStyle(cookie);
-
     // As a result of the style recalculation, the currently hovered element might have been
     // detached (for example, by setting display:none in the :hover style), schedule another mouseMove event
     // to check if any other elements ended up under the mouse pointer due to re-layout.
@@ -1887,8 +1862,6 @@ void Document::updateLayout()
         oe->document()->updateLayout();
 
     updateStyleIfNeeded();
-
-    StackStats::LayoutCheckPoint layoutCheckPoint;
 
     // Only do a layout if changes have occurred that make it necessary.      
     if (frameView && renderer() && (frameView->layoutPending() || renderer()->needsLayout()))
@@ -2366,8 +2339,7 @@ void Document::implicitClose()
         return;
     }
 
-    bool wasLocationChangePending = frame() && frame()->navigationScheduler()->locationChangePending();
-    bool doload = !parsing() && m_parser && !m_processingLoadEvent && !wasLocationChangePending;
+    bool doload = !parsing() && m_parser && !m_processingLoadEvent;
     
     if (!doload)
         return;
@@ -2431,14 +2403,6 @@ void Document::implicitClose()
     // Make sure both the initial layout and reflow happen after the onload
     // fires. This will improve onload scores, and other browsers do it.
     // If they wanna cheat, we can too. -dwh
-
-    if (frame()->navigationScheduler()->locationChangePending() && elapsedTime() < cLayoutScheduleThreshold) {
-        // Just bail out. Before or during the onload we were shifted to another page.
-        // The old i-Bench suite does this. When this happens don't bother painting or laying out.        
-        m_processingLoadEvent = false;
-        view()->unscheduleRelayout();
-        return;
-    }
 
     frame()->loader()->checkCallImplicitClose();
     
@@ -2602,11 +2566,6 @@ EventTarget* Document::errorEventTarget()
     return domWindow();
 }
 
-void Document::logExceptionToConsole(const String& errorMessage, const String& sourceURL, int lineNumber, int columnNumber, PassRefPtr<ScriptCallStack> callStack)
-{
-    addMessage(JSMessageSource, ErrorMessageLevel, errorMessage, sourceURL, lineNumber, columnNumber, callStack);
-}
-
 void Document::setURL(const KURL& url)
 {
     const KURL& newURL = url.isEmpty() ? blankURL() : url;
@@ -2711,8 +2670,6 @@ void Document::disableEval(const String& errorMessage)
 {
     if (!frame())
         return;
-
-    frame()->script()->disableEval(errorMessage);
 }
 
 bool Document::canNavigate(Frame* targetFrame)
@@ -2834,16 +2791,6 @@ void Document::processHttpEquiv(const String& equiv, const String& content)
         m_styleSheetCollection->setSelectedStylesheetSetName(content);
         m_styleSheetCollection->setPreferredStylesheetSetName(content);
         styleResolverChanged(DeferRecalcStyle);
-    } else if (equalIgnoringCase(equiv, "refresh")) {
-        double delay;
-        String url;
-        if (frame && parseHTTPRefresh(content, true, delay, url)) {
-            if (url.isEmpty())
-                url = m_url.string();
-            else
-                url = completeURL(url).string();
-            frame->navigationScheduler()->scheduleRedirect(delay, url);
-        }
     } else if (equalIgnoringCase(equiv, "set-cookie")) {
         // FIXME: make setCookie work on XML documents too; e.g. in case of <html:meta .....>
         if (isHTMLDocument()) {
@@ -2854,23 +2801,7 @@ void Document::processHttpEquiv(const String& equiv, const String& content)
         setContentLanguage(content);
     else if (equalIgnoringCase(equiv, "x-dns-prefetch-control"))
         parseDNSPrefetchControlHeader(content);
-    else if (equalIgnoringCase(equiv, "x-frame-options")) {
-        if (frame) {
-            FrameLoader* frameLoader = frame->loader();
-            unsigned long requestIdentifier = 0;
-            if (frameLoader->activeDocumentLoader() && frameLoader->activeDocumentLoader()->mainResourceLoader())
-                requestIdentifier = frameLoader->activeDocumentLoader()->mainResourceLoader()->identifier();
-            if (frameLoader->shouldInterruptLoadForXFrameOptions(content, url(), requestIdentifier)) {
-                String message = "Refused to display '" + url().stringCenterEllipsizedToLength() + "' in a frame because it set 'X-Frame-Options' to '" + content + "'.";
-                frameLoader->stopAllLoaders();
-                // Stopping the loader isn't enough, as we're already parsing the document; to honor the header's
-                // intent, we must navigate away from the possibly partially-rendered document to a location that
-                // doesn't inherit the parent's SecurityOrigin.
-                frame->navigationScheduler()->scheduleLocationChange(securityOrigin(), SecurityOrigin::urlWithUniqueSecurityOrigin(), String());
-                addConsoleMessage(SecurityMessageSource, ErrorMessageLevel, message, requestIdentifier);
-            }
-        }
-    } else if (equalIgnoringCase(equiv, "content-security-policy"))
+    else if (equalIgnoringCase(equiv, "content-security-policy"))
         contentSecurityPolicy()->didReceiveHeader(content, ContentSecurityPolicy::Enforce);
     else if (equalIgnoringCase(equiv, "content-security-policy-report-only"))
         contentSecurityPolicy()->didReceiveHeader(content, ContentSecurityPolicy::Report);
@@ -4215,18 +4146,6 @@ KURL Document::openSearchDescriptionURL()
     return KURL();
 }
 
-void Document::pushCurrentScript(PassRefPtr<HTMLScriptElement> newCurrentScript)
-{
-    ASSERT(newCurrentScript);
-    m_currentScriptStack.append(newCurrentScript);
-}
-
-void Document::popCurrentScript()
-{
-    ASSERT(!m_currentScriptStack.isEmpty());
-    m_currentScriptStack.removeLast();
-}
-
 #if ENABLE(XSLT)
 
 void Document::applyXSLTransform(ProcessingInstruction* pi)
@@ -4241,7 +4160,6 @@ void Document::applyXSLTransform(ProcessingInstruction* pi)
     // FIXME: If the transform failed we should probably report an error (like Mozilla does).
     Frame* ownerFrame = frame();
     processor->createDocumentFromSource(newSource, resultEncoding, resultMIMEType, this, ownerFrame);
-    InspectorInstrumentation::frameDocumentUpdated(ownerFrame);
 }
 
 void Document::setTransformSource(PassOwnPtr<TransformSource> source)
@@ -4416,7 +4334,6 @@ void Document::finishedParsing()
 
         f->loader()->finishedParsing();
 
-        InspectorInstrumentation::domContentLoadedEventFired(f.get());
     }
 
     // Schedule dropping of the DocumentSharedObjectPool. We keep it alive for a while after parsing finishes
@@ -4619,7 +4536,7 @@ void Document::initSecurityContext()
 
 void Document::initContentSecurityPolicy()
 {
-    if (!m_frame->tree()->parent() || (!shouldInheritSecurityOriginFromOwner(m_url) && !isPluginDocument()))
+    if (!m_frame->tree()->parent() || (!shouldInheritSecurityOriginFromOwner(m_url)))
         return;
 
     contentSecurityPolicy()->copyStateFrom(m_frame->tree()->parent()->document()->contentSecurityPolicy());
@@ -4751,9 +4668,6 @@ void Document::addMessage(MessageSource source, MessageLevel level, const String
         postTask(AddConsoleMessageTask::create(source, level, message));
         return;
     }
-
-    if (Page* page = this->page())
-        page->console()->addMessage(source, level, message, sourceURL, lineNumber, columnNumber, callStack, state, requestIdentifier);
 }
 
 SecurityOrigin* Document::topOrigin() const
@@ -4814,7 +4728,6 @@ void Document::suspendScheduledTasks(ActiveDOMObject::ReasonForSuspension reason
 
     suspendScriptedAnimationControllerCallbacks();
     suspendActiveDOMObjects(reason);
-    scriptRunner()->suspend();
     m_pendingTasksTimer.stop();
     if (m_parser)
         m_parser->suspendScheduledTasks();
@@ -4833,7 +4746,6 @@ void Document::resumeScheduledTasks(ActiveDOMObject::ReasonForSuspension reason)
         m_parser->resumeScheduledTasks();
     if (!m_pendingTasks.isEmpty())
         m_pendingTasksTimer.startOneShot(0);
-    scriptRunner()->resume();
     resumeActiveDOMObjects(reason);
     resumeScriptedAnimationControllerCallbacks();
     
@@ -5703,10 +5615,6 @@ Node* eventTargetNodeForDocument(Document* doc)
     if (!doc)
         return 0;
     Node* node = doc->focusedElement();
-    if (!node && doc->isPluginDocument()) {
-        PluginDocument* pluginDocument = toPluginDocument(doc);
-        node = pluginDocument->pluginElement();
-    }
     if (!node && doc->isHTMLDocument())
         node = doc->body();
     if (!node)
@@ -5998,21 +5906,6 @@ void Document::didAssociateFormControlsTimerFired(Timer<Document>* timer)
 
     frame()->page()->chrome().client()->didAssociateFormControls(associatedFormControls);
     m_associatedFormControls.clear();
-}
-
-void Document::ensurePlugInsInjectedScript(DOMWrapperWorld* world)
-{
-    if (m_hasInjectedPlugInsScript)
-        return;
-
-    // Use the JS file provided by the Chrome client, or fallback to the default one.
-    String jsString = page()->chrome().client()->plugInExtraScript();
-    if (!jsString)
-        jsString = plugInsJavaScript;
-
-    page()->mainFrame()->script()->evaluateInWorld(ScriptSourceCode(jsString), world);
-
-    m_hasInjectedPlugInsScript = true;
 }
 
 } // namespace WebCore

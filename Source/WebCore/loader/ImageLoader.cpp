@@ -32,10 +32,8 @@
 #include "EventSender.h"
 #include "Frame.h"
 #include "HTMLNames.h"
-#include "HTMLObjectElement.h"
 #include "HTMLParserIdioms.h"
 #include "RenderImage.h"
-#include "ScriptCallStack.h"
 #include "SecurityOrigin.h"
 
 #if ENABLE(SVG)
@@ -416,9 +414,6 @@ void ImageLoader::dispatchPendingBeforeLoadEvent()
     loadEventSender().cancelEvent(this);
     m_hasPendingLoadEvent = false;
     
-    if (m_element->hasTagName(HTMLNames::objectTag))
-        static_cast<HTMLObjectElement*>(m_element)->renderFallbackContent();
-
     // Only consider updating the protection ref-count of the Element immediately before returning
     // from this function as doing so might result in the destruction of this ImageLoader.
     updatedHasPendingEvent();

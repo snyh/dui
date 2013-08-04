@@ -7,7 +7,6 @@ a interfaceName=HTMLAnchorElement
 abbr interfaceName=HTMLElement
 acronym interfaceName=HTMLElement
 address interfaceName=HTMLElement
-applet constructorNeedsCreatedByParser
 area
 article interfaceName=HTMLElement
 aside interfaceName=HTMLElement
@@ -44,7 +43,6 @@ div
 dl interfaceName=HTMLDListElement
 dt interfaceName=HTMLElement
 em interfaceName=HTMLElement
-embed constructorNeedsCreatedByParser
 fieldset interfaceName=HTMLFieldSetElement, constructorNeedsFormElement
 figcaption interfaceName=HTMLElement
 figure interfaceName=HTMLElement
@@ -91,7 +89,6 @@ nobr interfaceName=HTMLElement
 noembed interfaceName=HTMLElement
 noframes interfaceName=HTMLElement
 nolayer interfaceName=HTMLElement
-object constructorNeedsFormElement, constructorNeedsCreatedByParser
 ol interfaceName=HTMLOListElement
 optgroup interfaceName=HTMLOptGroupElement
 option
@@ -107,7 +104,6 @@ rt interfaceName=HTMLElement
 ruby interfaceName=HTMLElement
 s interfaceName=HTMLElement
 samp interfaceName=HTMLElement
-script constructorNeedsCreatedByParser
 section interfaceName=HTMLElement
 select constructorNeedsFormElement
 small interfaceName=HTMLElement

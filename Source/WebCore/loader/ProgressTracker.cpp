@@ -31,7 +31,6 @@
 #include "FrameLoader.h"
 #include "FrameLoaderStateMachine.h"
 #include "FrameLoaderClient.h"
-#include "InspectorInstrumentation.h"
 #include "Logging.h"
 #include "ResourceResponse.h"
 #include <wtf/text/CString.h>
@@ -138,7 +137,6 @@ void ProgressTracker::progressStarted(Frame* frame)
     m_numProgressTrackedFrames++;
 
     frame->loader()->client()->didChangeEstimatedProgress();
-    InspectorInstrumentation::frameStartedLoading(frame);
 }
 
 void ProgressTracker::progressCompleted(Frame* frame)
@@ -175,8 +173,6 @@ void ProgressTracker::finalProgressComplete()
     frame->loader()->client()->setMainFrameDocumentReady(true);
     frame->loader()->client()->postProgressFinishedNotification();
     frame->loader()->loadProgressingStatusChanged();
-
-    InspectorInstrumentation::frameStoppedLoading(frame.get());
 }
 
 void ProgressTracker::incrementProgress(unsigned long identifier, const ResourceResponse& response)

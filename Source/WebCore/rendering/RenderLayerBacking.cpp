@@ -29,6 +29,7 @@
 
 #include "RenderLayerBacking.h"
 
+#include "Page.h"
 #include "AnimationController.h"
 #include "CanvasRenderingContext.h"
 #include "CSSPropertyNames.h"
@@ -42,16 +43,11 @@
 #include "HTMLIFrameElement.h"
 #include "HTMLMediaElement.h"
 #include "HTMLNames.h"
-#include "HTMLPlugInElement.h"
-#include "InspectorInstrumentation.h"
 #include "KeyframeList.h"
-#include "PluginViewBase.h"
 #include "ProgressTracker.h"
-#include "RenderApplet.h"
 #include "RenderIFrame.h"
 #include "RenderImage.h"
 #include "RenderLayerCompositor.h"
-#include "RenderEmbeddedObject.h"
 #include "RenderVideo.h"
 #include "RenderView.h"
 #include "ScrollingCoordinator.h"
@@ -563,10 +559,6 @@ bool RenderLayerBacking::updateGraphicsLayerConfiguration()
     if (isDirectlyCompositedImage())
         updateImageContents();
 
-    if (renderer->isEmbeddedObject() && toRenderEmbeddedObject(renderer)->allowsAcceleratedCompositing()) {
-        PluginViewBase* pluginViewBase = toPluginViewBase(toRenderWidget(renderer)->widget());
-        m_graphicsLayer->setContentsToMedia(pluginViewBase->platformLayer());
-    }
 #if ENABLE(VIDEO)
     else if (renderer->isVideo()) {
         HTMLMediaElement* mediaElement = toMediaElement(renderer->node());
@@ -1537,19 +1529,12 @@ bool RenderLayerBacking::paintsChildren() const
 
 static bool isRestartedPlugin(RenderObject* renderer)
 {
-    if (!renderer->isEmbeddedObject())
-        return false;
-
-    Element* element = toElement(renderer->node());
-    if (!element || !element->isPluginElement())
-        return false;
-
-    return toHTMLPlugInElement(element)->isRestartedPlugin();
+    return false;
 }
 
 static bool isCompositedPlugin(RenderObject* renderer)
 {
-    return renderer->isEmbeddedObject() && toRenderEmbeddedObject(renderer)->allowsAcceleratedCompositing();
+    return false;
 }
 
 // A "simple container layer" is a RenderLayer which has no visible content to render.
@@ -2009,7 +1994,6 @@ void RenderLayerBacking::paintContents(const GraphicsLayer* graphicsLayer, Graph
         || graphicsLayer == m_backgroundLayer.get()
         || graphicsLayer == m_maskLayer.get()
         || graphicsLayer == m_scrollingContentsLayer.get()) {
-        InspectorInstrumentation::willPaint(renderer());
 
         // The dirtyRect is in the coords of the painting root.
         IntRect dirtyRect = clip;
@@ -2019,7 +2003,6 @@ void RenderLayerBacking::paintContents(const GraphicsLayer* graphicsLayer, Graph
         // We have to use the same root as for hit testing, because both methods can compute and cache clipRects.
         paintIntoLayer(graphicsLayer, &context, dirtyRect, PaintBehaviorNormal, paintingPhase);
 
-        InspectorInstrumentation::didPaint(renderer(), &context, clip);
     } else if (graphicsLayer == layerForHorizontalScrollbar()) {
         paintScrollbar(m_owningLayer->horizontalScrollbar(), context, clip);
     } else if (graphicsLayer == layerForVerticalScrollbar()) {

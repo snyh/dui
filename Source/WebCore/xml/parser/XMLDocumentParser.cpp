@@ -44,9 +44,6 @@
 #include "ResourceError.h"
 #include "ResourceRequest.h"
 #include "ResourceResponse.h"
-#include "ScriptElement.h"
-#include "ScriptSourceCode.h"
-#include "ScriptValue.h"
 #include "TextResourceDecoder.h"
 #include "TreeDepthLimit.h"
 #include "XMLErrors.h"
@@ -240,36 +237,6 @@ void XMLDocumentParser::insertErrorMessageBlock()
 
 void XMLDocumentParser::notifyFinished(CachedResource* unusedResource)
 {
-    ASSERT_UNUSED(unusedResource, unusedResource == m_pendingScript);
-    ASSERT(m_pendingScript->accessCount() > 0);
-
-    ScriptSourceCode sourceCode(m_pendingScript.get());
-    bool errorOccurred = m_pendingScript->errorOccurred();
-    bool wasCanceled = m_pendingScript->wasCanceled();
-
-    m_pendingScript->removeClient(this);
-    m_pendingScript = 0;
-
-    RefPtr<Element> e = m_scriptElement;
-    m_scriptElement = 0;
-
-    ScriptElement* scriptElement = toScriptElementIfPossible(e.get());
-    ASSERT(scriptElement);
-
-    // JavaScript can detach this parser, make sure it's kept alive even if detached.
-    RefPtr<XMLDocumentParser> protect(this);
-    
-    if (errorOccurred)
-        scriptElement->dispatchErrorEvent();
-    else if (!wasCanceled) {
-        scriptElement->executeScript(sourceCode);
-        scriptElement->dispatchLoadEvent();
-    }
-
-    m_scriptElement = 0;
-
-    if (!isDetached() && !m_requestingScript)
-        resumeParsing();
 }
 
 bool XMLDocumentParser::isWaitingForScripts() const
@@ -293,7 +260,7 @@ bool XMLDocumentParser::parseDocumentFragment(const String& chunk, DocumentFragm
     // FIXME: We need to implement the HTML5 XML Fragment parsing algorithm:
     // http://www.whatwg.org/specs/web-apps/current-work/multipage/the-xhtml-syntax.html#xml-fragment-parsing-algorithm
     // For now we have a hack for script/style innerHTML support:
-    if (contextElement && (contextElement->hasLocalName(HTMLNames::scriptTag) || contextElement->hasLocalName(HTMLNames::styleTag))) {
+    if (contextElement && contextElement->hasLocalName(HTMLNames::styleTag)) {
         fragment->parserAppendChild(fragment->document()->createTextNode(chunk));
         return true;
     }

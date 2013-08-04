@@ -134,7 +134,6 @@ public:
             return false;
         const AtomicString& tagName = localName();
         return tagName == HTMLNames::addressTag
-            || tagName == HTMLNames::appletTag
             || tagName == HTMLNames::areaTag
             || tagName == HTMLNames::articleTag
             || tagName == HTMLNames::asideTag
@@ -156,7 +155,6 @@ public:
             || tagName == HTMLNames::divTag
             || tagName == HTMLNames::dlTag
             || tagName == HTMLNames::dtTag
-            || tagName == HTMLNames::embedTag
             || tagName == HTMLNames::fieldsetTag
             || tagName == HTMLNames::figcaptionTag
             || tagName == HTMLNames::figureTag
@@ -185,13 +183,11 @@ public:
             || tagName == HTMLNames::noembedTag
             || tagName == HTMLNames::noframesTag
             || tagName == HTMLNames::noscriptTag
-            || tagName == HTMLNames::objectTag
             || tagName == HTMLNames::olTag
             || tagName == HTMLNames::pTag
             || tagName == HTMLNames::paramTag
             || tagName == HTMLNames::plaintextTag
             || tagName == HTMLNames::preTag
-            || tagName == HTMLNames::scriptTag
             || tagName == HTMLNames::sectionTag
             || tagName == HTMLNames::selectTag
             || tagName == HTMLNames::styleTag

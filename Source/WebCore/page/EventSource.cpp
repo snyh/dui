@@ -46,7 +46,6 @@
 #include "ResourceError.h"
 #include "ResourceRequest.h"
 #include "ResourceResponse.h"
-#include "ScriptCallStack.h"
 #include "ScriptController.h"
 #include "ScriptExecutionContext.h"
 #include "SecurityOrigin.h"
@@ -86,13 +85,7 @@ PassRefPtr<EventSource> EventSource::create(ScriptExecutionContext* context, con
         return 0;
     }
 
-    // FIXME: Convert this to check the isolated world's Content Security Policy once webkit.org/b/104520 is solved.
-    bool shouldBypassMainWorldContentSecurityPolicy = false;
-    if (context->isDocument()) {
-        Document* document = toDocument(context);
-        shouldBypassMainWorldContentSecurityPolicy = document->frame()->script()->shouldBypassMainWorldContentSecurityPolicy();
-    }
-    if (!shouldBypassMainWorldContentSecurityPolicy && !context->contentSecurityPolicy()->allowConnectToSource(fullURL)) {
+    if (!context->contentSecurityPolicy()->allowConnectToSource(fullURL)) {
         // FIXME: Should this be throwing an exception?
         ec = SECURITY_ERR;
         return 0;
@@ -237,8 +230,6 @@ void EventSource::didReceiveResponse(unsigned long, const ResourceResponse& resp
             message.appendLiteral("EventSource's response has a charset (\"");
             message.append(charset);
             message.appendLiteral("\") that is not UTF-8. Aborting the connection.");
-            // FIXME: We are missing the source line.
-            scriptExecutionContext()->addConsoleMessage(JSMessageSource, ErrorMessageLevel, message.toString());
         }
     } else {
         // To keep the signal-to-noise ratio low, we only log 200-response with an invalid MIME type.
@@ -247,8 +238,6 @@ void EventSource::didReceiveResponse(unsigned long, const ResourceResponse& resp
             message.appendLiteral("EventSource's response has a MIME type (\"");
             message.append(response.mimeType());
             message.appendLiteral("\") that is not \"text/event-stream\". Aborting the connection.");
-            // FIXME: We are missing the source line.
-            scriptExecutionContext()->addConsoleMessage(JSMessageSource, ErrorMessageLevel, message.toString());
         }
     }
 
@@ -299,9 +288,6 @@ void EventSource::didFail(const ResourceError& error)
 
 void EventSource::didFailAccessControlCheck(const ResourceError& error)
 {
-    String message = makeString("EventSource cannot load ", error.failingURL(), ". ", error.localizedDescription());
-    scriptExecutionContext()->addConsoleMessage(JSMessageSource, ErrorMessageLevel, message);
-
     abortConnectionAttempt();
 }
 

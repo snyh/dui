@@ -39,11 +39,9 @@
 #include "Document.h"
 #include "ErrorEvent.h"
 #include "ExceptionCode.h"
-#include "InspectorInstrumentation.h"
 #include "MessageEvent.h"
 #include "NotImplemented.h"
 #include "PageGroup.h"
-#include "ScriptCallStack.h"
 #include "ScriptExecutionContext.h"
 #include "Worker.h"
 #include "WorkerDebuggerAgent.h"
@@ -282,7 +280,6 @@ void WorkerMessagingProxy::startWorkerGlobalScope(const KURL& scriptURL, const S
     RefPtr<DedicatedWorkerThread> thread = DedicatedWorkerThread::create(scriptURL, userAgent, settings, sourceCode, *this, *this, startMode, document->contentSecurityPolicy()->deprecatedHeader(), document->contentSecurityPolicy()->deprecatedHeaderType(), document->topOrigin());
     workerThreadCreated(thread);
     thread->start();
-    InspectorInstrumentation::didStartWorkerGlobalScope(m_scriptExecutionContext.get(), this, scriptURL);
 }
 
 void WorkerMessagingProxy::postMessageToWorkerObject(PassRefPtr<SerializedScriptValue> message, PassOwnPtr<MessagePortChannelArray> channels)
@@ -446,8 +443,6 @@ void WorkerMessagingProxy::workerGlobalScopeDestroyedInternal()
     m_askedToTerminate = true;
     m_workerThread = 0;
 
-    InspectorInstrumentation::workerGlobalScopeTerminated(m_scriptExecutionContext.get(), this);
-
     if (m_mayBeDestroyed)
         delete this;
 }
@@ -460,8 +455,6 @@ void WorkerMessagingProxy::terminateWorkerGlobalScope()
 
     if (m_workerThread)
         m_workerThread->stop();
-
-    InspectorInstrumentation::workerGlobalScopeTerminated(m_scriptExecutionContext.get(), this);
 }
 
 #if ENABLE(INSPECTOR)

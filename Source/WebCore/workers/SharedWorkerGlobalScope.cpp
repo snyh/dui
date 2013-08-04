@@ -38,7 +38,6 @@
 #include "EventNames.h"
 #include "MessageEvent.h"
 #include "NotImplemented.h"
-#include "ScriptCallStack.h"
 #include "SecurityOrigin.h"
 #include "SharedWorkerThread.h"
 
@@ -77,12 +76,6 @@ const AtomicString& SharedWorkerGlobalScope::interfaceName() const
 SharedWorkerThread* SharedWorkerGlobalScope::thread()
 {
     return static_cast<SharedWorkerThread*>(Base::thread());
-}
-
-void SharedWorkerGlobalScope::logExceptionToConsole(const String& errorMessage, const String& sourceURL, int lineNumber, int columnNumber, PassRefPtr<ScriptCallStack> callStack)
-{
-    WorkerGlobalScope::logExceptionToConsole(errorMessage, sourceURL, lineNumber, columnNumber, callStack);
-    addMessageToWorkerConsole(JSMessageSource, ErrorMessageLevel, errorMessage, sourceURL, lineNumber, columnNumber, callStack);
 }
 
 } // namespace WebCore

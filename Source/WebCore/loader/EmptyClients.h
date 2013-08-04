@@ -39,7 +39,6 @@
 #include "FloatRect.h"
 #include "FocusDirection.h"
 #include "FrameLoaderClient.h"
-#include "InspectorClient.h"
 #include "Page.h"
 #include "ResourceError.h"
 
@@ -99,8 +98,6 @@ public:
     virtual bool menubarVisible() { return false; }
 
     virtual void setResizable(bool) { }
-
-    virtual void addMessageToConsole(MessageSource, MessageLevel, const String&, unsigned, unsigned, const String&) { }
 
     virtual bool canRunBeforeUnloadConfirmPanel() { return false; }
     virtual bool runBeforeUnloadConfirmPanel(const String&, Frame*) { return true; }
@@ -551,22 +548,6 @@ public:
     virtual void dragControllerDestroyed() { }
 };
 #endif // ENABLE(DRAG_SUPPORT)
-
-class EmptyInspectorClient : public InspectorClient {
-    WTF_MAKE_NONCOPYABLE(EmptyInspectorClient); WTF_MAKE_FAST_ALLOCATED;
-public:
-    EmptyInspectorClient() { }
-    virtual ~EmptyInspectorClient() { }
-
-    virtual void inspectorDestroyed() { }
-    
-    virtual InspectorFrontendChannel* openInspectorFrontend(InspectorController*) { return 0; }
-    virtual void closeInspectorFrontend() { }
-    virtual void bringFrontendToFront() { }
-
-    virtual void highlight() { }
-    virtual void hideHighlight() { }
-};
 
 class EmptyDeviceClient : public DeviceClient {
 public:

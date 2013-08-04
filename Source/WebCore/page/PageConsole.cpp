@@ -31,17 +31,10 @@
 
 #include "Chrome.h"
 #include "ChromeClient.h"
-#include "ConsoleAPITypes.h"
 #include "ConsoleTypes.h"
 #include "Document.h"
 #include "Frame.h"
-#include "InspectorConsoleInstrumentation.h"
-#include "InspectorController.h"
 #include "Page.h"
-#include "ScriptArguments.h"
-#include "ScriptCallStack.h"
-#include "ScriptCallStackFactory.h"
-#include "ScriptValue.h"
 #include "ScriptableDocumentParser.h"
 #include "Settings.h"
 #include <stdio.h>
@@ -143,43 +136,6 @@ void PageConsole::addMessage(MessageSource source, MessageLevel level, const Str
         if (!parser->isWaitingForScripts() && !parser->isExecutingScript())
             line = parser->lineNumber().oneBasedInt();
     }
-    addMessage(source, level, message, url, line, 0, 0, 0, requestIdentifier);
-}
-
-void PageConsole::addMessage(MessageSource source, MessageLevel level, const String& message, PassRefPtr<ScriptCallStack> callStack)
-{
-    addMessage(source, level, message, String(), 0, 0, callStack, 0);
-}
-
-void PageConsole::addMessage(MessageSource source, MessageLevel level, const String& message, const String& url, unsigned lineNumber, unsigned columnNumber, PassRefPtr<ScriptCallStack> callStack, ScriptState* state, unsigned long requestIdentifier)
-{
-    if (muteCount && source != ConsoleAPIMessageSource)
-        return;
-
-    Page* page = this->page();
-    if (!page)
-        return;
-
-    if (callStack)
-        InspectorInstrumentation::addMessageToConsole(page, source, LogMessageType, level, message, callStack, requestIdentifier);
-    else
-        InspectorInstrumentation::addMessageToConsole(page, source, LogMessageType, level, message, url, lineNumber, columnNumber, state, requestIdentifier);
-
-    if (source == CSSMessageSource)
-        return;
-
-    if (page->settings()->privateBrowsingEnabled())
-        return;
-
-    page->chrome().client()->addMessageToConsole(source, level, message, lineNumber, columnNumber, url);
-
-    if (!page->settings()->logsPageMessagesToSystemConsoleEnabled() && !shouldPrintExceptions())
-        return;
-
-    printSourceURLAndLine(url, lineNumber);
-    printMessageSourceAndLevelPrefix(source, level);
-
-    printf(" %s\n", message.utf8().data());
 }
 
 // static

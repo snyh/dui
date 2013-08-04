@@ -23,6 +23,7 @@
 #include "config.h"
 #include "XMLHttpRequest.h"
 
+#include "Frame.h"
 #include "Blob.h"
 #include "BlobData.h"
 #include "ContentSecurityPolicy.h"
@@ -39,16 +40,10 @@
 #include "HTMLDocument.h"
 #include "HTTPParsers.h"
 #include "HistogramSupport.h"
-#include "InspectorInstrumentation.h"
-#include "JSDOMBinding.h"
-#include "JSDOMWindow.h"
 #include "MemoryCache.h"
 #include "ParsedContentType.h"
 #include "ResourceError.h"
 #include "ResourceRequest.h"
-#include "ScriptCallStack.h"
-#include "ScriptController.h"
-#include "ScriptProfile.h"
 #include "Settings.h"
 #include "SharedBuffer.h"
 #include "TextResourceDecoder.h"
@@ -160,9 +155,6 @@ static void logConsoleError(ScriptExecutionContext* context, const String& messa
 {
     if (!context)
         return;
-    // FIXME: It's not good to report the bad usage without indicating what source line it came from.
-    // We should pass additional parameters so we can tell the console where the mistake occurred.
-    context->addConsoleMessage(JSMessageSource, ErrorMessageLevel, message);
 }
 
 PassRefPtr<XMLHttpRequest> XMLHttpRequest::create(ScriptExecutionContext* context)
@@ -413,16 +405,11 @@ void XMLHttpRequest::callReadyStateChangeListener()
     if (!scriptExecutionContext())
         return;
 
-    InspectorInstrumentationCookie cookie = InspectorInstrumentation::willDispatchXHRReadyStateChangeEvent(scriptExecutionContext(), this);
-
     if (m_async || (m_state <= OPENED || m_state == DONE))
         m_progressEventThrottle.dispatchReadyStateChangeEvent(XMLHttpRequestProgressEvent::create(eventNames().readystatechangeEvent), m_state == DONE ? FlushProgressEvent : DoNotFlushProgressEvent);
 
-    InspectorInstrumentation::didDispatchXHRReadyStateChangeEvent(cookie);
     if (m_state == DONE && !m_error) {
-        InspectorInstrumentationCookie cookie = InspectorInstrumentation::willDispatchXHRLoadEvent(scriptExecutionContext(), this);
         m_progressEventThrottle.dispatchEvent(XMLHttpRequestProgressEvent::create(eventNames().loadEvent));
-        InspectorInstrumentation::didDispatchXHRLoadEvent(cookie);
         m_progressEventThrottle.dispatchEvent(XMLHttpRequestProgressEvent::create(eventNames().loadendEvent));
     }
 }
@@ -495,9 +482,6 @@ void XMLHttpRequest::open(const String& method, const KURL& url, bool async, Exc
     // FIXME: Convert this to check the isolated world's Content Security Policy once webkit.org/b/104520 is solved.
     bool shouldBypassMainWorldContentSecurityPolicy = false;
     if (scriptExecutionContext()->isDocument()) {
-        Document* document = static_cast<Document*>(scriptExecutionContext());
-        if (document->frame())
-            shouldBypassMainWorldContentSecurityPolicy = document->frame()->script()->shouldBypassMainWorldContentSecurityPolicy();
     }
     if (!shouldBypassMainWorldContentSecurityPolicy && !scriptExecutionContext()->contentSecurityPolicy()->allowConnectToSource(url)) {
         // FIXME: Should this be throwing an exception?
@@ -698,9 +682,6 @@ void XMLHttpRequest::send(DOMFormData* body, ExceptionCode& ec)
 
 void XMLHttpRequest::send(ArrayBuffer* body, ExceptionCode& ec)
 {
-    String consoleMessage("ArrayBuffer is deprecated in XMLHttpRequest.send(). Use ArrayBufferView instead.");
-    scriptExecutionContext()->addConsoleMessage(JSMessageSource, WarningMessageLevel, consoleMessage);
-
     HistogramSupport::histogramEnumeration("WebCore.XHR.send.ArrayBufferOrView", XMLHttpRequestSendArrayBuffer, XMLHttpRequestSendArrayBufferOrViewMax);
 
     sendBytesData(body->data(), body->byteLength(), ec);
@@ -768,8 +749,6 @@ void XMLHttpRequest::createRequest(ExceptionCode& ec)
     request.setTargetType(ResourceRequest::TargetIsXHR);
 #endif
 
-    InspectorInstrumentation::willLoadXHR(scriptExecutionContext(), this, m_method, m_url, m_async, m_requestEntityBody ? m_requestEntityBody->deepCopy() : 0, m_requestHeaders, m_includeCredentials);
-
     if (m_requestEntityBody) {
         ASSERT(m_method != "GET");
         ASSERT(m_method != "HEAD");
@@ -814,9 +793,7 @@ void XMLHttpRequest::createRequest(ExceptionCode& ec)
             setPendingActivity(this);
         }
     } else {
-        InspectorInstrumentation::willLoadXHRSynchronously(scriptExecutionContext());
         ThreadableLoader::loadResourceSynchronously(scriptExecutionContext(), request, *this, options);
-        InspectorInstrumentation::didLoadXHRSynchronously(scriptExecutionContext());
     }
 
     if (!m_exceptionCode && m_error)
@@ -869,8 +846,6 @@ void XMLHttpRequest::internalAbort()
     }
 
     m_decoder = 0;
-
-    InspectorInstrumentation::didFailXHRLoading(scriptExecutionContext(), this);
 
     if (hadLoader)
         dropProtection();
@@ -1142,8 +1117,6 @@ void XMLHttpRequest::didFinishLoading(unsigned long identifier, double)
 
     m_responseBuilder.shrinkToFit();
 
-    InspectorInstrumentation::didFinishXHRLoading(scriptExecutionContext(), this, identifier, m_responseBuilder.toStringPreserveCapacity(), m_url, m_lastSendURL, m_lastSendLineNumber);
-
     bool hadLoader = m_loader;
     m_loader = 0;
 
@@ -1171,8 +1144,6 @@ void XMLHttpRequest::didSendData(unsigned long long bytesSent, unsigned long lon
 
 void XMLHttpRequest::didReceiveResponse(unsigned long identifier, const ResourceResponse& response)
 {
-    InspectorInstrumentation::didReceiveXHRResponse(scriptExecutionContext(), identifier);
-
     m_response = response;
     if (!m_mimeTypeOverride.isEmpty()) {
         m_response.setHTTPHeaderField("Content-Type", m_mimeTypeOverride);

@@ -35,7 +35,6 @@
 #include "FrameView.h"
 #include "HTMLMediaElement.h"
 #include "InsertionPoint.h"
-#include "InspectorInstrumentation.h"
 #include "MouseEvent.h"
 #include "ScopedEventQueue.h"
 #include "ShadowRoot.h"
@@ -111,7 +110,6 @@ bool EventDispatcher::dispatch()
     ASSERT(!NoEventDispatchAssertion::isEventDispatchForbidden());
     ASSERT(m_event->target());
     WindowEventContext windowEventContext(m_event.get(), m_node.get(), topEventContext());
-    InspectorInstrumentationCookie cookie = InspectorInstrumentation::willDispatchEvent(m_node->document(), *m_event, windowEventContext.window(), m_node.get(), m_eventPath);
 
     void* preDispatchEventHandlerResult;
     if (dispatchEventPreProcess(preDispatchEventHandlerResult) == ContinueDispatching)
@@ -124,7 +122,6 @@ bool EventDispatcher::dispatch()
     // outermost shadow DOM boundary.
     m_event->setTarget(windowEventContext.target());
     m_event->setCurrentTarget(0);
-    InspectorInstrumentation::didDispatchEvent(cookie);
 
     return !m_event->defaultPrevented();
 }

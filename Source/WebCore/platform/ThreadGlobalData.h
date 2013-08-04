@@ -68,10 +68,6 @@ namespace WebCore {
         TECConverterWrapper& cachedConverterTEC() { return *m_cachedConverterTEC; }
 #endif
 
-#if ENABLE(INSPECTOR)
-        ThreadLocalInspectorCounters& inspectorCounters() { return *m_inspectorCounters; }
-#endif
-
     private:
         OwnPtr<CachedResourceRequestInitiators> m_cachedResourceRequestInitiators;
         OwnPtr<EventNames> m_eventNames;
@@ -87,10 +83,6 @@ namespace WebCore {
 
 #if PLATFORM(MAC)
         OwnPtr<TECConverterWrapper> m_cachedConverterTEC;
-#endif
-
-#if ENABLE(INSPECTOR)
-        OwnPtr<ThreadLocalInspectorCounters> m_inspectorCounters;
 #endif
 
 #if ENABLE(WORKERS)

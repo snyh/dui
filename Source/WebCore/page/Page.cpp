@@ -22,8 +22,6 @@
 
 #include "AlternativeTextClient.h"
 #include "AnimationController.h"
-#include "BackForwardController.h"
-#include "BackForwardList.h"
 #include "Chrome.h"
 #include "ChromeClient.h"
 #include "ClientRectList.h"
@@ -48,16 +46,11 @@
 #include "FrameTree.h"
 #include "FrameView.h"
 #include "HTMLElement.h"
-#include "HistoryController.h"
-#include "HistoryItem.h"
-#include "InspectorController.h"
-#include "InspectorInstrumentation.h"
 #include "Logging.h"
 #include "MediaCanStartListener.h"
 #include "Navigator.h"
 #include "NetworkStateNotifier.h"
 #include "PageActivityAssertionToken.h"
-#include "PageCache.h"
 #include "PageConsole.h"
 #include "PageGroup.h"
 #include "PageThrottler.h"
@@ -105,7 +98,6 @@ static void networkStateChanged()
     for (HashSet<Page*>::iterator it = allPages->begin(); it != end; ++it) {
         for (Frame* frame = (*it)->mainFrame(); frame; frame = frame->tree()->traverseNext())
             frames.append(frame);
-        InspectorInstrumentation::networkStateChanged(*it);
     }
 
     AtomicString eventName = networkStateNotifier().onLine() ? eventNames().onlineEvent : eventNames().offlineEvent;
@@ -133,15 +125,11 @@ Page::Page(PageClients& pageClients)
 #if ENABLE(CONTEXT_MENUS)
     , m_contextMenuController(ContextMenuController::create(this, pageClients.contextMenuClient))
 #endif
-#if ENABLE(INSPECTOR)
-    , m_inspectorController(InspectorController::create(this, pageClients.inspectorClient))
-#endif
 #if ENABLE(POINTER_LOCK)
     , m_pointerLockController(PointerLockController::create(this))
 #endif
     , m_settings(Settings::create(this))
     , m_progress(ProgressTracker::create())
-    , m_backForwardController(BackForwardController::create(this, pageClients.backForwardClient))
     , m_theme(RenderTheme::themeForPage(this))
     , m_editorClient(pageClients.editorClient)
     , m_plugInClient(pageClients.plugInClient)
@@ -161,7 +149,6 @@ Page::Page(PageClients& pageClients)
     , m_didLoadUserStyleSheet(false)
     , m_userStyleSheetModificationTime(0)
     , m_group(0)
-    , m_debugger(0)
     , m_customHTMLTokenizerTimeDelay(-1)
     , m_customHTMLTokenizerChunkSize(-1)
     , m_canStartMedia(true)
@@ -221,14 +208,8 @@ Page::~Page()
     if (m_alternativeTextClient)
         m_alternativeTextClient->pageDestroyed();
 
-#if ENABLE(INSPECTOR)
-    m_inspectorController->inspectedPageDestroyed();
-#endif
-
     if (m_scrollingCoordinator)
         m_scrollingCoordinator->pageDestroyed();
-
-    backForward()->close();
 
 #ifndef NDEBUG
     pageCounter.decrement();
@@ -356,83 +337,6 @@ bool Page::openedByDOM() const
 void Page::setOpenedByDOM()
 {
     m_openedByDOM = true;
-}
-
-BackForwardList* Page::backForwardList() const
-{
-    return m_backForwardController->client();
-}
-
-bool Page::goBack()
-{
-    HistoryItem* item = backForward()->backItem();
-    
-    if (item) {
-        goToItem(item, FrameLoadTypeBack);
-        return true;
-    }
-    return false;
-}
-
-bool Page::goForward()
-{
-    HistoryItem* item = backForward()->forwardItem();
-    
-    if (item) {
-        goToItem(item, FrameLoadTypeForward);
-        return true;
-    }
-    return false;
-}
-
-bool Page::canGoBackOrForward(int distance) const
-{
-    if (distance == 0)
-        return true;
-    if (distance > 0 && distance <= backForward()->forwardCount())
-        return true;
-    if (distance < 0 && -distance <= backForward()->backCount())
-        return true;
-    return false;
-}
-
-void Page::goBackOrForward(int distance)
-{
-    if (distance == 0)
-        return;
-
-    HistoryItem* item = backForward()->itemAtIndex(distance);
-    if (!item) {
-        if (distance > 0) {
-            if (int forwardCount = backForward()->forwardCount()) 
-                item = backForward()->itemAtIndex(forwardCount);
-        } else {
-            if (int backCount = backForward()->backCount())
-                item = backForward()->itemAtIndex(-backCount);
-        }
-    }
-
-    if (!item)
-        return;
-
-    goToItem(item, FrameLoadTypeIndexedBackForward);
-}
-
-void Page::goToItem(HistoryItem* item, FrameLoadType type)
-{
-    // stopAllLoaders may end up running onload handlers, which could cause further history traversals that may lead to the passed in HistoryItem
-    // being deref()-ed. Make sure we can still use it with HistoryController::goToItem later.
-    RefPtr<HistoryItem> protector(item);
-
-    if (m_mainFrame->loader()->history()->shouldStopLoadingForHistoryItem(item))
-        m_mainFrame->loader()->stopAllLoaders();
-
-    m_mainFrame->loader()->history()->goToItem(item, type);
-}
-
-int Page::getHistoryLength()
-{
-    return backForward()->backCount() + 1 + backForward()->forwardCount();
 }
 
 void Page::setGroupName(const String& name)
@@ -809,14 +713,10 @@ void Page::setDeviceScaleFactor(float scaleFactor)
 #if USE(ACCELERATED_COMPOSITING)
     if (mainFrame())
         mainFrame()->deviceOrPageScaleFactorChanged();
-
-    pageCache()->markPagesForDeviceScaleChanged(this);
 #endif
 
     for (Frame* frame = mainFrame(); frame; frame = frame->tree()->traverseNext())
         frame->editor().deviceScaleFactorChanged();
-
-    pageCache()->markPagesForFullStyleRecalc(this);
 }
 
 void Page::setShouldSuppressScrollbarAnimations(bool suppressAnimations)
@@ -895,7 +795,6 @@ void Page::setPagination(const Pagination& pagination)
     m_pagination = pagination;
 
     setNeedsRecalcStyleInAllFrames();
-    pageCache()->markPagesForFullStyleRecalc(this);
 }
 
 unsigned Page::pageCount() const
@@ -1089,26 +988,6 @@ void Page::visitedStateChanged(PageGroup* group, LinkHash linkHash)
         for (Frame* frame = page->m_mainFrame.get(); frame; frame = frame->tree()->traverseNext())
             frame->document()->visitedLinkState()->invalidateStyleForLink(linkHash);
     }
-}
-
-void Page::setDebuggerForAllPages(JSC::Debugger* debugger)
-{
-    ASSERT(allPages);
-
-    HashSet<Page*>::iterator end = allPages->end();
-    for (HashSet<Page*>::iterator it = allPages->begin(); it != end; ++it)
-        (*it)->setDebugger(debugger);
-}
-
-void Page::setDebugger(JSC::Debugger* debugger)
-{
-    if (m_debugger == debugger)
-        return;
-
-    m_debugger = debugger;
-
-    for (Frame* frame = m_mainFrame.get(); frame; frame = frame->tree()->traverseNext())
-        frame->script()->attachDebugger(m_debugger);
 }
 
 StorageNamespace* Page::sessionStorage(bool optionalCreate)
@@ -1577,7 +1456,6 @@ Page::PageClients::PageClients()
 #endif
     , editorClient(0)
     , dragClient(0)
-    , inspectorClient(0)
     , plugInClient(0)
     , validationMessageClient(0)
 {

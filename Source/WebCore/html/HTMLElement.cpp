@@ -102,7 +102,6 @@ bool HTMLElement::ieForbidsInsertHTML() const
         || hasLocalName(basefontTag)
         || hasLocalName(brTag)
         || hasLocalName(colTag)
-        || hasLocalName(embedTag)
         || hasLocalName(frameTag)
         || hasLocalName(hrTag)
         || hasLocalName(imageTag)
@@ -764,15 +763,6 @@ PassRefPtr<HTMLCollection> HTMLElement::children()
 
 bool HTMLElement::rendererIsNeeded(const NodeRenderingContext& context)
 {
-    if (hasLocalName(noscriptTag)) {
-        Frame* frame = document()->frame();
-        if (frame && frame->script()->canExecuteScripts(NotAboutToExecuteScript))
-            return false;
-    } else if (hasLocalName(noembedTag)) {
-        Frame* frame = document()->frame();
-        if (frame && frame->loader()->subframeLoader()->allowPlugins(NotAboutToInstantiatePlugin))
-            return false;
-    }
     return StyledElement::rendererIsNeeded(context);
 }
 
@@ -862,7 +852,7 @@ TextDirection HTMLElement::directionality(Node** strongDirectionalityTextNode) c
     Node* node = firstChild();
     while (node) {
         // Skip bdi, script, style and text form controls.
-        if (equalIgnoringCase(node->nodeName(), "bdi") || node->hasTagName(scriptTag) || node->hasTagName(styleTag) 
+        if (equalIgnoringCase(node->nodeName(), "bdi") || node->hasTagName(styleTag) 
             || (node->isElementNode() && toElement(node)->isTextFormControl())) {
             node = NodeTraversal::nextSkippingChildren(node, this);
             continue;

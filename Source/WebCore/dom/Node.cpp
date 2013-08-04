@@ -69,7 +69,6 @@
 #include "HTMLNames.h"
 #include "HTMLStyleElement.h"
 #include "InsertionPoint.h"
-#include "InspectorCounters.h"
 #include "KeyboardEvent.h"
 #include "LabelsNodeList.h"
 #include "LiveNodeList.h"
@@ -128,10 +127,6 @@
 
 #if ENABLE(INDIE_UI)
 #include "UIRequestEvent.h"
-#endif
-
-#if ENABLE(INSPECTOR)
-#include "InspectorController.h"
 #endif
 
 #include <runtime/VM.h>
@@ -432,8 +427,6 @@ Node::~Node()
         m_next->setPreviousSibling(0);
 
     m_treeScope->guardDeref();
-
-    InspectorCounters::decrementCounter(InspectorCounters::NodeCounter);
 }
 
 void Node::willBeDeletedFrom(Document* document)
@@ -674,10 +667,6 @@ bool Node::isContentRichlyEditable()
 
 void Node::inspect()
 {
-#if ENABLE(INSPECTOR)
-    if (document() && document()->page())
-        document()->page()->inspectorController()->inspect(this);
-#endif
 }
 
 bool Node::rendererIsEditable(EditableLevel editableLevel, UserSelectAllTreatment treatment) const

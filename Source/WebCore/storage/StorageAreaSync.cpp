@@ -29,9 +29,6 @@
 #include "EventNames.h"
 #include "FileSystem.h"
 #include "HTMLElement.h"
-#include "SQLiteFileSystem.h"
-#include "SQLiteStatement.h"
-#include "SQLiteTransaction.h"
 #include "SecurityOrigin.h"
 #include "StorageAreaImpl.h"
 #include "StorageSyncManager.h"
@@ -143,21 +140,6 @@ void StorageAreaSync::scheduleClear()
 
 void StorageAreaSync::scheduleCloseDatabase()
 {
-    ASSERT(isMainThread());
-    ASSERT(!m_finalSyncScheduled);
-
-    if (!m_database.isOpen())
-        return;
-
-    m_syncCloseDatabase = true;
-    
-    if (!m_syncTimer.isActive()) {
-        m_syncTimer.startOneShot(StorageSyncInterval);
-        
-        // The following is balanced by the call to enableSuddenTermination in the
-        // syncTimerFired function.
-        disableSuddenTermination();
-    }
 }
 
 void StorageAreaSync::syncTimerFired(Timer<StorageAreaSync>*)
@@ -228,130 +210,18 @@ void StorageAreaSync::syncTimerFired(Timer<StorageAreaSync>*)
 
 void StorageAreaSync::openDatabase(OpenDatabaseParamType openingStrategy)
 {
-    ASSERT(!isMainThread());
-    ASSERT(!m_database.isOpen());
-    ASSERT(!m_databaseOpenFailed);
-
-    String databaseFilename = m_syncManager->fullDatabaseFilename(m_databaseIdentifier);
-
-    if (!fileExists(databaseFilename) && openingStrategy == SkipIfNonExistent)
-        return;
-
-    if (databaseFilename.isEmpty()) {
-        LOG_ERROR("Filename for local storage database is empty - cannot open for persistent storage");
-        markImported();
-        m_databaseOpenFailed = true;
-        return;
-    }
-
-    // A StorageTracker thread may have been scheduled to delete the db we're
-    // reopening, so cancel possible deletion.
-    StorageTracker::tracker().cancelDeletingOrigin(m_databaseIdentifier);
-
-    if (!m_database.open(databaseFilename)) {
-        LOG_ERROR("Failed to open database file %s for local storage", databaseFilename.utf8().data());
-        markImported();
-        m_databaseOpenFailed = true;
-        return;
-    }
-
-    migrateItemTableIfNeeded();
-
-    if (!m_database.executeCommand("CREATE TABLE IF NOT EXISTS ItemTable (key TEXT UNIQUE ON CONFLICT REPLACE, value BLOB NOT NULL ON CONFLICT FAIL)")) {
-        LOG_ERROR("Failed to create table ItemTable for local storage");
-        markImported();
-        m_databaseOpenFailed = true;
-        return;
-    }
-
-    StorageTracker::tracker().setOriginDetails(m_databaseIdentifier, databaseFilename);
 }
 
 void StorageAreaSync::migrateItemTableIfNeeded()
 {
-    if (!m_database.tableExists("ItemTable"))
-        return;
-
-    {
-        SQLiteStatement query(m_database, "SELECT value FROM ItemTable LIMIT 1");
-        // this query isn't ever executed.
-        if (query.isColumnDeclaredAsBlob(0))
-            return;
-    }
-
-    // alter table for backward compliance, change the value type from TEXT to BLOB.
-    static const char* commands[] = {
-        "DROP TABLE IF EXISTS ItemTable2",
-        "CREATE TABLE ItemTable2 (key TEXT UNIQUE ON CONFLICT REPLACE, value BLOB NOT NULL ON CONFLICT FAIL)",
-        "INSERT INTO ItemTable2 SELECT * from ItemTable",
-        "DROP TABLE ItemTable",
-        "ALTER TABLE ItemTable2 RENAME TO ItemTable",
-        0,
-    };
-
-    SQLiteTransaction transaction(m_database, false);
-    transaction.begin();
-    for (size_t i = 0; commands[i]; ++i) {
-        if (!m_database.executeCommand(commands[i])) {
-            LOG_ERROR("Failed to migrate table ItemTable for local storage when executing: %s", commands[i]);
-            transaction.rollback();
-
-            // finally it will try to keep a backup of ItemTable for the future restoration.
-            // NOTICE: this will essentially DELETE the current database, but that's better
-            // than continually hitting this case and never being able to use the local storage.
-            // if this is ever hit, it's definitely a bug.
-            ASSERT_NOT_REACHED();
-            if (!m_database.executeCommand("ALTER TABLE ItemTable RENAME TO Backup_ItemTable"))
-                LOG_ERROR("Failed to save ItemTable after migration job failed.");
-
-            return;
-        }
-    }
-    transaction.commit();
 }
 
 void StorageAreaSync::performImport()
 {
-    ASSERT(!isMainThread());
-    ASSERT(!m_database.isOpen());
-
-    openDatabase(SkipIfNonExistent);
-    if (!m_database.isOpen()) {
-        markImported();
-        return;
-    }
-
-    SQLiteStatement query(m_database, "SELECT key, value FROM ItemTable");
-    if (query.prepare() != SQLResultOk) {
-        LOG_ERROR("Unable to select items from ItemTable for local storage");
-        markImported();
-        return;
-    }
-
-    HashMap<String, String> itemMap;
-
-    int result = query.step();
-    while (result == SQLResultRow) {
-        itemMap.set(query.getColumnText(0), query.getColumnBlobAsString(1));
-        result = query.step();
-    }
-
-    if (result != SQLResultDone) {
-        LOG_ERROR("Error reading items from ItemTable for local storage");
-        markImported();
-        return;
-    }
-
-    m_storageArea->importItems(itemMap);
-
-    markImported();
 }
 
 void StorageAreaSync::markImported()
 {
-    MutexLocker locker(m_importLock);
-    m_importComplete = true;
-    m_importCondition.signal();
 }
 
 // FIXME: In the future, we should allow use of StorageAreas while it's importing (when safe to do so).
@@ -363,159 +233,19 @@ void StorageAreaSync::markImported()
 // job first.
 void StorageAreaSync::blockUntilImportComplete()
 {
-    ASSERT(isMainThread());
-
-    // Fast path.  We set m_storageArea to 0 only after m_importComplete being true.
-    if (!m_storageArea)
-        return;
-
-    MutexLocker locker(m_importLock);
-    while (!m_importComplete)
-        m_importCondition.wait(m_importLock);
-    m_storageArea = 0;
 }
+
 
 void StorageAreaSync::sync(bool clearItems, const HashMap<String, String>& items)
 {
-    ASSERT(!isMainThread());
-
-    if (items.isEmpty() && !clearItems && !m_syncCloseDatabase)
-        return;
-    if (m_databaseOpenFailed)
-        return;
-
-    if (!m_database.isOpen() && m_syncCloseDatabase) {
-        m_syncCloseDatabase = false;
-        return;
-    }
-
-    if (!m_database.isOpen())
-        openDatabase(CreateIfNonExistent);
-    if (!m_database.isOpen())
-        return;
-
-    // Closing this db because it is about to be deleted by StorageTracker.
-    // The delete will be cancelled if StorageAreaSync needs to reopen the db
-    // to write new items created after the request to delete the db.
-    if (m_syncCloseDatabase) {
-        m_syncCloseDatabase = false;
-        m_database.close();
-        return;
-    }
-    
-    // If the clear flag is set, then we clear all items out before we write any new ones in.
-    if (clearItems) {
-        SQLiteStatement clear(m_database, "DELETE FROM ItemTable");
-        if (clear.prepare() != SQLResultOk) {
-            LOG_ERROR("Failed to prepare clear statement - cannot write to local storage database");
-            return;
-        }
-
-        int result = clear.step();
-        if (result != SQLResultDone) {
-            LOG_ERROR("Failed to clear all items in the local storage database - %i", result);
-            return;
-        }
-    }
-
-    SQLiteStatement insert(m_database, "INSERT INTO ItemTable VALUES (?, ?)");
-    if (insert.prepare() != SQLResultOk) {
-        LOG_ERROR("Failed to prepare insert statement - cannot write to local storage database");
-        return;
-    }
-
-    SQLiteStatement remove(m_database, "DELETE FROM ItemTable WHERE key=?");
-    if (remove.prepare() != SQLResultOk) {
-        LOG_ERROR("Failed to prepare delete statement - cannot write to local storage database");
-        return;
-    }
-
-    HashMap<String, String>::const_iterator end = items.end();
-
-    SQLiteTransaction transaction(m_database);
-    transaction.begin();
-    for (HashMap<String, String>::const_iterator it = items.begin(); it != end; ++it) {
-        // Based on the null-ness of the second argument, decide whether this is an insert or a delete.
-        SQLiteStatement& query = it->value.isNull() ? remove : insert;
-
-        query.bindText(1, it->key);
-
-        // If the second argument is non-null, we're doing an insert, so bind it as the value.
-        if (!it->value.isNull())
-            query.bindBlob(2, it->value);
-
-        int result = query.step();
-        if (result != SQLResultDone) {
-            LOG_ERROR("Failed to update item in the local storage database - %i", result);
-            break;
-        }
-
-        query.reset();
-    }
-    transaction.commit();
 }
 
 void StorageAreaSync::performSync()
 {
-    ASSERT(!isMainThread());
-
-    bool clearItems;
-    HashMap<String, String> items;
-    {
-        MutexLocker locker(m_syncLock);
-
-        ASSERT(m_syncScheduled);
-
-        clearItems = m_clearItemsWhileSyncing;
-        m_itemsPendingSync.swap(items);
-
-        m_clearItemsWhileSyncing = false;
-        m_syncScheduled = false;
-        m_syncInProgress = true;
-    }
-
-    sync(clearItems, items);
-
-    {
-        MutexLocker locker(m_syncLock);
-        m_syncInProgress = false;
-    }
-
-    // The following is balanced by the call to disableSuddenTermination in the
-    // syncTimerFired function.
-    enableSuddenTermination();
 }
 
 void StorageAreaSync::deleteEmptyDatabase()
 {
-    ASSERT(!isMainThread());
-    if (!m_database.isOpen())
-        return;
-
-    SQLiteStatement query(m_database, "SELECT COUNT(*) FROM ItemTable");
-    if (query.prepare() != SQLResultOk) {
-        LOG_ERROR("Unable to count number of rows in ItemTable for local storage");
-        return;
-    }
-
-    int result = query.step();
-    if (result != SQLResultRow) {
-        LOG_ERROR("No results when counting number of rows in ItemTable for local storage");
-        return;
-    }
-
-    int count = query.getColumnInt(0);
-    if (!count) {
-        query.finalize();
-        m_database.close();
-        if (StorageTracker::tracker().isActive())
-            StorageTracker::tracker().deleteOriginWithIdentifier(m_databaseIdentifier);
-        else {
-            String databaseFilename = m_syncManager->fullDatabaseFilename(m_databaseIdentifier);
-            if (!SQLiteFileSystem::deleteDatabaseFile(databaseFilename))
-                LOG_ERROR("Failed to delete database file %s\n", databaseFilename.utf8().data());
-        }
-    }
 }
 
 void StorageAreaSync::scheduleSync()

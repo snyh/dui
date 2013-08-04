@@ -469,7 +469,7 @@ unsigned HTMLFormElement::formElementIndex(FormAssociatedElement* associatedElem
                 ++m_associatedElementsAfterIndex;
                 return i;
             }
-            if (!element->isFormControlElement() && !element->hasTagName(objectTag))
+            if (!element->isFormControlElement())
                 continue;
             if (!element->isHTMLElement() || toHTMLElement(element)->form() != this)
                 continue;

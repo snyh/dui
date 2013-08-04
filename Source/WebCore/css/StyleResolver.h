@@ -25,7 +25,6 @@
 #include "CSSToStyleMap.h"
 #include "CSSValueList.h"
 #include "DocumentRuleSets.h"
-#include "InspectorCSSOMWrappers.h"
 #include "LinkHash.h"
 #include "MediaQueryExp.h"
 #include "RenderStyle.h"
@@ -556,7 +555,6 @@ public:
     static Length convertToFloatLength(const CSSPrimitiveValue*, const RenderStyle*, const RenderStyle* rootStyle, double multiplier = 1);
 
     CSSToStyleMap* styleMap() { return &m_styleMap; }
-    InspectorCSSOMWrappers& inspectorCSSOMWrappers() { return m_inspectorCSSOMWrappers; }
     const FontDescription& fontDescription() { return m_state.fontDescription(); }
     const FontDescription& parentFontDescription() { return m_state.parentFontDescription(); }
     void setFontDescription(const FontDescription& fontDescription) { m_state.setFontDescription(fontDescription); }
@@ -628,7 +626,6 @@ private:
 
     OwnPtr<StyleScopeResolver> m_scopeResolver;
     CSSToStyleMap m_styleMap;
-    InspectorCSSOMWrappers m_inspectorCSSOMWrappers;
 
     State m_state;
 

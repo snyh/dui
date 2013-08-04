@@ -44,7 +44,6 @@
 #include "MIMETypeRegistry.h"
 #include "Page.h"
 #include "RenderHTMLCanvas.h"
-#include "ScriptController.h"
 #include "Settings.h"
 #include <math.h>
 
@@ -111,11 +110,6 @@ void HTMLCanvasElement::parseAttribute(const QualifiedName& name, const AtomicSt
 RenderObject* HTMLCanvasElement::createRenderer(RenderArena* arena, RenderStyle* style)
 {
     Frame* frame = document()->frame();
-    if (frame && frame->script()->canExecuteScripts(NotAboutToExecuteScript)) {
-        m_rendererIsCanvas = true;
-        return new (arena) RenderHTMLCanvas(this);
-    }
-
     m_rendererIsCanvas = false;
     return HTMLElement::createRenderer(arena, style);
 }
@@ -591,10 +585,6 @@ void HTMLCanvasElement::createImageBuffer() const
         m_imageBuffer->context()->setShouldAntialias(false);
     m_imageBuffer->context()->setStrokeThickness(1);
     m_contextStateSaver = adoptPtr(new GraphicsContextStateSaver(*m_imageBuffer->context()));
-
-    JSC::JSLockHolder lock(scriptExecutionContext()->vm());
-    size_t numBytes = 4 * m_imageBuffer->internalSize().width() * m_imageBuffer->internalSize().height();
-    scriptExecutionContext()->vm()->heap.reportExtraMemoryCost(numBytes);
 
 #if USE(IOSURFACE_CANVAS_BACKING_STORE) || (ENABLE(ACCELERATED_2D_CANVAS) && USE(ACCELERATED_COMPOSITING))
     if (m_context && m_context->is2d())

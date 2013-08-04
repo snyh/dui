@@ -32,13 +32,11 @@
 #include "FloatRect.h"
 #include "Frame.h"
 #include "FrameTree.h"
-#include "Geolocation.h"
 #include "HTMLFormElement.h"
 #include "HTMLInputElement.h"
 #include "HTMLNames.h"
 #include "HitTestResult.h"
 #include "Icon.h"
-#include "InspectorInstrumentation.h"
 #include "Page.h"
 #include "PageGroupLoadDeferrer.h"
 #include "PopupOpeningObserver.h"
@@ -98,7 +96,6 @@ void Chrome::invalidateContentsForSlowScroll(const IntRect& updateRect, bool imm
 void Chrome::scroll(const IntSize& scrollDelta, const IntRect& rectToScroll, const IntRect& clipRect)
 {
     m_client->scroll(scrollDelta, rectToScroll, clipRect);
-    InspectorInstrumentation::didScroll(m_page);
 }
 
 #if USE(TILED_BACKING_STORE)
@@ -294,9 +291,7 @@ bool Chrome::runBeforeUnloadConfirmPanel(const String& message, Frame* frame)
     // otherwise cause the load to continue while we're in the middle of executing JavaScript.
     PageGroupLoadDeferrer deferrer(m_page, true);
 
-    InspectorInstrumentationCookie cookie = InspectorInstrumentation::willRunJavaScriptDialog(m_page, message);
     bool ok = m_client->runBeforeUnloadConfirmPanel(message, frame);
-    InspectorInstrumentation::didRunJavaScriptDialog(cookie);
     return ok;
 }
 
@@ -318,9 +313,7 @@ void Chrome::runJavaScriptAlert(Frame* frame, const String& message)
     notifyPopupOpeningObservers();
     String displayMessage = frame->displayStringModifiedByEncoding(message);
 
-    InspectorInstrumentationCookie cookie = InspectorInstrumentation::willRunJavaScriptDialog(m_page, displayMessage);
     m_client->runJavaScriptAlert(frame, displayMessage);
-    InspectorInstrumentation::didRunJavaScriptDialog(cookie);
 }
 
 bool Chrome::runJavaScriptConfirm(Frame* frame, const String& message)
@@ -336,9 +329,7 @@ bool Chrome::runJavaScriptConfirm(Frame* frame, const String& message)
     notifyPopupOpeningObservers();
     String displayMessage = frame->displayStringModifiedByEncoding(message);
 
-    InspectorInstrumentationCookie cookie = InspectorInstrumentation::willRunJavaScriptDialog(m_page, displayMessage);
     bool ok = m_client->runJavaScriptConfirm(frame, displayMessage);
-    InspectorInstrumentation::didRunJavaScriptDialog(cookie);
     return ok;
 }
 
@@ -355,9 +346,7 @@ bool Chrome::runJavaScriptPrompt(Frame* frame, const String& prompt, const Strin
     notifyPopupOpeningObservers();
     String displayPrompt = frame->displayStringModifiedByEncoding(prompt);
 
-    InspectorInstrumentationCookie cookie = InspectorInstrumentation::willRunJavaScriptDialog(m_page, displayPrompt);
     bool ok = m_client->runJavaScriptPrompt(frame, displayPrompt, frame->displayStringModifiedByEncoding(defaultValue), result);
-    InspectorInstrumentation::didRunJavaScriptDialog(cookie);
 
     if (ok)
         result = frame->displayStringModifiedByEncoding(result);
@@ -393,8 +382,6 @@ void Chrome::mouseDidMoveOverElement(const HitTestResult& result, unsigned modif
             prefetchDNS(result.absoluteLinkURL().host());
     }
     m_client->mouseDidMoveOverElement(result, modifierFlags);
-
-    InspectorInstrumentation::mouseDidMoveOverElement(m_page, result, modifierFlags);
 }
 
 void Chrome::setToolTip(const HitTestResult& result)

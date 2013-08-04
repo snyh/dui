@@ -27,11 +27,9 @@
 #include "Event.h"
 #include "EventNames.h"
 #include "HTMLNames.h"
-#include "HTMLObjectElement.h"
 #include "HTMLParserIdioms.h"
 #include "Settings.h"
 
-#include "JSDOMWindowBase.h"
 #include <runtime/JSLock.h>
 #include <runtime/Operations.h>
 
@@ -53,8 +51,6 @@ void HTMLImageLoader::dispatchLoadEvent()
         return;
 
     bool errorOccurred = image()->errorOccurred();
-    if (!errorOccurred && image()->response().httpStatusCode() >= 400)
-        errorOccurred = element()->hasTagName(HTMLNames::objectTag); // An <object> considers a 404 to be an error and should fire onerror.
     element()->dispatchEvent(Event::create(errorOccurred ? eventNames().errorEvent : eventNames().loadEvent, false, false));
 }
 
@@ -77,16 +73,13 @@ void HTMLImageLoader::notifyFinished(CachedResource*)
     ImageLoader::notifyFinished(cachedImage);
 
     bool loadError = cachedImage->errorOccurred() || cachedImage->response().httpStatusCode() >= 400;
-    if (!loadError) {
-        if (!element->inDocument()) {
-            JSC::VM* vm = JSDOMWindowBase::commonVM();
-            JSC::JSLockHolder lock(vm);
-            vm->heap.reportExtraMemoryCost(cachedImage->encodedSize());
-        }
-    }
-
-    if (loadError && element->hasTagName(HTMLNames::objectTag))
-        static_cast<HTMLObjectElement*>(element.get())->renderFallbackContent();
+    //if (!loadError) {
+        //if (!element->inDocument()) {
+            //JSC::VM* vm = JSDOMWindowBase::commonVM();
+            //JSC::JSLockHolder lock(vm);
+            //vm->heap.reportExtraMemoryCost(cachedImage->encodedSize());
+        //}
+    //}
 }
 
 }

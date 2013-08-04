@@ -2203,7 +2203,6 @@ void RenderLayer::scrollTo(int x, int y)
     m_scrollOffset = newScrollOffset;
 
     Frame* frame = renderer()->frame();
-    InspectorInstrumentation::willScrollLayer(frame);
 
     RenderView* view = renderer()->view();
     
@@ -2259,7 +2258,6 @@ void RenderLayer::scrollTo(int x, int y)
     if (renderer()->node())
         renderer()->node()->document()->eventQueue()->enqueueOrDispatchScrollEvent(renderer()->node(), DocumentEventQueue::ScrollEventElementTarget);
 
-    InspectorInstrumentation::didScrollLayer(frame);
     if (scrollsOverflow())
         frame->loader()->client()->didChangeScrollOffset(); 
 }

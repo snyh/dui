@@ -26,7 +26,6 @@
 #ifndef StorageTracker_h
 #define StorageTracker_h
 
-#include "SQLiteDatabase.h"
 #include <wtf/HashSet.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/Vector.h>
@@ -97,7 +96,6 @@ private:
 
     // Mutex for m_database and m_storageDirectoryPath.
     Mutex m_databaseMutex;
-    SQLiteDatabase m_database;
     String m_storageDirectoryPath;
 
     Mutex m_clientMutex;

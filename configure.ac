@@ -43,16 +43,4 @@ AC_CONFIG_FILES([
     Source/JavaScriptCore/javascriptcoregtk-${WEBKITGTK_API_VERSION}.pc:Source/JavaScriptCore/javascriptcoregtk.pc.in
     JavaScriptCore-${WEBKITGTK_API_VERSION}.gir:Source/JavaScriptCore/JavaScriptCore.gir.in])
 
-if test "$enable_webkit1" = "yes"; then
-    AC_CONFIG_FILES([
-        Source/WebKit/gtk/webkit/webkitversion.h
-        Source/WebKit/gtk/${WEBKITGTK_PC_NAME}-${WEBKITGTK_API_VERSION}.pc:Source/WebKit/gtk/webkit.pc.in])
-fi
-
-if test "$enable_webkit2" = "yes"; then
-    AC_CONFIG_FILES([
-        DerivedSources/WebKit2/webkit2gtk/webkit2/WebKitVersion.h:Source/WebKit2/UIProcess/API/gtk/WebKitVersion.h.in
-        Source/WebKit2/webkit2gtk-${WEBKITGTK_API_VERSION}.pc:Source/WebKit2/webkit2gtk.pc.in])
-fi
-
 m4_include([Source/autotools/PrintBuildConfiguration.m4])

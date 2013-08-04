@@ -29,7 +29,6 @@
 
 #if ENABLE(CONTEXT_MENUS)
 
-#include "BackForwardController.h"
 #include "Chrome.h"
 #include "ContextMenu.h"
 #include "ContextMenuClient.h"
@@ -53,7 +52,6 @@
 #include "HTMLFormElement.h"
 #include "HitTestRequest.h"
 #include "HitTestResult.h"
-#include "InspectorController.h"
 #include "LocalizedStrings.h"
 #include "MouseEvent.h"
 #include "NavigationAction.h"
@@ -164,11 +162,6 @@ PassOwnPtr<ContextMenu> ContextMenuController::createContextMenu(Event* event)
 
 void ContextMenuController::showContextMenu(Event* event)
 {
-#if ENABLE(INSPECTOR)
-    if (m_page->inspectorController()->enabled())
-        addInspectElementItem();
-#endif
-
 #if USE(CROSS_PLATFORM_CONTEXT_MENUS)
     m_contextMenu = m_client->customizeMenu(m_contextMenu.release());
 #else
@@ -180,17 +173,6 @@ void ContextMenuController::showContextMenu(Event* event)
 
 static void openNewWindow(const KURL& urlToLoad, Frame* frame)
 {
-    if (Page* oldPage = frame->page()) {
-        FrameLoadRequest request(frame->document()->securityOrigin(), ResourceRequest(urlToLoad, frame->loader()->outgoingReferrer()));
-        Page* newPage = oldPage;
-        if (!frame->settings() || frame->settings()->supportsMultipleWindows()) {
-            newPage = oldPage->chrome().createWindow(frame, request, WindowFeatures(), NavigationAction(request.resourceRequest()));
-            if (!newPage)
-                return;
-            newPage->chrome().show();
-        }
-        newPage->mainFrame()->loader()->loadFrameRequest(request, false, false, 0, 0, MaybeSendReferrer);
-    }
 }
 
 #if PLATFORM(GTK)
@@ -290,14 +272,6 @@ void ContextMenuController::contextMenuItemSelected(ContextMenuItem* item)
     case ContextMenuItemTagCopy:
         frame->editor().copy();
         break;
-    case ContextMenuItemTagGoBack:
-        if (Page* page = frame->page())
-            page->backForward()->goBackOrForward(-1);
-        break;
-    case ContextMenuItemTagGoForward:
-        if (Page* page = frame->page())
-            page->backForward()->goBackOrForward(1);
-        break;
     case ContextMenuItemTagStop:
         frame->loader()->stop();
         break;
@@ -384,15 +358,6 @@ void ContextMenuController::contextMenuItemSelected(ContextMenuItem* item)
     case ContextMenuItemTagLookUpInDictionary:
         // FIXME: Some day we may be able to do this from within WebCore.
         m_client->lookUpInDictionary(frame);
-        break;
-    case ContextMenuItemTagOpenLink:
-        if (Frame* targetFrame = m_hitTestResult.targetFrame())
-            targetFrame->loader()->loadFrameRequest(FrameLoadRequest(frame->document()->securityOrigin(), ResourceRequest(m_hitTestResult.absoluteLinkURL(), frame->loader()->outgoingReferrer())), false, false, 0, 0, MaybeSendReferrer);
-        else
-            openNewWindow(m_hitTestResult.absoluteLinkURL(), frame);
-        break;
-    case ContextMenuItemTagOpenLinkInThisWindow:
-        frame->loader()->loadFrameRequest(FrameLoadRequest(frame->document()->securityOrigin(), ResourceRequest(m_hitTestResult.absoluteLinkURL(), frame->loader()->outgoingReferrer())), false, false, 0, 0, MaybeSendReferrer);
         break;
     case ContextMenuItemTagBold:
         frame->editor().command("ToggleBold").execute();
@@ -503,12 +468,6 @@ void ContextMenuController::contextMenuItemSelected(ContextMenuItem* item)
         break;
     case ContextMenuItemTagCorrectSpellingAutomatically:
         frame->editor().toggleAutomaticSpellingCorrection();
-        break;
-#endif
-#if ENABLE(INSPECTOR)
-    case ContextMenuItemTagInspectElement:
-        if (Page* page = frame->page())
-            page->inspectorController()->inspect(m_hitTestResult.innerNonSharedNode());
         break;
 #endif
     case ContextMenuItemTagDictationAlternative:
@@ -917,10 +876,6 @@ void ContextMenuController::populate()
                 appendItem(SpeechMenuItem, m_contextMenu.get());
 #endif                
             } else {
-#if ENABLE(INSPECTOR)
-                if (!(frame->page() && frame->page()->inspectorController()->hasInspectorFrontendClient())) {
-#endif
-
                 // In GTK+ unavailable items are not hidden but insensitive.
 #if PLATFORM(GTK)
                 appendItem(BackItem, m_contextMenu.get());
@@ -928,12 +883,6 @@ void ContextMenuController::populate()
                 appendItem(StopItem, m_contextMenu.get());
                 appendItem(ReloadItem, m_contextMenu.get());
 #else
-                if (frame->page() && frame->page()->backForward()->canGoBackOrForward(-1))
-                    appendItem(BackItem, m_contextMenu.get());
-
-                if (frame->page() && frame->page()->backForward()->canGoBackOrForward(1))
-                    appendItem(ForwardItem, m_contextMenu.get());
-
                 // use isLoadingInAPISense rather than isLoading because Stop/Reload are
                 // intended to match WebKit's API, not WebCore's internal notion of loading status
                 if (loader->documentLoader()->isLoadingInAPISense())
@@ -941,10 +890,6 @@ void ContextMenuController::populate()
                 else
                     appendItem(ReloadItem, m_contextMenu.get());
 #endif
-#if ENABLE(INSPECTOR)
-                }
-#endif
-
                 if (frame->page() && frame != frame->page()->mainFrame())
                     appendItem(OpenFrameItem, m_contextMenu.get());
             }
@@ -1124,35 +1069,6 @@ void ContextMenuController::populate()
     }
 }
 
-#if ENABLE(INSPECTOR)
-void ContextMenuController::addInspectElementItem()
-{
-    Node* node = m_hitTestResult.innerNonSharedNode();
-    if (!node)
-        return;
-
-    Frame* frame = node->document()->frame();
-    if (!frame)
-        return;
-
-    Page* page = frame->page();
-    if (!page)
-        return;
-
-    if (!page->inspectorController())
-        return;
-
-    ContextMenuItem InspectElementItem(ActionType, ContextMenuItemTagInspectElement, contextMenuItemTagInspectElement());
-#if USE(CROSS_PLATFORM_CONTEXT_MENUS)
-    if (m_contextMenu && !m_contextMenu->items().isEmpty())
-#else
-    if (m_contextMenu && m_contextMenu->itemCount())
-#endif
-        appendItem(*separatorItem(), m_contextMenu.get());
-    appendItem(InspectElementItem, m_contextMenu.get());
-}
-#endif // ENABLE(INSPECTOR)
-
 void ContextMenuController::checkOrEnableIfNeeded(ContextMenuItem& item) const
 {
     if (item.type() == SeparatorType)
@@ -1321,12 +1237,6 @@ void ContextMenuController::checkOrEnableIfNeeded(ContextMenuItem& item) const
             break;
 #endif
 #if PLATFORM(GTK)
-        case ContextMenuItemTagGoBack:
-            shouldEnable = frame->page() && frame->page()->backForward()->canGoBackOrForward(-1);
-            break;
-        case ContextMenuItemTagGoForward:
-            shouldEnable = frame->page() && frame->page()->backForward()->canGoBackOrForward(1);
-            break;
         case ContextMenuItemTagStop:
             shouldEnable = frame->loader()->documentLoader()->isLoadingInAPISense();
             break;
@@ -1418,9 +1328,6 @@ void ContextMenuController::checkOrEnableIfNeeded(ContextMenuItem& item) const
         case ContextMenuItemTagTextDirectionMenu:
         case ContextMenuItemTagPDFSinglePageScrolling:
         case ContextMenuItemTagPDFFacingPagesScrolling:
-#if ENABLE(INSPECTOR)
-        case ContextMenuItemTagInspectElement:
-#endif
         case ContextMenuItemBaseCustomTag:
         case ContextMenuItemCustomTagNoAction:
         case ContextMenuItemLastCustomTag:

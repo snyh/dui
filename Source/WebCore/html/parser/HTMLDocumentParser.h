@@ -33,7 +33,6 @@
 #include "HTMLInputStream.h"
 #include "HTMLParserOptions.h"
 #include "HTMLPreloadScanner.h"
-#include "HTMLScriptRunnerHost.h"
 #include "HTMLSourceTracker.h"
 #include "HTMLToken.h"
 #include "HTMLTokenizer.h"
@@ -55,15 +54,12 @@ class Document;
 class DocumentFragment;
 class HTMLDocument;
 class HTMLParserScheduler;
-class HTMLScriptRunner;
 class HTMLTreeBuilder;
 class HTMLResourcePreloader;
-class ScriptController;
-class ScriptSourceCode;
 
 class PumpSession;
 
-class HTMLDocumentParser :  public ScriptableDocumentParser, HTMLScriptRunnerHost, CachedResourceClient {
+class HTMLDocumentParser :  public ScriptableDocumentParser, CachedResourceClient {
     WTF_MAKE_FAST_ALLOCATED;
 public:
     static PassRefPtr<HTMLDocumentParser> create(HTMLDocument* document, bool reportErrors)
@@ -75,12 +71,14 @@ public:
     // Exposed for HTMLParserScheduler
     void resumeParsingAfterYield();
 
+
     static void parseDocumentFragment(const String&, DocumentFragment*, Element* contextElement, ParserContentPolicy = AllowScriptingContent);
 
     HTMLTokenizer* tokenizer() const { return m_tokenizer.get(); }
 
     virtual TextPosition textPosition() const;
     virtual OrdinalNumber lineNumber() const;
+    virtual bool isWaitingForScripts() const OVERRIDE { return false; }
 
     virtual void suspendScheduledTasks();
     virtual void resumeScheduledTasks();
@@ -125,16 +123,9 @@ private:
     virtual bool processingData() const OVERRIDE;
     virtual void prepareToStopParsing() OVERRIDE;
     virtual void stopParsing() OVERRIDE;
-    virtual bool isWaitingForScripts() const OVERRIDE;
-    virtual bool isExecutingScript() const OVERRIDE;
-    virtual void executeScriptsWaitingForStylesheets() OVERRIDE;
 
-    // HTMLScriptRunnerHost
-    virtual void watchForLoad(CachedResource*) OVERRIDE;
-    virtual void stopWatchingForLoad(CachedResource*) OVERRIDE;
     virtual HTMLInputStream& inputStream() { return m_input; }
     virtual bool hasPreloadScanner() const { return m_preloadScanner.get() && !shouldUseThreading(); }
-    virtual void appendCurrentInputStreamToPreloadScannerAndScan() OVERRIDE;
 
     // CachedResourceClient
     virtual void notifyFinished(CachedResource*);
@@ -162,12 +153,8 @@ private:
     void constructTreeFromCompactHTMLToken(const CompactHTMLToken&);
 #endif
 
-    void runScriptsForPausedTreeBuilder();
-    void resumeParsingAfterScriptExecution();
-
     void attemptToEnd();
     void endIfDelayed();
-    void attemptToRunDeferredScriptsAndEnd();
     void end();
 
     bool shouldUseThreading() const { return m_options.useThreading && !m_isPinnedToMainThread; }
@@ -175,7 +162,7 @@ private:
     bool isParsingFragment() const;
     bool isScheduledForResume() const;
     bool inPumpSession() const { return m_pumpSessionNestingLevel > 0; }
-    bool shouldDelayEnd() const { return inPumpSession() || isWaitingForScripts() || isScheduledForResume() || isExecutingScript(); }
+    bool shouldDelayEnd() const { return inPumpSession() || isScheduledForResume(); }
 
     HTMLToken& token() { return *m_token.get(); }
 
@@ -184,7 +171,6 @@ private:
 
     OwnPtr<HTMLToken> m_token;
     OwnPtr<HTMLTokenizer> m_tokenizer;
-    OwnPtr<HTMLScriptRunner> m_scriptRunner;
     OwnPtr<HTMLTreeBuilder> m_treeBuilder;
     OwnPtr<HTMLPreloadScanner> m_preloadScanner;
     OwnPtr<HTMLPreloadScanner> m_insertionPreloadScanner;

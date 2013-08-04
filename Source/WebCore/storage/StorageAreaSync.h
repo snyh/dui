@@ -26,7 +26,6 @@
 #ifndef StorageAreaSync_h
 #define StorageAreaSync_h
 
-#include "SQLiteDatabase.h"
 #include "Timer.h"
 #include <wtf/HashMap.h>
 #include <wtf/text/StringHash.h>
@@ -64,9 +63,6 @@ private:
 
     RefPtr<StorageAreaImpl> m_storageArea;
     RefPtr<StorageSyncManager> m_syncManager;
-
-    // The database handle will only ever be opened and used on the background thread.
-    SQLiteDatabase m_database;
 
     // The following members are subject to thread synchronization issues.
 public:

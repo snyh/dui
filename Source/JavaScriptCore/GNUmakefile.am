@@ -174,6 +174,7 @@ Programs_jsc_@WEBKITGTK_API_MAJOR_VERSION@_CXXFLAGS = \
 
 Programs_jsc_@WEBKITGTK_API_MAJOR_VERSION@_LDADD = \
 	-lpthread \
+	-lstdc++ -lm \
 	libjavascriptcoregtk-@WEBKITGTK_API_MAJOR_VERSION@.@WEBKITGTK_API_MINOR_VERSION@.la \
 	$(WINMM_LIBS)
 

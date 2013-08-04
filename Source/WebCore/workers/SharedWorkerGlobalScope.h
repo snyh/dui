@@ -60,7 +60,6 @@ namespace WebCore {
 
     private:
         SharedWorkerGlobalScope(const String& name, const KURL&, const String& userAgent, PassOwnPtr<GroupSettings>, SharedWorkerThread*);
-        virtual void logExceptionToConsole(const String& errorMessage, const String& sourceURL, int lineNumber, int columnNumber, PassRefPtr<ScriptCallStack>) OVERRIDE;
 
         String m_name;
     };

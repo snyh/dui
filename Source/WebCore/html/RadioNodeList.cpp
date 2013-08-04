@@ -30,7 +30,6 @@
 #include "HTMLFormElement.h"
 #include "HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "HTMLObjectElement.h"
 #include "NodeRareData.h"
 
 namespace WebCore {
@@ -86,10 +85,7 @@ bool RadioNodeList::checkElementMatchesRadioNodeListFilter(Element* testElement)
     ASSERT(testElement->hasTagName(objectTag) || testElement->isFormControlElement());
     if (isHTMLFormElement(ownerNode())) {
         HTMLFormElement* formElement = 0;
-        if (testElement->hasTagName(objectTag))
-            formElement = static_cast<HTMLObjectElement*>(testElement)->form();
-        else
-            formElement = static_cast<HTMLFormControlElement*>(testElement)->form();
+        formElement = static_cast<HTMLFormControlElement*>(testElement)->form();
         if (!formElement || formElement != ownerNode())
             return false;
     }
@@ -99,7 +95,7 @@ bool RadioNodeList::checkElementMatchesRadioNodeListFilter(Element* testElement)
 
 bool RadioNodeList::nodeMatches(Element* testElement) const
 {
-    if (!testElement->hasTagName(objectTag) && !testElement->isFormControlElement())
+    if (!testElement->isFormControlElement())
         return false;
 
     if (HTMLInputElement* inputElement = testElement->toInputElement()) {

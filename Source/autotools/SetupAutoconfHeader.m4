@@ -83,12 +83,3 @@ fi
 if test "$enable_gles2" = "yes"; then
     AC_DEFINE([WTF_USE_OPENGL_ES_2], [1], [ ])
 fi
-
-if test "$enable_spellcheck" = "yes"; then
-    AC_DEFINE([ENABLE_SPELLCHECK], [1], [ ])
-fi
-
-if test "$enable_credential_storage" = "yes"; then
-    AC_DEFINE([ENABLE_CREDENTIAL_STORAGE], [1], [ ])
-fi
-

@@ -26,10 +26,10 @@
 
 #include "config.h"
 #include "FrameView.h"
+#include "Page.h"
 
 #include "AXObjectCache.h"
 #include "AnimationController.h"
-#include "BackForwardController.h"
 #include "CachedImage.h"
 #include "CachedResourceLoader.h"
 #include "Chrome.h"
@@ -53,13 +53,9 @@
 #include "HTMLFrameSetElement.h"
 #include "HTMLNames.h"
 #include "HTMLPlugInImageElement.h"
-#include "InspectorClient.h"
-#include "InspectorController.h"
-#include "InspectorInstrumentation.h"
 #include "OverflowEvent.h"
 #include "ProgressTracker.h"
 #include "RenderArena.h"
-#include "RenderEmbeddedObject.h"
 #include "RenderFullScreen.h"
 #include "RenderIFrame.h"
 #include "RenderLayer.h"
@@ -486,7 +482,6 @@ void FrameView::setFrameRect(const IntRect& newRect)
             if (StyleResolver* resolver = document->styleResolverIfExists()) {
                 if (resolver->affectedByViewportChange()) {
                     document->styleResolverChanged(DeferRecalcStyle);
-                    InspectorInstrumentation::mediaQueryResultChanged(document);
                 }
             }
         }
@@ -1174,8 +1169,6 @@ void FrameView::layout(bool allowSubtree)
     if (isPainting())
         return;
 
-    InspectorInstrumentationCookie cookie = InspectorInstrumentation::willLayout(m_frame.get());
-
     if (!allowSubtree && m_layoutRoot) {
         m_layoutRoot->markContainingBlocksForLayout(false);
         m_layoutRoot = 0;
@@ -1404,8 +1397,6 @@ void FrameView::layout(bool allowSubtree)
         m_actionScheduler->resume();
     }
 
-    InspectorInstrumentation::didLayout(cookie, root);
-
     m_nestedLayoutCount--;
     if (m_nestedLayoutCount)
         return;
@@ -1441,14 +1432,6 @@ void FrameView::addWidgetToUpdate(RenderObject* object)
     if (!m_widgetUpdateSet)
         m_widgetUpdateSet = adoptPtr(new RenderObjectSet);
 
-    // Tell the DOM element that it needs a widget update.
-    Node* node = object->node();
-    if (node->hasTagName(objectTag) || node->hasTagName(embedTag)) {
-        HTMLPlugInImageElement* pluginElement = toHTMLPlugInImageElement(node);
-        if (!pluginElement->needsCheckForSizeChange())
-            pluginElement->setNeedsWidgetUpdate(true);
-    }
-
     m_widgetUpdateSet->add(object);
 }
 
@@ -1469,7 +1452,6 @@ String FrameView::mediaType() const
 {
     // See if we have an override type.
     String overrideType = m_frame->loader()->client()->overrideMediaType();
-    InspectorInstrumentation::applyEmulatedMedia(m_frame.get(), &overrideType);
     if (!overrideType.isNull())
         return overrideType;
     return m_mediaType;
@@ -2428,7 +2410,6 @@ void FrameView::scheduleRelayout()
         return;
     if (!m_frame->document()->shouldScheduleLayout())
         return;
-    InspectorInstrumentation::didInvalidateLayout(m_frame.get());
     // When frame flattening is enabled, the contents of the frame could affect the layout of the parent frames.
     // Also invalidate parent frame starting from the owner element of this frame.
     if (m_frame->ownerRenderer() && isInChildFrameWithFrameFlattening())
@@ -2481,21 +2462,18 @@ void FrameView::scheduleRelayoutOfSubtree(RenderObject* relayoutRoot)
                 m_layoutRoot->markContainingBlocksForLayout(false, relayoutRoot);
                 m_layoutRoot = relayoutRoot;
                 ASSERT(!m_layoutRoot->container() || !m_layoutRoot->container()->needsLayout());
-                InspectorInstrumentation::didInvalidateLayout(m_frame.get());
             } else {
                 // Just do a full relayout
                 if (m_layoutRoot)
                     m_layoutRoot->markContainingBlocksForLayout(false);
                 m_layoutRoot = 0;
                 relayoutRoot->markContainingBlocksForLayout(false);
-                InspectorInstrumentation::didInvalidateLayout(m_frame.get());
             }
         }
     } else if (m_layoutSchedulingEnabled) {
         int delay = m_frame->document()->minimumLayoutDelay();
         m_layoutRoot = relayoutRoot;
         ASSERT(!m_layoutRoot->container() || !m_layoutRoot->container()->needsLayout());
-        InspectorInstrumentation::didInvalidateLayout(m_frame.get());
         m_delayedLayout = delay != 0;
         m_layoutTimer.startOneShot(delay * 0.001);
     }
@@ -2668,44 +2646,6 @@ void FrameView::updateWidget(RenderObject* object)
     ASSERT(m_widgetUpdateSet->contains(object));
     if (!ownerElement)
         return;
-
-    if (object->isEmbeddedObject()) {
-        RenderEmbeddedObject* embeddedObject = static_cast<RenderEmbeddedObject*>(object);
-        // No need to update if it's already crashed or known to be missing.
-        if (embeddedObject->showsUnavailablePluginIndicator())
-            return;
-
-        if (object->isSnapshottedPlugIn()) {
-            if (ownerElement->hasTagName(objectTag) || ownerElement->hasTagName(embedTag)) {
-                HTMLPlugInImageElement* pluginElement = toHTMLPlugInImageElement(ownerElement);
-                pluginElement->checkSnapshotStatus();
-            }
-            return;
-        }
-
-        // FIXME: This could turn into a real virtual dispatch if we defined
-        // updateWidget(PluginCreationOption) on HTMLElement.
-        if (ownerElement->hasTagName(objectTag) || ownerElement->hasTagName(embedTag) || ownerElement->hasTagName(appletTag)) {
-            HTMLPlugInImageElement* pluginElement = toHTMLPlugInImageElement(ownerElement);
-            if (pluginElement->needsCheckForSizeChange()) {
-                pluginElement->checkSnapshotStatus();
-                return;
-            }
-            if (pluginElement->needsWidgetUpdate())
-                pluginElement->updateWidget(CreateAnyWidgetType);
-        }
-        // FIXME: It is not clear that Media elements need or want this updateWidget() call.
-#if ENABLE(PLUGIN_PROXY_FOR_VIDEO)
-        else if (ownerElement->isMediaElement())
-            static_cast<HTMLMediaElement*>(ownerElement)->updateWidget(CreateAnyWidgetType);
-#endif
-        else
-            ASSERT_NOT_REACHED();
-
-        // Caution: it's possible the object was destroyed again, since loading a
-        // plugin may run any arbitrary JavaScript.
-        embeddedObject->updateWidgetPosition();
-    }
 }
 
 bool FrameView::updateWidgets()
@@ -2724,10 +2664,6 @@ bool FrameView::updateWidgets()
     for (RenderObjectSet::const_iterator it = m_widgetUpdateSet->begin(); it != end; ++it) {
         RenderObject* object = *it;
         objects.uncheckedAppend(object);
-        if (object->isEmbeddedObject()) {
-            RenderEmbeddedObject* embeddedObject = static_cast<RenderEmbeddedObject*>(object);
-            embeddedObject->ref();
-        }
     }
 
     for (size_t i = 0; i < size; ++i) {
@@ -2736,14 +2672,6 @@ bool FrameView::updateWidgets()
         m_widgetUpdateSet->remove(object);
     }
 
-    for (size_t i = 0; i < size; ++i) {
-        RenderObject* object = objects[i];
-        if (object->isEmbeddedObject()) {
-            RenderEmbeddedObject* embeddedObject = static_cast<RenderEmbeddedObject*>(object);
-            embeddedObject->deref(protectedArena.get());
-        }
-    }
-    
     return m_widgetUpdateSet->isEmpty();
 }
 
@@ -2864,12 +2792,6 @@ void FrameView::sendResizeEventIfNeeded()
     else
         m_frame->document()->enqueueWindowEvent(resizeEvent.release());
 
-#if ENABLE(INSPECTOR)
-    if (InspectorInstrumentation::hasFrontends() && isMainFrame) {
-        if (InspectorClient* inspectorClient = page ? page->inspectorController()->inspectorClient() : 0)
-            inspectorClient->didResizeMainFrame(m_frame.get());
-    }
-#endif
 }
 
 void FrameView::willStartLiveResize()
@@ -3568,9 +3490,6 @@ void FrameView::paintContents(GraphicsContext* p, const IntRect& rect)
     if (needsLayout())
         return;
 
-    if (!p->paintingDisabled())
-        InspectorInstrumentation::willPaint(renderView);
-
     bool isTopLevelPainter = !sCurrentPaintTimeStamp;
     if (isTopLevelPainter)
         sCurrentPaintTimeStamp = currentTime();
@@ -3634,7 +3553,6 @@ void FrameView::paintContents(GraphicsContext* p, const IntRect& rect)
         sCurrentPaintTimeStamp = 0;
 
     if (!p->paintingDisabled()) {
-        InspectorInstrumentation::didPaint(renderView, p, rect);
         // FIXME: should probably not fire milestones for snapshot painting. https://bugs.webkit.org/show_bug.cgi?id=117623
         firePaintRelatedMilestones();
     }

@@ -38,13 +38,11 @@
 #include "CrossThreadTask.h"
 #include "Document.h"
 #include "ExceptionCode.h"
-#include "InspectorInstrumentation.h"
 #include "MessageEvent.h"
 #include "MessagePort.h"
 #include "NotImplemented.h"
 #include "PageGroup.h"
 #include "PlatformStrategies.h"
-#include "ScriptCallStack.h"
 #include "SecurityOrigin.h"
 #include "SecurityOriginHash.h"
 #include "SharedWorker.h"
@@ -85,10 +83,6 @@ public:
     // WorkerReportingProxy
     virtual void postExceptionToWorkerObject(const String& errorMessage, int lineNumber, int columnNumber, const String& sourceURL);
     virtual void postConsoleMessageToWorkerObject(MessageSource, MessageLevel, const String& message, int lineNumber, int columnNumber, const String& sourceURL);
-#if ENABLE(INSPECTOR)
-    virtual void postMessageToPageInspector(const String&);
-    virtual void updateInspectorStateCookie(const String&);
-#endif
     virtual void workerGlobalScopeClosed();
     virtual void workerGlobalScopeDestroyed();
 
@@ -202,18 +196,6 @@ void SharedWorkerProxy::postConsoleMessageToWorkerObject(MessageSource source, M
         (*iter)->postTask(createCallbackTask(&postConsoleMessageTask, source, level, message, sourceURL, lineNumber, columnNumber));
 }
 
-#if ENABLE(INSPECTOR)
-void SharedWorkerProxy::postMessageToPageInspector(const String&)
-{
-    notImplemented();
-}
-
-void SharedWorkerProxy::updateInspectorStateCookie(const String&)
-{
-    notImplemented();
-}
-#endif
-
 void SharedWorkerProxy::workerGlobalScopeClosed()
 {
     if (isClosing())
@@ -325,7 +307,6 @@ void SharedWorkerScriptLoader::load(const KURL& url)
 
 void SharedWorkerScriptLoader::didReceiveResponse(unsigned long identifier, const ResourceResponse&)
 {
-    InspectorInstrumentation::didReceiveScriptResponse(m_worker->scriptExecutionContext(), identifier);
 }
 
 void SharedWorkerScriptLoader::notifyFinished()
@@ -337,7 +318,6 @@ void SharedWorkerScriptLoader::notifyFinished()
     if (m_scriptLoader->failed())
         m_worker->dispatchEvent(Event::create(eventNames().errorEvent, false, true));
     else {
-        InspectorInstrumentation::scriptImported(m_worker->scriptExecutionContext(), m_scriptLoader->identifier(), m_scriptLoader->script());
         DefaultSharedWorkerRepository::instance().workerScriptLoaded(*m_proxy, m_worker->scriptExecutionContext()->userAgent(m_scriptLoader->url()),
                                                                      m_scriptLoader->script(), m_port.release(),
                                                                      m_worker->scriptExecutionContext()->contentSecurityPolicy()->deprecatedHeader(),

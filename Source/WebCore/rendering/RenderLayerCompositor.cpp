@@ -40,12 +40,9 @@
 #include "HTMLIFrameElement.h"
 #include "HTMLNames.h"
 #include "HitTestResult.h"
-#include "InspectorInstrumentation.h"
 #include "Logging.h"
 #include "NodeList.h"
 #include "Page.h"
-#include "RenderApplet.h"
-#include "RenderEmbeddedObject.h"
 #include "RenderFullScreen.h"
 #include "RenderGeometryMap.h"
 #include "RenderIFrame.h"
@@ -600,16 +597,10 @@ void RenderLayerCompositor::updateCompositingLayers(CompositingUpdateType update
 
     if (!hasAcceleratedCompositing())
         enableCompositingMode(false);
-
-    // Inform the inspector that the layer tree has changed.
-    InspectorInstrumentation::layerTreeDidChange(page());
 }
 
 void RenderLayerCompositor::layerBecameNonComposited(const RenderLayer* renderLayer)
 {
-    // Inform the inspector that the given RenderLayer was destroyed.
-    InspectorInstrumentation::renderLayerDestroyed(page(), renderLayer);
-
     ASSERT(m_compositedLayerCount > 0);
     --m_compositedLayerCount;
 }
@@ -2099,23 +2090,7 @@ bool RenderLayerCompositor::requiresCompositingForCanvas(RenderObject* renderer)
 
 bool RenderLayerCompositor::requiresCompositingForPlugin(RenderObject* renderer) const
 {
-    if (!(m_compositingTriggers & ChromeClient::PluginTrigger))
-        return false;
-
-    bool composite = renderer->isEmbeddedObject() && toRenderEmbeddedObject(renderer)->allowsAcceleratedCompositing();
-    if (!composite)
-        return false;
-
-    m_reevaluateCompositingAfterLayout = true;
-    
-    RenderWidget* pluginRenderer = toRenderWidget(renderer);
-    // If we can't reliably know the size of the plugin yet, don't change compositing state.
-    if (pluginRenderer->needsLayout())
-        return pluginRenderer->hasLayer() && pluginRenderer->layer()->isComposited();
-
-    // Don't go into compositing mode if height or width are zero, or size is 1x1.
-    IntRect contentBox = pixelSnappedIntRect(pluginRenderer->contentBoxRect());
-    return contentBox.height() * contentBox.width() > 1;
+    return false;
 }
 
 bool RenderLayerCompositor::requiresCompositingForFrame(RenderObject* renderer) const

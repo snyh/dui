@@ -670,8 +670,7 @@ void ReplaceSelectionCommand::removeUnrenderedTextNodesAtEnds(InsertedNodes& ins
 
     Node* lastLeafInserted = insertedNodes.lastLeafInserted();
     if (lastLeafInserted && lastLeafInserted->isTextNode() && !nodeHasVisibleRenderText(toText(lastLeafInserted))
-        && !enclosingNodeWithTag(firstPositionInOrBeforeNode(lastLeafInserted), selectTag)
-        && !enclosingNodeWithTag(firstPositionInOrBeforeNode(lastLeafInserted), scriptTag)) {
+        && !enclosingNodeWithTag(firstPositionInOrBeforeNode(lastLeafInserted), selectTag)) {
         insertedNodes.willRemoveNode(lastLeafInserted);
         removeNode(lastLeafInserted);
     }

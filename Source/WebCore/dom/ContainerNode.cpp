@@ -37,8 +37,6 @@
 #include "HTMLNames.h"
 #include "InlineTextBox.h"
 #include "InsertionPoint.h"
-#include "InspectorInstrumentation.h"
-#include "JSNode.h"
 #include "LoaderStrategy.h"
 #include "MemoryCache.h"
 #include "MutationEvent.h"
@@ -280,8 +278,6 @@ bool ContainerNode::insertBefore(PassRefPtr<Node> newChild, Node* refChild, Exce
     if (!checkAcceptChildGuaranteedNodeTypes(this, newChild.get(), ec))
         return false;
 
-    InspectorInstrumentation::willInsertDOMNode(document(), this);
-
     ChildListMutationScope mutation(this);
     for (NodeVector::const_iterator it = targets.begin(); it != targets.end(); ++it) {
         Node* child = it->get();
@@ -411,8 +407,6 @@ bool ContainerNode::replaceChild(PassRefPtr<Node> newChild, Node* oldChild, Exce
     // Does this yet another check because collectChildrenAndRemoveFromOldParent() fires a MutationEvent.
     if (!checkReplaceChild(this, newChild.get(), oldChild, ec))
         return false;
-
-    InspectorInstrumentation::willInsertDOMNode(document(), this);
 
     // Add the new child(ren)
     for (NodeVector::const_iterator it = targets.begin(); it != targets.end(); ++it) {
@@ -656,8 +650,6 @@ bool ContainerNode::appendChild(PassRefPtr<Node> newChild, ExceptionCode& ec, At
     // We need this extra check because collectChildrenAndRemoveFromOldParent() can fire mutation events.
     if (!checkAcceptChildGuaranteedNodeTypes(this, newChild.get(), ec))
         return false;
-
-    InspectorInstrumentation::willInsertDOMNode(document(), this);
 
     // Now actually add the child(ren)
     ChildListMutationScope mutation(this);
@@ -1009,14 +1001,12 @@ static void dispatchChildInsertionEvents(Node* child)
 static void dispatchChildRemovalEvents(Node* child)
 {
     if (child->isInShadowTree()) {
-        InspectorInstrumentation::willRemoveDOMNode(child->document(), child);
         return;
     }
 
     ASSERT(!NoEventDispatchAssertion::isEventDispatchForbidden());
 
-    willCreatePossiblyOrphanedTreeByRemoval(child);
-    InspectorInstrumentation::willRemoveDOMNode(child->document(), child);
+    //willCreatePossiblyOrphanedTreeByRemoval(child);
 
     RefPtr<Node> c = child;
     RefPtr<Document> document = child->document();

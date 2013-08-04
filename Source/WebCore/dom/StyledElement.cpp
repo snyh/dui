@@ -216,7 +216,6 @@ void StyledElement::styleAttributeChanged(const AtomicString& newStyleString, At
     elementData()->m_styleAttributeIsDirty = false;
 
     setNeedsStyleRecalc(InlineStyleChange);
-    InspectorInstrumentation::didInvalidateStyleAttr(document(), this);
 }
 
 void StyledElement::inlineStyleChanged()
@@ -224,7 +223,6 @@ void StyledElement::inlineStyleChanged()
     setNeedsStyleRecalc(InlineStyleChange);
     ASSERT(elementData());
     elementData()->m_styleAttributeIsDirty = true;
-    InspectorInstrumentation::didInvalidateStyleAttr(document(), this);
 }
     
 bool StyledElement::setInlineStyleProperty(CSSPropertyID propertyID, CSSValueID identifier, bool important)

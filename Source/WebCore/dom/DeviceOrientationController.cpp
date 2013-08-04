@@ -30,7 +30,6 @@
 #include "DeviceOrientationClient.h"
 #include "DeviceOrientationData.h"
 #include "DeviceOrientationEvent.h"
-#include "InspectorInstrumentation.h"
 
 namespace WebCore {
 
@@ -49,7 +48,6 @@ PassOwnPtr<DeviceOrientationController> DeviceOrientationController::create(Page
 
 void DeviceOrientationController::didChangeDeviceOrientation(DeviceOrientationData* orientation)
 {
-    orientation = InspectorInstrumentation::overrideDeviceOrientation(m_page, orientation);
     dispatchDeviceEvent(DeviceOrientationEvent::create(eventNames().deviceorientationEvent, orientation));
 }
 
@@ -75,7 +73,8 @@ const char* DeviceOrientationController::supplementName()
 
 DeviceOrientationController* DeviceOrientationController::from(Page* page)
 {
-    return static_cast<DeviceOrientationController*>(Supplement<Page>::from(page, supplementName()));
+    return 0;
+    //return static_cast<DeviceOrientationController*>(Supplement<Page>::from(page, supplementName()));
 }
 
 bool DeviceOrientationController::isActiveAt(Page* page)
@@ -87,7 +86,7 @@ bool DeviceOrientationController::isActiveAt(Page* page)
 
 void provideDeviceOrientationTo(Page* page, DeviceOrientationClient* client)
 {
-    DeviceOrientationController::provideTo(page, DeviceOrientationController::supplementName(), DeviceOrientationController::create(page, client));
+    //DeviceOrientationController::provideTo(page, DeviceOrientationController::supplementName(), DeviceOrientationController::create(page, client));
 }
 
 } // namespace WebCore

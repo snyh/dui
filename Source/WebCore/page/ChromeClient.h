@@ -23,8 +23,6 @@
 #define ChromeClient_h
 
 #include "AXObjectCache.h"
-#include "ConsoleAPITypes.h"
-#include "ConsoleTypes.h"
 #include "Cursor.h"
 #include "FocusDirection.h"
 #include "FrameLoader.h"
@@ -32,7 +30,6 @@
 #include "HostWindow.h"
 #include "PopupMenu.h"
 #include "PopupMenuClient.h"
-#include "RenderEmbeddedObject.h"
 #include "ScrollTypes.h"
 #include "SearchPopupMenu.h"
 #include "WebCoreKeyboardUIMode.h"
@@ -122,13 +119,6 @@ public:
 
     virtual void setResizable(bool) = 0;
 
-    virtual void addMessageToConsole(MessageSource, MessageLevel, const String& message, unsigned lineNumber, unsigned columnNumber, const String& sourceID) = 0;
-    // FIXME: Remove this MessageType variant once all the clients are updated.
-    virtual void addMessageToConsole(MessageSource source, MessageType, MessageLevel level, const String& message, unsigned lineNumber, unsigned columnNumber, const String& sourceID)
-    {
-        addMessageToConsole(source, level, message, lineNumber, columnNumber, sourceID);
-    }
-
     virtual bool canRunBeforeUnloadConfirmPanel() = 0;
     virtual bool runBeforeUnloadConfirmPanel(const String& message, Frame*) = 0;
 
@@ -169,8 +159,6 @@ public:
     virtual void layoutUpdated(Frame*) const { }
     virtual void scrollRectIntoView(const IntRect&) const { }; // Currently only Mac has a non empty implementation.
 
-    virtual bool shouldUnavailablePluginMessageBeButton(RenderEmbeddedObject::PluginUnavailabilityReason) const { return false; }
-    virtual void unavailablePluginButtonClicked(Element*, RenderEmbeddedObject::PluginUnavailabilityReason) const { }
     virtual void mouseDidMoveOverElement(const HitTestResult&, unsigned modifierFlags) = 0;
 
     virtual void setToolTip(const String&, TextDirection) = 0;

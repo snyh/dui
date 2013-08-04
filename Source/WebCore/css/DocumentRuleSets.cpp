@@ -83,33 +83,6 @@ void DocumentRuleSets::resetAuthorStyle()
     m_authorStyle->disableAutoShrinkToFit();
 }
 
-void DocumentRuleSets::appendAuthorStyleSheets(unsigned firstNew, const Vector<RefPtr<CSSStyleSheet> >& styleSheets, MediaQueryEvaluator* medium, InspectorCSSOMWrappers& inspectorCSSOMWrappers, bool isViewSource, StyleResolver* resolver)
-{
-    // This handles sheets added to the end of the stylesheet list only. In other cases the style resolver
-    // needs to be reconstructed. To handle insertions too the rule order numbers would need to be updated.
-    unsigned size = styleSheets.size();
-    for (unsigned i = firstNew; i < size; ++i) {
-        CSSStyleSheet* cssSheet = styleSheets[i].get();
-        ASSERT(!cssSheet->disabled());
-        if (cssSheet->mediaQueries() && !medium->eval(cssSheet->mediaQueries(), resolver))
-            continue;
-        StyleSheetContents* sheet = cssSheet->contents();
-#if ENABLE(STYLE_SCOPED) || ENABLE(SHADOW_DOM)
-        if (const ContainerNode* scope = StyleScopeResolver::scopeFor(cssSheet)) {
-            // FIXME: Remove a dependency to calling a StyleResolver's member function.
-            // If we can avoid calling resolver->ensureScopeResolver() here, we don't have to include "StyleResolver.h".
-            // https://bugs.webkit.org/show_bug.cgi?id=108890
-            resolver->ensureScopeResolver()->ensureRuleSetFor(scope)->addRulesFromSheet(sheet, *medium, resolver, scope);
-            continue;
-        }
-#endif
-        m_authorStyle->addRulesFromSheet(sheet, *medium, resolver);
-        inspectorCSSOMWrappers.collectFromStyleSheetIfNeeded(cssSheet);
-    }
-    m_authorStyle->shrinkToFit();
-    collectFeatures(isViewSource, resolver->scopeResolver());
-}
-
 void DocumentRuleSets::collectFeatures(bool isViewSource, StyleScopeResolver* scopeResolver)
 {
     m_features.clear();

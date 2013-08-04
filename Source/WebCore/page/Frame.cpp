@@ -32,7 +32,6 @@
 
 #include "AnimationController.h"
 #include "ApplyStyleCommand.h"
-#include "BackForwardController.h"
 #include "CSSComputedStyleDeclaration.h"
 #include "CSSPropertyNames.h"
 #include "CachedCSSStyleSheet.h"
@@ -63,8 +62,6 @@
 #include "HTMLTableCellElement.h"
 #include "HitTestResult.h"
 #include "ImageBuffer.h"
-#include "InspectorInstrumentation.h"
-#include "JSDOMWindowShell.h"
 #include "Logging.h"
 #include "MathMLNames.h"
 #include "MediaFeatureNames.h"
@@ -72,7 +69,6 @@
 #include "NodeList.h"
 #include "NodeTraversal.h"
 #include "Page.h"
-#include "PageCache.h"
 #include "PageGroup.h"
 #include "RegularExpression.h"
 #include "RenderPart.h"
@@ -99,8 +95,6 @@
 #include "XMLNames.h"
 #include "htmlediting.h"
 #include "markup.h"
-#include "npruntime_impl.h"
-#include "runtime_root.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/RefCountedLeakCounter.h>
 #include <wtf/StdLibExtras.h>
@@ -153,9 +147,7 @@ inline Frame::Frame(Page* page, HTMLFrameOwnerElement* ownerElement, FrameLoader
     : m_page(page)
     , m_treeNode(this, parentFromOwnerElement(ownerElement))
     , m_loader(this, frameLoaderClient)
-    , m_navigationScheduler(this)
     , m_ownerElement(ownerElement)
-    , m_script(adoptPtr(new ScriptController(this)))
     , m_editor(adoptPtr(new Editor(this)))
     , m_selection(adoptPtr(new FrameSelection(this)))
     , m_eventHandler(adoptPtr(new EventHandler(this)))
@@ -298,7 +290,6 @@ void Frame::setDocument(PassRefPtr<Document> newDoc)
         m_doc->attach();
 
     if (m_doc) {
-        m_script->updateDocument();
         m_doc->updateViewportArguments();
     }
 
@@ -555,44 +546,6 @@ FloatSize Frame::resizePageRectsKeepingRatio(const FloatSize& originalSize, cons
     return resultSize;
 }
 
-void Frame::injectUserScripts(UserScriptInjectionTime injectionTime)
-{
-    if (!m_page)
-        return;
-
-    if (loader()->stateMachine()->creatingInitialEmptyDocument() && !settings()->shouldInjectUserScriptsInInitialEmptyDocument())
-        return;
-
-    // Walk the hashtable. Inject by world.
-    const UserScriptMap* userScripts = m_page->group().userScripts();
-    if (!userScripts)
-        return;
-    UserScriptMap::const_iterator end = userScripts->end();
-    for (UserScriptMap::const_iterator it = userScripts->begin(); it != end; ++it)
-        injectUserScriptsForWorld(it->key.get(), *it->value, injectionTime);
-}
-
-void Frame::injectUserScriptsForWorld(DOMWrapperWorld* world, const UserScriptVector& userScripts, UserScriptInjectionTime injectionTime)
-{
-    if (userScripts.isEmpty())
-        return;
-
-    Document* doc = document();
-    if (!doc)
-        return;
-
-    Vector<ScriptSourceCode> sourceCode;
-    unsigned count = userScripts.size();
-    for (unsigned i = 0; i < count; ++i) {
-        UserScript* script = userScripts[i].get();
-        if (script->injectedFrames() == InjectInTopFrameOnly && ownerElement())
-            continue;
-
-        if (script->injectionTime() == injectionTime && UserContentURLPattern::matchesPatterns(doc->url(), script->whitelist(), script->blacklist()))
-            m_script->evaluateInWorld(ScriptSourceCode(script->source(), script->url()), world);
-    }
-}
-
 RenderView* Frame::contentRenderer() const
 {
     return document() ? document()->renderView() : 0;
@@ -676,9 +629,6 @@ void Frame::willDetachPage()
 
     if (page() && page()->scrollingCoordinator() && m_view)
         page()->scrollingCoordinator()->willDestroyScrollableArea(m_view.get());
-
-    script()->clearScriptObjects();
-    script()->updatePlatformScriptObjects();
 }
 
 void Frame::disconnectOwnerElement()
@@ -938,9 +888,6 @@ void Frame::setPageAndTextZoomFactors(float pageZoomFactor, float textZoomFactor
         if (document->renderer() && document->renderer()->needsLayout() && view->didFirstLayout())
             view->layout();
     }
-
-    if (page->mainFrame() == this)
-        pageCache()->markPagesForFullStyleRecalc(page);
 }
 
 float Frame::frameScaleFactor() const

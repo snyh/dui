@@ -644,7 +644,6 @@ void HTMLTreeBuilder::processStartTagForInBody(AtomicHTMLToken* token)
         || token->name() == linkTag
         || token->name() == metaTag
         || token->name() == noframesTag
-        || token->name() == scriptTag
         || token->name() == styleTag
         || token->name() == titleTag) {
         bool didProcess = processStartTagForInHead(token);
@@ -788,15 +787,7 @@ void HTMLTreeBuilder::processStartTagForInBody(AtomicHTMLToken* token)
         m_tree.insertFormattingElement(token);
         return;
     }
-    if (token->name() == appletTag
-        || token->name() == embedTag
-        || token->name() == objectTag) {
-        if (!pluginContentIsAllowed(m_tree.parserContentPolicy()))
-            return;
-    }
-    if (token->name() == appletTag
-        || token->name() == marqueeTag
-        || token->name() == objectTag) {
+    if (token->name() == marqueeTag) {
         m_tree.reconstructTheActiveFormattingElements();
         m_tree.insertHTMLElement(token);
         m_tree.activeFormattingElements()->appendMarker();
@@ -819,7 +810,6 @@ void HTMLTreeBuilder::processStartTagForInBody(AtomicHTMLToken* token)
     }
     if (token->name() == areaTag
         || token->name() == brTag
-        || token->name() == embedTag
         || token->name() == imgTag
         || token->name() == keygenTag
         || token->name() == wbrTag) {
@@ -1061,7 +1051,7 @@ void HTMLTreeBuilder::processStartTagForInTable(AtomicHTMLToken* token)
         processStartTag(token);
         return;
     }
-    if (token->name() == styleTag || token->name() == scriptTag) {
+    if (token->name() == styleTag) {
         processStartTagForInHead(token);
         return;
     }
@@ -1152,7 +1142,6 @@ void HTMLTreeBuilder::processStartTag(AtomicHTMLToken* token)
             || token->name() == linkTag
             || token->name() == metaTag
             || token->name() == noframesTag
-            || token->name() == scriptTag
             || token->name() == styleTag
             || token->name() == titleTag) {
             parseError(token);
@@ -1415,11 +1404,6 @@ void HTMLTreeBuilder::processStartTag(AtomicHTMLToken* token)
             processStartTag(token);
             return;
         }
-        if (token->name() == scriptTag) {
-            bool didProcess = processStartTagForInHead(token);
-            ASSERT_UNUSED(didProcess, didProcess);
-            return;
-        }
 #if ENABLE(TEMPLATE_ELEMENT)
         if (token->name() == templateTag) {
             processTemplateStartTag(token);
@@ -1442,7 +1426,6 @@ void HTMLTreeBuilder::processStartTag(AtomicHTMLToken* token)
         }
 
         if (token->name() == linkTag
-            || token->name() == scriptTag
             || token->name() == styleTag
             || token->name() == metaTag) {
             processStartTagForInHead(token);
@@ -1930,9 +1913,7 @@ void HTMLTreeBuilder::processEndTagForInBody(AtomicHTMLToken* token)
         callTheAdoptionAgency(token);
         return;
     }
-    if (token->name() == appletTag
-        || token->name() == marqueeTag
-        || token->name() == objectTag) {
+    if (token->name() == marqueeTag) {
         if (!m_tree.openElements()->inScope(token->name())) {
             parseError(token);
             return;
@@ -2178,24 +2159,6 @@ void HTMLTreeBuilder::processEndTag(AtomicHTMLToken* token)
         processToken(token);
         break;
     case TextMode:
-        if (token->name() == scriptTag) {
-            // Pause ourselves so that parsing stops until the script can be processed by the caller.
-            ASSERT(m_tree.currentStackItem()->hasTagName(scriptTag));
-            if (scriptingContentIsAllowed(m_tree.parserContentPolicy()))
-                m_scriptToProcess = m_tree.currentElement();
-            m_tree.openElements()->pop();
-            setInsertionMode(m_originalInsertionMode);
-
-            if (m_parser->tokenizer()) {
-                // This token will not have been created by the tokenizer if a
-                // self-closing script tag was encountered and pre-HTML5 parser
-                // quirks are enabled. We must set the tokenizer's state to
-                // DataState explicitly if the tokenizer didn't have a chance to.
-                ASSERT(m_parser->tokenizer()->state() == HTMLTokenizer::DataState || m_options.usePreHTML5ParserQuirks || m_options.useThreading);
-                m_parser->tokenizer()->setState(HTMLTokenizer::DataState);
-            }
-            return;
-        }
         m_tree.openElements()->pop();
         setInsertionMode(m_originalInsertionMode);
         break;
@@ -2604,8 +2567,6 @@ void HTMLTreeBuilder::processEndOfFile(AtomicHTMLToken* token)
         return;
     case TextMode:
         parseError(token);
-        if (m_tree.currentStackItem()->hasTagName(scriptTag))
-            notImplemented(); // mark the script element as "already started".
         m_tree.openElements()->pop();
         ASSERT(m_originalInsertionMode != TextMode);
         setInsertionMode(m_originalInsertionMode);
@@ -2715,12 +2676,6 @@ bool HTMLTreeBuilder::processStartTagForInHead(AtomicHTMLToken* token)
         processGenericRawTextStartTag(token);
         return true;
     }
-    if (token->name() == scriptTag) {
-        processScriptStartTag(token);
-        if (m_options.usePreHTML5ParserQuirks && token->selfClosing())
-            processFakeEndTag(scriptTag);
-        return true;
-    }
 #if ENABLE(TEMPLATE_ELEMENT)
     if (token->name() == templateTag) {
         processTemplateStartTag(token);
@@ -2751,21 +2706,6 @@ void HTMLTreeBuilder::processGenericRawTextStartTag(AtomicHTMLToken* token)
     if (m_parser->tokenizer())
         m_parser->tokenizer()->setState(HTMLTokenizer::RAWTEXTState);
     m_originalInsertionMode = m_insertionMode;
-    setInsertionMode(TextMode);
-}
-
-void HTMLTreeBuilder::processScriptStartTag(AtomicHTMLToken* token)
-{
-    ASSERT(token->type() == HTMLToken::StartTag);
-    m_tree.insertScriptElement(token);
-    if (m_parser->tokenizer())
-        m_parser->tokenizer()->setState(HTMLTokenizer::ScriptDataState);
-    m_originalInsertionMode = m_insertionMode;
-
-    TextPosition position = m_parser->textPosition();
-
-    m_scriptToProcessStartPosition = position;
-
     setInsertionMode(TextMode);
 }
 
@@ -2822,7 +2762,6 @@ void HTMLTreeBuilder::processTokenInForeignContent(AtomicHTMLToken* token)
             || token->name() == dlTag
             || token->name() == dtTag
             || token->name() == emTag
-            || token->name() == embedTag
             || isNumberedHeaderTag(token->name())
             || token->name() == headTag
             || token->name() == hrTag

@@ -51,8 +51,6 @@ TokenPreloadScanner::TagId TokenPreloadScanner::tagIdFor(const HTMLToken::DataVe
         return InputTagId;
     if (tagName == linkTag)
         return LinkTagId;
-    if (tagName == scriptTag)
-        return ScriptTagId;
     if (tagName == styleTag)
         return StyleTagId;
     if (tagName == baseTag)
@@ -71,8 +69,6 @@ TokenPreloadScanner::TagId TokenPreloadScanner::tagIdFor(const HTMLIdentifier& t
         return InputTagId;
     if (threadSafeHTMLNamesMatch(tagName, linkTag))
         return LinkTagId;
-    if (threadSafeHTMLNamesMatch(tagName, scriptTag))
-        return ScriptTagId;
     if (threadSafeHTMLNamesMatch(tagName, styleTag))
         return StyleTagId;
     if (threadSafeHTMLNamesMatch(tagName, baseTag))

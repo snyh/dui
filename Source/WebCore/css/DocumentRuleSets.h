@@ -35,7 +35,6 @@ namespace WebCore {
 class CSSStyleRule;
 class CSSStyleSheet;
 class DocumentStyleSheetCollection;
-class InspectorCSSOMWrappers;
 class MatchRequest;
 class MediaQueryEvaluator;
 class RuleSet;
@@ -54,7 +53,6 @@ public:
 
     void initUserStyle(DocumentStyleSheetCollection*, const MediaQueryEvaluator&, StyleResolver&);
     void resetAuthorStyle();
-    void appendAuthorStyleSheets(unsigned firstNew, const Vector<RefPtr<CSSStyleSheet> >&, MediaQueryEvaluator*, InspectorCSSOMWrappers&, bool isViewSource, StyleResolver*);
 
     void collectFeatures(bool isViewSource, StyleScopeResolver*);
 

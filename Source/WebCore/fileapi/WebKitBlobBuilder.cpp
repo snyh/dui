@@ -38,7 +38,6 @@
 #include "File.h"
 #include "HistogramSupport.h"
 #include "LineEnding.h"
-#include "ScriptCallStack.h"
 #include "TextEncoding.h"
 #include <wtf/ArrayBuffer.h>
 #include <wtf/ArrayBufferView.h>

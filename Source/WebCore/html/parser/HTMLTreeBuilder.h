@@ -163,7 +163,6 @@ private:
 
     void processGenericRCDATAStartTag(AtomicHTMLToken*);
     void processGenericRawTextStartTag(AtomicHTMLToken*);
-    void processScriptStartTag(AtomicHTMLToken*);
 
     // Default processing for the different insertion modes.
     void defaultForInitial();

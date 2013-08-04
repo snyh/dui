@@ -11568,9 +11568,6 @@ bool CSSParser::isLoggingErrors()
 
 void CSSParser::logError(const String& message, int lineNumber)
 {
-    // FIXME: <http://webkit.org/b/114313> CSS Parser ConsoleMessage errors should include column numbers
-    PageConsole* console = m_styleSheet->singleOwnerDocument()->page()->console();
-    console->addMessage(CSSMessageSource, WarningMessageLevel, message, m_styleSheet->baseURL().string(), lineNumber + 1, 0);
 }
 
 StyleRuleKeyframes* CSSParser::createKeyframesRule(const String& name, PassOwnPtr<Vector<RefPtr<StyleKeyframe> > > popKeyframes)

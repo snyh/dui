@@ -60,7 +60,6 @@
 #include "HitTestRequest.h"
 #include "HitTestResult.h"
 #include "Image.h"
-#include "InspectorInstrumentation.h"
 #include "KeyboardEvent.h"
 #include "MouseEvent.h"
 #include "MouseEventWithHitTestResults.h"
@@ -1501,11 +1500,6 @@ static LayoutPoint documentPointForWindowPoint(Frame* frame, const IntPoint& win
 bool EventHandler::handleMousePressEvent(const PlatformMouseEvent& mouseEvent)
 {
     RefPtr<FrameView> protector(m_frame->view());
-
-    if (InspectorInstrumentation::handleMousePress(m_frame->page())) {
-        invalidateClick();
-        return true;
-    }
 
 #if ENABLE(TOUCH_EVENTS)
     bool defaultPrevented = dispatchSyntheticTouchEventIfEnabled(mouseEvent);
@@ -3703,11 +3697,6 @@ void EventHandler::defaultBackspaceEventHandler(KeyboardEvent* event)
     
     bool handledEvent = false;
 
-    if (event->shiftKey())
-        handledEvent = page->goForward();
-    else
-        handledEvent = page->goBack();
-
     if (handledEvent)
         event->setDefaultHandled();
 }
@@ -3939,9 +3928,6 @@ bool EventHandler::handleTouchEvent(const PlatformTouchEvent& event)
             // Touch events should not go to text nodes
             if (node->isTextNode())
                 node = EventPathWalker::parent(node);
-
-            if (InspectorInstrumentation::handleTouchEvent(m_frame->page(), node))
-                return true;
 
             Document* doc = node->document();
             // Record the originating touch document even if it does not have a touch listener.

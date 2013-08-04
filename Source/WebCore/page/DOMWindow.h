@@ -61,7 +61,6 @@ namespace WebCore {
     class Page;
     class PageConsole;
     class Performance;
-    class PostMessageTimer;
     class ScheduledAction;
     class Screen;
     class ScriptCallStack;
@@ -238,12 +237,6 @@ namespace WebCore {
 
         void printErrorMessage(const String&);
         String crossDomainAccessErrorMessage(DOMWindow* activeWindow);
-
-        void postMessage(PassRefPtr<SerializedScriptValue> message, const MessagePortArray*, const String& targetOrigin, DOMWindow* source, ExceptionCode&);
-        // Needed for Objective-C bindings (see bug 28774).
-        void postMessage(PassRefPtr<SerializedScriptValue> message, MessagePort*, const String& targetOrigin, DOMWindow* source, ExceptionCode&);
-        void postMessageTimerFired(PassOwnPtr<PostMessageTimer>);
-        void dispatchMessageEventWithOriginCheck(SecurityOrigin* intendedTargetOrigin, PassRefPtr<Event>, PassRefPtr<ScriptCallStack>);
 
         void scrollBy(int x, int y) const;
         void scrollTo(int x, int y) const;

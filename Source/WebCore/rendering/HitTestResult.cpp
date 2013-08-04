@@ -316,10 +316,8 @@ KURL HitTestResult::absoluteImageURL() const
         return KURL();
 
     AtomicString urlString;
-    if (m_innerNonSharedNode->hasTagName(embedTag)
-        || isHTMLImageElement(m_innerNonSharedNode.get())
+    if (isHTMLImageElement(m_innerNonSharedNode.get())
         || isHTMLInputElement(m_innerNonSharedNode.get())
-        || m_innerNonSharedNode->hasTagName(objectTag)
 #if ENABLE(SVG)
         || m_innerNonSharedNode->hasTagName(SVGNames::imageTag)
 #endif
@@ -334,19 +332,6 @@ KURL HitTestResult::absoluteImageURL() const
 
 KURL HitTestResult::absolutePDFURL() const
 {
-    if (!(m_innerNonSharedNode && m_innerNonSharedNode->document()))
-        return KURL();
-
-    if (!m_innerNonSharedNode->hasTagName(embedTag) && !m_innerNonSharedNode->hasTagName(objectTag))
-        return KURL();
-
-    HTMLPlugInImageElement* element = toHTMLPlugInImageElement(m_innerNonSharedNode.get());
-    KURL url = m_innerNonSharedNode->document()->completeURL(stripLeadingAndTrailingHTMLSpaces(element->url()));
-    if (!url.isValid())
-        return KURL();
-
-    if (element->serviceType() == "application/pdf" || (element->serviceType().isEmpty() && url.path().lower().endsWith(".pdf")))
-        return url;
     return KURL();
 }
 

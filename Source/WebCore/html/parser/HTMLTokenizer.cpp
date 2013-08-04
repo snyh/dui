@@ -731,10 +731,7 @@ bool HTMLTokenizer::nextToken(SegmentedString& source, HTMLToken& token)
     HTML_BEGIN_STATE(ScriptDataDoubleEscapeStartState) {
         if (isTokenizerWhitespace(cc) || cc == '/' || cc == '>') {
             bufferCharacter(cc);
-            if (temporaryBufferIs(scriptTag.localName()))
-                HTML_ADVANCE_TO(ScriptDataDoubleEscapedState);
-            else
-                HTML_ADVANCE_TO(ScriptDataEscapedState);
+            HTML_ADVANCE_TO(ScriptDataEscapedState);
         } else if (isASCIIUpper(cc)) {
             bufferCharacter(cc);
             m_temporaryBuffer.append(toLowerCase(cc));
@@ -815,10 +812,7 @@ bool HTMLTokenizer::nextToken(SegmentedString& source, HTMLToken& token)
     HTML_BEGIN_STATE(ScriptDataDoubleEscapeEndState) {
         if (isTokenizerWhitespace(cc) || cc == '/' || cc == '>') {
             bufferCharacter(cc);
-            if (temporaryBufferIs(scriptTag.localName()))
-                HTML_ADVANCE_TO(ScriptDataEscapedState);
-            else
-                HTML_ADVANCE_TO(ScriptDataDoubleEscapedState);
+            HTML_ADVANCE_TO(ScriptDataDoubleEscapedState);
         } else if (isASCIIUpper(cc)) {
             bufferCharacter(cc);
             m_temporaryBuffer.append(toLowerCase(cc));
@@ -1620,8 +1614,6 @@ void HTMLTokenizer::updateStateFor(const AtomicString& tagName)
         setState(HTMLTokenizer::RCDATAState);
     else if (tagName == plaintextTag)
         setState(HTMLTokenizer::PLAINTEXTState);
-    else if (tagName == scriptTag)
-        setState(HTMLTokenizer::ScriptDataState);
     else if (tagName == styleTag
         || tagName == iframeTag
         || tagName == xmpTag

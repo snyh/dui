@@ -47,15 +47,9 @@
 #include <wtf/SchedulePair.h>
 #endif
 
-namespace JSC {
-class Debugger;
-}
-
 namespace WebCore {
 
 class AlternativeTextClient;
-class BackForwardController;
-class BackForwardList;
 class Chrome;
 class ChromeClient;
 class ClientRectList;
@@ -70,9 +64,6 @@ class FocusController;
 class Frame;
 class FrameSelection;
 class HaltablePlugin;
-class HistoryItem;
-class InspectorClient;
-class InspectorController;
 class MediaCanStartListener;
 class Node;
 class PageActivityAssertionToken;
@@ -132,9 +123,7 @@ public:
 #endif
         EditorClient* editorClient;
         DragClient* dragClient;
-        InspectorClient* inspectorClient;
         PlugInClient* plugInClient;
-        RefPtr<BackForwardList> backForwardClient;
         ValidationMessageClient* validationMessageClient;
     };
 
@@ -164,16 +153,6 @@ public:
     bool openedByDOM() const;
     void setOpenedByDOM();
 
-    // DEPRECATED. Use backForward() instead of the following 6 functions.
-    BackForwardList* backForwardList() const;
-    bool goBack();
-    bool goForward();
-    bool canGoBackOrForward(int distance) const;
-    void goBackOrForward(int distance);
-    int getHistoryLength();
-
-    void goToItem(HistoryItem*, FrameLoadType);
-
     void setGroupName(const String&);
     const String& groupName() const;
 
@@ -193,9 +172,6 @@ public:
 #if ENABLE(CONTEXT_MENUS)
     ContextMenuController* contextMenuController() const { return m_contextMenuController.get(); }
 #endif
-#if ENABLE(INSPECTOR)
-    InspectorController* inspectorController() const { return m_inspectorController.get(); }
-#endif
 #if ENABLE(POINTER_LOCK)
     PointerLockController* pointerLockController() const { return m_pointerLockController.get(); }
 #endif
@@ -209,7 +185,6 @@ public:
 
     Settings* settings() const { return m_settings.get(); }
     ProgressTracker* progress() const { return m_progress.get(); }
-    BackForwardController* backForward() const { return m_backForwardController.get(); }
 
     FeatureObserver* featureObserver() { return &m_featureObserver; }
 
@@ -313,10 +288,6 @@ public:
     void dnsPrefetchingStateChanged();
     void storageBlockingStateChanged();
     void privateBrowsingStateChanged();
-
-    static void setDebuggerForAllPages(JSC::Debugger*);
-    void setDebugger(JSC::Debugger*);
-    JSC::Debugger* debugger() const { return m_debugger; }
 
     static void removeAllVisitedLinks();
 
@@ -443,9 +414,6 @@ private:
 #if ENABLE(CONTEXT_MENUS)
     OwnPtr<ContextMenuController> m_contextMenuController;
 #endif
-#if ENABLE(INSPECTOR)
-    OwnPtr<InspectorController> m_inspectorController;
-#endif
 #if ENABLE(POINTER_LOCK)
     OwnPtr<PointerLockController> m_pointerLockController;
 #endif
@@ -454,7 +422,6 @@ private:
     OwnPtr<Settings> m_settings;
     OwnPtr<ProgressTracker> m_progress;
 
-    OwnPtr<BackForwardController> m_backForwardController;
     RefPtr<Frame> m_mainFrame;
 
     mutable RefPtr<PluginData> m_pluginData;
@@ -494,8 +461,6 @@ private:
 
     OwnPtr<PageGroup> m_singlePageGroup;
     PageGroup* m_group;
-
-    JSC::Debugger* m_debugger;
 
     double m_customHTMLTokenizerTimeDelay;
     int m_customHTMLTokenizerChunkSize;

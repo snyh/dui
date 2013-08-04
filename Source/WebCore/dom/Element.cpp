@@ -62,7 +62,6 @@
 #include "HTMLParserIdioms.h"
 #include "HTMLTableRowsCollection.h"
 #include "InsertionPoint.h"
-#include "InspectorInstrumentation.h"
 #include "MutationObserverInterestGroup.h"
 #include "MutationRecord.h"
 #include "NamedNodeMap.h"
@@ -3015,29 +3014,23 @@ void Element::willModifyAttribute(const QualifiedName& name, const AtomicString&
     if (OwnPtr<MutationObserverInterestGroup> recipients = MutationObserverInterestGroup::createForAttributesMutation(this, name))
         recipients->enqueueMutationRecord(MutationRecord::createAttributes(this, name, oldValue));
 
-#if ENABLE(INSPECTOR)
-    InspectorInstrumentation::willModifyDOMAttr(document(), this, oldValue, newValue);
-#endif
 }
 
 void Element::didAddAttribute(const QualifiedName& name, const AtomicString& value)
 {
     attributeChanged(name, value);
-    InspectorInstrumentation::didModifyDOMAttr(document(), this, name.localName(), value);
     dispatchSubtreeModifiedEvent();
 }
 
 void Element::didModifyAttribute(const QualifiedName& name, const AtomicString& value)
 {
     attributeChanged(name, value);
-    InspectorInstrumentation::didModifyDOMAttr(document(), this, name.localName(), value);
     // Do not dispatch a DOMSubtreeModified event here; see bug 81141.
 }
 
 void Element::didRemoveAttribute(const QualifiedName& name)
 {
     attributeChanged(name, nullAtom);
-    InspectorInstrumentation::didRemoveDOMAttr(document(), this, name.localName());
     dispatchSubtreeModifiedEvent();
 }
 

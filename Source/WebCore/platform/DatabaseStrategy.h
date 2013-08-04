@@ -26,8 +26,6 @@
 #ifndef DatabaseStrategy_h
 #define DatabaseStrategy_h
 
-#include "AbstractDatabaseServer.h"
-
 namespace WebCore {
 
 class DatabaseStrategy {

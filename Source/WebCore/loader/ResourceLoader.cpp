@@ -30,6 +30,7 @@
 #include "config.h"
 #include "ResourceLoader.h"
 
+#include "Document.h"
 #include "ApplicationCacheHost.h"
 #include "AsyncFileStream.h"
 #include "AuthenticationChallenge.h"
@@ -37,7 +38,6 @@
 #include "Frame.h"
 #include "FrameLoader.h"
 #include "FrameLoaderClient.h"
-#include "InspectorInstrumentation.h"
 #include "LoaderStrategy.h"
 #include "Page.h"
 #include "PlatformStrategies.h"
@@ -241,10 +241,6 @@ void ResourceLoader::willSendRequest(ResourceRequest& request, const ResourceRes
 
         frameLoader()->notifier()->willSendRequest(this, request, redirectResponse);
     }
-#if ENABLE(INSPECTOR)
-    else
-        InspectorInstrumentation::willSendRequest(m_frame.get(), m_identifier, m_frame->loader()->documentLoader(), request, redirectResponse);
-#endif
 
     if (!redirectResponse.isNull())
         platformStrategies()->loaderStrategy()->resourceLoadScheduler()->crossOriginRedirectReceived(this, request.url());
@@ -471,16 +467,12 @@ void ResourceLoader::didReceiveResponse(ResourceHandle*, const ResourceResponse&
 
 void ResourceLoader::didReceiveData(ResourceHandle*, const char* data, int length, int encodedDataLength)
 {
-    InspectorInstrumentationCookie cookie = InspectorInstrumentation::willReceiveResourceData(m_frame.get(), identifier(), encodedDataLength);
     didReceiveData(data, length, encodedDataLength, DataPayloadBytes);
-    InspectorInstrumentation::didReceiveResourceData(cookie);
 }
 
 void ResourceLoader::didReceiveBuffer(ResourceHandle*, PassRefPtr<SharedBuffer> buffer, int encodedDataLength)
 {
-    InspectorInstrumentationCookie cookie = InspectorInstrumentation::willReceiveResourceData(m_frame.get(), identifier(), encodedDataLength);
     didReceiveBuffer(buffer, encodedDataLength, DataPayloadBytes);
-    InspectorInstrumentation::didReceiveResourceData(cookie);
 }
 
 void ResourceLoader::didFinishLoading(ResourceHandle*, double finishTime)

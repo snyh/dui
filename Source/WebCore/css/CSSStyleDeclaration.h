@@ -23,6 +23,8 @@
 
 #include "CSSPropertyNames.h"
 #include "ScriptWrappable.h"
+#include "CSSRule.h"
+#include "StylePropertySet.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

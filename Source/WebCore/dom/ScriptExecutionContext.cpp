@@ -33,18 +33,11 @@
 #include "ErrorEvent.h"
 #include "MessagePort.h"
 #include "PublicURLManager.h"
-#include "ScriptCallStack.h"
 #include "Settings.h"
 #include "WorkerGlobalScope.h"
 #include "WorkerThread.h"
+#include "ScriptState.h"
 #include <wtf/MainThread.h>
-
-// FIXME: This is a layering violation.
-#include "JSDOMWindow.h"
-
-#if ENABLE(SQL_DATABASE)
-#include "DatabaseContext.h"
-#endif
 
 namespace WebCore {
 
@@ -61,27 +54,8 @@ public:
     }
 };
 
-class ScriptExecutionContext::PendingException {
-    WTF_MAKE_NONCOPYABLE(PendingException);
-public:
-    PendingException(const String& errorMessage, int lineNumber, int columnNumber, const String& sourceURL, PassRefPtr<ScriptCallStack> callStack)
-        : m_errorMessage(errorMessage)
-        , m_lineNumber(lineNumber)
-        , m_columnNumber(columnNumber)
-        , m_sourceURL(sourceURL)
-        , m_callStack(callStack)
-    {
-    }
-    String m_errorMessage;
-    int m_lineNumber;
-    int m_columnNumber;
-    String m_sourceURL;
-    RefPtr<ScriptCallStack> m_callStack;
-};
-
 void ScriptExecutionContext::AddConsoleMessageTask::performTask(ScriptExecutionContext* context)
 {
-    context->addConsoleMessage(m_source, m_level, m_message);
 }
 
 ScriptExecutionContext::ScriptExecutionContext()
@@ -288,34 +262,6 @@ bool ScriptExecutionContext::sanitizeScriptError(String& errorMessage, int& line
     return true;
 }
 
-void ScriptExecutionContext::reportException(const String& errorMessage, int lineNumber, int columnNumber, const String& sourceURL, PassRefPtr<ScriptCallStack> callStack, CachedScript* cachedScript)
-{
-    if (m_inDispatchErrorEvent) {
-        if (!m_pendingExceptions)
-            m_pendingExceptions = adoptPtr(new Vector<OwnPtr<PendingException> >());
-        m_pendingExceptions->append(adoptPtr(new PendingException(errorMessage, lineNumber, columnNumber, sourceURL, callStack)));
-        return;
-    }
-
-    // First report the original exception and only then all the nested ones.
-    if (!dispatchErrorEvent(errorMessage, lineNumber, sourceURL, cachedScript))
-        logExceptionToConsole(errorMessage, sourceURL, lineNumber, columnNumber, callStack);
-
-    if (!m_pendingExceptions)
-        return;
-
-    for (size_t i = 0; i < m_pendingExceptions->size(); i++) {
-        PendingException* e = m_pendingExceptions->at(i).get();
-        logExceptionToConsole(e->m_errorMessage, e->m_sourceURL, e->m_lineNumber, e->m_columnNumber, e->m_callStack);
-    }
-    m_pendingExceptions.clear();
-}
-
-void ScriptExecutionContext::addConsoleMessage(MessageSource source, MessageLevel level, const String& message, const String& sourceURL, unsigned lineNumber, unsigned columnNumber, ScriptState* state, unsigned long requestIdentifier)
-{
-    addMessage(source, level, message, sourceURL, lineNumber, columnNumber, 0, state, requestIdentifier);
-}
-
 bool ScriptExecutionContext::dispatchErrorEvent(const String& errorMessage, int lineNumber, const String& sourceURL, CachedScript* cachedScript)
 {
     EventTarget* target = errorEventTarget();
@@ -391,15 +337,6 @@ ScriptExecutionContext::Task::~Task()
 
 JSC::VM* ScriptExecutionContext::vm()
 {
-     if (isDocument())
-        return JSDOMWindow::commonVM();
-
-#if ENABLE(WORKERS)
-    if (isWorkerGlobalScope())
-        return static_cast<WorkerGlobalScope*>(this)->script()->vm();
-#endif
-
-    ASSERT_NOT_REACHED();
     return 0;
 }
 

@@ -49,8 +49,6 @@
 namespace WebCore {
 
 class Archive;
-class CachedFrameBase;
-class CachedPage;
 class CachedResource;
 class Chrome;
 class DOMWrapperWorld;
@@ -60,8 +58,6 @@ class FormState;
 class FormSubmission;
 class FrameLoaderClient;
 class FrameNetworkingContext;
-class HistoryController;
-class HistoryItem;
 class IconController;
 class NavigationAction;
 class NetworkingContext;
@@ -92,19 +88,15 @@ public:
     Frame* frame() const { return m_frame; }
 
     PolicyChecker* policyChecker() const { return m_policyChecker.get(); }
-    HistoryController* history() const { return m_history.get(); }
     ResourceLoadNotifier* notifier() const { return &m_notifer; }
     SubframeLoader* subframeLoader() const { return &m_subframeLoader; }
     IconController* icon() const { return m_icon.get(); }
     MixedContentChecker* mixedContentChecker() const { return &m_mixedContentChecker; }
 
-    void prepareForHistoryNavigation();
     void setupForReplace();
 
     // FIXME: These are all functions which start loads. We have too many.
     void loadURLIntoChildFrame(const KURL&, const String& referer, Frame*);
-    void loadFrameRequest(const FrameLoadRequest&, bool lockHistory, bool lockBackForwardList,  // Called by submitForm, calls loadPostRequest and loadURL.
-        PassRefPtr<Event>, PassRefPtr<FormState>, ShouldSendReferrer);
 
     void load(const FrameLoadRequest&);
 
@@ -120,12 +112,6 @@ public:
     void reload(bool endToEndReload = false);
     void reloadWithOverrideEncoding(const String& overrideEncoding);
     void reloadWithOverrideURL(const KURL& overrideUrl, bool endToEndReload = false);
-
-    void open(CachedFrameBase&);
-    void loadItem(HistoryItem*, FrameLoadType);
-    HistoryItem* requestedHistoryItem() const { return m_requestedHistoryItem.get(); }
-
-    void retryAfterFailedCacheOnlyMainResourceLoad();
 
     static void reportLocalLoadFailed(Frame*, const String& url);
 
@@ -299,18 +285,12 @@ private:
 
     void checkTimerFired(Timer<FrameLoader>*);
     
-    void loadSameDocumentItem(HistoryItem*);
-    void loadDifferentDocumentItem(HistoryItem*, FrameLoadType, FormSubmissionCacheLoadPolicy);
-    
-    void loadProvisionalItemFromCachedPage();
-
     void updateFirstPartyForCookies();
     void setFirstPartyForCookies(const KURL&);
     
     void addExtraFieldsToRequest(ResourceRequest&, FrameLoadType, bool isMainResource);
 
     void clearProvisionalLoad();
-    void transitionToCommitted(PassRefPtr<CachedPage>);
     void frameLoadCompleted();
 
     SubstituteData defaultSubstituteDataForURL(const KURL&);
@@ -337,7 +317,6 @@ private:
     void setState(FrameState);
 
     void closeOldDataSources();
-    void prepareForCachedPageRestore();
 
     bool shouldReloadToHandleUnreachableURL(DocumentLoader*);
 
@@ -388,7 +367,6 @@ private:
     // header dependencies unless performance testing proves otherwise.
     // Some of these could be lazily created for memory savings on devices.
     OwnPtr<PolicyChecker> m_policyChecker;
-    OwnPtr<HistoryController> m_history;
     mutable ResourceLoadNotifier m_notifer;
     mutable SubframeLoader m_subframeLoader;
     mutable FrameLoaderStateMachine m_stateMachine;
@@ -438,7 +416,6 @@ private:
     HashSet<Frame*> m_openedFrames;
 
     bool m_didPerformFirstNavigation;
-    bool m_loadingFromCachedPage;
     bool m_suppressOpenerInNewFrame;
 
     SandboxFlags m_forcedSandboxFlags;
@@ -446,7 +423,6 @@ private:
     RefPtr<FrameNetworkingContext> m_networkingContext;
 
     KURL m_previousURL;
-    RefPtr<HistoryItem> m_requestedHistoryItem;
     OwnPtr<PageActivityAssertionToken> m_activityAssertion;
 };
 

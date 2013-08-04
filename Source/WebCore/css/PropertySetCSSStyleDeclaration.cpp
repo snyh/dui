@@ -25,7 +25,6 @@
 #include "CSSParser.h"
 #include "CSSStyleSheet.h"
 #include "HTMLNames.h"
-#include "InspectorInstrumentation.h"
 #include "MutationObserverInterestGroup.h"
 #include "MutationRecord.h"
 #include "StylePropertySet.h"
@@ -89,8 +88,6 @@ public:
         PropertySetCSSStyleDeclaration* localCopyStyleDecl = s_currentDecl;
         s_currentDecl = 0;
         s_shouldNotifyInspector = false;
-        if (localCopyStyleDecl->parentElement() && localCopyStyleDecl->parentElement()->document())
-            InspectorInstrumentation::didInvalidateStyleAttr(localCopyStyleDecl->parentElement()->document(), localCopyStyleDecl->parentElement());
     }
 
     void enqueueMutationRecord()

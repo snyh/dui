@@ -34,7 +34,6 @@
 #include "Frame.h"
 #include "GroupSettings.h"
 #include "Page.h"
-#include "PageCache.h"
 #include "SecurityOrigin.h"
 #include "Settings.h"
 #include "StorageNamespace.h"
@@ -212,7 +211,6 @@ inline void PageGroup::addVisitedLink(LinkHash hash)
     if (!m_visitedLinkHashes.add(hash).isNewEntry)
         return;
     Page::visitedStateChanged(this, hash);
-    pageCache()->markPagesForVistedLinkStyleRecalc();
 }
 
 void PageGroup::addVisitedLink(const KURL& url)
@@ -237,13 +235,11 @@ void PageGroup::removeVisitedLinks()
         return;
     m_visitedLinkHashes.clear();
     Page::allVisitedStateChanged(this);
-    pageCache()->markPagesForVistedLinkStyleRecalc();
 }
 
 void PageGroup::removeAllVisitedLinks()
 {
     Page::removeAllVisitedLinks();
-    pageCache()->markPagesForVistedLinkStyleRecalc();
 }
 
 void PageGroup::setShouldTrackVisitedLinks(bool shouldTrack)
@@ -413,7 +409,6 @@ void PageGroup::captionPreferencesChanged()
 {
     for (HashSet<Page*>::iterator i = m_pages.begin(); i != m_pages.end(); ++i)
         (*i)->captionPreferencesChanged();
-    pageCache()->markPagesForCaptionPreferencesChanged();
 }
 
 CaptionUserPreferences* PageGroup::captionPreferences()

@@ -42,7 +42,6 @@
 #include "HTMLOptGroupElement.h"
 #include "HTMLOptionElement.h"
 #include "HTMLParserIdioms.h"
-#include "HTMLScriptElement.h"
 #include "HTMLStackItem.h"
 #include "HTMLTemplateElement.h"
 #include "HTMLToken.h"
@@ -74,8 +73,7 @@ static bool hasImpliedEndTag(const HTMLStackItem* item)
 
 static bool shouldUseLengthLimit(const ContainerNode* node)
 {
-    return !node->hasTagName(scriptTag)
-        && !node->hasTagName(styleTag)
+    return !node->hasTagName(styleTag)
         && !node->hasTagName(SVGNames::scriptTag);
 }
 
@@ -447,32 +445,16 @@ void HTMLConstructionSite::insertFormattingElement(AtomicHTMLToken* token)
     m_activeFormattingElements.append(currentElementRecord()->stackItem());
 }
 
-void HTMLConstructionSite::insertScriptElement(AtomicHTMLToken* token)
-{
-    // http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#already-started
-    // http://html5.org/specs/dom-parsing.html#dom-range-createcontextualfragment
-    // For createContextualFragment, the specifications say to mark it parser-inserted and already-started and later unmark them.
-    // However, we short circuit that logic to avoid the subtree traversal to find script elements since scripts can never see
-    // those flags or effects thereof.
-    const bool parserInserted = m_parserContentPolicy != AllowScriptingContentAndDoNotMarkAlreadyStarted;
-    const bool alreadyStarted = m_isParsingFragment && parserInserted;
-    RefPtr<HTMLScriptElement> element = HTMLScriptElement::create(scriptTag, ownerDocumentForCurrentNode(), parserInserted, alreadyStarted);
-    setAttributes(element.get(), token, m_parserContentPolicy);
-    if (scriptingContentIsAllowed(m_parserContentPolicy))
-        attachLater(currentNode(), element);
-    m_openElements.push(HTMLStackItem::create(element.release(), token));
-}
-
 void HTMLConstructionSite::insertForeignElement(AtomicHTMLToken* token, const AtomicString& namespaceURI)
 {
     ASSERT(token->type() == HTMLToken::StartTag);
     notImplemented(); // parseError when xmlns or xmlns:xlink are wrong.
 
-    RefPtr<Element> element = createElement(token, namespaceURI);
-    if (scriptingContentIsAllowed(m_parserContentPolicy) || !toScriptElementIfPossible(element.get()))
-        attachLater(currentNode(), element, token->selfClosing());
-    if (!token->selfClosing())
-        m_openElements.push(HTMLStackItem::create(element.release(), token, namespaceURI));
+    //RefPtr<Element> element = createElement(token, namespaceURI);
+    //if (scriptingContentIsAllowed(m_parserContentPolicy) || !toScriptElementIfPossible(element.get()))
+        //attachLater(currentNode(), element, token->selfClosing());
+    //if (!token->selfClosing())
+        //m_openElements.push(HTMLStackItem::create(element.release(), token, namespaceURI));
 }
 
 void HTMLConstructionSite::insertTextNode(const String& characters, WhitespaceMode whitespaceMode)

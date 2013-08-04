@@ -41,8 +41,6 @@
 #include "ScriptValue.h"
 #include "Settings.h"
 #include "Text.h"
-#include "XMLViewerCSS.h"
-#include "XMLViewerJS.h"
 
 using namespace std;
 
@@ -73,15 +71,7 @@ bool XMLTreeViewer::hasNoStyleInformation() const
 void XMLTreeViewer::transformDocumentToTreeView()
 {
     m_document->setIsViewSource(true);
-    String scriptString(reinterpret_cast<const char*>(XMLViewer_js), sizeof(XMLViewer_js));
-    m_document->frame()->script()->evaluate(ScriptSourceCode(scriptString));
     String noStyleMessage("This XML file does not appear to have any style information associated with it. The document tree is shown below.");
-    m_document->frame()->script()->evaluate(ScriptSourceCode("prepareWebKitXMLViewer('" + noStyleMessage + "');"));
-
-    String cssString(reinterpret_cast<const char*>(XMLViewer_css), sizeof(XMLViewer_css));
-    RefPtr<Text> text = m_document->createTextNode(cssString);
-    m_document->getElementById("xml-viewer-style")->appendChild(text, IGNORE_EXCEPTION);
-    m_document->styleResolverChanged(RecalcStyleImmediately);
 }
 
 } // namespace WebCore

@@ -27,7 +27,6 @@
 #define ApplicationCacheStorage_h
 
 #include "SecurityOriginHash.h"
-#include "SQLiteDatabase.h"
 #include <wtf/HashCountedSet.h>
 #include <wtf/HashSet.h>
 #include <wtf/text/StringHash.h>
@@ -122,9 +121,6 @@ private:
     
     void openDatabase(bool createIfDoesNotExist);
     
-    bool executeStatement(SQLiteStatement&);
-    bool executeSQLCommand(const String&);
-
     void checkForMaxSizeReached();
     void checkForDeletedResources();
     long long flatFileAreaSize();
@@ -136,8 +132,6 @@ private:
     bool m_isMaximumSizeReached;
 
     int64_t m_defaultOriginQuota;
-
-    SQLiteDatabase m_database;
 
     // In order to quickly determine if a given resource exists in an application cache,
     // we keep a hash set of the hosts of the manifest URLs of all non-obsolete cache groups.

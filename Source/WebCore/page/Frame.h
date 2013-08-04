@@ -33,7 +33,6 @@
 #include "FrameLoader.h"
 #include "FrameTree.h"
 #include "IntRect.h"
-#include "NavigationScheduler.h"
 #include "ScrollTypes.h"
 #include "UserScriptTypes.h"
 #include <wtf/RefCounted.h>
@@ -67,7 +66,6 @@ namespace WebCore {
     class RegularExpression;
     class RenderPart;
     class RenderView;
-    class ScriptController;
     class Settings;
     class TiledBackingStore;
     class TreeScope;
@@ -116,11 +114,9 @@ namespace WebCore {
         Editor& editor() const;
         EventHandler* eventHandler() const;
         FrameLoader* loader() const;
-        NavigationScheduler* navigationScheduler() const;
         FrameSelection* selection() const;
         FrameTree* tree() const;
         AnimationController* animation() const;
-        ScriptController* script();
         
         RenderView* contentRenderer() const; // Root of the render tree for the document contained in this frame.
         RenderPart* ownerRenderer() const; // Renderer for the element that contains this frame.
@@ -133,8 +129,6 @@ namespace WebCore {
 
         bool inScope(TreeScope*) const;
 
-        void injectUserScripts(UserScriptInjectionTime);
-        
         String layerTreeAsText(LayerTreeFlags = 0) const;
         String trackedRepaintRectsAsText() const;
 
@@ -204,20 +198,16 @@ namespace WebCore {
     private:
         Frame(Page*, HTMLFrameOwnerElement*, FrameLoaderClient*);
 
-        void injectUserScriptsForWorld(DOMWrapperWorld*, const UserScriptVector&, UserScriptInjectionTime);
-
         HashSet<FrameDestructionObserver*> m_destructionObservers;
 
         Page* m_page;
         mutable FrameTree m_treeNode;
         mutable FrameLoader m_loader;
-        mutable NavigationScheduler m_navigationScheduler;
 
         HTMLFrameOwnerElement* m_ownerElement;
         RefPtr<FrameView> m_view;
         RefPtr<Document> m_doc;
 
-        OwnPtr<ScriptController> m_script;
         const OwnPtr<Editor> m_editor;
         OwnPtr<FrameSelection> m_selection;
         OwnPtr<EventHandler> m_eventHandler;
@@ -264,19 +254,9 @@ namespace WebCore {
         return &m_loader;
     }
 
-    inline NavigationScheduler* Frame::navigationScheduler() const
-    {
-        return &m_navigationScheduler;
-    }
-
     inline FrameView* Frame::view() const
     {
         return m_view.get();
-    }
-
-    inline ScriptController* Frame::script()
-    {
-        return m_script.get();
     }
 
     inline Document* Frame::document() const

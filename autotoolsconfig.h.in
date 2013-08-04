@@ -5,17 +5,11 @@
 #define __AUTOTOOLSCONFIG_H__ 1
 
 
-/* */
-#undef ENABLE_CREDENTIAL_STORAGE
-
 /* Define to enable Opcode statistics */
 #undef ENABLE_OPCODE_STATS
 
 /* */
 #undef ENABLE_PLUGIN_PROCESS
-
-/* */
-#undef ENABLE_SPELLCHECK
 
 /* */
 #undef GDK_DISABLE_DEPRECATED

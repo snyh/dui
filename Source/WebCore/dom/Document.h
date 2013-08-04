@@ -36,7 +36,6 @@
 #include "FocusDirection.h"
 #include "HitTestRequest.h"
 #include "IconURL.h"
-#include "InspectorCounters.h"
 #include "MutationObserver.h"
 #include "PageVisibilityState.h"
 #include "PlatformScreen.h"
@@ -104,7 +103,6 @@ class HTMLHeadElement;
 class HTMLIFrameElement;
 class HTMLMapElement;
 class HTMLNameCollection;
-class HTMLScriptElement;
 class HitTestRequest;
 class HitTestResult;
 class IntPoint;
@@ -437,7 +435,6 @@ public:
     bool isXHTMLDocument() const { return m_documentClasses & XHTMLDocumentClass; }
     bool isImageDocument() const { return m_documentClasses & ImageDocumentClass; }
     bool isSVGDocument() const { return m_documentClasses & SVGDocumentClass; }
-    bool isPluginDocument() const { return m_documentClasses & PluginDocumentClass; }
     bool isMediaDocument() const { return m_documentClasses & MediaDocumentClass; }
 #if ENABLE(SVG)
     bool hasSVGRootNode() const;
@@ -876,12 +873,6 @@ public:
     Document* parentDocument() const;
     Document* topDocument() const;
     
-    ScriptRunner* scriptRunner() { return m_scriptRunner.get(); }
-
-    HTMLScriptElement* currentScript() const { return !m_currentScriptStack.isEmpty() ? m_currentScriptStack.last().get() : 0; }
-    void pushCurrentScript(PassRefPtr<HTMLScriptElement>);
-    void popCurrentScript();
-
 #if ENABLE(XSLT)
     void applyXSLTransform(ProcessingInstruction* pi);
     PassRefPtr<Document> transformSourceDocument() { return m_transformSourceDocument; }
@@ -1089,7 +1080,6 @@ public:
 #endif
 
     virtual EventTarget* errorEventTarget();
-    virtual void logExceptionToConsole(const String& errorMessage, const String& sourceURL, int lineNumber, int columnNumber, PassRefPtr<ScriptCallStack>);
 
     void initDNSPrefetch();
 
@@ -1194,8 +1184,6 @@ public:
 #if ENABLE(FONT_LOAD_EVENTS)
     PassRefPtr<FontLoader> fontloader();
 #endif
-
-    void ensurePlugInsInjectedScript(DOMWrapperWorld*);
 
     void setVisualUpdatesAllowedByClient(bool);
 
@@ -1407,10 +1395,6 @@ private:
     double m_startTime;
     bool m_overMinimumLayoutThreshold;
     
-    OwnPtr<ScriptRunner> m_scriptRunner;
-
-    Vector<RefPtr<HTMLScriptElement> > m_currentScriptStack;
-
 #if ENABLE(XSLT)
     OwnPtr<TransformSource> m_transformSource;
     RefPtr<Document> m_transformSourceDocument;
@@ -1566,8 +1550,6 @@ private:
 
     Timer<Document> m_didAssociateFormControlsTimer;
     HashSet<RefPtr<Element> > m_associatedFormControls;
-
-    bool m_hasInjectedPlugInsScript;
 };
 
 inline void Document::notifyRemovePendingSheetIfNeeded()
@@ -1635,7 +1617,6 @@ inline Node::Node(Document* document, ConstructionType type)
 #if !defined(NDEBUG) || (defined(DUMP_NODE_STATISTICS) && DUMP_NODE_STATISTICS)
     trackForDebugging();
 #endif
-    InspectorCounters::incrementCounter(InspectorCounters::NodeCounter);
 }
 
 Node* eventTargetNodeForDocument(Document*);

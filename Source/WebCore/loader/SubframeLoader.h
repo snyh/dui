@@ -62,16 +62,12 @@ public:
     void clear();
 
     bool requestFrame(HTMLFrameOwnerElement*, const String& url, const AtomicString& frameName, bool lockHistory = true, bool lockBackForwardList = true);    
-    bool requestObject(HTMLPlugInImageElement*, const String& url, const AtomicString& frameName,
-        const String& serviceType, const Vector<String>& paramNames, const Vector<String>& paramValues);
 
 #if ENABLE(PLUGIN_PROXY_FOR_VIDEO)
     // FIXME: This should take Element* instead of Node*, or better yet the
     // specific type of Element which this code depends on.
     PassRefPtr<Widget> loadMediaPlayerProxyPlugin(Node*, const KURL&, const Vector<String>& paramNames, const Vector<String>& paramValues);
 #endif
-
-    PassRefPtr<Widget> createJavaAppletWidget(const IntSize&, HTMLAppletElement*, const Vector<String>& paramNames, const Vector<String>& paramValues);
 
     bool allowPlugins(ReasonForCallingAllowPlugins);
 
@@ -80,14 +76,10 @@ public:
     bool resourceWillUsePlugin(const String& url, const String& mimeType, bool shouldPreferPlugInsForImages);
 
 private:
-    bool requestPlugin(HTMLPlugInImageElement*, const KURL&, const String& serviceType, const Vector<String>& paramNames, const Vector<String>& paramValues, bool useFallback);
     Frame* loadOrRedirectSubframe(HTMLFrameOwnerElement*, const KURL&, const AtomicString& frameName, bool lockHistory, bool lockBackForwardList);
     Frame* loadSubframe(HTMLFrameOwnerElement*, const KURL&, const String& name, const String& referrer);
-    bool loadPlugin(HTMLPlugInImageElement*, const KURL&, const String& mimeType,
-        const Vector<String>& paramNames, const Vector<String>& paramValues, bool useFallback);
 
     bool shouldUsePlugin(const KURL&, const String& mimeType, bool shouldPreferPlugInsForImages, bool hasFallback, bool& useFallback);
-    bool pluginIsLoadable(HTMLPlugInImageElement*, const KURL&, const String& mimeType);
 
     Document* document() const;
 

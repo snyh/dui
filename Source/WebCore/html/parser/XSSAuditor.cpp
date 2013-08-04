@@ -37,7 +37,6 @@
 #include "HTMLNames.h"
 #include "HTMLParamElement.h"
 #include "HTMLParserIdioms.h"
-#include "InspectorValues.h"
 #include "KURL.h"
 #include "Settings.h"
 #include "TextEncoding.h"
@@ -349,18 +348,8 @@ bool XSSAuditor::filterStartToken(const FilterTokenRequest& request)
 {
     bool didBlockScript = eraseDangerousAttributesIfInjected(request);
 
-    if (hasName(request.token, scriptTag)) {
-        didBlockScript |= filterScriptToken(request);
-        ASSERT(request.shouldAllowCDATA || !m_scriptTagNestingLevel);
-        m_scriptTagNestingLevel++;
-    } else if (hasName(request.token, objectTag))
-        didBlockScript |= filterObjectToken(request);
-    else if (hasName(request.token, paramTag))
+    if (hasName(request.token, paramTag))
         didBlockScript |= filterParamToken(request);
-    else if (hasName(request.token, embedTag))
-        didBlockScript |= filterEmbedToken(request);
-    else if (hasName(request.token, appletTag))
-        didBlockScript |= filterAppletToken(request);
     else if (hasName(request.token, iframeTag))
         didBlockScript |= filterIframeToken(request);
     else if (hasName(request.token, metaTag))
@@ -379,11 +368,6 @@ bool XSSAuditor::filterStartToken(const FilterTokenRequest& request)
 
 void XSSAuditor::filterEndToken(const FilterTokenRequest& request)
 {
-    ASSERT(m_scriptTagNestingLevel);
-    if (hasName(request.token, scriptTag)) {
-        m_scriptTagNestingLevel--;
-        ASSERT(request.shouldAllowCDATA || !m_scriptTagNestingLevel);
-    }
 }
 
 bool XSSAuditor::filterCharacterToken(const FilterTokenRequest& request)
@@ -399,24 +383,12 @@ bool XSSAuditor::filterCharacterToken(const FilterTokenRequest& request)
 
 bool XSSAuditor::filterScriptToken(const FilterTokenRequest& request)
 {
-    ASSERT(request.token.type() == HTMLToken::StartTag);
-    ASSERT(hasName(request.token, scriptTag));
-
-    m_cachedDecodedSnippet = decodedSnippetForName(request);
-
-    bool didBlockScript = false;
-    if (isContainedInRequest(decodedSnippetForName(request))) {
-        didBlockScript |= eraseAttributeIfInjected(request, srcAttr, blankURL().string(), SrcLikeAttribute);
-        didBlockScript |= eraseAttributeIfInjected(request, XLinkNames::hrefAttr, blankURL().string(), SrcLikeAttribute);
-    }
-
-    return didBlockScript;
+    return false;
 }
 
 bool XSSAuditor::filterObjectToken(const FilterTokenRequest& request)
 {
     ASSERT(request.token.type() == HTMLToken::StartTag);
-    ASSERT(hasName(request.token, objectTag));
 
     bool didBlockScript = false;
     if (isContainedInRequest(decodedSnippetForName(request))) {
@@ -460,7 +432,6 @@ bool XSSAuditor::filterEmbedToken(const FilterTokenRequest& request)
 bool XSSAuditor::filterAppletToken(const FilterTokenRequest& request)
 {
     ASSERT(request.token.type() == HTMLToken::StartTag);
-    ASSERT(hasName(request.token, appletTag));
 
     bool didBlockScript = false;
     if (isContainedInRequest(decodedSnippetForName(request))) {

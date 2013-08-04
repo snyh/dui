@@ -31,7 +31,6 @@
 #include "Document.h"
 #include "DocumentLoader.h"
 #include "FrameView.h"
-#include "InspectorInstrumentation.h"
 #include "RequestAnimationFrameCallback.h"
 #include "Settings.h"
 
@@ -105,8 +104,6 @@ ScriptedAnimationController::CallbackId ScriptedAnimationController::registerCal
     callback->m_id = id;
     m_callbacks.append(callback);
 
-    InspectorInstrumentation::didRequestAnimationFrame(m_document, id);
-
     if (!m_suspendCount)
         scheduleAnimation();
     return id;
@@ -117,7 +114,6 @@ void ScriptedAnimationController::cancelCallback(CallbackId id)
     for (size_t i = 0; i < m_callbacks.size(); ++i) {
         if (m_callbacks[i]->m_id == id) {
             m_callbacks[i]->m_firedOrCancelled = true;
-            InspectorInstrumentation::didCancelAnimationFrame(m_document, id);
             m_callbacks.remove(i);
             return;
         }
@@ -144,12 +140,10 @@ void ScriptedAnimationController::serviceScriptedAnimations(double monotonicTime
         RequestAnimationFrameCallback* callback = callbacks[i].get();
         if (!callback->m_firedOrCancelled) {
             callback->m_firedOrCancelled = true;
-            InspectorInstrumentationCookie cookie = InspectorInstrumentation::willFireAnimationFrame(m_document, callback->m_id);
             if (callback->m_useLegacyTimeBase)
                 callback->handleEvent(legacyHighResNowMs);
             else
                 callback->handleEvent(highResNowMs);
-            InspectorInstrumentation::didFireAnimationFrame(cookie);
         }
     }
 

@@ -25,7 +25,6 @@
 #include "Document.h"
 #include "Frame.h"
 #include "HTMLFrameOwnerElement.h"
-#include "InspectorInstrumentation.h"
 #include "NodeTraversal.h"
 #include <wtf/Assertions.h>
 
@@ -214,10 +213,6 @@ inline void ChildNodeInsertionNotifier::notifyNodeInsertedIntoTree(ContainerNode
 inline void ChildNodeInsertionNotifier::notify(Node* node)
 {
     ASSERT(!NoEventDispatchAssertion::isEventDispatchForbidden());
-
-#if ENABLE(INSPECTOR)
-    InspectorInstrumentation::didInsertDOMNode(node->document(), node);
-#endif
 
     RefPtr<Document> protectDocument(node->document());
     RefPtr<Node> protectNode(node);

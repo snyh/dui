@@ -44,7 +44,6 @@
 #include "MessagePort.h"
 #include "NotImplemented.h"
 #include "ScheduledAction.h"
-#include "ScriptCallStack.h"
 #include "ScriptSourceCode.h"
 #include "ScriptValue.h"
 #include "SecurityOrigin.h"
@@ -256,8 +255,6 @@ void WorkerGlobalScope::importScripts(const Vector<String>& urls, ExceptionCode&
             return;
         }
 
-        InspectorInstrumentation::scriptImported(scriptExecutionContext(), scriptLoader->identifier(), scriptLoader->script());
-
         ScriptValue exception;
         m_script->evaluate(ScriptSourceCode(scriptLoader->script(), scriptLoader->responseURL()), &exception);
         if (!exception.hasNoValue()) {
@@ -272,11 +269,6 @@ EventTarget* WorkerGlobalScope::errorEventTarget()
     return this;
 }
 
-void WorkerGlobalScope::logExceptionToConsole(const String& errorMessage, const String& sourceURL, int lineNumber, int columnNumber, PassRefPtr<ScriptCallStack>)
-{
-    thread()->workerReportingProxy().postExceptionToWorkerObject(errorMessage, lineNumber, columnNumber, sourceURL);
-}
-
 void WorkerGlobalScope::addConsoleMessage(MessageSource source, MessageLevel level, const String& message, unsigned long requestIdentifier)
 {
     if (!isContextThread()) {
@@ -286,26 +278,6 @@ void WorkerGlobalScope::addConsoleMessage(MessageSource source, MessageLevel lev
 
     thread()->workerReportingProxy().postConsoleMessageToWorkerObject(source, level, message, 0, 0, String());
     addMessageToWorkerConsole(source, level, message, String(), 0, 0, 0, 0, requestIdentifier);
-}
-
-void WorkerGlobalScope::addMessage(MessageSource source, MessageLevel level, const String& message, const String& sourceURL, unsigned lineNumber, unsigned columnNumber, PassRefPtr<ScriptCallStack> callStack, ScriptState* state, unsigned long requestIdentifier)
-{
-    if (!isContextThread()) {
-        postTask(AddConsoleMessageTask::create(source, level, message));
-        return;
-    }
-
-    thread()->workerReportingProxy().postConsoleMessageToWorkerObject(source, level, message, lineNumber, columnNumber, sourceURL);
-    addMessageToWorkerConsole(source, level, message, sourceURL, lineNumber, columnNumber, callStack, state, requestIdentifier);
-}
-
-void WorkerGlobalScope::addMessageToWorkerConsole(MessageSource source, MessageLevel level, const String& message, const String& sourceURL, unsigned lineNumber, unsigned columnNumber, PassRefPtr<ScriptCallStack> callStack, ScriptState* state, unsigned long requestIdentifier)
-{
-    ASSERT(isContextThread());
-    if (callStack)
-        InspectorInstrumentation::addMessageToConsole(this, source, LogMessageType, level, message, callStack, requestIdentifier);
-    else
-        InspectorInstrumentation::addMessageToConsole(this, source, LogMessageType, level, message, sourceURL, lineNumber, columnNumber, state, requestIdentifier);
 }
 
 bool WorkerGlobalScope::isContextThread() const

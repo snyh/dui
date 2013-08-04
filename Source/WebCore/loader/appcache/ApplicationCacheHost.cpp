@@ -26,6 +26,7 @@
 #include "config.h"
 #include "ApplicationCacheHost.h"
 
+#include "ExceptionCodePlaceholder.h"
 #include "ApplicationCache.h"
 #include "ApplicationCacheGroup.h"
 #include "ApplicationCacheResource.h"
@@ -34,7 +35,6 @@
 #include "Frame.h"
 #include "FrameLoader.h"
 #include "FrameLoaderClient.h"
-#include "InspectorInstrumentation.h"
 #include "ProgressEvent.h"
 #include "ResourceHandle.h"
 #include "ResourceLoader.h"
@@ -244,9 +244,6 @@ void ApplicationCacheHost::setDOMApplicationCache(DOMApplicationCache* domApplic
 
 void ApplicationCacheHost::notifyDOMApplicationCache(EventID id, int total, int done)
 {
-    if (id != PROGRESS_EVENT)
-        InspectorInstrumentation::updateApplicationCacheStatus(m_documentLoader->frame());
-
     if (m_defersEvents) {
         // Event dispatching is deferred until document.onload has fired.
         m_deferredEvents.append(DeferredEvent(id, total, done));
@@ -275,37 +272,6 @@ void ApplicationCacheHost::stopDeferringEvents()
     m_deferredEvents.clear();
     m_defersEvents = false;
 }
-
-#if ENABLE(INSPECTOR)
-void ApplicationCacheHost::fillResourceList(ResourceInfoList* resources)
-{
-    ApplicationCache* cache = applicationCache();
-    if (!cache || !cache->isComplete())
-        return;
-     
-    ApplicationCache::ResourceMap::const_iterator end = cache->end();
-    for (ApplicationCache::ResourceMap::const_iterator it = cache->begin(); it != end; ++it) {
-        RefPtr<ApplicationCacheResource> resource = it->value;
-        unsigned type = resource->type();
-        bool isMaster   = type & ApplicationCacheResource::Master;
-        bool isManifest = type & ApplicationCacheResource::Manifest;
-        bool isExplicit = type & ApplicationCacheResource::Explicit;
-        bool isForeign  = type & ApplicationCacheResource::Foreign;
-        bool isFallback = type & ApplicationCacheResource::Fallback;
-        resources->append(ResourceInfo(resource->url(), isMaster, isManifest, isFallback, isForeign, isExplicit, resource->estimatedSizeInStorage()));
-    }
-}
- 
-ApplicationCacheHost::CacheInfo ApplicationCacheHost::applicationCacheInfo()
-{
-    ApplicationCache* cache = applicationCache();
-    if (!cache || !cache->isComplete())
-        return CacheInfo(KURL(), 0, 0, 0);
-  
-    // FIXME: Add "Creation Time" and "Update Time" to Application Caches.
-    return CacheInfo(cache->manifestResource()->url(), 0, 0, cache->estimatedSizeInStorage());
-}
-#endif
 
 void ApplicationCacheHost::dispatchDOMEvent(EventID id, int total, int done)
 {
@@ -456,7 +422,6 @@ bool ApplicationCacheHost::swapCache()
     
     ASSERT(cache->group() == newestCache->group());
     setApplicationCache(newestCache);
-    InspectorInstrumentation::updateApplicationCacheStatus(m_documentLoader->frame());
     return true;
 }
 

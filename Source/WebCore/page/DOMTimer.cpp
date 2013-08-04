@@ -27,7 +27,6 @@
 #include "config.h"
 #include "DOMTimer.h"
 
-#include "InspectorInstrumentation.h"
 #include "ScheduledAction.h"
 #include "ScriptExecutionContext.h"
 #include "UserGestureIndicator.h"
@@ -85,7 +84,6 @@ int DOMTimer::install(ScriptExecutionContext* context, PassOwnPtr<ScheduledActio
     DOMTimer* timer = new DOMTimer(context, action, timeout, singleShot);
 
     timer->suspendIfNeeded();
-    InspectorInstrumentation::didInstallTimer(context, timer->m_timeoutId, timeout, singleShot);
 
     return timer->m_timeoutId;
 }
@@ -97,8 +95,6 @@ void DOMTimer::removeById(ScriptExecutionContext* context, int timeoutId)
     // respectively
     if (timeoutId <= 0)
         return;
-
-    InspectorInstrumentation::didRemoveTimer(context, timeoutId);
 
     delete context->findTimeout(timeoutId);
 }
@@ -112,8 +108,6 @@ void DOMTimer::fired()
     // Only the first execution of a multi-shot timer should get an affirmative user gesture indicator.
     m_shouldForwardUserGesture = false;
 
-    InspectorInstrumentationCookie cookie = InspectorInstrumentation::willFireTimer(context, m_timeoutId);
-
     // Simple case for non-one-shot timers.
     if (isActive()) {
         double minimumInterval = context->minimumTimerInterval();
@@ -126,8 +120,6 @@ void DOMTimer::fired()
         // No access to member variables after this point, it can delete the timer.
         m_action->execute(context);
 
-        InspectorInstrumentation::didFireTimer(cookie);
-
         return;
     }
 
@@ -138,8 +130,6 @@ void DOMTimer::fired()
     delete this;
 
     action->execute(context);
-
-    InspectorInstrumentation::didFireTimer(cookie);
 
     timerNestingLevel = 0;
 }

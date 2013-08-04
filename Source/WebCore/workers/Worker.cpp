@@ -41,7 +41,6 @@
 #include "FeatureObserver.h"
 #include "Frame.h"
 #include "FrameLoader.h"
-#include "InspectorInstrumentation.h"
 #include "MessageEvent.h"
 #include "TextEncoding.h"
 #include "WorkerGlobalScopeProxy.h"
@@ -134,7 +133,6 @@ bool Worker::hasPendingActivity() const
 
 void Worker::didReceiveResponse(unsigned long identifier, const ResourceResponse&)
 {
-    InspectorInstrumentation::didReceiveScriptResponse(scriptExecutionContext(), identifier);
 }
 
 void Worker::notifyFinished()
@@ -143,10 +141,7 @@ void Worker::notifyFinished()
         dispatchEvent(Event::create(eventNames().errorEvent, false, true));
     else {
         WorkerThreadStartMode startMode = DontPauseWorkerGlobalScopeOnStart;
-        if (InspectorInstrumentation::shouldPauseDedicatedWorkerOnStart(scriptExecutionContext()))
-            startMode = PauseWorkerGlobalScopeOnStart;
         m_contextProxy->startWorkerGlobalScope(m_scriptLoader->url(), scriptExecutionContext()->userAgent(m_scriptLoader->url()), m_scriptLoader->script(), startMode);
-        InspectorInstrumentation::scriptImported(scriptExecutionContext(), m_scriptLoader->identifier(), m_scriptLoader->script());
     }
     m_scriptLoader = nullptr;
 
