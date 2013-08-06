@@ -28,9 +28,9 @@
 
 #if ENABLE(JIT)
 
-#include "Executable.h"
-#include "JSInterfaceJIT.h"
-#include "LinkBuffer.h"
+#include "runtime/Executable.h"
+#include "jit/JSInterfaceJIT.h"
+#include "assembler/LinkBuffer.h"
 
 namespace JSC {
 

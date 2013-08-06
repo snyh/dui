@@ -22,9 +22,9 @@
 
 #if ENABLE(VIDEO) && USE(GSTREAMER)
 
-#include "BitmapImage.h"
-#include "FloatRect.h"
-#include "GStreamerVersioning.h"
+#include "platform/graphics/BitmapImage.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/gstreamer/GStreamerVersioning.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>

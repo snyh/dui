@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "ProgressTracker.h"
+#include "loader/ProgressTracker.h"
 
-#include "DocumentLoader.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderStateMachine.h"
-#include "FrameLoaderClient.h"
-#include "Logging.h"
-#include "ResourceResponse.h"
+#include "loader/DocumentLoader.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderStateMachine.h"
+#include "loader/FrameLoaderClient.h"
+#include "platform/Logging.h"
+#include "platform/network/soup/ResourceResponse.h"
 #include <wtf/text/CString.h>
 #include <wtf/CurrentTime.h>
 

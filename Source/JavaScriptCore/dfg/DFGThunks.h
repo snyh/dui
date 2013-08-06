@@ -30,7 +30,7 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "MacroAssemblerCodeRef.h"
+#include "assembler/MacroAssemblerCodeRef.h"
 
 namespace JSC {
 

@@ -28,17 +28,17 @@
 
 #if ENABLE(MATHML)
 
-#include "MathMLInlineContainerElement.h"
+#include "mathml/MathMLInlineContainerElement.h"
 
 #include "MathMLNames.h"
-#include "RenderMathMLBlock.h"
-#include "RenderMathMLFenced.h"
-#include "RenderMathMLFraction.h"
-#include "RenderMathMLRoot.h"
-#include "RenderMathMLRow.h"
-#include "RenderMathMLSquareRoot.h"
-#include "RenderMathMLSubSup.h"
-#include "RenderMathMLUnderOver.h"
+#include "rendering/mathml/RenderMathMLBlock.h"
+#include "rendering/mathml/RenderMathMLFenced.h"
+#include "rendering/mathml/RenderMathMLFraction.h"
+#include "rendering/mathml/RenderMathMLRoot.h"
+#include "rendering/mathml/RenderMathMLRow.h"
+#include "rendering/mathml/RenderMathMLSquareRoot.h"
+#include "rendering/mathml/RenderMathMLSubSup.h"
+#include "rendering/mathml/RenderMathMLUnderOver.h"
 
 namespace WebCore {
     

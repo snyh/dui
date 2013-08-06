@@ -26,12 +26,12 @@
 #ifndef DFGCapabilities_h
 #define DFGCapabilities_h
 
-#include "Intrinsic.h"
-#include "DFGCommon.h"
-#include "DFGNode.h"
-#include "Executable.h"
-#include "Options.h"
-#include "Interpreter.h"
+#include "runtime/Intrinsic.h"
+#include "dfg/DFGCommon.h"
+#include "dfg/DFGNode.h"
+#include "runtime/Executable.h"
+#include "runtime/Options.h"
+#include "interpreter/Interpreter.h"
 #include <wtf/Platform.h>
 
 namespace JSC { namespace DFG {

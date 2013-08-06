@@ -19,7 +19,7 @@
 #ifndef WidgetBackingStoreGtkX11_h
 #define WidgetBackingStoreGtkX11_h
 
-#include "WidgetBackingStore.h"
+#include "platform/cairo/WidgetBackingStore.h"
 
 #include <X11/Xlib.h>
 

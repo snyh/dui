@@ -26,13 +26,13 @@
 #ifndef WebGLRenderingContext_h
 #define WebGLRenderingContext_h
 
-#include "ActiveDOMObject.h"
-#include "CanvasRenderingContext.h"
-#include "DrawingBuffer.h"
-#include "GraphicsContext3D.h"
-#include "ImageBuffer.h"
-#include "Timer.h"
-#include "WebGLGetInfo.h"
+#include "dom/ActiveDOMObject.h"
+#include "html/canvas/CanvasRenderingContext.h"
+#include "platform/graphics/gpu/DrawingBuffer.h"
+#include "platform/graphics/GraphicsContext3D.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "platform/Timer.h"
+#include "html/canvas/WebGLGetInfo.h"
 
 #include <wtf/Float32Array.h>
 #include <wtf/Int32Array.h>

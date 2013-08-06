@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "JSWithScope.h"
+#include "runtime/JSWithScope.h"
 
-#include "Operations.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

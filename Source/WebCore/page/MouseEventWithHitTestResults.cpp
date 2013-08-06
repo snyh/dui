@@ -18,10 +18,10 @@
 */
 
 #include "config.h"
-#include "MouseEventWithHitTestResults.h"
+#include "page/MouseEventWithHitTestResults.h"
 
-#include "Element.h"
-#include "Node.h"
+#include "dom/Element.h"
+#include "dom/Node.h"
 
 // Would TargetedMouseEvent be a better name?
 

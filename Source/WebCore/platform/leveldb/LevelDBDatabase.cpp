@@ -24,17 +24,17 @@
  */
 
 #include "config.h"
-#include "LevelDBDatabase.h"
+#include "platform/leveldb/LevelDBDatabase.h"
 
 #if USE(LEVELDB)
 
-#include "HistogramSupport.h"
-#include "LevelDBComparator.h"
-#include "LevelDBIterator.h"
-#include "LevelDBSlice.h"
-#include "LevelDBWriteBatch.h"
-#include "Logging.h"
-#include "NotImplemented.h"
+#include "platform/HistogramSupport.h"
+#include "platform/leveldb/LevelDBComparator.h"
+#include "platform/leveldb/LevelDBIterator.h"
+#include "platform/leveldb/LevelDBSlice.h"
+#include "platform/leveldb/LevelDBWriteBatch.h"
+#include "platform/Logging.h"
+#include "platform/NotImplemented.h"
 #include <helpers/memenv/memenv.h>
 #include <leveldb/comparator.h>
 #include <leveldb/db.h>

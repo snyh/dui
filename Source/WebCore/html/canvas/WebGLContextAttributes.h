@@ -27,8 +27,8 @@
 #ifndef WebGLContextAttributes_h
 #define WebGLContextAttributes_h
 
-#include "CanvasContextAttributes.h"
-#include "GraphicsContext3D.h"
+#include "html/canvas/CanvasContextAttributes.h"
+#include "platform/graphics/GraphicsContext3D.h"
 #include <wtf/PassRefPtr.h>
 
 namespace WebCore {

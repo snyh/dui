@@ -22,25 +22,25 @@
  */
 
 #include "config.h"
-#include "MediaPlayerPrivateGStreamerBase.h"
+#include "platform/graphics/gstreamer/MediaPlayerPrivateGStreamerBase.h"
 
 #if ENABLE(VIDEO) && USE(GSTREAMER)
 
-#include "ColorSpace.h"
-#include "FullscreenVideoControllerGStreamer.h"
-#include "GStreamerGWorld.h"
-#include "GStreamerUtilities.h"
-#include "GStreamerVersioning.h"
-#include "GraphicsContext.h"
-#include "GraphicsTypes.h"
-#include "ImageGStreamer.h"
-#include "ImageOrientation.h"
-#include "IntRect.h"
-#include "Logging.h"
-#include "MediaPlayer.h"
-#include "NotImplemented.h"
-#include "VideoSinkGStreamer.h"
-#include "WebKitWebSourceGStreamer.h"
+#include "platform/graphics/ColorSpace.h"
+#include "platform/graphics/gstreamer/FullscreenVideoControllerGStreamer.h"
+#include "platform/graphics/gstreamer/GStreamerGWorld.h"
+#include "platform/graphics/gstreamer/GStreamerUtilities.h"
+#include "platform/graphics/gstreamer/GStreamerVersioning.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/GraphicsTypes.h"
+#include "platform/graphics/gstreamer/ImageGStreamer.h"
+#include "platform/graphics/ImageOrientation.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/Logging.h"
+#include "platform/graphics/MediaPlayer.h"
+#include "platform/NotImplemented.h"
+#include "platform/graphics/gstreamer/VideoSinkGStreamer.h"
+#include "platform/graphics/gstreamer/WebKitWebSourceGStreamer.h"
 #include <gst/gst.h>
 #include <gst/video/video.h>
 #include <wtf/text/CString.h>
@@ -52,7 +52,7 @@
 #endif
 
 #if GST_CHECK_VERSION(1, 1, 0) && USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER_GL)
-#include "TextureMapperGL.h"
+#include "platform/graphics/texmap/TextureMapperGL.h"
 #endif
 
 GST_DEBUG_CATEGORY(webkit_media_player_debug);

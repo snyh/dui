@@ -33,10 +33,10 @@
  */
 
 #include "config.h"
-#include "CanvasPathMethods.h"
+#include "html/canvas/CanvasPathMethods.h"
 
-#include "ExceptionCode.h"
-#include "FloatRect.h"
+#include "dom/ExceptionCode.h"
+#include "platform/graphics/FloatRect.h"
 #include <wtf/MathExtras.h>
 
 namespace WebCore {

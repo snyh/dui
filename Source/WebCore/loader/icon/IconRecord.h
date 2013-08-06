@@ -29,8 +29,8 @@
 #ifndef IconRecord_h
 #define IconRecord_h
 
-#include "PageURLRecord.h"
-#include "SharedBuffer.h"
+#include "loader/icon/PageURLRecord.h"
+#include "platform/SharedBuffer.h"
 #include <wtf/HashSet.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/RefCounted.h>

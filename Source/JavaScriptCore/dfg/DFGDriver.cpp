@@ -24,33 +24,33 @@
  */
 
 #include "config.h"
-#include "DFGDriver.h"
+#include "dfg/DFGDriver.h"
 
-#include "JSObject.h"
-#include "JSString.h"
+#include "runtime/JSObject.h"
+#include "runtime/JSString.h"
 
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGArgumentsSimplificationPhase.h"
-#include "DFGBackwardsPropagationPhase.h"
-#include "DFGByteCodeParser.h"
-#include "DFGCFAPhase.h"
-#include "DFGCFGSimplificationPhase.h"
-#include "DFGCPSRethreadingPhase.h"
-#include "DFGCSEPhase.h"
-#include "DFGConstantFoldingPhase.h"
-#include "DFGDCEPhase.h"
-#include "DFGFixupPhase.h"
-#include "DFGJITCompiler.h"
-#include "DFGPredictionInjectionPhase.h"
-#include "DFGPredictionPropagationPhase.h"
-#include "DFGTypeCheckHoistingPhase.h"
-#include "DFGUnificationPhase.h"
-#include "DFGValidate.h"
-#include "DFGVirtualRegisterAllocationPhase.h"
-#include "Operations.h"
-#include "Options.h"
+#include "dfg/DFGArgumentsSimplificationPhase.h"
+#include "dfg/DFGBackwardsPropagationPhase.h"
+#include "dfg/DFGByteCodeParser.h"
+#include "dfg/DFGCFAPhase.h"
+#include "dfg/DFGCFGSimplificationPhase.h"
+#include "dfg/DFGCPSRethreadingPhase.h"
+#include "dfg/DFGCSEPhase.h"
+#include "dfg/DFGConstantFoldingPhase.h"
+#include "dfg/DFGDCEPhase.h"
+#include "dfg/DFGFixupPhase.h"
+#include "dfg/DFGJITCompiler.h"
+#include "dfg/DFGPredictionInjectionPhase.h"
+#include "dfg/DFGPredictionPropagationPhase.h"
+#include "dfg/DFGTypeCheckHoistingPhase.h"
+#include "dfg/DFGUnificationPhase.h"
+#include "dfg/DFGValidate.h"
+#include "dfg/DFGVirtualRegisterAllocationPhase.h"
+#include "runtime/Operations.h"
+#include "runtime/Options.h"
 
 namespace JSC { namespace DFG {
 

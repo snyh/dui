@@ -28,7 +28,7 @@
 
 #if USE(LEVELDB)
 
-#include "LevelDBSlice.h"
+#include "platform/leveldb/LevelDBSlice.h"
 
 namespace WebCore {
 

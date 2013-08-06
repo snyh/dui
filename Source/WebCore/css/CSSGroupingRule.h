@@ -23,8 +23,8 @@
 #ifndef CSSGroupingRule_h
 #define CSSGroupingRule_h
 
-#include "CSSRule.h"
-#include "StyleRule.h"
+#include "css/CSSRule.h"
+#include "css/StyleRule.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

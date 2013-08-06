@@ -23,7 +23,7 @@
 #ifndef HTMLUListElement_h
 #define HTMLUListElement_h
 
-#include "HTMLElement.h"
+#include "html/HTMLElement.h"
 
 namespace WebCore {
 

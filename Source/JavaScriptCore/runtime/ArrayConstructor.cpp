@@ -22,17 +22,17 @@
  */
 
 #include "config.h"
-#include "ArrayConstructor.h"
+#include "runtime/ArrayConstructor.h"
 
-#include "ArrayPrototype.h"
-#include "ButterflyInlines.h"
-#include "CopiedSpaceInlines.h"
-#include "Error.h"
-#include "ExceptionHelpers.h"
-#include "JSArray.h"
-#include "JSFunction.h"
-#include "Lookup.h"
-#include "Operations.h"
+#include "runtime/ArrayPrototype.h"
+#include "runtime/ButterflyInlines.h"
+#include "heap/CopiedSpaceInlines.h"
+#include "runtime/Error.h"
+#include "runtime/ExceptionHelpers.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSFunction.h"
+#include "runtime/Lookup.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

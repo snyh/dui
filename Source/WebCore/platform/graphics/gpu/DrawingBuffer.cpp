@@ -32,11 +32,11 @@
 
 #if ENABLE(ACCELERATED_2D_CANVAS) || USE(3D_GRAPHICS)
 
-#include "DrawingBuffer.h"
+#include "platform/graphics/gpu/DrawingBuffer.h"
 
-#include "Extensions3D.h"
-#include "GraphicsContext3D.h"
-#include "ImageData.h"
+#include "platform/graphics/Extensions3D.h"
+#include "platform/graphics/GraphicsContext3D.h"
+#include "html/ImageData.h"
 
 namespace WebCore {
 

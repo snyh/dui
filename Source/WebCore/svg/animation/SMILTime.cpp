@@ -25,7 +25,7 @@
 
 #include "config.h"
 #if ENABLE(SVG)
-#include "SMILTime.h"
+#include "svg/animation/SMILTime.h"
 
 #include <float.h>
 

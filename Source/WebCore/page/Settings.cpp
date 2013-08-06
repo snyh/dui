@@ -24,21 +24,21 @@
  */
 
 #include "config.h"
-#include "Settings.h"
+#include "page/Settings.h"
 
-#include "CachedResourceLoader.h"
-#include "CookieStorage.h"
-#include "DOMTimer.h"
-#include "Document.h"
-#include "Font.h"
-#include "FontGenericFamilies.h"
-#include "Frame.h"
-#include "FrameTree.h"
-#include "FrameView.h"
-#include "HTMLMediaElement.h"
-#include "Page.h"
-#include "StorageMap.h"
-#include "TextAutosizer.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "platform/network/CookieStorage.h"
+#include "page/DOMTimer.h"
+#include "dom/Document.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/FontGenericFamilies.h"
+#include "page/Frame.h"
+#include "page/FrameTree.h"
+#include "page/FrameView.h"
+#include "html/HTMLMediaElement.h"
+#include "page/Page.h"
+#include "storage/StorageMap.h"
+#include "rendering/TextAutosizer.h"
 #include <limits>
 
 using namespace std;

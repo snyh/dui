@@ -32,8 +32,8 @@
 
 #if ENABLE(CSS_SHADERS)
 
-#include "CachedResourceHandle.h"
-#include "StyleShader.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "rendering/style/StyleShader.h"
 #include <wtf/PassRefPtr.h>
 
 namespace WebCore {

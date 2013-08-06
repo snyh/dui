@@ -26,9 +26,9 @@
 #ifndef PolymorphicAccessStructureList_h
 #define PolymorphicAccessStructureList_h
 
-#include "JITStubRoutine.h"
-#include "Structure.h"
-#include "StructureChain.h"
+#include "jit/JITStubRoutine.h"
+#include "runtime/Structure.h"
+#include "runtime/StructureChain.h"
 #include <wtf/Platform.h>
 
 #define POLYMORPHIC_LIST_CACHE_SIZE 8

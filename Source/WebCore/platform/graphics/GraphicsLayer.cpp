@@ -27,14 +27,14 @@
 
 #if USE(ACCELERATED_COMPOSITING)
 
-#include "GraphicsLayer.h"
+#include "platform/graphics/GraphicsLayer.h"
 
-#include "FloatPoint.h"
-#include "FloatRect.h"
-#include "GraphicsContext.h"
-#include "LayoutRect.h"
-#include "RotateTransformOperation.h"
-#include "TextStream.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/LayoutRect.h"
+#include "platform/graphics/transforms/RotateTransformOperation.h"
+#include "platform/text/TextStream.h"
 #include <wtf/HashMap.h>
 #include <wtf/text/CString.h>
 #include <wtf/text/StringBuilder.h>

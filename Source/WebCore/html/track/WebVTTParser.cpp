@@ -32,13 +32,13 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "WebVTTParser.h"
+#include "html/track/WebVTTParser.h"
 
-#include "HTMLElement.h"
-#include "ProcessingInstruction.h"
-#include "SegmentedString.h"
-#include "Text.h"
-#include "WebVTTElement.h"
+#include "html/HTMLElement.h"
+#include "dom/ProcessingInstruction.h"
+#include "platform/text/SegmentedString.h"
+#include "dom/Text.h"
+#include "html/track/WebVTTElement.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "DragController.h"
+#include "page/DragController.h"
 
-#include "DragData.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "Page.h"
+#include "platform/DragData.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "page/Page.h"
 
 namespace WebCore {
 

@@ -24,20 +24,20 @@
  */
 
 #include "config.h"
-#include "CSSImageSetValue.h"
+#include "css/CSSImageSetValue.h"
 
 #if ENABLE(CSS_IMAGE_SET)
 
-#include "CSSImageValue.h"
-#include "CSSPrimitiveValue.h"
-#include "CachedImage.h"
-#include "CachedResourceLoader.h"
-#include "CachedResourceRequest.h"
-#include "CachedResourceRequestInitiators.h"
-#include "Document.h"
-#include "Page.h"
-#include "StyleCachedImageSet.h"
-#include "StylePendingImage.h"
+#include "css/CSSImageValue.h"
+#include "css/CSSPrimitiveValue.h"
+#include "loader/cache/CachedImage.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "loader/cache/CachedResourceRequestInitiators.h"
+#include "dom/Document.h"
+#include "page/Page.h"
+#include "rendering/style/StyleCachedImageSet.h"
+#include "rendering/style/StylePendingImage.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

@@ -30,8 +30,8 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGAllocator.h"
-#include "DFGNode.h"
+#include "dfg/DFGAllocator.h"
+#include "dfg/DFGNode.h"
 
 namespace JSC { namespace DFG {
 

@@ -28,11 +28,11 @@
 
 #if ENABLE(LLINT_C_LOOP)
 
-#include "CodeSpecializationKind.h"
-#include "JSCJSValue.h"
-#include "MacroAssemblerCodeRef.h"
-#include "Opcode.h"
-#include "Register.h"
+#include "runtime/CodeSpecializationKind.h"
+#include "runtime/JSCJSValue.h"
+#include "assembler/MacroAssemblerCodeRef.h"
+#include "bytecode/Opcode.h"
+#include "interpreter/Register.h"
 
 namespace JSC {
 

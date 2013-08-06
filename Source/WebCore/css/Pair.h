@@ -22,7 +22,7 @@
 #define Pair_h
 
 #include <wtf/RefCounted.h>
-#include "CSSPrimitiveValue.h"
+#include "css/CSSPrimitiveValue.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/text/StringBuilder.h>
 

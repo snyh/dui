@@ -27,13 +27,13 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "LoadableTextTrack.h"
+#include "html/track/LoadableTextTrack.h"
 
-#include "Event.h"
-#include "HTMLTrackElement.h"
-#include "ScriptEventListener.h"
-#include "ScriptExecutionContext.h"
-#include "TextTrackCueList.h"
+#include "dom/Event.h"
+#include "html/HTMLTrackElement.h"
+#include "bindings/dui/saved/ScriptEventListener.h"
+#include "dom/ScriptExecutionContext.h"
+#include "html/track/TextTrackCueList.h"
 
 namespace WebCore {
 

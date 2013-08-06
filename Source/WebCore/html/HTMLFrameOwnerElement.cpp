@@ -19,16 +19,16 @@
  */
 
 #include "config.h"
-#include "HTMLFrameOwnerElement.h"
+#include "html/HTMLFrameOwnerElement.h"
 
-#include "DOMWindow.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "RenderPart.h"
+#include "page/DOMWindow.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "rendering/RenderPart.h"
 
 #if ENABLE(SVG)
-#include "ExceptionCode.h"
-#include "SVGDocument.h"
+#include "dom/ExceptionCode.h"
+#include "svg/SVGDocument.h"
 #endif
 
 namespace WebCore {

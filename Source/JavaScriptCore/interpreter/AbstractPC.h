@@ -26,7 +26,7 @@
 #ifndef AbstractPC_h
 #define AbstractPC_h
 
-#include "MacroAssemblerCodeRef.h"
+#include "assembler/MacroAssemblerCodeRef.h"
 #include <wtf/Platform.h>
 
 namespace JSC {

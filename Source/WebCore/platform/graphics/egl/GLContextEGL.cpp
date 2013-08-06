@@ -17,11 +17,11 @@
  */
 
 #include "config.h"
-#include "GLContextEGL.h"
+#include "platform/graphics/egl/GLContextEGL.h"
 
 #if USE(EGL)
 
-#include "GraphicsContext3D.h"
+#include "platform/graphics/GraphicsContext3D.h"
 #include <cairo.h>
 #include <wtf/OwnPtr.h>
 
@@ -29,7 +29,7 @@
 #include <GLES2/gl2.h>
 #include <GLES2/gl2ext.h>
 #else
-#include "OpenGLShims.h"
+#include "platform/graphics/OpenGLShims.h"
 #endif
 
 #if ENABLE(ACCELERATED_2D_CANVAS)

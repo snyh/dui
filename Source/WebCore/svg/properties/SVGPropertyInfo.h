@@ -21,7 +21,7 @@
 #define SVGPropertyInfo_h
 
 #if ENABLE(SVG)
-#include "QualifiedName.h"
+#include "dom/QualifiedName.h"
 #include <wtf/PassRefPtr.h>
 
 namespace WebCore {

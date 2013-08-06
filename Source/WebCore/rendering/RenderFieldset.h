@@ -24,7 +24,7 @@
 #ifndef RenderFieldset_h
 #define RenderFieldset_h
 
-#include "RenderBlock.h"
+#include "rendering/RenderBlock.h"
 
 namespace WebCore {
 

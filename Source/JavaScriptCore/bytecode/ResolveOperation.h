@@ -26,8 +26,8 @@
 #ifndef ResolveOperation_h
 #define ResolveOperation_h
 
-#include "PropertyOffset.h"
-#include "WriteBarrier.h"
+#include "runtime/PropertyOffset.h"
+#include "runtime/WriteBarrier.h"
 
 #include <wtf/Vector.h>
 

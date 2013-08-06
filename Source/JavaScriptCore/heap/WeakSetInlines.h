@@ -26,7 +26,7 @@
 #ifndef WeakSetInlines_h
 #define WeakSetInlines_h
 
-#include "MarkedBlock.h"
+#include "heap/MarkedBlock.h"
 
 namespace JSC {
 

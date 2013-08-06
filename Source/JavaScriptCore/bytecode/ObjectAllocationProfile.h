@@ -26,11 +26,11 @@
 #ifndef ObjectAllocationProfile_h
 #define ObjectAllocationProfile_h
 
-#include "VM.h"
-#include "JSGlobalObject.h"
-#include "ObjectPrototype.h"
-#include "SlotVisitor.h"
-#include "WriteBarrier.h"
+#include "runtime/VM.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/ObjectPrototype.h"
+#include "heap/SlotVisitor.h"
+#include "runtime/WriteBarrier.h"
 
 namespace JSC {
 

@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "CSSCrossfadeValue.h"
+#include "css/CSSCrossfadeValue.h"
 
-#include "CSSImageValue.h"
-#include "CachedImage.h"
-#include "CachedResourceLoader.h"
-#include "CrossfadeGeneratedImage.h"
-#include "ImageBuffer.h"
-#include "RenderObject.h"
-#include "StyleCachedImage.h"
-#include "StyleGeneratedImage.h"
+#include "css/CSSImageValue.h"
+#include "loader/cache/CachedImage.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "platform/graphics/CrossfadeGeneratedImage.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "rendering/RenderObject.h"
+#include "rendering/style/StyleCachedImage.h"
+#include "rendering/style/StyleGeneratedImage.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

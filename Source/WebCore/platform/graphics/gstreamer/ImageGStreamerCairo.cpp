@@ -18,7 +18,7 @@
  */
 
 #include "config.h"
-#include "ImageGStreamer.h"
+#include "platform/graphics/gstreamer/ImageGStreamer.h"
 
 #if ENABLE(VIDEO) && USE(GSTREAMER)
 

@@ -25,7 +25,7 @@
  */
 
 #include "config.h"
-#include "RedirectedXCompositeWindow.h"
+#include "platform/gtk/RedirectedXCompositeWindow.h"
 
 #if USE(OPENGL) && PLATFORM(X11)
 

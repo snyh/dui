@@ -31,29 +31,29 @@
 #if ENABLE(ASSEMBLER)
 
 #if CPU(ARM_THUMB2)
-#include "MacroAssemblerARMv7.h"
+#include "assembler/MacroAssemblerARMv7.h"
 namespace JSC { typedef MacroAssemblerARMv7 MacroAssemblerBase; };
 
 #elif CPU(ARM_TRADITIONAL)
-#include "MacroAssemblerARM.h"
+#include "assembler/MacroAssemblerARM.h"
 namespace JSC { typedef MacroAssemblerARM MacroAssemblerBase; };
 
 #elif CPU(MIPS)
-#include "MacroAssemblerMIPS.h"
+#include "assembler/MacroAssemblerMIPS.h"
 namespace JSC {
 typedef MacroAssemblerMIPS MacroAssemblerBase;
 };
 
 #elif CPU(X86)
-#include "MacroAssemblerX86.h"
+#include "assembler/MacroAssemblerX86.h"
 namespace JSC { typedef MacroAssemblerX86 MacroAssemblerBase; };
 
 #elif CPU(X86_64)
-#include "MacroAssemblerX86_64.h"
+#include "assembler/MacroAssemblerX86_64.h"
 namespace JSC { typedef MacroAssemblerX86_64 MacroAssemblerBase; };
 
 #elif CPU(SH4)
-#include "MacroAssemblerSH4.h"
+#include "assembler/MacroAssemblerSH4.h"
 namespace JSC {
 typedef MacroAssemblerSH4 MacroAssemblerBase;
 };

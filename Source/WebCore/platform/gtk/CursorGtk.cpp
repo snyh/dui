@@ -27,12 +27,12 @@
  */
 
 #include "config.h"
-#include "CursorGtk.h"
-#include "GtkVersioning.h"
+#include "platform/gtk/CursorGtk.h"
+#include "platform/gtk/GtkVersioning.h"
 
-#include "Image.h"
-#include "IntPoint.h"
-#include "RefPtrCairo.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/IntPoint.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 #include <gdk/gdk.h>
 #include <gtk/gtk.h>
 #include <wtf/Assertions.h>

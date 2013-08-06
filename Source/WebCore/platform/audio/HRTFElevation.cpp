@@ -30,14 +30,14 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "HRTFElevation.h"
+#include "platform/audio/HRTFElevation.h"
 
-#include "AudioBus.h"
-#include "AudioFileReader.h"
-#include "Biquad.h"
-#include "FFTFrame.h"
-#include "HRTFDatabaseLoader.h"
-#include "HRTFPanner.h"
+#include "platform/audio/AudioBus.h"
+#include "platform/audio/AudioFileReader.h"
+#include "platform/audio/Biquad.h"
+#include "platform/audio/FFTFrame.h"
+#include "platform/audio/HRTFDatabaseLoader.h"
+#include "platform/audio/HRTFPanner.h"
 #include <algorithm>
 #include <math.h>
 #include <wtf/OwnPtr.h>

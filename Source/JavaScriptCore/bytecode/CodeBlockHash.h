@@ -26,7 +26,7 @@
 #ifndef CodeBlockHash_h
 #define CodeBlockHash_h
 
-#include "CodeSpecializationKind.h"
+#include "runtime/CodeSpecializationKind.h"
 #include <wtf/PrintStream.h>
 
 // CodeBlock hashes are useful for informally identifying code blocks. They correspond

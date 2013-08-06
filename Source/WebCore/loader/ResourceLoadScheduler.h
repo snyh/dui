@@ -23,10 +23,10 @@
 #ifndef ResourceLoadScheduler_h
 #define ResourceLoadScheduler_h
 
-#include "FrameLoaderTypes.h"
-#include "ResourceLoaderOptions.h"
-#include "ResourceLoadPriority.h"
-#include "Timer.h"
+#include "loader/FrameLoaderTypes.h"
+#include "loader/ResourceLoaderOptions.h"
+#include "platform/network/ResourceLoadPriority.h"
+#include "platform/Timer.h"
 #include <wtf/Deque.h>
 #include <wtf/HashMap.h>
 #include <wtf/HashSet.h>

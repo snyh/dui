@@ -32,9 +32,9 @@
 #include "config.h"
 
 #if ENABLE(FILTERS)
-#include "SpotLightSource.h"
+#include "platform/graphics/filters/SpotLightSource.h"
 
-#include "TextStream.h"
+#include "platform/text/TextStream.h"
 
 namespace WebCore {
 

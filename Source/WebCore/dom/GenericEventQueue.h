@@ -26,9 +26,9 @@
 #ifndef GenericEventQueue_h
 #define GenericEventQueue_h
 
-#include "EventQueue.h"
-#include "EventTarget.h"
-#include "Timer.h"
+#include "dom/EventQueue.h"
+#include "dom/EventTarget.h"
+#include "platform/Timer.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/RefPtr.h>
 #include <wtf/Vector.h>

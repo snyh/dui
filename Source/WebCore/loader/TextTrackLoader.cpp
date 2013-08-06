@@ -27,17 +27,17 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "TextTrackLoader.h"
+#include "loader/TextTrackLoader.h"
 
-#include "CachedResourceLoader.h"
-#include "CachedResourceRequest.h"
-#include "CachedTextTrack.h"
-#include "CrossOriginAccessControl.h"
-#include "Document.h"
-#include "Logging.h"
-#include "ResourceBuffer.h"
-#include "SecurityOrigin.h"
-#include "WebVTTParser.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "loader/cache/CachedTextTrack.h"
+#include "loader/CrossOriginAccessControl.h"
+#include "dom/Document.h"
+#include "platform/Logging.h"
+#include "loader/ResourceBuffer.h"
+#include "page/SecurityOrigin.h"
+#include "html/track/WebVTTParser.h"
 
 namespace WebCore {
     

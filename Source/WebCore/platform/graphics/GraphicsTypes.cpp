@@ -25,7 +25,7 @@
  */
 
 #include "config.h"
-#include "GraphicsTypes.h"
+#include "platform/graphics/GraphicsTypes.h"
 
 #include <wtf/Assertions.h>
 #include <wtf/text/WTFString.h>

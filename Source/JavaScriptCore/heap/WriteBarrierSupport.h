@@ -26,7 +26,7 @@
 #ifndef WriteBarrierSupport_h
 #define WriteBarrierSupport_h
 
-#include "SamplingCounter.h"
+#include "runtime/SamplingCounter.h"
 #include <wtf/Assertions.h>
 
 namespace JSC {

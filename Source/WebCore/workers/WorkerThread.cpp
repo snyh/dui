@@ -28,14 +28,14 @@
 
 #if ENABLE(WORKERS)
 
-#include "WorkerThread.h"
+#include "workers/WorkerThread.h"
 
-#include "DedicatedWorkerGlobalScope.h"
-#include "KURL.h"
-#include "ScriptSourceCode.h"
-#include "ScriptValue.h"
-#include "SecurityOrigin.h"
-#include "ThreadGlobalData.h"
+#include "workers/DedicatedWorkerGlobalScope.h"
+#include "platform/KURL.h"
+#include "bindings/dui/saved/ScriptSourceCode.h"
+#include "bindings/dui/saved/ScriptValue.h"
+#include "page/SecurityOrigin.h"
+#include "platform/ThreadGlobalData.h"
 #include <utility>
 #include <wtf/Noncopyable.h>
 #include <wtf/text/WTFString.h>

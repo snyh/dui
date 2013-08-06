@@ -29,15 +29,15 @@
  */
 
 #include "config.h"
-#include "WebKitAccessibleInterfaceSelection.h"
+#include "accessibility/atk/WebKitAccessibleInterfaceSelection.h"
 
 #if HAVE(ACCESSIBILITY)
 
-#include "AccessibilityListBox.h"
-#include "AccessibilityObject.h"
-#include "HTMLSelectElement.h"
-#include "RenderObject.h"
-#include "WebKitAccessibleWrapperAtk.h"
+#include "accessibility/AccessibilityListBox.h"
+#include "accessibility/AccessibilityObject.h"
+#include "html/HTMLSelectElement.h"
+#include "rendering/RenderObject.h"
+#include "accessibility/atk/WebKitAccessibleWrapperAtk.h"
 
 using namespace WebCore;
 

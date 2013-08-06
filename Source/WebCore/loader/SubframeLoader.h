@@ -31,7 +31,7 @@
 #ifndef SubframeLoader_h
 #define SubframeLoader_h
 
-#include "FrameLoaderTypes.h"
+#include "loader/FrameLoaderTypes.h"
 #include <wtf/Forward.h>
 #include <wtf/HashMap.h>
 #include <wtf/Noncopyable.h>

@@ -27,8 +27,8 @@
  */
 
 #include "config.h"
-#include "ExceptionBase.h"
-#include "ExceptionCode.h"
+#include "dom/ExceptionBase.h"
+#include "dom/ExceptionCode.h"
 
 #include <wtf/text/WTFString.h>
 

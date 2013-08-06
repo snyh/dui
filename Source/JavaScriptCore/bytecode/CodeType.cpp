@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "CodeType.h"
+#include "bytecode/CodeType.h"
 
 #include <wtf/PrintStream.h>
 

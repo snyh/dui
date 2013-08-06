@@ -29,8 +29,8 @@
 #ifndef BarProp_h
 #define BarProp_h
 
-#include "DOMWindowProperty.h"
-#include "ScriptWrappable.h"
+#include "page/DOMWindowProperty.h"
+#include "bindings/dui/ScriptWrappable.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 

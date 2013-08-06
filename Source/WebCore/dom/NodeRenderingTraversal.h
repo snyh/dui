@@ -27,7 +27,7 @@
 #ifndef NodeRenderingTraversal_h
 #define NodeRenderingTraversal_h
 
-#include "Element.h"
+#include "dom/Element.h"
 
 namespace WebCore {
 

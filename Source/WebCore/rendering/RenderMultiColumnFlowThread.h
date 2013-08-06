@@ -27,7 +27,7 @@
 #ifndef RenderMultiColumnFlowThread_h
 #define RenderMultiColumnFlowThread_h
 
-#include "RenderFlowThread.h"
+#include "rendering/RenderFlowThread.h"
 
 namespace WebCore {
 

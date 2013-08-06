@@ -26,7 +26,7 @@
 #ifndef RemoveCSSPropertyCommand_h
 #define RemoveCSSPropertyCommand_h
 
-#include "EditCommand.h"
+#include "editing/EditCommand.h"
 #include "CSSPropertyNames.h"
 
 namespace WebCore {

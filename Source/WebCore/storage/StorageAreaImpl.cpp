@@ -24,20 +24,20 @@
  */
 
 #include "config.h"
-#include "StorageAreaImpl.h"
+#include "storage/StorageAreaImpl.h"
 
-#include "Document.h"
-#include "ExceptionCode.h"
-#include "Frame.h"
-#include "Page.h"
-#include "SchemeRegistry.h"
-#include "SecurityOrigin.h"
-#include "Settings.h"
-#include "StorageAreaSync.h"
-#include "StorageEventDispatcher.h"
-#include "StorageMap.h"
-#include "StorageSyncManager.h"
-#include "StorageTracker.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCode.h"
+#include "page/Frame.h"
+#include "page/Page.h"
+#include "platform/SchemeRegistry.h"
+#include "page/SecurityOrigin.h"
+#include "page/Settings.h"
+#include "storage/StorageAreaSync.h"
+#include "storage/StorageEventDispatcher.h"
+#include "storage/StorageMap.h"
+#include "storage/StorageSyncManager.h"
+#include "storage/StorageTracker.h"
 #include <wtf/MainThread.h>
 
 namespace WebCore {

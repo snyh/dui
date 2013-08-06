@@ -26,7 +26,7 @@
 #if USE(CG)
 #include "ImageBufferDataCG.h"
 #elif USE(CAIRO)
-#include "ImageBufferDataCairo.h"
+#include "platform/graphics/cairo/ImageBufferDataCairo.h"
 #elif PLATFORM(QT)
 #include "ImageBufferDataQt.h"
 #elif USE(WINGDI)

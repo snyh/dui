@@ -31,7 +31,7 @@
 #ifndef SubmitInputType_h
 #define SubmitInputType_h
 
-#include "BaseButtonInputType.h"
+#include "html/BaseButtonInputType.h"
 
 namespace WebCore {
 

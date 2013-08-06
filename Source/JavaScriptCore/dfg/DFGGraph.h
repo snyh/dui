@@ -30,17 +30,17 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "CodeBlock.h"
-#include "DFGArgumentPosition.h"
-#include "DFGAssemblyHelpers.h"
-#include "DFGBasicBlock.h"
-#include "DFGDominators.h"
-#include "DFGLongLivedState.h"
-#include "DFGNode.h"
-#include "DFGNodeAllocator.h"
-#include "DFGVariadicFunction.h"
-#include "JSStack.h"
-#include "MethodOfGettingAValueProfile.h"
+#include "bytecode/CodeBlock.h"
+#include "dfg/DFGArgumentPosition.h"
+#include "dfg/DFGAssemblyHelpers.h"
+#include "dfg/DFGBasicBlock.h"
+#include "dfg/DFGDominators.h"
+#include "dfg/DFGLongLivedState.h"
+#include "dfg/DFGNode.h"
+#include "dfg/DFGNodeAllocator.h"
+#include "dfg/DFGVariadicFunction.h"
+#include "interpreter/JSStack.h"
+#include "bytecode/MethodOfGettingAValueProfile.h"
 #include <wtf/BitVector.h>
 #include <wtf/HashMap.h>
 #include <wtf/Vector.h>

@@ -26,7 +26,7 @@
 #ifndef PrototypeMap_h
 #define PrototypeMap_h
 
-#include "WeakGCMap.h"
+#include "runtime/WeakGCMap.h"
 #include <wtf/TriState.h>
 
 namespace JSC {

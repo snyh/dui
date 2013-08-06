@@ -29,10 +29,10 @@
  */
 
 #include "config.h"
-#include "FrameLoadRequest.h"
+#include "loader/FrameLoadRequest.h"
 
-#include "Document.h"
-#include "Frame.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
 
 namespace WebCore {
 

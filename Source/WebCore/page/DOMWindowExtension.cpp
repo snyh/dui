@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "DOMWindowExtension.h"
+#include "page/DOMWindowExtension.h"
 
-#include "DOMWindow.h"
-#include "DOMWrapperWorld.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
+#include "page/DOMWindow.h"
+#include "bindings/dui/saved/DOMWrapperWorld.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
 
 namespace WebCore {
 

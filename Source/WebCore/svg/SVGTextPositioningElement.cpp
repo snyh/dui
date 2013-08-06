@@ -21,15 +21,15 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGTextPositioningElement.h"
+#include "svg/SVGTextPositioningElement.h"
 
-#include "Attribute.h"
-#include "RenderSVGResource.h"
-#include "RenderSVGText.h"
-#include "SVGElementInstance.h"
-#include "SVGLengthList.h"
+#include "dom/Attribute.h"
+#include "rendering/svg/RenderSVGResource.h"
+#include "rendering/svg/RenderSVGText.h"
+#include "svg/SVGElementInstance.h"
+#include "svg/SVGLengthList.h"
 #include "SVGNames.h"
-#include "SVGNumberList.h"
+#include "svg/SVGNumberList.h"
 
 namespace WebCore {
 

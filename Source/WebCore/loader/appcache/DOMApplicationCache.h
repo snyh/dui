@@ -26,11 +26,11 @@
 #ifndef DOMApplicationCache_h
 #define DOMApplicationCache_h
 
-#include "ApplicationCacheHost.h"
-#include "DOMWindowProperty.h"
-#include "EventNames.h"
-#include "EventTarget.h"
-#include "ScriptWrappable.h"
+#include "loader/appcache/ApplicationCacheHost.h"
+#include "page/DOMWindowProperty.h"
+#include "dom/EventNames.h"
+#include "dom/EventTarget.h"
+#include "bindings/dui/ScriptWrappable.h"
 #include <wtf/Forward.h>
 #include <wtf/HashMap.h>
 #include <wtf/PassRefPtr.h>

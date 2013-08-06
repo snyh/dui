@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "ProfilerCompilationKind.h"
+#include "profiler/ProfilerCompilationKind.h"
 
 #include <wtf/PrintStream.h>
 

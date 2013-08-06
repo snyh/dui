@@ -28,11 +28,11 @@
  */
 
 #include "config.h"
-#include "ClassNodeList.h"
+#include "dom/ClassNodeList.h"
 
-#include "Document.h"
-#include "NodeRareData.h"
-#include "StyledElement.h"
+#include "dom/Document.h"
+#include "dom/NodeRareData.h"
+#include "dom/StyledElement.h"
 
 namespace WebCore {
 

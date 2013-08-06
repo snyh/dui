@@ -25,17 +25,17 @@
  */
 
 #include "config.h"
-#include "ApplyBlockElementCommand.h"
+#include "editing/ApplyBlockElementCommand.h"
 
-#include "HTMLElement.h"
+#include "html/HTMLElement.h"
 #include "HTMLNames.h"
-#include "RenderObject.h"
-#include "RenderStyle.h"
-#include "Text.h"
-#include "TextIterator.h"
-#include "VisiblePosition.h"
-#include "VisibleUnits.h"
-#include "htmlediting.h"
+#include "rendering/RenderObject.h"
+#include "rendering/style/RenderStyle.h"
+#include "dom/Text.h"
+#include "editing/TextIterator.h"
+#include "editing/VisiblePosition.h"
+#include "editing/VisibleUnits.h"
+#include "editing/htmlediting.h"
 
 namespace WebCore {
 

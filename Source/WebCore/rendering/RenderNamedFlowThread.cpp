@@ -24,21 +24,21 @@
  */
 
 #include "config.h"
-#include "RenderNamedFlowThread.h"
+#include "rendering/RenderNamedFlowThread.h"
 
-#include "ExceptionCodePlaceholder.h"
-#include "FlowThreadController.h"
-#include "InlineTextBox.h"
-#include "NodeRenderingContext.h"
-#include "NodeTraversal.h"
-#include "Position.h"
-#include "Range.h"
-#include "RenderInline.h"
-#include "RenderRegion.h"
-#include "RenderText.h"
-#include "RenderView.h"
-#include "Text.h"
-#include "WebKitNamedFlow.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "rendering/FlowThreadController.h"
+#include "rendering/InlineTextBox.h"
+#include "dom/NodeRenderingContext.h"
+#include "dom/NodeTraversal.h"
+#include "dom/Position.h"
+#include "dom/Range.h"
+#include "rendering/RenderInline.h"
+#include "rendering/RenderRegion.h"
+#include "rendering/RenderText.h"
+#include "rendering/RenderView.h"
+#include "dom/Text.h"
+#include "dom/WebKitNamedFlow.h"
 
 namespace WebCore {
 

@@ -25,7 +25,7 @@
 #define SVGPathConsumer_h
 
 #if ENABLE(SVG)
-#include "FloatPoint.h"
+#include "platform/graphics/FloatPoint.h"
 #include <wtf/FastAllocBase.h>
 #include <wtf/Noncopyable.h>
 

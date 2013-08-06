@@ -26,17 +26,17 @@
  */
 
 #include "config.h"
-#include "ScriptExecutionContext.h"
+#include "dom/ScriptExecutionContext.h"
 
-#include "CachedScript.h"
-#include "DOMTimer.h"
-#include "ErrorEvent.h"
-#include "MessagePort.h"
-#include "PublicURLManager.h"
-#include "Settings.h"
-#include "WorkerGlobalScope.h"
-#include "WorkerThread.h"
-#include "ScriptState.h"
+#include "loader/cache/CachedScript.h"
+#include "page/DOMTimer.h"
+#include "dom/ErrorEvent.h"
+#include "dom/MessagePort.h"
+#include "html/PublicURLManager.h"
+#include "page/Settings.h"
+#include "workers/WorkerGlobalScope.h"
+#include "workers/WorkerThread.h"
+#include "bindings/dui/saved/ScriptState.h"
 #include <wtf/MainThread.h>
 
 namespace WebCore {

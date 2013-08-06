@@ -27,16 +27,16 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "InbandTextTrack.h"
+#include "html/track/InbandTextTrack.h"
 
-#include "Document.h"
-#include "Event.h"
-#include "ExceptionCodePlaceholder.h"
-#include "HTMLMediaElement.h"
-#include "InbandTextTrackPrivate.h"
-#include "Logging.h"
-#include "TextTrackCueGeneric.h"
-#include "TextTrackCueList.h"
+#include "dom/Document.h"
+#include "dom/Event.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "html/HTMLMediaElement.h"
+#include "platform/graphics/InbandTextTrackPrivate.h"
+#include "platform/Logging.h"
+#include "html/track/TextTrackCueGeneric.h"
+#include "html/track/TextTrackCueList.h"
 #include <math.h>
 #include <wtf/text/CString.h>
 

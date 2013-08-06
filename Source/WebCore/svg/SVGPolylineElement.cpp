@@ -21,7 +21,7 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGPolylineElement.h"
+#include "svg/SVGPolylineElement.h"
 #include "SVGNames.h"
 
 namespace WebCore {

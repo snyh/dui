@@ -20,11 +20,11 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGAnimatedPointList.h"
+#include "svg/SVGAnimatedPointList.h"
 
-#include "SVGAnimateElement.h"
-#include "SVGParserUtilities.h"
-#include "SVGPointList.h"
+#include "svg/SVGAnimateElement.h"
+#include "svg/SVGParserUtilities.h"
+#include "svg/SVGPointList.h"
 
 namespace WebCore {
 

@@ -30,16 +30,16 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGAbstractState.h"
-#include "DFGGenerationInfo.h"
-#include "DFGJITCompiler.h"
-#include "DFGOSRExit.h"
-#include "DFGOSRExitJumpPlaceholder.h"
-#include "DFGOperations.h"
-#include "DFGSilentRegisterSavePlan.h"
-#include "DFGValueSource.h"
-#include "MarkedAllocator.h"
-#include "ValueRecovery.h"
+#include "dfg/DFGAbstractState.h"
+#include "dfg/DFGGenerationInfo.h"
+#include "dfg/DFGJITCompiler.h"
+#include "dfg/DFGOSRExit.h"
+#include "dfg/DFGOSRExitJumpPlaceholder.h"
+#include "dfg/DFGOperations.h"
+#include "dfg/DFGSilentRegisterSavePlan.h"
+#include "dfg/DFGValueSource.h"
+#include "heap/MarkedAllocator.h"
+#include "bytecode/ValueRecovery.h"
 
 namespace JSC { namespace DFG {
 

@@ -23,18 +23,18 @@
  */
 
 #include "config.h"
-#include "HTMLKeygenElement.h"
+#include "html/HTMLKeygenElement.h"
 
-#include "Attribute.h"
-#include "Document.h"
-#include "ElementShadow.h"
-#include "FormDataList.h"
+#include "dom/Attribute.h"
+#include "dom/Document.h"
+#include "dom/ElementShadow.h"
+#include "html/FormDataList.h"
 #include "HTMLNames.h"
-#include "HTMLSelectElement.h"
-#include "HTMLOptionElement.h"
-#include "SSLKeyGenerator.h"
-#include "ShadowRoot.h"
-#include "Text.h"
+#include "html/HTMLSelectElement.h"
+#include "html/HTMLOptionElement.h"
+#include "platform/SSLKeyGenerator.h"
+#include "dom/ShadowRoot.h"
+#include "dom/Text.h"
 #include <wtf/StdLibExtras.h>
 
 using namespace WebCore;

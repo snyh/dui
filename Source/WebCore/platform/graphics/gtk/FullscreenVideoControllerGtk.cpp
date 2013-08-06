@@ -21,14 +21,14 @@
 
 #if ENABLE(VIDEO) && USE(GSTREAMER) && USE(NATIVE_FULLSCREEN_VIDEO)
 
-#include "FullscreenVideoControllerGtk.h"
+#include "platform/graphics/gtk/FullscreenVideoControllerGtk.h"
 
-#include "FullscreenVideoControllerGStreamer.h"
-#include "GRefPtrGtk.h"
-#include "GStreamerGWorld.h"
-#include "GtkVersioning.h"
-#include "MediaPlayer.h"
-#include "MediaPlayerPrivateGStreamerBase.h"
+#include "platform/graphics/gstreamer/FullscreenVideoControllerGStreamer.h"
+#include "platform/gtk/GRefPtrGtk.h"
+#include "platform/graphics/gstreamer/GStreamerGWorld.h"
+#include "platform/gtk/GtkVersioning.h"
+#include "platform/graphics/MediaPlayer.h"
+#include "platform/graphics/gstreamer/MediaPlayerPrivateGStreamerBase.h"
 
 #include <gdk/gdk.h>
 #include <gdk/gdkkeysyms.h>

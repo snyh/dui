@@ -29,15 +29,15 @@
  */
 
 #include "config.h"
-#include "DocumentOrderedMap.h"
+#include "dom/DocumentOrderedMap.h"
 
-#include "Element.h"
-#include "HTMLLabelElement.h"
-#include "HTMLMapElement.h"
-#include "HTMLNameCollection.h"
+#include "dom/Element.h"
+#include "html/HTMLLabelElement.h"
+#include "html/HTMLMapElement.h"
+#include "html/HTMLNameCollection.h"
 #include "HTMLNames.h"
-#include "NodeTraversal.h"
-#include "TreeScope.h"
+#include "dom/NodeTraversal.h"
+#include "dom/TreeScope.h"
 
 namespace WebCore {
 

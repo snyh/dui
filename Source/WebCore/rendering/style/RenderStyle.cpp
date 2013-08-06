@@ -21,30 +21,30 @@
  */
 
 #include "config.h"
-#include "RenderStyle.h"
+#include "rendering/style/RenderStyle.h"
 
-#include "ContentData.h"
-#include "CursorList.h"
+#include "rendering/style/ContentData.h"
+#include "rendering/style/CursorList.h"
 #include "CSSPropertyNames.h"
-#include "Font.h"
-#include "FontSelector.h"
-#include "QuotesData.h"
-#include "RenderArena.h"
-#include "RenderObject.h"
-#include "ScaleTransformOperation.h"
-#include "ShadowData.h"
-#include "StyleImage.h"
-#include "StyleInheritedData.h"
-#include "StyleResolver.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/FontSelector.h"
+#include "rendering/style/QuotesData.h"
+#include "rendering/RenderArena.h"
+#include "rendering/RenderObject.h"
+#include "platform/graphics/transforms/ScaleTransformOperation.h"
+#include "rendering/style/ShadowData.h"
+#include "rendering/style/StyleImage.h"
+#include "rendering/style/StyleInheritedData.h"
+#include "css/StyleResolver.h"
 #if ENABLE(TOUCH_EVENTS)
-#include "RenderTheme.h"
+#include "rendering/RenderTheme.h"
 #endif
 #include <wtf/MathExtras.h>
 #include <wtf/StdLibExtras.h>
 #include <algorithm>
 
 #if ENABLE(TEXT_AUTOSIZING)
-#include "TextAutosizer.h"
+#include "rendering/TextAutosizer.h"
 #endif
 
 using namespace std;

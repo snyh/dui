@@ -29,7 +29,7 @@
 #ifndef ImageData_h
 #define ImageData_h
 
-#include "IntSize.h"
+#include "platform/graphics/IntSize.h"
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>
 #include <wtf/Uint8ClampedArray.h>

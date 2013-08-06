@@ -32,11 +32,11 @@
 
 #if ENABLE(CSS_SHAPES)
 
-#include "FloatRect.h"
-#include "LayoutUnit.h"
-#include "RenderStyle.h"
-#include "Shape.h"
-#include "ShapeValue.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/LayoutUnit.h"
+#include "rendering/style/RenderStyle.h"
+#include "rendering/shapes/Shape.h"
+#include "rendering/style/ShapeValue.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/Vector.h>
 

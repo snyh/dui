@@ -24,7 +24,7 @@
 #ifndef BeforeUnloadEvent_h
 #define BeforeUnloadEvent_h
 
-#include "Event.h"
+#include "dom/Event.h"
 
 namespace WebCore {
 

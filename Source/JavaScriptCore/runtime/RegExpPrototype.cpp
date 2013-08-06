@@ -19,22 +19,22 @@
  */
 
 #include "config.h"
-#include "RegExpPrototype.h"
+#include "runtime/RegExpPrototype.h"
 
-#include "ArrayPrototype.h"
-#include "Error.h"
-#include "JSArray.h"
-#include "JSCJSValue.h"
-#include "JSFunction.h"
-#include "JSObject.h"
-#include "JSString.h"
-#include "JSStringBuilder.h"
-#include "ObjectPrototype.h"
-#include "Operations.h"
-#include "RegExpObject.h"
-#include "RegExp.h"
-#include "RegExpCache.h"
-#include "StringRecursionChecker.h"
+#include "runtime/ArrayPrototype.h"
+#include "runtime/Error.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSCJSValue.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSObject.h"
+#include "runtime/JSString.h"
+#include "runtime/JSStringBuilder.h"
+#include "runtime/ObjectPrototype.h"
+#include "runtime/Operations.h"
+#include "runtime/RegExpObject.h"
+#include "runtime/RegExp.h"
+#include "runtime/RegExpCache.h"
+#include "runtime/StringRecursionChecker.h"
 
 namespace JSC {
 

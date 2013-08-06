@@ -27,15 +27,15 @@
  */
 
 #include "config.h"
-#include "AccessibilityTableRow.h"
+#include "accessibility/AccessibilityTableRow.h"
 
-#include "AXObjectCache.h"
-#include "AccessibilityTableCell.h"
+#include "accessibility/AXObjectCache.h"
+#include "accessibility/AccessibilityTableCell.h"
 #include "HTMLNames.h"
-#include "HTMLTableRowElement.h"
-#include "RenderObject.h"
-#include "RenderTableCell.h"
-#include "RenderTableRow.h"
+#include "html/HTMLTableRowElement.h"
+#include "rendering/RenderObject.h"
+#include "rendering/RenderTableCell.h"
+#include "rendering/RenderTableRow.h"
 
 using namespace std;
 

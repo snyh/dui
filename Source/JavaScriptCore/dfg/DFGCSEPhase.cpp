@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "DFGCSEPhase.h"
+#include "dfg/DFGCSEPhase.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGGraph.h"
-#include "DFGPhase.h"
-#include "JSCellInlines.h"
+#include "dfg/DFGGraph.h"
+#include "dfg/DFGPhase.h"
+#include "runtime/JSCellInlines.h"
 #include <wtf/FastBitVector.h>
 
 namespace JSC { namespace DFG {

@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "CredentialStorage.h"
+#include "platform/network/CredentialStorage.h"
 
-#include "Credential.h"
+#include "platform/network/Credential.h"
 
 namespace WebCore {
 

@@ -27,10 +27,10 @@
 
 #if ENABLE(WEBGL)
 
-#include "WebGLVertexArrayObjectOES.h"
+#include "html/canvas/WebGLVertexArrayObjectOES.h"
 
-#include "Extensions3D.h"
-#include "WebGLRenderingContext.h"
+#include "platform/graphics/Extensions3D.h"
+#include "html/canvas/WebGLRenderingContext.h"
 
 namespace WebCore {
 

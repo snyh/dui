@@ -26,9 +26,9 @@
 #ifndef DragData_h
 #define DragData_h
 
-#include "Color.h"
-#include "DragActions.h"
-#include "IntPoint.h"
+#include "platform/graphics/Color.h"
+#include "page/DragActions.h"
+#include "platform/graphics/IntPoint.h"
 
 #include <wtf/Forward.h>
 #include <wtf/HashMap.h>

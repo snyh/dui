@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "RunLoop.h"
+#include "platform/RunLoop.h"
 
 #include <wtf/StdLibExtras.h>
 #include <wtf/ThreadSpecific.h>

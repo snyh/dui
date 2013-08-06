@@ -20,15 +20,15 @@
  */
 
 #include "config.h"
-#include "CSSPageRule.h"
+#include "css/CSSPageRule.h"
 
-#include "CSSParser.h"
-#include "CSSSelector.h"
-#include "CSSStyleSheet.h"
-#include "Document.h"
-#include "PropertySetCSSStyleDeclaration.h"
-#include "StylePropertySet.h"
-#include "StyleRule.h"
+#include "css/CSSParser.h"
+#include "css/CSSSelector.h"
+#include "css/CSSStyleSheet.h"
+#include "dom/Document.h"
+#include "css/PropertySetCSSStyleDeclaration.h"
+#include "css/StylePropertySet.h"
+#include "css/StyleRule.h"
 #include <wtf/Vector.h>
 #include <wtf/text/StringBuilder.h>
 

@@ -20,10 +20,10 @@
 #ifndef FrameNetworkingContext_h
 #define FrameNetworkingContext_h
 
-#include "Document.h"
-#include "Frame.h"
-#include "NetworkingContext.h"
-#include "ReferrerPolicy.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "platform/network/NetworkingContext.h"
+#include "platform/ReferrerPolicy.h"
 
 namespace WebCore {
 

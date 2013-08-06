@@ -26,7 +26,7 @@
 #ifndef CSSFunctionValue_h
 #define CSSFunctionValue_h
 
-#include "CSSValue.h"
+#include "css/CSSValue.h"
 
 namespace WebCore {
 

@@ -24,19 +24,19 @@
  */
 
 #include "config.h"
-#include "LowLevelInterpreter.h"
+#include "llint/LowLevelInterpreter.h"
 
 #if ENABLE(LLINT)
 
-#include "LLIntOfflineAsmConfig.h"
+#include "llint/LLIntOfflineAsmConfig.h"
 #include <wtf/InlineASM.h>
 
 #if ENABLE(LLINT_C_LOOP)
-#include "CodeBlock.h"
-#include "LLIntCLoop.h"
-#include "LLIntSlowPaths.h"
-#include "Operations.h"
-#include "VMInspector.h"
+#include "bytecode/CodeBlock.h"
+#include "llint/LLIntCLoop.h"
+#include "llint/LLIntSlowPaths.h"
+#include "runtime/Operations.h"
+#include "interpreter/VMInspector.h"
 #include <wtf/Assertions.h>
 #include <wtf/MathExtras.h>
 

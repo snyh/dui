@@ -27,13 +27,13 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "TrackListBase.h"
+#include "html/track/TrackListBase.h"
 
-#include "EventNames.h"
-#include "HTMLMediaElement.h"
-#include "ScriptExecutionContext.h"
-#include "TrackBase.h"
-#include "TrackEvent.h"
+#include "dom/EventNames.h"
+#include "html/HTMLMediaElement.h"
+#include "dom/ScriptExecutionContext.h"
+#include "html/track/TrackBase.h"
+#include "html/track/TrackEvent.h"
 
 using namespace WebCore;
 

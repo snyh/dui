@@ -22,11 +22,11 @@
 #include "config.h"
 
 #if ENABLE(FILTERS)
-#include "FEDiffuseLighting.h"
+#include "platform/graphics/filters/FEDiffuseLighting.h"
 
-#include "LightSource.h"
-#include "RenderTreeAsText.h"
-#include "TextStream.h"
+#include "platform/graphics/filters/LightSource.h"
+#include "rendering/RenderTreeAsText.h"
+#include "platform/text/TextStream.h"
 
 namespace WebCore {
 

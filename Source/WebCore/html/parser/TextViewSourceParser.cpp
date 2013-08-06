@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "TextViewSourceParser.h"
+#include "html/parser/TextViewSourceParser.h"
 
-#include "HTMLTokenizer.h"
+#include "html/parser/HTMLTokenizer.h"
 
 namespace WebCore {
 

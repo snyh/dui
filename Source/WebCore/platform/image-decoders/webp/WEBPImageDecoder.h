@@ -29,7 +29,7 @@
 #ifndef WEBPImageDecoder_h
 #define WEBPImageDecoder_h
 
-#include "ImageDecoder.h"
+#include "platform/image-decoders/ImageDecoder.h"
 
 #if USE(WEBP)
 

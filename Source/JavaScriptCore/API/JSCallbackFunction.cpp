@@ -24,18 +24,18 @@
  */
 
 #include "config.h"
-#include "JSCallbackFunction.h"
+#include "API/JSCallbackFunction.h"
 
-#include "APIShims.h"
-#include "APICast.h"
-#include "CodeBlock.h"
-#include "Error.h"
-#include "ExceptionHelpers.h"
-#include "FunctionPrototype.h"
-#include "JSFunction.h"
-#include "JSGlobalObject.h"
-#include "JSLock.h"
-#include "Operations.h"
+#include "API/APIShims.h"
+#include "API/APICast.h"
+#include "bytecode/CodeBlock.h"
+#include "runtime/Error.h"
+#include "runtime/ExceptionHelpers.h"
+#include "runtime/FunctionPrototype.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSLock.h"
+#include "runtime/Operations.h"
 #include <wtf/Vector.h>
 
 namespace JSC {

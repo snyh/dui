@@ -29,7 +29,7 @@
 #ifndef DOMCoreException_h
 #define DOMCoreException_h
 
-#include "ExceptionBase.h"
+#include "dom/ExceptionBase.h"
 
 namespace WebCore {
 

@@ -32,8 +32,8 @@
 #define PropertyNodeList_h
 
 #if ENABLE(MICRODATA)
-#include "LiveNodeList.h"
-#include "MicroDataItemValue.h"
+#include "dom/LiveNodeList.h"
+#include "html/MicroDataItemValue.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>
 #include <wtf/Vector.h>

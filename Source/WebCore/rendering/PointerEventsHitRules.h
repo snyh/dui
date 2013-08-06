@@ -20,8 +20,8 @@
 #ifndef PointerEventsHitRules_h
 #define PointerEventsHitRules_h
 
-#include "HitTestRequest.h"
-#include "RenderStyleConstants.h"
+#include "rendering/HitTestRequest.h"
+#include "rendering/style/RenderStyleConstants.h"
 
 namespace WebCore {
 

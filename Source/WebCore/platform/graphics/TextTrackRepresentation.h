@@ -28,8 +28,8 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "IntRect.h"
-#include "PlatformLayer.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/PlatformLayer.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

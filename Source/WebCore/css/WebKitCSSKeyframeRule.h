@@ -26,7 +26,7 @@
 #ifndef WebKitCSSKeyframeRule_h
 #define WebKitCSSKeyframeRule_h
 
-#include "CSSRule.h"
+#include "css/CSSRule.h"
 
 namespace WebCore {
 

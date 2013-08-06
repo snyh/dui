@@ -27,7 +27,7 @@
  */
 
 #include "config.h"
-#include "XSLTUnicodeSort.h"
+#include "xml/XSLTUnicodeSort.h"
 
 #if ENABLE(XSLT)
 

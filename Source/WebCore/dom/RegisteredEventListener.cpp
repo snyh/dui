@@ -21,9 +21,9 @@
  */
 
 #include "config.h"
-#include "RegisteredEventListener.h"
+#include "dom/RegisteredEventListener.h"
 
-#include "EventListener.h"
+#include "dom/EventListener.h"
 
 namespace WebCore {
 

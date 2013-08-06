@@ -26,7 +26,7 @@
 #ifndef FunctionExecutableDump_h
 #define FunctionExecutableDump_h
 
-#include "Executable.h"
+#include "runtime/Executable.h"
 #include <wtf/PrintStream.h>
 
 namespace JSC {

@@ -32,11 +32,11 @@
 
 #if ENABLE(CSS_SHADERS) && USE(3D_GRAPHICS)
 
-#include "CustomFilterConstants.h"
-#include "CustomFilterOperation.h"
-#include "Filter.h"
-#include "FilterEffect.h"
-#include "GraphicsTypes3D.h"
+#include "platform/graphics/filters/CustomFilterConstants.h"
+#include "platform/graphics/filters/CustomFilterOperation.h"
+#include "platform/graphics/filters/Filter.h"
+#include "platform/graphics/filters/FilterEffect.h"
+#include "platform/graphics/GraphicsTypes3D.h"
 #include <wtf/RefPtr.h>
 
 namespace JSC {

@@ -26,10 +26,10 @@
 #ifndef XMLHttpRequestUpload_h
 #define XMLHttpRequestUpload_h
 
-#include "EventListener.h"
-#include "EventNames.h"
-#include "EventTarget.h"
-#include "XMLHttpRequest.h"
+#include "dom/EventListener.h"
+#include "dom/EventNames.h"
+#include "dom/EventTarget.h"
+#include "xml/XMLHttpRequest.h"
 #include <wtf/Forward.h>
 #include <wtf/HashMap.h>
 #include <wtf/PassOwnPtr.h>

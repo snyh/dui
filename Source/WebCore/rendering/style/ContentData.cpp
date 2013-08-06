@@ -20,16 +20,16 @@
  */
 
 #include "config.h"
-#include "ContentData.h"
+#include "rendering/style/ContentData.h"
 
-#include "RenderCounter.h"
-#include "RenderImage.h"
-#include "RenderImageResource.h"
-#include "RenderImageResourceStyleImage.h"
-#include "RenderQuote.h"
-#include "RenderStyle.h"
-#include "RenderTextFragment.h"
-#include "StyleInheritedData.h"
+#include "rendering/RenderCounter.h"
+#include "rendering/RenderImage.h"
+#include "rendering/RenderImageResource.h"
+#include "rendering/RenderImageResourceStyleImage.h"
+#include "rendering/RenderQuote.h"
+#include "rendering/style/RenderStyle.h"
+#include "rendering/RenderTextFragment.h"
+#include "rendering/style/StyleInheritedData.h"
 
 namespace WebCore {
 

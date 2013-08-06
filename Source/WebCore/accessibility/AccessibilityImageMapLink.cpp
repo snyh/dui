@@ -27,13 +27,13 @@
  */
 
 #include "config.h"
-#include "AccessibilityImageMapLink.h"
+#include "accessibility/AccessibilityImageMapLink.h"
 
-#include "AXObjectCache.h"
-#include "AccessibilityRenderObject.h"
-#include "Document.h"
+#include "accessibility/AXObjectCache.h"
+#include "accessibility/AccessibilityRenderObject.h"
+#include "dom/Document.h"
 #include "HTMLNames.h"
-#include "RenderBoxModelObject.h"
+#include "rendering/RenderBoxModelObject.h"
 
 namespace WebCore {
     

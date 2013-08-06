@@ -26,13 +26,13 @@
 #ifndef JumpReplacementWatchpoint_h
 #define JumpReplacementWatchpoint_h
 
-#include "Watchpoint.h"
+#include "bytecode/Watchpoint.h"
 #include <wtf/Platform.h>
 
 #if ENABLE(JIT)
 
-#include "CodeLocation.h"
-#include "MacroAssembler.h"
+#include "assembler/CodeLocation.h"
+#include "assembler/MacroAssembler.h"
 
 namespace JSC {
 

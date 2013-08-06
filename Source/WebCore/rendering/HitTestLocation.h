@@ -22,12 +22,12 @@
 #ifndef HitTestLocation_h
 #define HitTestLocation_h
 
-#include "FloatQuad.h"
-#include "FloatRect.h"
-#include "HitTestRequest.h"
-#include "LayoutRect.h"
-#include "RoundedRect.h"
-#include "TextDirection.h"
+#include "platform/graphics/FloatQuad.h"
+#include "platform/graphics/FloatRect.h"
+#include "rendering/HitTestRequest.h"
+#include "platform/graphics/LayoutRect.h"
+#include "platform/graphics/RoundedRect.h"
+#include "platform/text/TextDirection.h"
 #include <wtf/Forward.h>
 #include <wtf/ListHashSet.h>
 #include <wtf/OwnPtr.h>

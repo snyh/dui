@@ -21,16 +21,16 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGScriptElement.h"
+#include "svg/SVGScriptElement.h"
 
-#include "Attribute.h"
-#include "Document.h"
-#include "Event.h"
-#include "EventNames.h"
+#include "dom/Attribute.h"
+#include "dom/Document.h"
+#include "dom/Event.h"
+#include "dom/EventNames.h"
 #include "HTMLNames.h"
-#include "SVGAnimatedStaticPropertyTearOff.h"
-#include "SVGElementInstance.h"
-#include "ScriptEventListener.h"
+#include "svg/properties/SVGAnimatedStaticPropertyTearOff.h"
+#include "svg/SVGElementInstance.h"
+#include "bindings/dui/saved/ScriptEventListener.h"
 
 namespace WebCore {
 

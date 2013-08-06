@@ -25,17 +25,17 @@
  */
 
 #include "config.h"
-#include "MessagePort.h"
+#include "dom/MessagePort.h"
 
-#include "DOMWindow.h"
-#include "Document.h"
-#include "EventException.h"
-#include "EventNames.h"
-#include "ExceptionCode.h"
-#include "MessageEvent.h"
-#include "SecurityOrigin.h"
-#include "Timer.h"
-#include "WorkerGlobalScope.h"
+#include "page/DOMWindow.h"
+#include "dom/Document.h"
+#include "dom/EventException.h"
+#include "dom/EventNames.h"
+#include "dom/ExceptionCode.h"
+#include "dom/MessageEvent.h"
+#include "page/SecurityOrigin.h"
+#include "platform/Timer.h"
+#include "workers/WorkerGlobalScope.h"
 #include <wtf/text/AtomicString.h>
 
 namespace WebCore {

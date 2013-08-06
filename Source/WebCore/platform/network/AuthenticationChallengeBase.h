@@ -25,10 +25,10 @@
 #ifndef AuthenticationChallengeBase_h
 #define AuthenticationChallengeBase_h
 
-#include "Credential.h"
-#include "ProtectionSpace.h"
-#include "ResourceResponse.h"
-#include "ResourceError.h"
+#include "platform/network/Credential.h"
+#include "platform/network/ProtectionSpace.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "platform/network/soup/ResourceError.h"
 
 namespace WebCore {
 

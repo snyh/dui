@@ -21,7 +21,7 @@
 #ifndef PlatformPathCairo_h
 #define PlatformPathCairo_h
 
-#include "RefPtrCairo.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 
 namespace WebCore {
 

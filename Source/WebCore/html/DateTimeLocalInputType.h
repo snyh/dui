@@ -32,7 +32,7 @@
 #define DateTimeLocalInputType_h
 
 #if ENABLE(INPUT_TYPE_DATETIMELOCAL)
-#include "BaseChooserOnlyDateAndTimeInputType.h"
+#include "html/BaseChooserOnlyDateAndTimeInputType.h"
 
 namespace WebCore {
 

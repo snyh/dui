@@ -25,10 +25,10 @@
 #ifndef BorderData_h
 #define BorderData_h
 
-#include "BorderValue.h"
-#include "IntRect.h"
-#include "LengthSize.h"
-#include "NinePieceImage.h"
+#include "rendering/style/BorderValue.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/LengthSize.h"
+#include "rendering/style/NinePieceImage.h"
 
 namespace WebCore {
 

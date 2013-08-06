@@ -26,7 +26,7 @@
 #ifndef PutByIdStatus_h
 #define PutByIdStatus_h
 
-#include "PropertyOffset.h"
+#include "runtime/PropertyOffset.h"
 #include <wtf/NotFound.h>
 
 namespace JSC {

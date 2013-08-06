@@ -27,12 +27,12 @@
 #define JITCode_h
 
 #if ENABLE(JIT) || ENABLE(LLINT)
-#include "CallFrame.h"
-#include "Disassembler.h"
-#include "JITStubs.h"
-#include "JSCJSValue.h"
-#include "LegacyProfiler.h"
-#include "MacroAssemblerCodeRef.h"
+#include "interpreter/CallFrame.h"
+#include "disassembler/Disassembler.h"
+#include "jit/JITStubs.h"
+#include "runtime/JSCJSValue.h"
+#include "profiler/LegacyProfiler.h"
+#include "assembler/MacroAssemblerCodeRef.h"
 #endif
 
 namespace JSC {

@@ -27,9 +27,9 @@
 #ifndef DragClient_h
 #define DragClient_h
 
-#include "DragActions.h"
-#include "DragImage.h"
-#include "IntPoint.h"
+#include "page/DragActions.h"
+#include "platform/DragImage.h"
+#include "platform/graphics/IntPoint.h"
 
 #if PLATFORM(MAC)
 OBJC_CLASS DOMElement;

@@ -27,10 +27,10 @@
 #ifndef HTMLPreloadScanner_h
 #define HTMLPreloadScanner_h
 
-#include "CSSPreloadScanner.h"
-#include "CompactHTMLToken.h"
-#include "HTMLToken.h"
-#include "SegmentedString.h"
+#include "html/parser/CSSPreloadScanner.h"
+#include "html/parser/CompactHTMLToken.h"
+#include "html/parser/HTMLToken.h"
+#include "platform/text/SegmentedString.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

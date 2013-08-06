@@ -25,8 +25,8 @@
 #ifndef NodeFilter_h
 #define NodeFilter_h
 
-#include "DOMWrapperWorld.h"
-#include "NodeFilterCondition.h"
+#include "bindings/dui/saved/DOMWrapperWorld.h"
+#include "dom/NodeFilterCondition.h"
 #include <wtf/RefPtr.h>
 
 namespace WebCore {

@@ -29,7 +29,7 @@
 #ifndef CSSSupportsRule_h
 #define CSSSupportsRule_h
 
-#include "CSSGroupingRule.h"
+#include "css/CSSGroupingRule.h"
 
 #if ENABLE(CSS3_CONDITIONAL_RULES)
 

@@ -22,17 +22,17 @@
 
 #if ENABLE(TEXT_AUTOSIZING)
 
-#include "TextAutosizer.h"
+#include "rendering/TextAutosizer.h"
 
-#include "Document.h"
-#include "HTMLElement.h"
-#include "IntSize.h"
-#include "RenderObject.h"
-#include "RenderStyle.h"
-#include "RenderText.h"
-#include "RenderView.h"
-#include "Settings.h"
-#include "StyleInheritedData.h"
+#include "dom/Document.h"
+#include "html/HTMLElement.h"
+#include "platform/graphics/IntSize.h"
+#include "rendering/RenderObject.h"
+#include "rendering/style/RenderStyle.h"
+#include "rendering/RenderText.h"
+#include "rendering/RenderView.h"
+#include "page/Settings.h"
+#include "rendering/style/StyleInheritedData.h"
 
 #include <algorithm>
 #include <wtf/StdLibExtras.h>

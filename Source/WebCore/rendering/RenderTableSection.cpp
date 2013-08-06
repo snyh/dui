@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "RenderTableSection.h"
-#include "Document.h"
-#include "HitTestResult.h"
+#include "rendering/RenderTableSection.h"
+#include "dom/Document.h"
+#include "rendering/HitTestResult.h"
 #include "HTMLNames.h"
-#include "PaintInfo.h"
-#include "RenderTableCell.h"
-#include "RenderTableCol.h"
-#include "RenderTableRow.h"
-#include "RenderView.h"
-#include "StyleInheritedData.h"
+#include "rendering/PaintInfo.h"
+#include "rendering/RenderTableCell.h"
+#include "rendering/RenderTableCol.h"
+#include "rendering/RenderTableRow.h"
+#include "rendering/RenderView.h"
+#include "rendering/style/StyleInheritedData.h"
 #include <limits>
 #include <wtf/HashSet.h>
 #include <wtf/StackStats.h>

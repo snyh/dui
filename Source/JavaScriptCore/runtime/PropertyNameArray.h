@@ -21,8 +21,8 @@
 #ifndef PropertyNameArray_h
 #define PropertyNameArray_h
 
-#include "CallFrame.h"
-#include "Identifier.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/Identifier.h"
 #include <wtf/HashSet.h>
 #include <wtf/OwnArrayPtr.h>
 #include <wtf/Vector.h>

@@ -18,7 +18,7 @@
  */
 
 #include "config.h"
-#include "CSSBorderImage.h"
+#include "css/CSSBorderImage.h"
 
 namespace WebCore {
 

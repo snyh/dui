@@ -24,17 +24,17 @@
  */
 
 #include "config.h"
-#include "ApplicationCacheStorage.h"
+#include "loader/appcache/ApplicationCacheStorage.h"
 
-#include "ApplicationCache.h"
-#include "ApplicationCacheGroup.h"
-#include "ApplicationCacheHost.h"
-#include "ApplicationCacheResource.h"
-#include "FileSystem.h"
-#include "KURL.h"
-#include "NotImplemented.h"
-#include "SecurityOrigin.h"
-#include "UUID.h"
+#include "loader/appcache/ApplicationCache.h"
+#include "loader/appcache/ApplicationCacheGroup.h"
+#include "loader/appcache/ApplicationCacheHost.h"
+#include "loader/appcache/ApplicationCacheResource.h"
+#include "platform/FileSystem.h"
+#include "platform/KURL.h"
+#include "platform/NotImplemented.h"
+#include "page/SecurityOrigin.h"
+#include "platform/UUID.h"
 #include <wtf/text/CString.h>
 #include <wtf/StdLibExtras.h>
 #include <wtf/StringExtras.h>

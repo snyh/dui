@@ -26,17 +26,17 @@
 #ifndef RenderObject_h
 #define RenderObject_h
 
-#include "CachedImageClient.h"
-#include "DocumentStyleSheetCollection.h"
-#include "Element.h"
-#include "FloatQuad.h"
-#include "LayoutRect.h"
-#include "PaintPhase.h"
-#include "RenderObjectChildList.h"
-#include "RenderStyle.h"
-#include "ScrollBehavior.h"
-#include "StyleInheritedData.h"
-#include "TextAffinity.h"
+#include "loader/cache/CachedImageClient.h"
+#include "dom/DocumentStyleSheetCollection.h"
+#include "dom/Element.h"
+#include "platform/graphics/FloatQuad.h"
+#include "platform/graphics/LayoutRect.h"
+#include "rendering/PaintPhase.h"
+#include "rendering/RenderObjectChildList.h"
+#include "rendering/style/RenderStyle.h"
+#include "rendering/ScrollBehavior.h"
+#include "rendering/style/StyleInheritedData.h"
+#include "editing/TextAffinity.h"
 #include <wtf/HashSet.h>
 
 namespace WebCore {

@@ -25,23 +25,23 @@
  */
 
 #include "config.h"
-#include "HTMLOptionElement.h"
+#include "html/HTMLOptionElement.h"
 
-#include "Attribute.h"
-#include "Document.h"
-#include "ExceptionCode.h"
-#include "HTMLDataListElement.h"
+#include "dom/Attribute.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCode.h"
+#include "html/HTMLDataListElement.h"
 #include "HTMLNames.h"
-#include "HTMLOptGroupElement.h"
-#include "HTMLParserIdioms.h"
-#include "HTMLSelectElement.h"
-#include "NodeRenderStyle.h"
-#include "NodeRenderingContext.h"
-#include "NodeTraversal.h"
-#include "RenderMenuList.h"
-#include "RenderTheme.h"
-#include "StyleResolver.h"
-#include "Text.h"
+#include "html/HTMLOptGroupElement.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "html/HTMLSelectElement.h"
+#include "dom/NodeRenderStyle.h"
+#include "dom/NodeRenderingContext.h"
+#include "dom/NodeTraversal.h"
+#include "rendering/RenderMenuList.h"
+#include "rendering/RenderTheme.h"
+#include "css/StyleResolver.h"
+#include "dom/Text.h"
 #include <wtf/Vector.h>
 #include <wtf/text/StringBuilder.h>
 

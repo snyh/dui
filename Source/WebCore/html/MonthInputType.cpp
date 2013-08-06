@@ -30,12 +30,12 @@
 
 #include "config.h"
 #if ENABLE(INPUT_TYPE_MONTH)
-#include "MonthInputType.h"
+#include "html/MonthInputType.h"
 
-#include "DateComponents.h"
-#include "HTMLInputElement.h"
+#include "platform/DateComponents.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "InputTypeNames.h"
+#include "html/InputTypeNames.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/DateMath.h>
 #include <wtf/MathExtras.h>

@@ -31,9 +31,9 @@
 
 #if ENABLE(CSS_SHADERS)
 
-#include "CachedShader.h"
-#include "ResourceBuffer.h"
-#include "TextResourceDecoder.h"
+#include "loader/cache/CachedShader.h"
+#include "loader/ResourceBuffer.h"
+#include "loader/TextResourceDecoder.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

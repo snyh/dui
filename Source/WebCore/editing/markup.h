@@ -26,8 +26,8 @@
 #ifndef markup_h
 #define markup_h
 
-#include "FragmentScriptingPermission.h"
-#include "HTMLInterchange.h"
+#include "dom/FragmentScriptingPermission.h"
+#include "editing/HTMLInterchange.h"
 #include <wtf/Forward.h>
 #include <wtf/Vector.h>
 

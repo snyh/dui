@@ -31,7 +31,7 @@
 #ifndef BaseClickableWithKeyInputType_h
 #define BaseClickableWithKeyInputType_h
 
-#include "InputType.h"
+#include "html/InputType.h"
 
 namespace WebCore {
 

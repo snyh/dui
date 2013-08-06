@@ -22,7 +22,7 @@
 #define SVGURIReference_h
 
 #if ENABLE(SVG)
-#include "Document.h"
+#include "dom/Document.h"
 #include "XLinkNames.h"
 
 namespace WebCore {

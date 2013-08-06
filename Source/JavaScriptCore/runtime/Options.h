@@ -26,7 +26,7 @@
 #ifndef Options_h
 #define Options_h
 
-#include "JSExportMacros.h"
+#include "runtime/JSExportMacros.h"
 #include <stdint.h>
 #include <stdio.h>
 

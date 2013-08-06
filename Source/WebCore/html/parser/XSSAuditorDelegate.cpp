@@ -24,19 +24,19 @@
  */
 
 #include "config.h"
-#include "XSSAuditorDelegate.h"
+#include "html/parser/XSSAuditorDelegate.h"
 
-#include "Console.h"
-#include "DOMWindow.h"
-#include "Document.h"
-#include "DocumentLoader.h"
-#include "FormData.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
-#include "HTMLParserIdioms.h"
-#include "PingLoader.h"
-#include "SecurityOrigin.h"
+#include "page/Console.h"
+#include "page/DOMWindow.h"
+#include "dom/Document.h"
+#include "loader/DocumentLoader.h"
+#include "platform/network/FormData.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "loader/PingLoader.h"
+#include "page/SecurityOrigin.h"
 #include <wtf/text/StringBuilder.h>
 #include <wtf/text/CString.h>
 

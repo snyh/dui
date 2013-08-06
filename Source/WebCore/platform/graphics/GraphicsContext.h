@@ -27,15 +27,15 @@
 #ifndef GraphicsContext_h
 #define GraphicsContext_h
 
-#include "ColorSpace.h"
-#include "DashArray.h"
-#include "FloatRect.h"
-#include "Font.h"
-#include "Gradient.h"
-#include "Image.h"
-#include "ImageOrientation.h"
-#include "Path.h"
-#include "Pattern.h"
+#include "platform/graphics/ColorSpace.h"
+#include "platform/graphics/DashArray.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/Gradient.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/ImageOrientation.h"
+#include "platform/graphics/Path.h"
+#include "platform/graphics/Pattern.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/PassOwnPtr.h>
 
@@ -65,7 +65,7 @@ typedef void PlatformGraphicsContext;
 #endif
 
 #if PLATFORM(WIN)
-#include "DIBPixelData.h"
+#include "platform/graphics/win/DIBPixelData.h"
 typedef struct HDC__* HDC;
 #if !USE(CG)
 // UInt8 is defined in CoreFoundation/CFBase.h

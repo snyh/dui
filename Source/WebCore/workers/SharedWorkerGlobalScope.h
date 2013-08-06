@@ -33,8 +33,8 @@
 
 #if ENABLE(SHARED_WORKERS)
 
-#include "ContentSecurityPolicy.h"
-#include "WorkerGlobalScope.h"
+#include "page/ContentSecurityPolicy.h"
+#include "workers/WorkerGlobalScope.h"
 
 namespace WebCore {
 

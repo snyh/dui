@@ -26,11 +26,11 @@
  */
 
 #include "config.h"
-#include "HTMLEntityParser.h"
+#include "html/parser/HTMLEntityParser.h"
 
-#include "CharacterReferenceParserInlines.h"
-#include "HTMLEntitySearch.h"
-#include "HTMLEntityTable.h"
+#include "xml/parser/CharacterReferenceParserInlines.h"
+#include "html/parser/HTMLEntitySearch.h"
+#include "html/parser/HTMLEntityTable.h"
 #include <wtf/text/StringBuilder.h>
 
 using namespace WTF;

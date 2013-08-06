@@ -27,9 +27,9 @@
  */
 
 #include "config.h"
-#include "RenderReplica.h"
+#include "rendering/RenderReplica.h"
 
-#include "RenderLayer.h"
+#include "rendering/RenderLayer.h"
 #include <wtf/StackStats.h>
 
 namespace WebCore {

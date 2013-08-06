@@ -22,10 +22,10 @@
 #ifndef RegExp_h
 #define RegExp_h
 
-#include "ExecutableAllocator.h"
-#include "MatchResult.h"
-#include "RegExpKey.h"
-#include "Structure.h"
+#include "jit/ExecutableAllocator.h"
+#include "runtime/MatchResult.h"
+#include "runtime/RegExpKey.h"
+#include "runtime/Structure.h"
 #include "yarr/Yarr.h"
 #include <wtf/Forward.h>
 #include <wtf/RefCounted.h>

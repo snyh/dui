@@ -26,7 +26,7 @@
 #ifndef OverflowEvent_h
 #define OverflowEvent_h
 
-#include "Event.h"
+#include "dom/Event.h"
 
 namespace WebCore {
 

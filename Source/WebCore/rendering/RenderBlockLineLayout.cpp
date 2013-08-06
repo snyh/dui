@@ -23,37 +23,37 @@
 
 #include "config.h"
 
-#include "BidiResolver.h"
-#include "Hyphenation.h"
-#include "InlineIterator.h"
-#include "InlineTextBox.h"
-#include "Logging.h"
-#include "RenderArena.h"
-#include "RenderCombineText.h"
-#include "RenderCounter.h"
-#include "RenderFlowThread.h"
-#include "RenderInline.h"
-#include "RenderLayer.h"
-#include "RenderListMarker.h"
-#include "RenderRegion.h"
-#include "RenderRubyRun.h"
-#include "RenderView.h"
-#include "Settings.h"
-#include "TrailingFloatsRootInlineBox.h"
-#include "VerticalPositionCache.h"
-#include "break_lines.h"
+#include "platform/text/BidiResolver.h"
+#include "platform/text/Hyphenation.h"
+#include "rendering/InlineIterator.h"
+#include "rendering/InlineTextBox.h"
+#include "platform/Logging.h"
+#include "rendering/RenderArena.h"
+#include "rendering/RenderCombineText.h"
+#include "rendering/RenderCounter.h"
+#include "rendering/RenderFlowThread.h"
+#include "rendering/RenderInline.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/RenderListMarker.h"
+#include "rendering/RenderRegion.h"
+#include "rendering/RenderRubyRun.h"
+#include "rendering/RenderView.h"
+#include "page/Settings.h"
+#include "rendering/TrailingFloatsRootInlineBox.h"
+#include "rendering/VerticalPositionCache.h"
+#include "rendering/break_lines.h"
 #include <wtf/RefCountedLeakCounter.h>
 #include <wtf/StdLibExtras.h>
 #include <wtf/Vector.h>
 #include <wtf/unicode/CharacterNames.h>
 
 #if ENABLE(CSS_SHAPES)
-#include "ShapeInsideInfo.h"
+#include "rendering/shapes/ShapeInsideInfo.h"
 #endif
 
 #if ENABLE(SVG)
-#include "RenderSVGInlineText.h"
-#include "SVGRootInlineBox.h"
+#include "rendering/svg/RenderSVGInlineText.h"
+#include "rendering/svg/SVGRootInlineBox.h"
 #endif
 
 using namespace std;

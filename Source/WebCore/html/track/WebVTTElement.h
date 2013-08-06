@@ -25,7 +25,7 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "HTMLElement.h"
+#include "html/HTMLElement.h"
 
 namespace WebCore {
 

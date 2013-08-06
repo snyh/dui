@@ -25,16 +25,16 @@
  */
 
 #include "config.h"
-#include "ShadowRoot.h"
+#include "dom/ShadowRoot.h"
 
-#include "ContentDistributor.h"
-#include "ElementShadow.h"
-#include "HistogramSupport.h"
-#include "InsertionPoint.h"
-#include "RuntimeEnabledFeatures.h"
-#include "StyleResolver.h"
-#include "Text.h"
-#include "markup.h"
+#include "html/shadow/ContentDistributor.h"
+#include "dom/ElementShadow.h"
+#include "platform/HistogramSupport.h"
+#include "html/shadow/InsertionPoint.h"
+#include "bindings/dui/saved/RuntimeEnabledFeatures.h"
+#include "css/StyleResolver.h"
+#include "dom/Text.h"
+#include "editing/markup.h"
 
 namespace WebCore {
 

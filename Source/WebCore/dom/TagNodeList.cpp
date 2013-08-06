@@ -22,10 +22,10 @@
  */
 
 #include "config.h"
-#include "TagNodeList.h"
+#include "dom/TagNodeList.h"
 
-#include "Element.h"
-#include "NodeRareData.h"
+#include "dom/Element.h"
+#include "dom/NodeRareData.h"
 #include <wtf/Assertions.h>
 
 namespace WebCore {

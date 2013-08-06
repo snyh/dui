@@ -26,8 +26,8 @@
 #ifndef HostCallReturnValue_h
 #define HostCallReturnValue_h
 
-#include "JSCJSValue.h"
-#include "MacroAssemblerCodeRef.h"
+#include "runtime/JSCJSValue.h"
+#include "assembler/MacroAssemblerCodeRef.h"
 #include <wtf/Platform.h>
 
 #if ENABLE(JIT)

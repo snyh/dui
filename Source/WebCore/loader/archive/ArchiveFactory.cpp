@@ -27,15 +27,15 @@
  */
 
 #include "config.h"
-#include "ArchiveFactory.h"
+#include "loader/archive/ArchiveFactory.h"
 
-#include "MIMETypeRegistry.h"
+#include "platform/MIMETypeRegistry.h"
 
 #if ENABLE(WEB_ARCHIVE) && USE(CF)
 #include "LegacyWebArchive.h"
 #endif
 #if ENABLE(MHTML)
-#include "MHTMLArchive.h"
+#include "loader/archive/mhtml/MHTMLArchive.h"
 #endif
 
 #include <wtf/HashMap.h>

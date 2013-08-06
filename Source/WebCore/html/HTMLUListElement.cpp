@@ -21,9 +21,9 @@
  */
 
 #include "config.h"
-#include "HTMLUListElement.h"
+#include "html/HTMLUListElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
 #include "HTMLNames.h"
 

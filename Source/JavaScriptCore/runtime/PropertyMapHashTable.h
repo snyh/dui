@@ -21,9 +21,9 @@
 #ifndef PropertyMapHashTable_h
 #define PropertyMapHashTable_h
 
-#include "PropertyOffset.h"
-#include "Structure.h"
-#include "WriteBarrier.h"
+#include "runtime/PropertyOffset.h"
+#include "runtime/Structure.h"
+#include "runtime/WriteBarrier.h"
 #include <wtf/HashTable.h>
 #include <wtf/MathExtras.h>
 #include <wtf/PassOwnPtr.h>

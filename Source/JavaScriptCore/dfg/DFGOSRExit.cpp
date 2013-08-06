@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "DFGOSRExit.h"
+#include "dfg/DFGOSRExit.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGAssemblyHelpers.h"
-#include "DFGSpeculativeJIT.h"
-#include "JSCellInlines.h"
+#include "dfg/DFGAssemblyHelpers.h"
+#include "dfg/DFGSpeculativeJIT.h"
+#include "runtime/JSCellInlines.h"
 
 namespace JSC { namespace DFG {
 

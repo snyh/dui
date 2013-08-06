@@ -29,7 +29,7 @@
  */
 
 #include "config.h"
-#include "PageVisibilityState.h"
+#include "page/PageVisibilityState.h"
 
 #if ENABLE(PAGE_VISIBILITY_API)
 

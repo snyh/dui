@@ -30,37 +30,37 @@
  */
 
 #include "config.h"
-#include "RangeInputType.h"
+#include "html/RangeInputType.h"
 
-#include "AXObjectCache.h"
-#include "ElementShadow.h"
-#include "ExceptionCodePlaceholder.h"
-#include "HTMLDivElement.h"
-#include "HTMLInputElement.h"
+#include "accessibility/AXObjectCache.h"
+#include "dom/ElementShadow.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "html/HTMLDivElement.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "InputTypeNames.h"
-#include "KeyboardEvent.h"
-#include "MouseEvent.h"
-#include "PlatformMouseEvent.h"
-#include "RenderSlider.h"
-#include "ScopedEventQueue.h"
-#include "ShadowRoot.h"
-#include "SliderThumbElement.h"
-#include "StepRange.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "html/InputTypeNames.h"
+#include "dom/KeyboardEvent.h"
+#include "dom/MouseEvent.h"
+#include "platform/PlatformMouseEvent.h"
+#include "rendering/RenderSlider.h"
+#include "dom/ScopedEventQueue.h"
+#include "dom/ShadowRoot.h"
+#include "html/shadow/SliderThumbElement.h"
+#include "html/StepRange.h"
 #include <limits>
 #include <wtf/MathExtras.h>
 #include <wtf/PassOwnPtr.h>
 
 #if ENABLE(TOUCH_EVENTS)
-#include "Touch.h"
-#include "TouchEvent.h"
-#include "TouchList.h"
+#include "dom/Touch.h"
+#include "dom/TouchEvent.h"
+#include "dom/TouchList.h"
 #endif
 
 #if ENABLE(DATALIST_ELEMENT)
-#include "HTMLDataListElement.h"
-#include "HTMLOptionElement.h"
+#include "html/HTMLDataListElement.h"
+#include "html/HTMLOptionElement.h"
 #include <wtf/NonCopyingSort.h>
 #endif
 

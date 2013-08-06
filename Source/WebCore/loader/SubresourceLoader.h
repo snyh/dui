@@ -29,8 +29,8 @@
 #ifndef SubresourceLoader_h
 #define SubresourceLoader_h
 
-#include "FrameLoaderTypes.h"
-#include "ResourceLoader.h"
+#include "loader/FrameLoaderTypes.h"
+#include "loader/ResourceLoader.h"
 
 #include <wtf/text/WTFString.h>
  

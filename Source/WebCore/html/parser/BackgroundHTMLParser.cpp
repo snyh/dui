@@ -27,12 +27,12 @@
 
 #if ENABLE(THREADED_HTML_PARSER)
 
-#include "BackgroundHTMLParser.h"
+#include "html/parser/BackgroundHTMLParser.h"
 
-#include "HTMLDocumentParser.h"
-#include "HTMLParserThread.h"
-#include "HTMLTokenizer.h"
-#include "XSSAuditor.h"
+#include "html/parser/HTMLDocumentParser.h"
+#include "html/parser/HTMLParserThread.h"
+#include "html/parser/HTMLTokenizer.h"
+#include "html/parser/XSSAuditor.h"
 #include <wtf/MainThread.h>
 #include <wtf/text/TextPosition.h>
 

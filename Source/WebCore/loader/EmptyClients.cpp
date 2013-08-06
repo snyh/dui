@@ -26,18 +26,18 @@
  */
 
 #include "config.h"
-#include "EmptyClients.h"
+#include "loader/EmptyClients.h"
 
-#include "DateTimeChooser.h"
-#include "DocumentLoader.h"
-#include "FileChooser.h"
-#include "FormState.h"
-#include "Frame.h"
-#include "FrameNetworkingContext.h"
-#include "HTMLFormElement.h"
+#include "platform/DateTimeChooser.h"
+#include "loader/DocumentLoader.h"
+#include "platform/FileChooser.h"
+#include "loader/FormState.h"
+#include "page/Frame.h"
+#include "loader/FrameNetworkingContext.h"
+#include "html/HTMLFormElement.h"
 
 #if ENABLE(INPUT_TYPE_COLOR)
-#include "ColorChooser.h"
+#include "platform/ColorChooser.h"
 #endif
 
 namespace WebCore {

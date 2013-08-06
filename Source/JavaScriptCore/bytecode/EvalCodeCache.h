@@ -29,9 +29,9 @@
 #ifndef EvalCodeCache_h
 #define EvalCodeCache_h
 
-#include "Executable.h"
-#include "JSGlobalObject.h"
-#include "SourceCode.h"
+#include "runtime/Executable.h"
+#include "runtime/JSGlobalObject.h"
+#include "parser/SourceCode.h"
 #include <wtf/HashMap.h>
 #include <wtf/RefPtr.h>
 #include <wtf/text/StringHash.h>

@@ -25,23 +25,23 @@
 
 #include "config.h"
 #if ENABLE(VIDEO)
-#include "HTMLVideoElement.h"
+#include "html/HTMLVideoElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
-#include "Chrome.h"
-#include "ChromeClient.h"
-#include "Document.h"
-#include "ExceptionCode.h"
-#include "Frame.h"
-#include "HTMLImageLoader.h"
+#include "page/Chrome.h"
+#include "page/ChromeClient.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCode.h"
+#include "page/Frame.h"
+#include "html/HTMLImageLoader.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "Page.h"
-#include "RenderImage.h"
-#include "RenderVideo.h"
-#include "ScriptController.h"
-#include "Settings.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "page/Page.h"
+#include "rendering/RenderImage.h"
+#include "rendering/RenderVideo.h"
+#include "bindings/dui/saved/ScriptController.h"
+#include "page/Settings.h"
 
 namespace WebCore {
 

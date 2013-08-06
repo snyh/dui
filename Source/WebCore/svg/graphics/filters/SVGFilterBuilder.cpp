@@ -20,11 +20,11 @@
 #include "config.h"
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "SVGFilterBuilder.h"
+#include "svg/graphics/filters/SVGFilterBuilder.h"
 
-#include "FilterEffect.h"
-#include "SourceAlpha.h"
-#include "SourceGraphic.h"
+#include "platform/graphics/filters/FilterEffect.h"
+#include "platform/graphics/filters/SourceAlpha.h"
+#include "platform/graphics/filters/SourceGraphic.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/text/WTFString.h>
 

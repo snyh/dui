@@ -22,7 +22,7 @@
 #define RenderProgress_h
 
 #if ENABLE(PROGRESS_ELEMENT)
-#include "RenderBlock.h"
+#include "rendering/RenderBlock.h"
 
 namespace WebCore {
 

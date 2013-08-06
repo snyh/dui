@@ -26,8 +26,8 @@
 #ifndef SetSelectionCommand_h
 #define SetSelectionCommand_h
 
-#include "EditCommand.h"
-#include "FrameSelection.h"
+#include "editing/EditCommand.h"
+#include "editing/FrameSelection.h"
 
 namespace WebCore {
 

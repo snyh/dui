@@ -26,9 +26,9 @@
 #ifndef VisiblePosition_h
 #define VisiblePosition_h
 
-#include "EditingBoundary.h"
-#include "Position.h"
-#include "TextDirection.h"
+#include "editing/EditingBoundary.h"
+#include "dom/Position.h"
+#include "platform/text/TextDirection.h"
 
 namespace WebCore {
 

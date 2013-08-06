@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "WeakSet.h"
+#include "heap/WeakSet.h"
 
-#include "Heap.h"
-#include "VM.h"
+#include "heap/Heap.h"
+#include "runtime/VM.h"
 
 namespace JSC {
 

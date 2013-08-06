@@ -34,7 +34,7 @@
 
 #if ENABLE(MEDIA_STREAM)
 
-#include "MediaStreamComponent.h"
+#include "platform/mediastream/MediaStreamComponent.h"
 #include <wtf/RefCounted.h>
 #include <wtf/Vector.h>
 

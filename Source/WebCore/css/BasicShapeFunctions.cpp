@@ -28,13 +28,13 @@
  */
 
 #include "config.h"
-#include "BasicShapeFunctions.h"
+#include "css/BasicShapeFunctions.h"
 
-#include "BasicShapes.h"
-#include "CSSBasicShapes.h"
-#include "CSSPrimitiveValueMappings.h"
-#include "CSSValuePool.h"
-#include "RenderStyle.h"
+#include "rendering/style/BasicShapes.h"
+#include "css/CSSBasicShapes.h"
+#include "css/CSSPrimitiveValueMappings.h"
+#include "css/CSSValuePool.h"
+#include "rendering/style/RenderStyle.h"
 
 namespace WebCore {
 

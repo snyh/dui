@@ -20,10 +20,10 @@
 #include "config.h"
 
 #if USE(ACCELERATED_COMPOSITING)
-#include "GraphicsLayerAnimation.h"
+#include "platform/graphics/GraphicsLayerAnimation.h"
 
-#include "LayoutSize.h"
-#include "UnitBezier.h"
+#include "platform/graphics/LayoutSize.h"
+#include "platform/graphics/UnitBezier.h"
 #include <wtf/CurrentTime.h>
 
 namespace WebCore {

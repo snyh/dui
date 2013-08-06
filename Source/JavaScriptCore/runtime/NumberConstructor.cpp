@@ -20,12 +20,12 @@
  */
 
 #include "config.h"
-#include "NumberConstructor.h"
+#include "runtime/NumberConstructor.h"
 
-#include "Lookup.h"
-#include "NumberObject.h"
-#include "NumberPrototype.h"
-#include "Operations.h"
+#include "runtime/Lookup.h"
+#include "runtime/NumberObject.h"
+#include "runtime/NumberPrototype.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

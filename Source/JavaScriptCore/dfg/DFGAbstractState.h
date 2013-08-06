@@ -30,10 +30,10 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGAbstractValue.h"
-#include "DFGBranchDirection.h"
-#include "DFGGraph.h"
-#include "DFGNode.h"
+#include "dfg/DFGAbstractValue.h"
+#include "dfg/DFGBranchDirection.h"
+#include "dfg/DFGGraph.h"
+#include "dfg/DFGNode.h"
 #include <wtf/Vector.h>
 
 namespace JSC {

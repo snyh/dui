@@ -31,21 +31,21 @@
 
 
 #include "config.h"
-#include "SliderThumbElement.h"
+#include "html/shadow/SliderThumbElement.h"
 
 #include "CSSValueKeywords.h"
-#include "ElementShadow.h"
-#include "Event.h"
-#include "EventHandler.h"
-#include "Frame.h"
-#include "HTMLInputElement.h"
-#include "HTMLParserIdioms.h"
-#include "MouseEvent.h"
-#include "RenderFlexibleBox.h"
-#include "RenderSlider.h"
-#include "RenderTheme.h"
-#include "ShadowRoot.h"
-#include "StepRange.h"
+#include "dom/ElementShadow.h"
+#include "dom/Event.h"
+#include "page/EventHandler.h"
+#include "page/Frame.h"
+#include "html/HTMLInputElement.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "dom/MouseEvent.h"
+#include "rendering/RenderFlexibleBox.h"
+#include "rendering/RenderSlider.h"
+#include "rendering/RenderTheme.h"
+#include "dom/ShadowRoot.h"
+#include "html/StepRange.h"
 
 using namespace std;
 

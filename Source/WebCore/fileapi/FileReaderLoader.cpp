@@ -32,17 +32,17 @@
 
 #if ENABLE(BLOB)
 
-#include "FileReaderLoader.h"
+#include "fileapi/FileReaderLoader.h"
 
-#include "Blob.h"
-#include "BlobURL.h"
-#include "FileReaderLoaderClient.h"
-#include "ResourceRequest.h"
-#include "ResourceResponse.h"
-#include "ScriptExecutionContext.h"
-#include "TextResourceDecoder.h"
-#include "ThreadableBlobRegistry.h"
-#include "ThreadableLoader.h"
+#include "fileapi/Blob.h"
+#include "fileapi/BlobURL.h"
+#include "fileapi/FileReaderLoaderClient.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "dom/ScriptExecutionContext.h"
+#include "loader/TextResourceDecoder.h"
+#include "fileapi/ThreadableBlobRegistry.h"
+#include "loader/ThreadableLoader.h"
 #include <wtf/ArrayBuffer.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>

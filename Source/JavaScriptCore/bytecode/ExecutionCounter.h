@@ -26,8 +26,8 @@
 #ifndef ExecutionCounter_h
 #define ExecutionCounter_h
 
-#include "JSGlobalObject.h"
-#include "Options.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/Options.h"
 #include <wtf/PrintStream.h>
 #include <wtf/SimpleStats.h>
 

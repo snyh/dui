@@ -34,7 +34,7 @@
 
 #if ENABLE(WEB_TIMING) && ENABLE(PERFORMANCE_TIMELINE)
 
-#include "Performance.h"
+#include "page/Performance.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/text/WTFString.h>

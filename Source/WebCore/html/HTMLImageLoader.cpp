@@ -20,15 +20,15 @@
  */
 
 #include "config.h"
-#include "HTMLImageLoader.h"
+#include "html/HTMLImageLoader.h"
 
-#include "CachedImage.h"
-#include "Element.h"
-#include "Event.h"
-#include "EventNames.h"
+#include "loader/cache/CachedImage.h"
+#include "dom/Element.h"
+#include "dom/Event.h"
+#include "dom/EventNames.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "Settings.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "page/Settings.h"
 
 #include <runtime/JSLock.h>
 #include <runtime/Operations.h>

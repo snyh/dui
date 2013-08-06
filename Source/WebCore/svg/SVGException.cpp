@@ -30,7 +30,7 @@
 
 #if ENABLE(SVG)
 
-#include "SVGException.h"
+#include "svg/SVGException.h"
 
 namespace WebCore {
 

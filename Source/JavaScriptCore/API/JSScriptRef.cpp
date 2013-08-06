@@ -25,17 +25,17 @@
 
 #include "config.h"
 
-#include "APICast.h"
-#include "APIShims.h"
-#include "Completion.h"
-#include "JSBasePrivate.h"
-#include "VM.h"
-#include "JSScriptRefPrivate.h"
-#include "OpaqueJSString.h"
-#include "Operations.h"
-#include "Parser.h"
-#include "SourceCode.h"
-#include "SourceProvider.h"
+#include "API/APICast.h"
+#include "API/APIShims.h"
+#include "runtime/Completion.h"
+#include "API/JSBasePrivate.h"
+#include "runtime/VM.h"
+#include "API/JSScriptRefPrivate.h"
+#include "API/OpaqueJSString.h"
+#include "runtime/Operations.h"
+#include "parser/Parser.h"
+#include "parser/SourceCode.h"
+#include "parser/SourceProvider.h"
 
 using namespace JSC;
 

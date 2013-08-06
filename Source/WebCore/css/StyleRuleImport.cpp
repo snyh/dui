@@ -20,16 +20,16 @@
  */
 
 #include "config.h"
-#include "StyleRuleImport.h"
+#include "css/StyleRuleImport.h"
 
-#include "CSSStyleSheet.h"
-#include "CachedCSSStyleSheet.h"
-#include "CachedResourceLoader.h"
-#include "CachedResourceRequest.h"
-#include "CachedResourceRequestInitiators.h"
-#include "Document.h"
-#include "SecurityOrigin.h"
-#include "StyleSheetContents.h"
+#include "css/CSSStyleSheet.h"
+#include "loader/cache/CachedCSSStyleSheet.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "loader/cache/CachedResourceRequestInitiators.h"
+#include "dom/Document.h"
+#include "page/SecurityOrigin.h"
+#include "css/StyleSheetContents.h"
 #include <wtf/StdLibExtras.h>
 
 namespace WebCore {

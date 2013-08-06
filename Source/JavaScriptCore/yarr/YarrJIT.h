@@ -28,11 +28,11 @@
 
 #if ENABLE(YARR_JIT)
 
-#include "VM.h"
-#include "MacroAssemblerCodeRef.h"
-#include "MatchResult.h"
-#include "Yarr.h"
-#include "YarrPattern.h"
+#include "runtime/VM.h"
+#include "assembler/MacroAssemblerCodeRef.h"
+#include "runtime/MatchResult.h"
+#include "yarr/Yarr.h"
+#include "yarr/YarrPattern.h"
 
 #if CPU(X86) && !COMPILER(MSVC)
 #define YARR_CALL __attribute__ ((regparm (3)))

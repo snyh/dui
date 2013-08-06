@@ -28,7 +28,7 @@
 
 #include <wtf/Platform.h>
 
-#include "JITStubRoutine.h"
+#include "jit/JITStubRoutine.h"
 #include <wtf/FastAllocBase.h>
 #include <wtf/HashMap.h>
 #include <wtf/Vector.h>

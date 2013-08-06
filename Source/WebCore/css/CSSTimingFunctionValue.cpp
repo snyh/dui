@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "CSSTimingFunctionValue.h"
+#include "css/CSSTimingFunctionValue.h"
 
 #include <wtf/text/WTFString.h>
 

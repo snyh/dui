@@ -23,7 +23,7 @@
 #ifndef CSSHostRule_h
 #define CSSHostRule_h
 
-#include "CSSGroupingRule.h"
+#include "css/CSSGroupingRule.h"
 
 namespace WebCore {
 

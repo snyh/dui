@@ -30,9 +30,9 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "HRTFDatabase.h"
+#include "platform/audio/HRTFDatabase.h"
 
-#include "HRTFElevation.h"
+#include "platform/audio/HRTFElevation.h"
 
 using namespace std;
 

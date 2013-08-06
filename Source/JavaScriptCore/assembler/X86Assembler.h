@@ -28,8 +28,8 @@
 
 #if ENABLE(ASSEMBLER) && (CPU(X86) || CPU(X86_64))
 
-#include "AssemblerBuffer.h"
-#include "JITCompilationEffort.h"
+#include "assembler/AssemblerBuffer.h"
+#include "jit/JITCompilationEffort.h"
 #include <stdint.h>
 #include <wtf/Assertions.h>
 #include <wtf/Vector.h>

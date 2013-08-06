@@ -21,7 +21,7 @@
 #ifndef DateConstructor_h
 #define DateConstructor_h
 
-#include "InternalFunction.h"
+#include "runtime/InternalFunction.h"
 
 namespace JSC {
 

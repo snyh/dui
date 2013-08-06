@@ -23,10 +23,10 @@
  */
 
 #include "config.h"
-#include "DOMTokenList.h"
+#include "html/DOMTokenList.h"
 
-#include "ExceptionCode.h"
-#include "HTMLParserIdioms.h"
+#include "dom/ExceptionCode.h"
+#include "html/parser/HTMLParserIdioms.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

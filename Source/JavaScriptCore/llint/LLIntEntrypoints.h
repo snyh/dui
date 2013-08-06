@@ -30,7 +30,7 @@
 
 #if ENABLE(LLINT)
 
-#include "CodeSpecializationKind.h"
+#include "runtime/CodeSpecializationKind.h"
 
 namespace JSC {
 

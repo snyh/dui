@@ -29,7 +29,7 @@
 
 #if ENABLE(TEMPLATE_ELEMENT)
 
-#include "DocumentFragment.h"
+#include "dom/DocumentFragment.h"
 
 namespace WebCore {
 

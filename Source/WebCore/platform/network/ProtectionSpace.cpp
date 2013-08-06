@@ -23,7 +23,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 #include "config.h"
-#include "ProtectionSpace.h"
+#include "platform/network/ProtectionSpace.h"
 
 #if USE(CFNETWORK) && !PLATFORM(MAC)
 #include "AuthenticationCF.h"

@@ -26,10 +26,10 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "EqualPowerPanner.h"
+#include "platform/audio/EqualPowerPanner.h"
 
-#include "AudioBus.h"
-#include "AudioUtilities.h"
+#include "platform/audio/AudioBus.h"
+#include "platform/audio/AudioUtilities.h"
 #include <algorithm>
 #include <wtf/MathExtras.h>
 

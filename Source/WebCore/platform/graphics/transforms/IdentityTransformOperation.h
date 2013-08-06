@@ -25,7 +25,7 @@
 #ifndef IdentityTransformOperation_h
 #define IdentityTransformOperation_h
 
-#include "TransformOperation.h"
+#include "platform/graphics/transforms/TransformOperation.h"
 
 namespace WebCore {
 

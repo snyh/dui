@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "DFGVirtualRegisterAllocationPhase.h"
+#include "dfg/DFGVirtualRegisterAllocationPhase.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGGraph.h"
-#include "DFGScoreBoard.h"
-#include "JSCellInlines.h"
+#include "dfg/DFGGraph.h"
+#include "dfg/DFGScoreBoard.h"
+#include "runtime/JSCellInlines.h"
 
 namespace JSC { namespace DFG {
 

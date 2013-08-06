@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "DFGOSRExitCompiler.h"
+#include "dfg/DFGOSRExitCompiler.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "CallFrame.h"
-#include "DFGCommon.h"
-#include "LinkBuffer.h"
-#include "Operations.h"
-#include "RepatchBuffer.h"
+#include "interpreter/CallFrame.h"
+#include "dfg/DFGCommon.h"
+#include "assembler/LinkBuffer.h"
+#include "runtime/Operations.h"
+#include "assembler/RepatchBuffer.h"
 #include <wtf/StringPrintStream.h>
 
 namespace JSC { namespace DFG {

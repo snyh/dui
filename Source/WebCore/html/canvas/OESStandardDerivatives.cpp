@@ -27,7 +27,7 @@
 
 #if ENABLE(WEBGL)
 
-#include "OESStandardDerivatives.h"
+#include "html/canvas/OESStandardDerivatives.h"
 
 namespace WebCore {
 

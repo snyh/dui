@@ -21,12 +21,12 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGURIReference.h"
+#include "svg/SVGURIReference.h"
 
-#include "Attribute.h"
-#include "Document.h"
-#include "Element.h"
-#include "KURL.h"
+#include "dom/Attribute.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
+#include "platform/KURL.h"
 
 namespace WebCore {
 

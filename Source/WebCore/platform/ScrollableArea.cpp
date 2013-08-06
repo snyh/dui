@@ -30,14 +30,14 @@
  */
 
 #include "config.h"
-#include "ScrollableArea.h"
+#include "platform/ScrollableArea.h"
 
-#include "GraphicsContext.h"
-#include "GraphicsLayer.h"
-#include "FloatPoint.h"
-#include "PlatformWheelEvent.h"
-#include "ScrollAnimator.h"
-#include "ScrollbarTheme.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/GraphicsLayer.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/PlatformWheelEvent.h"
+#include "platform/ScrollAnimator.h"
+#include "platform/ScrollbarTheme.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

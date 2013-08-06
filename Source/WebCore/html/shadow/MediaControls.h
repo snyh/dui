@@ -29,17 +29,17 @@
 
 #if ENABLE(VIDEO)
 
-#include "Chrome.h"
-#include "HTMLDivElement.h"
-#include "MediaControlElements.h"
-#include "MouseEvent.h"
-#include "Page.h"
-#include "RenderTheme.h"
-#include "Text.h"
+#include "page/Chrome.h"
+#include "html/HTMLDivElement.h"
+#include "html/shadow/MediaControlElements.h"
+#include "dom/MouseEvent.h"
+#include "page/Page.h"
+#include "rendering/RenderTheme.h"
+#include "dom/Text.h"
 #include <wtf/RefPtr.h>
 
 #if ENABLE(VIDEO_TRACK)
-#include "TextTrackCue.h"
+#include "html/track/TextTrackCue.h"
 #endif
 
 namespace WebCore {

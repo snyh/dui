@@ -21,7 +21,7 @@
 #ifndef ObjectPrototype_h
 #define ObjectPrototype_h
 
-#include "JSObject.h"
+#include "runtime/JSObject.h"
 
 namespace JSC {
 

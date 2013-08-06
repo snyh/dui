@@ -21,9 +21,9 @@
  */
 
 #include "config.h"
-#include "WindowFeatures.h"
+#include "page/WindowFeatures.h"
 
-#include "FloatRect.h"
+#include "platform/graphics/FloatRect.h"
 #include <wtf/Assertions.h>
 #include <wtf/MathExtras.h>
 #include <wtf/text/StringHash.h>

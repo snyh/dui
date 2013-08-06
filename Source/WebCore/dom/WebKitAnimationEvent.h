@@ -26,7 +26,7 @@
 #ifndef WebKitAnimationEvent_h
 #define WebKitAnimationEvent_h
 
-#include "Event.h"
+#include "dom/Event.h"
 
 namespace WebCore {
 

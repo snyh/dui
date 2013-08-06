@@ -26,8 +26,8 @@
 #ifndef VisibleSelection_h
 #define VisibleSelection_h
 
-#include "TextGranularity.h"
-#include "VisiblePosition.h"
+#include "editing/TextGranularity.h"
+#include "editing/VisiblePosition.h"
 
 namespace WebCore {
 

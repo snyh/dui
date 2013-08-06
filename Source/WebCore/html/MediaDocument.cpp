@@ -26,23 +26,23 @@
 #include "config.h"
 
 #if ENABLE(VIDEO)
-#include "MediaDocument.h"
+#include "html/MediaDocument.h"
 
-#include "DocumentLoader.h"
-#include "EventNames.h"
-#include "ExceptionCodePlaceholder.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
+#include "loader/DocumentLoader.h"
+#include "dom/EventNames.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
 #include "HTMLEmbedElement.h"
-#include "HTMLHtmlElement.h"
+#include "html/HTMLHtmlElement.h"
 #include "HTMLNames.h"
-#include "HTMLSourceElement.h"
-#include "HTMLVideoElement.h"
-#include "KeyboardEvent.h"
-#include "NodeList.h"
-#include "RawDataDocumentParser.h"
-#include "ScriptController.h"
+#include "html/HTMLSourceElement.h"
+#include "html/HTMLVideoElement.h"
+#include "dom/KeyboardEvent.h"
+#include "dom/NodeList.h"
+#include "dom/RawDataDocumentParser.h"
+#include "bindings/dui/saved/ScriptController.h"
 
 namespace WebCore {
 

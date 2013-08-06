@@ -22,7 +22,7 @@
  */
 
 #include "config.h"
-#include "ValidityState.h"
+#include "html/ValidityState.h"
 
 namespace WebCore {
 

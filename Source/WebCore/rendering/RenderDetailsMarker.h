@@ -22,7 +22,7 @@
 #define RenderDetailsMarker_h
 
 #if ENABLE(DETAILS_ELEMENT)
-#include "RenderBlock.h"
+#include "rendering/RenderBlock.h"
 
 namespace WebCore {
 

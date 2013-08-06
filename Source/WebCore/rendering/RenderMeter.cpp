@@ -20,11 +20,11 @@
 
 #include "config.h"
 #if ENABLE(METER_ELEMENT)
-#include "RenderMeter.h"
+#include "rendering/RenderMeter.h"
 
-#include "HTMLMeterElement.h"
+#include "html/HTMLMeterElement.h"
 #include "HTMLNames.h"
-#include "RenderTheme.h"
+#include "rendering/RenderTheme.h"
 
 using namespace std;
 

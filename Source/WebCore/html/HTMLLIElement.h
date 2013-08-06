@@ -23,7 +23,7 @@
 #ifndef HTMLLIElement_h
 #define HTMLLIElement_h
 
-#include "HTMLElement.h"
+#include "html/HTMLElement.h"
 
 namespace WebCore {
 

@@ -25,11 +25,11 @@
  */
 
 #include "config.h"
-#include "SecurityContext.h"
+#include "dom/SecurityContext.h"
 
-#include "ContentSecurityPolicy.h"
-#include "HTMLParserIdioms.h"
-#include "SecurityOrigin.h"
+#include "page/ContentSecurityPolicy.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "page/SecurityOrigin.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

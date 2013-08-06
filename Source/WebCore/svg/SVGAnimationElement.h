@@ -26,14 +26,14 @@
 #define SVGAnimationElement_h
 
 #if ENABLE(SVG)
-#include "ElementTimeControl.h"
-#include "SMILTime.h"
-#include "SVGAnimatedBoolean.h"
-#include "SVGExternalResourcesRequired.h"
-#include "SVGSMILElement.h"
-#include "SVGStringList.h"
-#include "SVGTests.h"
-#include "UnitBezier.h"
+#include "svg/ElementTimeControl.h"
+#include "svg/animation/SMILTime.h"
+#include "svg/SVGAnimatedBoolean.h"
+#include "svg/SVGExternalResourcesRequired.h"
+#include "svg/animation/SVGSMILElement.h"
+#include "svg/SVGStringList.h"
+#include "svg/SVGTests.h"
+#include "platform/graphics/UnitBezier.h"
 
 namespace WebCore {
 

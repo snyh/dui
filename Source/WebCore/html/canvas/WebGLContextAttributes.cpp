@@ -28,7 +28,7 @@
 
 #if ENABLE(WEBGL)
 
-#include "WebGLContextAttributes.h"
+#include "html/canvas/WebGLContextAttributes.h"
 
 namespace WebCore {
 

@@ -22,12 +22,12 @@
  */
 
 #include "config.h"
-#include "LabelsNodeList.h"
+#include "html/LabelsNodeList.h"
 
-#include "Element.h"
-#include "HTMLLabelElement.h"
+#include "dom/Element.h"
+#include "html/HTMLLabelElement.h"
 #include "HTMLNames.h"
-#include "NodeRareData.h"
+#include "dom/NodeRareData.h"
 
 namespace WebCore {
 

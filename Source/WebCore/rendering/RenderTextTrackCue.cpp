@@ -27,10 +27,10 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "RenderTextTrackCue.h"
+#include "rendering/RenderTextTrackCue.h"
 
-#include "TextTrackCue.h"
-#include "TextTrackCueGeneric.h"
+#include "html/track/TextTrackCue.h"
+#include "html/track/TextTrackCueGeneric.h"
 #include <wtf/StackStats.h>
 
 namespace WebCore {

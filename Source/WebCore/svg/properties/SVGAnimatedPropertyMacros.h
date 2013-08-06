@@ -23,9 +23,9 @@
 #define SVGAnimatedPropertyMacros_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedProperty.h"
-#include "SVGAttributeToPropertyMap.h"
-#include "SVGPropertyTraits.h"
+#include "svg/properties/SVGAnimatedProperty.h"
+#include "svg/properties/SVGAttributeToPropertyMap.h"
+#include "svg/properties/SVGPropertyTraits.h"
 #include <wtf/StdLibExtras.h>
 
 namespace WebCore {

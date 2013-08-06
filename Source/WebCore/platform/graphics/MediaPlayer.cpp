@@ -26,22 +26,22 @@
 #include "config.h"
 
 #if ENABLE(VIDEO)
-#include "MediaPlayer.h"
+#include "platform/graphics/MediaPlayer.h"
 
-#include "ContentType.h"
-#include "Document.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "IntRect.h"
-#include "Logging.h"
-#include "MIMETypeRegistry.h"
-#include "MediaPlayerPrivate.h"
-#include "Settings.h"
-#include "TimeRanges.h"
+#include "platform/ContentType.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/Logging.h"
+#include "platform/MIMETypeRegistry.h"
+#include "platform/graphics/MediaPlayerPrivate.h"
+#include "page/Settings.h"
+#include "html/TimeRanges.h"
 #include <wtf/text/CString.h>
 
 #if ENABLE(VIDEO_TRACK)
-#include "InbandTextTrackPrivate.h"
+#include "platform/graphics/InbandTextTrackPrivate.h"
 #endif
 
 #if ENABLE(MEDIA_SOURCE)
@@ -53,7 +53,7 @@
 #endif
 
 #if USE(GSTREAMER)
-#include "MediaPlayerPrivateGStreamer.h"
+#include "platform/graphics/gstreamer/MediaPlayerPrivateGStreamer.h"
 #define PlatformMediaEngineClassName MediaPlayerPrivateGStreamer
 #endif
 

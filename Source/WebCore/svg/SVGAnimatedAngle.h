@@ -21,9 +21,9 @@
 #define SVGAnimatedAngle_h
 
 #if ENABLE(SVG)
-#include "SVGAngle.h"
-#include "SVGAnimatedPropertyTearOff.h"
-#include "SVGAnimatedTypeAnimator.h"
+#include "svg/SVGAngle.h"
+#include "svg/properties/SVGAnimatedPropertyTearOff.h"
+#include "svg/SVGAnimatedTypeAnimator.h"
 
 namespace WebCore {
 

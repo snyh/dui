@@ -23,7 +23,7 @@
 #if ENABLE(VIDEO) && USE(GSTREAMER)
 
 #if USE(NATIVE_FULLSCREEN_VIDEO)
-#include "GStreamerGWorld.h"
+#include "platform/graphics/gstreamer/GStreamerGWorld.h"
 #endif
 
 #include <glib-object.h>

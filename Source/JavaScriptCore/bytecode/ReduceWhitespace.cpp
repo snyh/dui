@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "ReduceWhitespace.h"
+#include "bytecode/ReduceWhitespace.h"
 
 #include <wtf/text/StringBuilder.h>
 #include <wtf/text/WTFString.h>

@@ -22,13 +22,13 @@
 
 #if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER)
 
-#include "CustomFilterProgramInfo.h"
-#include "FilterOperation.h"
-#include "FloatQuad.h"
-#include "GraphicsContext3D.h"
-#include "IntSize.h"
-#include "TextureMapper.h"
-#include "TransformationMatrix.h"
+#include "platform/graphics/filters/CustomFilterProgramInfo.h"
+#include "platform/graphics/filters/FilterOperation.h"
+#include "platform/graphics/FloatQuad.h"
+#include "platform/graphics/GraphicsContext3D.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/graphics/texmap/TextureMapper.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
 
 namespace WebCore {
 

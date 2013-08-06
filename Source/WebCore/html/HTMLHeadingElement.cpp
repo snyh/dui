@@ -21,7 +21,7 @@
  */
 
 #include "config.h"
-#include "HTMLHeadingElement.h"
+#include "html/HTMLHeadingElement.h"
 
 namespace WebCore {
 

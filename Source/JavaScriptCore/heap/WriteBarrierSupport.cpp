@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "WriteBarrierSupport.h"
+#include "heap/WriteBarrierSupport.h"
 
 namespace JSC {
 

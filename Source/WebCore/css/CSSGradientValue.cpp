@@ -24,18 +24,18 @@
  */
 
 #include "config.h"
-#include "CSSGradientValue.h"
+#include "css/CSSGradientValue.h"
 
-#include "CSSCalculationValue.h"
+#include "css/CSSCalculationValue.h"
 #include "CSSValueKeywords.h"
-#include "GeneratorGeneratedImage.h"
-#include "Gradient.h"
-#include "Image.h"
-#include "IntSize.h"
-#include "IntSizeHash.h"
-#include "NodeRenderStyle.h"
-#include "RenderObject.h"
-#include "StyleResolver.h"
+#include "platform/graphics/GeneratorGeneratedImage.h"
+#include "platform/graphics/Gradient.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/graphics/IntSizeHash.h"
+#include "dom/NodeRenderStyle.h"
+#include "rendering/RenderObject.h"
+#include "css/StyleResolver.h"
 #include <wtf/text/StringBuilder.h>
 #include <wtf/text/WTFString.h>
 

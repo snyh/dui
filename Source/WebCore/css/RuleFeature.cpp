@@ -27,9 +27,9 @@
  */
 
 #include "config.h"
-#include "RuleFeature.h"
+#include "css/RuleFeature.h"
 
-#include "CSSSelector.h"
+#include "css/CSSSelector.h"
 
 namespace WebCore {
 

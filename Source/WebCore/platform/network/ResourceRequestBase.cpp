@@ -24,9 +24,9 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 #include "config.h"
-#include "ResourceRequestBase.h"
+#include "platform/network/ResourceRequestBase.h"
 
-#include "ResourceRequest.h"
+#include "platform/network/soup/ResourceRequest.h"
 
 using namespace std;
 

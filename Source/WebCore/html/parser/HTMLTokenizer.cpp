@@ -26,14 +26,14 @@
  */
 
 #include "config.h"
-#include "HTMLTokenizer.h"
+#include "html/parser/HTMLTokenizer.h"
 
-#include "HTMLEntityParser.h"
-#include "HTMLToken.h"
-#include "HTMLTreeBuilder.h"
+#include "html/parser/HTMLEntityParser.h"
+#include "html/parser/HTMLToken.h"
+#include "html/parser/HTMLTreeBuilder.h"
 #include "HTMLNames.h"
-#include "MarkupTokenizerInlines.h"
-#include "NotImplemented.h"
+#include "xml/parser/MarkupTokenizerInlines.h"
+#include "platform/NotImplemented.h"
 #include <wtf/ASCIICType.h>
 #include <wtf/CurrentTime.h>
 #include <wtf/text/AtomicString.h>

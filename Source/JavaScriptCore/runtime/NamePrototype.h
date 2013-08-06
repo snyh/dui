@@ -26,7 +26,7 @@
 #ifndef NamePrototype_h
 #define NamePrototype_h
 
-#include "NameInstance.h"
+#include "runtime/NameInstance.h"
 
 namespace JSC {
 

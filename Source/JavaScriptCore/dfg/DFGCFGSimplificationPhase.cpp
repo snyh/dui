@@ -24,17 +24,17 @@
  */
 
 #include "config.h"
-#include "DFGCFGSimplificationPhase.h"
+#include "dfg/DFGCFGSimplificationPhase.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGAbstractState.h"
-#include "DFGBasicBlockInlines.h"
-#include "DFGGraph.h"
-#include "DFGInsertionSet.h"
-#include "DFGPhase.h"
-#include "DFGValidate.h"
-#include "Operations.h"
+#include "dfg/DFGAbstractState.h"
+#include "dfg/DFGBasicBlockInlines.h"
+#include "dfg/DFGGraph.h"
+#include "dfg/DFGInsertionSet.h"
+#include "dfg/DFGPhase.h"
+#include "dfg/DFGValidate.h"
+#include "runtime/Operations.h"
 
 namespace JSC { namespace DFG {
 

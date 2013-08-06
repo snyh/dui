@@ -26,7 +26,7 @@
 #ifndef LineBreakIteratorPoolICU_h
 #define LineBreakIteratorPoolICU_h
 
-#include "TextBreakIteratorInternalICU.h"
+#include "platform/text/TextBreakIteratorInternalICU.h"
 #include <unicode/ubrk.h>
 #include <wtf/Assertions.h>
 #include <wtf/HashMap.h>

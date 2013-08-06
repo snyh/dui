@@ -27,7 +27,7 @@
 
 #if ENABLE(THREADED_HTML_PARSER)
 
-#include "BackgroundHTMLInputStream.h"
+#include "html/parser/BackgroundHTMLInputStream.h"
 
 namespace WebCore {
 

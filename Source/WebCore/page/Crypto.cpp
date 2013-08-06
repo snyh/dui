@@ -28,9 +28,9 @@
 
 
 #include "config.h"
-#include "Crypto.h"
+#include "page/Crypto.h"
 
-#include "ExceptionCode.h"
+#include "dom/ExceptionCode.h"
 #include <wtf/ArrayBufferView.h>
 #include <wtf/CryptographicallyRandomNumber.h>
 

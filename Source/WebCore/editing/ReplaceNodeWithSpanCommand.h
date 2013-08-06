@@ -31,7 +31,7 @@
 #ifndef ReplaceNodeWithSpanCommand_h
 #define ReplaceNodeWithSpanCommand_h
 
-#include "CompositeEditCommand.h"
+#include "editing/CompositeEditCommand.h"
 
 namespace WebCore {
 

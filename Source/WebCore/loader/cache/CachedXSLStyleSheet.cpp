@@ -25,12 +25,12 @@
 */
 
 #include "config.h"
-#include "CachedXSLStyleSheet.h"
+#include "loader/cache/CachedXSLStyleSheet.h"
 
-#include "CachedResourceClientWalker.h"
-#include "CachedStyleSheetClient.h"
-#include "ResourceBuffer.h"
-#include "TextResourceDecoder.h"
+#include "loader/cache/CachedResourceClientWalker.h"
+#include "loader/cache/CachedStyleSheetClient.h"
+#include "loader/ResourceBuffer.h"
+#include "loader/TextResourceDecoder.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

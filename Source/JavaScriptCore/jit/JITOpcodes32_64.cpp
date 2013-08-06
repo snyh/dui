@@ -28,16 +28,16 @@
 
 #if ENABLE(JIT)
 #if USE(JSVALUE32_64)
-#include "JIT.h"
+#include "jit/JIT.h"
 
-#include "JITInlines.h"
-#include "JITStubCall.h"
-#include "JSArray.h"
-#include "JSCell.h"
-#include "JSFunction.h"
-#include "JSPropertyNameIterator.h"
-#include "JSVariableObject.h"
-#include "LinkBuffer.h"
+#include "jit/JITInlines.h"
+#include "jit/JITStubCall.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSCell.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSPropertyNameIterator.h"
+#include "runtime/JSVariableObject.h"
+#include "assembler/LinkBuffer.h"
 
 namespace JSC {
 

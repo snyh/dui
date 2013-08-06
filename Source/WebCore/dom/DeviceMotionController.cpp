@@ -25,12 +25,12 @@
  */
 
 #include "config.h"
-#include "DeviceMotionController.h"
+#include "dom/DeviceMotionController.h"
 
-#include "DeviceMotionClient.h"
-#include "DeviceMotionData.h"
-#include "DeviceMotionEvent.h"
-#include "Page.h"
+#include "dom/DeviceMotionClient.h"
+#include "dom/DeviceMotionData.h"
+#include "dom/DeviceMotionEvent.h"
+#include "page/Page.h"
 
 namespace WebCore {
 

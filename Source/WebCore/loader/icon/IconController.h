@@ -31,9 +31,9 @@
 #ifndef IconController_h
 #define IconController_h
 
-#include "IconDatabaseBase.h"
-#include "IconURL.h"
-#include "KURL.h"
+#include "loader/icon/IconDatabaseBase.h"
+#include "dom/IconURL.h"
+#include "platform/KURL.h"
 
 namespace WebCore {
 

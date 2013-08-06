@@ -31,7 +31,7 @@
 #ifndef BlobStorageData_h
 #define BlobStorageData_h
 
-#include "BlobData.h"
+#include "platform/network/BlobData.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 

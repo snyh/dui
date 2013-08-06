@@ -26,14 +26,14 @@
 #ifndef Pasteboard_h
 #define Pasteboard_h
 
-#include "DragImage.h"
+#include "platform/DragImage.h"
 #include <wtf/ListHashSet.h>
 #include <wtf/Noncopyable.h>
 #include <wtf/Vector.h>
 #include <wtf/text/WTFString.h>
 
 #if PLATFORM(GTK)
-#include "DragData.h"
+#include "platform/DragData.h"
 typedef struct _GtkClipboard GtkClipboard;
 #endif
 

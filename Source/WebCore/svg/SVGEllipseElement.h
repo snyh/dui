@@ -22,10 +22,10 @@
 #define SVGEllipseElement_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedBoolean.h"
-#include "SVGAnimatedLength.h"
-#include "SVGExternalResourcesRequired.h"
-#include "SVGGraphicsElement.h"
+#include "svg/SVGAnimatedBoolean.h"
+#include "svg/SVGAnimatedLength.h"
+#include "svg/SVGExternalResourcesRequired.h"
+#include "svg/SVGGraphicsElement.h"
 
 namespace WebCore {
 

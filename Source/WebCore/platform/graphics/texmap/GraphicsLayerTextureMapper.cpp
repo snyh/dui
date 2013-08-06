@@ -18,12 +18,12 @@
 */
 
 #include "config.h"
-#include "GraphicsLayerTextureMapper.h"
+#include "platform/graphics/texmap/GraphicsLayerTextureMapper.h"
 
-#include "GraphicsContext.h"
-#include "GraphicsLayerAnimation.h"
-#include "GraphicsLayerFactory.h"
-#include "ImageBuffer.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/GraphicsLayerAnimation.h"
+#include "platform/graphics/GraphicsLayerFactory.h"
+#include "platform/graphics/ImageBuffer.h"
 #include <wtf/CurrentTime.h>
 
 #if USE(TEXTURE_MAPPER)

@@ -25,7 +25,7 @@
 #ifndef CollapsedBorderValue_h
 #define CollapsedBorderValue_h
 
-#include "BorderValue.h"
+#include "rendering/style/BorderValue.h"
 
 namespace WebCore {
 

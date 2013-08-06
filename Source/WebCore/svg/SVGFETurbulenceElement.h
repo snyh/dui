@@ -22,11 +22,11 @@
 #define SVGFETurbulenceElement_h
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "FETurbulence.h"
-#include "SVGAnimatedEnumeration.h"
-#include "SVGAnimatedInteger.h"
-#include "SVGAnimatedNumber.h"
-#include "SVGFilterPrimitiveStandardAttributes.h"
+#include "platform/graphics/filters/FETurbulence.h"
+#include "svg/SVGAnimatedEnumeration.h"
+#include "svg/SVGAnimatedInteger.h"
+#include "svg/SVGAnimatedNumber.h"
+#include "svg/SVGFilterPrimitiveStandardAttributes.h"
 
 namespace WebCore {
 

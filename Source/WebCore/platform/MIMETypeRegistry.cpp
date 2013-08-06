@@ -25,9 +25,9 @@
  */
 
 #include "config.h"
-#include "MIMETypeRegistry.h"
+#include "platform/MIMETypeRegistry.h"
 
-#include "MediaPlayer.h"
+#include "platform/graphics/MediaPlayer.h"
 #include <wtf/HashMap.h>
 #include <wtf/HashSet.h>
 #include <wtf/MainThread.h>
@@ -46,7 +46,7 @@
 #endif
 
 #if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-#include "ArchiveFactory.h"
+#include "loader/archive/ArchiveFactory.h"
 #endif
 
 namespace WebCore {

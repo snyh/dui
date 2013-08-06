@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "DFGCapabilities.h"
+#include "dfg/DFGCapabilities.h"
 
-#include "CodeBlock.h"
-#include "DFGCommon.h"
-#include "Interpreter.h"
+#include "bytecode/CodeBlock.h"
+#include "dfg/DFGCommon.h"
+#include "interpreter/Interpreter.h"
 
 namespace JSC { namespace DFG {
 

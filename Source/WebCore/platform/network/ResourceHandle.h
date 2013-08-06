@@ -26,10 +26,10 @@
 #ifndef ResourceHandle_h
 #define ResourceHandle_h
 
-#include "AuthenticationClient.h"
-#include "HTTPHeaderMap.h"
-#include "ResourceHandleTypes.h"
-#include "ResourceLoadPriority.h"
+#include "platform/network/AuthenticationClient.h"
+#include "platform/network/HTTPHeaderMap.h"
+#include "platform/network/ResourceHandleTypes.h"
+#include "platform/network/ResourceLoadPriority.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/RefCounted.h>
 

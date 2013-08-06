@@ -30,14 +30,14 @@
 
 #include "config.h"
 
-#include "ChildListMutationScope.h"
+#include "dom/ChildListMutationScope.h"
 
-#include "DocumentFragment.h"
-#include "Element.h"
-#include "MutationObserverInterestGroup.h"
-#include "MutationRecord.h"
-#include "Node.h"
-#include "StaticNodeList.h"
+#include "dom/DocumentFragment.h"
+#include "dom/Element.h"
+#include "dom/MutationObserverInterestGroup.h"
+#include "dom/MutationRecord.h"
+#include "dom/Node.h"
+#include "dom/StaticNodeList.h"
 #include <wtf/HashMap.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/StdLibExtras.h>

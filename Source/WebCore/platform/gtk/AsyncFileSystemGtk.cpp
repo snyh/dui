@@ -21,11 +21,11 @@
 
 #if ENABLE(FILE_SYSTEM)
 
-#include "AsyncFileSystemGtk.h"
+#include "platform/gtk/AsyncFileSystemGtk.h"
 
-#include "AsyncFileSystemCallbacks.h"
-#include "ExceptionCode.h"
-#include "NotImplemented.h"
+#include "platform/AsyncFileSystemCallbacks.h"
+#include "dom/ExceptionCode.h"
+#include "platform/NotImplemented.h"
 
 namespace WebCore {
 

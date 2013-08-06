@@ -34,7 +34,7 @@
 
 #if ENABLE(RESOURCE_TIMING)
 
-#include "PerformanceEntry.h"
+#include "page/PerformanceEntry.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>
 #include <wtf/text/WTFString.h>

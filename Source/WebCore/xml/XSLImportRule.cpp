@@ -20,15 +20,15 @@
  */
 
 #include "config.h"
-#include "XSLImportRule.h"
+#include "xml/XSLImportRule.h"
 
 #if ENABLE(XSLT)
 
-#include "CachedXSLStyleSheet.h"
-#include "CachedResourceLoader.h"
-#include "CachedResourceRequest.h"
-#include "Document.h"
-#include "XSLStyleSheet.h"
+#include "loader/cache/CachedXSLStyleSheet.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "dom/Document.h"
+#include "xml/XSLStyleSheet.h"
 
 namespace WebCore {
 

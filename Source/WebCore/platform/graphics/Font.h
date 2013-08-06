@@ -25,11 +25,11 @@
 #ifndef Font_h
 #define Font_h
 
-#include "FontDescription.h"
-#include "FontGlyphs.h"
-#include "SimpleFontData.h"
-#include "TextDirection.h"
-#include "TypesettingFeatures.h"
+#include "platform/graphics/FontDescription.h"
+#include "platform/graphics/FontGlyphs.h"
+#include "platform/graphics/SimpleFontData.h"
+#include "platform/text/TextDirection.h"
+#include "platform/graphics/TypesettingFeatures.h"
 #include <wtf/HashMap.h>
 #include <wtf/HashSet.h>
 #include <wtf/MathExtras.h>

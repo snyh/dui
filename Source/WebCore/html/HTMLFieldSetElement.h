@@ -24,7 +24,7 @@
 #ifndef HTMLFieldSetElement_h
 #define HTMLFieldSetElement_h
 
-#include "HTMLFormControlElement.h"
+#include "html/HTMLFormControlElement.h"
 
 namespace WebCore {
 

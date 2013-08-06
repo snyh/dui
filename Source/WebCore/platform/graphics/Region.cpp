@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "Region.h"
+#include "platform/graphics/Region.h"
 
 #include <stdio.h>
 

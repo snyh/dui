@@ -30,7 +30,7 @@
 
 #if ENABLE(BLOB)
 
-#include "FileException.h"
+#include "fileapi/FileException.h"
 
 namespace WebCore {
 

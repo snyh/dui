@@ -26,8 +26,8 @@
 #ifndef CodeProfile_h
 #define CodeProfile_h
 
-#include "SourceCode.h"
-#include "TieredMMapArray.h"
+#include "parser/SourceCode.h"
+#include "tools/TieredMMapArray.h"
 #include <wtf/text/CString.h>
 
 namespace JSC {

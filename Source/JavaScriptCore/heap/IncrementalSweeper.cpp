@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "IncrementalSweeper.h"
+#include "heap/IncrementalSweeper.h"
 
-#include "APIShims.h"
-#include "Heap.h"
-#include "JSObject.h"
-#include "JSString.h"
-#include "MarkedBlock.h"
+#include "API/APIShims.h"
+#include "heap/Heap.h"
+#include "runtime/JSObject.h"
+#include "runtime/JSString.h"
+#include "heap/MarkedBlock.h"
 
 #include <wtf/HashSet.h>
 #include <wtf/WTFThreadData.h>

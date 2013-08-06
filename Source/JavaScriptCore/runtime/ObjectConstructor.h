@@ -21,9 +21,9 @@
 #ifndef ObjectConstructor_h
 #define ObjectConstructor_h
 
-#include "InternalFunction.h"
-#include "JSGlobalObject.h"
-#include "ObjectPrototype.h"
+#include "runtime/InternalFunction.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/ObjectPrototype.h"
 
 namespace JSC {
 

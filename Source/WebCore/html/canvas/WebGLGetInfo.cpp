@@ -28,14 +28,14 @@
 
 #if ENABLE(WEBGL)
 
-#include "WebGLGetInfo.h"
+#include "html/canvas/WebGLGetInfo.h"
 
-#include "WebGLBuffer.h"
-#include "WebGLFramebuffer.h"
-#include "WebGLProgram.h"
-#include "WebGLRenderbuffer.h"
-#include "WebGLTexture.h"
-#include "WebGLVertexArrayObjectOES.h"
+#include "html/canvas/WebGLBuffer.h"
+#include "html/canvas/WebGLFramebuffer.h"
+#include "html/canvas/WebGLProgram.h"
+#include "html/canvas/WebGLRenderbuffer.h"
+#include "html/canvas/WebGLTexture.h"
+#include "html/canvas/WebGLVertexArrayObjectOES.h"
 #include <wtf/Float32Array.h>
 #include <wtf/Int32Array.h>
 #include <wtf/Uint32Array.h>

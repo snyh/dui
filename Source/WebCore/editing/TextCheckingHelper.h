@@ -21,9 +21,9 @@
 #ifndef TextCheckingHelper_h
 #define TextCheckingHelper_h
 
-#include "EditorClient.h"
-#include "ExceptionCode.h"
-#include "TextChecking.h"
+#include "page/EditorClient.h"
+#include "dom/ExceptionCode.h"
+#include "platform/text/TextChecking.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

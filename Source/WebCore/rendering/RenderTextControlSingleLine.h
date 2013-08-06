@@ -23,8 +23,8 @@
 #ifndef RenderTextControlSingleLine_h
 #define RenderTextControlSingleLine_h
 
-#include "HTMLInputElement.h"
-#include "RenderTextControl.h"
+#include "html/HTMLInputElement.h"
+#include "rendering/RenderTextControl.h"
 
 namespace WebCore {
 

@@ -21,7 +21,7 @@
 #ifndef CSSInitialValue_h
 #define CSSInitialValue_h
 
-#include "CSSValue.h"
+#include "css/CSSValue.h"
 #include <wtf/PassRefPtr.h>
 
 namespace WebCore {

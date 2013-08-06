@@ -32,9 +32,9 @@
 
 #if ENABLE(BLOB)
 
-#include "FileStream.h"
+#include "platform/FileStream.h"
 
-#include "FileSystem.h"
+#include "platform/FileSystem.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

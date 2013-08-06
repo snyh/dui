@@ -24,18 +24,18 @@
  */
 
 #include "config.h"
-#include "DFGConstantFoldingPhase.h"
+#include "dfg/DFGConstantFoldingPhase.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGAbstractState.h"
-#include "DFGBasicBlock.h"
-#include "DFGGraph.h"
-#include "DFGInsertionSet.h"
-#include "DFGPhase.h"
-#include "GetByIdStatus.h"
-#include "Operations.h"
-#include "PutByIdStatus.h"
+#include "dfg/DFGAbstractState.h"
+#include "dfg/DFGBasicBlock.h"
+#include "dfg/DFGGraph.h"
+#include "dfg/DFGInsertionSet.h"
+#include "dfg/DFGPhase.h"
+#include "bytecode/GetByIdStatus.h"
+#include "runtime/Operations.h"
+#include "bytecode/PutByIdStatus.h"
 
 namespace JSC { namespace DFG {
 

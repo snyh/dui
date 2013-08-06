@@ -22,8 +22,8 @@
 #define RenderSVGResourceRadialGradient_h
 
 #if ENABLE(SVG)
-#include "RadialGradientAttributes.h"
-#include "RenderSVGResourceGradient.h"
+#include "svg/RadialGradientAttributes.h"
+#include "rendering/svg/RenderSVGResourceGradient.h"
 
 namespace WebCore {
 

@@ -30,9 +30,9 @@
 #ifndef PolicyCallback_h
 #define PolicyCallback_h
 
-#include "FrameLoaderTypes.h"
-#include "NavigationAction.h"
-#include "ResourceRequest.h"
+#include "loader/FrameLoaderTypes.h"
+#include "loader/NavigationAction.h"
+#include "platform/network/soup/ResourceRequest.h"
 #include <wtf/RefPtr.h>
 #include <wtf/text/WTFString.h>
 

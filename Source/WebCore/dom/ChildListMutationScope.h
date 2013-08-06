@@ -31,9 +31,9 @@
 #ifndef ChildListMutationScope_h
 #define ChildListMutationScope_h
 
-#include "Document.h"
-#include "MutationObserver.h"
-#include "Node.h"
+#include "dom/Document.h"
+#include "dom/MutationObserver.h"
+#include "dom/Node.h"
 #include <wtf/HashMap.h>
 #include <wtf/Noncopyable.h>
 #include <wtf/OwnPtr.h>

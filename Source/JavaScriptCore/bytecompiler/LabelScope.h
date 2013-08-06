@@ -30,7 +30,7 @@
 #define LabelScope_h
 
 #include <wtf/PassRefPtr.h>
-#include "Label.h"
+#include "bytecompiler/Label.h"
 
 namespace JSC {
 

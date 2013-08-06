@@ -27,19 +27,19 @@
  */
 
 #include "config.h"
-#include "AccessibilityListBoxOption.h"
+#include "accessibility/AccessibilityListBoxOption.h"
 
-#include "AXObjectCache.h"
-#include "AccessibilityListBox.h"
-#include "Element.h"
-#include "HTMLElement.h"
+#include "accessibility/AXObjectCache.h"
+#include "accessibility/AccessibilityListBox.h"
+#include "dom/Element.h"
+#include "html/HTMLElement.h"
 #include "HTMLNames.h"
-#include "HTMLOptGroupElement.h"
-#include "HTMLOptionElement.h"
-#include "HTMLSelectElement.h"
-#include "IntRect.h"
-#include "RenderListBox.h"
-#include "RenderObject.h"
+#include "html/HTMLOptGroupElement.h"
+#include "html/HTMLOptionElement.h"
+#include "html/HTMLSelectElement.h"
+#include "platform/graphics/IntRect.h"
+#include "rendering/RenderListBox.h"
+#include "rendering/RenderObject.h"
 
 using namespace std;
 

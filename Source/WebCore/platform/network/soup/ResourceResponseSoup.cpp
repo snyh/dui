@@ -19,12 +19,12 @@
  */
 
 #include "config.h"
-#include "ResourceResponse.h"
+#include "platform/network/soup/ResourceResponse.h"
 
 #include <wtf/gobject/GOwnPtr.h>
-#include "HTTPParsers.h"
-#include "MIMETypeRegistry.h"
-#include "SoupURIUtils.h"
+#include "platform/network/HTTPParsers.h"
+#include "platform/MIMETypeRegistry.h"
+#include "platform/network/soup/SoupURIUtils.h"
 #include <wtf/text/CString.h>
 #include <wtf/text/StringBuilder.h>
 #include <wtf/text/WTFString.h>

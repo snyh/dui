@@ -30,20 +30,20 @@
  */
 
 #include "config.h"
-#include "TransformFunctions.h"
+#include "css/TransformFunctions.h"
 
-#include "CSSPrimitiveValueMappings.h"
-#include "CSSValueList.h"
-#include "CSSValuePool.h"
-#include "Matrix3DTransformOperation.h"
-#include "MatrixTransformOperation.h"
-#include "PerspectiveTransformOperation.h"
-#include "RenderStyle.h"
-#include "RotateTransformOperation.h"
-#include "ScaleTransformOperation.h"
-#include "SkewTransformOperation.h"
-#include "TranslateTransformOperation.h"
-#include "WebKitCSSTransformValue.h"
+#include "css/CSSPrimitiveValueMappings.h"
+#include "css/CSSValueList.h"
+#include "css/CSSValuePool.h"
+#include "platform/graphics/transforms/Matrix3DTransformOperation.h"
+#include "platform/graphics/transforms/MatrixTransformOperation.h"
+#include "platform/graphics/transforms/PerspectiveTransformOperation.h"
+#include "rendering/style/RenderStyle.h"
+#include "platform/graphics/transforms/RotateTransformOperation.h"
+#include "platform/graphics/transforms/ScaleTransformOperation.h"
+#include "platform/graphics/transforms/SkewTransformOperation.h"
+#include "platform/graphics/transforms/TranslateTransformOperation.h"
+#include "css/WebKitCSSTransformValue.h"
 
 namespace WebCore {
 

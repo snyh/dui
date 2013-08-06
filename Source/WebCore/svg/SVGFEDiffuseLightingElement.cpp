@@ -20,18 +20,18 @@
 #include "config.h"
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "SVGFEDiffuseLightingElement.h"
+#include "svg/SVGFEDiffuseLightingElement.h"
 
-#include "Attr.h"
-#include "FEDiffuseLighting.h"
-#include "FilterEffect.h"
-#include "RenderStyle.h"
-#include "SVGColor.h"
-#include "SVGElementInstance.h"
-#include "SVGFELightElement.h"
-#include "SVGFilterBuilder.h"
+#include "dom/Attr.h"
+#include "platform/graphics/filters/FEDiffuseLighting.h"
+#include "platform/graphics/filters/FilterEffect.h"
+#include "rendering/style/RenderStyle.h"
+#include "svg/SVGColor.h"
+#include "svg/SVGElementInstance.h"
+#include "svg/SVGFELightElement.h"
+#include "svg/graphics/filters/SVGFilterBuilder.h"
 #include "SVGNames.h"
-#include "SVGParserUtilities.h"
+#include "svg/SVGParserUtilities.h"
 
 namespace WebCore {
 

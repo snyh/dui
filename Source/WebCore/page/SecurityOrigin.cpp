@@ -27,14 +27,14 @@
  */
 
 #include "config.h"
-#include "SecurityOrigin.h"
+#include "page/SecurityOrigin.h"
 
-#include "BlobURL.h"
-#include "FileSystem.h"
-#include "KURL.h"
-#include "SchemeRegistry.h"
-#include "SecurityPolicy.h"
-#include "ThreadableBlobRegistry.h"
+#include "fileapi/BlobURL.h"
+#include "platform/FileSystem.h"
+#include "platform/KURL.h"
+#include "platform/SchemeRegistry.h"
+#include "page/SecurityPolicy.h"
+#include "fileapi/ThreadableBlobRegistry.h"
 #include <wtf/MainThread.h>
 #include <wtf/StdLibExtras.h>
 #include <wtf/text/StringBuilder.h>

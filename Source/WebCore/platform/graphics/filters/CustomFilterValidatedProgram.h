@@ -32,7 +32,7 @@
 
 #if ENABLE(CSS_SHADERS)
 
-#include "CustomFilterProgramInfo.h"
+#include "platform/graphics/filters/CustomFilterProgramInfo.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>

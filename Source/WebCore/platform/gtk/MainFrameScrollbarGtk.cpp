@@ -20,11 +20,11 @@
  */
 
 #include "config.h"
-#include "MainFrameScrollbarGtk.h"
+#include "platform/gtk/MainFrameScrollbarGtk.h"
 
-#include "GtkVersioning.h"
-#include "IntRect.h"
-#include "ScrollableArea.h"
+#include "platform/gtk/GtkVersioning.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/ScrollableArea.h"
 #include <gtk/gtk.h>
 
 using namespace WebCore;

@@ -22,7 +22,7 @@
 #define SVGPathSegLinetoHorizontal_h
 
 #if ENABLE(SVG)
-#include "SVGPathSegWithContext.h"
+#include "svg/SVGPathSegWithContext.h"
 
 namespace WebCore {
 

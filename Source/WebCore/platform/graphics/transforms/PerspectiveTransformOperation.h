@@ -26,9 +26,9 @@
 #ifndef PerspectiveTransformOperation_h
 #define PerspectiveTransformOperation_h
 
-#include "Length.h"
-#include "LengthFunctions.h"
-#include "TransformOperation.h"
+#include "platform/Length.h"
+#include "css/LengthFunctions.h"
+#include "platform/graphics/transforms/TransformOperation.h"
 
 namespace WebCore {
 

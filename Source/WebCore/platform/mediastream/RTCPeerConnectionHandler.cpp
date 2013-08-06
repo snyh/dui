@@ -32,7 +32,7 @@
 
 #if ENABLE(MEDIA_STREAM)
 
-#include "RTCPeerConnectionHandler.h"
+#include "platform/mediastream/RTCPeerConnectionHandler.h"
 
 #include <wtf/PassOwnPtr.h>
 

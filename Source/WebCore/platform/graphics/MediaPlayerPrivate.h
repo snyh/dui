@@ -28,8 +28,8 @@
 
 #if ENABLE(VIDEO)
 
-#include "MediaPlayer.h"
-#include "TimeRanges.h"
+#include "platform/graphics/MediaPlayer.h"
+#include "html/TimeRanges.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

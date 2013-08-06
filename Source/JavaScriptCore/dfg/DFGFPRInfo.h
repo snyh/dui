@@ -28,8 +28,8 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGRegisterBank.h"
-#include "MacroAssembler.h"
+#include "dfg/DFGRegisterBank.h"
+#include "assembler/MacroAssembler.h"
 
 namespace JSC { namespace DFG {
 

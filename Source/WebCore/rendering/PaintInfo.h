@@ -27,13 +27,13 @@
 #define PaintInfo_h
 
 #if ENABLE(SVG)
-#include "AffineTransform.h"
+#include "platform/graphics/transforms/AffineTransform.h"
 #endif
 
-#include "GraphicsContext.h"
-#include "IntRect.h"
-#include "LayoutRect.h"
-#include "PaintPhase.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/LayoutRect.h"
+#include "rendering/PaintPhase.h"
 #include <limits>
 #include <wtf/HashMap.h>
 #include <wtf/ListHashSet.h>

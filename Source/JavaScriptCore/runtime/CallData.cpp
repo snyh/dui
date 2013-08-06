@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "CallData.h"
+#include "runtime/CallData.h"
 
-#include "Executable.h"
-#include "Interpreter.h"
-#include "JSFunction.h"
-#include "Operations.h"
+#include "runtime/Executable.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/JSFunction.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

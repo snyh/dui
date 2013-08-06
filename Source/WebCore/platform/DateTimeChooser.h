@@ -32,7 +32,7 @@
 #define DateTimeChooser_h
 
 #if ENABLE(DATE_AND_TIME_INPUT_TYPES)
-#include "IntRect.h"
+#include "platform/graphics/IntRect.h"
 #include <wtf/RefCounted.h>
 #include <wtf/text/WTFString.h>
 

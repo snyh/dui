@@ -25,13 +25,13 @@
  */
 
 #include "config.h"
-#include "TextEncodingRegistry.h"
+#include "platform/text/TextEncodingRegistry.h"
 
-#include "TextCodecLatin1.h"
-#include "TextCodecUserDefined.h"
-#include "TextCodecUTF16.h"
-#include "TextCodecUTF8.h"
-#include "TextEncoding.h"
+#include "platform/text/TextCodecLatin1.h"
+#include "platform/text/TextCodecUserDefined.h"
+#include "platform/text/TextCodecUTF16.h"
+#include "platform/text/TextCodecUTF8.h"
+#include "platform/text/TextEncoding.h"
 #include <wtf/ASCIICType.h>
 #include <wtf/HashMap.h>
 #include <wtf/HashSet.h>
@@ -40,7 +40,7 @@
 #include <wtf/StringExtras.h>
 
 #if USE(ICU_UNICODE)
-#include "TextCodecICU.h"
+#include "platform/text/TextCodecICU.h"
 #endif
 #if PLATFORM(MAC)
 #include "TextCodecMac.h"

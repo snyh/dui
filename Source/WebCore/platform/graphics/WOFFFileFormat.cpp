@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "WOFFFileFormat.h"
+#include "platform/graphics/WOFFFileFormat.h"
 #include <zlib.h>
 
 #if !USE(OPENTYPE_SANITIZER)
 
-#include "SharedBuffer.h"
+#include "platform/SharedBuffer.h"
 #include <wtf/ByteOrder.h>
 
 namespace WebCore {

@@ -26,9 +26,9 @@
 #ifndef FormatBlockCommand_h
 #define FormatBlockCommand_h
 
-#include "ApplyBlockElementCommand.h"
-#include "EditAction.h"
-#include "QualifiedName.h"
+#include "editing/ApplyBlockElementCommand.h"
+#include "editing/EditAction.h"
+#include "dom/QualifiedName.h"
 
 namespace WebCore {
 

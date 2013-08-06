@@ -20,13 +20,13 @@
 
 #include "config.h"
 #if ENABLE(DETAILS_ELEMENT)
-#include "RenderDetailsMarker.h"
+#include "rendering/RenderDetailsMarker.h"
 
-#include "Element.h"
-#include "GraphicsContext.h"
-#include "HTMLInputElement.h"
+#include "dom/Element.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "PaintInfo.h"
+#include "rendering/PaintInfo.h"
 
 namespace WebCore {
 

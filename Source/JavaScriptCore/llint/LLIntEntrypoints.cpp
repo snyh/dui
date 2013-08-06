@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "LLIntEntrypoints.h"
+#include "llint/LLIntEntrypoints.h"
 
 #if ENABLE(LLINT)
 
-#include "JITCode.h"
-#include "VM.h"
-#include "JSObject.h"
-#include "LLIntThunks.h"
-#include "LowLevelInterpreter.h"
+#include "jit/JITCode.h"
+#include "runtime/VM.h"
+#include "runtime/JSObject.h"
+#include "llint/LLIntThunks.h"
+#include "llint/LowLevelInterpreter.h"
 
 
 namespace JSC { namespace LLInt {

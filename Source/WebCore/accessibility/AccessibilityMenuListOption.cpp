@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "AccessibilityMenuListOption.h"
+#include "accessibility/AccessibilityMenuListOption.h"
 
-#include "AXObjectCache.h"
-#include "AccessibilityMenuListPopup.h"
+#include "accessibility/AXObjectCache.h"
+#include "accessibility/AccessibilityMenuListPopup.h"
 #include "HTMLNames.h"
-#include "HTMLOptionElement.h"
+#include "html/HTMLOptionElement.h"
 
 namespace WebCore {
 

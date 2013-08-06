@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "RegExpCachedResult.h"
+#include "runtime/RegExpCachedResult.h"
 
-#include "Operations.h"
-#include "RegExpMatchesArray.h"
+#include "runtime/Operations.h"
+#include "runtime/RegExpMatchesArray.h"
 
 namespace JSC {
 

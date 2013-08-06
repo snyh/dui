@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "TextInsertionBaseCommand.h"
+#include "editing/TextInsertionBaseCommand.h"
 
-#include "BeforeTextInsertedEvent.h"
-#include "Document.h"
-#include "Element.h"
-#include "Frame.h"
-#include "FrameSelection.h"
-#include "Node.h"
+#include "dom/BeforeTextInsertedEvent.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
+#include "page/Frame.h"
+#include "editing/FrameSelection.h"
+#include "dom/Node.h"
 
 namespace WebCore {
 

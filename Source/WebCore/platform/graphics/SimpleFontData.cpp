@@ -28,14 +28,14 @@
  */
 
 #include "config.h"
-#include "SimpleFontData.h"
+#include "platform/graphics/SimpleFontData.h"
 
-#include "Font.h"
-#include "FontCache.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/FontCache.h"
 #include <wtf/MathExtras.h>
 
 #if ENABLE(OPENTYPE_VERTICAL)
-#include "OpenTypeVerticalData.h"
+#include "platform/graphics/opentype/OpenTypeVerticalData.h"
 #endif
 
 using namespace std;

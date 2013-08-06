@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "PlaceholderDocument.h"
+#include "loader/PlaceholderDocument.h"
 
 namespace WebCore {
 

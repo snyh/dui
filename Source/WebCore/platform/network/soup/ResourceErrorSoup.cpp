@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "ResourceError.h"
+#include "platform/network/soup/ResourceError.h"
 
-#include "LocalizedStrings.h"
+#include "platform/LocalizedStrings.h"
 #include <libsoup/soup.h>
 #include <wtf/gobject/GOwnPtr.h>
 #include <wtf/text/CString.h>

@@ -33,8 +33,8 @@
 
 #if ENABLE(BLOB)
 
-#include "FileStreamClient.h"
-#include "ResourceHandle.h"
+#include "platform/FileStreamClient.h"
+#include "platform/network/ResourceHandle.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/Vector.h>
 #include <wtf/text/WTFString.h>

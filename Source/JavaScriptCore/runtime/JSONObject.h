@@ -26,7 +26,7 @@
 #ifndef JSONObject_h
 #define JSONObject_h
 
-#include "JSObject.h"
+#include "runtime/JSObject.h"
 
 namespace JSC {
 

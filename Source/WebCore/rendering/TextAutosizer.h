@@ -29,7 +29,7 @@
 #if ENABLE(TEXT_AUTOSIZING)
 
 #include "HTMLNames.h"
-#include "WritingMode.h"
+#include "platform/text/WritingMode.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/PassOwnPtr.h>
 

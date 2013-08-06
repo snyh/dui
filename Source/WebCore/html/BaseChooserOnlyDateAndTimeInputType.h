@@ -27,10 +27,10 @@
 #define BaseChooserOnlyDateAndTimeInputType_h
 
 #if ENABLE(DATE_AND_TIME_INPUT_TYPES)
-#include "BaseClickableWithKeyInputType.h"
-#include "BaseDateAndTimeInputType.h"
-#include "DateTimeChooser.h"
-#include "DateTimeChooserClient.h"
+#include "html/BaseClickableWithKeyInputType.h"
+#include "html/BaseDateAndTimeInputType.h"
+#include "platform/DateTimeChooser.h"
+#include "platform/DateTimeChooserClient.h"
 
 namespace WebCore {
 

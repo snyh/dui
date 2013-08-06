@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "HTMLButtonElement.h"
+#include "html/HTMLButtonElement.h"
 
-#include "Attribute.h"
-#include "EventNames.h"
-#include "FormDataList.h"
-#include "HTMLFormElement.h"
+#include "dom/Attribute.h"
+#include "dom/EventNames.h"
+#include "html/FormDataList.h"
+#include "html/HTMLFormElement.h"
 #include "HTMLNames.h"
-#include "KeyboardEvent.h"
-#include "RenderButton.h"
-#include "ScriptEventListener.h"
+#include "dom/KeyboardEvent.h"
+#include "rendering/RenderButton.h"
+#include "bindings/dui/saved/ScriptEventListener.h"
 #include <wtf/StdLibExtras.h>
 
 namespace WebCore {

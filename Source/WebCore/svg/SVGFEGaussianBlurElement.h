@@ -22,9 +22,9 @@
 #define SVGFEGaussianBlurElement_h
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "FEGaussianBlur.h"
-#include "SVGAnimatedNumber.h"
-#include "SVGFilterPrimitiveStandardAttributes.h"
+#include "platform/graphics/filters/FEGaussianBlur.h"
+#include "svg/SVGAnimatedNumber.h"
+#include "svg/SVGFilterPrimitiveStandardAttributes.h"
 
 namespace WebCore {
 

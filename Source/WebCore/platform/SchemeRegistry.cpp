@@ -24,7 +24,7 @@
  *
  */
 #include "config.h"
-#include "SchemeRegistry.h"
+#include "platform/SchemeRegistry.h"
 #include <wtf/MainThread.h>
 
 namespace WebCore {

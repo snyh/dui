@@ -27,7 +27,7 @@
 
 #if ENABLE(WEBGL)
 
-#include "EXTTextureFilterAnisotropic.h"
+#include "html/canvas/EXTTextureFilterAnisotropic.h"
 
 namespace WebCore {
 

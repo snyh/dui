@@ -20,16 +20,16 @@
  */
 
 #include "config.h"
-#include "RenderTextControl.h"
+#include "rendering/RenderTextControl.h"
 
-#include "HTMLTextFormControlElement.h"
-#include "HitTestResult.h"
-#include "RenderText.h"
-#include "RenderTheme.h"
-#include "ScrollbarTheme.h"
-#include "StyleInheritedData.h"
-#include "TextIterator.h"
-#include "VisiblePosition.h"
+#include "html/HTMLTextFormControlElement.h"
+#include "rendering/HitTestResult.h"
+#include "rendering/RenderText.h"
+#include "rendering/RenderTheme.h"
+#include "platform/ScrollbarTheme.h"
+#include "rendering/style/StyleInheritedData.h"
+#include "editing/TextIterator.h"
+#include "editing/VisiblePosition.h"
 #include <wtf/unicode/CharacterNames.h>
 
 using namespace std;

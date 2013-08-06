@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "CodeSpecializationKind.h"
+#include "runtime/CodeSpecializationKind.h"
 
 #include <wtf/PrintStream.h>
 

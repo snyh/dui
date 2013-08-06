@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "ProxyServer.h"
+#include "platform/network/ProxyServer.h"
 
-#include "KURL.h"
+#include "platform/KURL.h"
 
 namespace WebCore {
 

@@ -29,9 +29,9 @@
 #ifndef DynamicsCompressor_h
 #define DynamicsCompressor_h
 
-#include "AudioArray.h"
-#include "DynamicsCompressorKernel.h"
-#include "ZeroPole.h"
+#include "platform/audio/AudioArray.h"
+#include "platform/audio/DynamicsCompressorKernel.h"
+#include "platform/audio/ZeroPole.h"
 
 #include <wtf/OwnArrayPtr.h>
 

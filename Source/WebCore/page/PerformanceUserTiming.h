@@ -28,10 +28,10 @@
 
 #if ENABLE(USER_TIMING)
 
-#include "EventException.h"
-#include "ExceptionCode.h"
-#include "Performance.h"
-#include "PerformanceTiming.h"
+#include "dom/EventException.h"
+#include "dom/ExceptionCode.h"
+#include "page/Performance.h"
+#include "page/PerformanceTiming.h"
 #include <wtf/HashMap.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>

@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "SelectorQuery.h"
+#include "dom/SelectorQuery.h"
 
-#include "CSSParser.h"
-#include "CSSSelectorList.h"
-#include "Document.h"
-#include "NodeTraversal.h"
-#include "SelectorChecker.h"
-#include "SelectorCheckerFastPath.h"
-#include "StaticNodeList.h"
-#include "StyledElement.h"
+#include "css/CSSParser.h"
+#include "css/CSSSelectorList.h"
+#include "dom/Document.h"
+#include "dom/NodeTraversal.h"
+#include "css/SelectorChecker.h"
+#include "css/SelectorCheckerFastPath.h"
+#include "dom/StaticNodeList.h"
+#include "dom/StyledElement.h"
 
 namespace WebCore {
 

@@ -26,12 +26,12 @@
  */
 
 #include "config.h"
-#include "RenderImageResource.h"
+#include "rendering/RenderImageResource.h"
 
-#include "CachedImage.h"
-#include "Image.h"
-#include "RenderImageResourceStyleImage.h"
-#include "RenderObject.h"
+#include "loader/cache/CachedImage.h"
+#include "platform/graphics/Image.h"
+#include "rendering/RenderImageResourceStyleImage.h"
+#include "rendering/RenderObject.h"
 
 namespace WebCore {
 

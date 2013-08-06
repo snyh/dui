@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "NameInstance.h"
+#include "runtime/NameInstance.h"
 
-#include "JSScope.h"
-#include "Operations.h"
+#include "runtime/JSScope.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

@@ -33,7 +33,7 @@
 
 #if ENABLE(MHTML)
 
-#include "Archive.h"
+#include "loader/archive/Archive.h"
 
 namespace WebCore {
 

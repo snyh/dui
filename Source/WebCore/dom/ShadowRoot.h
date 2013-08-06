@@ -27,12 +27,12 @@
 #ifndef ShadowRoot_h
 #define ShadowRoot_h
 
-#include "ContainerNode.h"
-#include "Document.h"
-#include "DocumentFragment.h"
-#include "Element.h"
-#include "ExceptionCode.h"
-#include "TreeScope.h"
+#include "dom/ContainerNode.h"
+#include "dom/Document.h"
+#include "dom/DocumentFragment.h"
+#include "dom/Element.h"
+#include "dom/ExceptionCode.h"
+#include "dom/TreeScope.h"
 
 namespace WebCore {
 

@@ -27,38 +27,38 @@
 
 #if ENABLE(CSS_FILTERS)
 
-#include "FilterEffectRenderer.h"
+#include "rendering/FilterEffectRenderer.h"
 
-#include "ColorSpace.h"
-#include "Document.h"
-#include "FEColorMatrix.h"
-#include "FEComponentTransfer.h"
-#include "FEDropShadow.h"
-#include "FEGaussianBlur.h"
-#include "FEMerge.h"
-#include "FloatConversion.h"
-#include "RenderLayer.h"
+#include "platform/graphics/ColorSpace.h"
+#include "dom/Document.h"
+#include "platform/graphics/filters/FEColorMatrix.h"
+#include "platform/graphics/filters/FEComponentTransfer.h"
+#include "platform/graphics/filters/FEDropShadow.h"
+#include "platform/graphics/filters/FEGaussianBlur.h"
+#include "platform/graphics/filters/FEMerge.h"
+#include "platform/FloatConversion.h"
+#include "rendering/RenderLayer.h"
 
 #include <algorithm>
 #include <wtf/MathExtras.h>
 
 #if ENABLE(CSS_SHADERS) && USE(3D_GRAPHICS)
-#include "CustomFilterGlobalContext.h"
-#include "CustomFilterOperation.h"
-#include "CustomFilterProgram.h"
-#include "CustomFilterValidatedProgram.h"
-#include "FECustomFilter.h"
-#include "GraphicsContext3D.h"
-#include "RenderView.h"
-#include "ValidatedCustomFilterOperation.h"
+#include "platform/graphics/filters/CustomFilterGlobalContext.h"
+#include "platform/graphics/filters/CustomFilterOperation.h"
+#include "platform/graphics/filters/CustomFilterProgram.h"
+#include "platform/graphics/filters/CustomFilterValidatedProgram.h"
+#include "platform/graphics/filters/FECustomFilter.h"
+#include "platform/graphics/GraphicsContext3D.h"
+#include "rendering/RenderView.h"
+#include "platform/graphics/filters/ValidatedCustomFilterOperation.h"
 #endif
 
 #if ENABLE(SVG)
-#include "CachedSVGDocument.h"
-#include "CachedSVGDocumentReference.h"
-#include "SVGElement.h"
-#include "SVGFilterPrimitiveStandardAttributes.h"
-#include "SourceAlpha.h"
+#include "loader/cache/CachedSVGDocument.h"
+#include "loader/cache/CachedSVGDocumentReference.h"
+#include "svg/SVGElement.h"
+#include "svg/SVGFilterPrimitiveStandardAttributes.h"
+#include "platform/graphics/filters/SourceAlpha.h"
 #endif
 
 namespace WebCore {

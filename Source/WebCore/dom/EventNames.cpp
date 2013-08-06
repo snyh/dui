@@ -19,7 +19,7 @@
  */
 
 #include "config.h"
-#include "EventNames.h"
+#include "dom/EventNames.h"
 
 namespace WebCore {
 

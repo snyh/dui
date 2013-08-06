@@ -22,7 +22,7 @@
 #define SVGPreserveAspectRatio_h
 
 #if ENABLE(SVG)
-#include "SVGPropertyTraits.h"
+#include "svg/properties/SVGPropertyTraits.h"
 
 namespace WebCore {
 

@@ -26,7 +26,7 @@
 #ifndef RenderHTMLCanvas_h
 #define RenderHTMLCanvas_h
 
-#include "RenderReplaced.h"
+#include "rendering/RenderReplaced.h"
 
 namespace WebCore {
 

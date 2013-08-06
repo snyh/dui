@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "RegExpMatchesArray.h"
+#include "runtime/RegExpMatchesArray.h"
 
-#include "ButterflyInlines.h"
-#include "Operations.h"
+#include "runtime/ButterflyInlines.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

@@ -25,20 +25,20 @@
  */
 
 #include "config.h"
-#include "IconDatabase.h"
+#include "loader/icon/IconDatabase.h"
 
 #if ENABLE(ICONDATABASE)
 
-#include "DocumentLoader.h"
-#include "FileSystem.h"
-#include "IconDatabaseClient.h"
-#include "IconRecord.h"
-#include "Image.h"
-#include "IntSize.h"
-#include "Logging.h"
+#include "loader/DocumentLoader.h"
+#include "platform/FileSystem.h"
+#include "loader/icon/IconDatabaseClient.h"
+#include "loader/icon/IconRecord.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/Logging.h"
 #include "SQLiteStatement.h"
 #include "SQLiteTransaction.h"
-#include "SuddenTermination.h"
+#include "platform/SuddenTermination.h"
 #include <wtf/AutodrainedPool.h>
 #include <wtf/CurrentTime.h>
 #include <wtf/MainThread.h>

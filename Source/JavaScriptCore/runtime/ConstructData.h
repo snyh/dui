@@ -29,8 +29,8 @@
 #ifndef ConstructData_h
 #define ConstructData_h
 
-#include "CallData.h"
-#include "JSCJSValue.h"
+#include "runtime/CallData.h"
+#include "runtime/JSCJSValue.h"
 
 namespace JSC {
 

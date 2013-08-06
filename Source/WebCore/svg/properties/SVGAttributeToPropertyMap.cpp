@@ -20,10 +20,10 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGAttributeToPropertyMap.h"
+#include "svg/properties/SVGAttributeToPropertyMap.h"
 
-#include "SVGAnimatedProperty.h"
-#include "SVGPropertyInfo.h"
+#include "svg/properties/SVGAnimatedProperty.h"
+#include "svg/properties/SVGPropertyInfo.h"
 
 namespace WebCore {
 

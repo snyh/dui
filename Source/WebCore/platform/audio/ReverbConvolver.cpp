@@ -30,10 +30,10 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "ReverbConvolver.h"
+#include "platform/audio/ReverbConvolver.h"
 
-#include "VectorMath.h"
-#include "AudioBus.h"
+#include "platform/audio/VectorMath.h"
+#include "platform/audio/AudioBus.h"
 
 namespace WebCore {
 

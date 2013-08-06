@@ -29,7 +29,7 @@
 #ifndef ProfileNode_h
 #define ProfileNode_h
 
-#include "CallIdentifier.h"
+#include "profiler/CallIdentifier.h"
 #include <wtf/HashCountedSet.h>
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>

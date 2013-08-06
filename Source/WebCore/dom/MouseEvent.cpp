@@ -21,16 +21,16 @@
  */
 
 #include "config.h"
-#include "MouseEvent.h"
+#include "dom/MouseEvent.h"
 
-#include "Clipboard.h"
-#include "EventDispatcher.h"
-#include "EventNames.h"
-#include "EventRetargeter.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "HTMLIFrameElement.h"
-#include "PlatformMouseEvent.h"
+#include "dom/Clipboard.h"
+#include "dom/EventDispatcher.h"
+#include "dom/EventNames.h"
+#include "dom/EventRetargeter.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "html/HTMLIFrameElement.h"
+#include "platform/PlatformMouseEvent.h"
 #include <wtf/CurrentTime.h>
 
 namespace WebCore {

@@ -26,7 +26,7 @@
 #ifndef CredentialBackingStore_h
 #define CredentialBackingStore_h
 
-#include "Credential.h"
+#include "platform/network/Credential.h"
 
 namespace WebCore {
 

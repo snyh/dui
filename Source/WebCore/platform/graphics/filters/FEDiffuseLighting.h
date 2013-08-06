@@ -23,7 +23,7 @@
 #define FEDiffuseLighting_h
 
 #if ENABLE(FILTERS)
-#include "FELighting.h"
+#include "platform/graphics/filters/FELighting.h"
 
 namespace WebCore {
 

@@ -30,7 +30,7 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGCommon.h"
+#include "dfg/DFGCommon.h"
 #include <wtf/FastBitVector.h>
 
 namespace JSC { namespace DFG {

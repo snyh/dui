@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "ScrollView.h"
+#include "platform/ScrollView.h"
 
-#include "GraphicsContext.h"
-#include "GraphicsLayer.h"
-#include "HostWindow.h"
-#include "PlatformMouseEvent.h"
-#include "PlatformWheelEvent.h"
-#include "ScrollAnimator.h"
-#include "Scrollbar.h"
-#include "ScrollbarTheme.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/GraphicsLayer.h"
+#include "platform/HostWindow.h"
+#include "platform/PlatformMouseEvent.h"
+#include "platform/PlatformWheelEvent.h"
+#include "platform/ScrollAnimator.h"
+#include "platform/Scrollbar.h"
+#include "platform/ScrollbarTheme.h"
 #include <wtf/StdLibExtras.h>
 
 using namespace std;

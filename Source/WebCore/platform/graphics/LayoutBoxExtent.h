@@ -31,9 +31,9 @@
 #ifndef LayoutBoxExtent_h
 #define LayoutBoxExtent_h
 
-#include "LayoutUnit.h"
-#include "TextDirection.h"
-#include "WritingMode.h"
+#include "platform/LayoutUnit.h"
+#include "platform/text/TextDirection.h"
+#include "platform/text/WritingMode.h"
 
 namespace WebCore {
 

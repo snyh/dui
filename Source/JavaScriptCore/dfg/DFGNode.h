@@ -30,20 +30,20 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "CodeBlock.h"
-#include "CodeOrigin.h"
-#include "DFGAbstractValue.h"
-#include "DFGAdjacencyList.h"
-#include "DFGArrayMode.h"
-#include "DFGCommon.h"
-#include "DFGNodeFlags.h"
-#include "DFGNodeType.h"
-#include "DFGVariableAccessData.h"
-#include "JSCJSValue.h"
-#include "Operands.h"
-#include "SpeculatedType.h"
-#include "StructureSet.h"
-#include "ValueProfile.h"
+#include "bytecode/CodeBlock.h"
+#include "bytecode/CodeOrigin.h"
+#include "dfg/DFGAbstractValue.h"
+#include "dfg/DFGAdjacencyList.h"
+#include "dfg/DFGArrayMode.h"
+#include "dfg/DFGCommon.h"
+#include "dfg/DFGNodeFlags.h"
+#include "dfg/DFGNodeType.h"
+#include "dfg/DFGVariableAccessData.h"
+#include "runtime/JSCJSValue.h"
+#include "bytecode/Operands.h"
+#include "bytecode/SpeculatedType.h"
+#include "bytecode/StructureSet.h"
+#include "bytecode/ValueProfile.h"
 
 namespace JSC { namespace DFG {
 

@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "XPathNodeSet.h"
+#include "xml/XPathNodeSet.h"
 
-#include "Attr.h"
-#include "Element.h"
-#include "Node.h"
-#include "NodeTraversal.h"
+#include "dom/Attr.h"
+#include "dom/Element.h"
+#include "dom/Node.h"
+#include "dom/NodeTraversal.h"
 
 namespace WebCore {
 namespace XPath {

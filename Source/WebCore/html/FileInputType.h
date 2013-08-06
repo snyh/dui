@@ -32,9 +32,9 @@
 #ifndef FileInputType_h
 #define FileInputType_h
 
-#include "BaseClickableWithKeyInputType.h"
-#include "FileChooser.h"
-#include "FileIconLoader.h"
+#include "html/BaseClickableWithKeyInputType.h"
+#include "platform/FileChooser.h"
+#include "html/forms/FileIconLoader.h"
 #include <wtf/RefPtr.h>
 
 namespace WebCore {

@@ -22,8 +22,8 @@
 #define SVGStyleElement_h
 
 #if ENABLE(SVG)
-#include "SVGElement.h"
-#include "StyleElement.h"
+#include "svg/SVGElement.h"
+#include "dom/StyleElement.h"
 
 namespace WebCore {
 

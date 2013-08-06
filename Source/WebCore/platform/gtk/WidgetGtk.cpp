@@ -26,14 +26,14 @@
  */
 
 #include "config.h"
-#include "Widget.h"
+#include "platform/Widget.h"
 
-#include "Cursor.h"
-#include "GraphicsContext.h"
-#include "GtkVersioning.h"
-#include "HostWindow.h"
-#include "IntRect.h"
-#include "ScrollView.h"
+#include "platform/Cursor.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/gtk/GtkVersioning.h"
+#include "platform/HostWindow.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/ScrollView.h"
 
 #include <gdk/gdk.h>
 #include <gtk/gtk.h>

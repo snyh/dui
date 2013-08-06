@@ -29,16 +29,16 @@
  */
 
 #include "config.h"
-#include "WebKitAccessibleInterfaceEditableText.h"
+#include "accessibility/atk/WebKitAccessibleInterfaceEditableText.h"
 
 #if HAVE(ACCESSIBILITY)
 
-#include "AccessibilityObject.h"
-#include "Document.h"
-#include "Editor.h"
-#include "Frame.h"
-#include "NotImplemented.h"
-#include "WebKitAccessibleWrapperAtk.h"
+#include "accessibility/AccessibilityObject.h"
+#include "dom/Document.h"
+#include "editing/Editor.h"
+#include "page/Frame.h"
+#include "platform/NotImplemented.h"
+#include "accessibility/atk/WebKitAccessibleWrapperAtk.h"
 
 using namespace WebCore;
 

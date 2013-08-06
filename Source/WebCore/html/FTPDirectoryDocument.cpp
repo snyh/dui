@@ -24,19 +24,19 @@
 
 #include "config.h"
 #if ENABLE(FTPDIR)
-#include "FTPDirectoryDocument.h"
+#include "html/FTPDirectoryDocument.h"
 
-#include "ExceptionCodePlaceholder.h"
-#include "HTMLDocumentParser.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "html/parser/HTMLDocumentParser.h"
 #include "HTMLNames.h"
-#include "HTMLTableElement.h"
-#include "LocalizedStrings.h"
-#include "Logging.h"
-#include "FTPDirectoryParser.h"
-#include "SegmentedString.h"
-#include "Settings.h"
-#include "SharedBuffer.h"
-#include "Text.h"
+#include "html/HTMLTableElement.h"
+#include "platform/LocalizedStrings.h"
+#include "platform/Logging.h"
+#include "loader/FTPDirectoryParser.h"
+#include "platform/text/SegmentedString.h"
+#include "page/Settings.h"
+#include "platform/SharedBuffer.h"
+#include "dom/Text.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/GregorianDateTime.h>
 #include <wtf/StdLibExtras.h>

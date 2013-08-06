@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "DFGOSREntry.h"
+#include "dfg/DFGOSREntry.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "CallFrame.h"
-#include "CodeBlock.h"
-#include "DFGNode.h"
-#include "JIT.h"
-#include "Operations.h"
+#include "interpreter/CallFrame.h"
+#include "bytecode/CodeBlock.h"
+#include "dfg/DFGNode.h"
+#include "jit/JIT.h"
+#include "runtime/Operations.h"
 
 namespace JSC { namespace DFG {
 

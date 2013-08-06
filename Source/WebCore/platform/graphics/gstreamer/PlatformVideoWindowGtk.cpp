@@ -18,7 +18,7 @@
  */
 
 #include "config.h"
-#include "PlatformVideoWindow.h"
+#include "platform/graphics/gstreamer/PlatformVideoWindow.h"
 #if ENABLE(VIDEO) && USE(GSTREAMER) && USE(NATIVE_FULLSCREEN_VIDEO)
 
 #include <gtk/gtk.h>

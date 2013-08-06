@@ -27,17 +27,17 @@
  */
 
 #include "config.h"
-#include "MixedContentChecker.h"
+#include "loader/MixedContentChecker.h"
 
-#include "Console.h"
-#include "DOMWindow.h"
-#include "Document.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
-#include "SchemeRegistry.h"
-#include "SecurityOrigin.h"
-#include "Settings.h"
+#include "page/Console.h"
+#include "page/DOMWindow.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
+#include "platform/SchemeRegistry.h"
+#include "page/SecurityOrigin.h"
+#include "page/Settings.h"
 #include <wtf/text/CString.h>
 #include <wtf/text/WTFString.h>
 

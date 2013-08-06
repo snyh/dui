@@ -22,7 +22,7 @@
 #define SVGMetadataElement_h
 #if ENABLE(SVG)
 
-#include "SVGElement.h"
+#include "svg/SVGElement.h"
 
 namespace WebCore {
 

@@ -29,10 +29,10 @@
 #ifndef NavigationAction_h
 #define NavigationAction_h
 
-#include "Event.h"
-#include "FrameLoaderTypes.h"
-#include "KURL.h"
-#include "ResourceRequest.h"
+#include "dom/Event.h"
+#include "loader/FrameLoaderTypes.h"
+#include "platform/KURL.h"
+#include "platform/network/soup/ResourceRequest.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

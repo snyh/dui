@@ -26,8 +26,8 @@
 #ifndef VisibleUnits_h
 #define VisibleUnits_h
 
-#include "EditingBoundary.h"
-#include "TextDirection.h"
+#include "editing/EditingBoundary.h"
+#include "platform/text/TextDirection.h"
 
 namespace WebCore {
 

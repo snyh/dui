@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "Logging.h"
+#include "platform/Logging.h"
 
 #include <wtf/text/WTFString.h>
 

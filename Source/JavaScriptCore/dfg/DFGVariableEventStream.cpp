@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "DFGVariableEventStream.h"
+#include "dfg/DFGVariableEventStream.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "CodeBlock.h"
-#include "DFGValueSource.h"
-#include "Operations.h"
+#include "bytecode/CodeBlock.h"
+#include "dfg/DFGValueSource.h"
+#include "runtime/Operations.h"
 #include <wtf/DataLog.h>
 #include <wtf/HashMap.h>
 

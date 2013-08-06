@@ -21,7 +21,7 @@
  */
 
 #include "config.h"
-#include "HTMLDListElement.h"
+#include "html/HTMLDListElement.h"
 
 #include "HTMLNames.h"
 

@@ -25,14 +25,14 @@
  */
 
 #include "config.h"
-#include "HTMLElementStack.h"
+#include "html/parser/HTMLElementStack.h"
 
-#include "DocumentFragment.h"
-#include "Element.h"
+#include "dom/DocumentFragment.h"
+#include "dom/Element.h"
 #include "HTMLNames.h"
-#include "HTMLOptGroupElement.h"
-#include "HTMLOptionElement.h"
-#include "HTMLTableElement.h"
+#include "html/HTMLOptGroupElement.h"
+#include "html/HTMLOptionElement.h"
+#include "html/HTMLTableElement.h"
 #include "MathMLNames.h"
 #include "SVGNames.h"
 #include <wtf/PassOwnPtr.h>

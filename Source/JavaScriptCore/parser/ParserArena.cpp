@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "ParserArena.h"
+#include "parser/ParserArena.h"
 
-#include "Nodes.h"
+#include "parser/Nodes.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace JSC {

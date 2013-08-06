@@ -20,7 +20,7 @@
  */
 
 #include "config.h"
-#include "TextBreakIterator.h"
+#include "platform/text/TextBreakIterator.h"
 
 namespace WebCore {
 

@@ -17,7 +17,7 @@
  */
 
 #include "config.h"
-#include "SoupURIUtils.h"
+#include "platform/network/soup/SoupURIUtils.h"
 
 #include <wtf/gobject/GOwnPtr.h>
 #include <libsoup/soup.h>

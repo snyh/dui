@@ -30,13 +30,13 @@
 
 #include "config.h"
 
-#include "CSSGroupingRule.h"
+#include "css/CSSGroupingRule.h"
 
-#include "CSSParser.h"
-#include "CSSRuleList.h"
-#include "CSSStyleSheet.h"
-#include "ExceptionCode.h"
-#include "StyleRule.h"
+#include "css/CSSParser.h"
+#include "css/CSSRuleList.h"
+#include "css/CSSStyleSheet.h"
+#include "dom/ExceptionCode.h"
+#include "css/StyleRule.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

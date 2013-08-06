@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "Widget.h"
+#include "platform/Widget.h"
 
-#include "IntRect.h"
-#include "ScrollView.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/ScrollView.h"
 
 #include <wtf/Assertions.h>
 

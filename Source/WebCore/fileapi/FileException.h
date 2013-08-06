@@ -33,7 +33,7 @@
 
 #if ENABLE(BLOB)
 
-#include "ExceptionBase.h"
+#include "dom/ExceptionBase.h"
 
 namespace WebCore {
 

@@ -28,8 +28,8 @@
 
 #if ENABLE(MATHML)
 
-#include "MathMLMathElement.h"
-#include "RenderMathMLMath.h"
+#include "mathml/MathMLMathElement.h"
+#include "rendering/mathml/RenderMathMLMath.h"
 
 namespace WebCore {
 

@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "AuthenticationChallenge.h"
+#include "platform/network/soup/AuthenticationChallenge.h"
 
-#include "ResourceError.h"
+#include "platform/network/soup/ResourceError.h"
 #include <libsoup/soup.h>
 
 namespace WebCore {

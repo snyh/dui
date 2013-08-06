@@ -25,14 +25,14 @@
  */
 
 #include "config.h"
-#include "DocumentMarkerController.h"
+#include "dom/DocumentMarkerController.h"
 
-#include "Node.h"
-#include "NodeTraversal.h"
-#include "Range.h"
-#include "RenderObject.h"
-#include "RenderedDocumentMarker.h"
-#include "TextIterator.h"
+#include "dom/Node.h"
+#include "dom/NodeTraversal.h"
+#include "dom/Range.h"
+#include "rendering/RenderObject.h"
+#include "dom/RenderedDocumentMarker.h"
+#include "editing/TextIterator.h"
 #include <stdio.h>
 
 namespace WebCore {

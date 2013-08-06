@@ -31,11 +31,11 @@
 #ifndef InsertionPoint_h
 #define InsertionPoint_h
 
-#include "ContentDistributor.h"
-#include "ElementShadow.h"
-#include "HTMLElement.h"
+#include "html/shadow/ContentDistributor.h"
+#include "dom/ElementShadow.h"
+#include "html/HTMLElement.h"
 #include "HTMLNames.h"
-#include "ShadowRoot.h"
+#include "dom/ShadowRoot.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

@@ -23,8 +23,8 @@
 #ifndef HTMLPlugInElement_h
 #define HTMLPlugInElement_h
 
-#include "HTMLFrameOwnerElement.h"
-#include "Image.h"
+#include "html/HTMLFrameOwnerElement.h"
+#include "platform/graphics/Image.h"
 
 #if ENABLE(NETSCAPE_PLUGIN_API)
 struct NPObject;

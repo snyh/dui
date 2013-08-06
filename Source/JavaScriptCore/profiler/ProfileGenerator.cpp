@@ -24,18 +24,18 @@
  */
 
 #include "config.h"
-#include "ProfileGenerator.h"
+#include "profiler/ProfileGenerator.h"
 
-#include "CallFrame.h"
-#include "CodeBlock.h"
-#include "JSGlobalObject.h"
-#include "JSStringRef.h"
-#include "JSFunction.h"
-#include "Interpreter.h"
-#include "LegacyProfiler.h"
-#include "Operations.h"
-#include "Profile.h"
-#include "Tracing.h"
+#include "interpreter/CallFrame.h"
+#include "bytecode/CodeBlock.h"
+#include "runtime/JSGlobalObject.h"
+#include "API/JSStringRef.h"
+#include "runtime/JSFunction.h"
+#include "interpreter/Interpreter.h"
+#include "profiler/LegacyProfiler.h"
+#include "runtime/Operations.h"
+#include "profiler/Profile.h"
+#include "runtime/Tracing.h"
 
 namespace JSC {
 

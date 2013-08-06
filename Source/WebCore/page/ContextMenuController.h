@@ -28,7 +28,7 @@
 
 #if ENABLE(CONTEXT_MENUS)
 
-#include "HitTestResult.h"
+#include "rendering/HitTestResult.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/PassRefPtr.h>

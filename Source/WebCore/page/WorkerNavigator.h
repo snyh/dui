@@ -28,8 +28,8 @@
 
 #if ENABLE(WORKERS)
 
-#include "NavigatorBase.h"
-#include "Supplementable.h"
+#include "page/NavigatorBase.h"
+#include "platform/Supplementable.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>

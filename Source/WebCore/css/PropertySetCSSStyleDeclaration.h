@@ -26,7 +26,7 @@
 #ifndef PropertySetCSSStyleDeclaration_h
 #define PropertySetCSSStyleDeclaration_h
 
-#include "CSSStyleDeclaration.h"
+#include "css/CSSStyleDeclaration.h"
 #include <wtf/HashMap.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/RefPtr.h>

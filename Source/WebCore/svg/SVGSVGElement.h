@@ -22,14 +22,14 @@
 #define SVGSVGElement_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedBoolean.h"
-#include "SVGAnimatedLength.h"
-#include "SVGAnimatedPreserveAspectRatio.h"
-#include "SVGAnimatedRect.h"
-#include "SVGExternalResourcesRequired.h"
-#include "SVGFitToViewBox.h"
-#include "SVGGraphicsElement.h"
-#include "SVGZoomAndPan.h"
+#include "svg/SVGAnimatedBoolean.h"
+#include "svg/SVGAnimatedLength.h"
+#include "svg/SVGAnimatedPreserveAspectRatio.h"
+#include "svg/SVGAnimatedRect.h"
+#include "svg/SVGExternalResourcesRequired.h"
+#include "svg/SVGFitToViewBox.h"
+#include "svg/SVGGraphicsElement.h"
+#include "svg/SVGZoomAndPan.h"
 
 namespace WebCore {
 

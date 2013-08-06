@@ -28,11 +28,11 @@
 #ifndef BitmapImage_h
 #define BitmapImage_h
 
-#include "Image.h"
-#include "Color.h"
-#include "ImageOrientation.h"
-#include "ImageSource.h"
-#include "IntSize.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/Color.h"
+#include "platform/graphics/ImageOrientation.h"
+#include "platform/graphics/ImageSource.h"
+#include "platform/graphics/IntSize.h"
 
 #if PLATFORM(MAC)
 #include <wtf/RetainPtr.h>

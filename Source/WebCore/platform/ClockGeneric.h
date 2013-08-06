@@ -26,7 +26,7 @@
 #ifndef ClockGeneric_h
 #define ClockGeneric_h
 
-#include "Clock.h"
+#include "platform/Clock.h"
 
 namespace WebCore {
 

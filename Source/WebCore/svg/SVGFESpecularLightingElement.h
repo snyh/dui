@@ -23,10 +23,10 @@
 #define SVGFESpecularLightingElement_h
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "FESpecularLighting.h"
-#include "SVGAnimatedNumber.h"
-#include "SVGFELightElement.h"
-#include "SVGFilterPrimitiveStandardAttributes.h"
+#include "platform/graphics/filters/FESpecularLighting.h"
+#include "svg/SVGAnimatedNumber.h"
+#include "svg/SVGFELightElement.h"
+#include "svg/SVGFilterPrimitiveStandardAttributes.h"
 
 namespace WebCore {
 

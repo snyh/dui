@@ -25,10 +25,10 @@
  */
 
 #include "config.h"
-#include "XPathUtil.h"
+#include "xml/XPathUtil.h"
 
-#include "ContainerNode.h"
-#include "NodeTraversal.h"
+#include "dom/ContainerNode.h"
+#include "dom/NodeTraversal.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

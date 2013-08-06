@@ -25,15 +25,15 @@
  */
 
 #include "config.h"
-#include "DocumentEventQueue.h"
+#include "dom/DocumentEventQueue.h"
 
-#include "DOMWindow.h"
-#include "Document.h"
-#include "Event.h"
-#include "EventNames.h"
-#include "RuntimeApplicationChecks.h"
-#include "ScriptExecutionContext.h"
-#include "SuspendableTimer.h"
+#include "page/DOMWindow.h"
+#include "dom/Document.h"
+#include "dom/Event.h"
+#include "dom/EventNames.h"
+#include "platform/RuntimeApplicationChecks.h"
+#include "dom/ScriptExecutionContext.h"
+#include "page/SuspendableTimer.h"
 
 namespace WebCore {
     

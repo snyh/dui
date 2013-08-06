@@ -30,8 +30,8 @@
 #ifndef CSSBasicShapes_h
 #define CSSBasicShapes_h
 
-#include "CSSPrimitiveValue.h"
-#include "WindRule.h"
+#include "css/CSSPrimitiveValue.h"
+#include "platform/graphics/WindRule.h"
 #include <wtf/RefPtr.h>
 #include <wtf/Vector.h>
 #include <wtf/text/WTFString.h>

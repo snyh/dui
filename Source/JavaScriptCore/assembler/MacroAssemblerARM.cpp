@@ -28,7 +28,7 @@
 
 #if ENABLE(ASSEMBLER) && CPU(ARM_TRADITIONAL)
 
-#include "MacroAssemblerARM.h"
+#include "assembler/MacroAssemblerARM.h"
 
 #if OS(LINUX)
 #include <sys/types.h>

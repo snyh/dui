@@ -26,10 +26,10 @@
  */
 
 #include "config.h"
-#include "BitmapImage.h"
+#include "platform/graphics/BitmapImage.h"
 
-#include "ImageObserver.h"
-#include "PlatformContextCairo.h"
+#include "platform/graphics/ImageObserver.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
 #include <cairo.h>
 
 namespace WebCore {

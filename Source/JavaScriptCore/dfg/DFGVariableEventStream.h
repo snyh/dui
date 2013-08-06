@@ -30,10 +30,10 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGCommon.h"
-#include "DFGMinifiedGraph.h"
-#include "DFGVariableEvent.h"
-#include "Operands.h"
+#include "dfg/DFGCommon.h"
+#include "dfg/DFGMinifiedGraph.h"
+#include "dfg/DFGVariableEvent.h"
+#include "bytecode/Operands.h"
 #include <wtf/Vector.h>
 
 namespace JSC { namespace DFG {

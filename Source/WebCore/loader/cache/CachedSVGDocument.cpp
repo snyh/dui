@@ -23,11 +23,11 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "CachedSVGDocument.h"
+#include "loader/cache/CachedSVGDocument.h"
 
-#include "CachedResourceClient.h"
-#include "CachedResourceHandle.h"
-#include "ResourceBuffer.h"
+#include "loader/cache/CachedResourceClient.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "loader/ResourceBuffer.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

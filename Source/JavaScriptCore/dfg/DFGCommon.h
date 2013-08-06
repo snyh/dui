@@ -30,9 +30,9 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "CodeOrigin.h"
-#include "Options.h"
-#include "VirtualRegister.h"
+#include "bytecode/CodeOrigin.h"
+#include "runtime/Options.h"
+#include "bytecode/VirtualRegister.h"
 
 /* DFG_ENABLE() - turn on a specific features in the DFG JIT */
 #define DFG_ENABLE(DFG_FEATURE) (defined DFG_ENABLE_##DFG_FEATURE  && DFG_ENABLE_##DFG_FEATURE)

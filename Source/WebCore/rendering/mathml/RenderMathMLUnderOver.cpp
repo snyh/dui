@@ -27,7 +27,7 @@
 
 #if ENABLE(MATHML)
 
-#include "RenderMathMLUnderOver.h"
+#include "rendering/mathml/RenderMathMLUnderOver.h"
 
 #include "MathMLNames.h"
 

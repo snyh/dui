@@ -26,11 +26,11 @@
 #ifndef GCThreadSharedData_h
 #define GCThreadSharedData_h
 
-#include "ListableHandler.h"
-#include "MarkStack.h"
-#include "MarkedBlock.h"
-#include "UnconditionalFinalizer.h"
-#include "WeakReferenceHarvester.h"
+#include "heap/ListableHandler.h"
+#include "heap/MarkStack.h"
+#include "heap/MarkedBlock.h"
+#include "heap/UnconditionalFinalizer.h"
+#include "heap/WeakReferenceHarvester.h"
 #include <wtf/HashSet.h>
 #include <wtf/TCSpinLock.h>
 #include <wtf/Threading.h>

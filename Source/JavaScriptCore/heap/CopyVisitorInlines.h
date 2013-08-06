@@ -26,11 +26,11 @@
 #ifndef CopyVisitorInlines_h
 #define CopyVisitorInlines_h
 
-#include "ClassInfo.h"
-#include "CopyVisitor.h"
-#include "GCThreadSharedData.h"
-#include "JSCell.h"
-#include "JSDestructibleObject.h"
+#include "runtime/ClassInfo.h"
+#include "heap/CopyVisitor.h"
+#include "heap/GCThreadSharedData.h"
+#include "runtime/JSCell.h"
+#include "runtime/JSDestructibleObject.h"
 
 namespace JSC {
 

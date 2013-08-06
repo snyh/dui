@@ -25,7 +25,7 @@
 
 #if ENABLE(SVG)
 
-#include "CachedResourceClient.h"
+#include "loader/cache/CachedResourceClient.h"
 
 namespace WebCore {
 

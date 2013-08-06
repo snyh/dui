@@ -29,18 +29,18 @@
 #ifndef EmptyClients_h
 #define EmptyClients_h
 
-#include "ChromeClient.h"
-#include "ContextMenuClient.h"
-#include "DeviceMotionClient.h"
-#include "DeviceOrientationClient.h"
-#include "DragClient.h"
-#include "EditorClient.h"
-#include "TextCheckerClient.h"
-#include "FloatRect.h"
-#include "FocusDirection.h"
-#include "FrameLoaderClient.h"
-#include "Page.h"
-#include "ResourceError.h"
+#include "page/ChromeClient.h"
+#include "page/ContextMenuClient.h"
+#include "dom/DeviceMotionClient.h"
+#include "dom/DeviceOrientationClient.h"
+#include "page/DragClient.h"
+#include "page/EditorClient.h"
+#include "platform/text/TextCheckerClient.h"
+#include "platform/graphics/FloatRect.h"
+#include "page/FocusDirection.h"
+#include "loader/FrameLoaderClient.h"
+#include "page/Page.h"
+#include "platform/network/soup/ResourceError.h"
 
 /*
  This file holds empty Client stubs for use by WebCore.

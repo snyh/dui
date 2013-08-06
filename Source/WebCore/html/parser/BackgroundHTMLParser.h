@@ -28,15 +28,15 @@
 
 #if ENABLE(THREADED_HTML_PARSER)
 
-#include "BackgroundHTMLInputStream.h"
-#include "CompactHTMLToken.h"
-#include "HTMLParserOptions.h"
-#include "HTMLPreloadScanner.h"
-#include "HTMLSourceTracker.h"
-#include "HTMLToken.h"
-#include "HTMLTokenizer.h"
-#include "HTMLTreeBuilderSimulator.h"
-#include "XSSAuditorDelegate.h"
+#include "html/parser/BackgroundHTMLInputStream.h"
+#include "html/parser/CompactHTMLToken.h"
+#include "html/parser/HTMLParserOptions.h"
+#include "html/parser/HTMLPreloadScanner.h"
+#include "html/parser/HTMLSourceTracker.h"
+#include "html/parser/HTMLToken.h"
+#include "html/parser/HTMLTokenizer.h"
+#include "html/parser/HTMLTreeBuilderSimulator.h"
+#include "html/parser/XSSAuditorDelegate.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/WeakPtr.h>
 

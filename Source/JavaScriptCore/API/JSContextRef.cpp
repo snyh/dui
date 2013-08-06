@@ -24,19 +24,19 @@
  */
 
 #include "config.h"
-#include "JSContextRef.h"
-#include "JSContextRefPrivate.h"
+#include "API/JSContextRef.h"
+#include "API/JSContextRefPrivate.h"
 
-#include "APICast.h"
-#include "InitializeThreading.h"
+#include "API/APICast.h"
+#include "runtime/InitializeThreading.h"
 #include <interpreter/CallFrame.h>
 #include <interpreter/Interpreter.h>
-#include "JSCallbackObject.h"
-#include "JSClassRef.h"
-#include "JSGlobalObject.h"
-#include "JSObject.h"
-#include "Operations.h"
-#include "SourceProvider.h"
+#include "API/JSCallbackObject.h"
+#include "API/JSClassRef.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSObject.h"
+#include "runtime/Operations.h"
+#include "parser/SourceProvider.h"
 #include <wtf/text/StringBuilder.h>
 #include <wtf/text/StringHash.h>
 

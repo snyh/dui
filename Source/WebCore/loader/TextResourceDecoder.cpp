@@ -21,15 +21,15 @@
 
 
 #include "config.h"
-#include "TextResourceDecoder.h"
+#include "loader/TextResourceDecoder.h"
 
-#include "DOMImplementation.h"
-#include "HTMLMetaCharsetParser.h"
+#include "dom/DOMImplementation.h"
+#include "html/parser/HTMLMetaCharsetParser.h"
 #include "HTMLNames.h"
-#include "TextCodec.h"
-#include "TextEncoding.h"
-#include "TextEncodingDetector.h"
-#include "TextEncodingRegistry.h"
+#include "platform/text/TextCodec.h"
+#include "platform/text/TextEncoding.h"
+#include "platform/text/TextEncodingDetector.h"
+#include "platform/text/TextEncodingRegistry.h"
 #include <wtf/ASCIICType.h>
 #include <wtf/StringExtras.h>
 

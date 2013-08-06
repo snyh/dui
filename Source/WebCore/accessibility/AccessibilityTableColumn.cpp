@@ -27,14 +27,14 @@
  */
 
 #include "config.h"
-#include "AccessibilityTableColumn.h"
+#include "accessibility/AccessibilityTableColumn.h"
 
-#include "AXObjectCache.h"
-#include "AccessibilityTableCell.h"
+#include "accessibility/AXObjectCache.h"
+#include "accessibility/AccessibilityTableCell.h"
 #include "HTMLNames.h"
-#include "RenderTable.h"
-#include "RenderTableCell.h"
-#include "RenderTableSection.h"
+#include "rendering/RenderTable.h"
+#include "rendering/RenderTableCell.h"
+#include "rendering/RenderTableSection.h"
 
 using namespace std;
 

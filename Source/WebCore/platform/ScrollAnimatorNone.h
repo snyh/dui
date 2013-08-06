@@ -37,9 +37,9 @@
 #error "SMOOTH_SCROLLING requires REQUEST_ANIMATION_FRAME to be enabled."
 #endif
 
-#include "FloatPoint.h"
-#include "ScrollAnimator.h"
-#include "Timer.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/ScrollAnimator.h"
+#include "platform/Timer.h"
 #include <wtf/OwnPtr.h>
 
 class ScrollAnimatorNoneTest;

@@ -28,11 +28,11 @@
 
 #if ENABLE(SHARED_WORKERS)
 
-#include "SharedWorkerRepository.h"
+#include "workers/SharedWorkerRepository.h"
 
-#include "DefaultSharedWorkerRepository.h"
-#include "MessagePortChannel.h"
-#include "SharedWorker.h"
+#include "workers/DefaultSharedWorkerRepository.h"
+#include "dom/MessagePortChannel.h"
+#include "workers/SharedWorker.h"
 
 namespace WebCore {
 

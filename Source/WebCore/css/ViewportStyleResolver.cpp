@@ -28,17 +28,17 @@
  */
 
 #include "config.h"
-#include "ViewportStyleResolver.h"
+#include "css/ViewportStyleResolver.h"
 
 #if ENABLE(CSS_DEVICE_ADAPTATION)
 
 #include "CSSValueKeywords.h"
-#include "Document.h"
-#include "Page.h"
-#include "RenderView.h"
-#include "StylePropertySet.h"
-#include "StyleRule.h"
-#include "ViewportArguments.h"
+#include "dom/Document.h"
+#include "page/Page.h"
+#include "rendering/RenderView.h"
+#include "css/StylePropertySet.h"
+#include "css/StyleRule.h"
+#include "dom/ViewportArguments.h"
 
 namespace WebCore {
 

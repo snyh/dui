@@ -29,7 +29,7 @@
 #ifndef NetscapePlugInStreamLoader_h
 #define NetscapePlugInStreamLoader_h
 
-#include "ResourceLoader.h"
+#include "loader/ResourceLoader.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

@@ -18,11 +18,11 @@
  */
 
 #include "config.h"
-#include "WebKitAccessibleInterfaceHyperlinkImpl.h"
+#include "accessibility/atk/WebKitAccessibleInterfaceHyperlinkImpl.h"
 
 #if HAVE(ACCESSIBILITY)
 
-#include "WebKitAccessibleHyperlink.h"
+#include "accessibility/atk/WebKitAccessibleHyperlink.h"
 
 using namespace WebCore;
 

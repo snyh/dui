@@ -70,11 +70,11 @@
  */
 
 #include "config.h"
-#include "JSDateMath.h"
+#include "runtime/JSDateMath.h"
 
-#include "JSObject.h"
-#include "JSScope.h"
-#include "Operations.h"
+#include "runtime/JSObject.h"
+#include "runtime/JSScope.h"
+#include "runtime/Operations.h"
 
 #include <algorithm>
 #include <limits.h>

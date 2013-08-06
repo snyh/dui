@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "DOMError.h"
+#include "dom/DOMError.h"
 
 #include <wtf/text/WTFString.h>
 

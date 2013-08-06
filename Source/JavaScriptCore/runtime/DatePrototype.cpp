@@ -22,18 +22,18 @@
  */
 
 #include "config.h"
-#include "DatePrototype.h"
+#include "runtime/DatePrototype.h"
 
-#include "DateConversion.h"
-#include "DateInstance.h"
-#include "Error.h"
-#include "JSDateMath.h"
-#include "JSGlobalObject.h"
-#include "JSString.h"
-#include "JSStringBuilder.h"
-#include "Lookup.h"
-#include "ObjectPrototype.h"
-#include "Operations.h"
+#include "runtime/DateConversion.h"
+#include "runtime/DateInstance.h"
+#include "runtime/Error.h"
+#include "runtime/JSDateMath.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSString.h"
+#include "runtime/JSStringBuilder.h"
+#include "runtime/Lookup.h"
+#include "runtime/ObjectPrototype.h"
+#include "runtime/Operations.h"
 
 #if !PLATFORM(MAC) && HAVE(LANGINFO_H)
 #include <langinfo.h>

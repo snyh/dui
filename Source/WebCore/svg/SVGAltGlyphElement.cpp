@@ -23,14 +23,14 @@
 #include "config.h"
 
 #if ENABLE(SVG_FONTS)
-#include "SVGAltGlyphElement.h"
+#include "svg/SVGAltGlyphElement.h"
 
-#include "ExceptionCode.h"
-#include "NodeRenderingContext.h"
-#include "RenderInline.h"
-#include "RenderSVGTSpan.h"
-#include "SVGAltGlyphDefElement.h"
-#include "SVGGlyphElement.h"
+#include "dom/ExceptionCode.h"
+#include "dom/NodeRenderingContext.h"
+#include "rendering/RenderInline.h"
+#include "rendering/svg/RenderSVGTSpan.h"
+#include "svg/SVGAltGlyphDefElement.h"
+#include "svg/SVGGlyphElement.h"
 #include "SVGNames.h"
 #include "XLinkNames.h"
 

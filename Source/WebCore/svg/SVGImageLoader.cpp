@@ -21,14 +21,14 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGImageLoader.h"
+#include "svg/SVGImageLoader.h"
 
-#include "CachedImage.h"
-#include "Event.h"
-#include "EventNames.h"
-#include "HTMLParserIdioms.h"
-#include "RenderImage.h"
-#include "SVGImageElement.h"
+#include "loader/cache/CachedImage.h"
+#include "dom/Event.h"
+#include "dom/EventNames.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "rendering/RenderImage.h"
+#include "svg/SVGImageElement.h"
 
 namespace WebCore {
 

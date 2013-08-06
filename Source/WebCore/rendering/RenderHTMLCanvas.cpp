@@ -24,18 +24,18 @@
  */
 
 #include "config.h"
-#include "RenderHTMLCanvas.h"
+#include "rendering/RenderHTMLCanvas.h"
 
-#include "CanvasRenderingContext.h"
-#include "Document.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "GraphicsContext.h"
-#include "HTMLCanvasElement.h"
+#include "html/canvas/CanvasRenderingContext.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "html/HTMLCanvasElement.h"
 #include "HTMLNames.h"
-#include "Page.h"
-#include "PaintInfo.h"
-#include "RenderView.h"
+#include "page/Page.h"
+#include "rendering/PaintInfo.h"
+#include "rendering/RenderView.h"
 
 namespace WebCore {
 

@@ -33,16 +33,16 @@
 
 #if ENABLE(SHARED_WORKERS)
 
-#include "SharedWorker.h"
+#include "workers/SharedWorker.h"
 
-#include "ExceptionCode.h"
-#include "FeatureObserver.h"
-#include "KURL.h"
-#include "MessageChannel.h"
-#include "MessagePort.h"
-#include "ScriptExecutionContext.h"
-#include "SecurityOrigin.h"
-#include "SharedWorkerRepository.h"
+#include "dom/ExceptionCode.h"
+#include "page/FeatureObserver.h"
+#include "platform/KURL.h"
+#include "dom/MessageChannel.h"
+#include "dom/MessagePort.h"
+#include "dom/ScriptExecutionContext.h"
+#include "page/SecurityOrigin.h"
+#include "workers/SharedWorkerRepository.h"
 
 namespace WebCore {
 

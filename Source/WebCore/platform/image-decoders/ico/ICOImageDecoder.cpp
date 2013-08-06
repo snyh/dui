@@ -29,13 +29,13 @@
  */
 
 #include "config.h"
-#include "ICOImageDecoder.h"
+#include "platform/image-decoders/ico/ICOImageDecoder.h"
 
 #include <algorithm>
 
-#include "BMPImageReader.h"
-#include "PNGImageDecoder.h"
-#include "PlatformInstrumentation.h"
+#include "platform/image-decoders/bmp/BMPImageReader.h"
+#include "platform/image-decoders/png/PNGImageDecoder.h"
+#include "platform/PlatformInstrumentation.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

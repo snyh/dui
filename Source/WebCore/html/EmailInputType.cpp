@@ -22,13 +22,13 @@
  */
 
 #include "config.h"
-#include "EmailInputType.h"
+#include "html/EmailInputType.h"
 
-#include "HTMLInputElement.h"
-#include "HTMLParserIdioms.h"
-#include "InputTypeNames.h"
-#include "LocalizedStrings.h"
-#include "RegularExpression.h"
+#include "html/HTMLInputElement.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "html/InputTypeNames.h"
+#include "platform/LocalizedStrings.h"
+#include "platform/text/RegularExpression.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/StringBuilder.h>
 

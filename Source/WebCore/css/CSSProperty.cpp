@@ -19,14 +19,14 @@
  */
 
 #include "config.h"
-#include "CSSProperty.h"
+#include "css/CSSProperty.h"
 
-#include "CSSValueList.h"
-#include "RenderStyleConstants.h"
-#include "StylePropertyShorthand.h"
+#include "css/CSSValueList.h"
+#include "rendering/style/RenderStyleConstants.h"
+#include "css/StylePropertyShorthand.h"
 
 #if ENABLE(CSS_VARIABLES)
-#include "CSSVariableValue.h"
+#include "css/CSSVariableValue.h"
 #endif
 
 #include <wtf/text/StringBuilder.h>

@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "ScrollingConstraints.h"
+#include "page/scrolling/ScrollingConstraints.h"
 
 namespace WebCore {
 

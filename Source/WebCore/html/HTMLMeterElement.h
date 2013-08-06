@@ -22,7 +22,7 @@
 #define HTMLMeterElement_h
 
 #if ENABLE(METER_ELEMENT)
-#include "LabelableElement.h"
+#include "html/LabelableElement.h"
 
 namespace WebCore {
 

@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "JITCode.h"
+#include "jit/JITCode.h"
 
 #include <wtf/PrintStream.h>
 

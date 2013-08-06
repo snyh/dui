@@ -27,10 +27,10 @@
  */
 
 #include "config.h"
-#include "GlyphPageTreeNode.h"
+#include "platform/graphics/GlyphPageTreeNode.h"
 
-#include "SegmentedFontData.h"
-#include "SimpleFontData.h"
+#include "platform/graphics/SegmentedFontData.h"
+#include "platform/graphics/SimpleFontData.h"
 #include <stdio.h>
 #include <wtf/text/CString.h>
 #include <wtf/text/WTFString.h>
@@ -38,7 +38,7 @@
 #include <wtf/unicode/Unicode.h>
 
 #if ENABLE(OPENTYPE_VERTICAL)
-#include "OpenTypeVerticalData.h"
+#include "platform/graphics/opentype/OpenTypeVerticalData.h"
 #endif
 
 namespace WebCore {

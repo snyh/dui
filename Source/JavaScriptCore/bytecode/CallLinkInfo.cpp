@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "CallLinkInfo.h"
+#include "bytecode/CallLinkInfo.h"
 
-#include "DFGOperations.h"
-#include "DFGThunks.h"
-#include "RepatchBuffer.h"
+#include "dfg/DFGOperations.h"
+#include "dfg/DFGThunks.h"
+#include "assembler/RepatchBuffer.h"
 
 #if ENABLE(JIT)
 namespace JSC {

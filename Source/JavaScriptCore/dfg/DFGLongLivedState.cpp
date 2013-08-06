@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "DFGLongLivedState.h"
+#include "dfg/DFGLongLivedState.h"
 
 #if ENABLE(DFG_JIT)
 

@@ -26,7 +26,7 @@
 #ifndef StructureStubClearingWatchpoint_h
 #define StructureStubClearingWatchpoint_h
 
-#include "Watchpoint.h"
+#include "bytecode/Watchpoint.h"
 #include <wtf/Platform.h>
 
 #if ENABLE(JIT)

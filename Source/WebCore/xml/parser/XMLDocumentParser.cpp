@@ -24,36 +24,36 @@
  */
 
 #include "config.h"
-#include "XMLDocumentParser.h"
+#include "xml/parser/XMLDocumentParser.h"
 
-#include "CDATASection.h"
-#include "CachedScript.h"
-#include "Comment.h"
-#include "CachedResourceLoader.h"
-#include "Document.h"
-#include "DocumentFragment.h"
-#include "DocumentType.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameView.h"
-#include "HTMLLinkElement.h"
+#include "dom/CDATASection.h"
+#include "loader/cache/CachedScript.h"
+#include "dom/Comment.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "dom/Document.h"
+#include "dom/DocumentFragment.h"
+#include "dom/DocumentType.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "page/FrameView.h"
+#include "html/HTMLLinkElement.h"
 #include "HTMLNames.h"
-#include "HTMLStyleElement.h"
-#include "ImageLoader.h"
-#include "ProcessingInstruction.h"
-#include "ResourceError.h"
-#include "ResourceRequest.h"
-#include "ResourceResponse.h"
-#include "TextResourceDecoder.h"
-#include "TreeDepthLimit.h"
-#include "XMLErrors.h"
+#include "html/HTMLStyleElement.h"
+#include "loader/ImageLoader.h"
+#include "dom/ProcessingInstruction.h"
+#include "platform/network/soup/ResourceError.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "loader/TextResourceDecoder.h"
+#include "dom/TreeDepthLimit.h"
+#include "xml/XMLErrors.h"
 #include <wtf/StringExtras.h>
 #include <wtf/Threading.h>
 #include <wtf/Vector.h>
 
 #if ENABLE(SVG)
 #include "SVGNames.h"
-#include "SVGStyleElement.h"
+#include "svg/SVGStyleElement.h"
 #endif
 
 using namespace std;

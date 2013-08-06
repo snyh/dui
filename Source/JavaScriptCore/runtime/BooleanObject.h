@@ -21,7 +21,7 @@
 #ifndef BooleanObject_h
 #define BooleanObject_h
 
-#include "JSWrapperObject.h"
+#include "runtime/JSWrapperObject.h"
 
 namespace JSC {
 

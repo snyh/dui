@@ -20,15 +20,15 @@
 #include "config.h"
 
 #if ENABLE(FILTERS)
-#include "FEDropShadow.h"
+#include "platform/graphics/filters/FEDropShadow.h"
 
-#include "ColorSpace.h"
-#include "FEGaussianBlur.h"
-#include "Filter.h"
-#include "GraphicsContext.h"
-#include "RenderTreeAsText.h"
-#include "ShadowBlur.h"
-#include "TextStream.h"
+#include "platform/graphics/ColorSpace.h"
+#include "platform/graphics/filters/FEGaussianBlur.h"
+#include "platform/graphics/filters/Filter.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/RenderTreeAsText.h"
+#include "platform/graphics/ShadowBlur.h"
+#include "platform/text/TextStream.h"
 #include <wtf/MathExtras.h>
 #include <wtf/Uint8ClampedArray.h>
 

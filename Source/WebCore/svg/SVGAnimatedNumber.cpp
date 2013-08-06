@@ -20,10 +20,10 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGAnimatedNumber.h"
+#include "svg/SVGAnimatedNumber.h"
 
-#include "SVGAnimateElement.h"
-#include "SVGParserUtilities.h"
+#include "svg/SVGAnimateElement.h"
+#include "svg/SVGParserUtilities.h"
 
 using namespace std;
 

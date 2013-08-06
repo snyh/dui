@@ -30,12 +30,12 @@
 #ifndef JITStubs_h
 #define JITStubs_h
 
-#include "CallData.h"
-#include "Intrinsic.h"
-#include "LowLevelInterpreter.h"
-#include "MacroAssemblerCodeRef.h"
-#include "Register.h"
-#include "ResolveOperation.h"
+#include "runtime/CallData.h"
+#include "runtime/Intrinsic.h"
+#include "llint/LowLevelInterpreter.h"
+#include "assembler/MacroAssemblerCodeRef.h"
+#include "interpreter/Register.h"
+#include "bytecode/ResolveOperation.h"
 
 namespace JSC {
 

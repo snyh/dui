@@ -22,20 +22,20 @@
 #include "config.h"
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "SVGFEImageElement.h"
+#include "svg/SVGFEImageElement.h"
 
-#include "Attr.h"
-#include "CachedImage.h"
-#include "CachedResourceLoader.h"
-#include "CachedResourceRequest.h"
-#include "ColorSpace.h"
-#include "Document.h"
-#include "Image.h"
-#include "RenderObject.h"
-#include "RenderSVGResource.h"
-#include "SVGElementInstance.h"
+#include "dom/Attr.h"
+#include "loader/cache/CachedImage.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "platform/graphics/ColorSpace.h"
+#include "dom/Document.h"
+#include "platform/graphics/Image.h"
+#include "rendering/RenderObject.h"
+#include "rendering/svg/RenderSVGResource.h"
+#include "svg/SVGElementInstance.h"
 #include "SVGNames.h"
-#include "SVGPreserveAspectRatio.h"
+#include "svg/SVGPreserveAspectRatio.h"
 
 namespace WebCore {
 

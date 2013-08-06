@@ -19,7 +19,7 @@
  */
 
 #include "config.h"
-#include "UIEventWithKeyState.h"
+#include "dom/UIEventWithKeyState.h"
 
 namespace WebCore {
     

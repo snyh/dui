@@ -29,9 +29,9 @@
 #define DOMPath_h
 
 #if ENABLE(CANVAS_PATH)
-#include "CanvasPathMethods.h"
+#include "html/canvas/CanvasPathMethods.h"
 #if ENABLE(SVG)
-#include "SVGPathUtilities.h"
+#include "svg/SVGPathUtilities.h"
 #endif
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>

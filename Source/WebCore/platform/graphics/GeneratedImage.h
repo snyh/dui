@@ -26,9 +26,9 @@
 #ifndef GeneratedImage_h
 #define GeneratedImage_h
 
-#include "Image.h"
+#include "platform/graphics/Image.h"
 
-#include "IntSize.h"
+#include "platform/graphics/IntSize.h"
 #include <wtf/RefPtr.h>
 
 namespace WebCore {

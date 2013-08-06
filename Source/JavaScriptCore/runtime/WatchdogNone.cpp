@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "Watchdog.h"
+#include "runtime/Watchdog.h"
 
 namespace JSC {
 

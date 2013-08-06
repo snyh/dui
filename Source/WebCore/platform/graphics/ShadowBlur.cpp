@@ -28,13 +28,13 @@
  */
 
 #include "config.h"
-#include "ShadowBlur.h"
+#include "platform/graphics/ShadowBlur.h"
 
-#include "AffineTransform.h"
-#include "FloatQuad.h"
-#include "GraphicsContext.h"
-#include "ImageBuffer.h"
-#include "Timer.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/FloatQuad.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "platform/Timer.h"
 #include <wtf/MathExtras.h>
 #include <wtf/Noncopyable.h>
 

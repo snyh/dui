@@ -29,18 +29,18 @@
  */
 
 #include "config.h"
-#include "BytecodeGenerator.h"
+#include "bytecompiler/BytecodeGenerator.h"
 
-#include "BatchedTransitionOptimizer.h"
-#include "Interpreter.h"
-#include "JSActivation.h"
-#include "JSFunction.h"
-#include "JSNameScope.h"
-#include "LowLevelInterpreter.h"
-#include "Operations.h"
-#include "Options.h"
-#include "StrongInlines.h"
-#include "UnlinkedCodeBlock.h"
+#include "runtime/BatchedTransitionOptimizer.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/JSActivation.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSNameScope.h"
+#include "llint/LowLevelInterpreter.h"
+#include "runtime/Operations.h"
+#include "runtime/Options.h"
+#include "heap/StrongInlines.h"
+#include "bytecode/UnlinkedCodeBlock.h"
 #include <wtf/text/WTFString.h>
 
 using namespace std;

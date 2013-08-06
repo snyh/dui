@@ -30,10 +30,10 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "DynamicsCompressorKernel.h"
+#include "platform/audio/DynamicsCompressorKernel.h"
 
-#include "AudioUtilities.h"
-#include "DenormalDisabler.h"
+#include "platform/audio/AudioUtilities.h"
+#include "platform/audio/DenormalDisabler.h"
 #include <algorithm>
 #include <wtf/MathExtras.h>
 

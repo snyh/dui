@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "DocumentLoadTiming.h"
+#include "loader/DocumentLoadTiming.h"
 
-#include "Document.h"
-#include "DocumentLoader.h"
-#include "Frame.h"
-#include "Page.h"
-#include "SecurityOrigin.h"
+#include "dom/Document.h"
+#include "loader/DocumentLoader.h"
+#include "page/Frame.h"
+#include "page/Page.h"
+#include "page/SecurityOrigin.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/RefPtr.h>
 

@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "StorageNamespace.h"
+#include "storage/StorageNamespace.h"
 
-#include "PlatformStrategies.h"
-#include "StorageStrategy.h"
+#include "platform/PlatformStrategies.h"
+#include "storage/StorageStrategy.h"
 
 namespace WebCore {
 

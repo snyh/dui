@@ -26,9 +26,9 @@
 #ifndef ParserError_h
 #define ParserError_h
 
-#include "Error.h"
-#include "ExceptionHelpers.h"
-#include "ParserTokens.h"
+#include "runtime/Error.h"
+#include "runtime/ExceptionHelpers.h"
+#include "parser/ParserTokens.h"
 #include <wtf/text/WTFString.h>
 
 namespace JSC {

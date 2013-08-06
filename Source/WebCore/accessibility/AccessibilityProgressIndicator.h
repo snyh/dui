@@ -22,7 +22,7 @@
 #define AccessibilityProgressIndicator_h
 
 #if ENABLE(PROGRESS_ELEMENT) || ENABLE(METER_ELEMENT)
-#include "AccessibilityRenderObject.h"
+#include "accessibility/AccessibilityRenderObject.h"
 
 namespace WebCore {
 

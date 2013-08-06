@@ -32,8 +32,8 @@
 
 #if ENABLE(CSS_SHADERS) && USE(3D_GRAPHICS)
 
-#include "CustomFilterProgramInfo.h"
-#include "GraphicsContext3D.h"
+#include "platform/graphics/filters/CustomFilterProgramInfo.h"
+#include "platform/graphics/GraphicsContext3D.h"
 #include <wtf/RefCounted.h>
 #include <wtf/text/WTFString.h>
 

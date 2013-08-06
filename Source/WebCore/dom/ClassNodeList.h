@@ -30,10 +30,10 @@
 #ifndef ClassNodeList_h
 #define ClassNodeList_h
 
-#include "Element.h"
-#include "LiveNodeList.h"
-#include "Node.h"
-#include "SpaceSplitString.h"
+#include "dom/Element.h"
+#include "dom/LiveNodeList.h"
+#include "dom/Node.h"
+#include "dom/SpaceSplitString.h"
 
 namespace WebCore {
 

@@ -32,8 +32,8 @@
 #define BaseDateAndTimeInputType_h
 
 #if ENABLE(DATE_AND_TIME_INPUT_TYPES)
-#include "DateComponents.h"
-#include "InputType.h"
+#include "platform/DateComponents.h"
+#include "html/InputType.h"
 
 namespace WebCore {
 

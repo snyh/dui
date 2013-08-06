@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "JSValueRef.h"
+#include "API/JSValueRef.h"
 
-#include "APICast.h"
-#include "APIShims.h"
-#include "JSAPIWrapperObject.h"
-#include "JSCallbackObject.h"
+#include "API/APICast.h"
+#include "API/APIShims.h"
+#include "API/JSAPIWrapperObject.h"
+#include "API/JSCallbackObject.h"
 
 #include <runtime/JSCJSValue.h>
 #include <runtime/JSGlobalObject.h>

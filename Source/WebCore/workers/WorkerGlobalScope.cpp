@@ -29,39 +29,39 @@
 
 #if ENABLE(WORKERS)
 
-#include "WorkerGlobalScope.h"
+#include "workers/WorkerGlobalScope.h"
 
-#include "ActiveDOMObject.h"
-#include "ContentSecurityPolicy.h"
-#include "DOMTimer.h"
-#include "DOMURL.h"
-#include "DOMWindow.h"
-#include "ErrorEvent.h"
-#include "Event.h"
-#include "EventException.h"
+#include "dom/ActiveDOMObject.h"
+#include "page/ContentSecurityPolicy.h"
+#include "page/DOMTimer.h"
+#include "html/DOMURL.h"
+#include "page/DOMWindow.h"
+#include "dom/ErrorEvent.h"
+#include "dom/Event.h"
+#include "dom/EventException.h"
 #include "InspectorConsoleInstrumentation.h"
-#include "KURL.h"
-#include "MessagePort.h"
-#include "NotImplemented.h"
-#include "ScheduledAction.h"
-#include "ScriptSourceCode.h"
-#include "ScriptValue.h"
-#include "SecurityOrigin.h"
+#include "platform/KURL.h"
+#include "dom/MessagePort.h"
+#include "platform/NotImplemented.h"
+#include "bindings/dui/saved/ScheduledAction.h"
+#include "bindings/dui/saved/ScriptSourceCode.h"
+#include "bindings/dui/saved/ScriptValue.h"
+#include "page/SecurityOrigin.h"
 #include "WorkerInspectorController.h"
-#include "WorkerLocation.h"
-#include "WorkerNavigator.h"
-#include "WorkerObjectProxy.h"
-#include "WorkerScriptLoader.h"
-#include "WorkerThread.h"
-#include "WorkerThreadableLoader.h"
-#include "XMLHttpRequestException.h"
+#include "workers/WorkerLocation.h"
+#include "page/WorkerNavigator.h"
+#include "workers/WorkerObjectProxy.h"
+#include "workers/WorkerScriptLoader.h"
+#include "workers/WorkerThread.h"
+#include "loader/WorkerThreadableLoader.h"
+#include "xml/XMLHttpRequestException.h"
 #include <wtf/RefPtr.h>
 
 #if ENABLE(NOTIFICATIONS) || ENABLE(LEGACY_NOTIFICATIONS)
 #include "NotificationCenter.h"
 #endif
 
-#include "ExceptionCode.h"
+#include "dom/ExceptionCode.h"
 
 namespace WebCore {
 

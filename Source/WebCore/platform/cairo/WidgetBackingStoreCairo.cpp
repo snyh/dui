@@ -18,10 +18,10 @@
  */
 
 #include "config.h"
-#include "WidgetBackingStoreCairo.h"
+#include "platform/cairo/WidgetBackingStoreCairo.h"
 
-#include "CairoUtilities.h"
-#include "RefPtrCairo.h"
+#include "platform/graphics/cairo/CairoUtilities.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 #include <cairo.h>
 
 namespace WebCore {

@@ -24,22 +24,22 @@
  */
 
 #include "config.h"
-#include "DFGByteCodeParser.h"
+#include "dfg/DFGByteCodeParser.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "ArrayConstructor.h"
-#include "CallLinkStatus.h"
-#include "CodeBlock.h"
-#include "CodeBlockWithJITType.h"
-#include "DFGArrayMode.h"
-#include "DFGCapabilities.h"
-#include "GetByIdStatus.h"
-#include "Operations.h"
-#include "PreciseJumpTargets.h"
-#include "PutByIdStatus.h"
-#include "ResolveGlobalStatus.h"
-#include "StringConstructor.h"
+#include "runtime/ArrayConstructor.h"
+#include "bytecode/CallLinkStatus.h"
+#include "bytecode/CodeBlock.h"
+#include "bytecode/CodeBlockWithJITType.h"
+#include "dfg/DFGArrayMode.h"
+#include "dfg/DFGCapabilities.h"
+#include "bytecode/GetByIdStatus.h"
+#include "runtime/Operations.h"
+#include "bytecode/PreciseJumpTargets.h"
+#include "bytecode/PutByIdStatus.h"
+#include "bytecode/ResolveGlobalStatus.h"
+#include "runtime/StringConstructor.h"
 #include <wtf/CommaPrinter.h>
 #include <wtf/HashMap.h>
 #include <wtf/MathExtras.h>

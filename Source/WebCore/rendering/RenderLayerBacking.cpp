@@ -27,44 +27,44 @@
 
 #if USE(ACCELERATED_COMPOSITING)
 
-#include "RenderLayerBacking.h"
+#include "rendering/RenderLayerBacking.h"
 
-#include "Page.h"
-#include "AnimationController.h"
-#include "CanvasRenderingContext.h"
+#include "page/Page.h"
+#include "page/animation/AnimationController.h"
+#include "html/canvas/CanvasRenderingContext.h"
 #include "CSSPropertyNames.h"
-#include "CachedImage.h"
-#include "Chrome.h"
-#include "FontCache.h"
-#include "FrameView.h"
-#include "GraphicsContext.h"
-#include "GraphicsLayer.h"
-#include "HTMLCanvasElement.h"
-#include "HTMLIFrameElement.h"
-#include "HTMLMediaElement.h"
+#include "loader/cache/CachedImage.h"
+#include "page/Chrome.h"
+#include "platform/graphics/FontCache.h"
+#include "page/FrameView.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/GraphicsLayer.h"
+#include "html/HTMLCanvasElement.h"
+#include "html/HTMLIFrameElement.h"
+#include "html/HTMLMediaElement.h"
 #include "HTMLNames.h"
-#include "KeyframeList.h"
-#include "ProgressTracker.h"
-#include "RenderIFrame.h"
-#include "RenderImage.h"
-#include "RenderLayerCompositor.h"
-#include "RenderVideo.h"
-#include "RenderView.h"
-#include "ScrollingCoordinator.h"
-#include "Settings.h"
-#include "StyleResolver.h"
-#include "TiledBacking.h"
+#include "rendering/style/KeyframeList.h"
+#include "loader/ProgressTracker.h"
+#include "rendering/RenderIFrame.h"
+#include "rendering/RenderImage.h"
+#include "rendering/RenderLayerCompositor.h"
+#include "rendering/RenderVideo.h"
+#include "rendering/RenderView.h"
+#include "page/scrolling/ScrollingCoordinator.h"
+#include "page/Settings.h"
+#include "css/StyleResolver.h"
+#include "platform/graphics/TiledBacking.h"
 #include <wtf/text/StringBuilder.h>
 
 #if ENABLE(CSS_FILTERS)
-#include "FilterEffectRenderer.h"
+#include "rendering/FilterEffectRenderer.h"
 #if ENABLE(CSS_SHADERS)
-#include "CustomFilterOperation.h"
+#include "platform/graphics/filters/CustomFilterOperation.h"
 #endif
 #endif
 
 #if ENABLE(WEBGL) || ENABLE(ACCELERATED_2D_CANVAS)
-#include "GraphicsContext3D.h"
+#include "platform/graphics/GraphicsContext3D.h"
 #endif
 
 using namespace std;

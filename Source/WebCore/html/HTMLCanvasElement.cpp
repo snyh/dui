@@ -26,33 +26,33 @@
  */
 
 #include "config.h"
-#include "HTMLCanvasElement.h"
+#include "html/HTMLCanvasElement.h"
 
-#include "Attribute.h"
-#include "CanvasContextAttributes.h"
-#include "CanvasGradient.h"
-#include "CanvasPattern.h"
-#include "CanvasRenderingContext2D.h"
-#include "Chrome.h"
-#include "Document.h"
-#include "ExceptionCode.h"
-#include "Frame.h"
-#include "GraphicsContext.h"
+#include "dom/Attribute.h"
+#include "html/canvas/CanvasContextAttributes.h"
+#include "html/canvas/CanvasGradient.h"
+#include "html/canvas/CanvasPattern.h"
+#include "html/canvas/CanvasRenderingContext2D.h"
+#include "page/Chrome.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCode.h"
+#include "page/Frame.h"
+#include "platform/graphics/GraphicsContext.h"
 #include "HTMLNames.h"
-#include "ImageBuffer.h"
-#include "ImageData.h"
-#include "MIMETypeRegistry.h"
-#include "Page.h"
-#include "RenderHTMLCanvas.h"
-#include "Settings.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "html/ImageData.h"
+#include "platform/MIMETypeRegistry.h"
+#include "page/Page.h"
+#include "rendering/RenderHTMLCanvas.h"
+#include "page/Settings.h"
 #include <math.h>
 
 #include <runtime/JSLock.h>
 #include <runtime/Operations.h>
 
 #if ENABLE(WEBGL)    
-#include "WebGLContextAttributes.h"
-#include "WebGLRenderingContext.h"
+#include "html/canvas/WebGLContextAttributes.h"
+#include "html/canvas/WebGLRenderingContext.h"
 #endif
 
 namespace WebCore {

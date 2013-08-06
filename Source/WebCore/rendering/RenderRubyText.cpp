@@ -31,7 +31,7 @@
 
 #include "config.h"
 
-#include "RenderRubyText.h"
+#include "rendering/RenderRubyText.h"
 
 using namespace std;
 

@@ -17,10 +17,10 @@
  */
 
 #include "config.h"
-#include "WidgetBackingStoreGtkX11.h"
+#include "platform/gtk/WidgetBackingStoreGtkX11.h"
 
-#include "GtkVersioning.h"
-#include "RefPtrCairo.h"
+#include "platform/gtk/GtkVersioning.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 #include <cairo-xlib.h>
 #include <cairo.h>
 #include <gdk/gdkx.h>

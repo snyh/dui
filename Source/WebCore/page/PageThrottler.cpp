@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "PageThrottler.h"
+#include "page/PageThrottler.h"
 
-#include "Chrome.h"
-#include "ChromeClient.h"
-#include "Frame.h"
-#include "Document.h"
-#include "Page.h"
-#include "PageActivityAssertionToken.h"
+#include "page/Chrome.h"
+#include "page/ChromeClient.h"
+#include "page/Frame.h"
+#include "dom/Document.h"
+#include "page/Page.h"
+#include "page/PageActivityAssertionToken.h"
 
 namespace WebCore {
 

@@ -32,8 +32,8 @@
 
 #if ENABLE(SHARED_WORKERS)
 
-#include "ContentSecurityPolicy.h"
-#include "WorkerThread.h"
+#include "page/ContentSecurityPolicy.h"
+#include "workers/WorkerThread.h"
 
 namespace WebCore {
 

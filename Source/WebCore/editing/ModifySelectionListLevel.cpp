@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "ModifySelectionListLevel.h"
+#include "editing/ModifySelectionListLevel.h"
 
-#include "Document.h"
-#include "Frame.h"
-#include "FrameSelection.h"
-#include "HTMLElement.h"
-#include "RenderObject.h"
-#include "htmlediting.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "editing/FrameSelection.h"
+#include "html/HTMLElement.h"
+#include "rendering/RenderObject.h"
+#include "editing/htmlediting.h"
 
 namespace WebCore {
 

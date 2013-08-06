@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "CachedSVGDocumentReference.h"
+#include "loader/cache/CachedSVGDocumentReference.h"
 
 #if ENABLE(SVG) && ENABLE(CSS_FILTERS)
 
-#include "CachedSVGDocument.h"
+#include "loader/cache/CachedSVGDocument.h"
 
 namespace WebCore {
 

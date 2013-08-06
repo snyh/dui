@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "ResourceHandleClient.h"
+#include "platform/network/ResourceHandleClient.h"
 
-#include "ResourceHandle.h"
-#include "SharedBuffer.h"
+#include "platform/network/ResourceHandle.h"
+#include "platform/SharedBuffer.h"
 
 namespace WebCore {
 

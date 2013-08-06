@@ -21,7 +21,7 @@
 #ifndef NumberPrototype_h
 #define NumberPrototype_h
 
-#include "NumberObject.h"
+#include "runtime/NumberObject.h"
 
 namespace JSC {
 

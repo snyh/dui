@@ -29,7 +29,7 @@
  */
 
 #include "config.h"
-#include "WebKitCSSMatFunctionValue.h"
+#include "css/WebKitCSSMatFunctionValue.h"
 
 #include <wtf/text/StringBuilder.h>
 

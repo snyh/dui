@@ -20,15 +20,15 @@
  */
 
 #include "config.h"
-#include "PropertySetCSSStyleDeclaration.h"
+#include "css/PropertySetCSSStyleDeclaration.h"
 
-#include "CSSParser.h"
-#include "CSSStyleSheet.h"
+#include "css/CSSParser.h"
+#include "css/CSSStyleSheet.h"
 #include "HTMLNames.h"
-#include "MutationObserverInterestGroup.h"
-#include "MutationRecord.h"
-#include "StylePropertySet.h"
-#include "StyledElement.h"
+#include "dom/MutationObserverInterestGroup.h"
+#include "dom/MutationRecord.h"
+#include "css/StylePropertySet.h"
+#include "dom/StyledElement.h"
 
 using namespace std;
 

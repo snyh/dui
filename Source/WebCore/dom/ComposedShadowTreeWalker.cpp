@@ -26,14 +26,14 @@
  */
 
 #include "config.h"
-#include "ComposedShadowTreeWalker.h"
+#include "dom/ComposedShadowTreeWalker.h"
 
-#include "ContentDistributor.h"
-#include "Element.h"
-#include "ElementShadow.h"
-#include "HTMLContentElement.h"
-#include "InsertionPoint.h"
-#include "PseudoElement.h"
+#include "html/shadow/ContentDistributor.h"
+#include "dom/Element.h"
+#include "dom/ElementShadow.h"
+#include "html/shadow/HTMLContentElement.h"
+#include "html/shadow/InsertionPoint.h"
+#include "dom/PseudoElement.h"
 
 namespace WebCore {
 

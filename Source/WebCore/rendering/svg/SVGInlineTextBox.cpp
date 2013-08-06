@@ -20,25 +20,25 @@
  */
 
 #include "config.h"
-#include "SVGInlineTextBox.h"
+#include "rendering/svg/SVGInlineTextBox.h"
 
 #if ENABLE(SVG)
-#include "FloatConversion.h"
-#include "FontCache.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "GraphicsContext.h"
-#include "HitTestResult.h"
-#include "InlineFlowBox.h"
-#include "PointerEventsHitRules.h"
-#include "RenderBlock.h"
-#include "RenderSVGInlineText.h"
-#include "RenderSVGResource.h"
-#include "RenderSVGResourceSolidColor.h"
-#include "SVGRenderingContext.h"
-#include "SVGResourcesCache.h"
-#include "SVGRootInlineBox.h"
-#include "SVGTextRunRenderingContext.h"
+#include "platform/FloatConversion.h"
+#include "platform/graphics/FontCache.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/HitTestResult.h"
+#include "rendering/InlineFlowBox.h"
+#include "rendering/PointerEventsHitRules.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/svg/RenderSVGInlineText.h"
+#include "rendering/svg/RenderSVGResource.h"
+#include "rendering/svg/RenderSVGResourceSolidColor.h"
+#include "rendering/svg/SVGRenderingContext.h"
+#include "rendering/svg/SVGResourcesCache.h"
+#include "rendering/svg/SVGRootInlineBox.h"
+#include "rendering/svg/SVGTextRunRenderingContext.h"
 
 using namespace std;
 

@@ -23,9 +23,9 @@
 #ifndef Error_h
 #define Error_h
 
-#include "InternalFunction.h"
-#include "Interpreter.h"
-#include "JSObject.h"
+#include "runtime/InternalFunction.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/JSObject.h"
 #include <stdint.h>
 
 namespace JSC {

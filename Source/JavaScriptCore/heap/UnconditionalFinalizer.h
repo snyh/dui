@@ -26,7 +26,7 @@
 #ifndef UnconditionalFinalizer_h
 #define UnconditionalFinalizer_h
 
-#include "ListableHandler.h"
+#include "heap/ListableHandler.h"
 
 namespace JSC {
 

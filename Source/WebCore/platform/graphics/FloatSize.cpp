@@ -25,10 +25,10 @@
  */
 
 #include "config.h"
-#include "FloatSize.h"
+#include "platform/graphics/FloatSize.h"
 
-#include "FloatConversion.h"
-#include "IntSize.h"
+#include "platform/FloatConversion.h"
+#include "platform/graphics/IntSize.h"
 #include <limits>
 #include <math.h>
 

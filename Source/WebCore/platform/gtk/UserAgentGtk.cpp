@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "UserAgentGtk.h"
+#include "platform/gtk/UserAgentGtk.h"
 
 #include <glib.h>
 
 #if OS(UNIX)
 #include <sys/utsname.h>
 #elif OS(WINDOWS)
-#include "SystemInfo.h"
+#include "platform/win/SystemInfo.h"
 #endif
 
 namespace WebCore {

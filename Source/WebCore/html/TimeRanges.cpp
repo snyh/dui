@@ -25,10 +25,10 @@
 
 #include "config.h"
 
-#include "TimeRanges.h"
+#include "html/TimeRanges.h"
 
-#include "ExceptionCode.h"
-#include "ExceptionCodePlaceholder.h"
+#include "dom/ExceptionCode.h"
+#include "dom/ExceptionCodePlaceholder.h"
 #include <math.h>
 
 using namespace WebCore;

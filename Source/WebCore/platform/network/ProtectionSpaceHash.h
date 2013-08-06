@@ -26,7 +26,7 @@
 #ifndef ProtectionSpaceHash_h
 #define ProtectionSpaceHash_h
 
-#include "ProtectionSpace.h"
+#include "platform/network/ProtectionSpace.h"
 #include <wtf/HashTraits.h>
 
 namespace WebCore {

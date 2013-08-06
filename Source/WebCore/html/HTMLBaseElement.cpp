@@ -21,13 +21,13 @@
  */
 
 #include "config.h"
-#include "HTMLBaseElement.h"
+#include "html/HTMLBaseElement.h"
 
-#include "Attribute.h"
-#include "Document.h"
+#include "dom/Attribute.h"
+#include "dom/Document.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "TextResourceDecoder.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "loader/TextResourceDecoder.h"
 
 namespace WebCore {
 

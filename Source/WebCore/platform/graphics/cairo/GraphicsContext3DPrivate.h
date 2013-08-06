@@ -20,12 +20,12 @@
 #ifndef GraphicsContext3DPrivate_h
 #define GraphicsContext3DPrivate_h
 
-#include "GLContext.h"
-#include "GraphicsContext3D.h"
+#include "platform/graphics/cairo/GLContext.h"
+#include "platform/graphics/GraphicsContext3D.h"
 #include <wtf/PassOwnPtr.h>
 
 #if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER)
-#include "TextureMapperPlatformLayer.h"
+#include "platform/graphics/texmap/TextureMapperPlatformLayer.h"
 #endif
 
 namespace WebCore {

@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "JSClassRef.h"
+#include "API/JSClassRef.h"
 
-#include "APICast.h"
-#include "Identifier.h"
-#include "InitializeThreading.h"
-#include "JSCallbackObject.h"
-#include "JSGlobalObject.h"
-#include "JSObjectRef.h"
-#include "ObjectPrototype.h"
-#include "Operations.h"
+#include "API/APICast.h"
+#include "runtime/Identifier.h"
+#include "runtime/InitializeThreading.h"
+#include "API/JSCallbackObject.h"
+#include "runtime/JSGlobalObject.h"
+#include "API/JSObjectRef.h"
+#include "runtime/ObjectPrototype.h"
+#include "runtime/Operations.h"
 #include <wtf/text/StringHash.h>
 #include <wtf/unicode/UTF8.h>
 

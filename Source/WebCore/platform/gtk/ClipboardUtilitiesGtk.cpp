@@ -17,7 +17,7 @@
  */
 
 #include "config.h"
-#include "ClipboardUtilitiesGtk.h"
+#include "platform/gtk/ClipboardUtilitiesGtk.h"
 
 namespace WebCore {
 

@@ -50,7 +50,7 @@
 #define MARK_LOG_CHILD(visitor, child) do { } while (false)
 #endif
 
-#include "HeapBlock.h"
+#include "heap/HeapBlock.h"
 #include <wtf/StdLibExtras.h>
 
 namespace JSC {

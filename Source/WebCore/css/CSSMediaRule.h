@@ -23,8 +23,8 @@
 #ifndef CSSMediaRule_h
 #define CSSMediaRule_h
 
-#include "CSSGroupingRule.h"
-#include "MediaList.h"
+#include "css/CSSGroupingRule.h"
+#include "css/MediaList.h"
 
 namespace WebCore {
 

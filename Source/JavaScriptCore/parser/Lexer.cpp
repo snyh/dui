@@ -23,14 +23,14 @@
  */
 
 #include "config.h"
-#include "Lexer.h"
+#include "parser/Lexer.h"
 
-#include "JSFunction.h"
+#include "runtime/JSFunction.h"
 
-#include "JSGlobalObjectFunctions.h"
-#include "Identifier.h"
-#include "NodeInfo.h"
-#include "Nodes.h"
+#include "runtime/JSGlobalObjectFunctions.h"
+#include "runtime/Identifier.h"
+#include "parser/NodeInfo.h"
+#include "parser/Nodes.h"
 #include <wtf/dtoa.h>
 #include <ctype.h>
 #include <limits.h>
@@ -42,7 +42,7 @@ using namespace Unicode;
 
 #include "KeywordLookup.h"
 #include "Lexer.lut.h"
-#include "Parser.h"
+#include "parser/Parser.h"
 
 namespace JSC {
 

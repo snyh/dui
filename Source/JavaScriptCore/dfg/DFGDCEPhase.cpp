@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "DFGDCEPhase.h"
+#include "dfg/DFGDCEPhase.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGBasicBlockInlines.h"
-#include "DFGGraph.h"
-#include "DFGInsertionSet.h"
-#include "DFGPhase.h"
-#include "Operations.h"
+#include "dfg/DFGBasicBlockInlines.h"
+#include "dfg/DFGGraph.h"
+#include "dfg/DFGInsertionSet.h"
+#include "dfg/DFGPhase.h"
+#include "runtime/Operations.h"
 
 namespace JSC { namespace DFG {
 

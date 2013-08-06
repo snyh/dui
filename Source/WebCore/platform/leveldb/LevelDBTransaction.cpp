@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "LevelDBTransaction.h"
+#include "platform/leveldb/LevelDBTransaction.h"
 
 #if ENABLE(INDEXED_DATABASE)
 #if USE(LEVELDB)
 
-#include "LevelDBDatabase.h"
-#include "LevelDBSlice.h"
-#include "LevelDBWriteBatch.h"
+#include "platform/leveldb/LevelDBDatabase.h"
+#include "platform/leveldb/LevelDBSlice.h"
+#include "platform/leveldb/LevelDBWriteBatch.h"
 #include <leveldb/db.h>
 
 namespace WebCore {

@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "OverflowEvent.h"
+#include "dom/OverflowEvent.h"
 
-#include "EventNames.h"
+#include "dom/EventNames.h"
 
 namespace WebCore {
 

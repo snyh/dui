@@ -31,7 +31,7 @@
 #ifndef PlatformMessagePortChannel_h
 #define PlatformMessagePortChannel_h
 
-#include "MessagePortChannel.h"
+#include "dom/MessagePortChannel.h"
 
 #include <wtf/MessageQueue.h>
 #include <wtf/PassRefPtr.h>

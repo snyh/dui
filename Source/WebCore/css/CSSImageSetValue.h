@@ -28,7 +28,7 @@
 
 #if ENABLE(CSS_IMAGE_SET)
 
-#include "CSSValueList.h"
+#include "css/CSSValueList.h"
 
 namespace WebCore {
 

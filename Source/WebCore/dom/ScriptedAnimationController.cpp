@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "ScriptedAnimationController.h"
+#include "dom/ScriptedAnimationController.h"
 
 #if ENABLE(REQUEST_ANIMATION_FRAME)
 
-#include "Document.h"
-#include "DocumentLoader.h"
-#include "FrameView.h"
-#include "RequestAnimationFrameCallback.h"
-#include "Settings.h"
+#include "dom/Document.h"
+#include "loader/DocumentLoader.h"
+#include "page/FrameView.h"
+#include "dom/RequestAnimationFrameCallback.h"
+#include "page/Settings.h"
 
 #if USE(REQUEST_ANIMATION_FRAME_TIMER)
 #include <algorithm>

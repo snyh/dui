@@ -27,7 +27,7 @@
 
 #if ENABLE(WEBGL)
 
-#include "OESElementIndexUint.h"
+#include "html/canvas/OESElementIndexUint.h"
 
 namespace WebCore {
 

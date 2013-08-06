@@ -25,16 +25,16 @@
 */
 
 #include "config.h"
-#include "CachedCSSStyleSheet.h"
+#include "loader/cache/CachedCSSStyleSheet.h"
 
-#include "CSSStyleSheet.h"
-#include "CachedResourceClientWalker.h"
-#include "CachedStyleSheetClient.h"
-#include "HTTPParsers.h"
-#include "MemoryCache.h"
-#include "ResourceBuffer.h"
-#include "StyleSheetContents.h"
-#include "TextResourceDecoder.h"
+#include "css/CSSStyleSheet.h"
+#include "loader/cache/CachedResourceClientWalker.h"
+#include "loader/cache/CachedStyleSheetClient.h"
+#include "platform/network/HTTPParsers.h"
+#include "loader/cache/MemoryCache.h"
+#include "loader/ResourceBuffer.h"
+#include "css/StyleSheetContents.h"
+#include "loader/TextResourceDecoder.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/Vector.h>
 

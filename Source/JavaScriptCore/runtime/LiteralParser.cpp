@@ -25,16 +25,16 @@
  */
 
 #include "config.h"
-#include "LiteralParser.h"
+#include "runtime/LiteralParser.h"
 
-#include "ButterflyInlines.h"
-#include "CopiedSpaceInlines.h"
-#include "JSArray.h"
-#include "JSString.h"
-#include "Lexer.h"
-#include "ObjectConstructor.h"
-#include "Operations.h"
-#include "StrongInlines.h"
+#include "runtime/ButterflyInlines.h"
+#include "heap/CopiedSpaceInlines.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSString.h"
+#include "parser/Lexer.h"
+#include "runtime/ObjectConstructor.h"
+#include "runtime/Operations.h"
+#include "heap/StrongInlines.h"
 #include <wtf/ASCIICType.h>
 #include <wtf/dtoa.h>
 #include <wtf/text/StringBuilder.h>

@@ -26,9 +26,9 @@
 #ifndef WebGLProgram_h
 #define WebGLProgram_h
 
-#include "WebGLSharedObject.h"
+#include "html/canvas/WebGLSharedObject.h"
 
-#include "WebGLShader.h"
+#include "html/canvas/WebGLShader.h"
 
 #include <wtf/PassRefPtr.h>
 #include <wtf/Vector.h>

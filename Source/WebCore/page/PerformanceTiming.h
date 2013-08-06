@@ -33,7 +33,7 @@
 
 #if ENABLE(WEB_TIMING)
 
-#include "DOMWindowProperty.h"
+#include "page/DOMWindowProperty.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 

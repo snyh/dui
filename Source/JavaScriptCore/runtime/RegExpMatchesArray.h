@@ -20,9 +20,9 @@
 #ifndef RegExpMatchesArray_h
 #define RegExpMatchesArray_h
 
-#include "JSArray.h"
-#include "JSGlobalObject.h"
-#include "RegExpObject.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/RegExpObject.h"
 
 namespace JSC {
 

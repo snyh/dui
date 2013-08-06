@@ -30,14 +30,14 @@
  */
 
 #include "config.h"
-#include "EventTarget.h"
+#include "dom/EventTarget.h"
 
-#include "Document.h"
-#include "FeatureObserver.h"
-#include "Event.h"
-#include "EventException.h"
-#include "ScriptController.h"
-#include "WebKitTransitionEvent.h"
+#include "dom/Document.h"
+#include "page/FeatureObserver.h"
+#include "dom/Event.h"
+#include "dom/EventException.h"
+#include "bindings/dui/saved/ScriptController.h"
+#include "dom/WebKitTransitionEvent.h"
 #include <wtf/MainThread.h>
 #include <wtf/StdLibExtras.h>
 #include <wtf/Vector.h>

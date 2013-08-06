@@ -28,7 +28,7 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "TextTrackCue.h"
+#include "html/track/TextTrackCue.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/Vector.h>

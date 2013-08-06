@@ -24,15 +24,15 @@
 #ifndef HTMLLinkElement_h
 #define HTMLLinkElement_h
 
-#include "CSSStyleSheet.h"
-#include "CachedStyleSheetClient.h"
-#include "CachedResourceHandle.h"
-#include "DOMSettableTokenList.h"
-#include "HTMLElement.h"
-#include "IconURL.h"
-#include "LinkLoader.h"
-#include "LinkLoaderClient.h"
-#include "LinkRelAttribute.h"
+#include "css/CSSStyleSheet.h"
+#include "loader/cache/CachedStyleSheetClient.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "html/DOMSettableTokenList.h"
+#include "html/HTMLElement.h"
+#include "dom/IconURL.h"
+#include "loader/LinkLoader.h"
+#include "loader/LinkLoaderClient.h"
+#include "html/LinkRelAttribute.h"
 
 namespace WebCore {
 

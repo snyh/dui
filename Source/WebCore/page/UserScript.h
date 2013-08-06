@@ -26,9 +26,9 @@
 #ifndef UserScript_h
 #define UserScript_h
 
-#include "KURL.h"
-#include "UserContentTypes.h"
-#include "UserScriptTypes.h"
+#include "platform/KURL.h"
+#include "page/UserContentTypes.h"
+#include "page/UserScriptTypes.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

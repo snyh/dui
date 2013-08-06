@@ -21,7 +21,7 @@
 #ifndef ArrayConstructor_h
 #define ArrayConstructor_h
 
-#include "InternalFunction.h"
+#include "runtime/InternalFunction.h"
 
 namespace JSC {
 

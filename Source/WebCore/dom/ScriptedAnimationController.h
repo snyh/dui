@@ -27,14 +27,14 @@
 #define ScriptedAnimationController_h
 
 #if ENABLE(REQUEST_ANIMATION_FRAME)
-#include "DOMTimeStamp.h"
+#include "dom/DOMTimeStamp.h"
 #if USE(REQUEST_ANIMATION_FRAME_TIMER)
 #if USE(REQUEST_ANIMATION_FRAME_DISPLAY_MONITOR)
-#include "DisplayRefreshMonitor.h"
+#include "platform/graphics/DisplayRefreshMonitor.h"
 #endif
-#include "Timer.h"
+#include "platform/Timer.h"
 #endif
-#include "PlatformScreen.h"
+#include "platform/PlatformScreen.h"
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>
 #include <wtf/Vector.h>

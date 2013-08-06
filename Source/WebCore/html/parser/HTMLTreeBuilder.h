@@ -27,12 +27,12 @@
 #ifndef HTMLTreeBuilder_h
 #define HTMLTreeBuilder_h
 
-#include "FragmentScriptingPermission.h"
-#include "HTMLConstructionSite.h"
-#include "HTMLElementStack.h"
-#include "HTMLFormattingElementList.h"
-#include "HTMLParserOptions.h"
-#include "HTMLTokenizer.h"
+#include "dom/FragmentScriptingPermission.h"
+#include "html/parser/HTMLConstructionSite.h"
+#include "html/parser/HTMLElementStack.h"
+#include "html/parser/HTMLFormattingElementList.h"
+#include "html/parser/HTMLParserOptions.h"
+#include "html/parser/HTMLTokenizer.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>

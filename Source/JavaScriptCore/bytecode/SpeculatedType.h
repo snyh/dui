@@ -29,7 +29,7 @@
 #ifndef SpeculatedType_h
 #define SpeculatedType_h
 
-#include "JSCJSValue.h"
+#include "runtime/JSCJSValue.h"
 #include <wtf/PrintStream.h>
 
 namespace JSC {

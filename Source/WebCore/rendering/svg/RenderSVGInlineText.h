@@ -23,9 +23,9 @@
 #define RenderSVGInlineText_h
 
 #if ENABLE(SVG)
-#include "Font.h"
-#include "RenderText.h"
-#include "SVGTextLayoutAttributes.h"
+#include "platform/graphics/Font.h"
+#include "rendering/RenderText.h"
+#include "rendering/svg/SVGTextLayoutAttributes.h"
 
 namespace WebCore {
 

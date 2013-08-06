@@ -29,9 +29,9 @@
 #ifndef AnimationBase_h
 #define AnimationBase_h
 
-#include "Animation.h"
+#include "platform/animation/Animation.h"
 #include "CSSPropertyNames.h"
-#include "RenderStyleConstants.h"
+#include "rendering/style/RenderStyleConstants.h"
 #include <wtf/HashMap.h>
 #include <wtf/HashSet.h>
 #include <wtf/RefCounted.h>

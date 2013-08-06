@@ -24,7 +24,7 @@
 #define SpotLightSource_h
 
 #if ENABLE(FILTERS)
-#include "LightSource.h"
+#include "platform/graphics/filters/LightSource.h"
 
 namespace WebCore {
 

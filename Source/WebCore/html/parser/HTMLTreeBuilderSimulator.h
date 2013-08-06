@@ -28,7 +28,7 @@
 
 #if ENABLE(THREADED_HTML_PARSER)
 
-#include "HTMLParserOptions.h"
+#include "html/parser/HTMLParserOptions.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

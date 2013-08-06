@@ -19,10 +19,10 @@
  */
 
 #include "config.h"
-#include "StepRange.h"
+#include "html/StepRange.h"
 
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
+#include "html/parser/HTMLParserIdioms.h"
 #include <wtf/MathExtras.h>
 #include <wtf/text/WTFString.h>
 

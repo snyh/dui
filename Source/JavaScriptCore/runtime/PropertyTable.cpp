@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "PropertyMapHashTable.h"
+#include "runtime/PropertyMapHashTable.h"
 
-#include "JSCJSValueInlines.h"
-#include "JSCellInlines.h"
-#include "SlotVisitorInlines.h"
-#include "StructureInlines.h"
+#include "runtime/JSCJSValueInlines.h"
+#include "runtime/JSCellInlines.h"
+#include "heap/SlotVisitorInlines.h"
+#include "runtime/StructureInlines.h"
 
 namespace JSC {
 

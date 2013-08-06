@@ -26,9 +26,9 @@
 #ifndef StorageNamespaceImpl_h
 #define StorageNamespaceImpl_h
 
-#include "SecurityOriginHash.h"
-#include "StorageArea.h"
-#include "StorageNamespace.h"
+#include "page/SecurityOriginHash.h"
+#include "storage/StorageArea.h"
+#include "storage/StorageNamespace.h"
 #include <wtf/HashMap.h>
 #include <wtf/RefPtr.h>
 #include <wtf/text/WTFString.h>

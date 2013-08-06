@@ -30,13 +30,13 @@
 
 #if ENABLE(JIT)
 
-#include "CallData.h"
-#include "Intrinsic.h"
-#include "LowLevelInterpreter.h"
-#include "MacroAssemblerCodeRef.h"
-#include "ThunkGenerator.h"
-#include "Weak.h"
-#include "WeakInlines.h"
+#include "runtime/CallData.h"
+#include "runtime/Intrinsic.h"
+#include "llint/LowLevelInterpreter.h"
+#include "assembler/MacroAssemblerCodeRef.h"
+#include "jit/ThunkGenerator.h"
+#include "heap/Weak.h"
+#include "heap/WeakInlines.h"
 #include <wtf/HashMap.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/RefPtr.h>

@@ -20,7 +20,7 @@
  */
 
 #include "config.h"
-#include "Animation.h"
+#include "platform/animation/Animation.h"
 
 namespace WebCore {
 

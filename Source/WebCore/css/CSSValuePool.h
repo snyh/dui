@@ -26,9 +26,9 @@
 #ifndef CSSValuePool_h
 #define CSSValuePool_h
 
-#include "CSSInheritedValue.h"
-#include "CSSInitialValue.h"
-#include "CSSPrimitiveValue.h"
+#include "css/CSSInheritedValue.h"
+#include "css/CSSInitialValue.h"
+#include "css/CSSPrimitiveValue.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
 #include <wtf/text/AtomicStringHash.h>

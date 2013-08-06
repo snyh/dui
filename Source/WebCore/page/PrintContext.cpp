@@ -19,13 +19,13 @@
  */
 
 #include "config.h"
-#include "PrintContext.h"
+#include "page/PrintContext.h"
 
-#include "GraphicsContext.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "RenderView.h"
-#include "StyleInheritedData.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "rendering/RenderView.h"
+#include "rendering/style/StyleInheritedData.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

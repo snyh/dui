@@ -26,7 +26,7 @@
 #ifndef HTMLTablePartElement_h
 #define HTMLTablePartElement_h
 
-#include "HTMLElement.h"
+#include "html/HTMLElement.h"
 
 namespace WebCore {
 

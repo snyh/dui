@@ -24,21 +24,21 @@
  */
  
 #include "config.h"
-#include "IconLoader.h"
+#include "loader/icon/IconLoader.h"
 
-#include "CachedRawResource.h"
-#include "CachedResourceLoader.h"
-#include "CachedResourceRequest.h"
-#include "CachedResourceRequestInitiators.h"
-#include "Document.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
-#include "IconController.h"
-#include "IconDatabase.h"
-#include "Logging.h"
-#include "ResourceBuffer.h"
-#include "ResourceRequest.h"
+#include "loader/cache/CachedRawResource.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "loader/cache/CachedResourceRequestInitiators.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
+#include "loader/icon/IconController.h"
+#include "loader/icon/IconDatabase.h"
+#include "platform/Logging.h"
+#include "loader/ResourceBuffer.h"
+#include "platform/network/soup/ResourceRequest.h"
 #include <wtf/text/CString.h>
 
 namespace WebCore {

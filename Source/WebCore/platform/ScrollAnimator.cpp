@@ -29,11 +29,11 @@
  */
 
 #include "config.h"
-#include "ScrollAnimator.h"
+#include "platform/ScrollAnimator.h"
 
-#include "FloatPoint.h"
-#include "PlatformWheelEvent.h"
-#include "ScrollableArea.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/PlatformWheelEvent.h"
+#include "platform/ScrollableArea.h"
 #include <algorithm>
 #include <wtf/PassOwnPtr.h>
 

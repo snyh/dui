@@ -25,11 +25,11 @@
  */
 
 #include "config.h"
-#include "DeviceOrientationController.h"
+#include "dom/DeviceOrientationController.h"
 
-#include "DeviceOrientationClient.h"
-#include "DeviceOrientationData.h"
-#include "DeviceOrientationEvent.h"
+#include "dom/DeviceOrientationClient.h"
+#include "dom/DeviceOrientationData.h"
+#include "dom/DeviceOrientationEvent.h"
 
 namespace WebCore {
 

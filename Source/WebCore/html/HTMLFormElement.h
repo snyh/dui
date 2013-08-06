@@ -24,10 +24,10 @@
 #ifndef HTMLFormElement_h
 #define HTMLFormElement_h
 
-#include "CheckedRadioButtons.h"
-#include "FormState.h"
-#include "FormSubmission.h"
-#include "HTMLElement.h"
+#include "dom/CheckedRadioButtons.h"
+#include "loader/FormState.h"
+#include "loader/FormSubmission.h"
+#include "html/HTMLElement.h"
 #include <wtf/OwnPtr.h>
 
 namespace WebCore {

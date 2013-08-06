@@ -28,7 +28,7 @@
  */
 
 #include "config.h"
-#include "RectangleShape.h"
+#include "rendering/shapes/RectangleShape.h"
 
 #include <wtf/MathExtras.h>
 

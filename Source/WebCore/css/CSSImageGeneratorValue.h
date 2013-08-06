@@ -26,10 +26,10 @@
 #ifndef CSSImageGeneratorValue_h
 #define CSSImageGeneratorValue_h
 
-#include "CSSValue.h"
-#include "GeneratorGeneratedImage.h"
-#include "IntSizeHash.h"
-#include "Timer.h"
+#include "css/CSSValue.h"
+#include "platform/graphics/GeneratorGeneratedImage.h"
+#include "platform/graphics/IntSizeHash.h"
+#include "platform/Timer.h"
 #include <wtf/HashCountedSet.h>
 #include <wtf/RefPtr.h>
 

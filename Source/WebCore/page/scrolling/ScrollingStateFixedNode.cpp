@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "ScrollingStateFixedNode.h"
+#include "page/scrolling/ScrollingStateFixedNode.h"
 
-#include "GraphicsLayer.h"
-#include "ScrollingStateTree.h"
-#include "TextStream.h"
+#include "platform/graphics/GraphicsLayer.h"
+#include "page/scrolling/ScrollingStateTree.h"
+#include "platform/text/TextStream.h"
 #include <wtf/OwnPtr.h>
 
 #if ENABLE(THREADED_SCROLLING) || USE(COORDINATED_GRAPHICS)

@@ -31,8 +31,8 @@
 #define MediaControlElements_h
 
 #if ENABLE(VIDEO)
-#include "MediaControlElementTypes.h"
-#include "TextTrackRepresentation.h"
+#include "html/shadow/MediaControlElementTypes.h"
+#include "platform/graphics/TextTrackRepresentation.h"
 
 namespace WebCore {
 

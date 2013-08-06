@@ -29,9 +29,9 @@
 #ifndef Location_h
 #define Location_h
 
-#include "DOMStringList.h"
-#include "DOMWindowProperty.h"
-#include "ScriptWrappable.h"
+#include "dom/DOMStringList.h"
+#include "page/DOMWindowProperty.h"
+#include "bindings/dui/ScriptWrappable.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/text/WTFString.h>

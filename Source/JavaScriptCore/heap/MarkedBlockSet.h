@@ -26,8 +26,8 @@
 #ifndef MarkedBlockSet_h
 #define MarkedBlockSet_h
 
-#include "MarkedBlock.h"
-#include "TinyBloomFilter.h"
+#include "heap/MarkedBlock.h"
+#include "heap/TinyBloomFilter.h"
 #include <wtf/HashSet.h>
 
 namespace JSC {

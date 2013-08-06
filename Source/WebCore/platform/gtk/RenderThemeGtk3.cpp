@@ -23,20 +23,20 @@
  */
 
 #include "config.h"
-#include "RenderThemeGtk.h"
+#include "platform/gtk/RenderThemeGtk.h"
 
 #ifndef GTK_API_VERSION_2
 
 #include "CSSValueKeywords.h"
-#include "GraphicsContext.h"
-#include "GtkVersioning.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/gtk/GtkVersioning.h"
 #include "HTMLNames.h"
-#include "MediaControlElements.h"
-#include "Page.h"
-#include "PaintInfo.h"
-#include "PlatformContextCairo.h"
-#include "RenderObject.h"
-#include "TextDirection.h"
+#include "html/shadow/MediaControlElements.h"
+#include "page/Page.h"
+#include "rendering/PaintInfo.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
+#include "rendering/RenderObject.h"
+#include "platform/text/TextDirection.h"
 #include "UserAgentStyleSheets.h"
 #include <cmath>
 #include <gdk/gdk.h>

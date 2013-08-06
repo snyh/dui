@@ -20,11 +20,11 @@
  */
 
 #include "config.h"
-#include "CSSFontFaceRule.h"
+#include "css/CSSFontFaceRule.h"
 
-#include "PropertySetCSSStyleDeclaration.h"
-#include "StylePropertySet.h"
-#include "StyleRule.h"
+#include "css/PropertySetCSSStyleDeclaration.h"
+#include "css/StylePropertySet.h"
+#include "css/StyleRule.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

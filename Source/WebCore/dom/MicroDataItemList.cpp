@@ -26,13 +26,13 @@
 #include "config.h"
 
 #if ENABLE(MICRODATA)
-#include "MicroDataItemList.h"
+#include "dom/MicroDataItemList.h"
 
-#include "DOMSettableTokenList.h"
-#include "Document.h"
-#include "HTMLElement.h"
+#include "html/DOMSettableTokenList.h"
+#include "dom/Document.h"
+#include "html/HTMLElement.h"
 #include "HTMLNames.h"
-#include "NodeRareData.h"
+#include "dom/NodeRareData.h"
 
 namespace WebCore {
 

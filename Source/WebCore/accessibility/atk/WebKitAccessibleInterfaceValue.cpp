@@ -18,13 +18,13 @@
  */
 
 #include "config.h"
-#include "WebKitAccessibleInterfaceValue.h"
+#include "accessibility/atk/WebKitAccessibleInterfaceValue.h"
 
 #if HAVE(ACCESSIBILITY)
 
-#include "AccessibilityObject.h"
+#include "accessibility/AccessibilityObject.h"
 #include "HTMLNames.h"
-#include "WebKitAccessibleWrapperAtk.h"
+#include "accessibility/atk/WebKitAccessibleWrapperAtk.h"
 
 using namespace WebCore;
 

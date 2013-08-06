@@ -32,8 +32,8 @@
 
 #if ENABLE(VIDEO)
 
-#include "AccessibilitySlider.h"
-#include "MediaControlElements.h"
+#include "accessibility/AccessibilitySlider.h"
+#include "html/shadow/MediaControlElements.h"
 
 namespace WebCore {
 

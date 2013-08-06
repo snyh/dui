@@ -20,12 +20,12 @@
  */
 
 #include "config.h"
-#include "RegExpConstructor.h"
+#include "runtime/RegExpConstructor.h"
 
-#include "Error.h"
-#include "Operations.h"
-#include "RegExpMatchesArray.h"
-#include "RegExpPrototype.h"
+#include "runtime/Error.h"
+#include "runtime/Operations.h"
+#include "runtime/RegExpMatchesArray.h"
+#include "runtime/RegExpPrototype.h"
 
 namespace JSC {
 

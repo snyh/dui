@@ -22,20 +22,20 @@
  */
 
 #include "config.h"
-#include "MediaPlayerPrivateGStreamer.h"
+#include "platform/graphics/gstreamer/MediaPlayerPrivateGStreamer.h"
 
 #if ENABLE(VIDEO) && USE(GSTREAMER)
 
-#include "GStreamerUtilities.h"
-#include "GStreamerVersioning.h"
-#include "KURL.h"
-#include "Logging.h"
-#include "MIMETypeRegistry.h"
-#include "MediaPlayer.h"
-#include "NotImplemented.h"
-#include "SecurityOrigin.h"
-#include "TimeRanges.h"
-#include "WebKitWebSourceGStreamer.h"
+#include "platform/graphics/gstreamer/GStreamerUtilities.h"
+#include "platform/graphics/gstreamer/GStreamerVersioning.h"
+#include "platform/KURL.h"
+#include "platform/Logging.h"
+#include "platform/MIMETypeRegistry.h"
+#include "platform/graphics/MediaPlayer.h"
+#include "platform/NotImplemented.h"
+#include "page/SecurityOrigin.h"
+#include "html/TimeRanges.h"
+#include "platform/graphics/gstreamer/WebKitWebSourceGStreamer.h"
 #include <gst/gst.h>
 #include <gst/pbutils/missing-plugins.h>
 #include <limits>

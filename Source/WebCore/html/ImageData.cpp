@@ -27,7 +27,7 @@
  */
 
 #include "config.h"
-#include "ImageData.h"
+#include "html/ImageData.h"
 
 namespace WebCore {
 

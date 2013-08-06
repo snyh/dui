@@ -21,8 +21,8 @@
 #define RenderSVGBlock_h
 
 #if ENABLE(SVG)
-#include "RenderBlock.h"
-#include "SVGRenderSupport.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/svg/SVGRenderSupport.h"
 
 namespace WebCore {
 

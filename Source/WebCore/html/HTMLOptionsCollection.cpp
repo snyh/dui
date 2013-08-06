@@ -19,11 +19,11 @@
  */
 
 #include "config.h"
-#include "HTMLOptionsCollection.h"
+#include "html/HTMLOptionsCollection.h"
 
-#include "ExceptionCode.h"
-#include "HTMLOptionElement.h"
-#include "HTMLSelectElement.h"
+#include "dom/ExceptionCode.h"
+#include "html/HTMLOptionElement.h"
+#include "html/HTMLSelectElement.h"
 
 namespace WebCore {
 

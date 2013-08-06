@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "LayoutState.h"
+#include "rendering/LayoutState.h"
 
-#include "ColumnInfo.h"
-#include "RenderArena.h"
-#include "RenderFlowThread.h"
-#include "RenderInline.h"
-#include "RenderLayer.h"
-#include "RenderView.h"
+#include "rendering/ColumnInfo.h"
+#include "rendering/RenderArena.h"
+#include "rendering/RenderFlowThread.h"
+#include "rendering/RenderInline.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/RenderView.h"
 
 namespace WebCore {
 

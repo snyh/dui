@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "DFGPredictionPropagationPhase.h"
+#include "dfg/DFGPredictionPropagationPhase.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGGraph.h"
-#include "DFGPhase.h"
-#include "Operations.h"
+#include "dfg/DFGGraph.h"
+#include "dfg/DFGPhase.h"
+#include "runtime/Operations.h"
 
 namespace JSC { namespace DFG {
 

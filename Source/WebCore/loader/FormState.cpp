@@ -27,10 +27,10 @@
  */
 
 #include "config.h"
-#include "FormState.h"
+#include "loader/FormState.h"
 
-#include "Document.h"
-#include "HTMLFormElement.h"
+#include "dom/Document.h"
+#include "html/HTMLFormElement.h"
 
 namespace WebCore {
 

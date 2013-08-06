@@ -24,20 +24,20 @@
  */
 
 #include "config.h"
-#include "JSBase.h"
-#include "JSBasePrivate.h"
+#include "API/JSBase.h"
+#include "API/JSBasePrivate.h"
 
-#include "APICast.h"
-#include "APIShims.h"
-#include "CallFrame.h"
-#include "Completion.h"
-#include "InitializeThreading.h"
-#include "JSGlobalObject.h"
-#include "JSLock.h"
-#include "JSObject.h"
-#include "OpaqueJSString.h"
-#include "Operations.h"
-#include "SourceCode.h"
+#include "API/APICast.h"
+#include "API/APIShims.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/Completion.h"
+#include "runtime/InitializeThreading.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSLock.h"
+#include "runtime/JSObject.h"
+#include "API/OpaqueJSString.h"
+#include "runtime/Operations.h"
+#include "parser/SourceCode.h"
 #include <wtf/text/StringHash.h>
 
 using namespace JSC;

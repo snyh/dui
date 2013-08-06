@@ -26,7 +26,7 @@
 #ifndef TrailingFloatsRootInlineBox_h
 #define TrailingFloatsRootInlineBox_h
 
-#include "RootInlineBox.h"
+#include "rendering/RootInlineBox.h"
 
 namespace WebCore {
 

@@ -27,11 +27,11 @@
 
 #if ENABLE(WEBGL)
 
-#include "WebGLContextGroup.h"
+#include "html/canvas/WebGLContextGroup.h"
 
-#include "GraphicsContext3D.h"
-#include "WebGLRenderingContext.h"
-#include "WebGLSharedObject.h"
+#include "platform/graphics/GraphicsContext3D.h"
+#include "html/canvas/WebGLRenderingContext.h"
+#include "html/canvas/WebGLSharedObject.h"
 
 #if PLATFORM(QT)
 #undef emit

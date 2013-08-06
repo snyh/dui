@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "CSSLineBoxContainValue.h"
+#include "css/CSSLineBoxContainValue.h"
 
-#include "CSSPrimitiveValue.h"
+#include "css/CSSPrimitiveValue.h"
 #include <wtf/text/StringBuilder.h>
 #include <wtf/text/WTFString.h>
 

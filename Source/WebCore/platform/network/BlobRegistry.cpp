@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "BlobRegistry.h"
+#include "platform/network/BlobRegistry.h"
 
 #if ENABLE(BLOB)
 
-#include "BlobRegistryImpl.h"
-#include "LoaderStrategy.h"
-#include "PlatformStrategies.h"
+#include "platform/network/BlobRegistryImpl.h"
+#include "loader/LoaderStrategy.h"
+#include "platform/PlatformStrategies.h"
 #include <wtf/MainThread.h>
 
 namespace WebCore {

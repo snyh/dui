@@ -20,7 +20,7 @@
 #ifndef MainFrameScrollbarGtk_h
 #define MainFrameScrollbarGtk_h
 
-#include "Scrollbar.h"
+#include "platform/Scrollbar.h"
 #include <wtf/PassRefPtr.h>
 
 namespace WebCore {

@@ -21,11 +21,11 @@
 #define SVGMPathElement_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedBoolean.h"
-#include "SVGAnimatedString.h"
-#include "SVGDocumentExtensions.h"
-#include "SVGExternalResourcesRequired.h"
-#include "SVGURIReference.h"
+#include "svg/SVGAnimatedBoolean.h"
+#include "svg/SVGAnimatedString.h"
+#include "svg/SVGDocumentExtensions.h"
+#include "svg/SVGExternalResourcesRequired.h"
+#include "svg/SVGURIReference.h"
 
 namespace WebCore {
     

@@ -22,19 +22,19 @@
  */
 
 #include "config.h"
-#include "HTMLStyleElement.h"
+#include "html/HTMLStyleElement.h"
 
-#include "Attribute.h"
-#include "ContextFeatures.h"
-#include "Document.h"
-#include "Event.h"
-#include "EventSender.h"
+#include "dom/Attribute.h"
+#include "dom/ContextFeatures.h"
+#include "dom/Document.h"
+#include "dom/Event.h"
+#include "dom/EventSender.h"
 #include "HTMLNames.h"
-#include "MediaList.h"
-#include "ScriptEventListener.h"
-#include "ScriptableDocumentParser.h"
-#include "ShadowRoot.h"
-#include "StyleSheetContents.h"
+#include "css/MediaList.h"
+#include "bindings/dui/saved/ScriptEventListener.h"
+#include "dom/ScriptableDocumentParser.h"
+#include "dom/ShadowRoot.h"
+#include "css/StyleSheetContents.h"
 
 namespace WebCore {
 

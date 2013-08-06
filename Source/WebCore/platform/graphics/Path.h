@@ -28,7 +28,7 @@
 #ifndef Path_h
 #define Path_h
 
-#include "WindRule.h"
+#include "platform/graphics/WindRule.h"
 #include <wtf/FastAllocBase.h>
 #include <wtf/Forward.h>
 

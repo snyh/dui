@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "HostCallReturnValue.h"
+#include "jit/HostCallReturnValue.h"
 
-#include "CallFrame.h"
-#include "JSCJSValueInlines.h"
-#include "JSObject.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/JSCJSValueInlines.h"
+#include "runtime/JSObject.h"
 #include <wtf/InlineASM.h>
 
 

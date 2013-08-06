@@ -20,20 +20,20 @@
  */
 
 #include "config.h"
-#include "CharacterData.h"
+#include "dom/CharacterData.h"
 
-#include "Document.h"
-#include "EventNames.h"
-#include "ExceptionCode.h"
-#include "FrameSelection.h"
-#include "MutationEvent.h"
-#include "MutationObserverInterestGroup.h"
-#include "MutationRecord.h"
-#include "NodeRenderingContext.h"
-#include "RenderText.h"
-#include "StyleInheritedData.h"
-#include "Text.h"
-#include "TextBreakIterator.h"
+#include "dom/Document.h"
+#include "dom/EventNames.h"
+#include "dom/ExceptionCode.h"
+#include "editing/FrameSelection.h"
+#include "dom/MutationEvent.h"
+#include "dom/MutationObserverInterestGroup.h"
+#include "dom/MutationRecord.h"
+#include "dom/NodeRenderingContext.h"
+#include "rendering/RenderText.h"
+#include "rendering/style/StyleInheritedData.h"
+#include "dom/Text.h"
+#include "platform/text/TextBreakIterator.h"
 
 using namespace std;
 

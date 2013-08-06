@@ -23,20 +23,20 @@
 #ifndef RenderBlock_h
 #define RenderBlock_h
 
-#include "ColumnInfo.h"
-#include "GapRects.h"
-#include "PODIntervalTree.h"
-#include "RenderBox.h"
-#include "RenderLineBoxList.h"
-#include "RootInlineBox.h"
-#include "TextBreakIterator.h"
-#include "TextRun.h"
+#include "rendering/ColumnInfo.h"
+#include "rendering/GapRects.h"
+#include "platform/PODIntervalTree.h"
+#include "rendering/RenderBox.h"
+#include "rendering/RenderLineBoxList.h"
+#include "rendering/RootInlineBox.h"
+#include "platform/text/TextBreakIterator.h"
+#include "platform/graphics/TextRun.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/ListHashSet.h>
 
 #if ENABLE(CSS_SHAPES)
-#include "ShapeInsideInfo.h"
-#include "ShapeValue.h"
+#include "rendering/shapes/ShapeInsideInfo.h"
+#include "rendering/style/ShapeValue.h"
 #endif
 
 namespace WebCore {

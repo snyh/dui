@@ -18,7 +18,7 @@
 
 
 #include "config.h"
-#include "GStreamerUtilities.h"
+#include "platform/graphics/gstreamer/GStreamerUtilities.h"
 
 #if USE(GSTREAMER)
 #include <gst/gst.h>

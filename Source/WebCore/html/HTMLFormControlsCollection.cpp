@@ -21,12 +21,12 @@
  */
 
 #include "config.h"
-#include "HTMLFormControlsCollection.h"
+#include "html/HTMLFormControlsCollection.h"
 
-#include "HTMLFieldSetElement.h"
-#include "HTMLFormControlElement.h"
-#include "HTMLFormElement.h"
-#include "HTMLImageElement.h"
+#include "html/HTMLFieldSetElement.h"
+#include "html/HTMLFormControlElement.h"
+#include "html/HTMLFormElement.h"
+#include "html/HTMLImageElement.h"
 #include "HTMLNames.h"
 
 namespace WebCore {

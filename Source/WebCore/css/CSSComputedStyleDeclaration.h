@@ -21,8 +21,8 @@
 #ifndef CSSComputedStyleDeclaration_h
 #define CSSComputedStyleDeclaration_h
 
-#include "CSSStyleDeclaration.h"
-#include "RenderStyleConstants.h"
+#include "css/CSSStyleDeclaration.h"
+#include "rendering/style/RenderStyleConstants.h"
 #include <wtf/RefPtr.h>
 #include <wtf/text/WTFString.h>
 

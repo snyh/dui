@@ -26,7 +26,7 @@
 #include <wtf/RefPtr.h>
 #include <wtf/gobject/GOwnPtr.h>
 
-#include "PlatformVideoWindow.h"
+#include "platform/graphics/gstreamer/PlatformVideoWindow.h"
 
 #include <glib.h>
 

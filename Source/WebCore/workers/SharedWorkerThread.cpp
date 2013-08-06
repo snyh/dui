@@ -32,9 +32,9 @@
 
 #if ENABLE(SHARED_WORKERS)
 
-#include "SecurityOrigin.h"
-#include "SharedWorkerThread.h"
-#include "SharedWorkerGlobalScope.h"
+#include "page/SecurityOrigin.h"
+#include "workers/SharedWorkerThread.h"
+#include "workers/SharedWorkerGlobalScope.h"
 
 namespace WebCore {
 

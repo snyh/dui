@@ -22,12 +22,12 @@
  */
 
 #include "config.h"
-#include "RenderFieldset.h"
+#include "rendering/RenderFieldset.h"
 
 #include "CSSPropertyNames.h"
-#include "GraphicsContext.h"
+#include "platform/graphics/GraphicsContext.h"
 #include "HTMLNames.h"
-#include "PaintInfo.h"
+#include "rendering/PaintInfo.h"
 
 using std::min;
 using std::max;

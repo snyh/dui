@@ -29,7 +29,7 @@
 #define MathMLElement_h
 
 #if ENABLE(MATHML)
-#include "StyledElement.h"
+#include "dom/StyledElement.h"
 
 namespace WebCore {
 

@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "HTMLParserScheduler.h"
+#include "html/parser/HTMLParserScheduler.h"
 
-#include "Document.h"
-#include "FrameView.h"
-#include "HTMLDocumentParser.h"
-#include "Page.h"
+#include "dom/Document.h"
+#include "page/FrameView.h"
+#include "html/parser/HTMLDocumentParser.h"
+#include "page/Page.h"
 
 // defaultParserChunkSize is used to define how many tokens the parser will
 // process before checking against parserTimeLimit and possibly yielding.

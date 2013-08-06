@@ -21,7 +21,7 @@
 #ifndef SVGException_h
 #define SVGException_h
 
-#include "ExceptionBase.h"
+#include "dom/ExceptionBase.h"
 
 #if ENABLE(SVG)
 

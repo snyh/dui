@@ -30,12 +30,12 @@
 
 #include "config.h"
 #if ENABLE(INPUT_TYPE_DATETIMELOCAL)
-#include "DateTimeLocalInputType.h"
+#include "html/DateTimeLocalInputType.h"
 
-#include "DateComponents.h"
-#include "HTMLInputElement.h"
+#include "platform/DateComponents.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "InputTypeNames.h"
+#include "html/InputTypeNames.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

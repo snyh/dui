@@ -21,7 +21,7 @@
 #include "config.h"
 
 #if ENABLE(SVG_FONTS)
-#include "SVGGlyph.h"
+#include "platform/graphics/SVGGlyph.h"
 
 #include <wtf/unicode/Unicode.h>
 

@@ -30,7 +30,7 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGNodeAllocator.h"
+#include "dfg/DFGNodeAllocator.h"
 #include <wtf/FastAllocBase.h>
 #include <wtf/Noncopyable.h>
 

@@ -26,10 +26,10 @@
 
 #include "config.h"
 #if USE(3D_GRAPHICS)
-#include "Extensions3DOpenGLES.h"
+#include "platform/graphics/opengl/Extensions3DOpenGLES.h"
 
-#include "GraphicsContext3D.h"
-#include "NotImplemented.h"
+#include "platform/graphics/GraphicsContext3D.h"
+#include "platform/NotImplemented.h"
 #include <EGL/egl.h>
 #include <wtf/Vector.h>
 

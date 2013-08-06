@@ -23,8 +23,8 @@
 #ifndef HTMLDocument_h
 #define HTMLDocument_h
 
-#include "CachedResourceClient.h"
-#include "Document.h"
+#include "loader/cache/CachedResourceClient.h"
+#include "dom/Document.h"
 #include <wtf/HashCountedSet.h>
 
 namespace WebCore {

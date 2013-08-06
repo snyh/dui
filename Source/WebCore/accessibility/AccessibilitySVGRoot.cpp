@@ -27,9 +27,9 @@
  */
 
 #include "config.h"
-#include "AccessibilitySVGRoot.h"
+#include "accessibility/AccessibilitySVGRoot.h"
 
-#include "RenderObject.h"
+#include "rendering/RenderObject.h"
 
 namespace WebCore {
 

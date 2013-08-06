@@ -30,10 +30,10 @@
  */
 
 #include "config.h"
-#include "PlatformMessagePortChannel.h"
+#include "dom/default/PlatformMessagePortChannel.h"
 
-#include "MessagePort.h"
-#include "ScriptExecutionContext.h"
+#include "dom/MessagePort.h"
+#include "dom/ScriptExecutionContext.h"
 
 namespace WebCore {
 

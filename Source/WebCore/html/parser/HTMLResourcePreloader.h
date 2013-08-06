@@ -26,8 +26,8 @@
 #ifndef HTMLResourcePreloader_h
 #define HTMLResourcePreloader_h
 
-#include "CachedResource.h"
-#include "CachedResourceRequest.h"
+#include "loader/cache/CachedResource.h"
+#include "loader/cache/CachedResourceRequest.h"
 
 namespace WebCore {
 

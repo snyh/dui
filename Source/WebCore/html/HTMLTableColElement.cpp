@@ -23,14 +23,14 @@
  */
 
 #include "config.h"
-#include "HTMLTableColElement.h"
+#include "html/HTMLTableColElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
 #include "HTMLNames.h"
-#include "HTMLTableElement.h"
-#include "RenderTableCol.h"
-#include "Text.h"
+#include "html/HTMLTableElement.h"
+#include "rendering/RenderTableCol.h"
+#include "dom/Text.h"
 
 namespace WebCore {
 

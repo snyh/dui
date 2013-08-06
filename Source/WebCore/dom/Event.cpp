@@ -21,12 +21,12 @@
  */
 
 #include "config.h"
-#include "Event.h"
+#include "dom/Event.h"
 
-#include "EventDispatcher.h"
-#include "EventNames.h"
-#include "EventTarget.h"
-#include "UserGestureIndicator.h"
+#include "dom/EventDispatcher.h"
+#include "dom/EventNames.h"
+#include "dom/EventTarget.h"
+#include "dom/UserGestureIndicator.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/text/AtomicString.h>
 

@@ -24,8 +24,8 @@
 #include "GraphicsSurface.h"
 #endif
 
-#include "TextureMapper.h"
-#include "TransformationMatrix.h"
+#include "platform/graphics/texmap/TextureMapper.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
 
 namespace WebCore {
 

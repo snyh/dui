@@ -26,13 +26,13 @@
 #ifndef Color_h
 #define Color_h
 
-#include "AnimationUtilities.h"
+#include "platform/animation/AnimationUtilities.h"
 #include <wtf/FastAllocBase.h>
 #include <wtf/Forward.h>
 #include <wtf/unicode/Unicode.h>
 
 #if USE(CG)
-#include "ColorSpace.h"
+#include "platform/graphics/ColorSpace.h"
 typedef struct CGColor* CGColorRef;
 #endif
 

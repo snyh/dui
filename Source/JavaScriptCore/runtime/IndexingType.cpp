@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "IndexingType.h"
+#include "runtime/IndexingType.h"
 
 #include <stdio.h>
 #include <wtf/StringExtras.h>

@@ -19,15 +19,15 @@
  */
 
 #include "config.h"
-#include "ErrorPrototype.h"
+#include "runtime/ErrorPrototype.h"
 
-#include "Error.h"
-#include "JSFunction.h"
-#include "JSString.h"
-#include "JSStringBuilder.h"
-#include "ObjectPrototype.h"
-#include "Operations.h"
-#include "StringRecursionChecker.h"
+#include "runtime/Error.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSString.h"
+#include "runtime/JSStringBuilder.h"
+#include "runtime/ObjectPrototype.h"
+#include "runtime/Operations.h"
+#include "runtime/StringRecursionChecker.h"
 
 namespace JSC {
 

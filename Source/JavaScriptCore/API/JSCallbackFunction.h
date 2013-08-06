@@ -26,8 +26,8 @@
 #ifndef JSCallbackFunction_h
 #define JSCallbackFunction_h
 
-#include "InternalFunction.h"
-#include "JSObjectRef.h"
+#include "runtime/InternalFunction.h"
+#include "API/JSObjectRef.h"
 
 namespace JSC {
 

@@ -27,9 +27,9 @@
 
 #if ENABLE(WEBGL)
 
-#include "WebGLCompressedTextureATC.h"
+#include "html/canvas/WebGLCompressedTextureATC.h"
 
-#include "Extensions3D.h"
+#include "platform/graphics/Extensions3D.h"
 
 namespace WebCore {
 

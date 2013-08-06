@@ -26,16 +26,16 @@
  */
 
 #include "config.h"
-#include "GraphicsContext3D.h"
+#include "platform/graphics/GraphicsContext3D.h"
 
 #if USE(3D_GRAPHICS)
 
-#include "GraphicsContext3DPrivate.h"
-#include "Image.h"
-#include "ImageSource.h"
-#include "NotImplemented.h"
-#include "PlatformContextCairo.h"
-#include "RefPtrCairo.h"
+#include "platform/graphics/cairo/GraphicsContext3DPrivate.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/ImageSource.h"
+#include "platform/NotImplemented.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 #include <cairo.h>
 #include <wtf/NotFound.h>
 #include <wtf/OwnPtr.h>
@@ -48,10 +48,10 @@
 #endif
 
 #if USE(OPENGL_ES_2)
-#include "Extensions3DOpenGLES.h"
+#include "platform/graphics/opengl/Extensions3DOpenGLES.h"
 #else
-#include "Extensions3DOpenGL.h"
-#include "OpenGLShims.h"
+#include "platform/graphics/opengl/Extensions3DOpenGL.h"
+#include "platform/graphics/OpenGLShims.h"
 #endif
 
 namespace WebCore {

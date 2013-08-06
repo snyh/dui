@@ -29,7 +29,7 @@
  */
 
 #include "config.h"
-#include "LocaleToScriptMapping.h"
+#include "platform/text/LocaleToScriptMapping.h"
 
 #include <wtf/HashMap.h>
 #include <wtf/HashSet.h>

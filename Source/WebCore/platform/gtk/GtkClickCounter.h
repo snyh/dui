@@ -19,7 +19,7 @@
 #ifndef GtkClickCounter_h
 #define GtkClickCounter_h
 
-#include "IntPoint.h"
+#include "platform/graphics/IntPoint.h"
 
 typedef struct _GdkEventButton GdkEventButton;
 

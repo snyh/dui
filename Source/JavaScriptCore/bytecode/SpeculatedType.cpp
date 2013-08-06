@@ -27,14 +27,14 @@
  */
 
 #include "config.h"
-#include "SpeculatedType.h"
+#include "bytecode/SpeculatedType.h"
 
-#include "Arguments.h"
-#include "JSArray.h"
-#include "JSFunction.h"
-#include "Operations.h"
-#include "StringObject.h"
-#include "ValueProfile.h"
+#include "runtime/Arguments.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSFunction.h"
+#include "runtime/Operations.h"
+#include "runtime/StringObject.h"
+#include "bytecode/ValueProfile.h"
 #include <wtf/BoundsCheckedPointer.h>
 #include <wtf/StringPrintStream.h>
 

@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "ScrollbarThemeGtk.h"
+#include "platform/gtk/ScrollbarThemeGtk.h"
 
-#include "PlatformMouseEvent.h"
-#include "RenderThemeGtk.h"
-#include "ScrollView.h"
-#include "Scrollbar.h"
+#include "platform/PlatformMouseEvent.h"
+#include "platform/gtk/RenderThemeGtk.h"
+#include "platform/ScrollView.h"
+#include "platform/Scrollbar.h"
 
 namespace WebCore {
 

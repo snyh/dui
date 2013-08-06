@@ -25,7 +25,7 @@
 #ifndef CachedResourceClientWalker_h
 #define CachedResourceClientWalker_h
 
-#include "CachedResourceClient.h"
+#include "loader/cache/CachedResourceClient.h"
 #include <wtf/HashCountedSet.h>
 #include <wtf/Vector.h>
 

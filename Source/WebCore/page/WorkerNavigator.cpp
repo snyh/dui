@@ -28,7 +28,7 @@
 
 #if ENABLE(WORKERS)
 
-#include "WorkerNavigator.h"
+#include "page/WorkerNavigator.h"
 
 namespace WebCore {
 

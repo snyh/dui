@@ -23,10 +23,10 @@
 #ifndef Lexer_h
 #define Lexer_h
 
-#include "Lookup.h"
-#include "ParserArena.h"
-#include "ParserTokens.h"
-#include "SourceCode.h"
+#include "runtime/Lookup.h"
+#include "parser/ParserArena.h"
+#include "parser/ParserTokens.h"
+#include "parser/SourceCode.h"
 #include <wtf/ASCIICType.h>
 #include <wtf/SegmentedVector.h>
 #include <wtf/Vector.h>

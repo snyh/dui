@@ -30,9 +30,9 @@
 
 #if ENABLE(ASSEMBLER) && CPU(SH4)
 
-#include "AssemblerBuffer.h"
-#include "AssemblerBufferWithConstantPool.h"
-#include "JITCompilationEffort.h"
+#include "assembler/AssemblerBuffer.h"
+#include "assembler/AssemblerBufferWithConstantPool.h"
+#include "jit/JITCompilationEffort.h"
 #include <stdarg.h>
 #include <stdint.h>
 #include <stdio.h>

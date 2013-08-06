@@ -22,14 +22,14 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGMarkerElement.h"
+#include "svg/SVGMarkerElement.h"
 
-#include "Attribute.h"
-#include "RenderSVGResourceMarker.h"
-#include "SVGElementInstance.h"
-#include "SVGFitToViewBox.h"
+#include "dom/Attribute.h"
+#include "rendering/svg/RenderSVGResourceMarker.h"
+#include "svg/SVGElementInstance.h"
+#include "svg/SVGFitToViewBox.h"
 #include "SVGNames.h"
-#include "SVGSVGElement.h"
+#include "svg/SVGSVGElement.h"
 
 namespace WebCore {
  

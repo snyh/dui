@@ -22,8 +22,8 @@
 #ifndef HTMLTitleElement_h
 #define HTMLTitleElement_h
 
-#include "HTMLElement.h"
-#include "StringWithDirection.h"
+#include "html/HTMLElement.h"
+#include "platform/text/StringWithDirection.h"
 
 namespace WebCore {
 

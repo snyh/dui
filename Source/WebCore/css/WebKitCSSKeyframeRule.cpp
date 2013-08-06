@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "WebKitCSSKeyframeRule.h"
+#include "css/WebKitCSSKeyframeRule.h"
 
-#include "PropertySetCSSStyleDeclaration.h"
-#include "StylePropertySet.h"
-#include "WebKitCSSKeyframesRule.h"
+#include "css/PropertySetCSSStyleDeclaration.h"
+#include "css/StylePropertySet.h"
+#include "css/WebKitCSSKeyframesRule.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

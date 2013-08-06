@@ -27,9 +27,9 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "TrackEvent.h"
+#include "html/track/TrackEvent.h"
 
-#include "EventNames.h"
+#include "dom/EventNames.h"
 
 namespace WebCore {
 

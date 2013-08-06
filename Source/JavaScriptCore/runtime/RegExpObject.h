@@ -21,8 +21,8 @@
 #ifndef RegExpObject_h
 #define RegExpObject_h
 
-#include "JSObject.h"
-#include "RegExp.h"
+#include "runtime/JSObject.h"
+#include "runtime/RegExp.h"
 
 namespace JSC {
     

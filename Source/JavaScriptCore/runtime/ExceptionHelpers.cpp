@@ -27,17 +27,17 @@
  */
 
 #include "config.h"
-#include "ExceptionHelpers.h"
+#include "runtime/ExceptionHelpers.h"
 
-#include "CodeBlock.h"
-#include "CallFrame.h"
-#include "ErrorInstance.h"
-#include "JSGlobalObjectFunctions.h"
-#include "JSObject.h"
-#include "JSNotAnObject.h"
-#include "Interpreter.h"
-#include "Nodes.h"
-#include "Operations.h"
+#include "bytecode/CodeBlock.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/ErrorInstance.h"
+#include "runtime/JSGlobalObjectFunctions.h"
+#include "runtime/JSObject.h"
+#include "runtime/JSNotAnObject.h"
+#include "interpreter/Interpreter.h"
+#include "parser/Nodes.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

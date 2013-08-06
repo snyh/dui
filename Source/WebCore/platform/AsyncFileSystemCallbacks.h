@@ -33,10 +33,10 @@
 
 #if ENABLE(FILE_SYSTEM)
 
-#include "AsyncFileSystem.h"
+#include "platform/AsyncFileSystem.h"
 #include "AsyncFileWriter.h"
-#include "BlobData.h"
-#include "FileMetadata.h"
+#include "platform/network/BlobData.h"
+#include "platform/FileMetadata.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

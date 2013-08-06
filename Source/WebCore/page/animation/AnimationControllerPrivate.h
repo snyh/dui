@@ -30,7 +30,7 @@
 #define AnimationControllerPrivate_h
 
 #include "CSSPropertyNames.h"
-#include "Timer.h"
+#include "platform/Timer.h"
 #include <wtf/HashMap.h>
 #include <wtf/HashSet.h>
 #include <wtf/PassRefPtr.h>

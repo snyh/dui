@@ -30,7 +30,7 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGCommon.h"
+#include "dfg/DFGCommon.h"
 #include <wtf/PageAllocationAligned.h>
 #include <wtf/StdLibExtras.h>
 

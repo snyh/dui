@@ -26,8 +26,8 @@
 #ifndef StorageAreaImpl_h
 #define StorageAreaImpl_h
 
-#include "StorageArea.h"
-#include "Timer.h"
+#include "storage/StorageArea.h"
+#include "platform/Timer.h"
 
 #include <wtf/HashMap.h>
 #include <wtf/PassRefPtr.h>

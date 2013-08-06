@@ -27,8 +27,8 @@
 #ifndef Widget_h
 #define Widget_h
 
-#include "IntRect.h"
-#include "PlatformScreen.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/PlatformScreen.h"
 #include <wtf/Forward.h>
 #include <wtf/RefCounted.h>
 

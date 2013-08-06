@@ -23,7 +23,7 @@
 #ifndef HTMLMenuElement_h
 #define HTMLMenuElement_h
 
-#include "HTMLElement.h"
+#include "html/HTMLElement.h"
 
 namespace WebCore {
 

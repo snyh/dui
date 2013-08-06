@@ -31,9 +31,9 @@
 #ifndef HarfBuzzShaper_h
 #define HarfBuzzShaper_h
 
-#include "FloatPoint.h"
-#include "GlyphBuffer.h"
-#include "TextRun.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/GlyphBuffer.h"
+#include "platform/graphics/TextRun.h"
 #include "hb.h"
 #include <wtf/HashSet.h>
 #include <wtf/OwnArrayPtr.h>

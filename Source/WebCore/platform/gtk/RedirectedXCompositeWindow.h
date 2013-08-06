@@ -29,9 +29,9 @@
 
 #if USE(OPENGL) && PLATFORM(X11)
 
-#include "GLContext.h"
-#include "IntSize.h"
-#include "RefPtrCairo.h"
+#include "platform/graphics/cairo/GLContext.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 
 typedef unsigned long Pixmap;
 typedef unsigned long Window;

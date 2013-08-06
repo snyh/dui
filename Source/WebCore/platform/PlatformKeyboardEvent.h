@@ -27,9 +27,9 @@
 #ifndef PlatformKeyboardEvent_h
 #define PlatformKeyboardEvent_h
 
-#include "PlatformEvent.h"
+#include "platform/PlatformEvent.h"
 #if OS(WINDOWS)
-#include "WindowsExtras.h"
+#include "platform/win/WindowsExtras.h"
 #endif
 #include <wtf/text/WTFString.h>
 
@@ -40,7 +40,7 @@ OBJC_CLASS NSEvent;
 
 #if PLATFORM(GTK)
 typedef struct _GdkEventKey GdkEventKey;
-#include "CompositionResults.h"
+#include "platform/gtk/CompositionResults.h"
 #endif
 
 #if PLATFORM(QT)

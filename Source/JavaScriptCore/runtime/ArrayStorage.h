@@ -26,11 +26,11 @@
 #ifndef ArrayStorage_h
 #define ArrayStorage_h
 
-#include "ArrayConventions.h"
-#include "Butterfly.h"
-#include "IndexingHeader.h"
-#include "SparseArrayValueMap.h"
-#include "WriteBarrier.h"
+#include "runtime/ArrayConventions.h"
+#include "runtime/Butterfly.h"
+#include "runtime/IndexingHeader.h"
+#include "runtime/SparseArrayValueMap.h"
+#include "runtime/WriteBarrier.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/Platform.h>
 

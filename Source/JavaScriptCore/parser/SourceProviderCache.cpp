@@ -24,7 +24,7 @@
  */
  
 #include "config.h"
-#include "SourceProviderCache.h"
+#include "parser/SourceProviderCache.h"
 
 namespace JSC {
 

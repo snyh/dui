@@ -26,14 +26,14 @@
 #ifndef Nodes_h
 #define Nodes_h
 
-#include "Error.h"
-#include "JITCode.h"
-#include "Opcode.h"
-#include "ParserArena.h"
-#include "ParserTokens.h"
-#include "ResultType.h"
-#include "SourceCode.h"
-#include "SymbolTable.h"
+#include "runtime/Error.h"
+#include "jit/JITCode.h"
+#include "bytecode/Opcode.h"
+#include "parser/ParserArena.h"
+#include "parser/ParserTokens.h"
+#include "parser/ResultType.h"
+#include "parser/SourceCode.h"
+#include "runtime/SymbolTable.h"
 #include <wtf/MathExtras.h>
 
 namespace JSC {

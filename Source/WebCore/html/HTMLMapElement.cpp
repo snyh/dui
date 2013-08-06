@@ -20,18 +20,18 @@
  */
 
 #include "config.h"
-#include "HTMLMapElement.h"
+#include "html/HTMLMapElement.h"
 
-#include "Attribute.h"
-#include "Document.h"
-#include "HTMLAreaElement.h"
-#include "HTMLCollection.h"
-#include "HTMLImageElement.h"
+#include "dom/Attribute.h"
+#include "dom/Document.h"
+#include "html/HTMLAreaElement.h"
+#include "html/HTMLCollection.h"
+#include "html/HTMLImageElement.h"
 #include "HTMLNames.h"
-#include "HitTestResult.h"
-#include "IntSize.h"
-#include "NodeTraversal.h"
-#include "RenderObject.h"
+#include "rendering/HitTestResult.h"
+#include "platform/graphics/IntSize.h"
+#include "dom/NodeTraversal.h"
+#include "rendering/RenderObject.h"
 
 using namespace std;
 

@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "MacroAssembler.h"
+#include "assembler/MacroAssembler.h"
 
 #if ENABLE(ASSEMBLER)
 

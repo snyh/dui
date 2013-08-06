@@ -26,8 +26,8 @@
 #ifndef GetByIdStatus_h
 #define GetByIdStatus_h
 
-#include "PropertyOffset.h"
-#include "StructureSet.h"
+#include "runtime/PropertyOffset.h"
+#include "bytecode/StructureSet.h"
 #include <wtf/NotFound.h>
 
 namespace JSC {

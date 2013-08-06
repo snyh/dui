@@ -20,11 +20,11 @@
 #include "config.h"
 
 #if ENABLE(SVG) && ENABLE(SVG_FONTS)
-#include "SVGGlyphRefElement.h"
+#include "svg/SVGGlyphRefElement.h"
 
-#include "SVGGlyphElement.h"
+#include "svg/SVGGlyphElement.h"
 #include "SVGNames.h"
-#include "SVGParserUtilities.h"
+#include "svg/SVGParserUtilities.h"
 #include "XLinkNames.h"
 #include <wtf/text/AtomicString.h>
 

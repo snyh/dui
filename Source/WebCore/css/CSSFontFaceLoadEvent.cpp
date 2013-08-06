@@ -29,7 +29,7 @@
  */
 
 #include "config.h"
-#include "CSSFontFaceLoadEvent.h"
+#include "css/CSSFontFaceLoadEvent.h"
 
 #if ENABLE(FONT_LOAD_EVENTS)
 

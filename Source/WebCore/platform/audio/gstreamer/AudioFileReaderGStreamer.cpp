@@ -21,10 +21,10 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "AudioFileReader.h"
+#include "platform/audio/AudioFileReader.h"
 
-#include "AudioBus.h"
-#include "GStreamerVersioning.h"
+#include "platform/audio/AudioBus.h"
+#include "platform/graphics/gstreamer/GStreamerVersioning.h"
 
 #if PLATFORM(QT)
 // Clear out offending Qt macro so the following header, gio.h, can be included.

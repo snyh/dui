@@ -30,9 +30,9 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "CodeOrigin.h"
-#include "DFGCommon.h"
-#include "MacroAssembler.h"
+#include "bytecode/CodeOrigin.h"
+#include "dfg/DFGCommon.h"
+#include "assembler/MacroAssembler.h"
 
 namespace JSC { namespace DFG {
 

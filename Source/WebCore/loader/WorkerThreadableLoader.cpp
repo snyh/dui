@@ -32,19 +32,19 @@
 
 #if ENABLE(WORKERS)
 
-#include "WorkerThreadableLoader.h"
+#include "loader/WorkerThreadableLoader.h"
 
-#include "Document.h"
-#include "DocumentThreadableLoader.h"
-#include "CrossThreadTask.h"
-#include "ResourceError.h"
-#include "ResourceRequest.h"
-#include "ResourceResponse.h"
-#include "SecurityOrigin.h"
-#include "ThreadableLoader.h"
-#include "WorkerGlobalScope.h"
-#include "WorkerLoaderProxy.h"
-#include "WorkerThread.h"
+#include "dom/Document.h"
+#include "loader/DocumentThreadableLoader.h"
+#include "dom/CrossThreadTask.h"
+#include "platform/network/soup/ResourceError.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "page/SecurityOrigin.h"
+#include "loader/ThreadableLoader.h"
+#include "workers/WorkerGlobalScope.h"
+#include "workers/WorkerLoaderProxy.h"
+#include "workers/WorkerThread.h"
 #include <wtf/MainThread.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/Vector.h>

@@ -28,7 +28,7 @@
 
 #if ENABLE(CANVAS_PROXY)
 
-#include "CanvasProxy.h"
+#include "html/canvas/CanvasProxy.h"
 
 namespace WebCore {
 

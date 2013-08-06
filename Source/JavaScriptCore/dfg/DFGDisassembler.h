@@ -30,9 +30,9 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGCommon.h"
-#include "LinkBuffer.h"
-#include "MacroAssembler.h"
+#include "dfg/DFGCommon.h"
+#include "assembler/LinkBuffer.h"
+#include "assembler/MacroAssembler.h"
 #include <wtf/HashMap.h>
 #include <wtf/StringPrintStream.h>
 #include <wtf/Vector.h>

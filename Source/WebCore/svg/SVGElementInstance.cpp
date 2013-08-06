@@ -22,18 +22,18 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGElementInstance.h"
+#include "svg/SVGElementInstance.h"
 
-#include "ContainerNodeAlgorithms.h"
-#include "Event.h"
-#include "EventException.h"
-#include "EventListener.h"
-#include "EventNames.h"
-#include "FrameView.h"
-#include "SVGDocumentExtensions.h"
-#include "SVGElement.h"
-#include "SVGElementInstanceList.h"
-#include "SVGUseElement.h"
+#include "dom/ContainerNodeAlgorithms.h"
+#include "dom/Event.h"
+#include "dom/EventException.h"
+#include "dom/EventListener.h"
+#include "dom/EventNames.h"
+#include "page/FrameView.h"
+#include "svg/SVGDocumentExtensions.h"
+#include "svg/SVGElement.h"
+#include "svg/SVGElementInstanceList.h"
+#include "svg/SVGUseElement.h"
 
 #include <wtf/RefCountedLeakCounter.h>
 

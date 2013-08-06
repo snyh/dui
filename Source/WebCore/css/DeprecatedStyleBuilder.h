@@ -26,7 +26,7 @@
 #define DeprecatedStyleBuilder_h
 
 #include "CSSPropertyNames.h"
-#include "StylePropertyShorthand.h"
+#include "css/StylePropertyShorthand.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 

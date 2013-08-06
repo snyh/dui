@@ -31,7 +31,7 @@
 #ifndef NumberInputType_h
 #define NumberInputType_h
 
-#include "TextFieldInputType.h"
+#include "html/TextFieldInputType.h"
 
 namespace WebCore {
 

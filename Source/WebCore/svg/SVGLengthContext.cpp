@@ -23,18 +23,18 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGLengthContext.h"
+#include "svg/SVGLengthContext.h"
 
-#include "CSSHelper.h"
-#include "ExceptionCode.h"
-#include "FontMetrics.h"
-#include "Frame.h"
-#include "RenderPart.h"
-#include "RenderSVGRoot.h"
-#include "RenderSVGViewportContainer.h"
-#include "RenderView.h"
+#include "css/CSSHelper.h"
+#include "dom/ExceptionCode.h"
+#include "platform/graphics/FontMetrics.h"
+#include "page/Frame.h"
+#include "rendering/RenderPart.h"
+#include "rendering/svg/RenderSVGRoot.h"
+#include "rendering/svg/RenderSVGViewportContainer.h"
+#include "rendering/RenderView.h"
 #include "SVGNames.h"
-#include "SVGSVGElement.h"
+#include "svg/SVGSVGElement.h"
 
 namespace WebCore {
 

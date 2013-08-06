@@ -26,7 +26,7 @@
 #ifndef StorageAreaSync_h
 #define StorageAreaSync_h
 
-#include "Timer.h"
+#include "platform/Timer.h"
 #include <wtf/HashMap.h>
 #include <wtf/text/StringHash.h>
 

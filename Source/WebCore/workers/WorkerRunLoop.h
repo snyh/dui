@@ -33,7 +33,7 @@
 
 #if ENABLE(WORKERS)
 
-#include "ScriptExecutionContext.h"
+#include "dom/ScriptExecutionContext.h"
 #include <wtf/MessageQueue.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>

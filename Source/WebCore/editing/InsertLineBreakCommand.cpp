@@ -24,21 +24,21 @@
  */
 
 #include "config.h"
-#include "InsertLineBreakCommand.h"
+#include "editing/InsertLineBreakCommand.h"
 
-#include "Document.h"
-#include "EditingStyle.h"
-#include "Frame.h"
-#include "FrameSelection.h"
-#include "HTMLElement.h"
+#include "dom/Document.h"
+#include "editing/EditingStyle.h"
+#include "page/Frame.h"
+#include "editing/FrameSelection.h"
+#include "html/HTMLElement.h"
 #include "HTMLNames.h"
-#include "HTMLTableElement.h"
-#include "Range.h"
-#include "RenderObject.h"
-#include "Text.h"
-#include "VisiblePosition.h"
-#include "VisibleUnits.h"
-#include "htmlediting.h"
+#include "html/HTMLTableElement.h"
+#include "dom/Range.h"
+#include "rendering/RenderObject.h"
+#include "dom/Text.h"
+#include "editing/VisiblePosition.h"
+#include "editing/VisibleUnits.h"
+#include "editing/htmlediting.h"
 
 namespace WebCore {
 

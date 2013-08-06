@@ -30,7 +30,7 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGPhase.h"
+#include "dfg/DFGPhase.h"
 
 namespace JSC { namespace DFG {
 

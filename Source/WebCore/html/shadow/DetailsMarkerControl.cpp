@@ -30,11 +30,11 @@
 
 #include "config.h"
 #if ENABLE(DETAILS_ELEMENT)
-#include "DetailsMarkerControl.h"
+#include "html/shadow/DetailsMarkerControl.h"
 
 #include "HTMLNames.h"
-#include "HTMLSummaryElement.h"
-#include "RenderDetailsMarker.h"
+#include "html/HTMLSummaryElement.h"
+#include "rendering/RenderDetailsMarker.h"
 
 namespace WebCore {
 

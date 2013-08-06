@@ -26,7 +26,7 @@
  */
 
 #include "config.h"
-#include "MIMETypeRegistry.h"
+#include "platform/MIMETypeRegistry.h"
 
 #include <wtf/Assertions.h>
 #include <wtf/MainThread.h>

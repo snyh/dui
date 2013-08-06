@@ -27,13 +27,13 @@
 #ifndef Settings_h
 #define Settings_h
 
-#include "EditingBehaviorTypes.h"
-#include "FontRenderingMode.h"
-#include "IntSize.h"
-#include "KURL.h"
-#include "SecurityOrigin.h"
+#include "editing/EditingBehaviorTypes.h"
+#include "platform/graphics/FontRenderingMode.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/KURL.h"
+#include "page/SecurityOrigin.h"
 #include "SettingsMacros.h"
-#include "Timer.h"
+#include "platform/Timer.h"
 #include <wtf/HashMap.h>
 #include <wtf/text/AtomicString.h>
 #include <wtf/text/AtomicStringHash.h>

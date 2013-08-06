@@ -20,22 +20,22 @@
  */
 
 #include "config.h"
-#include "StylePropertySet.h"
+#include "css/StylePropertySet.h"
 
-#include "CSSComputedStyleDeclaration.h"
-#include "CSSParser.h"
+#include "css/CSSComputedStyleDeclaration.h"
+#include "css/CSSParser.h"
 #include "CSSValueKeywords.h"
-#include "CSSValueList.h"
-#include "CSSValuePool.h"
-#include "Document.h"
-#include "PropertySetCSSStyleDeclaration.h"
-#include "StylePropertyShorthand.h"
-#include "StyleSheetContents.h"
+#include "css/CSSValueList.h"
+#include "css/CSSValuePool.h"
+#include "dom/Document.h"
+#include "css/PropertySetCSSStyleDeclaration.h"
+#include "css/StylePropertyShorthand.h"
+#include "css/StyleSheetContents.h"
 #include <wtf/BitArray.h>
 #include <wtf/text/StringBuilder.h>
 
 #if ENABLE(CSS_VARIABLES)
-#include "CSSVariableValue.h"
+#include "css/CSSVariableValue.h"
 #endif
 
 #ifndef NDEBUG

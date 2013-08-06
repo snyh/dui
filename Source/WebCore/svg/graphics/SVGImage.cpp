@@ -28,19 +28,19 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGImage.h"
+#include "svg/graphics/SVGImage.h"
 
-#include "DocumentLoader.h"
-#include "FrameView.h"
-#include "ImageBuffer.h"
-#include "ImageObserver.h"
-#include "IntRect.h"
-#include "RenderSVGRoot.h"
-#include "RenderStyle.h"
-#include "SVGDocument.h"
-#include "SVGImageChromeClient.h"
-#include "SVGSVGElement.h"
-#include "Settings.h"
+#include "loader/DocumentLoader.h"
+#include "page/FrameView.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "platform/graphics/ImageObserver.h"
+#include "platform/graphics/IntRect.h"
+#include "rendering/svg/RenderSVGRoot.h"
+#include "rendering/style/RenderStyle.h"
+#include "svg/SVGDocument.h"
+#include "svg/graphics/SVGImageChromeClient.h"
+#include "svg/SVGSVGElement.h"
+#include "page/Settings.h"
 
 namespace WebCore {
 

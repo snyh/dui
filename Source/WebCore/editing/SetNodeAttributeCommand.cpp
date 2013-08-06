@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "SetNodeAttributeCommand.h"
+#include "editing/SetNodeAttributeCommand.h"
 
-#include "Element.h"
+#include "dom/Element.h"
 #include <wtf/Assertions.h>
 
 namespace WebCore {

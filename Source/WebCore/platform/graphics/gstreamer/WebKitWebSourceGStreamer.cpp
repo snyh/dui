@@ -18,22 +18,22 @@
  */
 
 #include "config.h"
-#include "WebKitWebSourceGStreamer.h"
+#include "platform/graphics/gstreamer/WebKitWebSourceGStreamer.h"
 
 #if ENABLE(VIDEO) && USE(GSTREAMER)
 
-#include "Document.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "GRefPtrGStreamer.h"
-#include "GStreamerVersioning.h"
-#include "MediaPlayer.h"
-#include "NetworkingContext.h"
-#include "NotImplemented.h"
-#include "ResourceHandleClient.h"
-#include "ResourceHandleInternal.h"
-#include "ResourceRequest.h"
-#include "ResourceResponse.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "platform/graphics/gstreamer/GRefPtrGStreamer.h"
+#include "platform/graphics/gstreamer/GStreamerVersioning.h"
+#include "platform/graphics/MediaPlayer.h"
+#include "platform/network/NetworkingContext.h"
+#include "platform/NotImplemented.h"
+#include "platform/network/ResourceHandleClient.h"
+#include "platform/network/ResourceHandleInternal.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/ResourceResponse.h"
 #include <gst/app/gstappsrc.h>
 #include <gst/gst.h>
 #include <gst/pbutils/missing-plugins.h>

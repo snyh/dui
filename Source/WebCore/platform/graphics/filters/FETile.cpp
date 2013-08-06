@@ -21,15 +21,15 @@
 #include "config.h"
 
 #if ENABLE(FILTERS)
-#include "FETile.h"
+#include "platform/graphics/filters/FETile.h"
 
-#include "AffineTransform.h"
-#include "Filter.h"
-#include "GraphicsContext.h"
-#include "Pattern.h"
-#include "RenderTreeAsText.h"
-#include "SVGRenderingContext.h"
-#include "TextStream.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/filters/Filter.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/Pattern.h"
+#include "rendering/RenderTreeAsText.h"
+#include "rendering/svg/SVGRenderingContext.h"
+#include "platform/text/TextStream.h"
 
 namespace WebCore {
 

@@ -21,13 +21,13 @@
  */
 
 #include "config.h"
-#include "HTMLTitleElement.h"
+#include "html/HTMLTitleElement.h"
 
-#include "Document.h"
+#include "dom/Document.h"
 #include "HTMLNames.h"
-#include "RenderStyle.h"
-#include "StyleInheritedData.h"
-#include "Text.h"
+#include "rendering/style/RenderStyle.h"
+#include "rendering/style/StyleInheritedData.h"
+#include "dom/Text.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

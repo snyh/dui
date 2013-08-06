@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "StyleCachedImageSet.h"
+#include "rendering/style/StyleCachedImageSet.h"
 
 #if ENABLE(CSS_IMAGE_SET)
 
-#include "CSSImageSetValue.h"
-#include "CachedImage.h"
-#include "RenderObject.h"
+#include "css/CSSImageSetValue.h"
+#include "loader/cache/CachedImage.h"
+#include "rendering/RenderObject.h"
 
 namespace WebCore {
 

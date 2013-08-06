@@ -27,15 +27,15 @@
  */
 
 #include "config.h"
-#include "RenderLineBoxList.h"
+#include "rendering/RenderLineBoxList.h"
 
-#include "HitTestResult.h"
-#include "InlineTextBox.h"
-#include "PaintInfo.h"
-#include "RenderArena.h"
-#include "RenderInline.h"
-#include "RenderView.h"
-#include "RootInlineBox.h"
+#include "rendering/HitTestResult.h"
+#include "rendering/InlineTextBox.h"
+#include "rendering/PaintInfo.h"
+#include "rendering/RenderArena.h"
+#include "rendering/RenderInline.h"
+#include "rendering/RenderView.h"
+#include "rendering/RootInlineBox.h"
 
 using namespace std;
 

@@ -29,9 +29,9 @@
 
 #if ENABLE(MATHML)
 
-#include "RenderFlexibleBox.h"
-#include "RenderTable.h"
-#include "StyleInheritedData.h"
+#include "rendering/RenderFlexibleBox.h"
+#include "rendering/RenderTable.h"
+#include "rendering/style/StyleInheritedData.h"
 
 #define ENABLE_DEBUG_MATH_LAYOUT 0
 

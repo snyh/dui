@@ -26,11 +26,11 @@
 #ifndef SparseArrayValueMap_h
 #define SparseArrayValueMap_h
 
-#include "JSCell.h"
-#include "JSTypeInfo.h"
-#include "PropertyDescriptor.h"
-#include "PutDirectIndexMode.h"
-#include "WriteBarrier.h"
+#include "runtime/JSCell.h"
+#include "runtime/JSTypeInfo.h"
+#include "runtime/PropertyDescriptor.h"
+#include "runtime/PutDirectIndexMode.h"
+#include "runtime/WriteBarrier.h"
 #include <wtf/HashMap.h>
 #include <wtf/Platform.h>
 

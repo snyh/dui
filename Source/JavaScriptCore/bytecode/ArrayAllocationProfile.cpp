@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "ArrayAllocationProfile.h"
+#include "bytecode/ArrayAllocationProfile.h"
 
-#include "Operations.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

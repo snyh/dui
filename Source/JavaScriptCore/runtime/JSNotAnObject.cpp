@@ -28,9 +28,9 @@
 
 
 #include "config.h"
-#include "JSNotAnObject.h"
+#include "runtime/JSNotAnObject.h"
 
-#include "Operations.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

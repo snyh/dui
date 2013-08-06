@@ -17,9 +17,9 @@
  */
 
 #include "config.h"
-#include "KeyBindingTranslator.h"
+#include "platform/gtk/KeyBindingTranslator.h"
 
-#include "GtkVersioning.h"
+#include "platform/gtk/GtkVersioning.h"
 #include <gdk/gdkkeysyms.h>
 #include <wtf/HashMap.h>
 

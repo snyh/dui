@@ -27,21 +27,21 @@
 
 #if ENABLE(JIT)
 #if USE(JSVALUE32_64)
-#include "JIT.h"
+#include "jit/JIT.h"
 
-#include "CodeBlock.h"
-#include "GCAwareJITStubRoutine.h"
-#include "Interpreter.h"
-#include "JITInlines.h"
-#include "JITStubCall.h"
-#include "JSArray.h"
-#include "JSFunction.h"
-#include "JSPropertyNameIterator.h"
-#include "JSVariableObject.h"
-#include "LinkBuffer.h"
-#include "RepatchBuffer.h"
-#include "ResultType.h"
-#include "SamplingTool.h"
+#include "bytecode/CodeBlock.h"
+#include "jit/GCAwareJITStubRoutine.h"
+#include "interpreter/Interpreter.h"
+#include "jit/JITInlines.h"
+#include "jit/JITStubCall.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSPropertyNameIterator.h"
+#include "runtime/JSVariableObject.h"
+#include "assembler/LinkBuffer.h"
+#include "assembler/RepatchBuffer.h"
+#include "parser/ResultType.h"
+#include "bytecode/SamplingTool.h"
 #include <wtf/StringPrintStream.h>
 
 #ifndef NDEBUG

@@ -23,10 +23,10 @@
 #define SVGAElement_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedBoolean.h"
-#include "SVGExternalResourcesRequired.h"
-#include "SVGGraphicsElement.h"
-#include "SVGURIReference.h"
+#include "svg/SVGAnimatedBoolean.h"
+#include "svg/SVGExternalResourcesRequired.h"
+#include "svg/SVGGraphicsElement.h"
+#include "svg/SVGURIReference.h"
 
 namespace WebCore {
 

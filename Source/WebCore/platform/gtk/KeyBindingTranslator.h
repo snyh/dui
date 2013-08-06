@@ -19,7 +19,7 @@
 #ifndef KeyBindingTranslator_h
 #define KeyBindingTranslator_h
 
-#include "GRefPtrGtk.h"
+#include "platform/gtk/GRefPtrGtk.h"
 #include <wtf/Vector.h>
 #include <wtf/text/WTFString.h>
 

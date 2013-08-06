@@ -21,16 +21,16 @@
  */
 
 #include "config.h"
-#include "Parser.h"
+#include "parser/Parser.h"
 
-#include "ASTBuilder.h"
-#include "CodeBlock.h"
-#include "Debugger.h"
-#include "JSCJSValueInlines.h"
-#include "Lexer.h"
-#include "NodeInfo.h"
-#include "SourceProvider.h"
-#include "VM.h"
+#include "parser/ASTBuilder.h"
+#include "bytecode/CodeBlock.h"
+#include "debugger/Debugger.h"
+#include "runtime/JSCJSValueInlines.h"
+#include "parser/Lexer.h"
+#include "parser/NodeInfo.h"
+#include "parser/SourceProvider.h"
+#include "runtime/VM.h"
 #include <utility>
 #include <wtf/HashFunctions.h>
 #include <wtf/OwnPtr.h>

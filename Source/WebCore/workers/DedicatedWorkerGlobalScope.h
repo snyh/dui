@@ -33,9 +33,9 @@
 
 #if ENABLE(WORKERS)
 
-#include "ContentSecurityPolicy.h"
-#include "MessagePort.h"
-#include "WorkerGlobalScope.h"
+#include "page/ContentSecurityPolicy.h"
+#include "dom/MessagePort.h"
+#include "workers/WorkerGlobalScope.h"
 
 namespace WebCore {
 

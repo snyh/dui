@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "MemoryPressureHandler.h"
+#include "platform/MemoryPressureHandler.h"
 
 #include <wtf/StdLibExtras.h>
 

@@ -37,7 +37,7 @@ QT_BEGIN_NAMESPACE
 class QPixmap;
 QT_END_NAMESPACE
 #elif USE(CAIRO)
-#include "RefPtrCairo.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 #elif USE(WINGDI)
 #include "SharedBitmap.h"
 #elif PLATFORM(BLACKBERRY)

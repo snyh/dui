@@ -21,9 +21,9 @@
 #define SVGPathSegList_h
 
 #if ENABLE(SVG)
-#include "SVGListProperty.h"
-#include "SVGPathSeg.h"
-#include "SVGPropertyTraits.h"
+#include "svg/properties/SVGListProperty.h"
+#include "svg/SVGPathSeg.h"
+#include "svg/properties/SVGPropertyTraits.h"
 
 #include <wtf/Vector.h>
 #include <wtf/text/WTFString.h>

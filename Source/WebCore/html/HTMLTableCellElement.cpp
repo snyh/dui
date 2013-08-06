@@ -23,14 +23,14 @@
  */
 
 #include "config.h"
-#include "HTMLTableCellElement.h"
+#include "html/HTMLTableCellElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
 #include "HTMLNames.h"
-#include "HTMLTableElement.h"
-#include "RenderTableCell.h"
+#include "html/HTMLTableElement.h"
+#include "rendering/RenderTableCell.h"
 
 using std::max;
 using std::min;

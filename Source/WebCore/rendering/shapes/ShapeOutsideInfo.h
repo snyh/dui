@@ -32,8 +32,8 @@
 
 #if ENABLE(CSS_SHAPES)
 
-#include "LayoutSize.h"
-#include "ShapeInfo.h"
+#include "platform/graphics/LayoutSize.h"
+#include "rendering/shapes/ShapeInfo.h"
 
 namespace WebCore {
 

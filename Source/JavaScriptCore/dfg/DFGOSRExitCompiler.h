@@ -30,10 +30,10 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGAssemblyHelpers.h"
-#include "DFGCCallHelpers.h"
-#include "DFGOSRExit.h"
-#include "DFGOperations.h"
+#include "dfg/DFGAssemblyHelpers.h"
+#include "dfg/DFGCCallHelpers.h"
+#include "dfg/DFGOSRExit.h"
+#include "dfg/DFGOperations.h"
 
 namespace JSC {
 

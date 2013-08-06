@@ -22,7 +22,7 @@
 
 #if USE(GLX)
 
-#include "GLContext.h"
+#include "platform/graphics/cairo/GLContext.h"
 
 typedef struct __GLXcontextRec* GLXContext;
 typedef unsigned long GLXPbuffer;

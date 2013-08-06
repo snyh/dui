@@ -32,7 +32,7 @@
 #ifndef SharedWorker_h
 #define SharedWorker_h
 
-#include "AbstractWorker.h"
+#include "workers/AbstractWorker.h"
 
 #if ENABLE(SHARED_WORKERS)
 

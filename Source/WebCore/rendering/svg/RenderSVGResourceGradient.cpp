@@ -23,14 +23,14 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGResourceGradient.h"
+#include "rendering/svg/RenderSVGResourceGradient.h"
 
-#include "GradientAttributes.h"
-#include "GraphicsContext.h"
-#include "RenderSVGShape.h"
-#include "RenderSVGText.h"
-#include "SVGRenderSupport.h"
-#include "SVGRenderingContext.h"
+#include "svg/GradientAttributes.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/svg/RenderSVGShape.h"
+#include "rendering/svg/RenderSVGText.h"
+#include "rendering/svg/SVGRenderSupport.h"
+#include "rendering/svg/SVGRenderingContext.h"
 
 namespace WebCore {
 

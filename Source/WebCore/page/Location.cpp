@@ -27,15 +27,15 @@
  */
 
 #include "config.h"
-#include "Location.h"
+#include "page/Location.h"
 
-#include "DOMWindow.h"
-#include "Document.h"
-#include "ExceptionCode.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "KURL.h"
-#include "SecurityOrigin.h"
+#include "page/DOMWindow.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCode.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "platform/KURL.h"
+#include "page/SecurityOrigin.h"
 
 namespace WebCore {
 

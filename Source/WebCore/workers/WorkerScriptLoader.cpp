@@ -29,16 +29,16 @@
 
 #if ENABLE(WORKERS)
 
-#include "WorkerScriptLoader.h"
+#include "workers/WorkerScriptLoader.h"
 
-#include "CrossThreadTask.h"
-#include "ResourceResponse.h"
-#include "ScriptExecutionContext.h"
-#include "SecurityOrigin.h"
-#include "TextResourceDecoder.h"
-#include "WorkerGlobalScope.h"
-#include "WorkerScriptLoaderClient.h"
-#include "WorkerThreadableLoader.h"
+#include "dom/CrossThreadTask.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "dom/ScriptExecutionContext.h"
+#include "page/SecurityOrigin.h"
+#include "loader/TextResourceDecoder.h"
+#include "workers/WorkerGlobalScope.h"
+#include "workers/WorkerScriptLoaderClient.h"
+#include "loader/WorkerThreadableLoader.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/RefPtr.h>
 

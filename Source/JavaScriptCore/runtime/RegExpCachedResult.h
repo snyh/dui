@@ -26,7 +26,7 @@
 #ifndef RegExpCachedResult_h
 #define RegExpCachedResult_h
 
-#include "RegExpObject.h"
+#include "runtime/RegExpObject.h"
 
 namespace JSC {
 

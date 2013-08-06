@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "GamepadDeviceLinux.h"
+#include "platform/linux/GamepadDeviceLinux.h"
 
 #if ENABLE(GAMEPAD)
 

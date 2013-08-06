@@ -29,7 +29,7 @@
  */
 
 #include "config.h"
-#include "HistogramSupport.h"
+#include "platform/HistogramSupport.h"
 
 namespace WebCore {
 

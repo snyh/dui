@@ -21,9 +21,9 @@
 #ifndef NodeConstructors_h
 #define NodeConstructors_h
 
-#include "Nodes.h"
-#include "Lexer.h"
-#include "Parser.h"
+#include "parser/Nodes.h"
+#include "parser/Lexer.h"
+#include "parser/Parser.h"
 
 namespace JSC {
 

@@ -26,7 +26,7 @@
 #ifndef IndexingHeader_h
 #define IndexingHeader_h
 
-#include "PropertyStorage.h"
+#include "runtime/PropertyStorage.h"
 #include <wtf/Platform.h>
 
 namespace JSC {

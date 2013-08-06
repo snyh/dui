@@ -26,7 +26,7 @@
 #ifndef RenderIFrame_h
 #define RenderIFrame_h
 
-#include "RenderFrameBase.h"
+#include "rendering/RenderFrameBase.h"
 
 namespace WebCore {
 

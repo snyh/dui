@@ -19,21 +19,21 @@
  */
 
 #include "config.h"
-#include "WebKitAccessibleHyperlink.h"
+#include "accessibility/atk/WebKitAccessibleHyperlink.h"
 
 #if HAVE(ACCESSIBILITY)
 
-#include "AXObjectCache.h"
-#include "AccessibilityObject.h"
-#include "NotImplemented.h"
-#include "Position.h"
-#include "Range.h"
-#include "RenderListMarker.h"
-#include "RenderObject.h"
-#include "TextIterator.h"
-#include "WebKitAccessibleUtil.h"
-#include "WebKitAccessibleWrapperAtk.h"
-#include "htmlediting.h"
+#include "accessibility/AXObjectCache.h"
+#include "accessibility/AccessibilityObject.h"
+#include "platform/NotImplemented.h"
+#include "dom/Position.h"
+#include "dom/Range.h"
+#include "rendering/RenderListMarker.h"
+#include "rendering/RenderObject.h"
+#include "editing/TextIterator.h"
+#include "accessibility/atk/WebKitAccessibleUtil.h"
+#include "accessibility/atk/WebKitAccessibleWrapperAtk.h"
+#include "editing/htmlediting.h"
 #include <wtf/text/CString.h>
 
 #include <atk/atk.h>

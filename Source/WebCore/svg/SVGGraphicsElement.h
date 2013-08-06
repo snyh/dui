@@ -22,10 +22,10 @@
 #define SVGGraphicsElement_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedTransformList.h"
-#include "SVGStyledElement.h"
-#include "SVGTests.h"
-#include "SVGTransformable.h"
+#include "svg/SVGAnimatedTransformList.h"
+#include "svg/SVGStyledElement.h"
+#include "svg/SVGTests.h"
+#include "svg/SVGTransformable.h"
 
 namespace WebCore {
 

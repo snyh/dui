@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "SparseArrayValueMap.h"
+#include "runtime/SparseArrayValueMap.h"
 
-#include "ClassInfo.h"
-#include "GetterSetter.h"
-#include "JSObject.h"
-#include "Operations.h"
-#include "PropertySlot.h"
-#include "Reject.h"
-#include "SlotVisitor.h"
-#include "Structure.h"
+#include "runtime/ClassInfo.h"
+#include "runtime/GetterSetter.h"
+#include "runtime/JSObject.h"
+#include "runtime/Operations.h"
+#include "runtime/PropertySlot.h"
+#include "runtime/Reject.h"
+#include "heap/SlotVisitor.h"
+#include "runtime/Structure.h"
 
 namespace JSC {
 

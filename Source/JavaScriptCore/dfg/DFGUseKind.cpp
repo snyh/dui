@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "DFGUseKind.h"
+#include "dfg/DFGUseKind.h"
 
 #if ENABLE(DFG_JIT)
 

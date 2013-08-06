@@ -21,7 +21,7 @@
 #define SVGMissingGlyphElement_h
 
 #if ENABLE(SVG_FONTS)
-#include "SVGStyledElement.h"
+#include "svg/SVGStyledElement.h"
 
 namespace WebCore {
 

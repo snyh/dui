@@ -19,9 +19,9 @@
  */
 
 #include "config.h"
-#include "CheckedRadioButtons.h"
+#include "dom/CheckedRadioButtons.h"
 
-#include "HTMLInputElement.h"
+#include "html/HTMLInputElement.h"
 #include <wtf/HashSet.h>
 
 namespace WebCore {

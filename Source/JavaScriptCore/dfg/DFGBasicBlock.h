@@ -28,11 +28,11 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGAbstractValue.h"
-#include "DFGBranchDirection.h"
-#include "DFGNode.h"
-#include "DFGVariadicFunction.h"
-#include "Operands.h"
+#include "dfg/DFGAbstractValue.h"
+#include "dfg/DFGBranchDirection.h"
+#include "dfg/DFGNode.h"
+#include "dfg/DFGVariadicFunction.h"
+#include "bytecode/Operands.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/Vector.h>
 

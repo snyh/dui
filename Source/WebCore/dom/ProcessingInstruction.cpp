@@ -19,22 +19,22 @@
  */
 
 #include "config.h"
-#include "ProcessingInstruction.h"
+#include "dom/ProcessingInstruction.h"
 
-#include "CSSStyleSheet.h"
-#include "CachedCSSStyleSheet.h"
-#include "CachedResourceLoader.h"
-#include "CachedResourceRequest.h"
-#include "CachedXSLStyleSheet.h"
-#include "Document.h"
-#include "DocumentStyleSheetCollection.h"
-#include "ExceptionCode.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "XSLStyleSheet.h"
+#include "css/CSSStyleSheet.h"
+#include "loader/cache/CachedCSSStyleSheet.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "loader/cache/CachedXSLStyleSheet.h"
+#include "dom/Document.h"
+#include "dom/DocumentStyleSheetCollection.h"
+#include "dom/ExceptionCode.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "xml/XSLStyleSheet.h"
 #include "XMLDocumentParser.h" // for parseAttributes()
-#include "MediaList.h"
-#include "StyleSheetContents.h"
+#include "css/MediaList.h"
+#include "css/StyleSheetContents.h"
 
 namespace WebCore {
 

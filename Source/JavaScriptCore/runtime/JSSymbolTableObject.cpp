@@ -27,13 +27,13 @@
  */
 
 #include "config.h"
-#include "JSSymbolTableObject.h"
+#include "runtime/JSSymbolTableObject.h"
 
-#include "JSActivation.h"
-#include "JSGlobalObject.h"
-#include "JSNameScope.h"
-#include "Operations.h"
-#include "PropertyNameArray.h"
+#include "runtime/JSActivation.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSNameScope.h"
+#include "runtime/Operations.h"
+#include "runtime/PropertyNameArray.h"
 
 namespace JSC {
 

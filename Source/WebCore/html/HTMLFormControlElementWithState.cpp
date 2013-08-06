@@ -23,14 +23,14 @@
  */
 
 #include "config.h"
-#include "HTMLFormControlElementWithState.h"
+#include "html/HTMLFormControlElementWithState.h"
 
-#include "Chrome.h"
-#include "ChromeClient.h"
-#include "FormController.h"
-#include "Frame.h"
-#include "HTMLFormElement.h"
-#include "Page.h"
+#include "page/Chrome.h"
+#include "page/ChromeClient.h"
+#include "html/FormController.h"
+#include "page/Frame.h"
+#include "html/HTMLFormElement.h"
+#include "page/Page.h"
 
 namespace WebCore {
 

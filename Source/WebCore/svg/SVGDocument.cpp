@@ -20,19 +20,19 @@
 
 #include "config.h"
 #if ENABLE(SVG)
-#include "SVGDocument.h"
+#include "svg/SVGDocument.h"
 
-#include "EventNames.h"
-#include "ExceptionCode.h"
-#include "FrameView.h"
-#include "NodeRenderingContext.h"
-#include "RenderView.h"
-#include "SVGElement.h"
+#include "dom/EventNames.h"
+#include "dom/ExceptionCode.h"
+#include "page/FrameView.h"
+#include "dom/NodeRenderingContext.h"
+#include "rendering/RenderView.h"
+#include "svg/SVGElement.h"
 #include "SVGNames.h"
-#include "SVGSVGElement.h"
-#include "SVGViewSpec.h"
-#include "SVGZoomAndPan.h"
-#include "SVGZoomEvent.h"
+#include "svg/SVGSVGElement.h"
+#include "svg/SVGViewSpec.h"
+#include "svg/SVGZoomAndPan.h"
+#include "svg/SVGZoomEvent.h"
 
 namespace WebCore {
 

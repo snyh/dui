@@ -26,12 +26,12 @@
 #ifndef SlotVisitorInlines_h
 #define SlotVisitorInlines_h
 
-#include "CopiedBlockInlines.h"
-#include "CopiedSpaceInlines.h"
-#include "Options.h"
-#include "SlotVisitor.h"
-#include "Weak.h"
-#include "WeakInlines.h"
+#include "heap/CopiedBlockInlines.h"
+#include "heap/CopiedSpaceInlines.h"
+#include "runtime/Options.h"
+#include "heap/SlotVisitor.h"
+#include "heap/Weak.h"
+#include "heap/WeakInlines.h"
 
 namespace JSC {
 

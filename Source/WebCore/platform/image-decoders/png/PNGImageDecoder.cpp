@@ -38,10 +38,10 @@
  */
 
 #include "config.h"
-#include "PNGImageDecoder.h"
+#include "platform/image-decoders/png/PNGImageDecoder.h"
 
-#include "Color.h"
-#include "PlatformInstrumentation.h"
+#include "platform/graphics/Color.h"
+#include "platform/PlatformInstrumentation.h"
 #include "png.h"
 #include <wtf/OwnArrayPtr.h>
 #include <wtf/PassOwnPtr.h>

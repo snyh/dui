@@ -28,7 +28,7 @@
 
 #if ENABLE(CSS_FILTERS)
 
-#include "CSSValueList.h"
+#include "css/CSSValueList.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>
 

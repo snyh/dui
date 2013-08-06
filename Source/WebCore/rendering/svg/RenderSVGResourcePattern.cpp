@@ -21,15 +21,15 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGResourcePattern.h"
+#include "rendering/svg/RenderSVGResourcePattern.h"
 
-#include "FrameView.h"
-#include "GraphicsContext.h"
-#include "PatternAttributes.h"
-#include "RenderSVGRoot.h"
-#include "SVGFitToViewBox.h"
-#include "SVGRenderSupport.h"
-#include "SVGRenderingContext.h"
+#include "page/FrameView.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "svg/PatternAttributes.h"
+#include "rendering/svg/RenderSVGRoot.h"
+#include "svg/SVGFitToViewBox.h"
+#include "rendering/svg/SVGRenderSupport.h"
+#include "rendering/svg/SVGRenderingContext.h"
 
 namespace WebCore {
 

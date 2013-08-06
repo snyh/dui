@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "DFGAbstractState.h"
+#include "dfg/DFGAbstractState.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "CodeBlock.h"
-#include "DFGBasicBlock.h"
-#include "GetByIdStatus.h"
-#include "Operations.h"
-#include "PutByIdStatus.h"
-#include "StringObject.h"
+#include "bytecode/CodeBlock.h"
+#include "dfg/DFGBasicBlock.h"
+#include "bytecode/GetByIdStatus.h"
+#include "runtime/Operations.h"
+#include "bytecode/PutByIdStatus.h"
+#include "runtime/StringObject.h"
 
 namespace JSC { namespace DFG {
 

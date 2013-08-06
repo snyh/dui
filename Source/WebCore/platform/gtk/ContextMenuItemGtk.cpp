@@ -22,9 +22,9 @@
 
 #if ENABLE(CONTEXT_MENUS)
 
-#include "ContextMenuItem.h"
+#include "platform/ContextMenuItem.h"
 
-#include "ContextMenu.h"
+#include "platform/ContextMenu.h"
 #include <wtf/gobject/GOwnPtr.h>
 #include <wtf/gobject/GRefPtr.h>
 #include <gtk/gtk.h>

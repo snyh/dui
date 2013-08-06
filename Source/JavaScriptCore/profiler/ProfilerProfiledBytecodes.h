@@ -26,9 +26,9 @@
 #ifndef ProfilerProfiledBytecodes_h
 #define ProfilerProfiledBytecodes_h
 
-#include "ProfilerBytecodeSequence.h"
-#include "ProfilerBytecodes.h"
-#include "ProfilerOriginStack.h"
+#include "profiler/ProfilerBytecodeSequence.h"
+#include "profiler/ProfilerBytecodes.h"
+#include "profiler/ProfilerOriginStack.h"
 
 namespace JSC { namespace Profiler {
 

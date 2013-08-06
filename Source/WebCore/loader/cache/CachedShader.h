@@ -32,7 +32,7 @@
 
 #if ENABLE(CSS_SHADERS)
 
-#include "CachedResource.h"
+#include "loader/cache/CachedResource.h"
 
 namespace WebCore {
 

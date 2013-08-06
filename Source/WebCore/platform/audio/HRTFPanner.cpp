@@ -26,12 +26,12 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "HRTFPanner.h"
+#include "platform/audio/HRTFPanner.h"
 
-#include "AudioBus.h"
-#include "FFTConvolver.h"
-#include "HRTFDatabase.h"
-#include "HRTFDatabaseLoader.h"
+#include "platform/audio/AudioBus.h"
+#include "platform/audio/FFTConvolver.h"
+#include "platform/audio/HRTFDatabase.h"
+#include "platform/audio/HRTFDatabaseLoader.h"
 #include <algorithm>
 #include <wtf/MathExtras.h>
 #include <wtf/RefPtr.h>

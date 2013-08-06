@@ -26,10 +26,10 @@
 #ifndef PlatformMouseEvent_h
 #define PlatformMouseEvent_h
 
-#include "IntPoint.h"
-#include "PlatformEvent.h"
+#include "platform/graphics/IntPoint.h"
+#include "platform/PlatformEvent.h"
 #if OS(WINDOWS)
-#include "WindowsExtras.h"
+#include "platform/win/WindowsExtras.h"
 #endif
 
 #if PLATFORM(GTK)

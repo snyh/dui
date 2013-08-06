@@ -31,10 +31,10 @@
 #ifndef LayoutRect_h
 #define LayoutRect_h
 
-#include "FloatRect.h"
-#include "IntRect.h"
-#include "LayoutBoxExtent.h"
-#include "LayoutPoint.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/LayoutBoxExtent.h"
+#include "platform/graphics/LayoutPoint.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

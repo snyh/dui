@@ -21,9 +21,9 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGZoomAndPan.h"
+#include "svg/SVGZoomAndPan.h"
 
-#include "SVGParserUtilities.h"
+#include "svg/SVGParserUtilities.h"
 
 namespace WebCore {
 

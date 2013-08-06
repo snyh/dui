@@ -44,7 +44,7 @@
  */
 
 #include "config.h"
-#include "Arena.h"
+#include "platform/Arena.h"
 
 #include <algorithm>
 #include <stdlib.h>

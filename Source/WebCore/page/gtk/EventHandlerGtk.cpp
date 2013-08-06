@@ -24,21 +24,21 @@
  */
 
 #include "config.h"
-#include "EventHandler.h"
+#include "page/EventHandler.h"
 
-#include "Clipboard.h"
-#include "FloatPoint.h"
-#include "FocusController.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "KeyboardEvent.h"
-#include "MouseEventWithHitTestResults.h"
-#include "NotImplemented.h"
-#include "Page.h"
-#include "PlatformKeyboardEvent.h"
-#include "PlatformWheelEvent.h"
-#include "RenderWidget.h"
-#include "Scrollbar.h"
+#include "dom/Clipboard.h"
+#include "platform/graphics/FloatPoint.h"
+#include "page/FocusController.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "dom/KeyboardEvent.h"
+#include "page/MouseEventWithHitTestResults.h"
+#include "platform/NotImplemented.h"
+#include "page/Page.h"
+#include "platform/PlatformKeyboardEvent.h"
+#include "platform/PlatformWheelEvent.h"
+#include "rendering/RenderWidget.h"
+#include "platform/Scrollbar.h"
 
 namespace WebCore {
 

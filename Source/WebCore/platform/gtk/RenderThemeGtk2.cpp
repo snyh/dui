@@ -23,7 +23,7 @@
  */
 
 #include "config.h"
-#include "RenderThemeGtk.h"
+#include "platform/gtk/RenderThemeGtk.h"
 
 #ifdef GTK_API_VERSION_2
 
@@ -32,16 +32,16 @@
 #undef GTK_DISABLE_DEPRECATED
 
 #include "CSSValueKeywords.h"
-#include "Font.h"
-#include "GraphicsContext.h"
-#include "GtkVersioning.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/gtk/GtkVersioning.h"
 #include "HTMLNames.h"
-#include "MediaControlElements.h"
-#include "PaintInfo.h"
-#include "RenderObject.h"
-#include "TextDirection.h"
+#include "html/shadow/MediaControlElements.h"
+#include "rendering/PaintInfo.h"
+#include "rendering/RenderObject.h"
+#include "platform/text/TextDirection.h"
 #include "UserAgentStyleSheets.h"
-#include "WidgetRenderingContext.h"
+#include "platform/gtk/WidgetRenderingContext.h"
 #include <gdk/gdk.h>
 #include <gtk/gtk.h>
 

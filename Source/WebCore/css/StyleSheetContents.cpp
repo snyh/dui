@@ -19,20 +19,20 @@
  */
 
 #include "config.h"
-#include "StyleSheetContents.h"
+#include "css/StyleSheetContents.h"
 
-#include "CSSImportRule.h"
-#include "CSSParser.h"
-#include "CSSStyleSheet.h"
-#include "CachedCSSStyleSheet.h"
-#include "Document.h"
-#include "MediaList.h"
-#include "Node.h"
-#include "RuleSet.h"
-#include "SecurityOrigin.h"
-#include "StylePropertySet.h"
-#include "StyleRule.h"
-#include "StyleRuleImport.h"
+#include "css/CSSImportRule.h"
+#include "css/CSSParser.h"
+#include "css/CSSStyleSheet.h"
+#include "loader/cache/CachedCSSStyleSheet.h"
+#include "dom/Document.h"
+#include "css/MediaList.h"
+#include "dom/Node.h"
+#include "css/RuleSet.h"
+#include "page/SecurityOrigin.h"
+#include "css/StylePropertySet.h"
+#include "css/StyleRule.h"
+#include "css/StyleRuleImport.h"
 #include <wtf/Deque.h>
 
 namespace WebCore {

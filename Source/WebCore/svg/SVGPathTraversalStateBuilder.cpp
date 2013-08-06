@@ -23,7 +23,7 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGPathTraversalStateBuilder.h"
+#include "svg/SVGPathTraversalStateBuilder.h"
 
 namespace WebCore {
 

@@ -22,10 +22,10 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGResourceRadialGradient.h"
+#include "rendering/svg/RenderSVGResourceRadialGradient.h"
 
-#include "RadialGradientAttributes.h"
-#include "SVGRadialGradientElement.h"
+#include "svg/RadialGradientAttributes.h"
+#include "svg/SVGRadialGradientElement.h"
 
 namespace WebCore {
 

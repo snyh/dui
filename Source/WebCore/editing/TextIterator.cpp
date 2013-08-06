@@ -25,34 +25,34 @@
  */
 
 #include "config.h"
-#include "TextIterator.h"
+#include "editing/TextIterator.h"
 
-#include "Document.h"
-#include "ExceptionCodePlaceholder.h"
-#include "Font.h"
-#include "Frame.h"
-#include "HTMLElement.h"
-#include "HTMLTextFormControlElement.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "platform/graphics/Font.h"
+#include "page/Frame.h"
+#include "html/HTMLElement.h"
+#include "html/HTMLTextFormControlElement.h"
 #include "HTMLNames.h"
-#include "htmlediting.h"
-#include "InlineTextBox.h"
-#include "NodeTraversal.h"
-#include "Range.h"
-#include "RenderImage.h"
-#include "RenderTableCell.h"
-#include "RenderTableRow.h"
-#include "RenderTextControl.h"
-#include "RenderTextFragment.h"
-#include "ShadowRoot.h"
-#include "TextBoundaries.h"
-#include "TextBreakIterator.h"
-#include "VisiblePosition.h"
-#include "VisibleUnits.h"
+#include "editing/htmlediting.h"
+#include "rendering/InlineTextBox.h"
+#include "dom/NodeTraversal.h"
+#include "dom/Range.h"
+#include "rendering/RenderImage.h"
+#include "rendering/RenderTableCell.h"
+#include "rendering/RenderTableRow.h"
+#include "rendering/RenderTextControl.h"
+#include "rendering/RenderTextFragment.h"
+#include "dom/ShadowRoot.h"
+#include "platform/text/TextBoundaries.h"
+#include "platform/text/TextBreakIterator.h"
+#include "editing/VisiblePosition.h"
+#include "editing/VisibleUnits.h"
 #include <wtf/text/CString.h>
 #include <wtf/unicode/CharacterNames.h>
 
 #if USE(ICU_UNICODE) && !UCONFIG_NO_COLLATION
-#include "TextBreakIteratorInternalICU.h"
+#include "platform/text/TextBreakIteratorInternalICU.h"
 #include <unicode/usearch.h>
 #endif
 

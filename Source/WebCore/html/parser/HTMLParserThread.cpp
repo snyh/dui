@@ -32,7 +32,7 @@
 
 #if ENABLE(THREADED_HTML_PARSER)
 
-#include "HTMLParserThread.h"
+#include "html/parser/HTMLParserThread.h"
 
 namespace WebCore {
 

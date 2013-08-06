@@ -20,9 +20,9 @@
  */
 
 #include "config.h"
-#include "CDATASection.h"
+#include "dom/CDATASection.h"
 
-#include "Document.h"
+#include "dom/Document.h"
 
 namespace WebCore {
 

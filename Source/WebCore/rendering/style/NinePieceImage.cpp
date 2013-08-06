@@ -22,7 +22,7 @@
  */
 
 #include "config.h"
-#include "NinePieceImage.h"
+#include "rendering/style/NinePieceImage.h"
 
 namespace WebCore {
 

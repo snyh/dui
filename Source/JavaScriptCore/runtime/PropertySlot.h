@@ -21,10 +21,10 @@
 #ifndef PropertySlot_h
 #define PropertySlot_h
 
-#include "JSCJSValue.h"
-#include "PropertyName.h"
-#include "PropertyOffset.h"
-#include "Register.h"
+#include "runtime/JSCJSValue.h"
+#include "runtime/PropertyName.h"
+#include "runtime/PropertyOffset.h"
+#include "interpreter/Register.h"
 #include <wtf/Assertions.h>
 #include <wtf/NotFound.h>
 

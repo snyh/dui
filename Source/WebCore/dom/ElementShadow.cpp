@@ -25,9 +25,9 @@
  */
 
 #include "config.h"
-#include "ElementShadow.h"
+#include "dom/ElementShadow.h"
 
-#include "ContainerNodeAlgorithms.h"
+#include "dom/ContainerNodeAlgorithms.h"
 
 namespace WebCore {
 

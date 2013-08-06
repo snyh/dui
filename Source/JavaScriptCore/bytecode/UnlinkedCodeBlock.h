@@ -26,19 +26,19 @@
 #ifndef UnlinkedCodeBlock_h
 #define UnlinkedCodeBlock_h
 
-#include "BytecodeConventions.h"
-#include "CodeCache.h"
-#include "CodeSpecializationKind.h"
-#include "CodeType.h"
-#include "ExpressionRangeInfo.h"
-#include "Identifier.h"
-#include "JSCell.h"
-#include "JSString.h"
-#include "LineInfo.h"
-#include "ParserModes.h"
-#include "RegExp.h"
-#include "SpecialPointer.h"
-#include "SymbolTable.h"
+#include "bytecode/BytecodeConventions.h"
+#include "runtime/CodeCache.h"
+#include "runtime/CodeSpecializationKind.h"
+#include "bytecode/CodeType.h"
+#include "bytecode/ExpressionRangeInfo.h"
+#include "runtime/Identifier.h"
+#include "runtime/JSCell.h"
+#include "runtime/JSString.h"
+#include "bytecode/LineInfo.h"
+#include "parser/ParserModes.h"
+#include "runtime/RegExp.h"
+#include "bytecode/SpecialPointer.h"
+#include "runtime/SymbolTable.h"
 
 #include <wtf/RefCountedArray.h>
 #include <wtf/Vector.h>

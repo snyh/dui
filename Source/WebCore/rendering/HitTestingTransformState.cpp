@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "HitTestingTransformState.h"
+#include "rendering/HitTestingTransformState.h"
 
-#include "LayoutRect.h"
+#include "platform/graphics/LayoutRect.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

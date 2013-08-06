@@ -25,14 +25,14 @@
  */
 
 #include "config.h"
-#include "HTMLContentElement.h"
+#include "html/shadow/HTMLContentElement.h"
 
-#include "CSSParser.h"
-#include "ContentDistributor.h"
+#include "css/CSSParser.h"
+#include "html/shadow/ContentDistributor.h"
 #include "HTMLNames.h"
-#include "QualifiedName.h"
-#include "RuntimeEnabledFeatures.h"
-#include "ShadowRoot.h"
+#include "dom/QualifiedName.h"
+#include "bindings/dui/saved/RuntimeEnabledFeatures.h"
+#include "dom/ShadowRoot.h"
 
 namespace WebCore {
 

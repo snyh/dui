@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "FrameActionScheduler.h"
+#include "page/FrameActionScheduler.h"
 
-#include "Event.h"
-#include "ExceptionCodePlaceholder.h"
-#include "Node.h"
+#include "dom/Event.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "dom/Node.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

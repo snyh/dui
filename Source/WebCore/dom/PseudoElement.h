@@ -27,9 +27,9 @@
 #ifndef PseudoElement_h
 #define PseudoElement_h
 
-#include "Element.h"
-#include "Event.h"
-#include "RenderStyle.h"
+#include "dom/Element.h"
+#include "dom/Event.h"
+#include "rendering/style/RenderStyle.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

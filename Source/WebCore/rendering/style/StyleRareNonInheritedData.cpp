@@ -20,16 +20,16 @@
  */
 
 #include "config.h"
-#include "StyleRareNonInheritedData.h"
+#include "rendering/style/StyleRareNonInheritedData.h"
 
-#include "ContentData.h"
-#include "RenderCounter.h"
-#include "RenderStyle.h"
-#include "ShadowData.h"
-#include "StyleFilterData.h"
-#include "StyleTransformData.h"
-#include "StyleImage.h"
-#include "StyleResolver.h"
+#include "rendering/style/ContentData.h"
+#include "rendering/RenderCounter.h"
+#include "rendering/style/RenderStyle.h"
+#include "rendering/style/ShadowData.h"
+#include "rendering/style/StyleFilterData.h"
+#include "rendering/style/StyleTransformData.h"
+#include "rendering/style/StyleImage.h"
+#include "css/StyleResolver.h"
 
 namespace WebCore {
 

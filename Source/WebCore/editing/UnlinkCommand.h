@@ -26,7 +26,7 @@
 #ifndef UnlinkCommand_h
 #define UnlinkCommand_h
 
-#include "CompositeEditCommand.h"
+#include "editing/CompositeEditCommand.h"
 
 namespace WebCore {
 

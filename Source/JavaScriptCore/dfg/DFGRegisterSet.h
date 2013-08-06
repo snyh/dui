@@ -30,8 +30,8 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGFPRInfo.h"
-#include "DFGGPRInfo.h"
+#include "dfg/DFGFPRInfo.h"
+#include "dfg/DFGGPRInfo.h"
 #include <wtf/Bitmap.h>
 
 namespace JSC { namespace DFG {

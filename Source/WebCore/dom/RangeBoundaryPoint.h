@@ -26,8 +26,8 @@
 #ifndef RangeBoundaryPoint_h
 #define RangeBoundaryPoint_h
 
-#include "Node.h"
-#include "Position.h"
+#include "dom/Node.h"
+#include "dom/Position.h"
 
 namespace WebCore {
 

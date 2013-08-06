@@ -21,11 +21,11 @@
 #ifndef Lookup_h
 #define Lookup_h
 
-#include "CallFrame.h"
-#include "Intrinsic.h"
-#include "Identifier.h"
-#include "JSGlobalObject.h"
-#include "PropertySlot.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/Intrinsic.h"
+#include "runtime/Identifier.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/PropertySlot.h"
 #include <stdio.h>
 #include <wtf/Assertions.h>
 

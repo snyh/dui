@@ -25,7 +25,7 @@
 #ifndef LineClampValue_h
 #define LineClampValue_h
 
-#include "RenderStyleConstants.h"
+#include "rendering/style/RenderStyleConstants.h"
 
 namespace WebCore {
     

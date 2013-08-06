@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "JITThunks.h"
+#include "jit/JITThunks.h"
 
 #if ENABLE(JIT)
 
-#include "Executable.h"
-#include "JIT.h"
-#include "VM.h"
-#include "Operations.h"
+#include "runtime/Executable.h"
+#include "jit/JIT.h"
+#include "runtime/VM.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

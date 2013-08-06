@@ -25,7 +25,7 @@
 #ifndef Attribute_h
 #define Attribute_h
 
-#include "QualifiedName.h"
+#include "dom/QualifiedName.h"
 
 namespace WebCore {
 

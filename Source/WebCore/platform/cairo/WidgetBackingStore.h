@@ -19,8 +19,8 @@
 #ifndef WidgetBackingStore_h
 #define WidgetBackingStore_h
 
-#include "IntRect.h"
-#include "IntSize.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/IntSize.h"
 #include <wtf/FastAllocBase.h>
 #include <wtf/Noncopyable.h>
 #include <wtf/PassOwnPtr.h>

@@ -21,17 +21,17 @@
  */
 
 #include "config.h"
-#include "HTMLFontElement.h"
+#include "html/HTMLFontElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
-#include "CSSStyleSheet.h"
+#include "css/CSSStyleSheet.h"
 #include "CSSValueKeywords.h"
-#include "CSSValueList.h"
-#include "CSSValuePool.h"
+#include "css/CSSValueList.h"
+#include "css/CSSValuePool.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "StylePropertySet.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "css/StylePropertySet.h"
 #include <wtf/text/StringBuilder.h>
 
 using namespace WTF;

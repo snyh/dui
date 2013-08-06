@@ -27,11 +27,11 @@
  */
 
 #include "config.h"
-#include "JSStack.h"
-#include "JSStackInlines.h"
+#include "interpreter/JSStack.h"
+#include "interpreter/JSStackInlines.h"
 
-#include "ConservativeRoots.h"
-#include "Interpreter.h"
+#include "heap/ConservativeRoots.h"
+#include "interpreter/Interpreter.h"
 
 namespace JSC {
 

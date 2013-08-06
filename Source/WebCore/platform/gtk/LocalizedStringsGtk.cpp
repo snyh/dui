@@ -30,10 +30,10 @@
 
 #include "config.h"
 
-#include "LocalizedStrings.h"
+#include "platform/LocalizedStrings.h"
 #include <wtf/gobject/GOwnPtr.h>
-#include "IntSize.h"
-#include "NotImplemented.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/NotImplemented.h"
 #include <wtf/MathExtras.h>
 #include <wtf/text/CString.h>
 #include <wtf/text/WTFString.h>

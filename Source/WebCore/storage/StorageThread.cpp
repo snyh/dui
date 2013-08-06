@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "StorageThread.h"
+#include "storage/StorageThread.h"
 
-#include "StorageAreaSync.h"
+#include "storage/StorageAreaSync.h"
 #include <wtf/AutodrainedPool.h>
 #include <wtf/HashSet.h>
 #include <wtf/MainThread.h>

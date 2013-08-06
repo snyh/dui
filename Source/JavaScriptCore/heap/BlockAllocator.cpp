@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "BlockAllocator.h"
+#include "heap/BlockAllocator.h"
 
-#include "CopiedBlock.h"
-#include "CopyWorkList.h"
-#include "MarkedBlock.h"
-#include "WeakBlock.h"
+#include "heap/CopiedBlock.h"
+#include "heap/CopyWorkList.h"
+#include "heap/MarkedBlock.h"
+#include "heap/WeakBlock.h"
 #include <wtf/CurrentTime.h>
 
 namespace JSC {

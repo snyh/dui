@@ -20,8 +20,8 @@
 #ifndef StringRecursionChecker_h
 #define StringRecursionChecker_h
 
-#include "Interpreter.h"
-#include "VMStackBounds.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/VMStackBounds.h"
 #include <wtf/StackStats.h>
 #include <wtf/WTFThreadData.h>
 

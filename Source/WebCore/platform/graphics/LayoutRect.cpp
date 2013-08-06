@@ -29,7 +29,7 @@
  */
 
 #include "config.h"
-#include "LayoutRect.h"
+#include "platform/graphics/LayoutRect.h"
 
 #include <algorithm>
 

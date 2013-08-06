@@ -28,12 +28,12 @@
  */
 
 #include "config.h"
-#include "MediaQueryExp.h"
+#include "css/MediaQueryExp.h"
 
-#include "CSSAspectRatioValue.h"
-#include "CSSParser.h"
-#include "CSSPrimitiveValue.h"
-#include "CSSValueList.h"
+#include "css/CSSAspectRatioValue.h"
+#include "css/CSSParser.h"
+#include "css/CSSPrimitiveValue.h"
+#include "css/CSSValueList.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

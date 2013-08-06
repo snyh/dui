@@ -22,11 +22,11 @@
 #define SVGPolyElement_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedBoolean.h"
-#include "SVGExternalResourcesRequired.h"
-#include "SVGGraphicsElement.h"
+#include "svg/SVGAnimatedBoolean.h"
+#include "svg/SVGExternalResourcesRequired.h"
+#include "svg/SVGGraphicsElement.h"
 #include "SVGNames.h"
-#include "SVGPointList.h"
+#include "svg/SVGPointList.h"
 
 namespace WebCore {
 

@@ -31,7 +31,7 @@
 #ifndef ErrorEvent_h
 #define ErrorEvent_h
 
-#include "Event.h"
+#include "dom/Event.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

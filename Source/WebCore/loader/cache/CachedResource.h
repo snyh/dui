@@ -23,15 +23,15 @@
 #ifndef CachedResource_h
 #define CachedResource_h
 
-#include "CachePolicy.h"
-#include "FrameLoaderTypes.h"
-#include "PurgePriority.h"
-#include "ResourceError.h"
-#include "ResourceLoadPriority.h"
-#include "ResourceLoaderOptions.h"
-#include "ResourceRequest.h"
-#include "ResourceResponse.h"
-#include "Timer.h"
+#include "loader/cache/CachePolicy.h"
+#include "loader/FrameLoaderTypes.h"
+#include "platform/PurgePriority.h"
+#include "platform/network/soup/ResourceError.h"
+#include "platform/network/ResourceLoadPriority.h"
+#include "loader/ResourceLoaderOptions.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "platform/Timer.h"
 #include <time.h>
 #include <wtf/HashCountedSet.h>
 #include <wtf/HashSet.h>

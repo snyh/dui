@@ -26,7 +26,7 @@
 #ifndef StrictEvalActivation_h
 #define StrictEvalActivation_h
 
-#include "JSScope.h"
+#include "runtime/JSScope.h"
 
 namespace JSC {
 

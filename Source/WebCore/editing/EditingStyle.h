@@ -34,7 +34,7 @@
 
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
-#include "WritingDirection.h"
+#include "editing/WritingDirection.h"
 #include <wtf/Forward.h>
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>

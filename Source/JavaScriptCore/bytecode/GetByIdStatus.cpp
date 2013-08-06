@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "GetByIdStatus.h"
+#include "bytecode/GetByIdStatus.h"
 
-#include "CodeBlock.h"
-#include "JSScope.h"
-#include "LLIntData.h"
-#include "LowLevelInterpreter.h"
-#include "Operations.h"
+#include "bytecode/CodeBlock.h"
+#include "runtime/JSScope.h"
+#include "llint/LLIntData.h"
+#include "llint/LowLevelInterpreter.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

@@ -20,11 +20,11 @@
  */
 
 #include "config.h"
-#include "NumberObject.h"
+#include "runtime/NumberObject.h"
 
-#include "JSGlobalObject.h"
-#include "NumberPrototype.h"
-#include "Operations.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/NumberPrototype.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

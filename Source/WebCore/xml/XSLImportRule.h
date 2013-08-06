@@ -25,9 +25,9 @@
 
 #if ENABLE(XSLT)
 
-#include "CachedResourceHandle.h"
-#include "CachedStyleSheetClient.h"
-#include "XSLStyleSheet.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "loader/cache/CachedStyleSheetClient.h"
+#include "xml/XSLStyleSheet.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

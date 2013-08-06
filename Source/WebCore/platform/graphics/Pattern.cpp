@@ -25,9 +25,9 @@
  */
 
 #include "config.h"
-#include "Pattern.h"
+#include "platform/graphics/Pattern.h"
 
-#include "Image.h"
+#include "platform/graphics/Image.h"
 
 namespace WebCore {
 

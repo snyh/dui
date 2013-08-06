@@ -26,8 +26,8 @@
 #ifndef HandleBlockInlines_h
 #define HandleBlockInlines_h
 
-#include "BlockAllocator.h"
-#include "HandleBlock.h"
+#include "heap/BlockAllocator.h"
+#include "heap/HandleBlock.h"
 
 namespace JSC {
 

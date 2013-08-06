@@ -27,11 +27,11 @@
  */
 
 #include "config.h"
-#include "FontGlyphs.h"
+#include "platform/graphics/FontGlyphs.h"
 
-#include "Font.h"
-#include "FontCache.h"
-#include "SegmentedFontData.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/FontCache.h"
+#include "platform/graphics/SegmentedFontData.h"
 #include <wtf/unicode/Unicode.h>
 
 namespace WebCore {

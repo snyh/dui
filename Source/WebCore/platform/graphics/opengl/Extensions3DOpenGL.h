@@ -26,9 +26,9 @@
 #ifndef Extensions3DOpenGL_h
 #define Extensions3DOpenGL_h
 
-#include "Extensions3DOpenGLCommon.h"
+#include "platform/graphics/opengl/Extensions3DOpenGLCommon.h"
 
-#include "GraphicsContext3D.h"
+#include "platform/graphics/GraphicsContext3D.h"
 #include <wtf/HashSet.h>
 #include <wtf/text/StringHash.h>
 

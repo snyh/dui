@@ -27,7 +27,7 @@
  */
 
 #include "config.h"
-#include "SamplingCounter.h"
+#include "runtime/SamplingCounter.h"
 
 namespace JSC {
 

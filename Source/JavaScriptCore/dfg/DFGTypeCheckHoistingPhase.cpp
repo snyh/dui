@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "DFGTypeCheckHoistingPhase.h"
+#include "dfg/DFGTypeCheckHoistingPhase.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGBasicBlock.h"
-#include "DFGGraph.h"
-#include "DFGInsertionSet.h"
-#include "DFGPhase.h"
-#include "DFGVariableAccessDataDump.h"
-#include "Operations.h"
+#include "dfg/DFGBasicBlock.h"
+#include "dfg/DFGGraph.h"
+#include "dfg/DFGInsertionSet.h"
+#include "dfg/DFGPhase.h"
+#include "dfg/DFGVariableAccessDataDump.h"
+#include "runtime/Operations.h"
 #include <wtf/HashMap.h>
 
 namespace JSC { namespace DFG {

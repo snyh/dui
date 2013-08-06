@@ -25,14 +25,14 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "WebKitCSSSVGDocumentValue.h"
+#include "css/WebKitCSSSVGDocumentValue.h"
 
-#include "CSSParser.h"
-#include "CachedResourceLoader.h"
-#include "CachedResourceRequest.h"
-#include "CachedResourceRequestInitiators.h"
-#include "CachedSVGDocument.h"
-#include "Document.h"
+#include "css/CSSParser.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "loader/cache/CachedResourceRequestInitiators.h"
+#include "loader/cache/CachedSVGDocument.h"
+#include "dom/Document.h"
 
 namespace WebCore {
 

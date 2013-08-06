@@ -19,13 +19,13 @@
  */
 
 #include "config.h"
-#include "Identifier.h"
+#include "runtime/Identifier.h"
 
-#include "CallFrame.h"
-#include "JSObject.h"
-#include "JSScope.h"
-#include "NumericStrings.h"
-#include "Operations.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/JSObject.h"
+#include "runtime/JSScope.h"
+#include "runtime/NumericStrings.h"
+#include "runtime/Operations.h"
 #include <new>
 #include <string.h>
 #include <wtf/Assertions.h>

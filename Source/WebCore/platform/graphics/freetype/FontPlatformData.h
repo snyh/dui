@@ -26,11 +26,11 @@
 #ifndef FontPlatformDataFreeType_h
 #define FontPlatformDataFreeType_h
 
-#include "FontDescription.h"
-#include "FontOrientation.h"
-#include "GlyphBuffer.h"
-#include "HarfBuzzFace.h"
-#include "RefPtrCairo.h"
+#include "platform/graphics/FontDescription.h"
+#include "platform/graphics/FontOrientation.h"
+#include "platform/graphics/GlyphBuffer.h"
+#include "platform/graphics/harfbuzz/HarfBuzzFace.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 #include <wtf/Forward.h>
 #include <wtf/HashFunctions.h>
 

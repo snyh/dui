@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "ScrollingStateNode.h"
+#include "page/scrolling/ScrollingStateNode.h"
 
 #if ENABLE(THREADED_SCROLLING) || USE(COORDINATED_GRAPHICS)
 
-#include "ScrollingStateFixedNode.h"
-#include "ScrollingStateTree.h"
-#include "TextStream.h"
+#include "page/scrolling/ScrollingStateFixedNode.h"
+#include "page/scrolling/ScrollingStateTree.h"
+#include "platform/text/TextStream.h"
 
 #include <wtf/text/WTFString.h>
 

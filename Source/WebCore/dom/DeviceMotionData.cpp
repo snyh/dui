@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "DeviceMotionData.h"
+#include "dom/DeviceMotionData.h"
 
 namespace WebCore {
 

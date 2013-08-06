@@ -18,7 +18,7 @@
  */
 
 #include "config.h"
-#include "IntRect.h"
+#include "platform/graphics/IntRect.h"
 
 #include <gdk/gdk.h>
 

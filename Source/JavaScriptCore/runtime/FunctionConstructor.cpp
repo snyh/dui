@@ -19,18 +19,18 @@
  */
 
 #include "config.h"
-#include "FunctionConstructor.h"
+#include "runtime/FunctionConstructor.h"
 
-#include "Debugger.h"
-#include "ExceptionHelpers.h"
-#include "FunctionPrototype.h"
-#include "JSFunction.h"
-#include "JSGlobalObject.h"
-#include "JSString.h"
-#include "Lexer.h"
-#include "Nodes.h"
-#include "Operations.h"
-#include "Parser.h"
+#include "debugger/Debugger.h"
+#include "runtime/ExceptionHelpers.h"
+#include "runtime/FunctionPrototype.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSString.h"
+#include "parser/Lexer.h"
+#include "parser/Nodes.h"
+#include "runtime/Operations.h"
+#include "parser/Parser.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace JSC {

@@ -25,11 +25,11 @@
 
 #include "config.h"
 
-#include "ExecutableAllocator.h"
+#include "jit/ExecutableAllocator.h"
 
 #if ENABLE(EXECUTABLE_ALLOCATOR_FIXED)
 
-#include "CodeProfiling.h"
+#include "tools/CodeProfiling.h"
 #include <errno.h>
 #include <unistd.h>
 #include <wtf/MetaAllocator.h>

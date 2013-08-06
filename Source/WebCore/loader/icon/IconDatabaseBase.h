@@ -26,8 +26,8 @@
 #ifndef IconDatabaseBase_h
 #define IconDatabaseBase_h
 
-#include "ImageSource.h"
-#include "SharedBuffer.h"
+#include "platform/graphics/ImageSource.h"
+#include "platform/SharedBuffer.h"
 
 #include <wtf/Forward.h>
 #include <wtf/Noncopyable.h>

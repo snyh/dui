@@ -26,7 +26,7 @@
 #ifndef VMStackBounds_h
 #define VMStackBounds_h
 
-#include "VM.h"
+#include "runtime/VM.h"
 #include <wtf/StackBounds.h>
 
 namespace JSC {

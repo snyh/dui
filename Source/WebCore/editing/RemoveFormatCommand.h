@@ -26,7 +26,7 @@
 #ifndef RemoveFormatCommand_h
 #define RemoveFormatCommand_h
 
-#include "CompositeEditCommand.h"
+#include "editing/CompositeEditCommand.h"
 
 namespace WebCore {
 

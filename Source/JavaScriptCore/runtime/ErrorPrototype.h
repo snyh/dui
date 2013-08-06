@@ -21,7 +21,7 @@
 #ifndef ErrorPrototype_h
 #define ErrorPrototype_h
 
-#include "ErrorInstance.h"
+#include "runtime/ErrorInstance.h"
 
 namespace JSC {
 

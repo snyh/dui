@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "WebCoreInstanceHandle.h"
+#include "platform/win/WebCoreInstanceHandle.h"
 
 namespace WebCore {
 

@@ -18,7 +18,7 @@
  */
 
 #include "config.h"
-#include "GraphicsLayerTransform.h"
+#include "platform/graphics/GraphicsLayerTransform.h"
 
 namespace WebCore {
 

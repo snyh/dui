@@ -28,8 +28,8 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "TextTrack.h"
-#include "TextTrackLoader.h"
+#include "html/track/TextTrack.h"
+#include "loader/TextTrackLoader.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

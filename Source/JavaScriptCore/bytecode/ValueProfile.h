@@ -33,11 +33,11 @@
 
 #if ENABLE(VALUE_PROFILER)
 
-#include "Heap.h"
-#include "JSArray.h"
-#include "SpeculatedType.h"
-#include "Structure.h"
-#include "WriteBarrier.h"
+#include "heap/Heap.h"
+#include "runtime/JSArray.h"
+#include "bytecode/SpeculatedType.h"
+#include "runtime/Structure.h"
+#include "runtime/WriteBarrier.h"
 #include <wtf/PrintStream.h>
 #include <wtf/StringPrintStream.h>
 

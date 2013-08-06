@@ -25,17 +25,17 @@
  */
 
 #include "config.h"
-#include "CairoUtilities.h"
+#include "platform/graphics/cairo/CairoUtilities.h"
 
-#include "AffineTransform.h"
-#include "Color.h"
-#include "FloatPoint.h"
-#include "FloatRect.h"
-#include "IntRect.h"
-#include "OwnPtrCairo.h"
-#include "Path.h"
-#include "PlatformPathCairo.h"
-#include "RefPtrCairo.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/Color.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/cairo/OwnPtrCairo.h"
+#include "platform/graphics/Path.h"
+#include "platform/graphics/cairo/PlatformPathCairo.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

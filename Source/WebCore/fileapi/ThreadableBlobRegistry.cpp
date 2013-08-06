@@ -30,12 +30,12 @@
 
 #include "config.h"
 
-#include "ThreadableBlobRegistry.h"
+#include "fileapi/ThreadableBlobRegistry.h"
 
-#include "BlobData.h"
-#include "BlobRegistry.h"
-#include "BlobURL.h"
-#include "SecurityOrigin.h"
+#include "platform/network/BlobData.h"
+#include "platform/network/BlobRegistry.h"
+#include "fileapi/BlobURL.h"
+#include "page/SecurityOrigin.h"
 #include <wtf/HashMap.h>
 #include <wtf/MainThread.h>
 #include <wtf/RefPtr.h>

@@ -23,19 +23,19 @@
 #include "config.h"
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "SVGFEImage.h"
+#include "svg/graphics/filters/SVGFEImage.h"
 
-#include "AffineTransform.h"
-#include "Filter.h"
-#include "GraphicsContext.h"
-#include "RenderObject.h"
-#include "RenderTreeAsText.h"
-#include "SVGFilter.h"
-#include "SVGPreserveAspectRatio.h"
-#include "SVGRenderingContext.h"
-#include "SVGStyledElement.h"
-#include "SVGURIReference.h"
-#include "TextStream.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/filters/Filter.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/RenderObject.h"
+#include "rendering/RenderTreeAsText.h"
+#include "svg/graphics/filters/SVGFilter.h"
+#include "svg/SVGPreserveAspectRatio.h"
+#include "rendering/svg/SVGRenderingContext.h"
+#include "svg/SVGStyledElement.h"
+#include "svg/SVGURIReference.h"
+#include "platform/text/TextStream.h"
 
 namespace WebCore {
 

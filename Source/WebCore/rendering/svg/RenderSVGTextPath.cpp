@@ -20,17 +20,17 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGTextPath.h"
+#include "rendering/svg/RenderSVGTextPath.h"
 
-#include "FloatQuad.h"
-#include "RenderBlock.h"
-#include "SVGInlineTextBox.h"
+#include "platform/graphics/FloatQuad.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/svg/SVGInlineTextBox.h"
 #include "SVGNames.h"
-#include "SVGPathData.h"
-#include "SVGPathElement.h"
-#include "SVGRootInlineBox.h"
-#include "SVGTextPathElement.h"
-#include "SVGTransformList.h"
+#include "rendering/svg/SVGPathData.h"
+#include "svg/SVGPathElement.h"
+#include "rendering/svg/SVGRootInlineBox.h"
+#include "svg/SVGTextPathElement.h"
+#include "svg/SVGTransformList.h"
 
 namespace WebCore {
 

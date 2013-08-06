@@ -22,9 +22,9 @@
 #define RenderSVGInline_h
 
 #if ENABLE(SVG)
-#include "RenderInline.h"
+#include "rendering/RenderInline.h"
 
-#include "SVGRenderSupport.h"
+#include "rendering/svg/SVGRenderSupport.h"
 
 namespace WebCore {
 

@@ -28,13 +28,13 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGRenderStyle.h"
+#include "rendering/style/SVGRenderStyle.h"
 
-#include "CSSPrimitiveValue.h"
-#include "CSSValueList.h"
-#include "IntRect.h"
-#include "NodeRenderStyle.h"
-#include "SVGStyledElement.h"
+#include "css/CSSPrimitiveValue.h"
+#include "css/CSSValueList.h"
+#include "platform/graphics/IntRect.h"
+#include "dom/NodeRenderStyle.h"
+#include "svg/SVGStyledElement.h"
 
 using namespace std;
 

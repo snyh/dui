@@ -20,10 +20,10 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGHiddenContainer.h"
+#include "rendering/svg/RenderSVGHiddenContainer.h"
 
-#include "RenderSVGPath.h"
-#include "SVGStyledElement.h"
+#include "rendering/svg/RenderSVGPath.h"
+#include "svg/SVGStyledElement.h"
 #include <wtf/StackStats.h>
 
 namespace WebCore {

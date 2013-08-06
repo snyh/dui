@@ -30,17 +30,17 @@
  */
 
 #include "config.h"
-#include "NumberInputType.h"
+#include "html/NumberInputType.h"
 
-#include "ExceptionCode.h"
-#include "HTMLInputElement.h"
+#include "dom/ExceptionCode.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "InputTypeNames.h"
-#include "KeyboardEvent.h"
-#include "LocalizedStrings.h"
-#include "PlatformLocale.h"
-#include "RenderTextControl.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "html/InputTypeNames.h"
+#include "dom/KeyboardEvent.h"
+#include "platform/LocalizedStrings.h"
+#include "platform/text/PlatformLocale.h"
+#include "rendering/RenderTextControl.h"
 #include <limits>
 #include <wtf/ASCIICType.h>
 #include <wtf/MathExtras.h>

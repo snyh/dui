@@ -25,13 +25,13 @@
  */
 
 #include "config.h"
-#include "WindowEventContext.h"
+#include "dom/WindowEventContext.h"
 
-#include "DOMWindow.h"
-#include "Document.h"
-#include "Event.h"
-#include "EventContext.h"
-#include "Node.h"
+#include "page/DOMWindow.h"
+#include "dom/Document.h"
+#include "dom/Event.h"
+#include "dom/EventContext.h"
+#include "dom/Node.h"
 
 namespace WebCore {
 

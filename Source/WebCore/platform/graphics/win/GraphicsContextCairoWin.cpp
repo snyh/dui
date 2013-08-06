@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "GraphicsContext.h"
+#include "platform/graphics/GraphicsContext.h"
 
-#include "AffineTransform.h"
-#include "DIBPixelData.h"
-#include "Path.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/win/DIBPixelData.h"
+#include "platform/graphics/Path.h"
 
 #include <cairo-win32.h>
-#include "GraphicsContextPlatformPrivateCairo.h"
+#include "platform/graphics/cairo/GraphicsContextPlatformPrivateCairo.h"
 
 using namespace std;
 

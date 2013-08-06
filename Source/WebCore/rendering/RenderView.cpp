@@ -19,38 +19,38 @@
  */
 
 #include "config.h"
-#include "RenderView.h"
+#include "rendering/RenderView.h"
 
-#include "ColumnInfo.h"
-#include "Document.h"
-#include "Element.h"
-#include "FloatQuad.h"
-#include "FlowThreadController.h"
-#include "Frame.h"
-#include "FrameSelection.h"
-#include "FrameView.h"
-#include "GraphicsContext.h"
-#include "HTMLFrameOwnerElement.h"
-#include "HTMLIFrameElement.h"
-#include "HitTestResult.h"
-#include "Page.h"
-#include "RenderGeometryMap.h"
-#include "RenderLayer.h"
-#include "RenderLayerBacking.h"
-#include "RenderNamedFlowThread.h"
-#include "RenderSelectionInfo.h"
-#include "RenderWidget.h"
-#include "RenderWidgetProtector.h"
-#include "StyleInheritedData.h"
-#include "TransformState.h"
+#include "rendering/ColumnInfo.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
+#include "platform/graphics/FloatQuad.h"
+#include "rendering/FlowThreadController.h"
+#include "page/Frame.h"
+#include "editing/FrameSelection.h"
+#include "page/FrameView.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "html/HTMLFrameOwnerElement.h"
+#include "html/HTMLIFrameElement.h"
+#include "rendering/HitTestResult.h"
+#include "page/Page.h"
+#include "rendering/RenderGeometryMap.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/RenderLayerBacking.h"
+#include "rendering/RenderNamedFlowThread.h"
+#include "rendering/RenderSelectionInfo.h"
+#include "rendering/RenderWidget.h"
+#include "rendering/RenderWidgetProtector.h"
+#include "rendering/style/StyleInheritedData.h"
+#include "platform/graphics/transforms/TransformState.h"
 #include <wtf/StackStats.h>
 
 #if USE(ACCELERATED_COMPOSITING)
-#include "RenderLayerCompositor.h"
+#include "rendering/RenderLayerCompositor.h"
 #endif
 
 #if ENABLE(CSS_SHADERS) && USE(3D_GRAPHICS)
-#include "CustomFilterGlobalContext.h"
+#include "platform/graphics/filters/CustomFilterGlobalContext.h"
 #endif
 
 namespace WebCore {

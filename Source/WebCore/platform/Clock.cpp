@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "Clock.h"
+#include "platform/Clock.h"
 
 #if USE(COREMEDIA)
     #include "PlatformClockCM.h"
 #elif USE(COREAUDIO)
     #include "PlatformClockCA.h"
 #else
-    #include "ClockGeneric.h"
+#include "platform/ClockGeneric.h"
 #endif
 
 using namespace WebCore;

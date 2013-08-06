@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "DFGCodeBlocks.h"
+#include "heap/DFGCodeBlocks.h"
 
-#include "CodeBlock.h"
-#include "SlotVisitor.h"
+#include "bytecode/CodeBlock.h"
+#include "heap/SlotVisitor.h"
 #include <wtf/Vector.h>
 
 namespace JSC {

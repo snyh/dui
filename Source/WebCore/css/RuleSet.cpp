@@ -27,25 +27,25 @@
  */
 
 #include "config.h"
-#include "RuleSet.h"
+#include "css/RuleSet.h"
 
-#include "CSSFontSelector.h"
-#include "CSSSelector.h"
-#include "CSSSelectorList.h"
+#include "css/CSSFontSelector.h"
+#include "css/CSSSelector.h"
+#include "css/CSSSelectorList.h"
 #include "HTMLNames.h"
-#include "MediaQueryEvaluator.h"
-#include "SecurityOrigin.h"
-#include "SelectorChecker.h"
-#include "SelectorCheckerFastPath.h"
-#include "SelectorFilter.h"
-#include "StyleResolver.h"
-#include "StyleRule.h"
-#include "StyleRuleImport.h"
-#include "StyleSheetContents.h"
-#include "WebKitCSSKeyframesRule.h"
+#include "css/MediaQueryEvaluator.h"
+#include "page/SecurityOrigin.h"
+#include "css/SelectorChecker.h"
+#include "css/SelectorCheckerFastPath.h"
+#include "css/SelectorFilter.h"
+#include "css/StyleResolver.h"
+#include "css/StyleRule.h"
+#include "css/StyleRuleImport.h"
+#include "css/StyleSheetContents.h"
+#include "css/WebKitCSSKeyframesRule.h"
 
 #if ENABLE(VIDEO_TRACK)
-#include "TextTrackCue.h"
+#include "html/track/TextTrackCue.h"
 #endif
 
 namespace WebCore {

@@ -20,12 +20,12 @@
  */
 
 #include "config.h"
-#include "MachineStackMarker.h"
+#include "heap/MachineStackMarker.h"
 
-#include "ConservativeRoots.h"
-#include "Heap.h"
-#include "JSArray.h"
-#include "VM.h"
+#include "heap/ConservativeRoots.h"
+#include "heap/Heap.h"
+#include "runtime/JSArray.h"
+#include "runtime/VM.h"
 #include <setjmp.h>
 #include <stdlib.h>
 #include <wtf/StdLibExtras.h>

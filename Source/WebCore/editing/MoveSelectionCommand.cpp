@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "MoveSelectionCommand.h"
+#include "editing/MoveSelectionCommand.h"
 
-#include "DocumentFragment.h"
-#include "ReplaceSelectionCommand.h"
+#include "dom/DocumentFragment.h"
+#include "editing/ReplaceSelectionCommand.h"
 
 namespace WebCore {
 

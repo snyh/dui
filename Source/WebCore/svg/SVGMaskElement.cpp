@@ -24,15 +24,15 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGMaskElement.h"
+#include "svg/SVGMaskElement.h"
 
-#include "Attribute.h"
-#include "RenderSVGResourceMasker.h"
-#include "SVGElementInstance.h"
+#include "dom/Attribute.h"
+#include "rendering/svg/RenderSVGResourceMasker.h"
+#include "svg/SVGElementInstance.h"
 #include "SVGNames.h"
-#include "SVGRenderSupport.h"
-#include "SVGUnitTypes.h"
-#include "StyleResolver.h"
+#include "rendering/svg/SVGRenderSupport.h"
+#include "svg/SVGUnitTypes.h"
+#include "css/StyleResolver.h"
 
 namespace WebCore {
 

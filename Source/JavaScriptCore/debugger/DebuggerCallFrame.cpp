@@ -27,13 +27,13 @@
  */
 
 #include "config.h"
-#include "DebuggerCallFrame.h"
+#include "debugger/DebuggerCallFrame.h"
 
-#include "JSFunction.h"
-#include "CodeBlock.h"
-#include "Interpreter.h"
-#include "Operations.h"
-#include "Parser.h"
+#include "runtime/JSFunction.h"
+#include "bytecode/CodeBlock.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/Operations.h"
+#include "parser/Parser.h"
 
 namespace JSC {
 

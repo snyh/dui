@@ -23,9 +23,9 @@
  */
 
 #include "config.h"
-#include "TextDocument.h"
+#include "html/TextDocument.h"
 
-#include "TextDocumentParser.h"
+#include "html/parser/TextDocumentParser.h"
 
 namespace WebCore {
 

@@ -21,10 +21,10 @@
 #define SVGAnimatedRect_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedPropertyMacros.h"
-#include "SVGAnimatedPropertyTearOff.h"
-#include "SVGAnimatedTypeAnimator.h"
-#include "SVGRect.h"
+#include "svg/properties/SVGAnimatedPropertyMacros.h"
+#include "svg/properties/SVGAnimatedPropertyTearOff.h"
+#include "svg/SVGAnimatedTypeAnimator.h"
+#include "svg/SVGRect.h"
 
 namespace WebCore {
 

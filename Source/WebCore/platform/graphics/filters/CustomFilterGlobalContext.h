@@ -31,7 +31,7 @@
 #define CustomFilterGlobalContext_h
 
 #if ENABLE(CSS_SHADERS) && USE(3D_GRAPHICS)
-#include "ANGLEWebKitBridge.h"
+#include "platform/graphics/ANGLEWebKitBridge.h"
 #include <wtf/HashMap.h>
 #include <wtf/RefPtr.h>
 

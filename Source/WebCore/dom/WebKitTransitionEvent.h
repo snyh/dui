@@ -26,7 +26,7 @@
 #ifndef WebKitTransitionEvent_h
 #define WebKitTransitionEvent_h
 
-#include "Event.h"
+#include "dom/Event.h"
 
 namespace WebCore {
 

@@ -28,7 +28,7 @@
 #ifndef InputStreamPreprocessor_h
 #define InputStreamPreprocessor_h
 
-#include "SegmentedString.h"
+#include "platform/text/SegmentedString.h"
 #include <wtf/Noncopyable.h>
 
 namespace WebCore {

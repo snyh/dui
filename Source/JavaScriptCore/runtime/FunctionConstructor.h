@@ -21,7 +21,7 @@
 #ifndef FunctionConstructor_h
 #define FunctionConstructor_h
 
-#include "InternalFunction.h"
+#include "runtime/InternalFunction.h"
 
 namespace WTF {
 class TextPosition;

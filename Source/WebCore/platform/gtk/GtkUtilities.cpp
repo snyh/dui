@@ -17,9 +17,9 @@
  */
 
 #include "config.h"
-#include "GtkUtilities.h"
+#include "platform/gtk/GtkUtilities.h"
 
-#include "IntPoint.h"
+#include "platform/graphics/IntPoint.h"
 #include <gtk/gtk.h>
 
 namespace WebCore {

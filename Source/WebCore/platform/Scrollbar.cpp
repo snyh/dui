@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "Scrollbar.h"
+#include "platform/Scrollbar.h"
 
-#include "GraphicsContext.h"
-#include "PlatformMouseEvent.h"
-#include "ScrollAnimator.h"
-#include "ScrollView.h"
-#include "ScrollableArea.h"
-#include "ScrollbarTheme.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/PlatformMouseEvent.h"
+#include "platform/ScrollAnimator.h"
+#include "platform/ScrollView.h"
+#include "platform/ScrollableArea.h"
+#include "platform/ScrollbarTheme.h"
 #include <algorithm>
 
 #if ENABLE(GESTURE_EVENTS)

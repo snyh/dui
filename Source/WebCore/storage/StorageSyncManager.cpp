@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "StorageSyncManager.h"
+#include "storage/StorageSyncManager.h"
 
-#include "EventNames.h"
-#include "FileSystem.h"
-#include "Frame.h"
-#include "FrameTree.h"
-#include "StorageThread.h"
-#include "Page.h"
-#include "PageGroup.h"
-#include "StorageAreaSync.h"
+#include "dom/EventNames.h"
+#include "platform/FileSystem.h"
+#include "page/Frame.h"
+#include "page/FrameTree.h"
+#include "storage/StorageThread.h"
+#include "page/Page.h"
+#include "page/PageGroup.h"
+#include "storage/StorageAreaSync.h"
 #include <wtf/MainThread.h>
 #include <wtf/StdLibExtras.h>
 #include <wtf/text/CString.h>

@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "GraphicsContext.h"
+#include "platform/graphics/GraphicsContext.h"
 
-#include "BidiResolver.h"
-#include "BitmapImage.h"
-#include "Gradient.h"
-#include "ImageBuffer.h"
-#include "IntRect.h"
-#include "RoundedRect.h"
-#include "TextRun.h"
+#include "platform/text/BidiResolver.h"
+#include "platform/graphics/BitmapImage.h"
+#include "platform/graphics/Gradient.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/RoundedRect.h"
+#include "platform/graphics/TextRun.h"
 
 #include "stdio.h"
 

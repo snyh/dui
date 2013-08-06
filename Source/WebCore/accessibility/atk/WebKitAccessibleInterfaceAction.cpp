@@ -30,14 +30,14 @@
  */
 
 #include "config.h"
-#include "WebKitAccessibleInterfaceAction.h"
+#include "accessibility/atk/WebKitAccessibleInterfaceAction.h"
 
 #if HAVE(ACCESSIBILITY)
 
-#include "AccessibilityObject.h"
-#include "NotImplemented.h"
-#include "WebKitAccessibleUtil.h"
-#include "WebKitAccessibleWrapperAtk.h"
+#include "accessibility/AccessibilityObject.h"
+#include "platform/NotImplemented.h"
+#include "accessibility/atk/WebKitAccessibleUtil.h"
+#include "accessibility/atk/WebKitAccessibleWrapperAtk.h"
 
 using namespace WebCore;
 

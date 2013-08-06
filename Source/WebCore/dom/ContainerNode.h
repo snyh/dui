@@ -24,8 +24,8 @@
 #ifndef ContainerNode_h
 #define ContainerNode_h
 
-#include "ExceptionCodePlaceholder.h"
-#include "Node.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "dom/Node.h"
 
 #include <wtf/OwnPtr.h>
 #include <wtf/Vector.h>

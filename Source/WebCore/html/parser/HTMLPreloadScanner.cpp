@@ -26,16 +26,16 @@
  */
 
 #include "config.h"
-#include "HTMLPreloadScanner.h"
+#include "html/parser/HTMLPreloadScanner.h"
 
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "HTMLParserOptions.h"
-#include "HTMLTokenizer.h"
-#include "InputTypeNames.h"
-#include "LinkRelAttribute.h"
-#include "MediaList.h"
-#include "MediaQueryEvaluator.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "html/parser/HTMLParserOptions.h"
+#include "html/parser/HTMLTokenizer.h"
+#include "html/InputTypeNames.h"
+#include "html/LinkRelAttribute.h"
+#include "css/MediaList.h"
+#include "css/MediaQueryEvaluator.h"
 #include <wtf/MainThread.h>
 
 namespace WebCore {

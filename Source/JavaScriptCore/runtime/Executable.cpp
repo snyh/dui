@@ -24,17 +24,17 @@
  */
 
 #include "config.h"
-#include "Executable.h"
+#include "runtime/Executable.h"
 
-#include "BatchedTransitionOptimizer.h"
-#include "BytecodeGenerator.h"
-#include "CodeBlock.h"
-#include "DFGDriver.h"
-#include "ExecutionHarness.h"
-#include "JIT.h"
-#include "JITDriver.h"
-#include "Operations.h"
-#include "Parser.h"
+#include "runtime/BatchedTransitionOptimizer.h"
+#include "bytecompiler/BytecodeGenerator.h"
+#include "bytecode/CodeBlock.h"
+#include "dfg/DFGDriver.h"
+#include "runtime/ExecutionHarness.h"
+#include "jit/JIT.h"
+#include "jit/JITDriver.h"
+#include "runtime/Operations.h"
+#include "parser/Parser.h"
 #include <wtf/Vector.h>
 #include <wtf/text/StringBuilder.h>
 

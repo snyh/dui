@@ -21,20 +21,20 @@
 #include "config.h"
 
 #if ENABLE(SVG_FONTS)
-#include "SVGTextRunRenderingContext.h"
+#include "rendering/svg/SVGTextRunRenderingContext.h"
 
-#include "Font.h"
-#include "GlyphBuffer.h"
-#include "GraphicsContext.h"
-#include "RenderObject.h"
-#include "RenderSVGInlineText.h"
-#include "RenderSVGResourceSolidColor.h"
-#include "SVGFontData.h"
-#include "SVGFontElement.h"
-#include "SVGFontFaceElement.h"
-#include "SVGGlyphElement.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/GlyphBuffer.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/RenderObject.h"
+#include "rendering/svg/RenderSVGInlineText.h"
+#include "rendering/svg/RenderSVGResourceSolidColor.h"
+#include "svg/SVGFontData.h"
+#include "svg/SVGFontElement.h"
+#include "svg/SVGFontFaceElement.h"
+#include "svg/SVGGlyphElement.h"
 #include "SVGNames.h"
-#include "WidthIterator.h"
+#include "platform/graphics/WidthIterator.h"
 
 namespace WebCore {
 

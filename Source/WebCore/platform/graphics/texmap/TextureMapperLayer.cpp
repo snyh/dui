@@ -18,10 +18,10 @@
  */
 
 #include "config.h"
-#include "TextureMapperLayer.h"
+#include "platform/graphics/texmap/TextureMapperLayer.h"
 
-#include "FloatQuad.h"
-#include "Region.h"
+#include "platform/graphics/FloatQuad.h"
+#include "platform/graphics/Region.h"
 #include <wtf/MathExtras.h>
 
 #if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER)

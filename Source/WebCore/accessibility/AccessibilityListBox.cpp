@@ -27,15 +27,15 @@
  */
 
 #include "config.h"
-#include "AccessibilityListBox.h"
+#include "accessibility/AccessibilityListBox.h"
 
-#include "AXObjectCache.h"
-#include "AccessibilityListBoxOption.h"
+#include "accessibility/AXObjectCache.h"
+#include "accessibility/AccessibilityListBoxOption.h"
 #include "HTMLNames.h"
-#include "HTMLSelectElement.h"
-#include "HitTestResult.h"
-#include "RenderListBox.h"
-#include "RenderObject.h"
+#include "html/HTMLSelectElement.h"
+#include "rendering/HitTestResult.h"
+#include "rendering/RenderListBox.h"
+#include "rendering/RenderObject.h"
 
 using namespace std;
 

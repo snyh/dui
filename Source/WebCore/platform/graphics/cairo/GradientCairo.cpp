@@ -25,10 +25,10 @@
  */
 
 #include "config.h"
-#include "Gradient.h"
+#include "platform/graphics/Gradient.h"
 
-#include "GraphicsContext.h"
-#include "PlatformContextCairo.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
 #include <cairo.h>
 
 namespace WebCore {

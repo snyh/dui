@@ -19,9 +19,9 @@
 #ifndef DataObjectGtk_h
 #define DataObjectGtk_h
 
-#include "FileList.h"
-#include "KURL.h"
-#include "Range.h"
+#include "fileapi/FileList.h"
+#include "platform/KURL.h"
+#include "dom/Range.h"
 #include <wtf/RefCounted.h>
 #include <wtf/gobject/GRefPtr.h>
 #include <wtf/text/CString.h>

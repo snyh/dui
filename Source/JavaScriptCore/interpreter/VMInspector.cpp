@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "VMInspector.h"
+#include "interpreter/VMInspector.h"
 
 #if ENABLE(VMINSPECTOR)
 

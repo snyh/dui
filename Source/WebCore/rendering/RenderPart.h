@@ -23,7 +23,7 @@
 #ifndef RenderPart_h
 #define RenderPart_h
 
-#include "RenderWidget.h"
+#include "rendering/RenderWidget.h"
 
 namespace WebCore {
 

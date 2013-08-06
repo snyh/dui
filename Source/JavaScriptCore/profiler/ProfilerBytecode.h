@@ -26,8 +26,8 @@
 #ifndef ProfilerBytecode_h
 #define ProfilerBytecode_h
 
-#include "JSCJSValue.h"
-#include "Opcode.h"
+#include "runtime/JSCJSValue.h"
+#include "bytecode/Opcode.h"
 #include <wtf/text/CString.h>
 
 namespace JSC { namespace Profiler {

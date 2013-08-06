@@ -31,9 +31,9 @@
 #define CustomFilterTransformParameter_h
 
 #if ENABLE(CSS_SHADERS)
-#include "CustomFilterParameter.h"
-#include "FloatSize.h"
-#include "TransformOperations.h"
+#include "platform/graphics/filters/CustomFilterParameter.h"
+#include "platform/graphics/FloatSize.h"
+#include "platform/graphics/transforms/TransformOperations.h"
 
 namespace WebCore {
 

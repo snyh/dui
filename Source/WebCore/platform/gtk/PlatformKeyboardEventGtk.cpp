@@ -28,12 +28,12 @@
  */
 
 #include "config.h"
-#include "PlatformKeyboardEvent.h"
+#include "platform/PlatformKeyboardEvent.h"
 
-#include "GtkVersioning.h"
-#include "NotImplemented.h"
-#include "TextEncoding.h"
-#include "WindowsKeyboardCodes.h"
+#include "platform/gtk/GtkVersioning.h"
+#include "platform/NotImplemented.h"
+#include "platform/text/TextEncoding.h"
+#include "platform/WindowsKeyboardCodes.h"
 
 #include <gdk/gdk.h>
 #include <gdk/gdkkeysyms.h>

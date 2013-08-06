@@ -29,10 +29,10 @@
 
 #if ENABLE(WORKERS)
 
-#include "ScriptExecutionContext.h"
-#include "WorkerGlobalScopeProxy.h"
-#include "WorkerLoaderProxy.h"
-#include "WorkerObjectProxy.h"
+#include "dom/ScriptExecutionContext.h"
+#include "workers/WorkerGlobalScopeProxy.h"
+#include "workers/WorkerLoaderProxy.h"
+#include "workers/WorkerObjectProxy.h"
 #include <wtf/Forward.h>
 #include <wtf/Noncopyable.h>
 #include <wtf/PassOwnPtr.h>

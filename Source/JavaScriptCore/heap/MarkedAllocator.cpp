@@ -1,10 +1,10 @@
 #include "config.h"
-#include "MarkedAllocator.h"
+#include "heap/MarkedAllocator.h"
 
-#include "GCActivityCallback.h"
-#include "Heap.h"
-#include "IncrementalSweeper.h"
-#include "VM.h"
+#include "runtime/GCActivityCallback.h"
+#include "heap/Heap.h"
+#include "heap/IncrementalSweeper.h"
+#include "runtime/VM.h"
 #include <wtf/CurrentTime.h>
 
 namespace JSC {

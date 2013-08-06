@@ -26,9 +26,9 @@
 #ifndef ScrollbarTheme_h
 #define ScrollbarTheme_h
 
-#include "GraphicsContext.h"
-#include "IntRect.h"
-#include "ScrollTypes.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/ScrollTypes.h"
 
 namespace WebCore {
 

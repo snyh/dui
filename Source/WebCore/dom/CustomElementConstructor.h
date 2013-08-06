@@ -33,9 +33,9 @@
 
 #if ENABLE(CUSTOM_ELEMENTS)
 
-#include "ContextDestructionObserver.h"
-#include "Document.h"
-#include "QualifiedName.h"
+#include "dom/ContextDestructionObserver.h"
+#include "dom/Document.h"
+#include "dom/QualifiedName.h"
 #include <wtf/Forward.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>

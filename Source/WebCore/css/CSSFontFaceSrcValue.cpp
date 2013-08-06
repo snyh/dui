@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "CSSFontFaceSrcValue.h"
-#include "CachedFont.h"
-#include "CachedResourceLoader.h"
-#include "CachedResourceRequest.h"
-#include "CachedResourceRequestInitiators.h"
-#include "Document.h"
-#include "FontCustomPlatformData.h"
-#include "Node.h"
-#include "SVGFontFaceElement.h"
-#include "StyleSheetContents.h"
+#include "css/CSSFontFaceSrcValue.h"
+#include "loader/cache/CachedFont.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "loader/cache/CachedResourceRequestInitiators.h"
+#include "dom/Document.h"
+#include "platform/graphics/cairo/FontCustomPlatformData.h"
+#include "dom/Node.h"
+#include "svg/SVGFontFaceElement.h"
+#include "css/StyleSheetContents.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

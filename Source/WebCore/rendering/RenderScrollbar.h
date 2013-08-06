@@ -26,8 +26,8 @@
 #ifndef RenderScrollbar_h
 #define RenderScrollbar_h
 
-#include "RenderStyleConstants.h"
-#include "Scrollbar.h"
+#include "rendering/style/RenderStyleConstants.h"
+#include "platform/Scrollbar.h"
 #include <wtf/HashMap.h>
 
 namespace WebCore {

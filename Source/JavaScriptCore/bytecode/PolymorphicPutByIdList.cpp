@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "PolymorphicPutByIdList.h"
+#include "bytecode/PolymorphicPutByIdList.h"
 
 #if ENABLE(JIT)
 
-#include "StructureStubInfo.h"
+#include "bytecode/StructureStubInfo.h"
 
 namespace JSC {
 

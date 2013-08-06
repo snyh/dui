@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "StyleFilterData.h"
+#include "rendering/style/StyleFilterData.h"
 
-#include "FEGaussianBlur.h"
+#include "platform/graphics/filters/FEGaussianBlur.h"
 
 #if ENABLE(CSS_FILTERS)
 
-#include "RenderStyle.h"
+#include "rendering/style/RenderStyle.h"
 
 namespace WebCore {
 

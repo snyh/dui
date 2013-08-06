@@ -29,8 +29,8 @@
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
 
-#include "RenderSVGHiddenContainer.h"
-#include "RenderSVGResourceFilter.h"
+#include "rendering/svg/RenderSVGHiddenContainer.h"
+#include "rendering/svg/RenderSVGResourceFilter.h"
 
 namespace WebCore {
 

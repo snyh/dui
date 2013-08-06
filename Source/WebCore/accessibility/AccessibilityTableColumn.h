@@ -29,9 +29,9 @@
 #ifndef AccessibilityTableColumn_h
 #define AccessibilityTableColumn_h
 
-#include "AccessibilityMockObject.h"
-#include "AccessibilityTable.h"
-#include "IntRect.h"
+#include "accessibility/AccessibilityMockObject.h"
+#include "accessibility/AccessibilityTable.h"
+#include "platform/graphics/IntRect.h"
 
 namespace WebCore {
     

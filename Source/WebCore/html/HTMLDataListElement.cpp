@@ -31,11 +31,11 @@
 
 #include "config.h"
 #if ENABLE(DATALIST_ELEMENT)
-#include "HTMLDataListElement.h"
+#include "html/HTMLDataListElement.h"
 
-#include "FeatureObserver.h"
+#include "page/FeatureObserver.h"
 #include "HTMLNames.h"
-#include "IdTargetObserverRegistry.h"
+#include "dom/IdTargetObserverRegistry.h"
 
 namespace WebCore {
 

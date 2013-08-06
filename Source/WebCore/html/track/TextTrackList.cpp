@@ -27,14 +27,14 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "TextTrackList.h"
+#include "html/track/TextTrackList.h"
 
-#include "EventNames.h"
-#include "HTMLMediaElement.h"
-#include "InbandTextTrack.h"
-#include "InbandTextTrackPrivate.h"
-#include "LoadableTextTrack.h"
-#include "TextTrack.h"
+#include "dom/EventNames.h"
+#include "html/HTMLMediaElement.h"
+#include "html/track/InbandTextTrack.h"
+#include "platform/graphics/InbandTextTrackPrivate.h"
+#include "html/track/LoadableTextTrack.h"
+#include "html/track/TextTrack.h"
 
 using namespace WebCore;
 

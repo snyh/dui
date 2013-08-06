@@ -28,8 +28,8 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "CachedResource.h"
-#include "FontOrientation.h"
+#include "loader/cache/CachedResource.h"
+#include "platform/graphics/FontOrientation.h"
 
 namespace WebCore {
 

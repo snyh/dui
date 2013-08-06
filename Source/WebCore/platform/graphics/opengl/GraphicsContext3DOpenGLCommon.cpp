@@ -30,21 +30,21 @@
 
 #if USE(3D_GRAPHICS)
 
-#include "GraphicsContext3D.h"
+#include "platform/graphics/GraphicsContext3D.h"
 
-#include "CanvasRenderingContext.h"
+#include "html/canvas/CanvasRenderingContext.h"
 #if USE(OPENGL_ES_2)
-#include "Extensions3DOpenGLES.h"
+#include "platform/graphics/opengl/Extensions3DOpenGLES.h"
 #else
-#include "Extensions3DOpenGL.h"
+#include "platform/graphics/opengl/Extensions3DOpenGL.h"
 #endif
-#include "GraphicsContext.h"
-#include "ImageBuffer.h"
-#include "ImageData.h"
-#include "IntRect.h"
-#include "IntSize.h"
-#include "NotImplemented.h"
-#include "WebGLObject.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "html/ImageData.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/NotImplemented.h"
+#include "html/canvas/WebGLObject.h"
 #include <cstring>
 #include <wtf/ArrayBuffer.h>
 #include <wtf/ArrayBufferView.h>
@@ -56,11 +56,11 @@
 #include <wtf/text/CString.h>
 
 #if USE(OPENGL_ES_2)
-#include "OpenGLESShims.h"
+#include "platform/graphics/OpenGLESShims.h"
 #elif PLATFORM(MAC)
 #include <OpenGL/gl.h>
 #elif PLATFORM(GTK) || PLATFORM(EFL) || PLATFORM(QT) || PLATFORM(WIN)
-#include "OpenGLShims.h"
+#include "platform/graphics/OpenGLShims.h"
 #endif
 
 #if PLATFORM(BLACKBERRY)

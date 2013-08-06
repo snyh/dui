@@ -28,12 +28,12 @@
  */
 
 #include "config.h"
-#include "FontCache.h"
+#include "platform/graphics/FontCache.h"
 
-#include "Font.h"
-#include "FontGlyphs.h"
-#include "FontPlatformData.h"
-#include "FontSelector.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/FontGlyphs.h"
+#include "platform/graphics/FontPlatformData.h"
+#include "platform/graphics/FontSelector.h"
 #include "WebKitFontFamilyNames.h"
 #include <wtf/HashMap.h>
 #include <wtf/ListHashSet.h>
@@ -42,7 +42,7 @@
 #include <wtf/text/StringHash.h>
 
 #if ENABLE(OPENTYPE_VERTICAL)
-#include "OpenTypeVerticalData.h"
+#include "platform/graphics/opentype/OpenTypeVerticalData.h"
 #endif
 
 using namespace WTF;

@@ -21,7 +21,7 @@
  */
 
 #include "config.h"
-#include "HTMLBaseFontElement.h"
+#include "html/HTMLBaseFontElement.h"
 
 #include "HTMLNames.h"
 

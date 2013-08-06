@@ -29,7 +29,7 @@
 #ifndef Biquad_h
 #define Biquad_h
 
-#include "AudioArray.h"
+#include "platform/audio/AudioArray.h"
 #include <complex>
 #include <sys/types.h>
  

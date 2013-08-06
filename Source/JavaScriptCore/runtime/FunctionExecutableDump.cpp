@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "FunctionExecutableDump.h"
+#include "runtime/FunctionExecutableDump.h"
 
 namespace JSC {
 

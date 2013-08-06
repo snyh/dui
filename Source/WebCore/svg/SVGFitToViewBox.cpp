@@ -21,16 +21,16 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGFitToViewBox.h"
+#include "svg/SVGFitToViewBox.h"
 
-#include "AffineTransform.h"
-#include "Attribute.h"
-#include "Document.h"
-#include "FloatRect.h"
-#include "SVGDocumentExtensions.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "dom/Attribute.h"
+#include "dom/Document.h"
+#include "platform/graphics/FloatRect.h"
+#include "svg/SVGDocumentExtensions.h"
 #include "SVGNames.h"
-#include "SVGParserUtilities.h"
-#include "SVGPreserveAspectRatio.h"
+#include "svg/SVGParserUtilities.h"
+#include "svg/SVGPreserveAspectRatio.h"
 #include <wtf/text/StringImpl.h>
 
 namespace WebCore {

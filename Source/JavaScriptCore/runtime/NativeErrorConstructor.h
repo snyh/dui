@@ -21,8 +21,8 @@
 #ifndef NativeErrorConstructor_h
 #define NativeErrorConstructor_h
 
-#include "InternalFunction.h"
-#include "NativeErrorPrototype.h"
+#include "runtime/InternalFunction.h"
+#include "runtime/NativeErrorPrototype.h"
 
 namespace JSC {
 

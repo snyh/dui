@@ -25,13 +25,13 @@
 #ifndef FrameView_h
 #define FrameView_h
 
-#include "AdjustViewSizeOrNot.h"
-#include "Color.h"
-#include "Frame.h"
-#include "LayoutRect.h"
-#include "Pagination.h"
-#include "PaintPhase.h"
-#include "ScrollView.h"
+#include "page/AdjustViewSizeOrNot.h"
+#include "platform/graphics/Color.h"
+#include "page/Frame.h"
+#include "platform/graphics/LayoutRect.h"
+#include "rendering/Pagination.h"
+#include "rendering/PaintPhase.h"
+#include "platform/ScrollView.h"
 #include <wtf/Forward.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/text/WTFString.h>

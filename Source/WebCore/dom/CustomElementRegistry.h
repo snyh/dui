@@ -33,11 +33,11 @@
 
 #if ENABLE(CUSTOM_ELEMENTS)
 
-#include "ContextDestructionObserver.h"
-#include "ExceptionCode.h"
-#include "QualifiedName.h"
-#include "ScriptValue.h"
-#include "Supplementable.h"
+#include "dom/ContextDestructionObserver.h"
+#include "dom/ExceptionCode.h"
+#include "dom/QualifiedName.h"
+#include "bindings/dui/saved/ScriptValue.h"
+#include "platform/Supplementable.h"
 #include <wtf/HashSet.h>
 #include <wtf/ListHashSet.h>
 #include <wtf/PassRefPtr.h>

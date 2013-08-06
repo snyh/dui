@@ -25,7 +25,7 @@
 #define LightSource_h
 
 #if ENABLE(FILTERS)
-#include "FloatPoint3D.h"
+#include "platform/graphics/FloatPoint3D.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 

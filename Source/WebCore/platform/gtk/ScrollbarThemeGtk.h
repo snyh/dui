@@ -26,7 +26,7 @@
 #ifndef ScrollbarThemeGtk_h
 #define ScrollbarThemeGtk_h
 
-#include "ScrollbarThemeComposite.h"
+#include "platform/ScrollbarThemeComposite.h"
 
 namespace WebCore {
 

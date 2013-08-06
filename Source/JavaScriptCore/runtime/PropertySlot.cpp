@@ -19,11 +19,11 @@
  */
 
 #include "config.h"
-#include "PropertySlot.h"
+#include "runtime/PropertySlot.h"
 
-#include "JSFunction.h"
-#include "JSGlobalObject.h"
-#include "Operations.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

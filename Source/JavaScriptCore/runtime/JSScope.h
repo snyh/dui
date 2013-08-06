@@ -26,8 +26,8 @@
 #ifndef JSScope_h
 #define JSScope_h
 
-#include "JSObject.h"
-#include "ResolveOperation.h"
+#include "runtime/JSObject.h"
+#include "bytecode/ResolveOperation.h"
 
 namespace JSC {
 

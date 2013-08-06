@@ -20,15 +20,15 @@
  */
 
 #include "config.h"
-#include "Debugger.h"
+#include "debugger/Debugger.h"
 
-#include "Error.h"
-#include "Interpreter.h"
-#include "JSFunction.h"
-#include "JSGlobalObject.h"
-#include "Operations.h"
-#include "Parser.h"
-#include "Protect.h"
+#include "runtime/Error.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/Operations.h"
+#include "parser/Parser.h"
+#include "runtime/Protect.h"
 
 namespace {
 

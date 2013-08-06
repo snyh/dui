@@ -19,26 +19,26 @@
  */
 
 #include "config.h"
-#include "CSSPrimitiveValue.h"
+#include "css/CSSPrimitiveValue.h"
 
-#include "CSSBasicShapes.h"
-#include "CSSCalculationValue.h"
-#include "CSSHelper.h"
-#include "CSSParser.h"
+#include "css/CSSBasicShapes.h"
+#include "css/CSSCalculationValue.h"
+#include "css/CSSHelper.h"
+#include "css/CSSParser.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
-#include "CalculationValue.h"
-#include "Color.h"
-#include "Counter.h"
-#include "ExceptionCode.h"
-#include "Font.h"
-#include "LayoutUnit.h"
-#include "Node.h"
-#include "Pair.h"
-#include "RGBColor.h"
-#include "Rect.h"
-#include "RenderStyle.h"
-#include "StyleSheetContents.h"
+#include "platform/CalculationValue.h"
+#include "platform/graphics/Color.h"
+#include "css/Counter.h"
+#include "dom/ExceptionCode.h"
+#include "platform/graphics/Font.h"
+#include "platform/LayoutUnit.h"
+#include "dom/Node.h"
+#include "css/Pair.h"
+#include "css/RGBColor.h"
+#include "css/Rect.h"
+#include "rendering/style/RenderStyle.h"
+#include "css/StyleSheetContents.h"
 #include <wtf/ASCIICType.h>
 #include <wtf/DecimalNumber.h>
 #include <wtf/StdLibExtras.h>
@@ -46,7 +46,7 @@
 #include <wtf/text/StringBuilder.h>
 
 #if ENABLE(DASHBOARD_SUPPORT)
-#include "DashboardRegion.h"
+#include "css/DashboardRegion.h"
 #endif
 
 using namespace WTF;

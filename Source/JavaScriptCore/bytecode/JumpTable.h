@@ -30,7 +30,7 @@
 #ifndef JumpTable_h
 #define JumpTable_h
 
-#include "MacroAssembler.h"
+#include "assembler/MacroAssembler.h"
 #include <wtf/HashMap.h>
 #include <wtf/Vector.h>
 #include <wtf/text/StringImpl.h>

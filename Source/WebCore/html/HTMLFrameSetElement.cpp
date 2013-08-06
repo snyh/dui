@@ -22,23 +22,23 @@
  */
 
 #include "config.h"
-#include "HTMLFrameSetElement.h"
+#include "html/HTMLFrameSetElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
-#include "Document.h"
-#include "Event.h"
-#include "EventNames.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
+#include "dom/Document.h"
+#include "dom/Event.h"
+#include "dom/EventNames.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
 #include "HTMLNames.h"
-#include "Length.h"
-#include "MouseEvent.h"
-#include "NodeRenderingContext.h"
-#include "RenderFrameSet.h"
-#include "ScriptEventListener.h"
-#include "Text.h"
+#include "platform/Length.h"
+#include "dom/MouseEvent.h"
+#include "dom/NodeRenderingContext.h"
+#include "rendering/RenderFrameSet.h"
+#include "bindings/dui/saved/ScriptEventListener.h"
+#include "dom/Text.h"
 
 namespace WebCore {
 

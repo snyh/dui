@@ -30,8 +30,8 @@
 #ifndef BasicShapes_h
 #define BasicShapes_h
 
-#include "Length.h"
-#include "WindRule.h"
+#include "platform/Length.h"
+#include "platform/graphics/WindRule.h"
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>
 #include <wtf/Vector.h>

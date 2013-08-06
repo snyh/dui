@@ -26,7 +26,7 @@
  */
 
 #include "config.h"
-#include "SharedTimer.h"
+#include "platform/SharedTimer.h"
 
 #include <wtf/Assertions.h>
 #include <wtf/CurrentTime.h>

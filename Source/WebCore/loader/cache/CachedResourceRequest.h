@@ -26,10 +26,10 @@
 #ifndef CachedResourceRequest_h
 #define CachedResourceRequest_h
 
-#include "Element.h"
-#include "ResourceLoadPriority.h"
-#include "ResourceLoaderOptions.h"
-#include "ResourceRequest.h"
+#include "dom/Element.h"
+#include "platform/network/ResourceLoadPriority.h"
+#include "loader/ResourceLoaderOptions.h"
+#include "platform/network/soup/ResourceRequest.h"
 #include <wtf/RefPtr.h>
 #include <wtf/text/AtomicString.h>
 

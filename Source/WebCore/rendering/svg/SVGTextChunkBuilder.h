@@ -21,7 +21,7 @@
 #define SVGTextChunkBuilder_h
 
 #if ENABLE(SVG)
-#include "SVGTextChunk.h"
+#include "rendering/svg/SVGTextChunk.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

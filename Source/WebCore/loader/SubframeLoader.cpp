@@ -31,28 +31,28 @@
  */
 
 #include "config.h"
-#include "SubframeLoader.h"
+#include "loader/SubframeLoader.h"
 
-#include "Chrome.h"
-#include "ChromeClient.h"
-#include "ContentSecurityPolicy.h"
-#include "DiagnosticLoggingKeys.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
-#include "HTMLFrameElementBase.h"
+#include "page/Chrome.h"
+#include "page/ChromeClient.h"
+#include "page/ContentSecurityPolicy.h"
+#include "page/DiagnosticLoggingKeys.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
+#include "html/HTMLFrameElementBase.h"
 #include "HTMLNames.h"
-#include "MIMETypeRegistry.h"
-#include "Page.h"
-#include "RenderWidget.h"
-#include "RenderView.h"
-#include "SecurityOrigin.h"
-#include "SecurityPolicy.h"
-#include "Settings.h"
+#include "platform/MIMETypeRegistry.h"
+#include "page/Page.h"
+#include "rendering/RenderWidget.h"
+#include "rendering/RenderView.h"
+#include "page/SecurityOrigin.h"
+#include "page/SecurityPolicy.h"
+#include "page/Settings.h"
 
 #if ENABLE(PLUGIN_PROXY_FOR_VIDEO)
-#include "HTMLMediaElement.h"
-#include "RenderVideo.h"
+#include "html/HTMLMediaElement.h"
+#include "rendering/RenderVideo.h"
 #endif
 
 namespace WebCore {

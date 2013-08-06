@@ -30,7 +30,7 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "ValueRecovery.h"
+#include "bytecode/ValueRecovery.h"
 #include <wtf/RefCounted.h>
 
 namespace JSC { namespace DFG {

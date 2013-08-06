@@ -21,7 +21,7 @@
 #ifndef BooleanPrototype_h
 #define BooleanPrototype_h
 
-#include "BooleanObject.h"
+#include "runtime/BooleanObject.h"
 
 namespace JSC {
 

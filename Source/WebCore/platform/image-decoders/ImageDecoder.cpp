@@ -20,21 +20,21 @@
  */
 
 #include "config.h"
-#include "ImageDecoder.h"
+#include "platform/image-decoders/ImageDecoder.h"
 
-#include "BMPImageDecoder.h"
-#include "GIFImageDecoder.h"
-#include "ICOImageDecoder.h"
+#include "platform/image-decoders/bmp/BMPImageDecoder.h"
+#include "platform/image-decoders/gif/GIFImageDecoder.h"
+#include "platform/image-decoders/ico/ICOImageDecoder.h"
 #if PLATFORM(QT)
 #include "ImageDecoderQt.h"
 #endif
 #if !PLATFORM(QT) || USE(LIBJPEG)
-#include "JPEGImageDecoder.h"
+#include "platform/image-decoders/jpeg/JPEGImageDecoder.h"
 #endif
-#include "PNGImageDecoder.h"
-#include "SharedBuffer.h"
+#include "platform/image-decoders/png/PNGImageDecoder.h"
+#include "platform/SharedBuffer.h"
 #if USE(WEBP)
-#include "WEBPImageDecoder.h"
+#include "platform/image-decoders/webp/WEBPImageDecoder.h"
 #endif
 
 #include <algorithm>

@@ -18,19 +18,19 @@
  * Boston, MA 02110-1301, USA.
  */
 #include "config.h"
-#include "MediaList.h"
+#include "css/MediaList.h"
 
-#include "CSSImportRule.h"
-#include "CSSParser.h"
-#include "CSSStyleSheet.h"
-#include "Console.h"
-#include "DOMWindow.h"
-#include "Document.h"
-#include "ExceptionCode.h"
-#include "MediaFeatureNames.h"
-#include "MediaQuery.h"
-#include "MediaQueryExp.h"
-#include "ScriptableDocumentParser.h"
+#include "css/CSSImportRule.h"
+#include "css/CSSParser.h"
+#include "css/CSSStyleSheet.h"
+#include "page/Console.h"
+#include "page/DOMWindow.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCode.h"
+#include "css/MediaFeatureNames.h"
+#include "css/MediaQuery.h"
+#include "css/MediaQueryExp.h"
+#include "dom/ScriptableDocumentParser.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

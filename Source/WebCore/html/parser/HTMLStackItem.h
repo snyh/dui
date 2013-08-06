@@ -26,8 +26,8 @@
 #ifndef HTMLStackItem_h
 #define HTMLStackItem_h
 
-#include "AtomicHTMLToken.h"
-#include "Element.h"
+#include "html/parser/AtomicHTMLToken.h"
+#include "dom/Element.h"
 #include "HTMLNames.h"
 #include "MathMLNames.h"
 #include "SVGNames.h"

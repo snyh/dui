@@ -24,9 +24,9 @@
 #ifndef HTMLImageElement_h
 #define HTMLImageElement_h
 
-#include "GraphicsTypes.h"
-#include "HTMLElement.h"
-#include "HTMLImageLoader.h"
+#include "platform/graphics/GraphicsTypes.h"
+#include "html/HTMLElement.h"
+#include "html/HTMLImageLoader.h"
 
 namespace WebCore {
 

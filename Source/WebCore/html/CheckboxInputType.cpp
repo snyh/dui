@@ -30,12 +30,12 @@
  */
 
 #include "config.h"
-#include "CheckboxInputType.h"
+#include "html/CheckboxInputType.h"
 
-#include "HTMLInputElement.h"
-#include "InputTypeNames.h"
-#include "KeyboardEvent.h"
-#include "LocalizedStrings.h"
+#include "html/HTMLInputElement.h"
+#include "html/InputTypeNames.h"
+#include "dom/KeyboardEvent.h"
+#include "platform/LocalizedStrings.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

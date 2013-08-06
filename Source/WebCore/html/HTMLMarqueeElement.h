@@ -23,8 +23,8 @@
 #ifndef HTMLMarqueeElement_h
 #define HTMLMarqueeElement_h
 
-#include "ActiveDOMObject.h"
-#include "HTMLElement.h"
+#include "dom/ActiveDOMObject.h"
+#include "html/HTMLElement.h"
 
 namespace WebCore {
 

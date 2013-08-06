@@ -21,10 +21,10 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGResourceLinearGradient.h"
+#include "rendering/svg/RenderSVGResourceLinearGradient.h"
 
-#include "LinearGradientAttributes.h"
-#include "SVGLinearGradientElement.h"
+#include "svg/LinearGradientAttributes.h"
+#include "svg/SVGLinearGradientElement.h"
 
 namespace WebCore {
 

@@ -27,10 +27,10 @@
  */
 
 #include "config.h"
-#include "SelectorFilter.h"
+#include "css/SelectorFilter.h"
 
-#include "CSSSelector.h"
-#include "StyledElement.h"
+#include "css/CSSSelector.h"
+#include "dom/StyledElement.h"
 
 namespace WebCore {
 

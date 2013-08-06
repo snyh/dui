@@ -25,7 +25,7 @@
 
 #include "config.h"
 #if ENABLE(VIDEO)
-#include "HTMLAudioElement.h"
+#include "html/HTMLAudioElement.h"
 
 #include "HTMLNames.h"
 

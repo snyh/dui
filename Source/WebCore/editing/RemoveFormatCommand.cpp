@@ -25,16 +25,16 @@
  */
 
 #include "config.h"
-#include "RemoveFormatCommand.h"
+#include "editing/RemoveFormatCommand.h"
 
-#include "ApplyStyleCommand.h"
+#include "editing/ApplyStyleCommand.h"
 #include "CSSValueKeywords.h"
-#include "EditingStyle.h"
-#include "Element.h"
-#include "Frame.h"
-#include "FrameSelection.h"
+#include "editing/EditingStyle.h"
+#include "dom/Element.h"
+#include "page/Frame.h"
+#include "editing/FrameSelection.h"
 #include "HTMLNames.h"
-#include "StylePropertySet.h"
+#include "css/StylePropertySet.h"
 
 namespace WebCore {
 

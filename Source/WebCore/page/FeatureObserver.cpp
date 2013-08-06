@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "FeatureObserver.h"
+#include "page/FeatureObserver.h"
 
-#include "DOMWindow.h"
-#include "Document.h"
-#include "HistogramSupport.h"
-#include "Page.h"
+#include "page/DOMWindow.h"
+#include "dom/Document.h"
+#include "platform/HistogramSupport.h"
+#include "page/Page.h"
 
 namespace WebCore {
 

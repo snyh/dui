@@ -30,20 +30,20 @@
  */
 
 #include "config.h"
-#include "PingLoader.h"
+#include "loader/PingLoader.h"
 
-#include "Document.h"
-#include "FormData.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
-#include "Page.h"
-#include "ProgressTracker.h"
-#include "ResourceHandle.h"
-#include "ResourceRequest.h"
-#include "ResourceResponse.h"
-#include "SecurityOrigin.h"
-#include "SecurityPolicy.h"
+#include "dom/Document.h"
+#include "platform/network/FormData.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
+#include "page/Page.h"
+#include "loader/ProgressTracker.h"
+#include "platform/network/ResourceHandle.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "page/SecurityOrigin.h"
+#include "page/SecurityPolicy.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/text/CString.h>
 

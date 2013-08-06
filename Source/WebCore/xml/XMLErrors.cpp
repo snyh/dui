@@ -27,13 +27,13 @@
  */
 
 #include "config.h"
-#include "XMLErrors.h"
+#include "xml/XMLErrors.h"
 
-#include "Document.h"
-#include "Element.h"
-#include "Frame.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
+#include "page/Frame.h"
 #include "HTMLNames.h"
-#include "Text.h"
+#include "dom/Text.h"
 #include <wtf/text/WTFString.h>
 
 #if ENABLE(SVG)

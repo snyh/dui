@@ -28,15 +28,15 @@
  */
 
 #include "config.h"
-#include "ShapeInfo.h"
+#include "rendering/shapes/ShapeInfo.h"
 
 #if ENABLE(CSS_SHAPES)
 
-#include "RenderBlock.h"
-#include "RenderBox.h"
-#include "RenderRegion.h"
-#include "RenderStyle.h"
-#include "Shape.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/RenderBox.h"
+#include "rendering/RenderRegion.h"
+#include "rendering/style/RenderStyle.h"
+#include "rendering/shapes/Shape.h"
 
 namespace WebCore {
 template<class RenderType, ShapeValue* (RenderStyle::*shapeGetter)() const, void (Shape::*intervalGetter)(LayoutUnit, LayoutUnit, SegmentList&) const>

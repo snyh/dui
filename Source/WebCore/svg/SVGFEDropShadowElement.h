@@ -21,9 +21,9 @@
 #define SVGFEDropShadowElement_h
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "FEDropShadow.h"
-#include "SVGAnimatedNumber.h"
-#include "SVGFilterPrimitiveStandardAttributes.h"
+#include "platform/graphics/filters/FEDropShadow.h"
+#include "svg/SVGAnimatedNumber.h"
+#include "svg/SVGFilterPrimitiveStandardAttributes.h"
 
 namespace WebCore {
     

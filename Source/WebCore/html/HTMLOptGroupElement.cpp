@@ -23,15 +23,15 @@
  */
 
 #include "config.h"
-#include "HTMLOptGroupElement.h"
+#include "html/HTMLOptGroupElement.h"
 
-#include "Document.h"
+#include "dom/Document.h"
 #include "HTMLNames.h"
-#include "HTMLSelectElement.h"
-#include "RenderMenuList.h"
-#include "NodeRenderStyle.h"
-#include "NodeRenderingContext.h"
-#include "StyleResolver.h"
+#include "html/HTMLSelectElement.h"
+#include "rendering/RenderMenuList.h"
+#include "dom/NodeRenderStyle.h"
+#include "dom/NodeRenderingContext.h"
+#include "css/StyleResolver.h"
 #include <wtf/StdLibExtras.h>
 
 namespace WebCore {

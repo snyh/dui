@@ -33,8 +33,8 @@
 
 #if ENABLE(MEDIA_STREAM)
 
-#include "MediaStreamSource.h"
-#include "UUID.h"
+#include "platform/mediastream/MediaStreamSource.h"
+#include "platform/UUID.h"
 
 namespace WebCore {
 

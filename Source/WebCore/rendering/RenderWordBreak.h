@@ -27,7 +27,7 @@
 #ifndef RenderWordBreak_h
 #define RenderWordBreak_h
 
-#include "RenderText.h"
+#include "rendering/RenderText.h"
 
 namespace WebCore {
 

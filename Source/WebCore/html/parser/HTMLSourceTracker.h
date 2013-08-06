@@ -26,8 +26,8 @@
 #ifndef HTMLSourceTracker_h
 #define HTMLSourceTracker_h
 
-#include "HTMLToken.h"
-#include "SegmentedString.h"
+#include "html/parser/HTMLToken.h"
+#include "platform/text/SegmentedString.h"
 
 namespace WebCore {
 

@@ -26,27 +26,27 @@
 #include "config.h"
 
 #if ENABLE(JIT)
-#include "JIT.h"
+#include "jit/JIT.h"
 
 // This probably does not belong here; adding here for now as a quick Windows build fix.
 #if ENABLE(ASSEMBLER) && CPU(X86) && !OS(MAC_OS_X)
-#include "MacroAssembler.h"
+#include "assembler/MacroAssembler.h"
 JSC::MacroAssemblerX86Common::SSE2CheckState JSC::MacroAssemblerX86Common::s_sse2CheckState = NotCheckedSSE2;
 #endif
 
-#include "CodeBlock.h"
+#include "bytecode/CodeBlock.h"
 #include <wtf/CryptographicallyRandomNumber.h>
 #include "DFGNode.h" // for DFG_SUCCESS_STATS
-#include "Interpreter.h"
-#include "JITInlines.h"
-#include "JITStubCall.h"
-#include "JSArray.h"
-#include "JSFunction.h"
-#include "LinkBuffer.h"
-#include "Operations.h"
-#include "RepatchBuffer.h"
-#include "ResultType.h"
-#include "SamplingTool.h"
+#include "interpreter/Interpreter.h"
+#include "jit/JITInlines.h"
+#include "jit/JITStubCall.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSFunction.h"
+#include "assembler/LinkBuffer.h"
+#include "runtime/Operations.h"
+#include "assembler/RepatchBuffer.h"
+#include "parser/ResultType.h"
+#include "bytecode/SamplingTool.h"
 
 using namespace std;
 

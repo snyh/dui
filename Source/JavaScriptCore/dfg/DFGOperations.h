@@ -28,8 +28,8 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGJITCompiler.h"
-#include "PutKind.h"
+#include "dfg/DFGJITCompiler.h"
+#include "bytecode/PutKind.h"
 
 namespace JSC {
 

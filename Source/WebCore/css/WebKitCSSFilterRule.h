@@ -30,7 +30,7 @@
 #ifndef WebKitCSSFilterRule_h
 #define WebKitCSSFilterRule_h
 
-#include "CSSRule.h"
+#include "css/CSSRule.h"
 
 #if ENABLE(CSS_SHADERS)
 

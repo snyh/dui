@@ -21,9 +21,9 @@
  */
 
 #include "config.h"
-#include "RenderQuote.h"
+#include "rendering/RenderQuote.h"
 
-#include "QuotesData.h"
+#include "rendering/style/QuotesData.h"
 
 using namespace WTF::Unicode;
 

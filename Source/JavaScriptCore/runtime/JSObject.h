@@ -23,24 +23,24 @@
 #ifndef JSObject_h
 #define JSObject_h
 
-#include "ArgList.h"
-#include "ArrayConventions.h"
-#include "ArrayStorage.h"
-#include "Butterfly.h"
-#include "ClassInfo.h"
-#include "CommonIdentifiers.h"
-#include "CallFrame.h"
-#include "JSCell.h"
-#include "PropertySlot.h"
-#include "PropertyStorage.h"
-#include "PutDirectIndexMode.h"
-#include "PutPropertySlot.h"
+#include "runtime/ArgList.h"
+#include "runtime/ArrayConventions.h"
+#include "runtime/ArrayStorage.h"
+#include "runtime/Butterfly.h"
+#include "runtime/ClassInfo.h"
+#include "runtime/CommonIdentifiers.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/JSCell.h"
+#include "runtime/PropertySlot.h"
+#include "runtime/PropertyStorage.h"
+#include "runtime/PutDirectIndexMode.h"
+#include "runtime/PutPropertySlot.h"
 
-#include "Structure.h"
-#include "VM.h"
-#include "JSString.h"
-#include "SlotVisitorInlines.h"
-#include "SparseArrayValueMap.h"
+#include "runtime/Structure.h"
+#include "runtime/VM.h"
+#include "runtime/JSString.h"
+#include "heap/SlotVisitorInlines.h"
+#include "runtime/SparseArrayValueMap.h"
 #include <wtf/StdLibExtras.h>
 
 namespace JSC {

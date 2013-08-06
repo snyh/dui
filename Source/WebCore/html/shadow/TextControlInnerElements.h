@@ -27,8 +27,8 @@
 #ifndef TextControlInnerElements_h
 #define TextControlInnerElements_h
 
-#include "HTMLDivElement.h"
-#include "SpeechInputListener.h"
+#include "html/HTMLDivElement.h"
+#include "page/SpeechInputListener.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

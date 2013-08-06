@@ -27,11 +27,11 @@
 #ifndef EditorClient_h
 #define EditorClient_h
 
-#include "EditorInsertAction.h"
-#include "FloatRect.h"
-#include "TextAffinity.h"
-#include "TextChecking.h"
-#include "UndoStep.h"
+#include "editing/EditorInsertAction.h"
+#include "platform/graphics/FloatRect.h"
+#include "editing/TextAffinity.h"
+#include "platform/text/TextChecking.h"
+#include "editing/UndoStep.h"
 #include <wtf/Forward.h>
 #include <wtf/Vector.h>
 

@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "DiagnosticLoggingKeys.h"
+#include "page/DiagnosticLoggingKeys.h"
 
 namespace WebCore {
 

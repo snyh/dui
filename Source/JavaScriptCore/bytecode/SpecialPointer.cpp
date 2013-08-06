@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "SpecialPointer.h"
+#include "bytecode/SpecialPointer.h"
 
-#include "CodeBlock.h"
-#include "JSGlobalObject.h"
+#include "bytecode/CodeBlock.h"
+#include "runtime/JSGlobalObject.h"
 
 namespace JSC {
 

@@ -27,18 +27,18 @@
 
 #if ENABLE(JIT)
 #if USE(JSVALUE32_64)
-#include "JIT.h"
+#include "jit/JIT.h"
 
-#include "CodeBlock.h"
-#include "JITInlines.h"
-#include "JITStubCall.h"
-#include "JITStubs.h"
-#include "JSArray.h"
-#include "JSFunction.h"
-#include "Interpreter.h"
-#include "Operations.h"
-#include "ResultType.h"
-#include "SamplingTool.h"
+#include "bytecode/CodeBlock.h"
+#include "jit/JITInlines.h"
+#include "jit/JITStubCall.h"
+#include "jit/JITStubs.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSFunction.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/Operations.h"
+#include "parser/ResultType.h"
+#include "bytecode/SamplingTool.h"
 
 #ifndef NDEBUG
 #include <stdio.h>

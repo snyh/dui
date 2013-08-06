@@ -29,13 +29,13 @@
 
 #if ENABLE(WORKERS)
 
-#include "ContentSecurityPolicy.h"
-#include "EventListener.h"
-#include "EventNames.h"
-#include "EventTarget.h"
-#include "GroupSettings.h"
-#include "ScriptExecutionContext.h"
-#include "WorkerEventQueue.h"
+#include "page/ContentSecurityPolicy.h"
+#include "dom/EventListener.h"
+#include "dom/EventNames.h"
+#include "dom/EventTarget.h"
+#include "page/GroupSettings.h"
+#include "dom/ScriptExecutionContext.h"
+#include "workers/WorkerEventQueue.h"
 #include "WorkerScriptController.h"
 #include <wtf/Assertions.h>
 #include <wtf/HashMap.h>

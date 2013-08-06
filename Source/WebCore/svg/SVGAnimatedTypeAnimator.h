@@ -21,10 +21,10 @@
 #define SVGAnimatedTypeAnimator_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedProperty.h"
-#include "SVGAnimatedType.h"
-#include "SVGAttributeToPropertyMap.h"
-#include "SVGElementInstance.h"
+#include "svg/properties/SVGAnimatedProperty.h"
+#include "svg/SVGAnimatedType.h"
+#include "svg/properties/SVGAttributeToPropertyMap.h"
+#include "svg/SVGElementInstance.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

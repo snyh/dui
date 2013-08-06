@@ -26,15 +26,15 @@
 #ifndef ProfilerCompilation_h
 #define ProfilerCompilation_h
 
-#include "ExitKind.h"
-#include "JSCJSValue.h"
-#include "ProfilerCompilationKind.h"
-#include "ProfilerCompiledBytecode.h"
-#include "ProfilerExecutionCounter.h"
-#include "ProfilerOSRExit.h"
-#include "ProfilerOSRExitSite.h"
-#include "ProfilerOriginStack.h"
-#include "ProfilerProfiledBytecodes.h"
+#include "bytecode/ExitKind.h"
+#include "runtime/JSCJSValue.h"
+#include "profiler/ProfilerCompilationKind.h"
+#include "profiler/ProfilerCompiledBytecode.h"
+#include "profiler/ProfilerExecutionCounter.h"
+#include "profiler/ProfilerOSRExit.h"
+#include "profiler/ProfilerOSRExitSite.h"
+#include "profiler/ProfilerOriginStack.h"
+#include "profiler/ProfilerProfiledBytecodes.h"
 #include <wtf/RefCounted.h>
 #include <wtf/SegmentedVector.h>
 

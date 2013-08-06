@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "JSProxy.h"
+#include "runtime/JSProxy.h"
 
-#include "JSGlobalObject.h"
-#include "Operations.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

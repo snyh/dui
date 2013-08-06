@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "IntRect.h"
+#include "platform/graphics/IntRect.h"
 
-#include "FloatRect.h"
-#include "LayoutRect.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/LayoutRect.h"
 #include <algorithm>
 
 using std::max;

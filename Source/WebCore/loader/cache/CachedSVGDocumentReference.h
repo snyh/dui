@@ -28,8 +28,8 @@
 
 #if ENABLE(SVG) && ENABLE(CSS_FILTERS)
 
-#include "CachedResourceHandle.h"
-#include "CachedSVGDocumentClient.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "loader/cache/CachedSVGDocumentClient.h"
 
 namespace WebCore {
 

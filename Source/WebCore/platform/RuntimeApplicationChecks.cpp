@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "RuntimeApplicationChecks.h"
+#include "platform/RuntimeApplicationChecks.h"
 
 #if USE(CF)
 #include <CoreFoundation/CoreFoundation.h>

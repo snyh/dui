@@ -26,13 +26,13 @@
 #ifndef JSInterfaceJIT_h
 #define JSInterfaceJIT_h
 
-#include "BytecodeConventions.h"
-#include "JITCode.h"
-#include "JITStubs.h"
-#include "JSCJSValue.h"
-#include "JSStack.h"
-#include "JSString.h"
-#include "MacroAssembler.h"
+#include "bytecode/BytecodeConventions.h"
+#include "jit/JITCode.h"
+#include "jit/JITStubs.h"
+#include "runtime/JSCJSValue.h"
+#include "interpreter/JSStack.h"
+#include "runtime/JSString.h"
+#include "assembler/MacroAssembler.h"
 #include <wtf/Vector.h>
 
 #if ENABLE(JIT)

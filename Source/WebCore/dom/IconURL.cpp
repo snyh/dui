@@ -29,7 +29,7 @@
  */
 
 #include "config.h"
-#include "IconURL.h"
+#include "dom/IconURL.h"
 
 namespace WebCore {
 

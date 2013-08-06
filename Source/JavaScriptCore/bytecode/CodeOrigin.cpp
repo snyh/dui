@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "CodeOrigin.h"
+#include "bytecode/CodeOrigin.h"
 
-#include "CallFrame.h"
-#include "CodeBlock.h"
-#include "Executable.h"
-#include "Operations.h"
+#include "interpreter/CallFrame.h"
+#include "bytecode/CodeBlock.h"
+#include "runtime/Executable.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

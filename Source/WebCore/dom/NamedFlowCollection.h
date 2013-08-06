@@ -30,8 +30,8 @@
 #ifndef NamedFlowCollection_h
 #define NamedFlowCollection_h
 
-#include "ContextDestructionObserver.h"
-#include "WebKitNamedFlow.h"
+#include "dom/ContextDestructionObserver.h"
+#include "dom/WebKitNamedFlow.h"
 #include <wtf/Forward.h>
 #include <wtf/ListHashSet.h>
 #include <wtf/PassRefPtr.h>

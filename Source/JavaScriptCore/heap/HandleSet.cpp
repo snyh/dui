@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "HandleSet.h"
+#include "heap/HandleSet.h"
 
-#include "HandleBlock.h"
-#include "HandleBlockInlines.h"
-#include "HeapRootVisitor.h"
-#include "JSObject.h"
-#include "Operations.h"
+#include "heap/HandleBlock.h"
+#include "heap/HandleBlockInlines.h"
+#include "heap/HeapRootVisitor.h"
+#include "runtime/JSObject.h"
+#include "runtime/Operations.h"
 #include <wtf/DataLog.h>
 
 namespace JSC {

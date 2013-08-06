@@ -26,7 +26,7 @@
 #ifndef StaticPropertyAnalyzer_h
 #define StaticPropertyAnalyzer_h
 
-#include "StaticPropertyAnalysis.h"
+#include "bytecompiler/StaticPropertyAnalysis.h"
 #include <wtf/HashMap.h>
 
 namespace JSC {

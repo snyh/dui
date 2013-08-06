@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "DFGDisassembler.h"
+#include "dfg/DFGDisassembler.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "CodeBlockWithJITType.h"
-#include "DFGGraph.h"
+#include "bytecode/CodeBlockWithJITType.h"
+#include "dfg/DFGGraph.h"
 
 namespace JSC { namespace DFG {
 

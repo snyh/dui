@@ -21,9 +21,9 @@
 #ifndef FontGlyphs_h
 #define FontGlyphs_h
 
-#include "FontSelector.h"
-#include "SimpleFontData.h"
-#include "WidthCache.h"
+#include "platform/graphics/FontSelector.h"
+#include "platform/graphics/SimpleFontData.h"
+#include "platform/graphics/WidthCache.h"
 #include <wtf/Forward.h>
 #include <wtf/MainThread.h>
 

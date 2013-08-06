@@ -22,7 +22,7 @@
 
 #if USE(EGL)
 
-#include "GLContext.h"
+#include "platform/graphics/cairo/GLContext.h"
 
 #include <EGL/egl.h>
 

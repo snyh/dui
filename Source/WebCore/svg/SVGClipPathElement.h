@@ -22,11 +22,11 @@
 #define SVGClipPathElement_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedBoolean.h"
-#include "SVGAnimatedEnumeration.h"
-#include "SVGExternalResourcesRequired.h"
-#include "SVGGraphicsElement.h"
-#include "SVGUnitTypes.h"
+#include "svg/SVGAnimatedBoolean.h"
+#include "svg/SVGAnimatedEnumeration.h"
+#include "svg/SVGExternalResourcesRequired.h"
+#include "svg/SVGGraphicsElement.h"
+#include "svg/SVGUnitTypes.h"
 
 namespace WebCore {
 

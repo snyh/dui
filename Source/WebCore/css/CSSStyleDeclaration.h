@@ -22,9 +22,9 @@
 #define CSSStyleDeclaration_h
 
 #include "CSSPropertyNames.h"
-#include "ScriptWrappable.h"
-#include "CSSRule.h"
-#include "StylePropertySet.h"
+#include "bindings/dui/ScriptWrappable.h"
+#include "css/CSSRule.h"
+#include "css/StylePropertySet.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

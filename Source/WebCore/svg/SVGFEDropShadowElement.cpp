@@ -20,15 +20,15 @@
 #include "config.h"
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "SVGFEDropShadowElement.h"
+#include "svg/SVGFEDropShadowElement.h"
 
-#include "Attribute.h"
-#include "RenderStyle.h"
-#include "SVGElementInstance.h"
-#include "SVGFilterBuilder.h"
+#include "dom/Attribute.h"
+#include "rendering/style/RenderStyle.h"
+#include "svg/SVGElementInstance.h"
+#include "svg/graphics/filters/SVGFilterBuilder.h"
 #include "SVGNames.h"
-#include "SVGParserUtilities.h"
-#include "SVGRenderStyle.h"
+#include "svg/SVGParserUtilities.h"
+#include "rendering/style/SVGRenderStyle.h"
 
 namespace WebCore {
 

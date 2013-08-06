@@ -23,9 +23,9 @@
 #ifndef ClassInfo_h
 #define ClassInfo_h
 
-#include "CallFrame.h"
-#include "ConstructData.h"
-#include "JSCell.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/ConstructData.h"
+#include "runtime/JSCell.h"
 
 namespace JSC {
 

@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "PositionIterator.h"
+#include "dom/PositionIterator.h"
 
 #include "HTMLNames.h"
-#include "Node.h"
-#include "RenderBlock.h"
-#include "htmlediting.h"
+#include "dom/Node.h"
+#include "rendering/RenderBlock.h"
+#include "editing/htmlediting.h"
 
 namespace WebCore {
 

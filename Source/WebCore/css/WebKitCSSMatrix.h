@@ -26,8 +26,8 @@
 #ifndef WebKitCSSMatrix_h
 #define WebKitCSSMatrix_h
 
-#include "ScriptWrappable.h"
-#include "TransformationMatrix.h"
+#include "bindings/dui/ScriptWrappable.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>
 #include <wtf/text/WTFString.h>

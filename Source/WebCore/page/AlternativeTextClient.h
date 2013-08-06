@@ -26,8 +26,8 @@
 #ifndef AlternativeTextClient_h
 #define AlternativeTextClient_h
 
-#include "FloatRect.h"
-#include "TextChecking.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/text/TextChecking.h"
 #include <wtf/Vector.h>
 #include <wtf/text/WTFString.h>
 

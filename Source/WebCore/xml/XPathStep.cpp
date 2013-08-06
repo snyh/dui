@@ -26,15 +26,15 @@
  */
 
 #include "config.h"
-#include "XPathStep.h"
+#include "xml/XPathStep.h"
 
-#include "Attr.h"
-#include "Document.h"
-#include "Element.h"
-#include "NodeTraversal.h"
+#include "dom/Attr.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
+#include "dom/NodeTraversal.h"
 #include "XMLNSNames.h"
-#include "XPathParser.h"
-#include "XPathUtil.h"
+#include "xml/XPathParser.h"
+#include "xml/XPathUtil.h"
 
 namespace WebCore {
 namespace XPath {

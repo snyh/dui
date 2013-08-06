@@ -28,12 +28,12 @@
  */
 
 #include "config.h"
-#include "DOMWindowCSS.h"
+#include "css/DOMWindowCSS.h"
 
 #if ENABLE(CSS3_CONDITIONAL_RULES)
 
-#include "CSSParser.h"
-#include "StylePropertySet.h"
+#include "css/CSSParser.h"
+#include "css/StylePropertySet.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

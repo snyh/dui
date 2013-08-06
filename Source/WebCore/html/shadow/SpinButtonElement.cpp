@@ -25,18 +25,18 @@
  */
 
 #include "config.h"
-#include "SpinButtonElement.h"
+#include "html/shadow/SpinButtonElement.h"
 
-#include "Chrome.h"
-#include "EventHandler.h"
-#include "EventNames.h"
-#include "Frame.h"
+#include "page/Chrome.h"
+#include "page/EventHandler.h"
+#include "dom/EventNames.h"
+#include "page/Frame.h"
 #include "HTMLNames.h"
-#include "MouseEvent.h"
-#include "Page.h"
-#include "RenderBox.h"
-#include "ScrollbarTheme.h"
-#include "WheelEvent.h"
+#include "dom/MouseEvent.h"
+#include "page/Page.h"
+#include "rendering/RenderBox.h"
+#include "platform/ScrollbarTheme.h"
+#include "dom/WheelEvent.h"
 
 namespace WebCore {
 

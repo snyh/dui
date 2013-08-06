@@ -32,12 +32,12 @@
 
 #if ENABLE(ACCELERATED_2D_CANVAS) || ENABLE(CSS_SHADERS)
 
-#include "Texture.h"
+#include "platform/graphics/gpu/Texture.h"
 
-#include "Extensions3D.h"
-#include "FloatRect.h"
-#include "GraphicsContext3D.h"
-#include "IntRect.h"
+#include "platform/graphics/Extensions3D.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/GraphicsContext3D.h"
+#include "platform/graphics/IntRect.h"
 
 #include <algorithm>
 #include <wtf/OwnArrayPtr.h>

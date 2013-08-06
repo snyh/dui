@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "PerformanceUserTiming.h"
+#include "page/PerformanceUserTiming.h"
 
 #if ENABLE(USER_TIMING)
 
-#include "Performance.h"
-#include "PerformanceMark.h"
-#include "PerformanceMeasure.h"
+#include "page/Performance.h"
+#include "page/PerformanceMark.h"
+#include "page/PerformanceMeasure.h"
 #include <wtf/dtoa/utils.h>
 #include <wtf/text/WTFString.h>
 

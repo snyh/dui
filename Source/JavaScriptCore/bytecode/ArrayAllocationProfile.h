@@ -26,8 +26,8 @@
 #ifndef ArrayAllocationProfile_h
 #define ArrayAllocationProfile_h
 
-#include "IndexingType.h"
-#include "JSArray.h"
+#include "runtime/IndexingType.h"
+#include "runtime/JSArray.h"
 
 namespace JSC {
 

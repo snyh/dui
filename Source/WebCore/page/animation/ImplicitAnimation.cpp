@@ -28,13 +28,13 @@
 
 #include "config.h"
 
-#include "AnimationControllerPrivate.h"
-#include "CSSPropertyAnimation.h"
-#include "CompositeAnimation.h"
-#include "EventNames.h"
-#include "ImplicitAnimation.h"
-#include "KeyframeAnimation.h"
-#include "RenderBoxModelObject.h"
+#include "page/animation/AnimationControllerPrivate.h"
+#include "page/animation/CSSPropertyAnimation.h"
+#include "page/animation/CompositeAnimation.h"
+#include "dom/EventNames.h"
+#include "page/animation/ImplicitAnimation.h"
+#include "page/animation/KeyframeAnimation.h"
+#include "rendering/RenderBoxModelObject.h"
 
 namespace WebCore {
 

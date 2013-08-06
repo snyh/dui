@@ -24,20 +24,20 @@
  */
 
 #include "config.h"
-#include "DFGRepatch.h"
+#include "dfg/DFGRepatch.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGCCallHelpers.h"
-#include "DFGScratchRegisterAllocator.h"
-#include "DFGSpeculativeJIT.h"
-#include "DFGThunks.h"
-#include "GCAwareJITStubRoutine.h"
-#include "LinkBuffer.h"
-#include "Operations.h"
-#include "PolymorphicPutByIdList.h"
-#include "RepatchBuffer.h"
-#include "StructureRareDataInlines.h"
+#include "dfg/DFGCCallHelpers.h"
+#include "dfg/DFGScratchRegisterAllocator.h"
+#include "dfg/DFGSpeculativeJIT.h"
+#include "dfg/DFGThunks.h"
+#include "jit/GCAwareJITStubRoutine.h"
+#include "assembler/LinkBuffer.h"
+#include "runtime/Operations.h"
+#include "bytecode/PolymorphicPutByIdList.h"
+#include "assembler/RepatchBuffer.h"
+#include "runtime/StructureRareDataInlines.h"
 #include <wtf/StringPrintStream.h>
 
 namespace JSC { namespace DFG {

@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "TextCodecUTF8.h"
+#include "platform/text/TextCodecUTF8.h"
 
-#include "TextCodecASCIIFastPath.h"
+#include "platform/text/TextCodecASCIIFastPath.h"
 #include <wtf/text/CString.h>
 #include <wtf/text/StringBuffer.h>
 #include <wtf/unicode/CharacterNames.h>

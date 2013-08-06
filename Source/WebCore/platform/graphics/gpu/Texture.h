@@ -31,7 +31,7 @@
 #ifndef Texture_h
 #define Texture_h
 
-#include "TilingData.h"
+#include "platform/graphics/gpu/TilingData.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>
 #include <wtf/RefCounted.h>

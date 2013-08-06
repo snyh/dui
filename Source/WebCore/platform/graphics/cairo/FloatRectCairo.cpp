@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "FloatRect.h"
+#include "platform/graphics/FloatRect.h"
 
 #include <cairo.h>
 

@@ -30,8 +30,8 @@
 
 #if ENABLE(JIT)
 
-#include "CodeOrigin.h"
-#include "GCAwareJITStubRoutine.h"
+#include "bytecode/CodeOrigin.h"
+#include "jit/GCAwareJITStubRoutine.h"
 
 namespace JSC {
 

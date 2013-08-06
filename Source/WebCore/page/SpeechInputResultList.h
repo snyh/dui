@@ -28,7 +28,7 @@
 
 #if ENABLE(INPUT_SPEECH)
 
-#include "SpeechInputResult.h"
+#include "page/SpeechInputResult.h"
 
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>

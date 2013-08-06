@@ -22,9 +22,9 @@
 #ifndef PopupMenuClient_h
 #define PopupMenuClient_h
 
-#include "LayoutUnit.h"
-#include "PopupMenuStyle.h"
-#include "ScrollTypes.h"
+#include "platform/LayoutUnit.h"
+#include "platform/PopupMenuStyle.h"
+#include "platform/ScrollTypes.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

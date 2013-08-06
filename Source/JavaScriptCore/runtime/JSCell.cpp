@@ -21,13 +21,13 @@
  */
 
 #include "config.h"
-#include "JSCell.h"
+#include "runtime/JSCell.h"
 
-#include "JSFunction.h"
-#include "JSString.h"
-#include "JSObject.h"
-#include "NumberObject.h"
-#include "Operations.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSString.h"
+#include "runtime/JSObject.h"
+#include "runtime/NumberObject.h"
+#include "runtime/Operations.h"
 #include <wtf/MathExtras.h>
 
 namespace JSC {

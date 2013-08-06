@@ -26,12 +26,12 @@
 #ifndef ButterflyInlines_h
 #define ButterflyInlines_h
 
-#include "ArrayStorage.h"
-#include "Butterfly.h"
-#include "CopiedSpaceInlines.h"
-#include "CopyVisitor.h"
-#include "VM.h"
-#include "Structure.h"
+#include "runtime/ArrayStorage.h"
+#include "runtime/Butterfly.h"
+#include "heap/CopiedSpaceInlines.h"
+#include "heap/CopyVisitor.h"
+#include "runtime/VM.h"
+#include "runtime/Structure.h"
 
 namespace JSC {
 

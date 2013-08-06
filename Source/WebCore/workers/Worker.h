@@ -29,13 +29,13 @@
 
 #if ENABLE(WORKERS)
 
-#include "AbstractWorker.h"
-#include "ActiveDOMObject.h"
-#include "EventListener.h"
-#include "EventNames.h"
-#include "EventTarget.h"
-#include "MessagePort.h"
-#include "WorkerScriptLoaderClient.h"
+#include "workers/AbstractWorker.h"
+#include "dom/ActiveDOMObject.h"
+#include "dom/EventListener.h"
+#include "dom/EventNames.h"
+#include "dom/EventTarget.h"
+#include "dom/MessagePort.h"
+#include "workers/WorkerScriptLoaderClient.h"
 #include <wtf/Forward.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>

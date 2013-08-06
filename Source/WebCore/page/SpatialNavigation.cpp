@@ -27,21 +27,21 @@
  */
 
 #include "config.h"
-#include "SpatialNavigation.h"
+#include "page/SpatialNavigation.h"
 
-#include "Frame.h"
-#include "FrameTree.h"
-#include "FrameView.h"
-#include "HTMLAreaElement.h"
-#include "HTMLImageElement.h"
-#include "HTMLMapElement.h"
+#include "page/Frame.h"
+#include "page/FrameTree.h"
+#include "page/FrameView.h"
+#include "html/HTMLAreaElement.h"
+#include "html/HTMLImageElement.h"
+#include "html/HTMLMapElement.h"
 #include "HTMLNames.h"
-#include "IntRect.h"
-#include "Node.h"
-#include "Page.h"
-#include "RenderInline.h"
-#include "RenderLayer.h"
-#include "Settings.h"
+#include "platform/graphics/IntRect.h"
+#include "dom/Node.h"
+#include "page/Page.h"
+#include "rendering/RenderInline.h"
+#include "rendering/RenderLayer.h"
+#include "page/Settings.h"
 
 namespace WebCore {
 

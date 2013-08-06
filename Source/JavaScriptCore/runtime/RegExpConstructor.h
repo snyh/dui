@@ -21,10 +21,10 @@
 #ifndef RegExpConstructor_h
 #define RegExpConstructor_h
 
-#include "InternalFunction.h"
-#include "RegExp.h"
-#include "RegExpCachedResult.h"
-#include "RegExpObject.h"
+#include "runtime/InternalFunction.h"
+#include "runtime/RegExp.h"
+#include "runtime/RegExpCachedResult.h"
+#include "runtime/RegExpObject.h"
 #include <wtf/OwnPtr.h>
 
 

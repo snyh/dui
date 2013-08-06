@@ -26,9 +26,9 @@
 #ifndef CompositeEditCommand_h
 #define CompositeEditCommand_h
 
-#include "EditCommand.h"
+#include "editing/EditCommand.h"
 #include "CSSPropertyNames.h"
-#include "UndoStep.h"
+#include "editing/UndoStep.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

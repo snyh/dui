@@ -23,12 +23,12 @@
  */
 
 #include "config.h"
-#include "TextDocumentParser.h"
+#include "html/parser/TextDocumentParser.h"
 
-#include "HTMLDocument.h"
+#include "html/HTMLDocument.h"
 #include "HTMLNames.h"
-#include "HTMLTokenizer.h"
-#include "HTMLTreeBuilder.h"
+#include "html/parser/HTMLTokenizer.h"
+#include "html/parser/HTMLTreeBuilder.h"
 
 namespace WebCore {
 

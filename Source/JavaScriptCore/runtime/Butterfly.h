@@ -26,9 +26,9 @@
 #ifndef Butterfly_h
 #define Butterfly_h
 
-#include "IndexingHeader.h"
-#include "PropertyOffset.h"
-#include "PropertyStorage.h"
+#include "runtime/IndexingHeader.h"
+#include "runtime/PropertyOffset.h"
+#include "runtime/PropertyStorage.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/Platform.h>
 

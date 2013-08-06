@@ -26,10 +26,10 @@
 #if USE(NEW_THEME)
 #include "Theme.h"
 #else
-#include "ThemeTypes.h"
+#include "platform/ThemeTypes.h"
 #endif
-#include "RenderObject.h"
-#include "ScrollTypes.h"
+#include "rendering/RenderObject.h"
+#include "platform/ScrollTypes.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 

@@ -32,9 +32,9 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "WebVTTTokenizer.h"
+#include "html/track/WebVTTTokenizer.h"
 
-#include "MarkupTokenizerInlines.h"
+#include "xml/parser/MarkupTokenizerInlines.h"
 
 namespace WebCore {
 

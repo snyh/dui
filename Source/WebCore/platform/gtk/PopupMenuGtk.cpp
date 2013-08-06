@@ -25,12 +25,12 @@
  */
 
 #include "config.h"
-#include "PopupMenuGtk.h"
+#include "platform/gtk/PopupMenuGtk.h"
 
-#include "FrameView.h"
+#include "page/FrameView.h"
 #include <wtf/gobject/GOwnPtr.h>
-#include "GtkUtilities.h"
-#include "HostWindow.h"
+#include "platform/gtk/GtkUtilities.h"
+#include "platform/HostWindow.h"
 #include <gtk/gtk.h>
 #include <wtf/text/CString.h>
 

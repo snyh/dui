@@ -31,16 +31,16 @@
 
 #if ENABLE(VIDEO)
 
-#include "AccessibilityMediaControls.h"
+#include "accessibility/AccessibilityMediaControls.h"
 
-#include "AXObjectCache.h"
-#include "HTMLInputElement.h"
-#include "HTMLMediaElement.h"
+#include "accessibility/AXObjectCache.h"
+#include "html/HTMLInputElement.h"
+#include "html/HTMLMediaElement.h"
 #include "HTMLNames.h"
-#include "LocalizedStrings.h"
-#include "MediaControlElements.h"
-#include "RenderObject.h"
-#include "RenderSlider.h"
+#include "platform/LocalizedStrings.h"
+#include "html/shadow/MediaControlElements.h"
+#include "rendering/RenderObject.h"
+#include "rendering/RenderSlider.h"
 
 namespace WebCore {
 

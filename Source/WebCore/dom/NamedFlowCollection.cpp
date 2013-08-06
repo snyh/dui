@@ -28,11 +28,11 @@
  */
 
 #include "config.h"
-#include "NamedFlowCollection.h"
+#include "dom/NamedFlowCollection.h"
 
-#include "DOMNamedFlowCollection.h"
-#include "Document.h"
-#include "WebKitNamedFlow.h"
+#include "dom/DOMNamedFlowCollection.h"
+#include "dom/Document.h"
+#include "dom/WebKitNamedFlow.h"
 
 #include <wtf/text/StringHash.h>
 #include <wtf/text/WTFString.h>

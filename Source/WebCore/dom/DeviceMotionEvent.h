@@ -26,7 +26,7 @@
 #ifndef DeviceMotionEvent_h
 #define DeviceMotionEvent_h
 
-#include "Event.h"
+#include "dom/Event.h"
 
 namespace WebCore {
 

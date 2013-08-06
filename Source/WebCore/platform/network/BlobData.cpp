@@ -29,11 +29,11 @@
  */
 
 #include "config.h"
-#include "BlobData.h"
+#include "platform/network/BlobData.h"
 
-#include "Blob.h"
-#include "BlobURL.h"
-#include "ThreadableBlobRegistry.h"
+#include "fileapi/Blob.h"
+#include "fileapi/BlobURL.h"
+#include "fileapi/ThreadableBlobRegistry.h"
 
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>

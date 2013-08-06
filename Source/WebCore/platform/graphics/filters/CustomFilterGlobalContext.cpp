@@ -30,9 +30,9 @@
 #include "config.h"
 
 #if ENABLE(CSS_SHADERS) && USE(3D_GRAPHICS)
-#include "CustomFilterGlobalContext.h"
+#include "platform/graphics/filters/CustomFilterGlobalContext.h"
 
-#include "GraphicsContext3D.h"
+#include "platform/graphics/GraphicsContext3D.h"
 
 namespace WebCore {
 

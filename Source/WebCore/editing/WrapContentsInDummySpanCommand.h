@@ -26,7 +26,7 @@
 #ifndef WrapContentsInDummySpanCommand_h
 #define WrapContentsInDummySpanCommand_h
 
-#include "EditCommand.h"
+#include "editing/EditCommand.h"
 
 namespace WebCore {
 

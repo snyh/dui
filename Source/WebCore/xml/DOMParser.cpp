@@ -17,10 +17,10 @@
  */
 
 #include "config.h"
-#include "DOMParser.h"
+#include "xml/DOMParser.h"
 
-#include "DOMImplementation.h"
-#include "Document.h"
+#include "dom/DOMImplementation.h"
+#include "dom/Document.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

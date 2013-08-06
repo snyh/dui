@@ -28,7 +28,7 @@
 
 #if ENABLE(WEBGL)
 
-#include "WebGLUniformLocation.h"
+#include "html/canvas/WebGLUniformLocation.h"
 
 namespace WebCore {
 

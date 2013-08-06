@@ -20,7 +20,7 @@
 #ifndef EllipsisBox_h
 #define EllipsisBox_h
 
-#include "InlineBox.h"
+#include "rendering/InlineBox.h"
 
 namespace WebCore {
 

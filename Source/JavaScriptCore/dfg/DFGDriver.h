@@ -26,7 +26,7 @@
 #ifndef DFGDriver_h
 #define DFGDriver_h
 
-#include "CallFrame.h"
+#include "interpreter/CallFrame.h"
 #include <wtf/Platform.h>
 
 namespace JSC {

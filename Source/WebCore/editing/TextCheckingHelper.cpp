@@ -25,18 +25,18 @@
  */
 
 #include "config.h"
-#include "TextCheckingHelper.h"
+#include "editing/TextCheckingHelper.h"
 
-#include "Document.h"
-#include "DocumentMarkerController.h"
-#include "Frame.h"
-#include "Range.h"
-#include "Settings.h"
-#include "TextBreakIterator.h"
-#include "TextCheckerClient.h"
-#include "TextIterator.h"
-#include "VisiblePosition.h"
-#include "VisibleUnits.h"
+#include "dom/Document.h"
+#include "dom/DocumentMarkerController.h"
+#include "page/Frame.h"
+#include "dom/Range.h"
+#include "page/Settings.h"
+#include "platform/text/TextBreakIterator.h"
+#include "platform/text/TextCheckerClient.h"
+#include "editing/TextIterator.h"
+#include "editing/VisiblePosition.h"
+#include "editing/VisibleUnits.h"
 
 namespace WebCore {
 

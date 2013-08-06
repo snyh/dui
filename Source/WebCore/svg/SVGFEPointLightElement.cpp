@@ -20,10 +20,10 @@
 #include "config.h"
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "SVGFEPointLightElement.h"
+#include "svg/SVGFEPointLightElement.h"
 #include "SVGNames.h"
 
-#include "PointLightSource.h"
+#include "platform/graphics/filters/PointLightSource.h"
 
 namespace WebCore {
 

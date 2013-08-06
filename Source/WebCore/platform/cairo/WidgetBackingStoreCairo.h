@@ -19,7 +19,7 @@
 #ifndef WidgetBackingStoreCairo_h
 #define WidgetBackingStoreCairo_h
 
-#include "WidgetBackingStore.h"
+#include "platform/cairo/WidgetBackingStore.h"
 
 namespace WebCore {
 

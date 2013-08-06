@@ -30,13 +30,13 @@
  */
 
 #include "config.h"
-#include "SocketStreamHandle.h"
+#include "platform/network/soup/SocketStreamHandle.h"
 
-#include "KURL.h"
-#include "Logging.h"
-#include "NotImplemented.h"
-#include "SocketStreamError.h"
-#include "SocketStreamHandleClient.h"
+#include "platform/KURL.h"
+#include "platform/Logging.h"
+#include "platform/NotImplemented.h"
+#include "platform/network/soup/SocketStreamError.h"
+#include "platform/network/SocketStreamHandleClient.h"
 
 #include <gio/gio.h>
 #include <glib.h>

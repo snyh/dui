@@ -20,10 +20,10 @@
 #ifndef Navigator_h
 #define Navigator_h
 
-#include "DOMWindowProperty.h"
-#include "NavigatorBase.h"
-#include "ScriptWrappable.h"
-#include "Supplementable.h"
+#include "page/DOMWindowProperty.h"
+#include "page/NavigatorBase.h"
+#include "bindings/dui/ScriptWrappable.h"
+#include "platform/Supplementable.h"
 #include <wtf/Forward.h>
 #include <wtf/HashMap.h>
 #include <wtf/PassRefPtr.h>

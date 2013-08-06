@@ -26,8 +26,8 @@
 #ifndef JITExceptions_h
 #define JITExceptions_h
 
-#include "JSCJSValue.h"
-#include "MacroAssemblerCodeRef.h"
+#include "runtime/JSCJSValue.h"
+#include "assembler/MacroAssemblerCodeRef.h"
 
 #if ENABLE(JIT) || ENABLE(LLINT)
 

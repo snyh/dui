@@ -30,8 +30,8 @@
 #ifndef RenderRegion_h
 #define RenderRegion_h
 
-#include "RenderBlock.h"
-#include "StyleInheritedData.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/style/StyleInheritedData.h"
 
 namespace WebCore {
 

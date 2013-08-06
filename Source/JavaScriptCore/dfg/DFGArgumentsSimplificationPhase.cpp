@@ -24,18 +24,18 @@
  */
 
 #include "config.h"
-#include "DFGArgumentsSimplificationPhase.h"
+#include "dfg/DFGArgumentsSimplificationPhase.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGAbstractState.h"
-#include "DFGBasicBlock.h"
-#include "DFGGraph.h"
-#include "DFGInsertionSet.h"
-#include "DFGPhase.h"
-#include "DFGValidate.h"
-#include "DFGVariableAccessDataDump.h"
-#include "Operations.h"
+#include "dfg/DFGAbstractState.h"
+#include "dfg/DFGBasicBlock.h"
+#include "dfg/DFGGraph.h"
+#include "dfg/DFGInsertionSet.h"
+#include "dfg/DFGPhase.h"
+#include "dfg/DFGValidate.h"
+#include "dfg/DFGVariableAccessDataDump.h"
+#include "runtime/Operations.h"
 #include <wtf/HashSet.h>
 #include <wtf/HashMap.h>
 

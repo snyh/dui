@@ -23,7 +23,7 @@
 #ifndef RenderQuote_h
 #define RenderQuote_h
 
-#include "RenderText.h"
+#include "rendering/RenderText.h"
 
 namespace WebCore {
 

@@ -19,11 +19,11 @@
  */
 
 #include "config.h"
-#include "MathObject.h"
+#include "runtime/MathObject.h"
 
-#include "Lookup.h"
-#include "ObjectPrototype.h"
-#include "Operations.h"
+#include "runtime/Lookup.h"
+#include "runtime/ObjectPrototype.h"
+#include "runtime/Operations.h"
 #include <time.h>
 #include <wtf/Assertions.h>
 #include <wtf/MathExtras.h>

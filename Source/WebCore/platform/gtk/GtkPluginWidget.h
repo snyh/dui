@@ -27,7 +27,7 @@
 #ifndef GtkPluginWidget_h
 #define GtkPluginWidget_h
 
-#include "Widget.h"
+#include "platform/Widget.h"
 
 namespace WebCore {
     class GtkPluginWidget : public Widget {

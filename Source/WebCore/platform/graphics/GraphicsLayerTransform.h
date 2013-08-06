@@ -20,10 +20,10 @@
 #ifndef GraphicsLayerTransform_h
 #define GraphicsLayerTransform_h
 
-#include "FloatPoint.h"
-#include "FloatPoint3D.h"
-#include "FloatSize.h"
-#include "TransformationMatrix.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/FloatPoint3D.h"
+#include "platform/graphics/FloatSize.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
 
 namespace WebCore {
 

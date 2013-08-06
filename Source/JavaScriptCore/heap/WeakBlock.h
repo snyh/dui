@@ -26,9 +26,9 @@
 #ifndef WeakBlock_h
 #define WeakBlock_h
 
-#include "HeapBlock.h"
-#include "WeakHandleOwner.h"
-#include "WeakImpl.h"
+#include "heap/HeapBlock.h"
+#include "heap/WeakHandleOwner.h"
+#include "heap/WeakImpl.h"
 #include <wtf/DoublyLinkedList.h>
 #include <wtf/StdLibExtras.h>
 

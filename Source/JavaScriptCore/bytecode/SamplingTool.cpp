@@ -27,11 +27,11 @@
  */
 
 #include "config.h"
-#include "SamplingTool.h"
+#include "bytecode/SamplingTool.h"
 
-#include "CodeBlock.h"
-#include "Interpreter.h"
-#include "Opcode.h"
+#include "bytecode/CodeBlock.h"
+#include "interpreter/Interpreter.h"
+#include "bytecode/Opcode.h"
 
 #if !OS(WINDOWS)
 #include <unistd.h>

@@ -22,12 +22,12 @@
 #ifndef Operations_h
 #define Operations_h
 
-#include "ExceptionHelpers.h"
-#include "Interpreter.h"
-#include "JSCJSValueInlines.h"
-#include "JSProxy.h"
-#include "JSString.h"
-#include "StructureInlines.h"
+#include "runtime/ExceptionHelpers.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/JSCJSValueInlines.h"
+#include "runtime/JSProxy.h"
+#include "runtime/JSString.h"
+#include "runtime/StructureInlines.h"
 
 namespace JSC {
 

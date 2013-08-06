@@ -25,18 +25,18 @@
 
 #include "config.h"
 
-#include "UnlinkedCodeBlock.h"
+#include "bytecode/UnlinkedCodeBlock.h"
 
-#include "BytecodeGenerator.h"
-#include "ClassInfo.h"
-#include "CodeCache.h"
-#include "Executable.h"
-#include "JSString.h"
-#include "Operations.h"
-#include "Parser.h"
-#include "SourceProvider.h"
-#include "Structure.h"
-#include "SymbolTable.h"
+#include "bytecompiler/BytecodeGenerator.h"
+#include "runtime/ClassInfo.h"
+#include "runtime/CodeCache.h"
+#include "runtime/Executable.h"
+#include "runtime/JSString.h"
+#include "runtime/Operations.h"
+#include "parser/Parser.h"
+#include "parser/SourceProvider.h"
+#include "runtime/Structure.h"
+#include "runtime/SymbolTable.h"
 
 namespace JSC {
 

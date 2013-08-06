@@ -21,7 +21,7 @@
  */
 
 #include "config.h"
-#include "HTMLDirectoryElement.h"
+#include "html/HTMLDirectoryElement.h"
 
 #include "HTMLNames.h"
 

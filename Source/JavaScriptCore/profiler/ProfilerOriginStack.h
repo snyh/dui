@@ -26,8 +26,8 @@
 #ifndef ProfilerOriginStack_h
 #define ProfilerOriginStack_h
 
-#include "JSCJSValue.h"
-#include "ProfilerOrigin.h"
+#include "runtime/JSCJSValue.h"
+#include "profiler/ProfilerOrigin.h"
 #include <wtf/HashMap.h>
 #include <wtf/PrintStream.h>
 #include <wtf/Vector.h>

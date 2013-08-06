@@ -22,12 +22,12 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGTransformableContainer.h"
+#include "rendering/svg/RenderSVGTransformableContainer.h"
 
-#include "SVGGraphicsElement.h"
+#include "svg/SVGGraphicsElement.h"
 #include "SVGNames.h"
-#include "SVGRenderSupport.h"
-#include "SVGUseElement.h"
+#include "rendering/svg/SVGRenderSupport.h"
+#include "svg/SVGUseElement.h"
 
 namespace WebCore {
     

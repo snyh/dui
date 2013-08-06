@@ -30,13 +30,13 @@
  */
 
 #include "config.h"
-#include "HarfBuzzFace.h"
+#include "platform/graphics/harfbuzz/HarfBuzzFace.h"
 
-#include "FontPlatformData.h"
-#include "GlyphBuffer.h"
-#include "HarfBuzzShaper.h"
-#include "SimpleFontData.h"
-#include "TextEncoding.h"
+#include "platform/graphics/FontPlatformData.h"
+#include "platform/graphics/GlyphBuffer.h"
+#include "platform/graphics/harfbuzz/HarfBuzzShaper.h"
+#include "platform/graphics/SimpleFontData.h"
+#include "platform/text/TextEncoding.h"
 #include <cairo-ft.h>
 #include <cairo.h>
 #include <freetype/freetype.h>

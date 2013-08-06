@@ -29,10 +29,10 @@
 #ifndef ShadowBlur_h
 #define ShadowBlur_h
 
-#include "Color.h"
-#include "ColorSpace.h"
-#include "FloatRect.h"
-#include "RoundedRect.h"
+#include "platform/graphics/Color.h"
+#include "platform/graphics/ColorSpace.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/RoundedRect.h"
 #include <wtf/Noncopyable.h>
 
 namespace WebCore {

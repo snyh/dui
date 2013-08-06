@@ -31,7 +31,7 @@
 #ifndef ThreadableLoader_h
 #define ThreadableLoader_h
 
-#include "ResourceLoaderOptions.h"
+#include "loader/ResourceLoaderOptions.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>

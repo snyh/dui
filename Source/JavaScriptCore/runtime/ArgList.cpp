@@ -19,12 +19,12 @@
  */
 
 #include "config.h"
-#include "ArgList.h"
+#include "runtime/ArgList.h"
 
-#include "HeapRootVisitor.h"
-#include "JSCJSValue.h"
-#include "JSObject.h"
-#include "Operations.h"
+#include "heap/HeapRootVisitor.h"
+#include "runtime/JSCJSValue.h"
+#include "runtime/JSObject.h"
+#include "runtime/Operations.h"
 
 using std::min;
 

@@ -20,14 +20,14 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGResourceSolidColor.h"
+#include "rendering/svg/RenderSVGResourceSolidColor.h"
 
-#include "Frame.h"
-#include "FrameView.h"
-#include "GraphicsContext.h"
-#include "RenderSVGShape.h"
-#include "RenderStyle.h"
-#include "SVGRenderSupport.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/svg/RenderSVGShape.h"
+#include "rendering/style/RenderStyle.h"
+#include "rendering/svg/SVGRenderSupport.h"
 
 namespace WebCore {
 

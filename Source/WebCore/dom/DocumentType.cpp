@@ -21,10 +21,10 @@
  */
 
 #include "config.h"
-#include "DocumentType.h"
+#include "dom/DocumentType.h"
 
-#include "Document.h"
-#include "NamedNodeMap.h"
+#include "dom/Document.h"
+#include "dom/NamedNodeMap.h"
 
 namespace WebCore {
 

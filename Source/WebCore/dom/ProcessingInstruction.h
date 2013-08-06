@@ -22,9 +22,9 @@
 #ifndef ProcessingInstruction_h
 #define ProcessingInstruction_h
 
-#include "CachedResourceHandle.h"
-#include "CachedStyleSheetClient.h"
-#include "Node.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "loader/cache/CachedStyleSheetClient.h"
+#include "dom/Node.h"
 
 namespace WebCore {
 

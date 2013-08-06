@@ -22,7 +22,7 @@
 #define RenderSVGTransformableContainer_h
 
 #if ENABLE(SVG)
-#include "RenderSVGContainer.h"
+#include "rendering/svg/RenderSVGContainer.h"
 
 namespace WebCore {
     

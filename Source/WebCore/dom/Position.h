@@ -26,10 +26,10 @@
 #ifndef Position_h
 #define Position_h
 
-#include "ContainerNode.h"
-#include "EditingBoundary.h"
-#include "TextAffinity.h"
-#include "TextDirection.h"
+#include "dom/ContainerNode.h"
+#include "editing/EditingBoundary.h"
+#include "editing/TextAffinity.h"
+#include "platform/text/TextDirection.h"
 #include <wtf/Assertions.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>

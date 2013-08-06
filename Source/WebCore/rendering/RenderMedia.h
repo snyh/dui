@@ -28,7 +28,7 @@
 
 #if ENABLE(VIDEO)
 
-#include "RenderImage.h"
+#include "rendering/RenderImage.h"
 
 namespace WebCore {
 

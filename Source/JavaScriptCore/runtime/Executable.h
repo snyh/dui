@@ -26,18 +26,18 @@
 #ifndef Executable_h
 #define Executable_h
 
-#include "CallData.h"
-#include "CodeBlockHash.h"
-#include "CodeSpecializationKind.h"
-#include "HandlerInfo.h"
-#include "JSFunction.h"
-#include "Interpreter.h"
-#include "JITCode.h"
-#include "JSGlobalObject.h"
-#include "LLIntCLoop.h"
-#include "SamplingTool.h"
-#include "SourceCode.h"
-#include "UnlinkedCodeBlock.h"
+#include "runtime/CallData.h"
+#include "bytecode/CodeBlockHash.h"
+#include "runtime/CodeSpecializationKind.h"
+#include "bytecode/HandlerInfo.h"
+#include "runtime/JSFunction.h"
+#include "interpreter/Interpreter.h"
+#include "jit/JITCode.h"
+#include "runtime/JSGlobalObject.h"
+#include "llint/LLIntCLoop.h"
+#include "bytecode/SamplingTool.h"
+#include "parser/SourceCode.h"
+#include "bytecode/UnlinkedCodeBlock.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace JSC {

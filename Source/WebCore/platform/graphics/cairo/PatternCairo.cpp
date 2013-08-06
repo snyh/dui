@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "Pattern.h"
+#include "platform/graphics/Pattern.h"
 
-#include "AffineTransform.h"
-#include "GraphicsContext.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/GraphicsContext.h"
 #include <cairo.h>
 
 namespace WebCore {

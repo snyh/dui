@@ -18,7 +18,7 @@
  */
 
 #include "config.h"
-#include "Language.h"
+#include "platform/Language.h"
 
 #include <wtf/gobject/GOwnPtr.h>
 #include <wtf/Vector.h>

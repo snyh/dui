@@ -26,9 +26,9 @@
 #ifndef CopiedSpace_h
 #define CopiedSpace_h
 
-#include "CopiedAllocator.h"
-#include "HeapBlock.h"
-#include "TinyBloomFilter.h"
+#include "heap/CopiedAllocator.h"
+#include "heap/HeapBlock.h"
+#include "heap/TinyBloomFilter.h"
 #include <wtf/Assertions.h>
 #include <wtf/CheckedBoolean.h>
 #include <wtf/DoublyLinkedList.h>

@@ -27,13 +27,13 @@
  */
 
 #include "config.h"
-#include "GCActivityCallback.h"
+#include "runtime/GCActivityCallback.h"
 
-#include "APIShims.h"
-#include "Heap.h"
-#include "VM.h"
-#include "JSLock.h"
-#include "JSObject.h"
+#include "API/APIShims.h"
+#include "heap/Heap.h"
+#include "runtime/VM.h"
+#include "runtime/JSLock.h"
+#include "runtime/JSObject.h"
 
 #include <wtf/RetainPtr.h>
 #include <wtf/WTFThreadData.h>

@@ -30,7 +30,7 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGNodeFlags.h"
+#include "dfg/DFGNodeFlags.h"
 
 namespace JSC { namespace DFG {
 

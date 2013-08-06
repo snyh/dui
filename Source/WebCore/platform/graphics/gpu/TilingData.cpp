@@ -32,10 +32,10 @@
 
 #if USE(ACCELERATED_COMPOSITING) || ENABLE(ACCELERATED_2D_CANVAS)
 
-#include "TilingData.h"
+#include "platform/graphics/gpu/TilingData.h"
 
-#include "FloatRect.h"
-#include "IntRect.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/IntRect.h"
 #include <algorithm>
 
 using namespace std;

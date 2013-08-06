@@ -26,9 +26,9 @@
 #ifndef AccessibilitySpinButton_h
 #define AccessibilitySpinButton_h
 
-#include "AccessibilityMockObject.h"
+#include "accessibility/AccessibilityMockObject.h"
 
-#include "SpinButtonElement.h"
+#include "html/shadow/SpinButtonElement.h"
 
 namespace WebCore {
     

@@ -21,7 +21,7 @@
 #define SVGFontFaceFormatElement_h
 
 #if ENABLE(SVG_FONTS)
-#include "SVGElement.h"
+#include "svg/SVGElement.h"
 
 namespace WebCore {
 

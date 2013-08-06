@@ -18,17 +18,17 @@
  */
 
 #include "config.h"
-#include "InlineBox.h"
+#include "rendering/InlineBox.h"
 
-#include "FontMetrics.h"
-#include "Frame.h"
-#include "HitTestResult.h"
-#include "InlineFlowBox.h"
-#include "Page.h"
-#include "PaintInfo.h"
-#include "RenderArena.h"
-#include "RenderBlock.h"
-#include "RootInlineBox.h"
+#include "platform/graphics/FontMetrics.h"
+#include "page/Frame.h"
+#include "rendering/HitTestResult.h"
+#include "rendering/InlineFlowBox.h"
+#include "page/Page.h"
+#include "rendering/PaintInfo.h"
+#include "rendering/RenderArena.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/RootInlineBox.h"
 
 #ifndef NDEBUG
 #include <stdio.h>

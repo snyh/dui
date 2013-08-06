@@ -31,8 +31,8 @@
 #define CustomFilterNumberParameter_h
 
 #if ENABLE(CSS_SHADERS)
-#include "AnimationUtilities.h"
-#include "CustomFilterParameter.h"
+#include "platform/animation/AnimationUtilities.h"
+#include "platform/graphics/filters/CustomFilterParameter.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

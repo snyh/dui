@@ -30,9 +30,9 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "ArrayProfile.h"
-#include "DFGNodeFlags.h"
-#include "SpeculatedType.h"
+#include "bytecode/ArrayProfile.h"
+#include "dfg/DFGNodeFlags.h"
+#include "bytecode/SpeculatedType.h"
 
 namespace JSC {
 

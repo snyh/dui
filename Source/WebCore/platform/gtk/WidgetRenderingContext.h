@@ -24,7 +24,7 @@
 
 #ifdef GTK_API_VERSION_2
 
-#include "IntRect.h"
+#include "platform/graphics/IntRect.h"
 
 // Usually this is too expensive to have in headers, but GtkStateType GtkShadowType are
 // enums and cannot be forward declared. WidgetRenderingContext.h is currently only

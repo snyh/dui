@@ -32,13 +32,13 @@
 
 #if ENABLE(WORKERS)
 
-#include "ScriptExecutionContext.h"
-#include "SharedTimer.h"
-#include "ThreadGlobalData.h"
-#include "ThreadTimers.h"
-#include "WorkerRunLoop.h"
-#include "WorkerGlobalScope.h"
-#include "WorkerThread.h"
+#include "dom/ScriptExecutionContext.h"
+#include "platform/SharedTimer.h"
+#include "platform/ThreadGlobalData.h"
+#include "platform/ThreadTimers.h"
+#include "workers/WorkerRunLoop.h"
+#include "workers/WorkerGlobalScope.h"
+#include "workers/WorkerThread.h"
 #include <wtf/CurrentTime.h>
 
 namespace WebCore {

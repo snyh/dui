@@ -27,8 +27,8 @@
 #ifndef CSSPreloadScanner_h
 #define CSSPreloadScanner_h
 
-#include "HTMLResourcePreloader.h"
-#include "HTMLToken.h"
+#include "html/parser/HTMLResourcePreloader.h"
+#include "html/parser/HTMLToken.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

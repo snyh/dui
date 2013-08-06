@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "CredentialStorage.h"
+#include "platform/network/CredentialStorage.h"
 
-#include "Credential.h"
-#include "KURL.h"
-#include "ProtectionSpaceHash.h"
+#include "platform/network/Credential.h"
+#include "platform/KURL.h"
+#include "platform/network/ProtectionSpaceHash.h"
 #include <wtf/text/WTFString.h>
 #include <wtf/text/StringHash.h>
 #include <wtf/HashMap.h>

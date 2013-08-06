@@ -23,12 +23,12 @@
 #define SVGElement_h
 
 #if ENABLE(SVG)
-#include "SVGLangSpace.h"
-#include "SVGLocatable.h"
-#include "SVGParsingError.h"
-#include "SVGPropertyInfo.h"
-#include "StyledElement.h"
-#include "Timer.h"
+#include "svg/SVGLangSpace.h"
+#include "svg/SVGLocatable.h"
+#include "svg/SVGParsingError.h"
+#include "svg/properties/SVGPropertyInfo.h"
+#include "dom/StyledElement.h"
+#include "platform/Timer.h"
 #include <wtf/HashMap.h>
 
 namespace WebCore {

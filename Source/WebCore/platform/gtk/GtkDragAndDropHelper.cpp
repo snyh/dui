@@ -17,13 +17,13 @@
  */
 
 #include "config.h"
-#include "GtkDragAndDropHelper.h"
+#include "platform/gtk/GtkDragAndDropHelper.h"
 
-#include "ClipboardUtilitiesGtk.h"
-#include "DragData.h"
-#include "GtkUtilities.h"
-#include "GtkVersioning.h"
-#include "PasteboardHelper.h"
+#include "platform/gtk/ClipboardUtilitiesGtk.h"
+#include "platform/DragData.h"
+#include "platform/gtk/GtkUtilities.h"
+#include "platform/gtk/GtkVersioning.h"
+#include "platform/gtk/PasteboardHelper.h"
 #include <gtk/gtk.h>
 
 namespace WebCore {

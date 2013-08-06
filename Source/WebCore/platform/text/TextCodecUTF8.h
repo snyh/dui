@@ -26,7 +26,7 @@
 #ifndef TextCodecUTF8_h
 #define TextCodecUTF8_h
 
-#include "TextCodec.h"
+#include "platform/text/TextCodec.h"
 
 namespace WebCore {
 

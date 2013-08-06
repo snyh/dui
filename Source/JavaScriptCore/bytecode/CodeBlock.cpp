@@ -28,34 +28,34 @@
  */
 
 #include "config.h"
-#include "CodeBlock.h"
+#include "bytecode/CodeBlock.h"
 
-#include "BytecodeGenerator.h"
-#include "CallLinkStatus.h"
-#include "DFGCapabilities.h"
-#include "DFGCommon.h"
-#include "DFGNode.h"
-#include "DFGRepatch.h"
-#include "Debugger.h"
-#include "Interpreter.h"
-#include "JIT.h"
-#include "JITStubs.h"
-#include "JSActivation.h"
-#include "JSCJSValue.h"
-#include "JSFunction.h"
-#include "JSNameScope.h"
-#include "LowLevelInterpreter.h"
-#include "Operations.h"
-#include "ReduceWhitespace.h"
-#include "RepatchBuffer.h"
-#include "SlotVisitorInlines.h"
+#include "bytecompiler/BytecodeGenerator.h"
+#include "bytecode/CallLinkStatus.h"
+#include "dfg/DFGCapabilities.h"
+#include "dfg/DFGCommon.h"
+#include "dfg/DFGNode.h"
+#include "dfg/DFGRepatch.h"
+#include "debugger/Debugger.h"
+#include "interpreter/Interpreter.h"
+#include "jit/JIT.h"
+#include "jit/JITStubs.h"
+#include "runtime/JSActivation.h"
+#include "runtime/JSCJSValue.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSNameScope.h"
+#include "llint/LowLevelInterpreter.h"
+#include "runtime/Operations.h"
+#include "bytecode/ReduceWhitespace.h"
+#include "assembler/RepatchBuffer.h"
+#include "heap/SlotVisitorInlines.h"
 #include <stdio.h>
 #include <wtf/CommaPrinter.h>
 #include <wtf/StringExtras.h>
 #include <wtf/StringPrintStream.h>
 
 #if ENABLE(DFG_JIT)
-#include "DFGOperations.h"
+#include "dfg/DFGOperations.h"
 #endif
 
 #define DUMP_CODE_BLOCK_STATISTICS 0

@@ -30,9 +30,9 @@
 #include "config.h"
 
 #if ENABLE(CSS_SHADERS) && USE(TEXTURE_MAPPER)
-#include "CustomFilterValidatedProgram.h"
+#include "platform/graphics/filters/CustomFilterValidatedProgram.h"
 
-#include "TextureMapperPlatformCompiledProgram.h"
+#include "platform/graphics/filters/texmap/TextureMapperPlatformCompiledProgram.h"
 
 namespace WebCore {
 

@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "CSSFunctionValue.h"
+#include "css/CSSFunctionValue.h"
 
-#include "CSSParserValues.h"
-#include "CSSValueList.h"
+#include "css/CSSParserValues.h"
+#include "css/CSSValueList.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/StringBuilder.h>
 

@@ -30,12 +30,12 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "CodeBlock.h"
-#include "DFGFPRInfo.h"
-#include "DFGGPRInfo.h"
-#include "DFGNode.h"
-#include "VM.h"
-#include "MacroAssembler.h"
+#include "bytecode/CodeBlock.h"
+#include "dfg/DFGFPRInfo.h"
+#include "dfg/DFGGPRInfo.h"
+#include "dfg/DFGNode.h"
+#include "runtime/VM.h"
+#include "assembler/MacroAssembler.h"
 
 namespace JSC { namespace DFG {
 

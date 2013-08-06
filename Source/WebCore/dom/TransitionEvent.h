@@ -27,7 +27,7 @@
 #ifndef TransitionEvent_h
 #define TransitionEvent_h
 
-#include "Event.h"
+#include "dom/Event.h"
 
 namespace WebCore {
 

@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "HandleStack.h"
+#include "heap/HandleStack.h"
 
-#include "HeapRootVisitor.h"
-#include "JSObject.h"
-#include "Operations.h"
+#include "heap/HeapRootVisitor.h"
+#include "runtime/JSObject.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

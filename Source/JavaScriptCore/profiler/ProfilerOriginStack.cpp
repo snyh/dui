@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "ProfilerOriginStack.h"
+#include "profiler/ProfilerOriginStack.h"
 
-#include "CodeOrigin.h"
-#include "JSGlobalObject.h"
-#include "Operations.h"
-#include "ProfilerDatabase.h"
+#include "bytecode/CodeOrigin.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/Operations.h"
+#include "profiler/ProfilerDatabase.h"
 
 namespace JSC { namespace Profiler {
 

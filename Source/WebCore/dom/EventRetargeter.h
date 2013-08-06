@@ -20,17 +20,17 @@
 #ifndef EventRetargeter_h
 #define EventRetargeter_h
 
-#include "ContainerNode.h"
-#include "EventContext.h"
-#include "ShadowRoot.h"
+#include "dom/ContainerNode.h"
+#include "dom/EventContext.h"
+#include "dom/ShadowRoot.h"
 #include <wtf/HashMap.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>
 
 #if ENABLE(SVG)
-#include "SVGElementInstance.h"
+#include "svg/SVGElementInstance.h"
 #include "SVGNames.h"
-#include "SVGUseElement.h"
+#include "svg/SVGUseElement.h"
 #endif
 
 namespace WebCore {

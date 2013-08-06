@@ -25,13 +25,13 @@
  */
 
 #include "config.h"
-#include "TransformationMatrix.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
 
-#include "AffineTransform.h"
-#include "FloatRect.h"
-#include "FloatQuad.h"
-#include "IntRect.h"
-#include "LayoutRect.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/FloatQuad.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/LayoutRect.h"
 
 #include <wtf/Assertions.h>
 #include <wtf/MathExtras.h>

@@ -29,12 +29,12 @@
  */
 
 #include "config.h"
-#include "PolicyCallback.h"
+#include "loader/PolicyCallback.h"
 
-#include "FormState.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "HTMLFormElement.h"
+#include "loader/FormState.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "html/HTMLFormElement.h"
 
 namespace WebCore {
 

@@ -28,11 +28,11 @@
 
 #if USE(ACCELERATED_COMPOSITING)
 
-#include "ChromeClient.h"
-#include "Frame.h"
-#include "GraphicsLayerClient.h"
-#include "GraphicsLayerUpdater.h"
-#include "RenderLayer.h"
+#include "page/ChromeClient.h"
+#include "page/Frame.h"
+#include "platform/graphics/GraphicsLayerClient.h"
+#include "platform/graphics/GraphicsLayerUpdater.h"
+#include "rendering/RenderLayer.h"
 #include <wtf/HashMap.h>
 
 namespace WebCore {

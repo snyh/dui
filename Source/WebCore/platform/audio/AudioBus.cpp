@@ -30,12 +30,12 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "AudioBus.h"
+#include "platform/audio/AudioBus.h"
 
-#include "DenormalDisabler.h"
+#include "platform/audio/DenormalDisabler.h"
 
-#include "SincResampler.h"
-#include "VectorMath.h"
+#include "platform/audio/SincResampler.h"
+#include "platform/audio/VectorMath.h"
 #include <algorithm>
 #include <assert.h>
 #include <math.h>

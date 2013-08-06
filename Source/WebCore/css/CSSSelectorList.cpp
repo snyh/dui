@@ -25,9 +25,9 @@
  */
 
 #include "config.h"
-#include "CSSSelectorList.h"
+#include "css/CSSSelectorList.h"
 
-#include "CSSParserValues.h"
+#include "css/CSSParserValues.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

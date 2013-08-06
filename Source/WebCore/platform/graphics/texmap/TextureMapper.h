@@ -32,10 +32,10 @@
 #define TEXMAP_OPENGL_ES_2
 #endif
 
-#include "GraphicsContext.h"
-#include "IntRect.h"
-#include "IntSize.h"
-#include "TransformationMatrix.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
 
 /*
     TextureMapper is a mechanism that enables hardware acceleration of CSS animations (accelerated compositing) without

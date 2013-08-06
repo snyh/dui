@@ -28,8 +28,8 @@
 
 #if ENABLE(CSS_FILTERS)
 
-#include "FilterOperation.h"
-#include "IntRectExtent.h"
+#include "platform/graphics/filters/FilterOperation.h"
+#include "platform/graphics/IntRectExtent.h"
 #include <wtf/RefPtr.h>
 #include <wtf/Vector.h>
 

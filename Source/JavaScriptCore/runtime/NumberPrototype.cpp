@@ -20,15 +20,15 @@
  */
 
 #include "config.h"
-#include "NumberPrototype.h"
+#include "runtime/NumberPrototype.h"
 
-#include "BigInteger.h"
-#include "Error.h"
-#include "JSFunction.h"
-#include "JSGlobalObject.h"
-#include "JSString.h"
-#include "Operations.h"
-#include "Uint16WithFraction.h"
+#include "runtime/BigInteger.h"
+#include "runtime/Error.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSString.h"
+#include "runtime/Operations.h"
+#include "runtime/Uint16WithFraction.h"
 #include <wtf/dtoa.h>
 #include <wtf/Assertions.h>
 #include <wtf/MathExtras.h>

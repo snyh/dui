@@ -21,8 +21,8 @@
 #ifndef ErrorConstructor_h
 #define ErrorConstructor_h
 
-#include "ErrorInstance.h"
-#include "InternalFunction.h"
+#include "runtime/ErrorInstance.h"
+#include "runtime/InternalFunction.h"
 
 namespace JSC {
 

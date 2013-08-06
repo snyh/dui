@@ -25,10 +25,10 @@
  */
 
 #include "config.h"
-#include "XPathVariableReference.h"
+#include "xml/XPathVariableReference.h"
 
-#include "Node.h"
-#include "XPathValue.h"
+#include "dom/Node.h"
+#include "xml/XPathValue.h"
 
 namespace WebCore {
 namespace XPath {

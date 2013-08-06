@@ -26,7 +26,7 @@
 #ifndef ParserTokens_h
 #define ParserTokens_h
 
-#include "ParserModes.h"
+#include "parser/ParserModes.h"
 
 namespace JSC {
 

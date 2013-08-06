@@ -26,7 +26,7 @@
 #ifndef CreateLinkCommand_h
 #define CreateLinkCommand_h
 
-#include "CompositeEditCommand.h"
+#include "editing/CompositeEditCommand.h"
 
 namespace WebCore {
 

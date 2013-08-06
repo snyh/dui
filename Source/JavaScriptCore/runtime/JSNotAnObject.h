@@ -29,7 +29,7 @@
 #ifndef JSNotAnObject_h
 #define JSNotAnObject_h
 
-#include "JSObject.h"
+#include "runtime/JSObject.h"
 
 namespace JSC {
 

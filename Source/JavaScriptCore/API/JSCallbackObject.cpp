@@ -25,10 +25,10 @@
  */
 
 #include "config.h"
-#include "JSCallbackObject.h"
+#include "API/JSCallbackObject.h"
 
-#include "Heap.h"
-#include "Operations.h"
+#include "heap/Heap.h"
+#include "runtime/Operations.h"
 #include <wtf/text/StringHash.h>
 
 namespace JSC {

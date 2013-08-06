@@ -26,11 +26,11 @@
 
 #include "config.h"
 
-#include "PropertyDescriptor.h"
+#include "runtime/PropertyDescriptor.h"
 
-#include "GetterSetter.h"
-#include "JSObject.h"
-#include "Operations.h"
+#include "runtime/GetterSetter.h"
+#include "runtime/JSObject.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 unsigned PropertyDescriptor::defaultAttributes = (DontDelete << 1) - 1;

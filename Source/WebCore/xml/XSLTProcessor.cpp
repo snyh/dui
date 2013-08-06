@@ -24,22 +24,22 @@
 
 #if ENABLE(XSLT)
 
-#include "XSLTProcessor.h"
+#include "xml/XSLTProcessor.h"
 
-#include "DOMImplementation.h"
-#include "CachedResourceLoader.h"
-#include "ContentSecurityPolicy.h"
-#include "DocumentFragment.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameView.h"
-#include "HTMLBodyElement.h"
-#include "HTMLDocument.h"
-#include "Page.h"
-#include "SecurityOrigin.h"
-#include "Text.h"
-#include "TextResourceDecoder.h"
-#include "markup.h"
+#include "dom/DOMImplementation.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "page/ContentSecurityPolicy.h"
+#include "dom/DocumentFragment.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "page/FrameView.h"
+#include "html/HTMLBodyElement.h"
+#include "html/HTMLDocument.h"
+#include "page/Page.h"
+#include "page/SecurityOrigin.h"
+#include "dom/Text.h"
+#include "loader/TextResourceDecoder.h"
+#include "editing/markup.h"
 
 #include <wtf/Assertions.h>
 #include <wtf/Vector.h>

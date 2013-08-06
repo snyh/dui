@@ -32,10 +32,10 @@
 #ifndef LinkLoader_h
 #define LinkLoader_h
 
-#include "CachedResourceClient.h"
-#include "CachedResourceHandle.h"
-#include "LinkLoaderClient.h"
-#include "Timer.h"
+#include "loader/cache/CachedResourceClient.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "loader/LinkLoaderClient.h"
+#include "platform/Timer.h"
 
 #include <wtf/RefPtr.h>
 

@@ -25,48 +25,48 @@
 */
 
 #include "config.h"
-#include "CachedResourceLoader.h"
+#include "loader/cache/CachedResourceLoader.h"
 
-#include "CachedCSSStyleSheet.h"
-#include "CachedSVGDocument.h"
-#include "CachedFont.h"
-#include "CachedImage.h"
-#include "CachedRawResource.h"
-#include "CachedResourceRequest.h"
-#include "CachedScript.h"
-#include "CachedXSLStyleSheet.h"
-#include "Console.h"
-#include "ContentSecurityPolicy.h"
-#include "DOMWindow.h"
-#include "Document.h"
-#include "DocumentLoader.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
-#include "HTMLElement.h"
-#include "HTMLFrameOwnerElement.h"
-#include "LoaderStrategy.h"
-#include "Logging.h"
-#include "MemoryCache.h"
-#include "PingLoader.h"
-#include "PlatformStrategies.h"
-#include "ResourceLoadScheduler.h"
-#include "ScriptController.h"
-#include "SecurityOrigin.h"
-#include "Settings.h"
+#include "loader/cache/CachedCSSStyleSheet.h"
+#include "loader/cache/CachedSVGDocument.h"
+#include "loader/cache/CachedFont.h"
+#include "loader/cache/CachedImage.h"
+#include "loader/cache/CachedRawResource.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "loader/cache/CachedScript.h"
+#include "loader/cache/CachedXSLStyleSheet.h"
+#include "page/Console.h"
+#include "page/ContentSecurityPolicy.h"
+#include "page/DOMWindow.h"
+#include "dom/Document.h"
+#include "loader/DocumentLoader.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
+#include "html/HTMLElement.h"
+#include "html/HTMLFrameOwnerElement.h"
+#include "loader/LoaderStrategy.h"
+#include "platform/Logging.h"
+#include "loader/cache/MemoryCache.h"
+#include "loader/PingLoader.h"
+#include "platform/PlatformStrategies.h"
+#include "loader/ResourceLoadScheduler.h"
+#include "bindings/dui/saved/ScriptController.h"
+#include "page/SecurityOrigin.h"
+#include "page/Settings.h"
 #include <wtf/text/CString.h>
 #include <wtf/text/WTFString.h>
 
 #if ENABLE(VIDEO_TRACK)
-#include "CachedTextTrack.h"
+#include "loader/cache/CachedTextTrack.h"
 #endif
 
 #if ENABLE(CSS_SHADERS)
-#include "CachedShader.h"
+#include "loader/cache/CachedShader.h"
 #endif
 
 #if ENABLE(RESOURCE_TIMING)
-#include "Performance.h"
+#include "page/Performance.h"
 #endif
 
 #define PRELOAD_DEBUG 0

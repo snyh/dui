@@ -22,16 +22,16 @@
 #include "config.h"
 
 #if ENABLE(SVG_FONTS)
-#include "SVGFontElement.h"
+#include "svg/SVGFontElement.h"
 
-#include "Document.h"
-#include "Font.h"
-#include "GlyphPageTreeNode.h"
-#include "SVGGlyphElement.h"
-#include "SVGHKernElement.h"
-#include "SVGMissingGlyphElement.h"
+#include "dom/Document.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/GlyphPageTreeNode.h"
+#include "svg/SVGGlyphElement.h"
+#include "svg/SVGHKernElement.h"
+#include "svg/SVGMissingGlyphElement.h"
 #include "SVGNames.h"
-#include "SVGVKernElement.h"
+#include "svg/SVGVKernElement.h"
 #include <wtf/ASCIICType.h>
 
 namespace WebCore {

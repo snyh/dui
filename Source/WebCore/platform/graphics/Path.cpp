@@ -27,12 +27,12 @@
 
 
 #include "config.h"
-#include "Path.h"
+#include "platform/graphics/Path.h"
 
-#include "FloatPoint.h"
-#include "FloatRect.h"
-#include "PathTraversalState.h"
-#include "RoundedRect.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/PathTraversalState.h"
+#include "platform/graphics/RoundedRect.h"
 #include <math.h>
 #include <wtf/MathExtras.h>
 

@@ -31,10 +31,10 @@
 #ifndef MutationObserverInterestGroup_h
 #define MutationObserverInterestGroup_h
 
-#include "Document.h"
-#include "MutationObserver.h"
-#include "Node.h"
-#include "QualifiedName.h"
+#include "dom/Document.h"
+#include "dom/MutationObserver.h"
+#include "dom/Node.h"
+#include "dom/QualifiedName.h"
 #include <wtf/HashMap.h>
 #include <wtf/PassOwnPtr.h>
 

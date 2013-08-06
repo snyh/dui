@@ -18,20 +18,20 @@
  */
 
 #include "config.h"
-#include "GraphicsContext3DPrivate.h"
+#include "platform/graphics/cairo/GraphicsContext3DPrivate.h"
 
 #if USE(3D_GRAPHICS)
 
-#include "HostWindow.h"
-#include "NotImplemented.h"
-#include "PlatformContextCairo.h"
+#include "platform/HostWindow.h"
+#include "platform/NotImplemented.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
 #include <wtf/OwnArrayPtr.h>
 
 #if USE(OPENGL_ES_2)
 #include <GLES2/gl2.h>
 #include <GLES2/gl2ext.h>
 #else
-#include "OpenGLShims.h"
+#include "platform/graphics/OpenGLShims.h"
 #endif
 
 #if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER) && USE(TEXTURE_MAPPER_GL)

@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "InsertTextCommand.h"
+#include "editing/InsertTextCommand.h"
 
-#include "Document.h"
-#include "Element.h"
-#include "Editor.h"
-#include "Frame.h"
-#include "HTMLInterchange.h"
-#include "Text.h"
-#include "VisibleUnits.h"
-#include "htmlediting.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
+#include "editing/Editor.h"
+#include "page/Frame.h"
+#include "editing/HTMLInterchange.h"
+#include "dom/Text.h"
+#include "editing/VisibleUnits.h"
+#include "editing/htmlediting.h"
 
 namespace WebCore {
 

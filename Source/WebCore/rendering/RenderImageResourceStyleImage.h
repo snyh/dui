@@ -26,8 +26,8 @@
 #ifndef RenderImageResourceStyleImage_h
 #define RenderImageResourceStyleImage_h
 
-#include "RenderImageResource.h"
-#include "StyleImage.h"
+#include "rendering/RenderImageResource.h"
+#include "rendering/style/StyleImage.h"
 #include <wtf/RefPtr.h>
 
 namespace WebCore {

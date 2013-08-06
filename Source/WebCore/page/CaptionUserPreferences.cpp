@@ -27,13 +27,13 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "CaptionUserPreferences.h"
-#include "DOMWrapperWorld.h"
-#include "Page.h"
-#include "PageGroup.h"
-#include "Settings.h"
-#include "TextTrackList.h"
-#include "UserStyleSheetTypes.h"
+#include "page/CaptionUserPreferences.h"
+#include "bindings/dui/saved/DOMWrapperWorld.h"
+#include "page/Page.h"
+#include "page/PageGroup.h"
+#include "page/Settings.h"
+#include "html/track/TextTrackList.h"
+#include "page/UserStyleSheetTypes.h"
 #include <wtf/NonCopyingSort.h>
 
 namespace WebCore {

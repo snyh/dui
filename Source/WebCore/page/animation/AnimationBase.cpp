@@ -27,19 +27,19 @@
  */
 
 #include "config.h"
-#include "AnimationBase.h"
+#include "page/animation/AnimationBase.h"
 
-#include "AnimationControllerPrivate.h"
-#include "CSSPrimitiveValue.h"
-#include "CSSPropertyAnimation.h"
-#include "CompositeAnimation.h"
-#include "Document.h"
-#include "EventNames.h"
-#include "FloatConversion.h"
-#include "Logging.h"
-#include "RenderBox.h"
-#include "RenderStyle.h"
-#include "UnitBezier.h"
+#include "page/animation/AnimationControllerPrivate.h"
+#include "css/CSSPrimitiveValue.h"
+#include "page/animation/CSSPropertyAnimation.h"
+#include "page/animation/CompositeAnimation.h"
+#include "dom/Document.h"
+#include "dom/EventNames.h"
+#include "platform/FloatConversion.h"
+#include "platform/Logging.h"
+#include "rendering/RenderBox.h"
+#include "rendering/style/RenderStyle.h"
+#include "platform/graphics/UnitBezier.h"
 #include <algorithm>
 #include <wtf/CurrentTime.h>
 

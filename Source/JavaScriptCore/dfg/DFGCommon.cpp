@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "DFGCommon.h"
+#include "dfg/DFGCommon.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGNode.h"
+#include "dfg/DFGNode.h"
 
 namespace JSC { namespace DFG {
 

@@ -30,15 +30,15 @@
 #include "config.h"
 
 #if ENABLE(VIDEO)
-#include "MediaControlElementTypes.h"
+#include "html/shadow/MediaControlElementTypes.h"
 
 #include "CSSValueKeywords.h"
-#include "ExceptionCodePlaceholder.h"
+#include "dom/ExceptionCodePlaceholder.h"
 #include "HTMLNames.h"
-#include "MouseEvent.h"
-#include "RenderMedia.h"
-#include "RenderMediaControlElements.h"
-#include "StylePropertySet.h"
+#include "dom/MouseEvent.h"
+#include "rendering/RenderMedia.h"
+#include "rendering/RenderMediaControlElements.h"
+#include "css/StylePropertySet.h"
 
 namespace WebCore {
 

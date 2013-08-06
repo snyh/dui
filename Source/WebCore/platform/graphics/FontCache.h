@@ -30,7 +30,7 @@
 #ifndef FontCache_h
 #define FontCache_h
 
-#include "FontDescription.h"
+#include "platform/graphics/FontDescription.h"
 #include <limits.h>
 #include <wtf/Forward.h>
 #include <wtf/PassRefPtr.h>

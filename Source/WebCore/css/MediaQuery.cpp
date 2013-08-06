@@ -27,9 +27,9 @@
  */
 
 #include "config.h"
-#include "MediaQuery.h"
+#include "css/MediaQuery.h"
 
-#include "MediaQueryExp.h"
+#include "css/MediaQueryExp.h"
 #include <wtf/NonCopyingSort.h>
 #include <wtf/text/StringBuilder.h>
 

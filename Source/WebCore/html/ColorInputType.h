@@ -32,8 +32,8 @@
 #define ColorInputType_h
 
 #if ENABLE(INPUT_TYPE_COLOR)
-#include "BaseClickableWithKeyInputType.h"
-#include "ColorChooserClient.h"
+#include "html/BaseClickableWithKeyInputType.h"
+#include "platform/ColorChooserClient.h"
 
 namespace WebCore {
 

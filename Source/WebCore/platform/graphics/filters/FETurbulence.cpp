@@ -25,11 +25,11 @@
 #include "config.h"
 
 #if ENABLE(FILTERS)
-#include "FETurbulence.h"
+#include "platform/graphics/filters/FETurbulence.h"
 
-#include "Filter.h"
-#include "RenderTreeAsText.h"
-#include "TextStream.h"
+#include "platform/graphics/filters/Filter.h"
+#include "rendering/RenderTreeAsText.h"
+#include "platform/text/TextStream.h"
 
 #include <wtf/MathExtras.h>
 #include <wtf/ParallelJobs.h>

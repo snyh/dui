@@ -25,12 +25,12 @@
  */
 
 #include "config.h"
-#include "CrossOriginAccessControl.h"
+#include "loader/CrossOriginAccessControl.h"
 
-#include "HTTPParsers.h"
-#include "ResourceRequest.h"
-#include "ResourceResponse.h"
-#include "SecurityOrigin.h"
+#include "platform/network/HTTPParsers.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "page/SecurityOrigin.h"
 #include <wtf/Threading.h>
 #include <wtf/text/AtomicString.h>
 #include <wtf/text/StringBuilder.h>

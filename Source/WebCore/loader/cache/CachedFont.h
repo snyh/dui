@@ -26,11 +26,11 @@
 #ifndef CachedFont_h
 #define CachedFont_h
 
-#include "CachedResource.h"
-#include "CachedResourceClient.h"
-#include "FontOrientation.h"
-#include "FontRenderingMode.h"
-#include "FontWidthVariant.h"
+#include "loader/cache/CachedResource.h"
+#include "loader/cache/CachedResourceClient.h"
+#include "platform/graphics/FontOrientation.h"
+#include "platform/graphics/FontRenderingMode.h"
+#include "platform/graphics/FontWidthVariant.h"
 
 namespace WebCore {
 

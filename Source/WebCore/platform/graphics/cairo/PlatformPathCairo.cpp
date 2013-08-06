@@ -18,7 +18,7 @@
  */
 
 #include "config.h"
-#include "PlatformPathCairo.h"
+#include "platform/graphics/cairo/PlatformPathCairo.h"
 
 #include <cairo.h>
 

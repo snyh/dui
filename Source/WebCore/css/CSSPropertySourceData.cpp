@@ -30,7 +30,7 @@
  */
 
 #include "config.h"
-#include "CSSPropertySourceData.h"
+#include "css/CSSPropertySourceData.h"
 
 #include <wtf/StaticConstructors.h>
 #include <wtf/text/StringBuilder.h>

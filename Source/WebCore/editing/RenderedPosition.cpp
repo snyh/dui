@@ -29,12 +29,12 @@
  */
 
 #include "config.h"
-#include "RenderedPosition.h"
+#include "editing/RenderedPosition.h"
 
-#include "InlineBox.h"
-#include "InlineTextBox.h"
-#include "Position.h"
-#include "VisiblePosition.h"
+#include "rendering/InlineBox.h"
+#include "rendering/InlineTextBox.h"
+#include "dom/Position.h"
+#include "editing/VisiblePosition.h"
 
 namespace WebCore {
 

@@ -26,7 +26,7 @@
 #ifndef ConservativeRoots_h
 #define ConservativeRoots_h
 
-#include "Heap.h"
+#include "heap/Heap.h"
 #include <wtf/OSAllocator.h>
 #include <wtf/Vector.h>
 

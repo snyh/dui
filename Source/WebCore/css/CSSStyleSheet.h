@@ -21,9 +21,9 @@
 #ifndef CSSStyleSheet_h
 #define CSSStyleSheet_h
 
-#include "CSSParserMode.h"
-#include "CSSRule.h"
-#include "StyleSheet.h"
+#include "css/CSSParserMode.h"
+#include "css/CSSRule.h"
+#include "css/StyleSheet.h"
 #include <wtf/HashMap.h>
 #include <wtf/Noncopyable.h>
 #include <wtf/text/AtomicStringHash.h>

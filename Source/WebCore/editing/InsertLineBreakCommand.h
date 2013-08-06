@@ -26,7 +26,7 @@
 #ifndef InsertLineBreakCommand_h
 #define InsertLineBreakCommand_h
 
-#include "CompositeEditCommand.h"
+#include "editing/CompositeEditCommand.h"
 
 namespace WebCore {
 

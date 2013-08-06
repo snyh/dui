@@ -26,12 +26,12 @@
 #include "config.h"
 
 #if ENABLE(CSS_FILTERS)
-#include "FilterOperation.h"
+#include "platform/graphics/filters/FilterOperation.h"
 
-#include "AnimationUtilities.h"
+#include "platform/animation/AnimationUtilities.h"
 
 #if ENABLE(SVG)
-#include "CachedSVGDocumentReference.h"
+#include "loader/cache/CachedSVGDocumentReference.h"
 #endif
 
 namespace WebCore {

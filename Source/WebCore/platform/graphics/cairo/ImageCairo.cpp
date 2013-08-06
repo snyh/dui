@@ -26,16 +26,16 @@
  */
 
 #include "config.h"
-#include "Image.h"
+#include "platform/graphics/Image.h"
 
 #if USE(CAIRO)
 
-#include "AffineTransform.h"
-#include "CairoUtilities.h"
-#include "Color.h"
-#include "GraphicsContext.h"
-#include "ImageObserver.h"
-#include "PlatformContextCairo.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/cairo/CairoUtilities.h"
+#include "platform/graphics/Color.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/ImageObserver.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
 #include <cairo.h>
 #include <math.h>
 

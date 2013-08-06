@@ -26,7 +26,7 @@
 #ifndef IndexingType_h
 #define IndexingType_h
 
-#include "SpeculatedType.h"
+#include "bytecode/SpeculatedType.h"
 #include <wtf/StdLibExtras.h>
 
 namespace JSC {

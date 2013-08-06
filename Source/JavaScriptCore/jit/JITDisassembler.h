@@ -30,9 +30,9 @@
 
 #if ENABLE(JIT)
 
-#include "LinkBuffer.h"
-#include "MacroAssembler.h"
-#include "ProfilerDatabase.h"
+#include "assembler/LinkBuffer.h"
+#include "assembler/MacroAssembler.h"
+#include "profiler/ProfilerDatabase.h"
 #include <wtf/Vector.h>
 
 namespace JSC {

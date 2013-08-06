@@ -22,9 +22,9 @@
 #ifndef Chrome_h
 #define Chrome_h
 
-#include "Cursor.h"
-#include "FocusDirection.h"
-#include "HostWindow.h"
+#include "platform/Cursor.h"
+#include "page/FocusDirection.h"
+#include "platform/HostWindow.h"
 #include <wtf/Forward.h>
 #include <wtf/RefPtr.h>
 

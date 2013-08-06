@@ -32,7 +32,7 @@
 #define MHTMLParser_h
 
 #if ENABLE(MHTML)
-#include "SharedBufferChunkReader.h"
+#include "platform/SharedBufferChunkReader.h"
 #include <wtf/RefPtr.h>
 #include <wtf/text/WTFString.h>
 #include <wtf/Vector.h>

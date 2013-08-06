@@ -20,9 +20,9 @@
  */
 
 #include "config.h"
-#include "Comment.h"
+#include "dom/Comment.h"
 
-#include "Document.h"
+#include "dom/Document.h"
 
 namespace WebCore {
 

@@ -29,7 +29,7 @@
 #ifndef Archive_h
 #define Archive_h
 
-#include "ArchiveResource.h"
+#include "loader/archive/ArchiveResource.h"
 
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>

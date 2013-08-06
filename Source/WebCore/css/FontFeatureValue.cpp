@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "FontFeatureValue.h"
+#include "css/FontFeatureValue.h"
 
-#include "CSSParser.h"
+#include "css/CSSParser.h"
 #include "CSSValueKeywords.h"
 #include <wtf/text/StringBuilder.h>
 

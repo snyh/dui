@@ -29,9 +29,9 @@
 #ifndef SamplingTool_h
 #define SamplingTool_h
 
-#include "Strong.h"
-#include "Opcode.h"
-#include "SamplingCounter.h"
+#include "heap/Strong.h"
+#include "bytecode/Opcode.h"
+#include "runtime/SamplingCounter.h"
 #include <wtf/Assertions.h>
 #include <wtf/Atomics.h>
 #include <wtf/HashMap.h>

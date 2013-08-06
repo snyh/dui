@@ -19,9 +19,9 @@
  */
 
 #include "config.h"
-#include "Notation.h"
+#include "dom/Notation.h"
 
-#include "Document.h"
+#include "dom/Document.h"
 
 namespace WebCore {
 

@@ -20,29 +20,29 @@
  */
 
 #include "config.h"
-#include "CSSCursorImageValue.h"
+#include "css/CSSCursorImageValue.h"
 
-#include "CSSImageValue.h"
-#include "CachedImage.h"
-#include "CachedResourceLoader.h"
-#include "StyleCachedImage.h"
-#include "StyleImage.h"
-#include "StylePendingImage.h"
-#include "TreeScope.h"
+#include "css/CSSImageValue.h"
+#include "loader/cache/CachedImage.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "rendering/style/StyleCachedImage.h"
+#include "rendering/style/StyleImage.h"
+#include "rendering/style/StylePendingImage.h"
+#include "dom/TreeScope.h"
 #include <wtf/MathExtras.h>
 #include <wtf/text/StringBuilder.h>
 #include <wtf/text/WTFString.h>
 
 #if ENABLE(SVG)
-#include "SVGCursorElement.h"
-#include "SVGLengthContext.h"
+#include "svg/SVGCursorElement.h"
+#include "svg/SVGLengthContext.h"
 #include "SVGNames.h"
-#include "SVGURIReference.h"
+#include "svg/SVGURIReference.h"
 #endif
 
 #if ENABLE(CSS_IMAGE_SET)
-#include "CSSImageSetValue.h"
-#include "StyleCachedImageSet.h"
+#include "css/CSSImageSetValue.h"
+#include "rendering/style/StyleCachedImageSet.h"
 #endif
 
 namespace WebCore {

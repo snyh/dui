@@ -33,8 +33,8 @@
 
 #if ENABLE(MICRODATA)
 
-#include "DOMStringList.h"
-#include "HTMLCollection.h"
+#include "dom/DOMStringList.h"
+#include "html/HTMLCollection.h"
 
 namespace WebCore {
 

@@ -20,12 +20,12 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGAnimatedColor.h"
+#include "svg/SVGAnimatedColor.h"
 
-#include "ColorDistance.h"
-#include "RenderObject.h"
-#include "SVGAnimateElement.h"
-#include "SVGColor.h"
+#include "svg/ColorDistance.h"
+#include "rendering/RenderObject.h"
+#include "svg/SVGAnimateElement.h"
+#include "svg/SVGColor.h"
 
 namespace WebCore {
 

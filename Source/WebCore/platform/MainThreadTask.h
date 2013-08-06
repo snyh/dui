@@ -32,7 +32,7 @@
 #ifndef MainThreadTask_h
 #define MainThreadTask_h
 
-#include "CrossThreadCopier.h"
+#include "platform/CrossThreadCopier.h"
 #include <memory>
 #include <wtf/MainThread.h>
 #include <wtf/PassOwnPtr.h>

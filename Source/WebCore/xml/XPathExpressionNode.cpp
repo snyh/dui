@@ -25,9 +25,9 @@
  */
 
 #include "config.h"
-#include "XPathExpressionNode.h"
+#include "xml/XPathExpressionNode.h"
 
-#include "Node.h"
+#include "dom/Node.h"
 #include <wtf/StdLibExtras.h>
 
 namespace WebCore {

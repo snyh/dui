@@ -26,7 +26,7 @@
 #ifndef CopyVisitor_h
 #define CopyVisitor_h
 
-#include "CopiedSpace.h"
+#include "heap/CopiedSpace.h"
 
 namespace JSC {
 

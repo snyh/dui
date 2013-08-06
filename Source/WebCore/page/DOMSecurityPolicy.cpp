@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "DOMSecurityPolicy.h"
+#include "page/DOMSecurityPolicy.h"
 
-#include "ContentSecurityPolicy.h"
-#include "ContextDestructionObserver.h"
-#include "DOMStringList.h"
-#include "Frame.h"
-#include "ScriptExecutionContext.h"
+#include "page/ContentSecurityPolicy.h"
+#include "dom/ContextDestructionObserver.h"
+#include "dom/DOMStringList.h"
+#include "page/Frame.h"
+#include "dom/ScriptExecutionContext.h"
 #include <wtf/text/TextPosition.h>
 #include <wtf/text/WTFString.h>
 

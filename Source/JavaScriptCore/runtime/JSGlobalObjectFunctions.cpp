@@ -23,19 +23,19 @@
  */
 
 #include "config.h"
-#include "JSGlobalObjectFunctions.h"
+#include "runtime/JSGlobalObjectFunctions.h"
 
-#include "CallFrame.h"
-#include "Interpreter.h"
-#include "JSFunction.h"
-#include "JSGlobalObject.h"
-#include "JSString.h"
-#include "JSStringBuilder.h"
-#include "Lexer.h"
-#include "LiteralParser.h"
-#include "Nodes.h"
-#include "Operations.h"
-#include "Parser.h"
+#include "interpreter/CallFrame.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSString.h"
+#include "runtime/JSStringBuilder.h"
+#include "parser/Lexer.h"
+#include "runtime/LiteralParser.h"
+#include "parser/Nodes.h"
+#include "runtime/Operations.h"
+#include "parser/Parser.h"
 #include <wtf/dtoa.h>
 #include <stdio.h>
 #include <stdlib.h>

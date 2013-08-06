@@ -28,7 +28,7 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "InbandTextTrackPrivateClient.h"
+#include "platform/graphics/InbandTextTrackPrivateClient.h"
 #include <wtf/Forward.h>
 #include <wtf/Noncopyable.h>
 #include <wtf/RefCounted.h>

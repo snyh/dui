@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "IconDatabaseBase.h"
+#include "loader/icon/IconDatabaseBase.h"
 
-#include "IconDatabase.h"
-#include "KURL.h"
-#include "SharedBuffer.h"
+#include "loader/icon/IconDatabase.h"
+#include "platform/KURL.h"
+#include "platform/SharedBuffer.h"
 
 namespace WebCore {
 

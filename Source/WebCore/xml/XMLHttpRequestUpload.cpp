@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "XMLHttpRequestUpload.h"
+#include "xml/XMLHttpRequestUpload.h"
 
-#include "Event.h"
-#include "EventException.h"
-#include "EventNames.h"
-#include "XMLHttpRequest.h"
-#include "XMLHttpRequestProgressEvent.h"
+#include "dom/Event.h"
+#include "dom/EventException.h"
+#include "dom/EventNames.h"
+#include "xml/XMLHttpRequest.h"
+#include "xml/XMLHttpRequestProgressEvent.h"
 #include <wtf/Assertions.h>
 #include <wtf/text/AtomicString.h>
 

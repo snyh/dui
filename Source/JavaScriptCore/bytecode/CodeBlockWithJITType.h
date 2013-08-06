@@ -26,7 +26,7 @@
 #ifndef CodeBlockWithJITType_h
 #define CodeBlockWithJITType_h
 
-#include "CodeBlock.h"
+#include "bytecode/CodeBlock.h"
 
 namespace JSC {
 

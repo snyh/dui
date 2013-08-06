@@ -22,11 +22,11 @@
 #define SVGFitToViewBox_h
 
 #if ENABLE(SVG)
-#include "Attribute.h"
-#include "FloatRect.h"
-#include "QualifiedName.h"
+#include "dom/Attribute.h"
+#include "platform/graphics/FloatRect.h"
+#include "dom/QualifiedName.h"
 #include "SVGNames.h"
-#include "SVGPreserveAspectRatio.h"
+#include "svg/SVGPreserveAspectRatio.h"
 #include <wtf/HashSet.h>
 
 namespace WebCore {

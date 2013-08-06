@@ -29,11 +29,11 @@
  */
 
 #include "config.h"
-#include "ScrollView.h"
+#include "platform/ScrollView.h"
 
-#include "HostWindow.h"
-#include "MainFrameScrollbarGtk.h"
-#include "ScrollbarTheme.h"
+#include "platform/HostWindow.h"
+#include "platform/gtk/MainFrameScrollbarGtk.h"
+#include "platform/ScrollbarTheme.h"
 #include <gtk/gtk.h>
 
 using namespace std;

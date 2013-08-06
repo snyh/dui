@@ -26,8 +26,8 @@
 #ifndef JSNameScope_h
 #define JSNameScope_h
 
-#include "JSGlobalObject.h"
-#include "JSVariableObject.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSVariableObject.h"
 
 namespace JSC {
 

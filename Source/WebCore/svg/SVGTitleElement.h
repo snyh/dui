@@ -22,7 +22,7 @@
 #define SVGTitleElement_h
 #if ENABLE(SVG)
 
-#include "SVGStyledElement.h"
+#include "svg/SVGStyledElement.h"
 
 namespace WebCore {
 

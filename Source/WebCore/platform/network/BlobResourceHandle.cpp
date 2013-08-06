@@ -32,19 +32,19 @@
 
 #if ENABLE(BLOB)
 
-#include "BlobResourceHandle.h"
+#include "platform/network/BlobResourceHandle.h"
 
-#include "AsyncFileStream.h"
-#include "BlobStorageData.h"
-#include "FileStream.h"
-#include "FileSystem.h"
-#include "HTTPParsers.h"
-#include "KURL.h"
-#include "ResourceError.h"
-#include "ResourceHandleClient.h"
-#include "ResourceRequest.h"
-#include "ResourceResponse.h"
-#include "SharedBuffer.h"
+#include "fileapi/AsyncFileStream.h"
+#include "platform/network/BlobStorageData.h"
+#include "platform/FileStream.h"
+#include "platform/FileSystem.h"
+#include "platform/network/HTTPParsers.h"
+#include "platform/KURL.h"
+#include "platform/network/soup/ResourceError.h"
+#include "platform/network/ResourceHandleClient.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "platform/SharedBuffer.h"
 #include <wtf/MainThread.h>
 
 namespace WebCore {

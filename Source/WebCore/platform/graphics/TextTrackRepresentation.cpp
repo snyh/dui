@@ -27,7 +27,7 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "TextTrackRepresentation.h"
+#include "platform/graphics/TextTrackRepresentation.h"
 
 namespace WebCore {
 

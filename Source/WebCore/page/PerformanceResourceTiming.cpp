@@ -30,17 +30,17 @@
  */
 
 #include "config.h"
-#include "PerformanceResourceTiming.h"
+#include "page/PerformanceResourceTiming.h"
 
 #if ENABLE(RESOURCE_TIMING)
 
-#include "Document.h"
-#include "DocumentLoadTiming.h"
-#include "DocumentLoader.h"
-#include "KURL.h"
-#include "ResourceRequest.h"
-#include "ResourceResponse.h"
-#include "SecurityOrigin.h"
+#include "dom/Document.h"
+#include "loader/DocumentLoadTiming.h"
+#include "loader/DocumentLoader.h"
+#include "platform/KURL.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "page/SecurityOrigin.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

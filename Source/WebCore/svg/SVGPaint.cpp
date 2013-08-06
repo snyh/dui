@@ -22,10 +22,10 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGPaint.h"
+#include "svg/SVGPaint.h"
 
-#include "SVGException.h"
-#include "SVGURIReference.h"
+#include "svg/SVGException.h"
+#include "svg/SVGURIReference.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

@@ -26,9 +26,9 @@
 #ifndef CSSFontFaceSource_h
 #define CSSFontFaceSource_h
 
-#include "CachedFontClient.h"
-#include "CachedResourceHandle.h"
-#include "Timer.h"
+#include "loader/cache/CachedFontClient.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "platform/Timer.h"
 #include <wtf/HashMap.h>
 #include <wtf/text/AtomicString.h>
 

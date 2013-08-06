@@ -19,7 +19,7 @@
 
 #include "config.h"
 
-#include "Sound.h"
+#include "platform/Sound.h"
 
 #include <gdk/gdk.h>
 

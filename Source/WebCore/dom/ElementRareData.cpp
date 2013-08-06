@@ -29,9 +29,9 @@
  */
 
 #include "config.h"
-#include "ElementRareData.h"
-#include "RegionOversetState.h"
-#include "RenderStyle.h"
+#include "dom/ElementRareData.h"
+#include "rendering/RegionOversetState.h"
+#include "rendering/style/RenderStyle.h"
 
 namespace WebCore {
 

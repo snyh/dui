@@ -29,9 +29,9 @@
  */
 
 #include "config.h"
-#include "HarfBuzzFace.h"
+#include "platform/graphics/harfbuzz/HarfBuzzFace.h"
 
-#include "FontPlatformData.h"
+#include "platform/graphics/FontPlatformData.h"
 #include "hb-ot.h"
 #include "hb.h"
 

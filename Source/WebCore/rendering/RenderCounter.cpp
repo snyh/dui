@@ -20,18 +20,18 @@
  */
 
 #include "config.h"
-#include "RenderCounter.h"
+#include "rendering/RenderCounter.h"
 
-#include "CounterNode.h"
-#include "Document.h"
-#include "Element.h"
+#include "rendering/CounterNode.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
 #include "HTMLNames.h"
-#include "HTMLOListElement.h"
-#include "NodeTraversal.h"
-#include "RenderListItem.h"
-#include "RenderListMarker.h"
-#include "RenderStyle.h"
-#include "RenderView.h"
+#include "html/HTMLOListElement.h"
+#include "dom/NodeTraversal.h"
+#include "rendering/RenderListItem.h"
+#include "rendering/RenderListMarker.h"
+#include "rendering/style/RenderStyle.h"
+#include "rendering/RenderView.h"
 #include <wtf/StdLibExtras.h>
 
 #ifndef NDEBUG

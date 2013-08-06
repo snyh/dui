@@ -26,7 +26,7 @@
 #ifndef DeleteButton_h
 #define DeleteButton_h
 
-#include "HTMLImageElement.h"
+#include "html/HTMLImageElement.h"
 
 namespace WebCore {
 

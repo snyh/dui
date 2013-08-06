@@ -30,16 +30,16 @@
  */
 
 #include "config.h"
-#include "BlobRegistryImpl.h"
+#include "platform/network/BlobRegistryImpl.h"
 
 #if ENABLE(BLOB)
 
-#include "BlobResourceHandle.h"
-#include "BlobStorageData.h"
-#include "ResourceError.h"
-#include "ResourceHandle.h"
-#include "ResourceRequest.h"
-#include "ResourceResponse.h"
+#include "platform/network/BlobResourceHandle.h"
+#include "platform/network/BlobStorageData.h"
+#include "platform/network/soup/ResourceError.h"
+#include "platform/network/ResourceHandle.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/ResourceResponse.h"
 #include <wtf/MainThread.h>
 #include <wtf/StdLibExtras.h>
 

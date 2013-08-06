@@ -30,15 +30,15 @@
 
 #if ENABLE(JIT)
 
-#include "CodeOrigin.h"
-#include "DFGRegisterSet.h"
-#include "Instruction.h"
-#include "JITStubRoutine.h"
-#include "MacroAssembler.h"
-#include "Opcode.h"
-#include "PolymorphicAccessStructureList.h"
-#include "Structure.h"
-#include "StructureStubClearingWatchpoint.h"
+#include "bytecode/CodeOrigin.h"
+#include "dfg/DFGRegisterSet.h"
+#include "bytecode/Instruction.h"
+#include "jit/JITStubRoutine.h"
+#include "assembler/MacroAssembler.h"
+#include "bytecode/Opcode.h"
+#include "bytecode/PolymorphicAccessStructureList.h"
+#include "runtime/Structure.h"
+#include "bytecode/StructureStubClearingWatchpoint.h"
 #include <wtf/OwnPtr.h>
 
 namespace JSC {

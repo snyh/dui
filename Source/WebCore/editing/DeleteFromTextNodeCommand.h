@@ -26,7 +26,7 @@
 #ifndef DeleteFromTextNodeCommand_h
 #define DeleteFromTextNodeCommand_h
 
-#include "EditCommand.h"
+#include "editing/EditCommand.h"
 
 namespace WebCore {
 

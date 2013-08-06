@@ -26,16 +26,16 @@
  */
 
 #include "config.h"
-#include "ViewportArguments.h"
+#include "dom/ViewportArguments.h"
 
-#include "Chrome.h"
-#include "Console.h"
-#include "DOMWindow.h"
-#include "Document.h"
-#include "Frame.h"
-#include "IntSize.h"
-#include "Page.h"
-#include "ScriptableDocumentParser.h"
+#include "page/Chrome.h"
+#include "page/Console.h"
+#include "page/DOMWindow.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "platform/graphics/IntSize.h"
+#include "page/Page.h"
+#include "dom/ScriptableDocumentParser.h"
 #include <wtf/text/WTFString.h>
 
 using namespace std;

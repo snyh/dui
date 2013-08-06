@@ -20,10 +20,10 @@
  */
 
 #include "config.h"
-#include "CounterNode.h"
+#include "rendering/CounterNode.h"
 
-#include "RenderCounter.h"
-#include "RenderObject.h"
+#include "rendering/RenderCounter.h"
+#include "rendering/RenderObject.h"
 #include <stdio.h>
 
 namespace WebCore {

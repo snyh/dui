@@ -28,8 +28,8 @@
 
 #if ENABLE(CONTEXT_MENUS)
 
-#include "ContextMenu.h"
-#include "PlatformMenuDescription.h"
+#include "platform/ContextMenu.h"
+#include "platform/PlatformMenuDescription.h"
 #include <wtf/Forward.h>
 #include <wtf/PassOwnPtr.h>
 

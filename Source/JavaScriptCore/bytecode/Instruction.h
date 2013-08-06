@@ -29,13 +29,13 @@
 #ifndef Instruction_h
 #define Instruction_h
 
-#include "MacroAssembler.h"
-#include "Opcode.h"
-#include "PropertySlot.h"
-#include "ResolveOperation.h"
-#include "SpecialPointer.h"
-#include "Structure.h"
-#include "StructureChain.h"
+#include "assembler/MacroAssembler.h"
+#include "bytecode/Opcode.h"
+#include "runtime/PropertySlot.h"
+#include "bytecode/ResolveOperation.h"
+#include "bytecode/SpecialPointer.h"
+#include "runtime/Structure.h"
+#include "runtime/StructureChain.h"
 #include <wtf/VectorTraits.h>
 
 namespace JSC {

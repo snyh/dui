@@ -22,8 +22,8 @@
 #ifndef ArgList_h
 #define ArgList_h
 
-#include "CallFrame.h"
-#include "Register.h"
+#include "interpreter/CallFrame.h"
+#include "interpreter/Register.h"
 #include <wtf/HashSet.h>
 #include <wtf/Vector.h>
 

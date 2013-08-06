@@ -27,9 +27,9 @@
  */
 
 #include "config.h"
-#include "PageURLRecord.h"
+#include "loader/icon/PageURLRecord.h"
 
-#include "IconRecord.h"
+#include "loader/icon/IconRecord.h"
 
 namespace WebCore {
 

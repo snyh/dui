@@ -27,7 +27,7 @@
 #ifndef CrossOriginAccessControl_h
 #define CrossOriginAccessControl_h
 
-#include "ResourceHandleTypes.h"
+#include "platform/network/ResourceHandleTypes.h"
 #include <wtf/Forward.h>
 #include <wtf/HashSet.h>
 #include <wtf/text/StringHash.h>

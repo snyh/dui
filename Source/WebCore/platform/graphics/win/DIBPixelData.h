@@ -26,8 +26,8 @@
 #ifndef DIBPixelData_h
 #define DIBPixelData_h
 
-#include "IntRect.h"
-#include "IntSize.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/IntSize.h"
 #include <windows.h>
 
 #if USE(CG)

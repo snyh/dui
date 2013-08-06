@@ -27,11 +27,11 @@
  */
 
 #include "config.h"
-#include "IconRecord.h"
+#include "loader/icon/IconRecord.h"
 
-#include "BitmapImage.h"
-#include "IconDatabase.h"
-#include "Logging.h"
+#include "platform/graphics/BitmapImage.h"
+#include "loader/icon/IconDatabase.h"
+#include "platform/Logging.h"
 #include <wtf/text/CString.h>
 
 #include <limits.h>

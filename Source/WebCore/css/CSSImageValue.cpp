@@ -19,20 +19,20 @@
  */
 
 #include "config.h"
-#include "CSSImageValue.h"
+#include "css/CSSImageValue.h"
 
-#include "CSSCursorImageValue.h"
-#include "CSSParser.h"
+#include "css/CSSCursorImageValue.h"
+#include "css/CSSParser.h"
 #include "CSSValueKeywords.h"
-#include "CachedImage.h"
-#include "CachedResourceLoader.h"
-#include "CachedResourceRequest.h"
-#include "CachedResourceRequestInitiators.h"
-#include "Document.h"
-#include "Element.h"
-#include "MemoryCache.h"
-#include "StyleCachedImage.h"
-#include "StylePendingImage.h"
+#include "loader/cache/CachedImage.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "loader/cache/CachedResourceRequestInitiators.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
+#include "loader/cache/MemoryCache.h"
+#include "rendering/style/StyleCachedImage.h"
+#include "rendering/style/StylePendingImage.h"
 
 namespace WebCore {
 

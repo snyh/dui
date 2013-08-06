@@ -25,15 +25,15 @@
 #ifndef StyleRareInheritedData_h
 #define StyleRareInheritedData_h
 
-#include "Color.h"
-#include "Length.h"
+#include "platform/graphics/Color.h"
+#include "platform/Length.h"
 #include <wtf/RefCounted.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/text/AtomicString.h>
 
 #if ENABLE(CSS_VARIABLES)
-#include "DataRef.h"
-#include "StyleVariableData.h"
+#include "rendering/style/DataRef.h"
+#include "rendering/style/StyleVariableData.h"
 #endif
 
 namespace WebCore {

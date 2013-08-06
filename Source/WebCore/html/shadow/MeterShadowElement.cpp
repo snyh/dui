@@ -30,15 +30,15 @@
 
 #include "config.h"
 #if ENABLE(METER_ELEMENT)
-#include "MeterShadowElement.h"
+#include "html/shadow/MeterShadowElement.h"
 
 #include "CSSPropertyNames.h"
-#include "HTMLMeterElement.h"
+#include "html/HTMLMeterElement.h"
 #include "HTMLNames.h"
-#include "RenderMeter.h"
-#include "RenderTheme.h"
-#include "ShadowRoot.h"
-#include "StylePropertySet.h"
+#include "rendering/RenderMeter.h"
+#include "rendering/RenderTheme.h"
+#include "dom/ShadowRoot.h"
+#include "css/StylePropertySet.h"
 
 namespace WebCore {
 

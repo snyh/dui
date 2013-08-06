@@ -26,11 +26,11 @@
 
 #include "config.h"
 #if USE(ICU_UNICODE)
-#include "TextCodecICU.h"
+#include "platform/text/TextCodecICU.h"
 
-#include "TextEncoding.h"
-#include "TextEncodingRegistry.h"
-#include "ThreadGlobalData.h"
+#include "platform/text/TextEncoding.h"
+#include "platform/text/TextEncodingRegistry.h"
+#include "platform/ThreadGlobalData.h"
 #include <unicode/ucnv.h>
 #include <unicode/ucnv_cb.h>
 #include <wtf/Assertions.h>

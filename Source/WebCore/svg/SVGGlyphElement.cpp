@@ -22,14 +22,14 @@
 #include "config.h"
 
 #if ENABLE(SVG_FONTS)
-#include "SVGGlyphElement.h"
+#include "svg/SVGGlyphElement.h"
 
-#include "Attribute.h"
-#include "SVGFontData.h"
-#include "SVGFontElement.h"
-#include "SVGFontFaceElement.h"
+#include "dom/Attribute.h"
+#include "svg/SVGFontData.h"
+#include "svg/SVGFontElement.h"
+#include "svg/SVGFontFaceElement.h"
 #include "SVGNames.h"
-#include "SVGPathUtilities.h"
+#include "svg/SVGPathUtilities.h"
 
 namespace WebCore {
 

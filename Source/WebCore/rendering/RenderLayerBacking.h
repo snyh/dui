@@ -28,11 +28,11 @@
 
 #if USE(ACCELERATED_COMPOSITING)
 
-#include "FloatPoint.h"
-#include "FloatPoint3D.h"
-#include "GraphicsLayer.h"
-#include "GraphicsLayerClient.h"
-#include "RenderLayer.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/FloatPoint3D.h"
+#include "platform/graphics/GraphicsLayer.h"
+#include "platform/graphics/GraphicsLayerClient.h"
+#include "rendering/RenderLayer.h"
 
 namespace WebCore {
 

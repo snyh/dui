@@ -27,9 +27,9 @@
  */
 
 #include "config.h"
-#include "JSSegmentedVariableObject.h"
+#include "runtime/JSSegmentedVariableObject.h"
 
-#include "Operations.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

@@ -21,7 +21,7 @@
 #ifndef StringPrototype_h
 #define StringPrototype_h
 
-#include "StringObject.h"
+#include "runtime/StringObject.h"
 
 namespace JSC {
 

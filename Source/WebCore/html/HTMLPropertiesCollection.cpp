@@ -32,14 +32,14 @@
 
 #if ENABLE(MICRODATA)
 
-#include "HTMLPropertiesCollection.h"
+#include "html/HTMLPropertiesCollection.h"
 
-#include "DOMSettableTokenList.h"
-#include "HTMLElement.h"
+#include "html/DOMSettableTokenList.h"
+#include "html/HTMLElement.h"
 #include "HTMLNames.h"
-#include "Node.h"
-#include "NodeTraversal.h"
-#include "PropertyNodeList.h"
+#include "dom/Node.h"
+#include "dom/NodeTraversal.h"
+#include "dom/PropertyNodeList.h"
 
 namespace WebCore {
 

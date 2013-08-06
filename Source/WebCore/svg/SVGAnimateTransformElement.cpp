@@ -23,11 +23,11 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGAnimateTransformElement.h"
+#include "svg/SVGAnimateTransformElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "SVGNames.h"
-#include "SVGTransformable.h"
+#include "svg/SVGTransformable.h"
 
 namespace WebCore {
 

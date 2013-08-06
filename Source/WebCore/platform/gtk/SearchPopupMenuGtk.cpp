@@ -17,9 +17,9 @@
  */
 
 #include "config.h"
-#include "SearchPopupMenuGtk.h"
+#include "platform/gtk/SearchPopupMenuGtk.h"
 
-#include "NotImplemented.h"
+#include "platform/NotImplemented.h"
 
 namespace WebCore {
 

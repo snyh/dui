@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "GeneratorGeneratedImage.h"
+#include "platform/graphics/GeneratorGeneratedImage.h"
 
-#include "FloatRect.h"
-#include "GraphicsContext.h"
-#include "Length.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/Length.h"
 
 namespace WebCore {
 

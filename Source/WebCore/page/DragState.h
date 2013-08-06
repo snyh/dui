@@ -27,9 +27,9 @@
 #ifndef DragState_h
 #define DragState_h
 
-#include "Clipboard.h"
-#include "DragActions.h"
-#include "Element.h"
+#include "dom/Clipboard.h"
+#include "page/DragActions.h"
+#include "dom/Element.h"
 
 namespace WebCore {
 

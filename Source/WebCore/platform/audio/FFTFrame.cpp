@@ -30,9 +30,9 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "FFTFrame.h"
+#include "platform/audio/FFTFrame.h"
 
-#include "Logging.h"
+#include "platform/Logging.h"
 #include <complex>
 #include <wtf/MathExtras.h>
 #include <wtf/OwnPtr.h>

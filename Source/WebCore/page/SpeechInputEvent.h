@@ -28,8 +28,8 @@
 
 #if ENABLE(INPUT_SPEECH)
 
-#include "Event.h"
-#include "SpeechInputResultList.h"
+#include "dom/Event.h"
+#include "page/SpeechInputResultList.h"
 
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>

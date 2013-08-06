@@ -22,8 +22,8 @@
 
 #if USE(ACCELERATED_COMPOSITING)
 
-#include "GraphicsLayer.h"
-#include "TransformationMatrix.h"
+#include "platform/graphics/GraphicsLayer.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
 #include <wtf/HashMap.h>
 #include <wtf/text/StringHash.h>
 

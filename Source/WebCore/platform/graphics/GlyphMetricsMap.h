@@ -29,7 +29,7 @@
 #ifndef GlyphMetricsMap_h
 #define GlyphMetricsMap_h
 
-#include "Glyph.h"
+#include "platform/graphics/Glyph.h"
 #include <wtf/FixedArray.h>
 #include <wtf/HashMap.h>
 #include <wtf/OwnPtr.h>

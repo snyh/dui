@@ -32,9 +32,9 @@
 
 #if ENABLE(CSS_SHADERS)
 
-#include "CSSValue.h"
-#include "StyleShader.h"
-#include "WebKitCSSShaderValue.h"
+#include "css/CSSValue.h"
+#include "rendering/style/StyleShader.h"
+#include "css/WebKitCSSShaderValue.h"
 #include <wtf/PassRefPtr.h>
 
 namespace WebCore {

@@ -27,7 +27,7 @@
  */
 
 #include "config.h"
-#include "FrameLoaderStateMachine.h"
+#include "loader/FrameLoaderStateMachine.h"
 
 #include <wtf/Assertions.h>
 

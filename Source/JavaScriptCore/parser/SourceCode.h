@@ -29,7 +29,7 @@
 #ifndef SourceCode_h
 #define SourceCode_h
 
-#include "SourceProvider.h"
+#include "parser/SourceProvider.h"
 #include <wtf/RefPtr.h>
 
 namespace JSC {

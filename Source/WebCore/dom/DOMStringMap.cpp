@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "DOMStringMap.h"
+#include "dom/DOMStringMap.h"
 
 namespace WebCore {
 

@@ -29,12 +29,12 @@
 #ifndef ReverbConvolver_h
 #define ReverbConvolver_h
 
-#include "AudioArray.h"
-#include "DirectConvolver.h"
-#include "FFTConvolver.h"
-#include "ReverbAccumulationBuffer.h"
-#include "ReverbConvolverStage.h"
-#include "ReverbInputBuffer.h"
+#include "platform/audio/AudioArray.h"
+#include "platform/audio/DirectConvolver.h"
+#include "platform/audio/FFTConvolver.h"
+#include "platform/audio/ReverbAccumulationBuffer.h"
+#include "platform/audio/ReverbConvolverStage.h"
+#include "platform/audio/ReverbInputBuffer.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/Threading.h>

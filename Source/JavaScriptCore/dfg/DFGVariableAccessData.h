@@ -26,11 +26,11 @@
 #ifndef DFGVariableAccessData_h
 #define DFGVariableAccessData_h
 
-#include "DFGDoubleFormatState.h"
-#include "DFGNodeFlags.h"
-#include "Operands.h"
-#include "SpeculatedType.h"
-#include "VirtualRegister.h"
+#include "dfg/DFGDoubleFormatState.h"
+#include "dfg/DFGNodeFlags.h"
+#include "bytecode/Operands.h"
+#include "bytecode/SpeculatedType.h"
+#include "bytecode/VirtualRegister.h"
 #include <wtf/Platform.h>
 #include <wtf/UnionFind.h>
 #include <wtf/Vector.h>

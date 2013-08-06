@@ -21,7 +21,7 @@
 #ifndef RenderSlider_h
 #define RenderSlider_h
 
-#include "RenderFlexibleBox.h"
+#include "rendering/RenderFlexibleBox.h"
 
 namespace WebCore {
 

@@ -22,9 +22,9 @@
 #ifndef FontCustomPlatformData_h
 #define FontCustomPlatformData_h
 
-#include "FontOrientation.h"
-#include "FontRenderingMode.h"
-#include "FontWidthVariant.h"
+#include "platform/graphics/FontOrientation.h"
+#include "platform/graphics/FontRenderingMode.h"
+#include "platform/graphics/FontWidthVariant.h"
 #include <wtf/Forward.h>
 #include <wtf/Noncopyable.h>
 

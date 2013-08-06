@@ -26,7 +26,7 @@
 #ifndef CopiedAllocator_h
 #define CopiedAllocator_h
 
-#include "CopiedBlock.h"
+#include "heap/CopiedBlock.h"
 #include <wtf/CheckedBoolean.h>
 #include <wtf/DataLog.h>
 

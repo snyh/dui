@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "StorageMap.h"
+#include "storage/StorageMap.h"
 
 #include <wtf/TemporaryChange.h>
 

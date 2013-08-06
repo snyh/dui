@@ -22,17 +22,17 @@
  */
 
 #include "config.h"
-#include "RenderReplaced.h"
+#include "rendering/RenderReplaced.h"
 
-#include "Frame.h"
-#include "GraphicsContext.h"
-#include "LayoutRepainter.h"
-#include "Page.h"
-#include "RenderBlock.h"
-#include "RenderLayer.h"
-#include "RenderTheme.h"
-#include "RenderView.h"
-#include "VisiblePosition.h"
+#include "page/Frame.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/LayoutRepainter.h"
+#include "page/Page.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/RenderTheme.h"
+#include "rendering/RenderView.h"
+#include "editing/VisiblePosition.h"
 #include <wtf/StackStats.h>
 
 using namespace std;

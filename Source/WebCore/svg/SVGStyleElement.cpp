@@ -23,12 +23,12 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGStyleElement.h"
+#include "svg/SVGStyleElement.h"
 
-#include "Attribute.h"
-#include "CSSStyleSheet.h"
-#include "Document.h"
-#include "ExceptionCode.h"
+#include "dom/Attribute.h"
+#include "css/CSSStyleSheet.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCode.h"
 #include "SVGNames.h"
 #include <wtf/StdLibExtras.h>
 

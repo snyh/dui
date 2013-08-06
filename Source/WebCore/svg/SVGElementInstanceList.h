@@ -22,7 +22,7 @@
 
 #if ENABLE(SVG)
 
-#include "SVGElementInstance.h"
+#include "svg/SVGElementInstance.h"
 #include <wtf/RefCounted.h>
 
 namespace WebCore {

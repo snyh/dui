@@ -30,9 +30,9 @@
 #include "config.h"
 
 #if ENABLE(CSS_SHADERS)
-#include "CustomFilterParameterList.h"
+#include "platform/graphics/filters/CustomFilterParameterList.h"
 
-#include "CustomFilterParameter.h"
+#include "platform/graphics/filters/CustomFilterParameter.h"
 #include <wtf/text/StringHash.h>
 
 namespace WebCore {

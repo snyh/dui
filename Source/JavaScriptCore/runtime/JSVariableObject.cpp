@@ -27,9 +27,9 @@
  */
 
 #include "config.h"
-#include "JSVariableObject.h"
+#include "runtime/JSVariableObject.h"
 
-#include "Operations.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

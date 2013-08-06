@@ -23,13 +23,13 @@
 #ifndef JSCell_h
 #define JSCell_h
 
-#include "CallData.h"
-#include "ConstructData.h"
-#include "Heap.h"
-#include "JSLock.h"
-#include "SlotVisitor.h"
-#include "TypedArrayDescriptor.h"
-#include "WriteBarrier.h"
+#include "runtime/CallData.h"
+#include "runtime/ConstructData.h"
+#include "heap/Heap.h"
+#include "runtime/JSLock.h"
+#include "heap/SlotVisitor.h"
+#include "runtime/TypedArrayDescriptor.h"
+#include "runtime/WriteBarrier.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/TypeTraits.h>
 

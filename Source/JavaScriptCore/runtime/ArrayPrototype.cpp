@@ -22,21 +22,21 @@
  */
 
 #include "config.h"
-#include "ArrayPrototype.h"
+#include "runtime/ArrayPrototype.h"
 
-#include "ButterflyInlines.h"
-#include "CachedCall.h"
-#include "CodeBlock.h"
-#include "CopiedSpaceInlines.h"
-#include "Error.h"
-#include "Interpreter.h"
-#include "JIT.h"
-#include "JSStringBuilder.h"
-#include "JSStringJoiner.h"
-#include "Lookup.h"
-#include "ObjectPrototype.h"
-#include "Operations.h"
-#include "StringRecursionChecker.h"
+#include "runtime/ButterflyInlines.h"
+#include "interpreter/CachedCall.h"
+#include "bytecode/CodeBlock.h"
+#include "heap/CopiedSpaceInlines.h"
+#include "runtime/Error.h"
+#include "interpreter/Interpreter.h"
+#include "jit/JIT.h"
+#include "runtime/JSStringBuilder.h"
+#include "runtime/JSStringJoiner.h"
+#include "runtime/Lookup.h"
+#include "runtime/ObjectPrototype.h"
+#include "runtime/Operations.h"
+#include "runtime/StringRecursionChecker.h"
 #include <algorithm>
 #include <wtf/Assertions.h>
 #include <wtf/HashSet.h>

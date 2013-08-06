@@ -30,8 +30,8 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGCommon.h"
-#include "DFGUseKind.h"
+#include "dfg/DFGCommon.h"
+#include "dfg/DFGUseKind.h"
 
 namespace JSC { namespace DFG {
 

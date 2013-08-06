@@ -26,7 +26,7 @@
 #ifndef HTMLAllCollection_h
 #define HTMLAllCollection_h
 
-#include "HTMLCollection.h"
+#include "html/HTMLCollection.h"
 
 namespace WebCore {
 

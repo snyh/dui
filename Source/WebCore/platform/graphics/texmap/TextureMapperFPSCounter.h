@@ -23,8 +23,8 @@
 #define TextureMapperFPSCounter_h
 
 #if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER)
-#include "FloatPoint.h"
-#include "TransformationMatrix.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
 #include <wtf/Noncopyable.h>
 
 namespace WebCore {

@@ -29,18 +29,18 @@
  */
 
 #include "config.h"
-#include "PolicyChecker.h"
+#include "loader/PolicyChecker.h"
 
-#include "ContentSecurityPolicy.h"
-#include "DOMWindow.h"
-#include "DocumentLoader.h"
-#include "FormState.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
-#include "HTMLFormElement.h"
-#include "HTMLFrameOwnerElement.h"
-#include "SecurityOrigin.h"
+#include "page/ContentSecurityPolicy.h"
+#include "page/DOMWindow.h"
+#include "loader/DocumentLoader.h"
+#include "loader/FormState.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
+#include "html/HTMLFormElement.h"
+#include "html/HTMLFrameOwnerElement.h"
+#include "page/SecurityOrigin.h"
 
 namespace WebCore {
 

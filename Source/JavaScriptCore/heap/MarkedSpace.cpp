@@ -19,12 +19,12 @@
  */
 
 #include "config.h"
-#include "MarkedSpace.h"
+#include "heap/MarkedSpace.h"
 
-#include "IncrementalSweeper.h"
-#include "JSGlobalObject.h"
-#include "JSLock.h"
-#include "JSObject.h"
+#include "heap/IncrementalSweeper.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSLock.h"
+#include "runtime/JSObject.h"
 
 
 namespace JSC {

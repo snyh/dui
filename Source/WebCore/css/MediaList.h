@@ -21,7 +21,7 @@
 #ifndef MediaList_h
 #define MediaList_h
 
-#include "ExceptionCode.h"
+#include "dom/ExceptionCode.h"
 #include <wtf/Forward.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>

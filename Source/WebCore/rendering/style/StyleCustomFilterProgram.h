@@ -31,12 +31,12 @@
 #define StyleCustomFilterProgram_h
 
 #if ENABLE(CSS_SHADERS)
-#include "CachedResourceClient.h"
-#include "CachedResourceHandle.h"
-#include "CachedShader.h"
-#include "CustomFilterProgram.h"
-#include "KURL.h"
-#include "StyleShader.h"
+#include "loader/cache/CachedResourceClient.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "loader/cache/CachedShader.h"
+#include "platform/graphics/filters/CustomFilterProgram.h"
+#include "platform/KURL.h"
+#include "rendering/style/StyleShader.h"
 #include <wtf/FastAllocBase.h>
 
 namespace WebCore {

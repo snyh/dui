@@ -31,10 +31,10 @@
 
 #if ENABLE(CSS_SHADERS)
 
-#include "StyleCachedShader.h"
+#include "rendering/style/StyleCachedShader.h"
 
-#include "CSSPrimitiveValue.h"
-#include "CachedShader.h"
+#include "css/CSSPrimitiveValue.h"
+#include "loader/cache/CachedShader.h"
 
 namespace WebCore {
 

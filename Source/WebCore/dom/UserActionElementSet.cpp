@@ -26,10 +26,10 @@
  */
 
 #include "config.h"
-#include "UserActionElementSet.h"
+#include "dom/UserActionElementSet.h"
 
-#include "Document.h"
-#include "Element.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
 
 namespace WebCore {
 

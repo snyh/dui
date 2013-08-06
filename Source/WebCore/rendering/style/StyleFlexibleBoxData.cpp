@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "StyleFlexibleBoxData.h"
+#include "rendering/style/StyleFlexibleBoxData.h"
 
-#include "RenderStyle.h"
+#include "rendering/style/RenderStyle.h"
 
 namespace WebCore {
 

@@ -27,14 +27,14 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "CachedTextTrack.h"
+#include "loader/cache/CachedTextTrack.h"
 
-#include "CachedResourceClient.h"
-#include "CachedResourceClientWalker.h"
-#include "CachedResourceLoader.h"
-#include "ResourceBuffer.h"
-#include "SharedBuffer.h"
-#include "TextResourceDecoder.h"
+#include "loader/cache/CachedResourceClient.h"
+#include "loader/cache/CachedResourceClientWalker.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/ResourceBuffer.h"
+#include "platform/SharedBuffer.h"
+#include "loader/TextResourceDecoder.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

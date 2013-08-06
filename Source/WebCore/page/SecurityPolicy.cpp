@@ -27,12 +27,12 @@
  */
 
 #include "config.h"
-#include "SecurityPolicy.h"
+#include "page/SecurityPolicy.h"
 
-#include "KURL.h"
+#include "platform/KURL.h"
 #include <wtf/MainThread.h>
-#include "OriginAccessEntry.h"
-#include "SecurityOrigin.h"
+#include "page/OriginAccessEntry.h"
+#include "page/SecurityOrigin.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/StringHash.h>

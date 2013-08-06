@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "HeapStatistics.h"
+#include "heap/HeapStatistics.h"
 
-#include "Heap.h"
-#include "JSObject.h"
-#include "Operations.h"
-#include "Options.h"
+#include "heap/Heap.h"
+#include "runtime/JSObject.h"
+#include "runtime/Operations.h"
+#include "runtime/Options.h"
 #include <stdlib.h>
 #if OS(UNIX)
 #include <sys/resource.h>

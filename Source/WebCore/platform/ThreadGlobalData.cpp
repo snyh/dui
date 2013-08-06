@@ -25,17 +25,17 @@
  */
 
 #include "config.h"
-#include "ThreadGlobalData.h"
+#include "platform/ThreadGlobalData.h"
 
-#include "CachedResourceRequestInitiators.h"
-#include "EventNames.h"
-#include "ThreadTimers.h"
+#include "loader/cache/CachedResourceRequestInitiators.h"
+#include "dom/EventNames.h"
+#include "platform/ThreadTimers.h"
 #include <wtf/MainThread.h>
 #include <wtf/WTFThreadData.h>
 #include <wtf/text/StringImpl.h>
 
 #if USE(ICU_UNICODE)
-#include "TextCodecICU.h"
+#include "platform/text/TextCodecICU.h"
 #endif
 
 #if PLATFORM(MAC)

@@ -28,7 +28,7 @@
  */
 
 #include "config.h"
-#include "WebKitCSSArrayFunctionValue.h"
+#include "css/WebKitCSSArrayFunctionValue.h"
 
 #if ENABLE(CSS_SHADERS)
 

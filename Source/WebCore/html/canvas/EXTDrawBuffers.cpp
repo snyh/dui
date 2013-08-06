@@ -27,9 +27,9 @@
 
 #if ENABLE(WEBGL)
 
-#include "EXTDrawBuffers.h"
+#include "html/canvas/EXTDrawBuffers.h"
 
-#include "Extensions3D.h"
+#include "platform/graphics/Extensions3D.h"
 
 namespace WebCore {
 

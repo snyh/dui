@@ -29,11 +29,11 @@
 #ifndef JSActivation_h
 #define JSActivation_h
 
-#include "CodeBlock.h"
-#include "CopiedSpaceInlines.h"
-#include "JSVariableObject.h"
-#include "Nodes.h"
-#include "SymbolTable.h"
+#include "bytecode/CodeBlock.h"
+#include "heap/CopiedSpaceInlines.h"
+#include "runtime/JSVariableObject.h"
+#include "parser/Nodes.h"
+#include "runtime/SymbolTable.h"
 
 namespace JSC {
 

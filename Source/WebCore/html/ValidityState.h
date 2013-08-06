@@ -24,8 +24,8 @@
 #ifndef ValidityState_h
 #define ValidityState_h
 
-#include "FormAssociatedElement.h"
-#include "ScriptWrappable.h"
+#include "html/FormAssociatedElement.h"
+#include "bindings/dui/ScriptWrappable.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

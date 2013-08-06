@@ -33,7 +33,7 @@
 
 #if ENABLE(WORKERS)
 
-#include "ConsoleTypes.h"
+#include "page/ConsoleTypes.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

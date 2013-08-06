@@ -24,20 +24,20 @@
  */
 
 #include "config.h"
-#include "MarkStack.h"
-#include "MarkStackInlines.h"
+#include "heap/MarkStack.h"
+#include "heap/MarkStackInlines.h"
 
-#include "ConservativeRoots.h"
-#include "CopiedSpace.h"
-#include "CopiedSpaceInlines.h"
-#include "Heap.h"
-#include "JSArray.h"
-#include "JSCell.h"
-#include "JSObject.h"
+#include "heap/ConservativeRoots.h"
+#include "heap/CopiedSpace.h"
+#include "heap/CopiedSpaceInlines.h"
+#include "heap/Heap.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSCell.h"
+#include "runtime/JSObject.h"
 
-#include "SlotVisitorInlines.h"
-#include "Structure.h"
-#include "WriteBarrier.h"
+#include "heap/SlotVisitorInlines.h"
+#include "runtime/Structure.h"
+#include "runtime/WriteBarrier.h"
 #include <wtf/Atomics.h>
 #include <wtf/DataLog.h>
 #include <wtf/MainThread.h>

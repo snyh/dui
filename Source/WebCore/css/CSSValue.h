@@ -21,8 +21,8 @@
 #ifndef CSSValue_h
 #define CSSValue_h
 
-#include "ExceptionCode.h"
-#include "KURLHash.h"
+#include "dom/ExceptionCode.h"
+#include "platform/KURLHash.h"
 #include <wtf/ListHashSet.h>
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>

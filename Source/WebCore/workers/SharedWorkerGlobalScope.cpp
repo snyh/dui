@@ -32,14 +32,14 @@
 
 #if ENABLE(SHARED_WORKERS)
 
-#include "SharedWorkerGlobalScope.h"
+#include "workers/SharedWorkerGlobalScope.h"
 
-#include "DOMWindow.h"
-#include "EventNames.h"
-#include "MessageEvent.h"
-#include "NotImplemented.h"
-#include "SecurityOrigin.h"
-#include "SharedWorkerThread.h"
+#include "page/DOMWindow.h"
+#include "dom/EventNames.h"
+#include "dom/MessageEvent.h"
+#include "platform/NotImplemented.h"
+#include "page/SecurityOrigin.h"
+#include "workers/SharedWorkerThread.h"
 
 namespace WebCore {
 

@@ -19,12 +19,12 @@
 
 #include "config.h"
 
-#include "GStreamerGWorld.h"
+#include "platform/graphics/gstreamer/GStreamerGWorld.h"
 
 #if ENABLE(VIDEO) && USE(GSTREAMER) && USE(NATIVE_FULLSCREEN_VIDEO)
 
-#include "GRefPtrGStreamer.h"
-#include "GStreamerVersioning.h"
+#include "platform/graphics/gstreamer/GRefPtrGStreamer.h"
+#include "platform/graphics/gstreamer/GStreamerVersioning.h"
 #include <gst/gst.h>
 #include <gst/pbutils/pbutils.h>
 

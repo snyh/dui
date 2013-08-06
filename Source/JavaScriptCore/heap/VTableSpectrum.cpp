@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "VTableSpectrum.h"
+#include "heap/VTableSpectrum.h"
 
-#include "JSObject.h"
-#include "Structure.h"
+#include "runtime/JSObject.h"
+#include "runtime/Structure.h"
 #include <algorithm>
 #include <stdio.h>
 #include <wtf/Vector.h>

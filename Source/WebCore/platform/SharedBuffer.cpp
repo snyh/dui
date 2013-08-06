@@ -25,9 +25,9 @@
  */
 
 #include "config.h"
-#include "SharedBuffer.h"
+#include "platform/SharedBuffer.h"
 
-#include "PurgeableBuffer.h"
+#include "platform/PurgeableBuffer.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/unicode/UTF8.h>
 #include <wtf/unicode/Unicode.h>

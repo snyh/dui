@@ -27,7 +27,7 @@
 #ifndef BatchedTransitionOptimizer_h
 #define BatchedTransitionOptimizer_h
 
-#include "JSObject.h"
+#include "runtime/JSObject.h"
 
 namespace JSC {
 

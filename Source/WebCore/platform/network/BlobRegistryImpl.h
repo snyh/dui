@@ -31,8 +31,8 @@
 #ifndef BlobRegistryImpl_h
 #define BlobRegistryImpl_h
 
-#include "BlobRegistry.h"
-#include "BlobStorageData.h"
+#include "platform/network/BlobRegistry.h"
+#include "platform/network/BlobStorageData.h"
 #include <wtf/HashMap.h>
 #include <wtf/text/StringHash.h>
 #include <wtf/text/WTFString.h>

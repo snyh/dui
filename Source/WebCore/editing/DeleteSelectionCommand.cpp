@@ -24,23 +24,23 @@
  */
 
 #include "config.h"
-#include "DeleteSelectionCommand.h"
+#include "editing/DeleteSelectionCommand.h"
 
-#include "Document.h"
-#include "DocumentMarkerController.h"
-#include "EditingBoundary.h"
-#include "Editor.h"
-#include "EditorClient.h"
-#include "Element.h"
-#include "Frame.h"
-#include "htmlediting.h"
-#include "HTMLInputElement.h"
+#include "dom/Document.h"
+#include "dom/DocumentMarkerController.h"
+#include "editing/EditingBoundary.h"
+#include "editing/Editor.h"
+#include "page/EditorClient.h"
+#include "dom/Element.h"
+#include "page/Frame.h"
+#include "editing/htmlediting.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "HTMLTableElement.h"
-#include "NodeTraversal.h"
-#include "RenderTableCell.h"
-#include "Text.h"
-#include "VisibleUnits.h"
+#include "html/HTMLTableElement.h"
+#include "dom/NodeTraversal.h"
+#include "rendering/RenderTableCell.h"
+#include "dom/Text.h"
+#include "editing/VisibleUnits.h"
 
 namespace WebCore {
 

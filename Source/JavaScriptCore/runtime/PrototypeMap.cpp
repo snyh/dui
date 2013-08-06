@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "PrototypeMap.h"
+#include "runtime/PrototypeMap.h"
 
-#include "JSGlobalObject.h"
-#include "Operations.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

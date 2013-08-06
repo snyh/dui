@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "CachedRawResource.h"
+#include "loader/cache/CachedRawResource.h"
 
-#include "CachedRawResourceClient.h"
-#include "CachedResourceClientWalker.h"
-#include "CachedResourceLoader.h"
-#include "ResourceBuffer.h"
-#include "SubresourceLoader.h"
+#include "loader/cache/CachedRawResourceClient.h"
+#include "loader/cache/CachedResourceClientWalker.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/ResourceBuffer.h"
+#include "loader/SubresourceLoader.h"
 #include <wtf/PassRefPtr.h>
 
 namespace WebCore {

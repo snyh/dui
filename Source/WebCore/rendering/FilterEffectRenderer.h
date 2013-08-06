@@ -28,16 +28,16 @@
 
 #if ENABLE(CSS_FILTERS)
 
-#include "Filter.h"
-#include "FilterEffect.h"
-#include "FilterOperations.h"
-#include "FloatRect.h"
-#include "GraphicsContext.h"
-#include "ImageBuffer.h"
-#include "IntRectExtent.h"
-#include "LayoutRect.h"
-#include "SVGFilterBuilder.h"
-#include "SourceGraphic.h"
+#include "platform/graphics/filters/Filter.h"
+#include "platform/graphics/filters/FilterEffect.h"
+#include "platform/graphics/filters/FilterOperations.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "platform/graphics/IntRectExtent.h"
+#include "platform/graphics/LayoutRect.h"
+#include "svg/graphics/filters/SVGFilterBuilder.h"
+#include "platform/graphics/filters/SourceGraphic.h"
 
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>

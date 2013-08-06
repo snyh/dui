@@ -19,7 +19,7 @@
  */
 
 #include "config.h"
-#include "CSSInheritedValue.h"
+#include "css/CSSInheritedValue.h"
 
 #include <wtf/text/WTFString.h>
 

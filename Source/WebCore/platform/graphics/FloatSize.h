@@ -28,7 +28,7 @@
 #ifndef FloatSize_h
 #define FloatSize_h
 
-#include "IntPoint.h"
+#include "platform/graphics/IntPoint.h"
 #include <wtf/MathExtras.h>
 
 #if PLATFORM(QT)

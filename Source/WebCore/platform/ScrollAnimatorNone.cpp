@@ -32,13 +32,13 @@
 
 #if ENABLE(SMOOTH_SCROLLING)
 
-#include "ScrollAnimatorNone.h"
+#include "platform/ScrollAnimatorNone.h"
 
-#include "FloatPoint.h"
-#include "NotImplemented.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/NotImplemented.h"
 #include <wtf/OwnArrayPtr.h>
-#include "ScrollableArea.h"
-#include "ScrollbarTheme.h"
+#include "platform/ScrollableArea.h"
+#include "platform/ScrollbarTheme.h"
 #include <algorithm>
 #include <wtf/CurrentTime.h>
 #include <wtf/PassOwnPtr.h>

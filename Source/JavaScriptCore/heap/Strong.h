@@ -27,8 +27,8 @@
 #define Strong_h
 
 #include <wtf/Assertions.h>
-#include "Handle.h"
-#include "HandleSet.h"
+#include "heap/Handle.h"
+#include "heap/HandleSet.h"
 
 namespace JSC {
 

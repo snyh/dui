@@ -20,17 +20,17 @@
 #include "config.h"
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "SVGFEConvolveMatrixElement.h"
+#include "svg/SVGFEConvolveMatrixElement.h"
 
-#include "Attr.h"
-#include "FilterEffect.h"
-#include "FloatPoint.h"
-#include "IntPoint.h"
-#include "IntSize.h"
-#include "SVGElementInstance.h"
-#include "SVGFilterBuilder.h"
+#include "dom/Attr.h"
+#include "platform/graphics/filters/FilterEffect.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/IntPoint.h"
+#include "platform/graphics/IntSize.h"
+#include "svg/SVGElementInstance.h"
+#include "svg/graphics/filters/SVGFilterBuilder.h"
 #include "SVGNames.h"
-#include "SVGParserUtilities.h"
+#include "svg/SVGParserUtilities.h"
 
 namespace WebCore {
 

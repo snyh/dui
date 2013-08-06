@@ -26,8 +26,8 @@
 #ifndef TextIterator_h
 #define TextIterator_h
 
-#include "FindOptions.h"
-#include "Range.h"
+#include "editing/FindOptions.h"
+#include "dom/Range.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

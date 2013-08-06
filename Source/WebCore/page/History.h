@@ -26,10 +26,10 @@
 #ifndef History_h
 #define History_h
 
-#include "DOMWindowProperty.h"
-#include "KURL.h"
-#include "ScriptWrappable.h"
-#include "SerializedScriptValue.h"
+#include "page/DOMWindowProperty.h"
+#include "platform/KURL.h"
+#include "bindings/dui/ScriptWrappable.h"
+#include "bindings/dui/saved/SerializedScriptValue.h"
 #include <wtf/Forward.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>

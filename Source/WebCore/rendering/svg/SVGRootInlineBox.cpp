@@ -22,17 +22,17 @@
  */
 
 #include "config.h"
-#include "SVGRootInlineBox.h"
+#include "rendering/svg/SVGRootInlineBox.h"
 
 #if ENABLE(SVG)
-#include "GraphicsContext.h"
-#include "RenderSVGInlineText.h"
-#include "RenderSVGText.h"
-#include "SVGInlineFlowBox.h"
-#include "SVGInlineTextBox.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/svg/RenderSVGInlineText.h"
+#include "rendering/svg/RenderSVGText.h"
+#include "rendering/svg/SVGInlineFlowBox.h"
+#include "rendering/svg/SVGInlineTextBox.h"
 #include "SVGNames.h"
-#include "SVGRenderingContext.h"
-#include "SVGTextPositioningElement.h"
+#include "rendering/svg/SVGRenderingContext.h"
+#include "svg/SVGTextPositioningElement.h"
 
 namespace WebCore {
 

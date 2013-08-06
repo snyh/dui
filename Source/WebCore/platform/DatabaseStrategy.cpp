@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "DatabaseStrategy.h"
+#include "platform/DatabaseStrategy.h"
 
 #if ENABLE(SQL_DATABASE)
 

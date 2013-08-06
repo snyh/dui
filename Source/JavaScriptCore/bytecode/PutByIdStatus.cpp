@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "PutByIdStatus.h"
+#include "bytecode/PutByIdStatus.h"
 
-#include "CodeBlock.h"
-#include "LLIntData.h"
-#include "LowLevelInterpreter.h"
-#include "Operations.h"
-#include "Structure.h"
-#include "StructureChain.h"
+#include "bytecode/CodeBlock.h"
+#include "llint/LLIntData.h"
+#include "llint/LowLevelInterpreter.h"
+#include "runtime/Operations.h"
+#include "runtime/Structure.h"
+#include "runtime/StructureChain.h"
 
 namespace JSC {
 

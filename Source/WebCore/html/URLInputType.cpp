@@ -29,12 +29,12 @@
  */
 
 #include "config.h"
-#include "URLInputType.h"
+#include "html/URLInputType.h"
 
-#include "HTMLInputElement.h"
-#include "InputTypeNames.h"
-#include "LocalizedStrings.h"
-#include "KURL.h"
+#include "html/HTMLInputElement.h"
+#include "html/InputTypeNames.h"
+#include "platform/LocalizedStrings.h"
+#include "platform/KURL.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

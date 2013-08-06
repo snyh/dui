@@ -29,9 +29,9 @@
 
 #if ENABLE(WORKERS)
 
-#include "ContentSecurityPolicy.h"
-#include "GroupSettings.h"
-#include "WorkerRunLoop.h"
+#include "page/ContentSecurityPolicy.h"
+#include "page/GroupSettings.h"
+#include "workers/WorkerRunLoop.h"
 #include <wtf/Forward.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/PassRefPtr.h>

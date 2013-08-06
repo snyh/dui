@@ -22,7 +22,7 @@
 
 #if ENABLE(VIDEO) && USE(GSTREAMER) && USE(NATIVE_FULLSCREEN_VIDEO)
 
-#include "FullscreenVideoControllerGStreamer.h"
+#include "platform/graphics/gstreamer/FullscreenVideoControllerGStreamer.h"
 
 namespace WebCore {
 

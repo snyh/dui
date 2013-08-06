@@ -18,13 +18,13 @@
  */
 
 #include "config.h"
-#include "TextureMapperImageBuffer.h"
+#include "platform/graphics/texmap/TextureMapperImageBuffer.h"
 
-#include "GraphicsLayer.h"
+#include "platform/graphics/GraphicsLayer.h"
 #if PLATFORM(QT)
 #include "NativeImageQt.h"
 #endif
-#include "NotImplemented.h"
+#include "platform/NotImplemented.h"
 
 
 #if USE(TEXTURE_MAPPER)

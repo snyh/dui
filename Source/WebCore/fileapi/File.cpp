@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "File.h"
+#include "fileapi/File.h"
 
-#include "FileMetadata.h"
-#include "FileSystem.h"
-#include "MIMETypeRegistry.h"
+#include "platform/FileMetadata.h"
+#include "platform/FileSystem.h"
+#include "platform/MIMETypeRegistry.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/DateMath.h>
 #include <wtf/text/WTFString.h>

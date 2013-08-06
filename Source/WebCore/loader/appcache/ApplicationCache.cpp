@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "ApplicationCache.h"
+#include "loader/appcache/ApplicationCache.h"
 
-#include "ApplicationCacheGroup.h"
-#include "ApplicationCacheResource.h"
-#include "ApplicationCacheStorage.h"
-#include "ResourceRequest.h"
-#include "SecurityOrigin.h"
+#include "loader/appcache/ApplicationCacheGroup.h"
+#include "loader/appcache/ApplicationCacheResource.h"
+#include "loader/appcache/ApplicationCacheStorage.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "page/SecurityOrigin.h"
 #include <algorithm>
 #include <stdio.h>
 #include <wtf/text/CString.h>

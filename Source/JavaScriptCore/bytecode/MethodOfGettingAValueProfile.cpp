@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "MethodOfGettingAValueProfile.h"
+#include "bytecode/MethodOfGettingAValueProfile.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "CodeBlock.h"
+#include "bytecode/CodeBlock.h"
 
 namespace JSC {
 

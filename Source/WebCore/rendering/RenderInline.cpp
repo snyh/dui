@@ -21,28 +21,28 @@
  */
 
 #include "config.h"
-#include "RenderInline.h"
+#include "rendering/RenderInline.h"
 
-#include "Chrome.h"
-#include "FloatQuad.h"
-#include "GraphicsContext.h"
-#include "HitTestResult.h"
-#include "InlineTextBox.h"
-#include "Page.h"
-#include "RenderArena.h"
-#include "RenderBlock.h"
-#include "RenderFlowThread.h"
-#include "RenderFullScreen.h"
-#include "RenderGeometryMap.h"
-#include "RenderLayer.h"
-#include "RenderTheme.h"
-#include "RenderView.h"
-#include "StyleInheritedData.h"
-#include "TransformState.h"
-#include "VisiblePosition.h"
+#include "page/Chrome.h"
+#include "platform/graphics/FloatQuad.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/HitTestResult.h"
+#include "rendering/InlineTextBox.h"
+#include "page/Page.h"
+#include "rendering/RenderArena.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/RenderFlowThread.h"
+#include "rendering/RenderFullScreen.h"
+#include "rendering/RenderGeometryMap.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/RenderTheme.h"
+#include "rendering/RenderView.h"
+#include "rendering/style/StyleInheritedData.h"
+#include "platform/graphics/transforms/TransformState.h"
+#include "editing/VisiblePosition.h"
 
 #if ENABLE(DASHBOARD_SUPPORT) || ENABLE(DRAGGABLE_REGION)
-#include "Frame.h"
+#include "page/Frame.h"
 #endif
 
 using namespace std;

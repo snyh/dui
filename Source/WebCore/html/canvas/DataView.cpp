@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "DataView.h"
+#include "html/canvas/DataView.h"
 
-#include "CheckedInt.h"
-#include "ExceptionCode.h"
+#include "html/canvas/CheckedInt.h"
+#include "dom/ExceptionCode.h"
 
 namespace {
 

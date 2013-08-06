@@ -15,14 +15,14 @@
  */
 
 #include "config.h"
-#include "Clipboard.h"
+#include "dom/Clipboard.h"
 
-#include "CachedImage.h"
-#include "Document.h"
-#include "Editor.h"
-#include "Element.h"
-#include "Frame.h"
-#include "Pasteboard.h"
+#include "loader/cache/CachedImage.h"
+#include "dom/Document.h"
+#include "editing/Editor.h"
+#include "dom/Element.h"
+#include "page/Frame.h"
+#include "platform/Pasteboard.h"
 
 namespace WebCore {
 

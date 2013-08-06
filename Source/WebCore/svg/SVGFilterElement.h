@@ -24,14 +24,14 @@
 #define SVGFilterElement_h
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "SVGAnimatedBoolean.h"
-#include "SVGAnimatedEnumeration.h"
-#include "SVGAnimatedInteger.h"
-#include "SVGAnimatedLength.h"
-#include "SVGExternalResourcesRequired.h"
-#include "SVGStyledElement.h"
-#include "SVGURIReference.h"
-#include "SVGUnitTypes.h"
+#include "svg/SVGAnimatedBoolean.h"
+#include "svg/SVGAnimatedEnumeration.h"
+#include "svg/SVGAnimatedInteger.h"
+#include "svg/SVGAnimatedLength.h"
+#include "svg/SVGExternalResourcesRequired.h"
+#include "svg/SVGStyledElement.h"
+#include "svg/SVGURIReference.h"
+#include "svg/SVGUnitTypes.h"
 
 namespace WebCore {
 

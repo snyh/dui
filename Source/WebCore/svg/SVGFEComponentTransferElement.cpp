@@ -21,15 +21,15 @@
 #include "config.h"
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "SVGFEComponentTransferElement.h"
+#include "svg/SVGFEComponentTransferElement.h"
 
-#include "Attr.h"
-#include "FilterEffect.h"
-#include "SVGFEFuncAElement.h"
-#include "SVGFEFuncBElement.h"
-#include "SVGFEFuncGElement.h"
-#include "SVGFEFuncRElement.h"
-#include "SVGFilterBuilder.h"
+#include "dom/Attr.h"
+#include "platform/graphics/filters/FilterEffect.h"
+#include "svg/SVGFEFuncAElement.h"
+#include "svg/SVGFEFuncBElement.h"
+#include "svg/SVGFEFuncGElement.h"
+#include "svg/SVGFEFuncRElement.h"
+#include "svg/graphics/filters/SVGFilterBuilder.h"
 #include "SVGNames.h"
 
 namespace WebCore {

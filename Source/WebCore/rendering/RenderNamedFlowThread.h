@@ -27,8 +27,8 @@
 #ifndef RenderNamedFlowThread_h
 #define RenderNamedFlowThread_h
 
-#include "RenderFlowThread.h"
-#include "Timer.h"
+#include "rendering/RenderFlowThread.h"
+#include "platform/Timer.h"
 #include <wtf/HashCountedSet.h>
 #include <wtf/ListHashSet.h>
 #include <wtf/text/AtomicString.h>

@@ -26,8 +26,8 @@
 #ifndef JSNode_h
 #define JSNode_h
 
-#include "JSBase.h"
-#include "Node.h"
+#include "API/JSBase.h"
+#include "API/tests/Node.h"
 #include <stddef.h>
 
 extern JSObjectRef JSNode_new(JSContextRef context, Node* node);

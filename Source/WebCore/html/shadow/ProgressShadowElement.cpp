@@ -30,11 +30,11 @@
 
 #include "config.h"
 #if ENABLE(PROGRESS_ELEMENT)
-#include "ProgressShadowElement.h"
+#include "html/shadow/ProgressShadowElement.h"
 
 #include "HTMLNames.h"
-#include "HTMLProgressElement.h"
-#include "RenderProgress.h"
+#include "html/HTMLProgressElement.h"
+#include "rendering/RenderProgress.h"
 
 namespace WebCore {
 

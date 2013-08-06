@@ -26,9 +26,9 @@
 #ifndef HTMLMetaCharsetParser_h
 #define HTMLMetaCharsetParser_h
 
-#include "HTMLToken.h"
-#include "SegmentedString.h"
-#include "TextEncoding.h"
+#include "html/parser/HTMLToken.h"
+#include "platform/text/SegmentedString.h"
+#include "platform/text/TextEncoding.h"
 #include <wtf/Noncopyable.h>
 
 namespace WebCore {

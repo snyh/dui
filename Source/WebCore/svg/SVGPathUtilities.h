@@ -21,9 +21,9 @@
 #define SVGPathUtilities_h
 
 #if ENABLE(SVG)
-#include "SVGPathByteStream.h"
-#include "SVGPathConsumer.h"
-#include "SVGPathSeg.h"
+#include "svg/SVGPathByteStream.h"
+#include "svg/SVGPathConsumer.h"
+#include "svg/SVGPathSeg.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/text/WTFString.h>
 

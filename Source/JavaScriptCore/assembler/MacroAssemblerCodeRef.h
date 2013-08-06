@@ -26,9 +26,9 @@
 #ifndef MacroAssemblerCodeRef_h
 #define MacroAssemblerCodeRef_h
 
-#include "Disassembler.h"
-#include "ExecutableAllocator.h"
-#include "LLIntData.h"
+#include "disassembler/Disassembler.h"
+#include "jit/ExecutableAllocator.h"
+#include "llint/LLIntData.h"
 #include <wtf/DataLog.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>

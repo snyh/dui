@@ -26,9 +26,9 @@
 #define HRTFPanner_h
 
 #include "DelayDSPKernel.h"
-#include "FFTConvolver.h"
-#include "HRTFDatabaseLoader.h"
-#include "Panner.h"
+#include "platform/audio/FFTConvolver.h"
+#include "platform/audio/HRTFDatabaseLoader.h"
+#include "platform/audio/Panner.h"
 
 namespace WebCore {
 

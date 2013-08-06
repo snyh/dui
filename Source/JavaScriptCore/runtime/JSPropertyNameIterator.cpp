@@ -27,9 +27,9 @@
  */
 
 #include "config.h"
-#include "JSPropertyNameIterator.h"
+#include "runtime/JSPropertyNameIterator.h"
 
-#include "JSGlobalObject.h"
+#include "runtime/JSGlobalObject.h"
 
 namespace JSC {
 

@@ -28,18 +28,18 @@
  */
 
 #include "config.h"
-#include "Font.h"
+#include "platform/graphics/Font.h"
 
-#include "AffineTransform.h"
-#include "CairoUtilities.h"
-#include "GlyphBuffer.h"
-#include "Gradient.h"
-#include "GraphicsContext.h"
-#include "ImageBuffer.h"
-#include "Pattern.h"
-#include "PlatformContextCairo.h"
-#include "ShadowBlur.h"
-#include "SimpleFontData.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/cairo/CairoUtilities.h"
+#include "platform/graphics/GlyphBuffer.h"
+#include "platform/graphics/Gradient.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "platform/graphics/Pattern.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
+#include "platform/graphics/ShadowBlur.h"
+#include "platform/graphics/SimpleFontData.h"
 
 namespace WebCore {
 

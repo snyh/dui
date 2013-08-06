@@ -23,8 +23,8 @@
 
 #if ENABLE(SVG)
 #include "CSSPropertyNames.h"
-#include "SVGAnimatedString.h"
-#include "SVGLocatable.h"
+#include "svg/SVGAnimatedString.h"
+#include "svg/SVGLocatable.h"
 #include <wtf/HashSet.h>
 #include <wtf/PassRefPtr.h>
 

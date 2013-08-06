@@ -28,11 +28,11 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGPath.h"
+#include "rendering/svg/RenderSVGPath.h"
 
-#include "SVGGraphicsElement.h"
-#include "SVGPathElement.h"
-#include "SVGSubpathData.h"
+#include "svg/SVGGraphicsElement.h"
+#include "svg/SVGPathElement.h"
+#include "rendering/svg/SVGSubpathData.h"
 
 namespace WebCore {
 

@@ -27,7 +27,7 @@
  */
 
 #include "config.h"
-#include "SymbolTable.h"
+#include "runtime/SymbolTable.h"
 
 namespace JSC {
 

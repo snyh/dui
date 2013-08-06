@@ -26,10 +26,10 @@
 #ifndef ApplicationCacheGroup_h
 #define ApplicationCacheGroup_h
 
-#include "DOMApplicationCache.h"
-#include "KURL.h"
-#include "ResourceHandleClient.h"
-#include "SharedBuffer.h"
+#include "loader/appcache/DOMApplicationCache.h"
+#include "platform/KURL.h"
+#include "platform/network/ResourceHandleClient.h"
+#include "platform/SharedBuffer.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/HashMap.h>
 #include <wtf/HashSet.h>

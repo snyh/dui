@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "HTMLSpanElement.h"
+#include "html/HTMLSpanElement.h"
 
 #include "HTMLNames.h"
 

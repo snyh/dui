@@ -30,7 +30,7 @@
 
 #if ENABLE(LLINT)
 
-#include "MacroAssemblerCodeRef.h"
+#include "assembler/MacroAssemblerCodeRef.h"
 
 namespace JSC {
 

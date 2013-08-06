@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "DFGThunks.h"
+#include "dfg/DFGThunks.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGCCallHelpers.h"
-#include "DFGFPRInfo.h"
-#include "DFGGPRInfo.h"
-#include "DFGOSRExitCompiler.h"
-#include "MacroAssembler.h"
+#include "dfg/DFGCCallHelpers.h"
+#include "dfg/DFGFPRInfo.h"
+#include "dfg/DFGGPRInfo.h"
+#include "dfg/DFGOSRExitCompiler.h"
+#include "assembler/MacroAssembler.h"
 
 namespace JSC { namespace DFG {
 

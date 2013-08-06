@@ -21,7 +21,7 @@
 #ifndef DatePrototype_h
 #define DatePrototype_h
 
-#include "DateInstance.h"
+#include "runtime/DateInstance.h"
 
 namespace JSC {
 

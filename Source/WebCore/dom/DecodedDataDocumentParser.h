@@ -26,7 +26,7 @@
 #ifndef DecodedDataDocumentParser_h
 #define DecodedDataDocumentParser_h
 
-#include "DocumentParser.h"
+#include "dom/DocumentParser.h"
 
 namespace WebCore {
 

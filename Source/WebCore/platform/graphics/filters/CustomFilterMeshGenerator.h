@@ -32,9 +32,9 @@
 
 #if ENABLE(CSS_SHADERS) && USE(3D_GRAPHICS)
 
-#include "CustomFilterConstants.h"
-#include "CustomFilterOperation.h"
-#include "FloatRect.h"
+#include "platform/graphics/filters/CustomFilterConstants.h"
+#include "platform/graphics/filters/CustomFilterOperation.h"
+#include "platform/graphics/FloatRect.h"
 #include <stdio.h>
 
 namespace WebCore {

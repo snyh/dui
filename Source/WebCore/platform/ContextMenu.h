@@ -30,8 +30,8 @@
 
 #include <wtf/Noncopyable.h>
 
-#include "ContextMenuItem.h"
-#include "PlatformMenuDescription.h"
+#include "platform/ContextMenuItem.h"
+#include "platform/PlatformMenuDescription.h"
 #include <wtf/text/WTFString.h>
 
 #if PLATFORM(MAC)

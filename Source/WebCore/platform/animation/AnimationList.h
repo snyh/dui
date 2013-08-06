@@ -25,7 +25,7 @@
 #ifndef AnimationList_h
 #define AnimationList_h
 
-#include "Animation.h"
+#include "platform/animation/Animation.h"
 #include <wtf/RefPtr.h>
 #include <wtf/Vector.h>
 

@@ -26,10 +26,10 @@
 #ifndef CachedCall_h
 #define CachedCall_h
 
-#include "CallFrameClosure.h"
-#include "JSFunction.h"
-#include "JSGlobalObject.h"
-#include "Interpreter.h"
+#include "interpreter/CallFrameClosure.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSGlobalObject.h"
+#include "interpreter/Interpreter.h"
 
 namespace JSC {
     class CachedCall {

@@ -27,11 +27,11 @@
  */
 
 #include "config.h"
-#include "AccessibilityList.h"
+#include "accessibility/AccessibilityList.h"
 
-#include "AXObjectCache.h"
+#include "accessibility/AXObjectCache.h"
 #include "HTMLNames.h"
-#include "RenderObject.h"
+#include "rendering/RenderObject.h"
 
 using namespace std;
 

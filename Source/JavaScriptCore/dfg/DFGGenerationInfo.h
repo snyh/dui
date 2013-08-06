@@ -28,11 +28,11 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGJITCompiler.h"
-#include "DFGMinifiedID.h"
-#include "DFGVariableEvent.h"
-#include "DFGVariableEventStream.h"
-#include "DataFormat.h"
+#include "dfg/DFGJITCompiler.h"
+#include "dfg/DFGMinifiedID.h"
+#include "dfg/DFGVariableEvent.h"
+#include "dfg/DFGVariableEventStream.h"
+#include "bytecode/DataFormat.h"
 
 namespace JSC { namespace DFG {
 

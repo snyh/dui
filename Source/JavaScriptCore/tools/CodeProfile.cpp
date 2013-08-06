@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "CodeProfile.h"
+#include "tools/CodeProfile.h"
 
-#include "CodeBlock.h"
-#include "CodeProfiling.h"
-#include "LinkBuffer.h"
-#include "ProfileTreeNode.h"
+#include "bytecode/CodeBlock.h"
+#include "tools/CodeProfiling.h"
+#include "assembler/LinkBuffer.h"
+#include "tools/ProfileTreeNode.h"
 #include <wtf/Vector.h>
 #include <wtf/text/WTFString.h>
 

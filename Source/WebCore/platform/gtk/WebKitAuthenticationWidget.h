@@ -20,7 +20,7 @@
 #ifndef WebKitAuthenticationWidget_h
 #define WebKitAuthenticationWidget_h
 
-#include "AuthenticationChallenge.h"
+#include "platform/network/soup/AuthenticationChallenge.h"
 #include <gtk/gtk.h>
 
 enum CredentialStorageMode {

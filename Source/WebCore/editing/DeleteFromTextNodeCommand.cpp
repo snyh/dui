@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "DeleteFromTextNodeCommand.h"
-#include "Document.h"
-#include "ExceptionCodePlaceholder.h"
+#include "editing/DeleteFromTextNodeCommand.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCodePlaceholder.h"
 
-#include "AXObjectCache.h"
-#include "Text.h"
+#include "accessibility/AXObjectCache.h"
+#include "dom/Text.h"
 
 namespace WebCore {
 

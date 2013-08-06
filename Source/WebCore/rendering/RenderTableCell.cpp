@@ -23,22 +23,22 @@
  */
 
 #include "config.h"
-#include "RenderTableCell.h"
+#include "rendering/RenderTableCell.h"
 
-#include "CollapsedBorderValue.h"
-#include "FloatQuad.h"
-#include "GraphicsContext.h"
+#include "rendering/style/CollapsedBorderValue.h"
+#include "platform/graphics/FloatQuad.h"
+#include "platform/graphics/GraphicsContext.h"
 #include "HTMLNames.h"
-#include "HTMLTableCellElement.h"
-#include "PaintInfo.h"
-#include "RenderTableCol.h"
-#include "RenderView.h"
-#include "StylePropertySet.h"
-#include "TransformState.h"
+#include "html/HTMLTableCellElement.h"
+#include "rendering/PaintInfo.h"
+#include "rendering/RenderTableCol.h"
+#include "rendering/RenderView.h"
+#include "css/StylePropertySet.h"
+#include "platform/graphics/transforms/TransformState.h"
 #include <wtf/StackStats.h>
 
 #if ENABLE(MATHML)
-#include "MathMLElement.h"
+#include "mathml/MathMLElement.h"
 #include "MathMLNames.h"
 #endif
 

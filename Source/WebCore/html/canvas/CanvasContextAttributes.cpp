@@ -26,7 +26,7 @@
 
 #include "config.h"
 
-#include "CanvasContextAttributes.h"
+#include "html/canvas/CanvasContextAttributes.h"
 
 namespace WebCore {
 

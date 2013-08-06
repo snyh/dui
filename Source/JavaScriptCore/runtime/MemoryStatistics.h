@@ -26,7 +26,7 @@
 #ifndef MemoryStatistics_h
 #define MemoryStatistics_h
 
-#include "Heap.h"
+#include "heap/Heap.h"
 
 class VM;
 

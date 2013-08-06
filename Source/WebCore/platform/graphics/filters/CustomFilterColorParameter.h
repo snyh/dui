@@ -31,8 +31,8 @@
 #define CustomFilterColorParameter_h
 
 #if ENABLE(CSS_SHADERS)
-#include "Color.h"
-#include "CustomFilterParameter.h"
+#include "platform/graphics/Color.h"
+#include "platform/graphics/filters/CustomFilterParameter.h"
 
 namespace WebCore {
 

@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "ResourceBuffer.h"
+#include "loader/ResourceBuffer.h"
 
-#include "PurgeableBuffer.h"
+#include "platform/PurgeableBuffer.h"
 
 namespace WebCore {
 

@@ -24,7 +24,7 @@
 #ifndef RegisteredEventListener_h
 #define RegisteredEventListener_h
 
-#include "EventListener.h"
+#include "dom/EventListener.h"
 #include <wtf/RefPtr.h>
 
 namespace WebCore {

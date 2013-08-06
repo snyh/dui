@@ -28,7 +28,7 @@
 
 #if USE(REQUEST_ANIMATION_FRAME_DISPLAY_MONITOR)
 
-#include "PlatformScreen.h"
+#include "platform/PlatformScreen.h"
 #include <wtf/HashMap.h>
 #include <wtf/HashSet.h>
 #include <wtf/RefCounted.h>

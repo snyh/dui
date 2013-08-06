@@ -17,10 +17,10 @@
  */
 
 #include "config.h"
-#include "CookieStorage.h"
+#include "platform/network/CookieStorage.h"
 
-#include "CookieJarSoup.h"
-#include "NotImplemented.h"
+#include "platform/network/soup/CookieJarSoup.h"
+#include "platform/NotImplemented.h"
 
 #include <stdio.h>
 

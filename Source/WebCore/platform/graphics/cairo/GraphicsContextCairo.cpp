@@ -31,28 +31,28 @@
  */
 
 #include "config.h"
-#include "GraphicsContext.h"
+#include "platform/graphics/GraphicsContext.h"
 
 #if USE(CAIRO)
 
-#include "AffineTransform.h"
-#include "CairoUtilities.h"
-#include "DrawErrorUnderline.h"
-#include "FloatConversion.h"
-#include "FloatRect.h"
-#include "Font.h"
-#include "GraphicsContextPlatformPrivateCairo.h"
-#include "IntRect.h"
-#include "NotImplemented.h"
-#include "OwnPtrCairo.h"
-#include "Path.h"
-#include "Pattern.h"
-#include "PlatformContextCairo.h"
-#include "PlatformPathCairo.h"
-#include "RefPtrCairo.h"
-#include "ShadowBlur.h"
-#include "SimpleFontData.h"
-#include "TransformationMatrix.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/cairo/CairoUtilities.h"
+#include "platform/graphics/cairo/DrawErrorUnderline.h"
+#include "platform/FloatConversion.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/cairo/GraphicsContextPlatformPrivateCairo.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/NotImplemented.h"
+#include "platform/graphics/cairo/OwnPtrCairo.h"
+#include "platform/graphics/Path.h"
+#include "platform/graphics/Pattern.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
+#include "platform/graphics/cairo/PlatformPathCairo.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
+#include "platform/graphics/ShadowBlur.h"
+#include "platform/graphics/SimpleFontData.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
 #include <cairo.h>
 #include <math.h>
 #include <stdio.h>

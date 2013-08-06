@@ -31,7 +31,7 @@
 #ifndef LabelableElement_h
 #define LabelableElement_h
 
-#include "HTMLElement.h"
+#include "html/HTMLElement.h"
 
 namespace WebCore {
 

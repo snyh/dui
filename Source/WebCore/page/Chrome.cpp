@@ -20,39 +20,39 @@
  */
 
 #include "config.h"
-#include "Chrome.h"
+#include "page/Chrome.h"
 
-#include "ChromeClient.h"
-#include "DNS.h"
-#include "DateTimeChooser.h"
-#include "Document.h"
-#include "FileIconLoader.h"
-#include "FileChooser.h"
-#include "FileList.h"
-#include "FloatRect.h"
-#include "Frame.h"
-#include "FrameTree.h"
-#include "HTMLFormElement.h"
-#include "HTMLInputElement.h"
+#include "page/ChromeClient.h"
+#include "platform/network/DNS.h"
+#include "platform/DateTimeChooser.h"
+#include "dom/Document.h"
+#include "html/forms/FileIconLoader.h"
+#include "platform/FileChooser.h"
+#include "fileapi/FileList.h"
+#include "platform/graphics/FloatRect.h"
+#include "page/Frame.h"
+#include "page/FrameTree.h"
+#include "html/HTMLFormElement.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "HitTestResult.h"
-#include "Icon.h"
-#include "Page.h"
-#include "PageGroupLoadDeferrer.h"
-#include "PopupOpeningObserver.h"
-#include "RenderObject.h"
-#include "ResourceHandle.h"
-#include "SecurityOrigin.h"
-#include "Settings.h"
-#include "StorageNamespace.h"
-#include "WindowFeatures.h"
+#include "rendering/HitTestResult.h"
+#include "platform/graphics/Icon.h"
+#include "page/Page.h"
+#include "page/PageGroupLoadDeferrer.h"
+#include "page/PopupOpeningObserver.h"
+#include "rendering/RenderObject.h"
+#include "platform/network/ResourceHandle.h"
+#include "page/SecurityOrigin.h"
+#include "page/Settings.h"
+#include "storage/StorageNamespace.h"
+#include "page/WindowFeatures.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>
 #include <wtf/Vector.h>
 #include <wtf/text/StringBuilder.h>
 
 #if ENABLE(INPUT_TYPE_COLOR)
-#include "ColorChooser.h"
+#include "platform/ColorChooser.h"
 #endif
 
 namespace WebCore {

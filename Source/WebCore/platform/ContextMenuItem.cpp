@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "ContextMenuItem.h"
+#include "platform/ContextMenuItem.h"
 
-#include "ContextMenu.h"
+#include "platform/ContextMenu.h"
 
 #if ENABLE(CONTEXT_MENUS) && USE(CROSS_PLATFORM_CONTEXT_MENUS)
 

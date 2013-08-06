@@ -26,8 +26,8 @@
 #ifndef HandleSet_h
 #define HandleSet_h
 
-#include "Handle.h"
-#include "HandleBlock.h"
+#include "heap/Handle.h"
+#include "heap/HandleBlock.h"
 #include <wtf/DoublyLinkedList.h>
 #include <wtf/HashCountedSet.h>
 #include <wtf/SentinelLinkedList.h>

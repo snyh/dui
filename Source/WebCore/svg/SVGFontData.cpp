@@ -20,16 +20,16 @@
 #include "config.h"
 
 #if ENABLE(SVG_FONTS)
-#include "SVGFontData.h"
+#include "svg/SVGFontData.h"
 
-#include "RenderObject.h"
-#include "SVGAltGlyphElement.h"
-#include "SVGFontElement.h"
-#include "SVGGlyph.h"
+#include "rendering/RenderObject.h"
+#include "svg/SVGAltGlyphElement.h"
+#include "svg/SVGFontElement.h"
+#include "platform/graphics/SVGGlyph.h"
 #include "SVGNames.h"
-#include "SVGTextRunRenderingContext.h"
-#include "TextRun.h"
-#include "WidthIterator.h"
+#include "rendering/svg/SVGTextRunRenderingContext.h"
+#include "platform/graphics/TextRun.h"
+#include "platform/graphics/WidthIterator.h"
 #include "XMLNames.h"
 #include <wtf/text/StringBuilder.h>
 #include <wtf/unicode/CharacterNames.h>

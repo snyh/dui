@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "StyleInvalidationAnalysis.h"
+#include "css/StyleInvalidationAnalysis.h"
 
-#include "CSSSelectorList.h"
-#include "Document.h"
-#include "NodeTraversal.h"
-#include "StyleRuleImport.h"
-#include "StyleSheetContents.h"
-#include "StyledElement.h"
+#include "css/CSSSelectorList.h"
+#include "dom/Document.h"
+#include "dom/NodeTraversal.h"
+#include "css/StyleRuleImport.h"
+#include "css/StyleSheetContents.h"
+#include "dom/StyledElement.h"
 
 namespace WebCore {
 

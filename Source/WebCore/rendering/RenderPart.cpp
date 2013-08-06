@@ -23,15 +23,15 @@
  */
 
 #include "config.h"
-#include "RenderPart.h"
+#include "rendering/RenderPart.h"
 
-#include "Frame.h"
-#include "FrameView.h"
-#include "HTMLFrameElementBase.h"
-#include "HitTestResult.h"
-#include "RenderLayer.h"
-#include "RenderSVGRoot.h"
-#include "RenderView.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "html/HTMLFrameElementBase.h"
+#include "rendering/HitTestResult.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/svg/RenderSVGRoot.h"
+#include "rendering/RenderView.h"
 
 using namespace std;
 

@@ -24,21 +24,21 @@
  */
 
 #include "config.h"
-#include "EventDispatcher.h"
+#include "dom/EventDispatcher.h"
 
-#include "ContainerNode.h"
-#include "ElementShadow.h"
-#include "EventContext.h"
-#include "EventDispatchMediator.h"
-#include "EventPathWalker.h"
-#include "EventRetargeter.h"
-#include "FrameView.h"
-#include "HTMLMediaElement.h"
-#include "InsertionPoint.h"
-#include "MouseEvent.h"
-#include "ScopedEventQueue.h"
-#include "ShadowRoot.h"
-#include "WindowEventContext.h"
+#include "dom/ContainerNode.h"
+#include "dom/ElementShadow.h"
+#include "dom/EventContext.h"
+#include "dom/EventDispatchMediator.h"
+#include "dom/EventPathWalker.h"
+#include "dom/EventRetargeter.h"
+#include "page/FrameView.h"
+#include "html/HTMLMediaElement.h"
+#include "html/shadow/InsertionPoint.h"
+#include "dom/MouseEvent.h"
+#include "dom/ScopedEventQueue.h"
+#include "dom/ShadowRoot.h"
+#include "dom/WindowEventContext.h"
 #include <wtf/RefPtr.h>
 
 namespace WebCore {

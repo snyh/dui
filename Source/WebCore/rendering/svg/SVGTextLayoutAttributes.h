@@ -21,7 +21,7 @@
 #define SVGTextLayoutAttributes_h
 
 #if ENABLE(SVG)
-#include "SVGTextMetrics.h"
+#include "rendering/svg/SVGTextMetrics.h"
 #include <wtf/HashMap.h>
 #include <wtf/Noncopyable.h>
 #include <wtf/Vector.h>

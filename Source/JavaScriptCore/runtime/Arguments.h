@@ -24,13 +24,13 @@
 #ifndef Arguments_h
 #define Arguments_h
 
-#include "CodeOrigin.h"
-#include "JSActivation.h"
-#include "JSDestructibleObject.h"
-#include "JSFunction.h"
-#include "JSGlobalObject.h"
-#include "Interpreter.h"
-#include "ObjectConstructor.h"
+#include "bytecode/CodeOrigin.h"
+#include "runtime/JSActivation.h"
+#include "runtime/JSDestructibleObject.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSGlobalObject.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/ObjectConstructor.h"
 
 namespace JSC {
 

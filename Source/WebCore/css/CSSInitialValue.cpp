@@ -19,7 +19,7 @@
  */
 
 #include "config.h"
-#include "CSSInitialValue.h"
+#include "css/CSSInitialValue.h"
 
 #include <wtf/text/WTFString.h>
 

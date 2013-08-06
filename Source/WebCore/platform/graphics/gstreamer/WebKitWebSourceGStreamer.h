@@ -20,7 +20,7 @@
 #define WebKitWebSourceGStreamer_h
 #if ENABLE(VIDEO) && USE(GSTREAMER)
 
-#include "MediaPlayer.h"
+#include "platform/graphics/MediaPlayer.h"
 #include <gst/gst.h>
 
 G_BEGIN_DECLS

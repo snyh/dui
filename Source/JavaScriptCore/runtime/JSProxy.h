@@ -26,7 +26,7 @@
 #ifndef JSProxy_h
 #define JSProxy_h
 
-#include "JSDestructibleObject.h"
+#include "runtime/JSDestructibleObject.h"
 
 namespace JSC {
 

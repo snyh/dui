@@ -28,7 +28,7 @@
 
 #if ENABLE(ASSEMBLER) && CPU(ARM_TRADITIONAL)
 
-#include "ARMAssembler.h"
+#include "assembler/ARMAssembler.h"
 
 namespace JSC {
 

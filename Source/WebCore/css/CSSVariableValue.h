@@ -31,9 +31,9 @@
 
 #if ENABLE(CSS_VARIABLES)
 
-#include "CSSParserValues.h"
+#include "css/CSSParserValues.h"
 #include "CSSPropertyNames.h"
-#include "CSSValue.h"
+#include "css/CSSValue.h"
 
 namespace WebCore {
 

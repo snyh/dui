@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "CreateLinkCommand.h"
-#include "htmlediting.h"
-#include "Text.h"
+#include "editing/CreateLinkCommand.h"
+#include "editing/htmlediting.h"
+#include "dom/Text.h"
 
-#include "HTMLAnchorElement.h"
+#include "html/HTMLAnchorElement.h"
 
 namespace WebCore {
 

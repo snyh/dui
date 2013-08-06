@@ -28,10 +28,10 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGRenderStyleDefs.h"
+#include "rendering/style/SVGRenderStyleDefs.h"
 
-#include "RenderStyle.h"
-#include "SVGRenderStyle.h"
+#include "rendering/style/RenderStyle.h"
+#include "rendering/style/SVGRenderStyle.h"
 
 namespace WebCore {
 

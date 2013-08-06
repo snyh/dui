@@ -25,9 +25,9 @@
  */
 
 #include "config.h"
-#include "NetworkStorageSession.h"
+#include "platform/network/NetworkStorageSession.h"
 
-#include "ResourceHandle.h"
+#include "platform/network/ResourceHandle.h"
 #include <wtf/MainThread.h>
 #include <wtf/PassOwnPtr.h>
 

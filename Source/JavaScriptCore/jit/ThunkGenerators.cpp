@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "ThunkGenerators.h"
+#include "jit/ThunkGenerators.h"
 
-#include "CodeBlock.h"
-#include "Operations.h"
-#include "SpecializedThunkJIT.h"
+#include "bytecode/CodeBlock.h"
+#include "runtime/Operations.h"
+#include "jit/SpecializedThunkJIT.h"
 #include <wtf/InlineASM.h>
 #include <wtf/StringPrintStream.h>
 #include <wtf/text/StringImpl.h>

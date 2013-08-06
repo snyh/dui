@@ -21,9 +21,9 @@
 #define SVGAnimatedPointList_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedListPropertyTearOff.h"
-#include "SVGAnimatedTypeAnimator.h"
-#include "SVGPointList.h"
+#include "svg/properties/SVGAnimatedListPropertyTearOff.h"
+#include "svg/SVGAnimatedTypeAnimator.h"
+#include "svg/SVGPointList.h"
 
 namespace WebCore {
 

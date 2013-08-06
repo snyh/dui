@@ -26,7 +26,7 @@
  */
 
 #include "config.h"
-#include "ContentType.h"
+#include "platform/ContentType.h"
 
 namespace WebCore {
 

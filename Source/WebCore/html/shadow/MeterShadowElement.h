@@ -32,7 +32,7 @@
 #define MeterShadowElement_h
 
 #if ENABLE(METER_ELEMENT)
-#include "HTMLDivElement.h"
+#include "html/HTMLDivElement.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

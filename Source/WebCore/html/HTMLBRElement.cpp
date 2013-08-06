@@ -21,13 +21,13 @@
  */
 
 #include "config.h"
-#include "HTMLBRElement.h"
+#include "html/HTMLBRElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
 #include "HTMLNames.h"
-#include "RenderBR.h"
+#include "rendering/RenderBR.h"
 
 namespace WebCore {
 

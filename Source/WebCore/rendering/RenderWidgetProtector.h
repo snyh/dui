@@ -26,7 +26,7 @@
 #ifndef RenderWidgetProtector_h
 #define RenderWidgetProtector_h
 
-#include "RenderWidget.h"
+#include "rendering/RenderWidget.h"
 
 namespace WebCore {
 

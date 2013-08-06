@@ -24,7 +24,7 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGPathBuilder.h"
+#include "svg/SVGPathBuilder.h"
 
 namespace WebCore {
 

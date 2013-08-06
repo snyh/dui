@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "Options.h"
+#include "runtime/Options.h"
 
-#include "HeapStatistics.h"
+#include "heap/HeapStatistics.h"
 #include <algorithm>
 #include <limits>
 #include <stdio.h>

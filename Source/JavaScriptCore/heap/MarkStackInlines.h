@@ -26,8 +26,8 @@
 #ifndef MarkStackInlines_h
 #define MarkStackInlines_h
 
-#include "GCThreadSharedData.h"
-#include "MarkStack.h"
+#include "heap/GCThreadSharedData.h"
+#include "heap/MarkStack.h"
 
 namespace JSC {
 

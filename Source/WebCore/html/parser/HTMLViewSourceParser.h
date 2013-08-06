@@ -26,12 +26,12 @@
 #ifndef HTMLViewSourceParser_h
 #define HTMLViewSourceParser_h
 
-#include "DecodedDataDocumentParser.h"
-#include "HTMLInputStream.h"
-#include "HTMLSourceTracker.h"
-#include "HTMLToken.h"
-#include "HTMLTokenizer.h"
-#include "HTMLViewSourceDocument.h"
+#include "dom/DecodedDataDocumentParser.h"
+#include "html/parser/HTMLInputStream.h"
+#include "html/parser/HTMLSourceTracker.h"
+#include "html/parser/HTMLToken.h"
+#include "html/parser/HTMLTokenizer.h"
+#include "html/HTMLViewSourceDocument.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

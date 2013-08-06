@@ -29,7 +29,7 @@
 
 #if ENABLE(SVG)
 
-#include "Image.h"
+#include "platform/graphics/Image.h"
 
 namespace WebCore {
 

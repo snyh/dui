@@ -21,7 +21,7 @@
 #ifndef DashboardRegion_h
 #define DashboardRegion_h
 
-#include "Rect.h"
+#include "css/Rect.h"
 
 #if ENABLE(DASHBOARD_SUPPORT)
 

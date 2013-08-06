@@ -21,12 +21,12 @@
  */
 
 #include "config.h"
-#include "UIEvent.h"
+#include "dom/UIEvent.h"
 
-#include "Console.h"
-#include "DOMWindow.h"
-#include "EventDispatcher.h"
-#include "Node.h"
+#include "page/Console.h"
+#include "page/DOMWindow.h"
+#include "dom/EventDispatcher.h"
+#include "dom/Node.h"
 
 namespace WebCore {
 

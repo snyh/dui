@@ -29,10 +29,10 @@
  */
 
 #include "config.h"
-#include "MIMEHeader.h"
+#include "platform/network/MIMEHeader.h"
 
-#include "ParsedContentType.h"
-#include "SharedBufferChunkReader.h"
+#include "platform/network/ParsedContentType.h"
+#include "platform/SharedBufferChunkReader.h"
 #include <wtf/HashMap.h>
 #include <wtf/text/CString.h>
 #include <wtf/text/StringBuilder.h>

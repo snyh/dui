@@ -26,7 +26,7 @@
 #define StyleDashboardRegion_h
 #if ENABLE(DASHBOARD_SUPPORT)
 
-#include "LengthBox.h"
+#include "platform/LengthBox.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

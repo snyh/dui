@@ -18,7 +18,7 @@
  */
 
 #include "config.h"
-#include "OwnPtrCairo.h"
+#include "platform/graphics/cairo/OwnPtrCairo.h"
 
 #if USE(FREETYPE)
 #include <cairo-ft.h>

@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "ResourceHandle.h"
-#include "ResourceHandleInternal.h"
+#include "platform/network/ResourceHandle.h"
+#include "platform/network/ResourceHandleInternal.h"
 
-#include "Logging.h"
-#include "NetworkingContext.h"
-#include "ResourceHandleClient.h"
-#include "Timer.h"
+#include "platform/Logging.h"
+#include "platform/network/NetworkingContext.h"
+#include "platform/network/ResourceHandleClient.h"
+#include "platform/Timer.h"
 #include <algorithm>
 #include <wtf/MainThread.h>
 #include <wtf/text/CString.h>

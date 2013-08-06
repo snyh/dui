@@ -24,9 +24,9 @@
 #define SVGRootInlineBox_h
 
 #if ENABLE(SVG)
-#include "RootInlineBox.h"
-#include "SVGRenderSupport.h"
-#include "SVGTextLayoutEngine.h"
+#include "rendering/RootInlineBox.h"
+#include "rendering/svg/SVGRenderSupport.h"
+#include "rendering/svg/SVGTextLayoutEngine.h"
 
 namespace WebCore {
 

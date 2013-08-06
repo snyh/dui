@@ -26,12 +26,12 @@
  */
 
 #include "config.h"
-#include "VideoSinkGStreamer.h"
+#include "platform/graphics/gstreamer/VideoSinkGStreamer.h"
 
 #if ENABLE(VIDEO) && USE(GSTREAMER)
-#include "GRefPtrGStreamer.h"
-#include "GStreamerVersioning.h"
-#include "IntSize.h"
+#include "platform/graphics/gstreamer/GRefPtrGStreamer.h"
+#include "platform/graphics/gstreamer/GStreamerVersioning.h"
+#include "platform/graphics/IntSize.h"
 #include <glib.h>
 #include <gst/gst.h>
 #ifdef GST_API_VERSION_1

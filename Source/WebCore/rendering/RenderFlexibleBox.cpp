@@ -29,11 +29,11 @@
  */
 
 #include "config.h"
-#include "RenderFlexibleBox.h"
+#include "rendering/RenderFlexibleBox.h"
 
-#include "LayoutRepainter.h"
-#include "RenderLayer.h"
-#include "RenderView.h"
+#include "rendering/LayoutRepainter.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/RenderView.h"
 #include <limits>
 #include <wtf/MathExtras.h>
 

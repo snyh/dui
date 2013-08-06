@@ -21,7 +21,7 @@
  */
 
 #include "config.h"
-#include "SurrogatePairAwareTextIterator.h"
+#include "platform/graphics/SurrogatePairAwareTextIterator.h"
 
 #if USE(ICU_UNICODE)
 #include <unicode/unorm.h>

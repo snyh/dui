@@ -22,7 +22,7 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGAnimateColorElement.h"
+#include "svg/SVGAnimateColorElement.h"
 #include "SVGNames.h"
 
 namespace WebCore {

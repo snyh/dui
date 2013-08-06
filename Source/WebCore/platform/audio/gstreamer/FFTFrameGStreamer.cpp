@@ -22,9 +22,9 @@
 
 #if USE(WEBAUDIO_GSTREAMER)
 
-#include "FFTFrame.h"
+#include "platform/audio/FFTFrame.h"
 
-#include "VectorMath.h"
+#include "platform/audio/VectorMath.h"
 #include <wtf/FastAllocBase.h>
 
 namespace {

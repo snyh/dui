@@ -26,9 +26,9 @@
 #ifndef htmlediting_h
 #define htmlediting_h
 
-#include "EditingBoundary.h"
-#include "Position.h"
-#include "TextDirection.h"
+#include "editing/EditingBoundary.h"
+#include "dom/Position.h"
+#include "platform/text/TextDirection.h"
 #include <wtf/Forward.h>
 #include <wtf/unicode/CharacterNames.h>
 

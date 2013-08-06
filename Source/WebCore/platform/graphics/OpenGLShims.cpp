@@ -20,7 +20,7 @@
 #if USE(3D_GRAPHICS) || defined(QT_OPENGL_SHIMS)
 
 #define DISABLE_SHIMS
-#include "OpenGLShims.h"
+#include "platform/graphics/OpenGLShims.h"
 
 #if !PLATFORM(QT) && !PLATFORM(WIN)
 #include <dlfcn.h>

@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "CopyVisitor.h"
+#include "heap/CopyVisitor.h"
 
-#include "CopyVisitorInlines.h"
-#include "CopyWorkList.h"
-#include "GCThreadSharedData.h"
-#include "JSCell.h"
-#include "JSObject.h"
+#include "heap/CopyVisitorInlines.h"
+#include "heap/CopyWorkList.h"
+#include "heap/GCThreadSharedData.h"
+#include "runtime/JSCell.h"
+#include "runtime/JSObject.h"
 #include <wtf/Threading.h>
 
 namespace JSC {

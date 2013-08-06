@@ -24,20 +24,20 @@
  */
 
 #include "config.h"
-#include "InsertParagraphSeparatorCommand.h"
+#include "editing/InsertParagraphSeparatorCommand.h"
 
 #include "CSSPropertyNames.h"
-#include "Document.h"
-#include "EditingStyle.h"
-#include "HTMLElement.h"
-#include "HTMLFormElement.h"
+#include "dom/Document.h"
+#include "editing/EditingStyle.h"
+#include "html/HTMLElement.h"
+#include "html/HTMLFormElement.h"
 #include "HTMLNames.h"
-#include "InsertLineBreakCommand.h"
-#include "NodeTraversal.h"
-#include "RenderObject.h"
-#include "Text.h"
-#include "VisibleUnits.h"
-#include "htmlediting.h"
+#include "editing/InsertLineBreakCommand.h"
+#include "dom/NodeTraversal.h"
+#include "rendering/RenderObject.h"
+#include "dom/Text.h"
+#include "editing/VisibleUnits.h"
+#include "editing/htmlediting.h"
 
 namespace WebCore {
 

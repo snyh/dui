@@ -26,7 +26,7 @@
 #ifndef StrongInlines_h
 #define StrongInlines_h
 
-#include "VM.h"
+#include "runtime/VM.h"
 
 namespace JSC {
 

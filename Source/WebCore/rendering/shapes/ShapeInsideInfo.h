@@ -32,7 +32,7 @@
 
 #if ENABLE(CSS_SHAPES)
 
-#include "ShapeInfo.h"
+#include "rendering/shapes/ShapeInfo.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/Vector.h>
 

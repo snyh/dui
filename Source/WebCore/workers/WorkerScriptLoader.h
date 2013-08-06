@@ -30,10 +30,10 @@
 
 #if ENABLE(WORKERS)
 
-#include "KURL.h"
-#include "ResourceRequest.h"
-#include "ThreadableLoader.h"
-#include "ThreadableLoaderClient.h"
+#include "platform/KURL.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "loader/ThreadableLoader.h"
+#include "loader/ThreadableLoaderClient.h"
 
 #include <wtf/FastAllocBase.h>
 #include <wtf/PassRefPtr.h>

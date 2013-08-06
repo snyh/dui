@@ -22,20 +22,20 @@
  */
 
 #include "config.h"
-#include "Error.h"
+#include "runtime/Error.h"
 
-#include "ConstructData.h"
-#include "ErrorConstructor.h"
-#include "ExceptionHelpers.h"
-#include "FunctionPrototype.h"
-#include "JSArray.h"
-#include "JSFunction.h"
-#include "JSGlobalObject.h"
-#include "JSObject.h"
-#include "JSString.h"
-#include "NativeErrorConstructor.h"
-#include "Operations.h"
-#include "SourceCode.h"
+#include "runtime/ConstructData.h"
+#include "runtime/ErrorConstructor.h"
+#include "runtime/ExceptionHelpers.h"
+#include "runtime/FunctionPrototype.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSObject.h"
+#include "runtime/JSString.h"
+#include "runtime/NativeErrorConstructor.h"
+#include "runtime/Operations.h"
+#include "parser/SourceCode.h"
 
 #include <wtf/text/StringBuilder.h>
 

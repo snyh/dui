@@ -18,7 +18,7 @@
  */
 
 #include "config.h"
-#include "TextCheckerEnchant.h"
+#include "platform/text/enchant/TextCheckerEnchant.h"
 
 #if ENABLE(SPELLCHECK)
 

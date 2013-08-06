@@ -24,18 +24,18 @@
  */
 
 #include "config.h"
-#include "EditCommand.h"
+#include "editing/EditCommand.h"
 
-#include "CompositeEditCommand.h"
-#include "Document.h"
-#include "Editor.h"
-#include "Element.h"
-#include "EventNames.h"
-#include "Frame.h"
-#include "FrameSelection.h"
-#include "NodeTraversal.h"
-#include "VisiblePosition.h"
-#include "htmlediting.h"
+#include "editing/CompositeEditCommand.h"
+#include "dom/Document.h"
+#include "editing/Editor.h"
+#include "dom/Element.h"
+#include "dom/EventNames.h"
+#include "page/Frame.h"
+#include "editing/FrameSelection.h"
+#include "dom/NodeTraversal.h"
+#include "editing/VisiblePosition.h"
+#include "editing/htmlediting.h"
 
 namespace WebCore {
 

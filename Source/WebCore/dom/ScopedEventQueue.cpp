@@ -29,12 +29,12 @@
  */
 
 #include "config.h"
-#include "ScopedEventQueue.h"
+#include "dom/ScopedEventQueue.h"
 
-#include "Event.h"
-#include "EventDispatchMediator.h"
-#include "EventDispatcher.h"
-#include "EventTarget.h"
+#include "dom/Event.h"
+#include "dom/EventDispatchMediator.h"
+#include "dom/EventDispatcher.h"
+#include "dom/EventTarget.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/RefPtr.h>
 

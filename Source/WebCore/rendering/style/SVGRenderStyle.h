@@ -24,14 +24,14 @@
 #define SVGRenderStyle_h
 
 #if ENABLE(SVG)
-#include "CSSValueList.h"
-#include "DataRef.h"
-#include "ExceptionCodePlaceholder.h"
-#include "GraphicsTypes.h"
-#include "Path.h"
-#include "RenderStyleConstants.h"
-#include "SVGPaint.h"
-#include "SVGRenderStyleDefs.h"
+#include "css/CSSValueList.h"
+#include "rendering/style/DataRef.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "platform/graphics/GraphicsTypes.h"
+#include "platform/graphics/Path.h"
+#include "rendering/style/RenderStyleConstants.h"
+#include "svg/SVGPaint.h"
+#include "rendering/style/SVGRenderStyleDefs.h"
 
 namespace WebCore {
 

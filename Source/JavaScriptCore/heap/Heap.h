@@ -22,21 +22,21 @@
 #ifndef Heap_h
 #define Heap_h
 
-#include "BlockAllocator.h"
-#include "CopyVisitor.h"
-#include "DFGCodeBlocks.h"
-#include "GCThreadSharedData.h"
-#include "HandleSet.h"
-#include "HandleStack.h"
-#include "JITStubRoutineSet.h"
-#include "MarkedAllocator.h"
-#include "MarkedBlock.h"
-#include "MarkedBlockSet.h"
-#include "MarkedSpace.h"
-#include "Options.h"
-#include "SlotVisitor.h"
-#include "WeakHandleOwner.h"
-#include "WriteBarrierSupport.h"
+#include "heap/BlockAllocator.h"
+#include "heap/CopyVisitor.h"
+#include "heap/DFGCodeBlocks.h"
+#include "heap/GCThreadSharedData.h"
+#include "heap/HandleSet.h"
+#include "heap/HandleStack.h"
+#include "heap/JITStubRoutineSet.h"
+#include "heap/MarkedAllocator.h"
+#include "heap/MarkedBlock.h"
+#include "heap/MarkedBlockSet.h"
+#include "heap/MarkedSpace.h"
+#include "runtime/Options.h"
+#include "heap/SlotVisitor.h"
+#include "heap/WeakHandleOwner.h"
+#include "heap/WriteBarrierSupport.h"
 #include <wtf/HashCountedSet.h>
 #include <wtf/HashSet.h>
 

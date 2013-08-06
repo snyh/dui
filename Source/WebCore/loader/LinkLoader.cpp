@@ -30,20 +30,20 @@
  */
 
 #include "config.h"
-#include "LinkLoader.h"
+#include "loader/LinkLoader.h"
 
-#include "CSSStyleSheet.h"
-#include "CachedCSSStyleSheet.h"
-#include "CachedResourceLoader.h"
-#include "CachedResourceRequest.h"
-#include "ContainerNode.h"
-#include "DNS.h"
-#include "Document.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "LinkRelAttribute.h"
-#include "Settings.h"
-#include "StyleResolver.h"
+#include "css/CSSStyleSheet.h"
+#include "loader/cache/CachedCSSStyleSheet.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "dom/ContainerNode.h"
+#include "platform/network/DNS.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "html/LinkRelAttribute.h"
+#include "page/Settings.h"
+#include "css/StyleResolver.h"
 
 namespace WebCore {
 

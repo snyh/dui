@@ -28,11 +28,11 @@
 
 #if ENABLE(THREADED_SCROLLING) || USE(COORDINATED_GRAPHICS)
 
-#include "IntRect.h"
-#include "Region.h"
-#include "ScrollTypes.h"
-#include "ScrollingCoordinator.h"
-#include "ScrollingStateNode.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/Region.h"
+#include "platform/ScrollTypes.h"
+#include "page/scrolling/ScrollingCoordinator.h"
+#include "page/scrolling/ScrollingStateNode.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

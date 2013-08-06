@@ -30,9 +30,9 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGCommon.h"
-#include "DFGMinifiedID.h"
-#include "DFGNodeType.h"
+#include "dfg/DFGCommon.h"
+#include "dfg/DFGMinifiedID.h"
+#include "dfg/DFGNodeType.h"
 
 namespace JSC { namespace DFG {
 

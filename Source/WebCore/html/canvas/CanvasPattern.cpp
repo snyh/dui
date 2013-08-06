@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "CanvasPattern.h"
+#include "html/canvas/CanvasPattern.h"
 
-#include "ExceptionCode.h"
-#include "Image.h"
-#include "Pattern.h"
+#include "dom/ExceptionCode.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/Pattern.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

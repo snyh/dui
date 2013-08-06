@@ -29,17 +29,17 @@
 
 
 #include "config.h"
-#include "DOMSelection.h"
+#include "page/DOMSelection.h"
 
-#include "Document.h"
-#include "ExceptionCode.h"
-#include "Frame.h"
-#include "FrameSelection.h"
-#include "Node.h"
-#include "Range.h"
-#include "TextIterator.h"
-#include "TreeScope.h"
-#include "htmlediting.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCode.h"
+#include "page/Frame.h"
+#include "editing/FrameSelection.h"
+#include "dom/Node.h"
+#include "dom/Range.h"
+#include "editing/TextIterator.h"
+#include "dom/TreeScope.h"
+#include "editing/htmlediting.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "DFGOSRExitCompiler.h"
+#include "dfg/DFGOSRExitCompiler.h"
 
 #if ENABLE(DFG_JIT) && USE(JSVALUE64)
 
-#include "DFGOperations.h"
-#include "Operations.h"
+#include "dfg/DFGOperations.h"
+#include "runtime/Operations.h"
 #include <wtf/DataLog.h>
 
 namespace JSC { namespace DFG {

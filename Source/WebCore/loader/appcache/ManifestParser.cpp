@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "ManifestParser.h"
+#include "loader/appcache/ManifestParser.h"
 
-#include "KURL.h"
-#include "TextResourceDecoder.h"
+#include "platform/KURL.h"
+#include "loader/TextResourceDecoder.h"
 #include <wtf/unicode/CharacterNames.h>
 
 using namespace std;

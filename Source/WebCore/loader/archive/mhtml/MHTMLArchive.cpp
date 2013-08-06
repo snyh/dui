@@ -31,17 +31,17 @@
 #include "config.h"
 
 #if ENABLE(MHTML)
-#include "MHTMLArchive.h"
+#include "loader/archive/mhtml/MHTMLArchive.h"
 
-#include "Document.h"
-#include "Frame.h"
-#include "MHTMLParser.h"
-#include "MIMETypeRegistry.h"
-#include "Page.h"
-#include "PageSerializer.h"
-#include "QuotedPrintable.h"
-#include "SchemeRegistry.h"
-#include "SharedBuffer.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "loader/archive/mhtml/MHTMLParser.h"
+#include "platform/MIMETypeRegistry.h"
+#include "page/Page.h"
+#include "page/PageSerializer.h"
+#include "platform/text/QuotedPrintable.h"
+#include "platform/SchemeRegistry.h"
+#include "platform/SharedBuffer.h"
 
 #include <wtf/CryptographicallyRandomNumber.h>
 #include <wtf/DateMath.h>

@@ -26,9 +26,9 @@
 #ifndef TransformationMatrix_h
 #define TransformationMatrix_h
 
-#include "FloatPoint.h"
-#include "FloatPoint3D.h"
-#include "IntPoint.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/FloatPoint3D.h"
+#include "platform/graphics/IntPoint.h"
 #include <string.h> //for memcpy
 #include <wtf/FastAllocBase.h>
 

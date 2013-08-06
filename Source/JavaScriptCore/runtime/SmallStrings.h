@@ -26,7 +26,7 @@
 #ifndef SmallStrings_h
 #define SmallStrings_h
 
-#include "WriteBarrier.h"
+#include "runtime/WriteBarrier.h"
 
 #include <wtf/FixedArray.h>
 #include <wtf/Noncopyable.h>

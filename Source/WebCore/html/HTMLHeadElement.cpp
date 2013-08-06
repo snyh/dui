@@ -22,10 +22,10 @@
  */
 
 #include "config.h"
-#include "HTMLHeadElement.h"
+#include "html/HTMLHeadElement.h"
 
 #include "HTMLNames.h"
-#include "Text.h"
+#include "dom/Text.h"
 
 namespace WebCore {
 

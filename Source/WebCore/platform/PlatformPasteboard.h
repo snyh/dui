@@ -26,7 +26,7 @@
 #ifndef PlatformPasteboard_h
 #define PlatformPasteboard_h
 
-#include "SharedBuffer.h"
+#include "platform/SharedBuffer.h"
 #include <wtf/Forward.h>
 #include <wtf/RefCounted.h>
 #include <wtf/Vector.h>

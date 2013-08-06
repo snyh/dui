@@ -28,7 +28,7 @@
 
 #if ENABLE(WEBGL)
 
-#include "WebGLShaderPrecisionFormat.h"
+#include "html/canvas/WebGLShaderPrecisionFormat.h"
 
 namespace WebCore {
 

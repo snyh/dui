@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "WeakBlock.h"
+#include "heap/WeakBlock.h"
 
-#include "Heap.h"
-#include "HeapRootVisitor.h"
-#include "JSObject.h"
-#include "Operations.h"
-#include "Structure.h"
+#include "heap/Heap.h"
+#include "heap/HeapRootVisitor.h"
+#include "runtime/JSObject.h"
+#include "runtime/Operations.h"
+#include "runtime/Structure.h"
 
 namespace JSC {
 

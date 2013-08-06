@@ -27,24 +27,24 @@
 #define HTMLMediaElement_h
 
 #if ENABLE(VIDEO)
-#include "HTMLElement.h"
-#include "ActiveDOMObject.h"
-#include "GenericEventQueue.h"
-#include "MediaCanStartListener.h"
-#include "MediaControllerInterface.h"
-#include "MediaPlayer.h"
+#include "html/HTMLElement.h"
+#include "dom/ActiveDOMObject.h"
+#include "dom/GenericEventQueue.h"
+#include "page/MediaCanStartListener.h"
+#include "html/MediaControllerInterface.h"
+#include "platform/graphics/MediaPlayer.h"
 
 #if ENABLE(PLUGIN_PROXY_FOR_VIDEO)
 #include "MediaPlayerProxy.h"
 #endif
 
 #if ENABLE(VIDEO_TRACK)
-#include "AudioTrack.h"
-#include "CaptionUserPreferences.h"
-#include "PODIntervalTree.h"
-#include "TextTrack.h"
-#include "TextTrackCue.h"
-#include "VideoTrack.h"
+#include "html/track/AudioTrack.h"
+#include "page/CaptionUserPreferences.h"
+#include "platform/PODIntervalTree.h"
+#include "html/track/TextTrack.h"
+#include "html/track/TextTrackCue.h"
+#include "html/track/VideoTrack.h"
 #endif
 
 namespace WebCore {

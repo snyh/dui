@@ -29,10 +29,10 @@
 #ifndef JSPropertyNameIterator_h
 #define JSPropertyNameIterator_h
 
-#include "JSObject.h"
-#include "JSString.h"
-#include "Operations.h"
-#include "PropertyNameArray.h"
+#include "runtime/JSObject.h"
+#include "runtime/JSString.h"
+#include "runtime/Operations.h"
+#include "runtime/PropertyNameArray.h"
 
 namespace JSC {
 

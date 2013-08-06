@@ -27,22 +27,22 @@
  */
 
 #include "config.h"
-#include "AnimationController.h"
+#include "page/animation/AnimationController.h"
 
-#include "AnimationBase.h"
-#include "AnimationControllerPrivate.h"
-#include "CSSParser.h"
-#include "CSSPropertyAnimation.h"
-#include "CompositeAnimation.h"
-#include "EventNames.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "Logging.h"
-#include "PseudoElement.h"
-#include "RenderView.h"
-#include "TransitionEvent.h"
-#include "WebKitAnimationEvent.h"
-#include "WebKitTransitionEvent.h"
+#include "page/animation/AnimationBase.h"
+#include "page/animation/AnimationControllerPrivate.h"
+#include "css/CSSParser.h"
+#include "page/animation/CSSPropertyAnimation.h"
+#include "page/animation/CompositeAnimation.h"
+#include "dom/EventNames.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "platform/Logging.h"
+#include "dom/PseudoElement.h"
+#include "rendering/RenderView.h"
+#include "dom/TransitionEvent.h"
+#include "dom/WebKitAnimationEvent.h"
+#include "dom/WebKitTransitionEvent.h"
 #include <wtf/CurrentTime.h>
 
 namespace WebCore {

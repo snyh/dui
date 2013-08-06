@@ -34,7 +34,7 @@
 #define SocketStreamHandle_h
 
 #include <wtf/gobject/GRefPtr.h>
-#include "SocketStreamHandleBase.h"
+#include "platform/network/SocketStreamHandleBase.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 

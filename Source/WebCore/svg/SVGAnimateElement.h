@@ -24,9 +24,9 @@
 #define SVGAnimateElement_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedType.h"
-#include "SVGAnimatedTypeAnimator.h"
-#include "SVGAnimationElement.h"
+#include "svg/SVGAnimatedType.h"
+#include "svg/SVGAnimatedTypeAnimator.h"
+#include "svg/SVGAnimationElement.h"
 #include <wtf/OwnPtr.h>
 
 namespace WebCore {

@@ -26,10 +26,10 @@
 #ifndef CodeOrigin_h
 #define CodeOrigin_h
 
-#include "CodeBlockHash.h"
-#include "CodeSpecializationKind.h"
-#include "ValueRecovery.h"
-#include "WriteBarrier.h"
+#include "bytecode/CodeBlockHash.h"
+#include "runtime/CodeSpecializationKind.h"
+#include "bytecode/ValueRecovery.h"
+#include "runtime/WriteBarrier.h"
 #include <wtf/BitVector.h>
 #include <wtf/PrintStream.h>
 #include <wtf/StdLibExtras.h>

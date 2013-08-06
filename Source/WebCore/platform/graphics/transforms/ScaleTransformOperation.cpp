@@ -20,9 +20,9 @@
  */
 
 #include "config.h"
-#include "ScaleTransformOperation.h"
+#include "platform/graphics/transforms/ScaleTransformOperation.h"
 
-#include "AnimationUtilities.h"
+#include "platform/animation/AnimationUtilities.h"
 
 namespace WebCore {
 

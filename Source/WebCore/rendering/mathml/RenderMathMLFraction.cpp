@@ -28,11 +28,11 @@
 
 #if ENABLE(MATHML)
 
-#include "RenderMathMLFraction.h"
+#include "rendering/mathml/RenderMathMLFraction.h"
 
-#include "GraphicsContext.h"
+#include "platform/graphics/GraphicsContext.h"
 #include "MathMLNames.h"
-#include "PaintInfo.h"
+#include "rendering/PaintInfo.h"
 
 namespace WebCore {
     

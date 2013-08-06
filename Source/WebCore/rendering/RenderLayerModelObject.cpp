@@ -23,10 +23,10 @@
  */
 
 #include "config.h"
-#include "RenderLayerModelObject.h"
+#include "rendering/RenderLayerModelObject.h"
 
-#include "RenderLayer.h"
-#include "RenderView.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/RenderView.h"
 
 using namespace std;
 

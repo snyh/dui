@@ -21,7 +21,7 @@
 #ifndef BooleanConstructor_h
 #define BooleanConstructor_h
 
-#include "InternalFunction.h"
+#include "runtime/InternalFunction.h"
 
 namespace JSC {
 

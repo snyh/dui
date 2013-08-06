@@ -29,7 +29,7 @@
 #ifndef ArchiveFactory_h
 #define ArchiveFactory_h
 
-#include "Archive.h"
+#include "loader/archive/Archive.h"
 
 #include <wtf/Forward.h>
 #include <wtf/PassRefPtr.h>

@@ -26,8 +26,8 @@
 #ifndef JSNodeList_h
 #define JSNodeList_h
 
-#include "JSBase.h"
-#include "NodeList.h"
+#include "API/JSBase.h"
+#include "API/tests/NodeList.h"
 
 extern JSObjectRef JSNodeList_new(JSContextRef, NodeList*);
 

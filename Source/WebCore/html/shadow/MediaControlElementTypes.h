@@ -32,11 +32,11 @@
 
 #if ENABLE(VIDEO)
 
-#include "HTMLDivElement.h"
-#include "HTMLInputElement.h"
-#include "HTMLMediaElement.h"
-#include "MediaControllerInterface.h"
-#include "RenderBlock.h"
+#include "html/HTMLDivElement.h"
+#include "html/HTMLInputElement.h"
+#include "html/HTMLMediaElement.h"
+#include "html/MediaControllerInterface.h"
+#include "rendering/RenderBlock.h"
 
 namespace WebCore {
 

@@ -31,9 +31,9 @@
 #ifndef Blob_h
 #define Blob_h
 
-#include "BlobData.h"
-#include "KURL.h"
-#include "ScriptWrappable.h"
+#include "platform/network/BlobData.h"
+#include "platform/KURL.h"
+#include "bindings/dui/ScriptWrappable.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>

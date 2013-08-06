@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "ExitKind.h"
+#include "bytecode/ExitKind.h"
 
 #include <wtf/Assertions.h>
 #include <wtf/PrintStream.h>

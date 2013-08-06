@@ -29,8 +29,8 @@
 
 #if ENABLE(ASSEMBLER) && CPU(ARM_TRADITIONAL)
 
-#include "AssemblerBufferWithConstantPool.h"
-#include "JITCompilationEffort.h"
+#include "assembler/AssemblerBufferWithConstantPool.h"
+#include "jit/JITCompilationEffort.h"
 #include <wtf/Assertions.h>
 namespace JSC {
 

@@ -30,10 +30,10 @@
 #ifndef RectangleShape_h
 #define RectangleShape_h
 
-#include "FloatPoint.h"
-#include "FloatRect.h"
-#include "FloatSize.h"
-#include "Shape.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/FloatSize.h"
+#include "rendering/shapes/Shape.h"
 #include <wtf/Assertions.h>
 #include <wtf/Vector.h>
 

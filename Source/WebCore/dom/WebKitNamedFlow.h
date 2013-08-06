@@ -30,7 +30,7 @@
 #ifndef WebKitNamedFlow_h
 #define WebKitNamedFlow_h
 
-#include "EventTarget.h"
+#include "dom/EventTarget.h"
 
 #include <wtf/ListHashSet.h>
 #include <wtf/RefCounted.h>

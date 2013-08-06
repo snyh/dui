@@ -27,10 +27,10 @@
 #ifndef DeviceController_h
 #define DeviceController_h
 
-#include "DOMWindow.h"
-#include "Event.h"
-#include "Supplementable.h"
-#include "Timer.h"
+#include "page/DOMWindow.h"
+#include "dom/Event.h"
+#include "platform/Supplementable.h"
+#include "platform/Timer.h"
 #include <wtf/HashCountedSet.h>
 
 namespace WebCore {

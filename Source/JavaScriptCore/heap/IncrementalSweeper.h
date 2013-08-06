@@ -26,8 +26,8 @@
 #ifndef IncrementalSweeper_h
 #define IncrementalSweeper_h
 
-#include "HeapTimer.h"
-#include "MarkedBlock.h"
+#include "heap/HeapTimer.h"
+#include "heap/MarkedBlock.h"
 #include <wtf/HashSet.h>
 #include <wtf/PassOwnPtr.h>
 #include <wtf/RetainPtr.h>

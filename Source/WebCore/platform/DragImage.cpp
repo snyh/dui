@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "DragImage.h"
+#include "platform/DragImage.h"
 
 #if ENABLE(DRAG_SUPPORT)
-#include "DragController.h"
+#include "page/DragController.h"
 
-#include "FontRenderingMode.h"
+#include "platform/graphics/FontRenderingMode.h"
 
 namespace WebCore {
     

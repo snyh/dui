@@ -23,9 +23,9 @@
 #ifndef HTMLCollection_h
 #define HTMLCollection_h
 
-#include "CollectionType.h"
-#include "LiveNodeList.h"
-#include "ScriptWrappable.h"
+#include "html/CollectionType.h"
+#include "dom/LiveNodeList.h"
+#include "bindings/dui/ScriptWrappable.h"
 #include <wtf/Forward.h>
 #include <wtf/HashMap.h>
 #include <wtf/Vector.h>

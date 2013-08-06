@@ -28,14 +28,14 @@
 
 
 #include "config.h"
-#include "Screen.h"
+#include "page/Screen.h"
 
-#include "FloatRect.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "PlatformScreen.h"
-#include "Settings.h"
-#include "Widget.h"
+#include "platform/graphics/FloatRect.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "platform/PlatformScreen.h"
+#include "page/Settings.h"
+#include "platform/Widget.h"
 
 namespace WebCore {
 

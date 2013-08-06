@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "CodeBlockHash.h"
+#include "bytecode/CodeBlockHash.h"
 
-#include "SourceCode.h"
+#include "parser/SourceCode.h"
 #include <wtf/SHA1.h>
 
 namespace JSC {

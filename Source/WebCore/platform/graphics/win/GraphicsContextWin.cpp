@@ -24,19 +24,19 @@
  */
 
 #include "config.h"
-#include "GraphicsContext.h"
+#include "platform/graphics/GraphicsContext.h"
 
 #if USE(CG)
 #include "GraphicsContextPlatformPrivateCG.h"
 #elif USE(CAIRO)
-#include "GraphicsContextPlatformPrivateCairo.h"
+#include "platform/graphics/cairo/GraphicsContextPlatformPrivateCairo.h"
 #endif
 
-#include "AffineTransform.h"
-#include "BitmapInfo.h"
-#include "TransformationMatrix.h"
-#include "NotImplemented.h"
-#include "Path.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/win/BitmapInfo.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
+#include "platform/NotImplemented.h"
+#include "platform/graphics/Path.h"
 #include <wtf/MathExtras.h>
 
 using namespace std;

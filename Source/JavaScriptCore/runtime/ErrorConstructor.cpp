@@ -19,12 +19,12 @@
  */
 
 #include "config.h"
-#include "ErrorConstructor.h"
+#include "runtime/ErrorConstructor.h"
 
-#include "ErrorPrototype.h"
-#include "JSGlobalObject.h"
-#include "JSString.h"
-#include "Operations.h"
+#include "runtime/ErrorPrototype.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSString.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

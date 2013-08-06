@@ -26,10 +26,10 @@
 #ifndef APIShims_h
 #define APIShims_h
 
-#include "CallFrame.h"
-#include "GCActivityCallback.h"
-#include "IncrementalSweeper.h"
-#include "JSLock.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/GCActivityCallback.h"
+#include "heap/IncrementalSweeper.h"
+#include "runtime/JSLock.h"
 #include <wtf/WTFThreadData.h>
 
 namespace JSC {

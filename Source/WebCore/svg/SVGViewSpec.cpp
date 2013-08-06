@@ -20,15 +20,15 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGViewSpec.h"
+#include "svg/SVGViewSpec.h"
 
-#include "Document.h"
-#include "SVGAnimatedTransformList.h"
-#include "SVGFitToViewBox.h"
+#include "dom/Document.h"
+#include "svg/SVGAnimatedTransformList.h"
+#include "svg/SVGFitToViewBox.h"
 #include "SVGNames.h"
-#include "SVGParserUtilities.h"
-#include "SVGSVGElement.h"
-#include "SVGTransformable.h"
+#include "svg/SVGParserUtilities.h"
+#include "svg/SVGSVGElement.h"
+#include "svg/SVGTransformable.h"
 
 namespace WebCore {
 

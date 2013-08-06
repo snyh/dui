@@ -22,11 +22,11 @@
 */
 
 #include "config.h"
-#include "LengthFunctions.h"
+#include "css/LengthFunctions.h"
 
-#include "LayoutUnit.h"
-#include "Length.h"
-#include "RenderView.h"
+#include "platform/LayoutUnit.h"
+#include "platform/Length.h"
+#include "rendering/RenderView.h"
 
 namespace WebCore {
 

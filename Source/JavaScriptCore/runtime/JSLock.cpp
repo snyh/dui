@@ -19,13 +19,13 @@
  */
 
 #include "config.h"
-#include "JSLock.h"
+#include "runtime/JSLock.h"
 
-#include "Heap.h"
-#include "CallFrame.h"
-#include "JSGlobalObject.h"
-#include "JSObject.h"
-#include "Operations.h"
+#include "heap/Heap.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSObject.h"
+#include "runtime/Operations.h"
 
 #if USE(PTHREADS)
 #include <pthread.h>

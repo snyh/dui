@@ -29,7 +29,7 @@
 #ifndef ReverbConvolverStage_h
 #define ReverbConvolverStage_h
 
-#include "AudioArray.h"
+#include "platform/audio/AudioArray.h"
 #include <wtf/OwnPtr.h>
 
 namespace WebCore {

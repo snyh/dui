@@ -30,9 +30,9 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "MultiChannelResampler.h"
+#include "platform/audio/MultiChannelResampler.h"
 
-#include "AudioBus.h"
+#include "platform/audio/AudioBus.h"
 
 namespace WebCore {
 

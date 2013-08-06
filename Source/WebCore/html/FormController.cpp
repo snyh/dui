@@ -19,12 +19,12 @@
  */
 
 #include "config.h"
-#include "FormController.h"
+#include "html/FormController.h"
 
-#include "FileChooser.h"
-#include "HTMLFormControlElementWithState.h"
-#include "HTMLFormElement.h"
-#include "HTMLInputElement.h"
+#include "platform/FileChooser.h"
+#include "html/HTMLFormControlElementWithState.h"
+#include "html/HTMLFormElement.h"
+#include "html/HTMLInputElement.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

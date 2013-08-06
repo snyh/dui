@@ -21,10 +21,10 @@
  */
 
 #include "config.h"
-#include "HTMLMetaElement.h"
+#include "html/HTMLMetaElement.h"
 
-#include "Attribute.h"
-#include "Document.h"
+#include "dom/Attribute.h"
+#include "dom/Document.h"
 #include "HTMLNames.h"
 
 namespace WebCore {

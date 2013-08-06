@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "JITExceptions.h"
+#include "jit/JITExceptions.h"
 
-#include "CallFrame.h"
-#include "CodeBlock.h"
-#include "Interpreter.h"
-#include "JSCJSValue.h"
-#include "VM.h"
-#include "Operations.h"
+#include "interpreter/CallFrame.h"
+#include "bytecode/CodeBlock.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/JSCJSValue.h"
+#include "runtime/VM.h"
+#include "runtime/Operations.h"
 
 #if ENABLE(JIT) || ENABLE(LLINT)
 

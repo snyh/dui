@@ -30,7 +30,7 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGMinifiedNode.h"
+#include "dfg/DFGMinifiedNode.h"
 #include <algorithm>
 #include <wtf/StdLibExtras.h>
 #include <wtf/Vector.h>

@@ -30,10 +30,10 @@
  */
 
 #include "config.h"
-#include "BaseClickableWithKeyInputType.h"
+#include "html/BaseClickableWithKeyInputType.h"
 
-#include "HTMLInputElement.h"
-#include "KeyboardEvent.h"
+#include "html/HTMLInputElement.h"
+#include "dom/KeyboardEvent.h"
 
 namespace WebCore {
 

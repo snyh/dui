@@ -27,7 +27,7 @@
  */
 
 #include "config.h"
-#include "SmartReplace.h"
+#include "editing/SmartReplace.h"
 
 #if !USE(CF) && !USE(ICU_UNICODE)
 

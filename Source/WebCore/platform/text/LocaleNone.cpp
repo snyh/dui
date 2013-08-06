@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "PlatformLocale.h"
+#include "platform/text/PlatformLocale.h"
 #include <wtf/DateMath.h>
 #include <wtf/PassOwnPtr.h>
 

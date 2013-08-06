@@ -18,22 +18,22 @@
  */
 
 #include "config.h"
-#include "Pasteboard.h"
+#include "platform/Pasteboard.h"
 
-#include "CachedImage.h"
-#include "DataObjectGtk.h"
-#include "DocumentFragment.h"
-#include "Editor.h"
-#include "Frame.h"
-#include "HTMLImageElement.h"
-#include "HTMLInputElement.h"
+#include "loader/cache/CachedImage.h"
+#include "platform/gtk/DataObjectGtk.h"
+#include "dom/DocumentFragment.h"
+#include "editing/Editor.h"
+#include "page/Frame.h"
+#include "html/HTMLImageElement.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "Image.h"
-#include "KURL.h"
-#include "PasteboardHelper.h"
-#include "RenderImage.h"
-#include "markup.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "platform/graphics/Image.h"
+#include "platform/KURL.h"
+#include "platform/gtk/PasteboardHelper.h"
+#include "rendering/RenderImage.h"
+#include "editing/markup.h"
 #include <gtk/gtk.h>
 
 #if ENABLE(SVG)

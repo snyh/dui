@@ -31,8 +31,8 @@
 #ifndef BlobData_h
 #define BlobData_h
 
-#include "FileSystem.h"
-#include "KURL.h"
+#include "platform/FileSystem.h"
+#include "platform/KURL.h"
 #include <wtf/Forward.h>
 #include <wtf/PassOwnPtr.h>
 #include <wtf/ThreadSafeRefCounted.h>

@@ -25,9 +25,9 @@
 #ifndef StyleBackgroundData_h
 #define StyleBackgroundData_h
 
-#include "Color.h"
-#include "FillLayer.h"
-#include "OutlineValue.h"
+#include "platform/graphics/Color.h"
+#include "rendering/style/FillLayer.h"
+#include "rendering/style/OutlineValue.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 

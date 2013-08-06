@@ -24,9 +24,9 @@
 #ifndef Event_h
 #define Event_h
 
-#include "DOMTimeStamp.h"
-#include "EventNames.h"
-#include "ScriptWrappable.h"
+#include "dom/DOMTimeStamp.h"
+#include "dom/EventNames.h"
+#include "bindings/dui/ScriptWrappable.h"
 #include <wtf/HashMap.h>
 #include <wtf/ListHashSet.h>
 #include <wtf/RefCounted.h>

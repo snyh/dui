@@ -20,7 +20,7 @@
 #ifndef NetworkingContext_h
 #define NetworkingContext_h
 
-#include "NetworkStorageSession.h"
+#include "platform/network/NetworkStorageSession.h"
 #include <wtf/RefCounted.h>
 #include <wtf/RetainPtr.h>
 

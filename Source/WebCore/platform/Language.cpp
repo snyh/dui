@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "Language.h"
+#include "platform/Language.h"
 
 #include <wtf/HashMap.h>
 #include <wtf/RetainPtr.h>

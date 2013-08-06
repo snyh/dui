@@ -26,13 +26,13 @@
 #ifndef CallLinkInfo_h
 #define CallLinkInfo_h
 
-#include "ClosureCallStubRoutine.h"
-#include "CodeLocation.h"
-#include "CodeSpecializationKind.h"
-#include "JITWriteBarrier.h"
-#include "JSFunction.h"
-#include "Opcode.h"
-#include "WriteBarrier.h"
+#include "jit/ClosureCallStubRoutine.h"
+#include "assembler/CodeLocation.h"
+#include "runtime/CodeSpecializationKind.h"
+#include "jit/JITWriteBarrier.h"
+#include "runtime/JSFunction.h"
+#include "bytecode/Opcode.h"
+#include "runtime/WriteBarrier.h"
 #include <wtf/Platform.h>
 #include <wtf/SentinelLinkedList.h>
 

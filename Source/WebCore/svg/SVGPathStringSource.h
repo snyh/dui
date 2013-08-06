@@ -22,7 +22,7 @@
 #define SVGPathStringSource_h
 
 #if ENABLE(SVG)
-#include "SVGPathSource.h"
+#include "svg/SVGPathSource.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/WTFString.h>
 

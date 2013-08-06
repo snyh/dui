@@ -25,13 +25,13 @@
  */
 
 #include "config.h"
-#include "BitmapImage.h"
+#include "platform/graphics/BitmapImage.h"
 
-#include "FloatRect.h"
-#include "ImageObserver.h"
-#include "IntRect.h"
-#include "MIMETypeRegistry.h"
-#include "Timer.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/ImageObserver.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/MIMETypeRegistry.h"
+#include "platform/Timer.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/Vector.h>
 #include <wtf/text/WTFString.h>

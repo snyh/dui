@@ -28,19 +28,19 @@
  */
 
 #include "config.h"
-#include "RenderRegion.h"
+#include "rendering/RenderRegion.h"
 
-#include "FlowThreadController.h"
-#include "GraphicsContext.h"
-#include "HitTestResult.h"
-#include "IntRect.h"
-#include "LayoutRepainter.h"
-#include "PaintInfo.h"
-#include "Range.h"
-#include "RenderBoxRegionInfo.h"
-#include "RenderNamedFlowThread.h"
-#include "RenderView.h"
-#include "StyleResolver.h"
+#include "rendering/FlowThreadController.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/HitTestResult.h"
+#include "platform/graphics/IntRect.h"
+#include "rendering/LayoutRepainter.h"
+#include "rendering/PaintInfo.h"
+#include "dom/Range.h"
+#include "rendering/RenderBoxRegionInfo.h"
+#include "rendering/RenderNamedFlowThread.h"
+#include "rendering/RenderView.h"
+#include "css/StyleResolver.h"
 #include <wtf/StackStats.h>
 
 using namespace std;

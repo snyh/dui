@@ -27,9 +27,9 @@
 #define HTMLTrackElement_h
 
 #if ENABLE(VIDEO_TRACK)
-#include "HTMLElement.h"
-#include "LoadableTextTrack.h"
-#include "TextTrack.h"
+#include "html/HTMLElement.h"
+#include "html/track/LoadableTextTrack.h"
+#include "html/track/TextTrack.h"
 
 namespace WebCore {
 

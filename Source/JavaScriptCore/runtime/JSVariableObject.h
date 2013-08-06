@@ -29,10 +29,10 @@
 #ifndef JSVariableObject_h
 #define JSVariableObject_h
 
-#include "JSObject.h"
-#include "JSSymbolTableObject.h"
-#include "Register.h"
-#include "SymbolTable.h"
+#include "runtime/JSObject.h"
+#include "runtime/JSSymbolTableObject.h"
+#include "interpreter/Register.h"
+#include "runtime/SymbolTable.h"
 #include <wtf/OwnArrayPtr.h>
 
 namespace JSC {

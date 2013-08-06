@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "TransformationMatrix.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
 
 #include <windows.h>
 

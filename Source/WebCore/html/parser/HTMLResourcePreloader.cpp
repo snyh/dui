@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "HTMLResourcePreloader.h"
+#include "html/parser/HTMLResourcePreloader.h"
 
-#include "CachedResourceLoader.h"
-#include "Document.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "dom/Document.h"
 
 namespace WebCore {
 

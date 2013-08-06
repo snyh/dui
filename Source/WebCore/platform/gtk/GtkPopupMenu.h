@@ -21,9 +21,9 @@
 #ifndef GtkPopupMenu_h
 #define GtkPopupMenu_h
 
-#include "GRefPtrGtk.h"
-#include "IntPoint.h"
-#include "IntSize.h"
+#include "platform/gtk/GRefPtrGtk.h"
+#include "platform/graphics/IntPoint.h"
+#include "platform/graphics/IntSize.h"
 #include <wtf/FastAllocBase.h>
 #include <wtf/Noncopyable.h>
 #include <wtf/PassOwnPtr.h>

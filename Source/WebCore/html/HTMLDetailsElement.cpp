@@ -19,18 +19,18 @@
  */
 
 #include "config.h"
-#include "HTMLDetailsElement.h"
+#include "html/HTMLDetailsElement.h"
 
 #if ENABLE(DETAILS_ELEMENT)
-#include "HTMLContentElement.h"
+#include "html/shadow/HTMLContentElement.h"
 #include "HTMLNames.h"
-#include "HTMLSummaryElement.h"
-#include "LocalizedStrings.h"
-#include "MouseEvent.h"
-#include "NodeRenderingContext.h"
-#include "RenderBlock.h"
-#include "ShadowRoot.h"
-#include "Text.h"
+#include "html/HTMLSummaryElement.h"
+#include "platform/LocalizedStrings.h"
+#include "dom/MouseEvent.h"
+#include "dom/NodeRenderingContext.h"
+#include "rendering/RenderBlock.h"
+#include "dom/ShadowRoot.h"
+#include "dom/Text.h"
 
 namespace WebCore {
 

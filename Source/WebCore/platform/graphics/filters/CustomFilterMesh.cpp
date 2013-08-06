@@ -30,9 +30,9 @@
 #include "config.h"
 
 #if ENABLE(CSS_SHADERS) && USE(3D_GRAPHICS)
-#include "CustomFilterMesh.h"
-#include "CustomFilterMeshGenerator.h"
-#include "GraphicsContext3D.h"
+#include "platform/graphics/filters/CustomFilterMesh.h"
+#include "platform/graphics/filters/CustomFilterMeshGenerator.h"
+#include "platform/graphics/GraphicsContext3D.h"
 
 namespace WebCore {
 

@@ -24,14 +24,14 @@
 #include "config.h"
 
 #if ENABLE(FILTERS)
-#include "FEBlend.h"
-#include "FEBlendNEON.h"
+#include "platform/graphics/filters/FEBlend.h"
+#include "platform/graphics/cpu/arm/filters/FEBlendNEON.h"
 
-#include "Filter.h"
-#include "FloatPoint.h"
-#include "GraphicsContext.h"
-#include "RenderTreeAsText.h"
-#include "TextStream.h"
+#include "platform/graphics/filters/Filter.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/RenderTreeAsText.h"
+#include "platform/text/TextStream.h"
 
 #include <wtf/Uint8ClampedArray.h>
 

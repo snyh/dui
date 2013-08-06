@@ -28,7 +28,7 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "EventTarget.h"
+#include "dom/EventTarget.h"
 #include <wtf/RefCounted.h>
 
 namespace WebCore {

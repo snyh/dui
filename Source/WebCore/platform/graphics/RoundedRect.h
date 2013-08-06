@@ -27,8 +27,8 @@
 #ifndef RoundedRect_h
 #define RoundedRect_h
 
-#include "FloatQuad.h"
-#include "IntRect.h"
+#include "platform/graphics/FloatQuad.h"
+#include "platform/graphics/IntRect.h"
 
 namespace WebCore {
 

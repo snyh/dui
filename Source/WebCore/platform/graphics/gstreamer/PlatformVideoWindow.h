@@ -21,7 +21,7 @@
 #define PlatformVideoWindow_h
 #if ENABLE(VIDEO) && USE(GSTREAMER) && USE(NATIVE_FULLSCREEN_VIDEO)
 
-#include "Widget.h"
+#include "platform/Widget.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 

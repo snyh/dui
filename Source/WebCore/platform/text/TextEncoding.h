@@ -26,7 +26,7 @@
 #ifndef TextEncoding_h
 #define TextEncoding_h
 
-#include "TextCodec.h"
+#include "platform/text/TextCodec.h"
 #include <wtf/Forward.h>
 #include <wtf/unicode/Unicode.h>
 

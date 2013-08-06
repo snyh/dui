@@ -26,7 +26,7 @@
 #ifndef WebGLContextEvent_h
 #define WebGLContextEvent_h
 
-#include "Event.h"
+#include "dom/Event.h"
 
 namespace WebCore {
 

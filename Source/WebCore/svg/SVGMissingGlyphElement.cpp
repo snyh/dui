@@ -20,7 +20,7 @@
 #include "config.h"
 
 #if ENABLE(SVG_FONTS)
-#include "SVGMissingGlyphElement.h"
+#include "svg/SVGMissingGlyphElement.h"
 #include "SVGNames.h"
 
 namespace WebCore {

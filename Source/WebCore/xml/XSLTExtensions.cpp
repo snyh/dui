@@ -27,7 +27,7 @@
 #include "config.h"
 
 #if ENABLE(XSLT)
-#include "XSLTExtensions.h"
+#include "xml/XSLTExtensions.h"
 
 #include <libxml/xpathInternals.h>
 

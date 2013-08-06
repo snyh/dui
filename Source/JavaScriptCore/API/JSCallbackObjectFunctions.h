@@ -24,20 +24,20 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
  */
 
-#include "APIShims.h"
-#include "APICast.h"
-#include "Error.h"
-#include "ExceptionHelpers.h"
-#include "JSCallbackFunction.h"
-#include "JSClassRef.h"
-#include "JSFunction.h"
-#include "JSGlobalObject.h"
-#include "JSLock.h"
-#include "JSObjectRef.h"
-#include "JSString.h"
-#include "JSStringRef.h"
-#include "OpaqueJSString.h"
-#include "PropertyNameArray.h"
+#include "API/APIShims.h"
+#include "API/APICast.h"
+#include "runtime/Error.h"
+#include "runtime/ExceptionHelpers.h"
+#include "API/JSCallbackFunction.h"
+#include "API/JSClassRef.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSLock.h"
+#include "API/JSObjectRef.h"
+#include "runtime/JSString.h"
+#include "API/JSStringRef.h"
+#include "API/OpaqueJSString.h"
+#include "runtime/PropertyNameArray.h"
 #include <wtf/Vector.h>
 
 namespace JSC {

@@ -25,15 +25,15 @@
 
 #include "config.h"
 #if ENABLE(VIDEO_TRACK)
-#include "HTMLTrackElement.h"
+#include "html/HTMLTrackElement.h"
 
-#include "ContentSecurityPolicy.h"
-#include "Event.h"
-#include "HTMLMediaElement.h"
+#include "page/ContentSecurityPolicy.h"
+#include "dom/Event.h"
+#include "html/HTMLMediaElement.h"
 #include "HTMLNames.h"
-#include "Logging.h"
-#include "RuntimeEnabledFeatures.h"
-#include "ScriptEventListener.h"
+#include "platform/Logging.h"
+#include "bindings/dui/saved/RuntimeEnabledFeatures.h"
+#include "bindings/dui/saved/ScriptEventListener.h"
 
 using namespace std;
 

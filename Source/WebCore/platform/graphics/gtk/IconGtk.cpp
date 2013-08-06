@@ -28,11 +28,11 @@
  */
 
 #include "config.h"
-#include "Icon.h"
+#include "platform/graphics/Icon.h"
 
-#include "GraphicsContext.h"
-#include "MIMETypeRegistry.h"
-#include "PlatformContextCairo.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/MIMETypeRegistry.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
 
 #include <gtk/gtk.h>
 

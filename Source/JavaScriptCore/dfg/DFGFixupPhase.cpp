@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "DFGFixupPhase.h"
+#include "dfg/DFGFixupPhase.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGGraph.h"
-#include "DFGInsertionSet.h"
-#include "DFGPhase.h"
-#include "DFGPredictionPropagationPhase.h"
-#include "DFGVariableAccessDataDump.h"
-#include "Operations.h"
+#include "dfg/DFGGraph.h"
+#include "dfg/DFGInsertionSet.h"
+#include "dfg/DFGPhase.h"
+#include "dfg/DFGPredictionPropagationPhase.h"
+#include "dfg/DFGVariableAccessDataDump.h"
+#include "runtime/Operations.h"
 
 namespace JSC { namespace DFG {
 

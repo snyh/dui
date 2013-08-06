@@ -23,7 +23,7 @@
 #ifndef RenderDeprecatedFlexibleBox_h
 #define RenderDeprecatedFlexibleBox_h
 
-#include "RenderBlock.h"
+#include "rendering/RenderBlock.h"
 
 namespace WebCore {
 

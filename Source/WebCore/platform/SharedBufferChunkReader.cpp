@@ -29,9 +29,9 @@
  */
 
 #include "config.h"
-#include "SharedBufferChunkReader.h"
+#include "platform/SharedBufferChunkReader.h"
 
-#include "SharedBuffer.h"
+#include "platform/SharedBuffer.h"
 
 namespace WebCore {
 

@@ -20,11 +20,11 @@
  */
 
 #include "config.h"
-#include "DateInstance.h"
+#include "runtime/DateInstance.h"
 
-#include "JSDateMath.h"
-#include "JSGlobalObject.h"
-#include "Operations.h"
+#include "runtime/JSDateMath.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/Operations.h"
 #include <math.h>
 #include <wtf/MathExtras.h>
 

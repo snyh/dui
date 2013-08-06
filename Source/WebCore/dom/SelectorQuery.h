@@ -26,8 +26,8 @@
 #ifndef SelectorQuery_h
 #define SelectorQuery_h
 
-#include "CSSSelectorList.h"
-#include "NodeList.h"
+#include "css/CSSSelectorList.h"
+#include "dom/NodeList.h"
 #include <wtf/HashMap.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/Vector.h>

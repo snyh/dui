@@ -26,11 +26,11 @@
 #include "config.h"
 
 #if ENABLE(VIDEO)
-#include "RenderMedia.h"
+#include "rendering/RenderMedia.h"
 
-#include "HTMLMediaElement.h"
-#include "RenderFlowThread.h"
-#include "RenderView.h"
+#include "html/HTMLMediaElement.h"
+#include "rendering/RenderFlowThread.h"
+#include "rendering/RenderView.h"
 #include <wtf/StackStats.h>
 
 namespace WebCore {

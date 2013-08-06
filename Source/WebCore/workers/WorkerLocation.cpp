@@ -28,7 +28,7 @@
 
 #if ENABLE(WORKERS)
 
-#include "WorkerLocation.h"
+#include "workers/WorkerLocation.h"
 
 #include <wtf/text/WTFString.h>
 

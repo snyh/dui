@@ -26,7 +26,7 @@
 #ifndef ProgressTracker_h
 #define ProgressTracker_h
 
-#include "Timer.h"
+#include "platform/Timer.h"
 #include <wtf/Forward.h>
 #include <wtf/HashMap.h>
 #include <wtf/Noncopyable.h>

@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "AccessibilityScrollView.h"
+#include "accessibility/AccessibilityScrollView.h"
 
-#include "AXObjectCache.h"
-#include "AccessibilityScrollbar.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "HTMLFrameOwnerElement.h"
-#include "RenderPart.h"
-#include "ScrollView.h"
-#include "Widget.h"
+#include "accessibility/AXObjectCache.h"
+#include "accessibility/AccessibilityScrollbar.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "html/HTMLFrameOwnerElement.h"
+#include "rendering/RenderPart.h"
+#include "platform/ScrollView.h"
+#include "platform/Widget.h"
 
 namespace WebCore {
     

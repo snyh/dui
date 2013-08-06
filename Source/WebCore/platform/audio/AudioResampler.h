@@ -25,9 +25,9 @@
 #ifndef AudioResampler_h
 #define AudioResampler_h
 
-#include "AudioBus.h"
-#include "AudioResamplerKernel.h"
-#include "AudioSourceProvider.h"
+#include "platform/audio/AudioBus.h"
+#include "platform/audio/AudioResamplerKernel.h"
+#include "platform/audio/AudioSourceProvider.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/Vector.h>
 

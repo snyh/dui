@@ -27,11 +27,11 @@
 
 #if ENABLE(WEBGL)
 
-#include "WebGLBuffer.h"
+#include "html/canvas/WebGLBuffer.h"
 
-#include "CheckedInt.h"
-#include "WebGLContextGroup.h"
-#include "WebGLRenderingContext.h"
+#include "html/canvas/CheckedInt.h"
+#include "html/canvas/WebGLContextGroup.h"
+#include "html/canvas/WebGLRenderingContext.h"
 
 namespace WebCore {
 

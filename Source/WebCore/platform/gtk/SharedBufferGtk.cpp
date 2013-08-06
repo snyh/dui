@@ -17,9 +17,9 @@
  */
 
 #include "config.h"
-#include "SharedBuffer.h"
+#include "platform/SharedBuffer.h"
 
-#include "FileSystem.h"
+#include "platform/FileSystem.h"
 #include <wtf/gobject/GOwnPtr.h>
 #include <wtf/text/CString.h>
 

@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "ScrollingStateScrollingNode.h"
+#include "page/scrolling/ScrollingStateScrollingNode.h"
 
 #if ENABLE(THREADED_SCROLLING) || USE(COORDINATED_GRAPHICS)
 
-#include "ScrollingStateTree.h"
-#include "TextStream.h"
+#include "page/scrolling/ScrollingStateTree.h"
+#include "platform/text/TextStream.h"
 #include <wtf/OwnPtr.h>
 
 namespace WebCore {

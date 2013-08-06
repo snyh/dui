@@ -27,7 +27,7 @@
 #ifndef FloatRect_h
 #define FloatRect_h
 
-#include "FloatPoint.h"
+#include "platform/graphics/FloatPoint.h"
 #include <wtf/Vector.h>
 
 #if USE(CG)

@@ -21,13 +21,13 @@
  */
 
 #include "config.h"
-#include "RegExp.h"
+#include "runtime/RegExp.h"
 
-#include "Lexer.h"
-#include "Operations.h"
-#include "RegExpCache.h"
-#include "Yarr.h"
-#include "YarrJIT.h"
+#include "parser/Lexer.h"
+#include "runtime/Operations.h"
+#include "runtime/RegExpCache.h"
+#include "yarr/Yarr.h"
+#include "yarr/YarrJIT.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

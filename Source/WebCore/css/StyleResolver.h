@@ -22,26 +22,26 @@
 #ifndef StyleResolver_h
 #define StyleResolver_h
 
-#include "CSSToStyleMap.h"
-#include "CSSValueList.h"
-#include "DocumentRuleSets.h"
-#include "LinkHash.h"
-#include "MediaQueryExp.h"
-#include "RenderStyle.h"
-#include "RuleFeature.h"
-#include "RuleSet.h"
-#include "RuntimeEnabledFeatures.h"
-#include "ScrollTypes.h"
-#include "SelectorChecker.h"
-#include "SelectorFilter.h"
-#include "StyleInheritedData.h"
-#include "StyleScopeResolver.h"
-#include "ViewportStyleResolver.h"
+#include "css/CSSToStyleMap.h"
+#include "css/CSSValueList.h"
+#include "css/DocumentRuleSets.h"
+#include "platform/LinkHash.h"
+#include "css/MediaQueryExp.h"
+#include "rendering/style/RenderStyle.h"
+#include "css/RuleFeature.h"
+#include "css/RuleSet.h"
+#include "bindings/dui/saved/RuntimeEnabledFeatures.h"
+#include "platform/ScrollTypes.h"
+#include "css/SelectorChecker.h"
+#include "css/SelectorFilter.h"
+#include "rendering/style/StyleInheritedData.h"
+#include "css/StyleScopeResolver.h"
+#include "css/ViewportStyleResolver.h"
 #if ENABLE(CSS_FILTERS) && ENABLE(SVG)
-#include "WebKitCSSSVGDocumentValue.h"
+#include "css/WebKitCSSSVGDocumentValue.h"
 #endif
 #if ENABLE(CSS_SHADERS)
-#include "CustomFilterConstants.h"
+#include "platform/graphics/filters/CustomFilterConstants.h"
 #endif
 #include <wtf/HashMap.h>
 #include <wtf/HashSet.h>

@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "CSSImageGeneratorValue.h"
+#include "css/CSSImageGeneratorValue.h"
 
-#include "CSSCanvasValue.h"
-#include "CSSCrossfadeValue.h"
-#include "CSSGradientValue.h"
-#include "Image.h"
-#include "RenderObject.h"
+#include "css/CSSCanvasValue.h"
+#include "css/CSSCrossfadeValue.h"
+#include "css/CSSGradientValue.h"
+#include "platform/graphics/Image.h"
+#include "rendering/RenderObject.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

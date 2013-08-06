@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "ResolveGlobalStatus.h"
+#include "bytecode/ResolveGlobalStatus.h"
 
-#include "CodeBlock.h"
-#include "JSCJSValue.h"
-#include "Operations.h"
-#include "Structure.h"
+#include "bytecode/CodeBlock.h"
+#include "runtime/JSCJSValue.h"
+#include "runtime/Operations.h"
+#include "runtime/Structure.h"
 
 namespace JSC {
 

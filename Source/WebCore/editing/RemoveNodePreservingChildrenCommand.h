@@ -26,7 +26,7 @@
 #ifndef RemoveNodePreservingChildrenCommand_h
 #define RemoveNodePreservingChildrenCommand_h
 
-#include "CompositeEditCommand.h"
+#include "editing/CompositeEditCommand.h"
 
 namespace WebCore {
 

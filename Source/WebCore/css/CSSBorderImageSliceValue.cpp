@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "CSSBorderImageSliceValue.h"
+#include "css/CSSBorderImageSliceValue.h"
 
-#include "Rect.h"
+#include "css/Rect.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

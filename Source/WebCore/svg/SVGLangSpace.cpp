@@ -21,10 +21,10 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGLangSpace.h"
+#include "svg/SVGLangSpace.h"
 
-#include "Attribute.h"
-#include "SVGElement.h"
+#include "dom/Attribute.h"
+#include "svg/SVGElement.h"
 #include "XMLNames.h"
 #include <wtf/StdLibExtras.h>
 

@@ -26,8 +26,8 @@
 #ifndef ResolveGlobalStatus_h
 #define ResolveGlobalStatus_h
 
-#include "JSCJSValue.h"
-#include "PropertyOffset.h"
+#include "runtime/JSCJSValue.h"
+#include "runtime/PropertyOffset.h"
 #include <wtf/NotFound.h>
 
 namespace JSC {

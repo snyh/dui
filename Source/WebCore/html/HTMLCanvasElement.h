@@ -28,9 +28,9 @@
 #ifndef HTMLCanvasElement_h
 #define HTMLCanvasElement_h
 
-#include "FloatRect.h"
-#include "HTMLElement.h"
-#include "IntSize.h"
+#include "platform/graphics/FloatRect.h"
+#include "html/HTMLElement.h"
+#include "platform/graphics/IntSize.h"
 #include <wtf/Forward.h>
 
 #if PLATFORM(QT)

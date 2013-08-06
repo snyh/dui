@@ -26,7 +26,7 @@
 #ifndef IntPoint_h
 #define IntPoint_h
 
-#include "IntSize.h"
+#include "platform/graphics/IntSize.h"
 #include <wtf/MathExtras.h>
 
 #if USE(CG)

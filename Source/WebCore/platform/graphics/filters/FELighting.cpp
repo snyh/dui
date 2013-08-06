@@ -27,9 +27,9 @@
 #include "config.h"
 
 #if ENABLE(FILTERS)
-#include "FELighting.h"
+#include "platform/graphics/filters/FELighting.h"
 
-#include "FELightingNEON.h"
+#include "platform/graphics/cpu/arm/filters/FELightingNEON.h"
 #include <wtf/ParallelJobs.h>
 
 namespace WebCore {

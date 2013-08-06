@@ -30,11 +30,11 @@
 #include "config.h"
 
 #if ENABLE(CSS_SHADERS)
-#include "CustomFilterOperation.h"
+#include "platform/graphics/filters/CustomFilterOperation.h"
 
-#include "CustomFilterParameter.h"
-#include "CustomFilterProgram.h"
-#include "FilterOperation.h"
+#include "platform/graphics/filters/CustomFilterParameter.h"
+#include "platform/graphics/filters/CustomFilterProgram.h"
+#include "platform/graphics/filters/FilterOperation.h"
 
 namespace WebCore {
 

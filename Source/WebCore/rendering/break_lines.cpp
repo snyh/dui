@@ -25,9 +25,9 @@
  */
 
 #include "config.h"
-#include "break_lines.h"
+#include "rendering/break_lines.h"
 
-#include "TextBreakIterator.h"
+#include "platform/text/TextBreakIterator.h"
 #include <wtf/ASCIICType.h>
 #include <wtf/StdLibExtras.h>
 #include <wtf/unicode/CharacterNames.h>

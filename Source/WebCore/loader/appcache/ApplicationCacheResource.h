@@ -26,7 +26,7 @@
 #ifndef ApplicationCacheResource_h
 #define ApplicationCacheResource_h
 
-#include "SubstituteResource.h"
+#include "loader/SubstituteResource.h"
 
 namespace WebCore {
 

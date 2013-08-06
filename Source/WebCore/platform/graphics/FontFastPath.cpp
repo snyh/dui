@@ -21,16 +21,16 @@
  */
 
 #include "config.h"
-#include "Font.h"
+#include "platform/graphics/Font.h"
 
-#include "FloatRect.h"
-#include "FontCache.h"
-#include "FontGlyphs.h"
-#include "GlyphBuffer.h"
-#include "GlyphPageTreeNode.h"
-#include "SimpleFontData.h"
-#include "TextRun.h"
-#include "WidthIterator.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/FontCache.h"
+#include "platform/graphics/FontGlyphs.h"
+#include "platform/graphics/GlyphBuffer.h"
+#include "platform/graphics/GlyphPageTreeNode.h"
+#include "platform/graphics/SimpleFontData.h"
+#include "platform/graphics/TextRun.h"
+#include "platform/graphics/WidthIterator.h"
 #include <wtf/MainThread.h>
 #include <wtf/MathExtras.h>
 #include <wtf/unicode/CharacterNames.h>

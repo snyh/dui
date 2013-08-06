@@ -27,10 +27,10 @@
  */
 
 #include "config.h"
-#include "AccessibilityTableHeaderContainer.h"
+#include "accessibility/AccessibilityTableHeaderContainer.h"
 
-#include "AXObjectCache.h"
-#include "AccessibilityTable.h"
+#include "accessibility/AXObjectCache.h"
+#include "accessibility/AccessibilityTable.h"
 
 using namespace std;
 

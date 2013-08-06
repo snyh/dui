@@ -21,11 +21,11 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGTSpanElement.h"
+#include "svg/SVGTSpanElement.h"
 
-#include "NodeRenderingContext.h"
-#include "RenderInline.h"
-#include "RenderSVGTSpan.h"
+#include "dom/NodeRenderingContext.h"
+#include "rendering/RenderInline.h"
+#include "rendering/svg/RenderSVGTSpan.h"
 #include "SVGNames.h"
 
 namespace WebCore {

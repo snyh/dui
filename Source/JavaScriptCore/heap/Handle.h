@@ -26,7 +26,7 @@
 #ifndef Handle_h
 #define Handle_h
 
-#include "HandleTypes.h"
+#include "heap/HandleTypes.h"
 
 namespace JSC {
 

@@ -26,8 +26,8 @@
 #ifndef OESVertexArrayObject_h
 #define OESVertexArrayObject_h
 
-#include "GraphicsTypes3D.h"
-#include "WebGLExtension.h"
+#include "platform/graphics/GraphicsTypes3D.h"
+#include "html/canvas/WebGLExtension.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

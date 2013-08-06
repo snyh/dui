@@ -27,12 +27,12 @@
  */
  
 #include "config.h"
-#include "JSActivation.h"
+#include "runtime/JSActivation.h"
 
-#include "Arguments.h"
-#include "Interpreter.h"
-#include "JSFunction.h"
-#include "Operations.h"
+#include "runtime/Arguments.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/JSFunction.h"
+#include "runtime/Operations.h"
 
 using namespace std;
 

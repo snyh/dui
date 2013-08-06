@@ -30,13 +30,13 @@
 
 #include "config.h"
 
-#include "RenderRubyRun.h"
+#include "rendering/RenderRubyRun.h"
 
-#include "RenderRubyBase.h"
-#include "RenderRubyText.h"
-#include "RenderText.h"
-#include "RenderView.h"
-#include "StyleInheritedData.h"
+#include "rendering/RenderRubyBase.h"
+#include "rendering/RenderRubyText.h"
+#include "rendering/RenderText.h"
+#include "rendering/RenderView.h"
+#include "rendering/style/StyleInheritedData.h"
 #include <wtf/StackStats.h>
 
 using namespace std;

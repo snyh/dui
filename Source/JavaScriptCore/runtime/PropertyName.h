@@ -26,8 +26,8 @@
 #ifndef PropertyName_h
 #define PropertyName_h
 
-#include "Identifier.h"
-#include "PrivateName.h"
+#include "runtime/Identifier.h"
+#include "runtime/PrivateName.h"
 
 namespace JSC {
 

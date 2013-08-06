@@ -19,10 +19,10 @@
  */
 
 #include "config.h"
-#include "BooleanObject.h"
+#include "runtime/BooleanObject.h"
 
-#include "JSScope.h"
-#include "Operations.h"
+#include "runtime/JSScope.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

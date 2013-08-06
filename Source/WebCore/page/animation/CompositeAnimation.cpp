@@ -27,16 +27,16 @@
  */
 
 #include "config.h"
-#include "CompositeAnimation.h"
+#include "page/animation/CompositeAnimation.h"
 
-#include "AnimationControllerPrivate.h"
-#include "CSSPropertyAnimation.h"
+#include "page/animation/AnimationControllerPrivate.h"
+#include "page/animation/CSSPropertyAnimation.h"
 #include "CSSPropertyNames.h"
-#include "ImplicitAnimation.h"
-#include "KeyframeAnimation.h"
-#include "Logging.h"
-#include "RenderObject.h"
-#include "RenderStyle.h"
+#include "page/animation/ImplicitAnimation.h"
+#include "page/animation/KeyframeAnimation.h"
+#include "platform/Logging.h"
+#include "rendering/RenderObject.h"
+#include "rendering/style/RenderStyle.h"
 #include <wtf/text/CString.h>
 
 namespace WebCore {

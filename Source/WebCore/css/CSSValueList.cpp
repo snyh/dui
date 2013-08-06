@@ -19,9 +19,9 @@
  */
 
 #include "config.h"
-#include "CSSValueList.h"
+#include "css/CSSValueList.h"
 
-#include "CSSParserValues.h"
+#include "css/CSSParserValues.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/StringBuilder.h>
 

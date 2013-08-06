@@ -19,16 +19,16 @@
  */
 
 #include "config.h"
-#include "AccessibilityProgressIndicator.h"
+#include "accessibility/AccessibilityProgressIndicator.h"
 
 #if ENABLE(PROGRESS_ELEMENT) || ENABLE(METER_ELEMENT)
-#include "FloatConversion.h"
-#include "HTMLMeterElement.h"
+#include "platform/FloatConversion.h"
+#include "html/HTMLMeterElement.h"
 #include "HTMLNames.h"
-#include "HTMLProgressElement.h"
-#include "RenderMeter.h"
-#include "RenderObject.h"
-#include "RenderProgress.h"
+#include "html/HTMLProgressElement.h"
+#include "rendering/RenderMeter.h"
+#include "rendering/RenderObject.h"
+#include "rendering/RenderProgress.h"
 
 namespace WebCore {
     

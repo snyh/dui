@@ -21,7 +21,7 @@
 #ifndef LogicalSelectionOffsetCaches_h
 #define LogicalSelectionOffsetCaches_h
 
-#include "RenderBlock.h"
+#include "rendering/RenderBlock.h"
 
 namespace WebCore {
 

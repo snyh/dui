@@ -26,7 +26,7 @@
 #ifndef ResourceResponse_h
 #define ResourceResponse_h
 
-#include "ResourceResponseBase.h"
+#include "platform/network/ResourceResponseBase.h"
 
 #include <libsoup/soup.h>
 #include <wtf/gobject/GRefPtr.h>

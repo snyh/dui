@@ -18,7 +18,7 @@
  */
 
 #include "config.h"
-#include "TextBreakIteratorInternalICU.h"
+#include "platform/text/TextBreakIteratorInternalICU.h"
 
 namespace WebCore {
 

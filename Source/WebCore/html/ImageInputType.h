@@ -33,8 +33,8 @@
 #ifndef ImageInputType_h
 #define ImageInputType_h
 
-#include "BaseButtonInputType.h"
-#include "IntPoint.h"
+#include "html/BaseButtonInputType.h"
+#include "platform/graphics/IntPoint.h"
 
 namespace WebCore {
 

@@ -20,7 +20,7 @@
  */
 
 #include "config.h"
-#include "BidiContext.h"
+#include "platform/text/BidiContext.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "CrossfadeGeneratedImage.h"
+#include "platform/graphics/CrossfadeGeneratedImage.h"
 
-#include "FloatRect.h"
-#include "GraphicsContext.h"
-#include "ImageBuffer.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/ImageBuffer.h"
 
 using namespace std;
 

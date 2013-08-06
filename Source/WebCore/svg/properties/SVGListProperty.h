@@ -21,10 +21,10 @@
 #define SVGListProperty_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedProperty.h"
-#include "SVGException.h"
-#include "SVGPropertyTearOff.h"
-#include "SVGPropertyTraits.h"
+#include "svg/properties/SVGAnimatedProperty.h"
+#include "svg/SVGException.h"
+#include "svg/properties/SVGPropertyTearOff.h"
+#include "svg/properties/SVGPropertyTraits.h"
 
 namespace WebCore {
 

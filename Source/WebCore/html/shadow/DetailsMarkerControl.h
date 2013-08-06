@@ -31,7 +31,7 @@
 #ifndef DetailsMarkerControl_h
 #define DetailsMarkerControl_h
 
-#include "HTMLDivElement.h"
+#include "html/HTMLDivElement.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

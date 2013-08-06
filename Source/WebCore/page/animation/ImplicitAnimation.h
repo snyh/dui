@@ -29,9 +29,9 @@
 #ifndef ImplicitAnimation_h
 #define ImplicitAnimation_h
 
-#include "AnimationBase.h"
+#include "page/animation/AnimationBase.h"
 #include "CSSPropertyNames.h"
-#include "Document.h"
+#include "dom/Document.h"
 
 namespace WebCore {
 

@@ -29,7 +29,7 @@
 #include <wtf/Vector.h>
 #include <wtf/Forward.h>
 
-#include "Node.h"
+#include "dom/Node.h"
 
 namespace WebCore {
 

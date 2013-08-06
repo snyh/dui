@@ -26,7 +26,7 @@
 #ifndef NodeList_h
 #define NodeList_h
 
-#include "Node.h"
+#include "API/tests/Node.h"
 
 typedef struct {
     unsigned refCount;

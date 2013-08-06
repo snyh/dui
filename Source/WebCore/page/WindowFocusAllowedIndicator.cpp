@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "WindowFocusAllowedIndicator.h"
+#include "page/WindowFocusAllowedIndicator.h"
 
 namespace WebCore {
 

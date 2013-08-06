@@ -29,7 +29,7 @@
 #ifndef BitmapInfo_h
 #define BitmapInfo_h
 
-#include "IntSize.h"
+#include "platform/graphics/IntSize.h"
 #include <windows.h>
 
 namespace WebCore {

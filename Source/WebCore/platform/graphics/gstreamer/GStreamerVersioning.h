@@ -21,7 +21,7 @@
 #define GStreamerVersioning_h
 #if USE(GSTREAMER)
 
-#include "GRefPtrGStreamer.h"
+#include "platform/graphics/gstreamer/GRefPtrGStreamer.h"
 #include <gst/gst.h>
 #include <gst/video/video.h>
 

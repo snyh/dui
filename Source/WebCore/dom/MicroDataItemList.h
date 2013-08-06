@@ -28,9 +28,9 @@
 
 #if ENABLE(MICRODATA)
 
-#include "LiveNodeList.h"
-#include "Node.h"
-#include "SpaceSplitString.h"
+#include "dom/LiveNodeList.h"
+#include "dom/Node.h"
+#include "dom/SpaceSplitString.h"
 
 namespace WebCore {
 

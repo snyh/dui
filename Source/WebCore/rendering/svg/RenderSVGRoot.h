@@ -24,10 +24,10 @@
 #define RenderSVGRoot_h
 
 #if ENABLE(SVG)
-#include "FloatRect.h"
-#include "RenderReplaced.h"
+#include "platform/graphics/FloatRect.h"
+#include "rendering/RenderReplaced.h"
 
-#include "SVGRenderSupport.h"
+#include "rendering/svg/SVGRenderSupport.h"
 
 namespace WebCore {
 

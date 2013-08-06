@@ -21,10 +21,10 @@
  */
 
 #include "config.h"
-#include "ChildNodeList.h"
+#include "dom/ChildNodeList.h"
 
-#include "Element.h"
-#include "NodeRareData.h"
+#include "dom/Element.h"
+#include "dom/NodeRareData.h"
 
 namespace WebCore {
 

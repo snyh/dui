@@ -27,11 +27,11 @@
  */
 
 #include "config.h"
-#include "SelectorCheckerFastPath.h"
+#include "css/SelectorCheckerFastPath.h"
 
-#include "HTMLDocument.h"
+#include "html/HTMLDocument.h"
 #include "HTMLNames.h"
-#include "StyledElement.h"
+#include "dom/StyledElement.h"
 
 namespace WebCore {
 

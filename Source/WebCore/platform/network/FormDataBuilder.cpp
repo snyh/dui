@@ -23,13 +23,13 @@
  */
 
 #include "config.h"
-#include "FormDataBuilder.h"
+#include "platform/network/FormDataBuilder.h"
 
-#include "Blob.h"
-#include "Document.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "TextEncoding.h"
+#include "fileapi/Blob.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "platform/text/TextEncoding.h"
 
 #include <limits>
 #include <wtf/Assertions.h>

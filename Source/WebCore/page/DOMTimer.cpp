@@ -25,11 +25,11 @@
  */
 
 #include "config.h"
-#include "DOMTimer.h"
+#include "page/DOMTimer.h"
 
-#include "ScheduledAction.h"
-#include "ScriptExecutionContext.h"
-#include "UserGestureIndicator.h"
+#include "bindings/dui/saved/ScheduledAction.h"
+#include "dom/ScriptExecutionContext.h"
+#include "dom/UserGestureIndicator.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/HashSet.h>
 #include <wtf/StdLibExtras.h>

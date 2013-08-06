@@ -26,7 +26,7 @@
 #ifndef AccessibilityScrollView_h
 #define AccessibilityScrollView_h
 
-#include "AccessibilityObject.h"
+#include "accessibility/AccessibilityObject.h"
 
 namespace WebCore {
     

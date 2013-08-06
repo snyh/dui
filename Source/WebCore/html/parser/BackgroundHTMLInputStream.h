@@ -28,7 +28,7 @@
 
 #if ENABLE(THREADED_HTML_PARSER)
 
-#include "SegmentedString.h"
+#include "platform/text/SegmentedString.h"
 #include <wtf/Vector.h>
 #include <wtf/text/WTFString.h>
 

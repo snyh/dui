@@ -30,7 +30,7 @@
 #ifndef TransformFunctions_h
 #define TransformFunctions_h
 
-#include "TransformOperations.h"
+#include "platform/graphics/transforms/TransformOperations.h"
 
 namespace WebCore {
 

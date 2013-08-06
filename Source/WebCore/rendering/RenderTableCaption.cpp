@@ -18,9 +18,9 @@
  */
 
 #include "config.h"
-#include "RenderTableCaption.h"
+#include "rendering/RenderTableCaption.h"
 
-#include "RenderTable.h"
+#include "rendering/RenderTable.h"
 
 namespace WebCore {
 

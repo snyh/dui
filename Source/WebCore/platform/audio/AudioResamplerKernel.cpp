@@ -26,9 +26,9 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "AudioResamplerKernel.h"
+#include "platform/audio/AudioResamplerKernel.h"
 
-#include "AudioResampler.h"
+#include "platform/audio/AudioResampler.h"
 #include <algorithm>
 
 using namespace std;

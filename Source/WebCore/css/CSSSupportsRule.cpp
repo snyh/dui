@@ -27,14 +27,14 @@
  */
 
 #include "config.h"
-#include "CSSSupportsRule.h"
+#include "css/CSSSupportsRule.h"
 
-#include "CSSParser.h"
-#include "CSSRule.h"
-#include "CSSRuleList.h"
-#include "CSSStyleSheet.h"
-#include "ExceptionCode.h"
-#include "StyleRule.h"
+#include "css/CSSParser.h"
+#include "css/CSSRule.h"
+#include "css/CSSRuleList.h"
+#include "css/CSSStyleSheet.h"
+#include "dom/ExceptionCode.h"
+#include "css/StyleRule.h"
 #include <wtf/text/StringBuilder.h>
 
 #if ENABLE(CSS3_CONDITIONAL_RULES)

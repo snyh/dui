@@ -20,9 +20,9 @@
  */
 
 #include "config.h"
-#include "StyleInheritedData.h"
+#include "rendering/style/StyleInheritedData.h"
 
-#include "RenderStyle.h"
+#include "rendering/style/RenderStyle.h"
 
 namespace WebCore {
 

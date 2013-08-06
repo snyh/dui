@@ -20,18 +20,18 @@
 
 #include "config.h"
 #if ENABLE(PROGRESS_ELEMENT)
-#include "HTMLProgressElement.h"
+#include "html/HTMLProgressElement.h"
 
-#include "Attribute.h"
-#include "EventNames.h"
-#include "ExceptionCode.h"
-#include "HTMLDivElement.h"
+#include "dom/Attribute.h"
+#include "dom/EventNames.h"
+#include "dom/ExceptionCode.h"
+#include "html/HTMLDivElement.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "NodeRenderingContext.h"
-#include "ProgressShadowElement.h"
-#include "RenderProgress.h"
-#include "ShadowRoot.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "dom/NodeRenderingContext.h"
+#include "html/shadow/ProgressShadowElement.h"
+#include "rendering/RenderProgress.h"
+#include "dom/ShadowRoot.h"
 
 namespace WebCore {
 

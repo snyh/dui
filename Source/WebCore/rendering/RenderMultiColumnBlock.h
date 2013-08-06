@@ -27,7 +27,7 @@
 #ifndef RenderMultiColumnBlock_h
 #define RenderMultiColumnBlock_h
 
-#include "RenderBlock.h"
+#include "rendering/RenderBlock.h"
 
 namespace WebCore {
 

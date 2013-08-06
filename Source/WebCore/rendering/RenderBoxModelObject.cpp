@@ -24,27 +24,27 @@
  */
 
 #include "config.h"
-#include "RenderBoxModelObject.h"
+#include "rendering/RenderBoxModelObject.h"
 
-#include "GraphicsContext.h"
-#include "HTMLFrameOwnerElement.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "html/HTMLFrameOwnerElement.h"
 #include "HTMLNames.h"
-#include "ImageBuffer.h"
-#include "Page.h"
-#include "Path.h"
-#include "RenderBlock.h"
-#include "RenderInline.h"
-#include "RenderLayer.h"
-#include "RenderNamedFlowThread.h"
-#include "RenderRegion.h"
-#include "RenderView.h"
-#include "ScrollingConstraints.h"
-#include "Settings.h"
-#include "TransformState.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "page/Page.h"
+#include "platform/graphics/Path.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/RenderInline.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/RenderNamedFlowThread.h"
+#include "rendering/RenderRegion.h"
+#include "rendering/RenderView.h"
+#include "page/scrolling/ScrollingConstraints.h"
+#include "page/Settings.h"
+#include "platform/graphics/transforms/TransformState.h"
 
 #if USE(ACCELERATED_COMPOSITING)
-#include "RenderLayerBacking.h"
-#include "RenderLayerCompositor.h"
+#include "rendering/RenderLayerBacking.h"
+#include "rendering/RenderLayerCompositor.h"
 #endif
 
 using namespace std;

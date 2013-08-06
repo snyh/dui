@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "SMILTimeContainer.h"
+#include "svg/animation/SMILTimeContainer.h"
 
 #if ENABLE(SVG)
-#include "Document.h"
-#include "NodeTraversal.h"
+#include "dom/Document.h"
+#include "dom/NodeTraversal.h"
 #include "SVGNames.h"
-#include "SVGSMILElement.h"
-#include "SVGSVGElement.h"
+#include "svg/animation/SVGSMILElement.h"
+#include "svg/SVGSVGElement.h"
 #include <wtf/CurrentTime.h>
 
 using namespace std;

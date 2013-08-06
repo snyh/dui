@@ -26,12 +26,12 @@
 
 #if ENABLE(FULLSCREEN_API)
 
-#include "RenderFullScreen.h"
+#include "rendering/RenderFullScreen.h"
 
-#include "RenderLayer.h"
+#include "rendering/RenderLayer.h"
 
 #if USE(ACCELERATED_COMPOSITING)
-#include "RenderLayerCompositor.h"
+#include "rendering/RenderLayerCompositor.h"
 #endif
 
 using namespace WebCore;

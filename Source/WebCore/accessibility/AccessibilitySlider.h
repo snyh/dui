@@ -29,8 +29,8 @@
 #ifndef AccessibilitySlider_h
 #define AccessibilitySlider_h
 
-#include "AccessibilityMockObject.h"
-#include "AccessibilityRenderObject.h"
+#include "accessibility/AccessibilityMockObject.h"
+#include "accessibility/AccessibilityRenderObject.h"
 
 namespace WebCore {
 

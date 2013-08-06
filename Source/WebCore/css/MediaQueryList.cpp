@@ -18,12 +18,12 @@
  */
 
 #include "config.h"
-#include "MediaQueryList.h"
+#include "css/MediaQueryList.h"
 
-#include "MediaList.h"
-#include "MediaQueryEvaluator.h"
-#include "MediaQueryListListener.h"
-#include "MediaQueryMatcher.h"
+#include "css/MediaList.h"
+#include "css/MediaQueryEvaluator.h"
+#include "css/MediaQueryListListener.h"
+#include "css/MediaQueryMatcher.h"
 
 namespace WebCore {
 

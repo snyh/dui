@@ -23,9 +23,9 @@
 #define CSSPrimitiveValue_h
 
 #include "CSSPropertyNames.h"
-#include "CSSValue.h"
+#include "css/CSSValue.h"
 #include "CSSValueKeywords.h"
-#include "Color.h"
+#include "platform/graphics/Color.h"
 #include <wtf/Forward.h>
 #include <wtf/MathExtras.h>
 #include <wtf/PassRefPtr.h>

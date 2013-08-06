@@ -27,7 +27,7 @@
 #ifndef WebGLShaderPrecisionFormat_h
 #define WebGLShaderPrecisionFormat_h
 
-#include "GraphicsContext3D.h"
+#include "platform/graphics/GraphicsContext3D.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 

@@ -30,11 +30,11 @@
 
 #if ENABLE(JIT)
 
-#include "CodeOrigin.h"
-#include "MacroAssembler.h"
-#include "Opcode.h"
-#include "PutKind.h"
-#include "Structure.h"
+#include "bytecode/CodeOrigin.h"
+#include "assembler/MacroAssembler.h"
+#include "bytecode/Opcode.h"
+#include "bytecode/PutKind.h"
+#include "runtime/Structure.h"
 #include <wtf/Vector.h>
 
 namespace JSC {

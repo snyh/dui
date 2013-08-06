@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "JSStringJoiner.h"
+#include "runtime/JSStringJoiner.h"
 
-#include "ExceptionHelpers.h"
-#include "JSScope.h"
-#include "JSString.h"
-#include "Operations.h"
+#include "runtime/ExceptionHelpers.h"
+#include "runtime/JSScope.h"
+#include "runtime/JSString.h"
+#include "runtime/Operations.h"
 #include <wtf/text/StringImpl.h>
 
 namespace JSC {

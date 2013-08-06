@@ -18,14 +18,14 @@
  */
 
 #include "config.h"
-#include "SVGImageForContainer.h"
+#include "svg/graphics/SVGImageForContainer.h"
 
 #if ENABLE(SVG)
-#include "AffineTransform.h"
-#include "FloatRect.h"
-#include "FloatSize.h"
-#include "Image.h"
-#include "SVGImage.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/FloatSize.h"
+#include "platform/graphics/Image.h"
+#include "svg/graphics/SVGImage.h"
 
 namespace WebCore {
 

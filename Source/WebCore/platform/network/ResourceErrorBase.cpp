@@ -25,7 +25,7 @@
  */
 
 #include "config.h"
-#include "ResourceError.h"
+#include "platform/network/soup/ResourceError.h"
 
 namespace WebCore {
 

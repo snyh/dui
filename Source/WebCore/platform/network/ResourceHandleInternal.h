@@ -26,11 +26,11 @@
 #ifndef ResourceHandleInternal_h
 #define ResourceHandleInternal_h
 
-#include "NetworkingContext.h"
-#include "ResourceHandle.h"
-#include "ResourceRequest.h"
-#include "AuthenticationChallenge.h"
-#include "Timer.h"
+#include "platform/network/NetworkingContext.h"
+#include "platform/network/ResourceHandle.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/AuthenticationChallenge.h"
+#include "platform/Timer.h"
 
 #if USE(CFNETWORK)
 #include <CFNetwork/CFURLConnectionPriv.h>

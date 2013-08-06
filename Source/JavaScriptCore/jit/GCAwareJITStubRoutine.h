@@ -30,10 +30,10 @@
 
 #if ENABLE(JIT)
 
-#include "JITStubRoutine.h"
-#include "JSObject.h"
-#include "JSString.h"
-#include "WriteBarrier.h"
+#include "jit/JITStubRoutine.h"
+#include "runtime/JSObject.h"
+#include "runtime/JSString.h"
+#include "runtime/WriteBarrier.h"
 #include <wtf/RefCounted.h>
 #include <wtf/Vector.h>
 

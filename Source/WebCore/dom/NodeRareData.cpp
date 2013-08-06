@@ -29,7 +29,7 @@
  */
 
 #include "config.h"
-#include "NodeRareData.h"
+#include "dom/NodeRareData.h"
 
 namespace WebCore {
 

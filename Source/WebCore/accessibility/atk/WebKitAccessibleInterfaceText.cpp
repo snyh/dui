@@ -29,26 +29,26 @@
  */
 
 #include "config.h"
-#include "WebKitAccessibleInterfaceText.h"
+#include "accessibility/atk/WebKitAccessibleInterfaceText.h"
 
 #if HAVE(ACCESSIBILITY)
 
-#include "AccessibilityObject.h"
-#include "Document.h"
-#include "Font.h"
-#include "FrameView.h"
-#include "HostWindow.h"
-#include "InlineTextBox.h"
-#include "NotImplemented.h"
-#include "RenderListItem.h"
-#include "RenderListMarker.h"
-#include "RenderText.h"
-#include "TextEncoding.h"
-#include "TextIterator.h"
-#include "VisibleUnits.h"
-#include "WebKitAccessibleUtil.h"
-#include "WebKitAccessibleWrapperAtk.h"
-#include "htmlediting.h"
+#include "accessibility/AccessibilityObject.h"
+#include "dom/Document.h"
+#include "platform/graphics/Font.h"
+#include "page/FrameView.h"
+#include "platform/HostWindow.h"
+#include "rendering/InlineTextBox.h"
+#include "platform/NotImplemented.h"
+#include "rendering/RenderListItem.h"
+#include "rendering/RenderListMarker.h"
+#include "rendering/RenderText.h"
+#include "platform/text/TextEncoding.h"
+#include "editing/TextIterator.h"
+#include "editing/VisibleUnits.h"
+#include "accessibility/atk/WebKitAccessibleUtil.h"
+#include "accessibility/atk/WebKitAccessibleWrapperAtk.h"
+#include "editing/htmlediting.h"
 #include <wtf/gobject/GOwnPtr.h>
 #include <wtf/text/CString.h>
 

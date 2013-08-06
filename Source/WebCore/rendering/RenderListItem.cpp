@@ -22,14 +22,14 @@
  */
 
 #include "config.h"
-#include "RenderListItem.h"
+#include "rendering/RenderListItem.h"
 
 #include "HTMLNames.h"
-#include "HTMLOListElement.h"
-#include "NodeTraversal.h"
-#include "RenderListMarker.h"
-#include "RenderView.h"
-#include "StyleInheritedData.h"
+#include "html/HTMLOListElement.h"
+#include "dom/NodeTraversal.h"
+#include "rendering/RenderListMarker.h"
+#include "rendering/RenderView.h"
+#include "rendering/style/StyleInheritedData.h"
 #include <wtf/StackStats.h>
 #include <wtf/StdLibExtras.h>
 #include <wtf/text/StringBuilder.h>

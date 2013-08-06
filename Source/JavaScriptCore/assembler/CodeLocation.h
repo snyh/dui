@@ -26,7 +26,7 @@
 #ifndef CodeLocation_h
 #define CodeLocation_h
 
-#include "MacroAssemblerCodeRef.h"
+#include "assembler/MacroAssemblerCodeRef.h"
 
 #if ENABLE(ASSEMBLER)
 

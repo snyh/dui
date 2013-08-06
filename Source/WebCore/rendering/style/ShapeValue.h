@@ -30,8 +30,8 @@
 #ifndef ShapeValue_h
 #define ShapeValue_h
 
-#include "BasicShapes.h"
-#include "StyleImage.h"
+#include "rendering/style/BasicShapes.h"
+#include "rendering/style/StyleImage.h"
 #include <wtf/PassRefPtr.h>
 
 namespace WebCore {

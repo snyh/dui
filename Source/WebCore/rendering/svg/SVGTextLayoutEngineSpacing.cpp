@@ -20,16 +20,16 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGTextLayoutEngineSpacing.h"
+#include "rendering/svg/SVGTextLayoutEngineSpacing.h"
 
-#include "Font.h"
-#include "SVGLengthContext.h"
-#include "SVGRenderStyle.h"
+#include "platform/graphics/Font.h"
+#include "svg/SVGLengthContext.h"
+#include "rendering/style/SVGRenderStyle.h"
 
 #if ENABLE(SVG_FONTS)
-#include "SVGFontData.h"
-#include "SVGFontElement.h"
-#include "SVGFontFaceElement.h"
+#include "svg/SVGFontData.h"
+#include "svg/SVGFontElement.h"
+#include "svg/SVGFontFaceElement.h"
 #endif
 
 namespace WebCore {

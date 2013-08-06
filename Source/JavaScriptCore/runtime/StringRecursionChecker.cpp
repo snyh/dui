@@ -18,11 +18,11 @@
  */
 
 #include "config.h"
-#include "StringRecursionChecker.h"
+#include "runtime/StringRecursionChecker.h"
 
-#include "Error.h"
-#include "ExceptionHelpers.h"
-#include "Operations.h"
+#include "runtime/Error.h"
+#include "runtime/ExceptionHelpers.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

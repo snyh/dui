@@ -21,19 +21,19 @@
  */
 
 #include "config.h"
-#include "Navigator.h"
+#include "page/Navigator.h"
 
-#include "CookieJar.h"
-#include "Document.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
-#include "Language.h"
-#include "Page.h"
-#include "ScriptController.h"
-#include "SecurityOrigin.h"
-#include "Settings.h"
-#include "StorageNamespace.h"
+#include "loader/CookieJar.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
+#include "platform/Language.h"
+#include "page/Page.h"
+#include "bindings/dui/saved/ScriptController.h"
+#include "page/SecurityOrigin.h"
+#include "page/Settings.h"
+#include "storage/StorageNamespace.h"
 #include <wtf/HashSet.h>
 #include <wtf/StdLibExtras.h>
 

@@ -17,7 +17,7 @@
  */
 
 #include "config.h"
-#include "GOwnPtrGtk.h"
+#include "platform/gtk/GOwnPtrGtk.h"
 
 #include <gtk/gtk.h>
 

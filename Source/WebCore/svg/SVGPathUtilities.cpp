@@ -20,21 +20,21 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGPathUtilities.h"
+#include "svg/SVGPathUtilities.h"
 
-#include "Path.h"
-#include "PathTraversalState.h"
-#include "SVGPathBlender.h"
-#include "SVGPathBuilder.h"
-#include "SVGPathByteStreamBuilder.h"
-#include "SVGPathByteStreamSource.h"
-#include "SVGPathElement.h"
-#include "SVGPathParser.h"
-#include "SVGPathSegListBuilder.h"
-#include "SVGPathSegListSource.h"
-#include "SVGPathStringBuilder.h"
-#include "SVGPathStringSource.h"
-#include "SVGPathTraversalStateBuilder.h"
+#include "platform/graphics/Path.h"
+#include "platform/graphics/PathTraversalState.h"
+#include "svg/SVGPathBlender.h"
+#include "svg/SVGPathBuilder.h"
+#include "svg/SVGPathByteStreamBuilder.h"
+#include "svg/SVGPathByteStreamSource.h"
+#include "svg/SVGPathElement.h"
+#include "svg/SVGPathParser.h"
+#include "svg/SVGPathSegListBuilder.h"
+#include "svg/SVGPathSegListSource.h"
+#include "svg/SVGPathStringBuilder.h"
+#include "svg/SVGPathStringSource.h"
+#include "svg/SVGPathTraversalStateBuilder.h"
 
 namespace WebCore {
 

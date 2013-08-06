@@ -29,13 +29,13 @@
 
 #include "config.h"
 
-#include "FlowThreadController.h"
+#include "rendering/FlowThreadController.h"
 
-#include "NamedFlowCollection.h"
-#include "RenderFlowThread.h"
-#include "RenderNamedFlowThread.h"
-#include "StyleInheritedData.h"
-#include "WebKitNamedFlow.h"
+#include "dom/NamedFlowCollection.h"
+#include "rendering/RenderFlowThread.h"
+#include "rendering/RenderNamedFlowThread.h"
+#include "rendering/style/StyleInheritedData.h"
+#include "dom/WebKitNamedFlow.h"
 #include <wtf/text/AtomicString.h>
 
 namespace WebCore {

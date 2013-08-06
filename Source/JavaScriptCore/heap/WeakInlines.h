@@ -26,8 +26,8 @@
 #ifndef WeakInlines_h
 #define WeakInlines_h
 
-#include "PassWeak.h"
-#include "WeakSetInlines.h"
+#include "heap/PassWeak.h"
+#include "heap/WeakSetInlines.h"
 #include <wtf/Assertions.h>
 #include <wtf/HashTraits.h>
 

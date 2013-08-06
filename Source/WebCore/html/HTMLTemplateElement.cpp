@@ -32,13 +32,13 @@
 
 #if ENABLE(TEMPLATE_ELEMENT)
 
-#include "HTMLTemplateElement.h"
+#include "html/HTMLTemplateElement.h"
 
-#include "DOMImplementation.h"
-#include "DocumentFragment.h"
-#include "HTMLDocument.h"
-#include "TemplateContentDocumentFragment.h"
-#include "markup.h"
+#include "dom/DOMImplementation.h"
+#include "dom/DocumentFragment.h"
+#include "html/HTMLDocument.h"
+#include "dom/TemplateContentDocumentFragment.h"
+#include "editing/markup.h"
 
 namespace WebCore {
 

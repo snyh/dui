@@ -26,11 +26,11 @@
  */
 
 #include "config.h"
-#include "RegularExpression.h"
+#include "platform/text/RegularExpression.h"
 
 #include <wtf/BumpPointerAllocator.h>
 #include <yarr/Yarr.h>
-#include "Logging.h"
+#include "platform/Logging.h"
 
 namespace WebCore {
 

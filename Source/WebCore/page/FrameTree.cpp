@@ -19,13 +19,13 @@
  */
 
 #include "config.h"
-#include "FrameTree.h"
+#include "page/FrameTree.h"
 
-#include "Frame.h"
-#include "FrameView.h"
-#include "Page.h"
-#include "PageGroup.h"
-#include "Document.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "page/Page.h"
+#include "page/PageGroup.h"
+#include "dom/Document.h"
 #include <stdarg.h>
 #include <wtf/StringExtras.h>
 #include <wtf/Vector.h>

@@ -26,12 +26,12 @@
  */
 
 #include "config.h"
-#include "XPathPredicate.h"
+#include "xml/XPathPredicate.h"
 
-#include "Node.h"
-#include "XPathFunctions.h"
-#include "XPathUtil.h"
-#include "XPathValue.h"
+#include "dom/Node.h"
+#include "xml/XPathFunctions.h"
+#include "xml/XPathUtil.h"
+#include "xml/XPathValue.h"
 #include <math.h>
 #include <wtf/MathExtras.h>
 

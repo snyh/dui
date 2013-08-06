@@ -33,10 +33,10 @@
 
 #if ENABLE(BLOB)
 
-#include "FileError.h"
-#include "KURL.h"
-#include "TextEncoding.h"
-#include "ThreadableLoaderClient.h"
+#include "fileapi/FileError.h"
+#include "platform/KURL.h"
+#include "platform/text/TextEncoding.h"
+#include "loader/ThreadableLoaderClient.h"
 #include <wtf/Forward.h>
 #include <wtf/text/WTFString.h>
 

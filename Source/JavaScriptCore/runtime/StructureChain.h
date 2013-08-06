@@ -26,9 +26,9 @@
 #ifndef StructureChain_h
 #define StructureChain_h
 
-#include "JSCell.h"
-#include "JSObject.h"
-#include "Structure.h"
+#include "runtime/JSCell.h"
+#include "runtime/JSObject.h"
+#include "runtime/Structure.h"
 
 #include <wtf/OwnArrayPtr.h>
 #include <wtf/PassRefPtr.h>

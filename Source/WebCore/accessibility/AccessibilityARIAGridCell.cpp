@@ -27,11 +27,11 @@
  */
 
 #include "config.h"
-#include "AccessibilityARIAGridCell.h"
+#include "accessibility/AccessibilityARIAGridCell.h"
 
-#include "AccessibilityObject.h"
-#include "AccessibilityTable.h"
-#include "AccessibilityTableRow.h"
+#include "accessibility/AccessibilityObject.h"
+#include "accessibility/AccessibilityTable.h"
+#include "accessibility/AccessibilityTableRow.h"
 
 using namespace std;
 

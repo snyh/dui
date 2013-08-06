@@ -27,20 +27,20 @@
  */
 
 #include "config.h"
-#include "XMLTreeViewer.h"
+#include "xml/XMLTreeViewer.h"
 
 #if ENABLE(XSLT)
 
-#include "Document.h"
-#include "Element.h"
-#include "ExceptionCodePlaceholder.h"
-#include "Frame.h"
-#include "Page.h"
-#include "ScriptController.h"
-#include "ScriptSourceCode.h"
-#include "ScriptValue.h"
-#include "Settings.h"
-#include "Text.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "page/Frame.h"
+#include "page/Page.h"
+#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/saved/ScriptSourceCode.h"
+#include "bindings/dui/saved/ScriptValue.h"
+#include "page/Settings.h"
+#include "dom/Text.h"
 
 using namespace std;
 

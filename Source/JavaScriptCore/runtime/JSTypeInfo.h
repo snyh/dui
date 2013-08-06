@@ -30,7 +30,7 @@
 // This file would be called TypeInfo.h, but that conflicts with <typeinfo.h>
 // in the STL on systems without case-sensitive file systems. 
 
-#include "JSType.h"
+#include "runtime/JSType.h"
 
 namespace JSC {
 

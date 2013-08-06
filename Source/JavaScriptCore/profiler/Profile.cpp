@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "Profile.h"
+#include "profiler/Profile.h"
 
-#include "ProfileNode.h"
+#include "profiler/ProfileNode.h"
 #include <stdio.h>
 #include <wtf/DataLog.h>
 

@@ -22,8 +22,8 @@
 #ifndef CSSSelector_h
 #define CSSSelector_h
 
-#include "QualifiedName.h"
-#include "RenderStyleConstants.h"
+#include "dom/QualifiedName.h"
+#include "rendering/style/RenderStyleConstants.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>

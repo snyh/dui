@@ -34,8 +34,8 @@
 #if ENABLE(FILE_SYSTEM)
 
 #include "FileSystemType.h"
-#include "KURL.h"
-#include "Timer.h"
+#include "platform/KURL.h"
+#include "platform/Timer.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/WTFString.h>
 

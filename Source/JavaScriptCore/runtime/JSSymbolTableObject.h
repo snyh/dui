@@ -29,9 +29,9 @@
 #ifndef JSSymbolTableObject_h
 #define JSSymbolTableObject_h
 
-#include "JSScope.h"
-#include "PropertyDescriptor.h"
-#include "SymbolTable.h"
+#include "runtime/JSScope.h"
+#include "runtime/PropertyDescriptor.h"
+#include "runtime/SymbolTable.h"
 
 namespace JSC {
 

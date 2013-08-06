@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "LLIntThunks.h"
+#include "llint/LLIntThunks.h"
 
 #if ENABLE(LLINT)
 
-#include "JSInterfaceJIT.h"
-#include "JSObject.h"
-#include "LinkBuffer.h"
-#include "LowLevelInterpreter.h"
+#include "jit/JSInterfaceJIT.h"
+#include "runtime/JSObject.h"
+#include "assembler/LinkBuffer.h"
+#include "llint/LowLevelInterpreter.h"
 
 
 namespace JSC { namespace LLInt {

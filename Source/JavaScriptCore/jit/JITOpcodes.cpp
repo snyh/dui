@@ -26,18 +26,18 @@
 
 #include "config.h"
 #if ENABLE(JIT)
-#include "JIT.h"
+#include "jit/JIT.h"
 
-#include "Arguments.h"
-#include "CopiedSpaceInlines.h"
-#include "Heap.h"
-#include "JITInlines.h"
-#include "JITStubCall.h"
-#include "JSArray.h"
-#include "JSCell.h"
-#include "JSFunction.h"
-#include "JSPropertyNameIterator.h"
-#include "LinkBuffer.h"
+#include "runtime/Arguments.h"
+#include "heap/CopiedSpaceInlines.h"
+#include "heap/Heap.h"
+#include "jit/JITInlines.h"
+#include "jit/JITStubCall.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSCell.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSPropertyNameIterator.h"
+#include "assembler/LinkBuffer.h"
 
 namespace JSC {
 

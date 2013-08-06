@@ -23,9 +23,9 @@
 
 #if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER)
 
-#include "TextureMapperFPSCounter.h"
+#include "platform/graphics/texmap/TextureMapperFPSCounter.h"
 
-#include "TextureMapper.h"
+#include "platform/graphics/texmap/TextureMapper.h"
 #include <wtf/CurrentTime.h>
 
 namespace WebCore {

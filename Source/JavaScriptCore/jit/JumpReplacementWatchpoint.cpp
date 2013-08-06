@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "JumpReplacementWatchpoint.h"
+#include "jit/JumpReplacementWatchpoint.h"
 
 #if ENABLE(JIT)
 
-#include "LinkBuffer.h"
-#include "Options.h"
+#include "assembler/LinkBuffer.h"
+#include "runtime/Options.h"
 
 namespace JSC {
 

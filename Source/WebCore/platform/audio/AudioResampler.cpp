@@ -26,9 +26,9 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "AudioResampler.h"
+#include "platform/audio/AudioResampler.h"
 
-#include "AudioBus.h"
+#include "platform/audio/AudioBus.h"
 #include <algorithm>
 #include <wtf/MathExtras.h>
 

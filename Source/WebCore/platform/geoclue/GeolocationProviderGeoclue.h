@@ -22,7 +22,7 @@
 
 #if ENABLE(GEOLOCATION)
 
-#include "GeolocationProviderGeoclueClient.h"
+#include "platform/geoclue/GeolocationProviderGeoclueClient.h"
 #include <geoclue/geoclue-master.h>
 #include <geoclue/geoclue-position.h>
 #include <wtf/gobject/GRefPtr.h>

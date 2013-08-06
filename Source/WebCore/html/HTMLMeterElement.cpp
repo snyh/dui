@@ -20,21 +20,21 @@
 
 #include "config.h"
 #if ENABLE(METER_ELEMENT)
-#include "HTMLMeterElement.h"
+#include "html/HTMLMeterElement.h"
 
-#include "Attribute.h"
-#include "EventNames.h"
-#include "ExceptionCode.h"
-#include "FormDataList.h"
-#include "NodeRenderingContext.h"
-#include "HTMLFormElement.h"
+#include "dom/Attribute.h"
+#include "dom/EventNames.h"
+#include "dom/ExceptionCode.h"
+#include "html/FormDataList.h"
+#include "dom/NodeRenderingContext.h"
+#include "html/HTMLFormElement.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "MeterShadowElement.h"
-#include "Page.h"
-#include "RenderMeter.h"
-#include "RenderTheme.h"
-#include "ShadowRoot.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "html/shadow/MeterShadowElement.h"
+#include "page/Page.h"
+#include "rendering/RenderMeter.h"
+#include "rendering/RenderTheme.h"
+#include "dom/ShadowRoot.h"
 
 namespace WebCore {
 

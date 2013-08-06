@@ -26,7 +26,7 @@
 #ifndef PasteboardStrategy_h
 #define PasteboardStrategy_h
 
-#include "SharedBuffer.h"
+#include "platform/SharedBuffer.h"
 #include <wtf/Forward.h>
 #include <wtf/RefCounted.h>
 #include <wtf/Vector.h>

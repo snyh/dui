@@ -24,20 +24,20 @@
  */
 
 #include "config.h"
-#include "FontLoader.h"
+#include "css/FontLoader.h"
 
 #if ENABLE(FONT_LOAD_EVENTS)
 
-#include "CSSFontFaceLoadEvent.h"
-#include "CSSFontFaceSource.h"
-#include "CSSFontSelector.h"
-#include "CSSParser.h"
-#include "CSSSegmentedFontFace.h"
-#include "Dictionary.h"
-#include "Document.h"
-#include "FrameView.h"
-#include "StylePropertySet.h"
-#include "StyleResolver.h"
+#include "css/CSSFontFaceLoadEvent.h"
+#include "css/CSSFontFaceSource.h"
+#include "css/CSSFontSelector.h"
+#include "css/CSSParser.h"
+#include "css/CSSSegmentedFontFace.h"
+#include "bindings/dui/saved/Dictionary.h"
+#include "dom/Document.h"
+#include "page/FrameView.h"
+#include "css/StylePropertySet.h"
+#include "css/StyleResolver.h"
 
 namespace WebCore {
 

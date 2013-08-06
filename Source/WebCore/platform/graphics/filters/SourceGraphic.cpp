@@ -20,12 +20,12 @@
 #include "config.h"
 
 #if ENABLE(FILTERS)
-#include "SourceGraphic.h"
+#include "platform/graphics/filters/SourceGraphic.h"
 
-#include "Filter.h"
-#include "GraphicsContext.h"
-#include "RenderTreeAsText.h"
-#include "TextStream.h"
+#include "platform/graphics/filters/Filter.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/RenderTreeAsText.h"
+#include "platform/text/TextStream.h"
 #include <wtf/StdLibExtras.h>
 #include <wtf/text/WTFString.h>
 

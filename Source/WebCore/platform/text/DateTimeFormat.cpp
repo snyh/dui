@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "DateTimeFormat.h"
+#include "platform/text/DateTimeFormat.h"
 
 #if ENABLE(DATE_AND_TIME_INPUT_TYPES)
 #include <wtf/ASCIICType.h>

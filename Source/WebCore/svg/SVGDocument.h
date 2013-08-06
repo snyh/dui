@@ -22,8 +22,8 @@
 #define SVGDocument_h
 #if ENABLE(SVG)
 
-#include "Document.h"
-#include "FloatPoint.h"
+#include "dom/Document.h"
+#include "platform/graphics/FloatPoint.h"
 
 namespace WebCore {
 

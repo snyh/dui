@@ -24,12 +24,12 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGAnimatedTransformList.h"
+#include "svg/SVGAnimatedTransformList.h"
 
-#include "SVGAnimateTransformElement.h"
-#include "SVGAnimatedNumber.h"
+#include "svg/SVGAnimateTransformElement.h"
+#include "svg/SVGAnimatedNumber.h"
 #include "SVGNames.h"
-#include "SVGTransformDistance.h"
+#include "svg/SVGTransformDistance.h"
 
 namespace WebCore {
 

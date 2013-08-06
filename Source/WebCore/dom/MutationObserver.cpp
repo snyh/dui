@@ -30,15 +30,15 @@
 
 #include "config.h"
 
-#include "MutationObserver.h"
+#include "dom/MutationObserver.h"
 
-#include "Dictionary.h"
-#include "Document.h"
-#include "ExceptionCode.h"
-#include "MutationCallback.h"
-#include "MutationObserverRegistration.h"
-#include "MutationRecord.h"
-#include "Node.h"
+#include "bindings/dui/saved/Dictionary.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCode.h"
+#include "dom/MutationCallback.h"
+#include "dom/MutationObserverRegistration.h"
+#include "dom/MutationRecord.h"
+#include "dom/Node.h"
 #include <algorithm>
 #include <wtf/HashSet.h>
 #include <wtf/MainThread.h>

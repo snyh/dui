@@ -25,7 +25,7 @@
 
 #ifndef ExecutableAllocator_h
 #define ExecutableAllocator_h
-#include "JITCompilationEffort.h"
+#include "jit/JITCompilationEffort.h"
 #include <stddef.h> // for ptrdiff_t
 #include <limits>
 #include <wtf/Assertions.h>

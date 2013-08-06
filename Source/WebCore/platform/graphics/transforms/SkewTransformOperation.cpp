@@ -20,9 +20,9 @@
  */
 
 #include "config.h"
-#include "SkewTransformOperation.h"
+#include "platform/graphics/transforms/SkewTransformOperation.h"
 
-#include "AnimationUtilities.h"
+#include "platform/animation/AnimationUtilities.h"
 
 namespace WebCore {
 

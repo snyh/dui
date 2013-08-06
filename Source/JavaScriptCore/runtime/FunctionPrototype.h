@@ -21,7 +21,7 @@
 #ifndef FunctionPrototype_h
 #define FunctionPrototype_h
 
-#include "InternalFunction.h"
+#include "runtime/InternalFunction.h"
 
 namespace JSC {
 

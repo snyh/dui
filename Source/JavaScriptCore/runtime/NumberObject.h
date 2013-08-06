@@ -21,7 +21,7 @@
 #ifndef NumberObject_h
 #define NumberObject_h
 
-#include "JSWrapperObject.h"
+#include "runtime/JSWrapperObject.h"
 
 namespace JSC {
 

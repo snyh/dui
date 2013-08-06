@@ -31,9 +31,9 @@
 #include "config.h"
 
 #if ENABLE(FILTERS)
-#include "DistantLightSource.h"
+#include "platform/graphics/filters/DistantLightSource.h"
 
-#include "RenderTreeAsText.h"
+#include "rendering/RenderTreeAsText.h"
 
 namespace WebCore {
 

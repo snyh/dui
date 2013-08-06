@@ -27,9 +27,9 @@
 #ifndef SpinButtonElement_h
 #define SpinButtonElement_h
 
-#include "HTMLDivElement.h"
-#include "PopupOpeningObserver.h"
-#include "Timer.h"
+#include "html/HTMLDivElement.h"
+#include "page/PopupOpeningObserver.h"
+#include "platform/Timer.h"
 
 namespace WebCore {
 

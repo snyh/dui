@@ -26,8 +26,8 @@
 #ifndef Local_h
 #define Local_h
 
-#include "Handle.h"
-#include "VM.h"
+#include "heap/Handle.h"
+#include "runtime/VM.h"
 
 /*
     A strongly referenced handle whose lifetime is temporary, limited to a given

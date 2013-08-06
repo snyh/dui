@@ -22,7 +22,7 @@
 #ifndef JSWrapperObject_h
 #define JSWrapperObject_h
 
-#include "JSDestructibleObject.h"
+#include "runtime/JSDestructibleObject.h"
 
 namespace JSC {
 

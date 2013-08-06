@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "StructureStubInfo.h"
+#include "bytecode/StructureStubInfo.h"
 
-#include "JSObject.h"
-#include "PolymorphicPutByIdList.h"
+#include "runtime/JSObject.h"
+#include "bytecode/PolymorphicPutByIdList.h"
 
 
 namespace JSC {

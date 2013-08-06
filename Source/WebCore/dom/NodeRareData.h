@@ -22,17 +22,17 @@
 #ifndef NodeRareData_h
 #define NodeRareData_h
 
-#include "ChildNodeList.h"
-#include "DOMSettableTokenList.h"
+#include "dom/ChildNodeList.h"
+#include "html/DOMSettableTokenList.h"
 #include "HTMLNames.h"
-#include "LiveNodeList.h"
-#include "MutationObserver.h"
-#include "MutationObserverRegistration.h"
-#include "Page.h"
-#include "QualifiedName.h"
-#include "TagNodeList.h"
+#include "dom/LiveNodeList.h"
+#include "dom/MutationObserver.h"
+#include "dom/MutationObserverRegistration.h"
+#include "page/Page.h"
+#include "dom/QualifiedName.h"
+#include "dom/TagNodeList.h"
 #if ENABLE(VIDEO_TRACK)
-#include "TextTrack.h"
+#include "html/track/TextTrack.h"
 #endif
 #include <wtf/HashSet.h>
 #include <wtf/OwnPtr.h>
@@ -41,9 +41,9 @@
 #include <wtf/text/StringHash.h>
 
 #if ENABLE(MICRODATA)
-#include "HTMLPropertiesCollection.h"
-#include "MicroDataAttributeTokenList.h"
-#include "MicroDataItemList.h"
+#include "html/HTMLPropertiesCollection.h"
+#include "html/MicroDataAttributeTokenList.h"
+#include "dom/MicroDataItemList.h"
 #endif
 
 namespace WebCore {

@@ -26,9 +26,9 @@
 #ifndef APICast_h
 #define APICast_h
 
-#include "JSAPIValueWrapper.h"
-#include "JSCJSValue.h"
-#include "JSGlobalObject.h"
+#include "runtime/JSAPIValueWrapper.h"
+#include "runtime/JSCJSValue.h"
+#include "runtime/JSGlobalObject.h"
 
 namespace JSC {
     class ExecState;

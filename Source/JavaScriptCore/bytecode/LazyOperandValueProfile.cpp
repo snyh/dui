@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "LazyOperandValueProfile.h"
+#include "bytecode/LazyOperandValueProfile.h"
 
 #if ENABLE(VALUE_PROFILER)
 
-#include "Operations.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

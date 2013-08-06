@@ -18,7 +18,7 @@
  */
 
 #include "config.h"
-#include "GRefPtrGtk.h"
+#include "platform/gtk/GRefPtrGtk.h"
 
 #include <glib.h>
 #include <gtk/gtk.h>

@@ -26,12 +26,12 @@
 #include "config.h"
 
 #if ENABLE(VIDEO)
-#include "MediaController.h"
+#include "html/MediaController.h"
 
-#include "Clock.h"
-#include "ExceptionCode.h"
-#include "HTMLMediaElement.h"
-#include "TimeRanges.h"
+#include "platform/Clock.h"
+#include "dom/ExceptionCode.h"
+#include "html/HTMLMediaElement.h"
+#include "html/TimeRanges.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/StdLibExtras.h>
 #include <wtf/text/AtomicString.h>

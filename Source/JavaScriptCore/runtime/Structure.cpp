@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "Structure.h"
+#include "runtime/Structure.h"
 
-#include "CodeBlock.h"
-#include "JSObject.h"
-#include "JSPropertyNameIterator.h"
-#include "Lookup.h"
-#include "PropertyNameArray.h"
-#include "StructureChain.h"
-#include "StructureRareDataInlines.h"
+#include "bytecode/CodeBlock.h"
+#include "runtime/JSObject.h"
+#include "runtime/JSPropertyNameIterator.h"
+#include "runtime/Lookup.h"
+#include "runtime/PropertyNameArray.h"
+#include "runtime/StructureChain.h"
+#include "runtime/StructureRareDataInlines.h"
 #include <wtf/RefCountedLeakCounter.h>
 #include <wtf/RefPtr.h>
 #include <wtf/Threading.h>

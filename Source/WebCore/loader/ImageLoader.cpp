@@ -20,27 +20,27 @@
  */
 
 #include "config.h"
-#include "ImageLoader.h"
+#include "loader/ImageLoader.h"
 
-#include "CachedImage.h"
-#include "CachedResourceLoader.h"
-#include "CachedResourceRequest.h"
-#include "CrossOriginAccessControl.h"
-#include "Document.h"
-#include "Element.h"
-#include "Event.h"
-#include "EventSender.h"
-#include "Frame.h"
+#include "loader/cache/CachedImage.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "loader/CrossOriginAccessControl.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
+#include "dom/Event.h"
+#include "dom/EventSender.h"
+#include "page/Frame.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "RenderImage.h"
-#include "SecurityOrigin.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "rendering/RenderImage.h"
+#include "page/SecurityOrigin.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGImage.h"
+#include "rendering/svg/RenderSVGImage.h"
 #endif
 #if ENABLE(VIDEO)
-#include "RenderVideo.h"
+#include "rendering/RenderVideo.h"
 #endif
 
 #if !ASSERT_DISABLED

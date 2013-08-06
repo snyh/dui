@@ -28,8 +28,8 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "Color.h"
-#include "TextTrackCue.h"
+#include "platform/graphics/Color.h"
+#include "html/track/TextTrackCue.h"
 
 namespace WebCore {
 

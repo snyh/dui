@@ -26,8 +26,8 @@
 #ifndef LLIntCallLinkInfo_h
 #define LLIntCallLinkInfo_h
 
-#include "JSFunction.h"
-#include "MacroAssemblerCodeRef.h"
+#include "runtime/JSFunction.h"
+#include "assembler/MacroAssemblerCodeRef.h"
 #include <wtf/SentinelLinkedList.h>
 
 namespace JSC {

@@ -21,9 +21,9 @@
  */
 
 #include "config.h"
-#include "MutationEvent.h"
+#include "dom/MutationEvent.h"
 
-#include "EventNames.h"
+#include "dom/EventNames.h"
 
 namespace WebCore {
 

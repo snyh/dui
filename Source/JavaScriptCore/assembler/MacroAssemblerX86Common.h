@@ -28,8 +28,8 @@
 
 #if ENABLE(ASSEMBLER)
 
-#include "X86Assembler.h"
-#include "AbstractMacroAssembler.h"
+#include "assembler/X86Assembler.h"
+#include "assembler/AbstractMacroAssembler.h"
 
 namespace JSC {
 

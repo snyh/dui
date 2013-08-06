@@ -23,10 +23,10 @@
  */
 
 #include "config.h"
-#include "ClassList.h"
+#include "html/ClassList.h"
 
-#include "HTMLParserIdioms.h"
-#include "SpaceSplitString.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "dom/SpaceSplitString.h"
 
 namespace WebCore {
 

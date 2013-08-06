@@ -28,8 +28,8 @@
 
 #if ENABLE(THREADED_SCROLLING) || USE(COORDINATED_GRAPHICS)
 
-#include "ScrollingConstraints.h"
-#include "ScrollingStateNode.h"
+#include "page/scrolling/ScrollingConstraints.h"
+#include "page/scrolling/ScrollingStateNode.h"
 
 #include <wtf/Forward.h>
 

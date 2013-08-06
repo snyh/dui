@@ -26,7 +26,7 @@
 #ifndef DOMStringMap_h
 #define DOMStringMap_h
 
-#include "ScriptWrappable.h"
+#include "bindings/dui/ScriptWrappable.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/Vector.h>
 #include <wtf/text/WTFString.h>

@@ -24,20 +24,20 @@
  */
 
 #include "config.h"
-#include "DFGJITCompiler.h"
+#include "dfg/DFGJITCompiler.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "CodeBlock.h"
-#include "DFGOSRExitCompiler.h"
-#include "DFGOperations.h"
-#include "DFGRegisterBank.h"
-#include "DFGSlowPathGenerator.h"
-#include "DFGSpeculativeJIT.h"
-#include "DFGThunks.h"
-#include "JSCJSValueInlines.h"
-#include "VM.h"
-#include "LinkBuffer.h"
+#include "bytecode/CodeBlock.h"
+#include "dfg/DFGOSRExitCompiler.h"
+#include "dfg/DFGOperations.h"
+#include "dfg/DFGRegisterBank.h"
+#include "dfg/DFGSlowPathGenerator.h"
+#include "dfg/DFGSpeculativeJIT.h"
+#include "dfg/DFGThunks.h"
+#include "runtime/JSCJSValueInlines.h"
+#include "runtime/VM.h"
+#include "assembler/LinkBuffer.h"
 
 namespace JSC { namespace DFG {
 

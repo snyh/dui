@@ -29,8 +29,8 @@
 #ifndef PageConsole_h
 #define PageConsole_h
 
-#include "ConsoleTypes.h"
-#include "ScriptState.h"
+#include "page/ConsoleTypes.h"
+#include "bindings/dui/saved/ScriptState.h"
 #include <wtf/Forward.h>
 #include <wtf/PassOwnPtr.h>
 

@@ -26,7 +26,7 @@
 #ifndef HandlerInfo_h
 #define HandlerInfo_h
 
-#include "CodeLocation.h"
+#include "assembler/CodeLocation.h"
 #include <wtf/Platform.h>
 
 namespace JSC {

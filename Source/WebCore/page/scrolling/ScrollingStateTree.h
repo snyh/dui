@@ -28,7 +28,7 @@
 
 #if ENABLE(THREADED_SCROLLING) || USE(COORDINATED_GRAPHICS)
 
-#include "ScrollingStateScrollingNode.h"
+#include "page/scrolling/ScrollingStateScrollingNode.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>
 #include <wtf/RefPtr.h>

@@ -25,7 +25,7 @@
 #ifndef HTMLOptionElement_h
 #define HTMLOptionElement_h
 
-#include "HTMLElement.h"
+#include "html/HTMLElement.h"
 
 namespace WebCore {
 

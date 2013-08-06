@@ -20,9 +20,9 @@
  */
 
 #include "config.h"
-#include "ShadowData.h"
+#include "rendering/style/ShadowData.h"
 
-#include "LayoutRect.h"
+#include "platform/graphics/LayoutRect.h"
 
 using namespace std;
 

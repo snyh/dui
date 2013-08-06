@@ -25,8 +25,8 @@
 #ifndef StyleBoxData_h
 #define StyleBoxData_h
 
-#include "Length.h"
-#include "RenderStyleConstants.h"
+#include "platform/Length.h"
+#include "rendering/style/RenderStyleConstants.h"
 #include <wtf/RefCounted.h>
 #include <wtf/PassRefPtr.h>
 

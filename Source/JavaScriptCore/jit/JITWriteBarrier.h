@@ -28,10 +28,10 @@
 
 #if ENABLE(JIT)
 
-#include "MacroAssembler.h"
-#include "SlotVisitor.h"
-#include "UnusedPointer.h"
-#include "WriteBarrier.h"
+#include "assembler/MacroAssembler.h"
+#include "heap/SlotVisitor.h"
+#include "jit/UnusedPointer.h"
+#include "runtime/WriteBarrier.h"
 
 namespace JSC {
 

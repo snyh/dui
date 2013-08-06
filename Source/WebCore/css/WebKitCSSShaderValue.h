@@ -32,7 +32,7 @@
 
 #if ENABLE(CSS_SHADERS)
 
-#include "CSSValue.h"
+#include "css/CSSValue.h"
 
 namespace WebCore {
 

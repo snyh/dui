@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "DFGDominators.h"
+#include "dfg/DFGDominators.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGGraph.h"
+#include "dfg/DFGGraph.h"
 
 namespace JSC { namespace DFG {
 

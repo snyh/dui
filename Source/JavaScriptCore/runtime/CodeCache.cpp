@@ -25,14 +25,14 @@
 
 #include "config.h"
 
-#include "CodeCache.h"
+#include "runtime/CodeCache.h"
 
-#include "BytecodeGenerator.h"
-#include "CodeSpecializationKind.h"
-#include "Operations.h"
-#include "Parser.h"
-#include "StrongInlines.h"
-#include "UnlinkedCodeBlock.h"
+#include "bytecompiler/BytecodeGenerator.h"
+#include "runtime/CodeSpecializationKind.h"
+#include "runtime/Operations.h"
+#include "parser/Parser.h"
+#include "heap/StrongInlines.h"
+#include "bytecode/UnlinkedCodeBlock.h"
 
 namespace JSC {
 

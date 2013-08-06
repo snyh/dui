@@ -27,29 +27,29 @@
  */
 
 #include "config.h"
-#include "ResourceHandle.h"
+#include "platform/network/ResourceHandle.h"
 
-#include "CachedResourceLoader.h"
-#include "ChromeClient.h"
-#include "CookieJarSoup.h"
-#include "CredentialStorage.h"
-#include "FileSystem.h"
-#include "Frame.h"
-#include "GOwnPtrSoup.h"
-#include "HTTPParsers.h"
-#include "LocalizedStrings.h"
-#include "Logging.h"
-#include "MIMETypeRegistry.h"
-#include "NetworkingContext.h"
-#include "NotImplemented.h"
-#include "Page.h"
-#include "ResourceError.h"
-#include "ResourceHandleClient.h"
-#include "ResourceHandleInternal.h"
-#include "ResourceResponse.h"
-#include "SharedBuffer.h"
-#include "SoupURIUtils.h"
-#include "TextEncoding.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "page/ChromeClient.h"
+#include "platform/network/soup/CookieJarSoup.h"
+#include "platform/network/CredentialStorage.h"
+#include "platform/FileSystem.h"
+#include "page/Frame.h"
+#include "platform/network/soup/GOwnPtrSoup.h"
+#include "platform/network/HTTPParsers.h"
+#include "platform/LocalizedStrings.h"
+#include "platform/Logging.h"
+#include "platform/MIMETypeRegistry.h"
+#include "platform/network/NetworkingContext.h"
+#include "platform/NotImplemented.h"
+#include "page/Page.h"
+#include "platform/network/soup/ResourceError.h"
+#include "platform/network/ResourceHandleClient.h"
+#include "platform/network/ResourceHandleInternal.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "platform/SharedBuffer.h"
+#include "platform/network/soup/SoupURIUtils.h"
+#include "platform/text/TextEncoding.h"
 #include <errno.h>
 #include <fcntl.h>
 #include <gio/gio.h>
@@ -65,13 +65,13 @@
 #include <wtf/text/CString.h>
 
 #if ENABLE(BLOB)
-#include "BlobData.h"
-#include "BlobRegistryImpl.h"
-#include "BlobStorageData.h"
+#include "platform/network/BlobData.h"
+#include "platform/network/BlobRegistryImpl.h"
+#include "platform/network/BlobStorageData.h"
 #endif
 
 #if PLATFORM(GTK)
-#include "CredentialBackingStore.h"
+#include "platform/network/gtk/CredentialBackingStore.h"
 #endif
 
 namespace WebCore {

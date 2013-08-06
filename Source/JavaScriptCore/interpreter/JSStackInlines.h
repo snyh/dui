@@ -26,9 +26,9 @@
 #ifndef JSStackInlines_h
 #define JSStackInlines_h
 
-#include "CallFrame.h"
-#include "CodeBlock.h"
-#include "JSStack.h"
+#include "interpreter/CallFrame.h"
+#include "bytecode/CodeBlock.h"
+#include "interpreter/JSStack.h"
 
 namespace JSC {
 

@@ -22,15 +22,15 @@
 #ifndef XMLHttpRequest_h
 #define XMLHttpRequest_h
 
-#include "ActiveDOMObject.h"
-#include "EventListener.h"
-#include "EventNames.h"
-#include "EventTarget.h"
-#include "FormData.h"
-#include "ResourceResponse.h"
-#include "ScriptWrappable.h"
-#include "ThreadableLoaderClient.h"
-#include "XMLHttpRequestProgressEventThrottle.h"
+#include "dom/ActiveDOMObject.h"
+#include "dom/EventListener.h"
+#include "dom/EventNames.h"
+#include "dom/EventTarget.h"
+#include "platform/network/FormData.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "bindings/dui/ScriptWrappable.h"
+#include "loader/ThreadableLoaderClient.h"
+#include "xml/XMLHttpRequestProgressEventThrottle.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/text/AtomicStringHash.h>
 #include <wtf/text/StringBuilder.h>

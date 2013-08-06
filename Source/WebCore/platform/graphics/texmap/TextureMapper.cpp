@@ -18,12 +18,12 @@
  */
 
 #include "config.h"
-#include "TextureMapper.h"
+#include "platform/graphics/texmap/TextureMapper.h"
 
-#include "FilterOperations.h"
-#include "GraphicsLayer.h"
-#include "TextureMapperImageBuffer.h"
-#include "Timer.h"
+#include "platform/graphics/filters/FilterOperations.h"
+#include "platform/graphics/GraphicsLayer.h"
+#include "platform/graphics/texmap/TextureMapperImageBuffer.h"
+#include "platform/Timer.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/NonCopyingSort.h>
 

@@ -26,9 +26,9 @@
 #ifndef CallLinkStatus_h
 #define CallLinkStatus_h
 
-#include "CodeSpecializationKind.h"
-#include "Intrinsic.h"
-#include "JSCJSValue.h"
+#include "runtime/CodeSpecializationKind.h"
+#include "runtime/Intrinsic.h"
+#include "runtime/JSCJSValue.h"
 
 namespace JSC {
 

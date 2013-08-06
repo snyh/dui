@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "DFGVariableEvent.h"
+#include "dfg/DFGVariableEvent.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGFPRInfo.h"
-#include "DFGGPRInfo.h"
+#include "dfg/DFGFPRInfo.h"
+#include "dfg/DFGGPRInfo.h"
 
 namespace JSC { namespace DFG {
 

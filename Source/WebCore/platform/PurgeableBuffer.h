@@ -26,7 +26,7 @@
 #ifndef PurgeableBuffer_h
 #define PurgeableBuffer_h
 
-#include "PurgePriority.h"
+#include "platform/PurgePriority.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/Vector.h>
 

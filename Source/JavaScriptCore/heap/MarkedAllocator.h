@@ -1,7 +1,7 @@
 #ifndef MarkedAllocator_h
 #define MarkedAllocator_h
 
-#include "MarkedBlock.h"
+#include "heap/MarkedBlock.h"
 #include <wtf/DoublyLinkedList.h>
 
 namespace JSC {

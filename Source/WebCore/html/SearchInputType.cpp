@@ -29,15 +29,15 @@
  */
 
 #include "config.h"
-#include "SearchInputType.h"
+#include "html/SearchInputType.h"
 
-#include "HTMLInputElement.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "InputTypeNames.h"
-#include "KeyboardEvent.h"
-#include "RenderSearchField.h"
-#include "ShadowRoot.h"
-#include "TextControlInnerElements.h"
+#include "html/InputTypeNames.h"
+#include "dom/KeyboardEvent.h"
+#include "rendering/RenderSearchField.h"
+#include "dom/ShadowRoot.h"
+#include "html/shadow/TextControlInnerElements.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

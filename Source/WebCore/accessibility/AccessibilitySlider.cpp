@@ -27,14 +27,14 @@
  */
 
 #include "config.h"
-#include "AccessibilitySlider.h"
+#include "accessibility/AccessibilitySlider.h"
 
-#include "AXObjectCache.h"
-#include "HTMLInputElement.h"
+#include "accessibility/AXObjectCache.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "RenderObject.h"
-#include "RenderSlider.h"
-#include "SliderThumbElement.h"
+#include "rendering/RenderObject.h"
+#include "rendering/RenderSlider.h"
+#include "html/shadow/SliderThumbElement.h"
 
 namespace WebCore {
     

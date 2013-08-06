@@ -26,7 +26,7 @@
 #ifndef PageThrottler_h
 #define PageThrottler_h
 
-#include "Timer.h"
+#include "platform/Timer.h"
 
 #include <wtf/HashSet.h>
 #include <wtf/OwnPtr.h>

@@ -22,7 +22,7 @@
 #ifndef CSSFontFaceRule_h
 #define CSSFontFaceRule_h
 
-#include "CSSRule.h"
+#include "css/CSSRule.h"
 
 namespace WebCore {
 

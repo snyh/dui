@@ -19,14 +19,14 @@
  */
 
 #include "config.h"
-#include "ObjectPrototype.h"
+#include "runtime/ObjectPrototype.h"
 
-#include "Error.h"
-#include "JSFunction.h"
-#include "JSString.h"
-#include "JSStringBuilder.h"
-#include "Operations.h"
-#include "StructureRareDataInlines.h"
+#include "runtime/Error.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSString.h"
+#include "runtime/JSStringBuilder.h"
+#include "runtime/Operations.h"
+#include "runtime/StructureRareDataInlines.h"
 
 namespace JSC {
 

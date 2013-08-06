@@ -25,11 +25,11 @@
 
 #include "config.h"
 
-#include "BitmapImage.h"
-#include "FileSystem.h"
-#include "GdkCairoUtilities.h"
-#include "GOwnPtrGtk.h"
-#include "SharedBuffer.h"
+#include "platform/graphics/BitmapImage.h"
+#include "platform/FileSystem.h"
+#include "platform/graphics/gtk/GdkCairoUtilities.h"
+#include "platform/gtk/GOwnPtrGtk.h"
+#include "platform/SharedBuffer.h"
 #include <wtf/text/CString.h>
 #include <cairo.h>
 #include <gtk/gtk.h>

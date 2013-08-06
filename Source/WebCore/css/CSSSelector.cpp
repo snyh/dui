@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "CSSSelector.h"
+#include "css/CSSSelector.h"
 
-#include "CSSOMUtils.h"
-#include "CSSSelectorList.h"
+#include "css/CSSOMUtils.h"
+#include "css/CSSSelectorList.h"
 #include "HTMLNames.h"
 #include <wtf/Assertions.h>
 #include <wtf/HashMap.h>

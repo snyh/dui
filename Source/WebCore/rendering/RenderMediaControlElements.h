@@ -30,9 +30,9 @@
 
 #if ENABLE(VIDEO)
 
-#include "MediaControlElements.h"
-#include "RenderBlock.h"
-#include "RenderFlexibleBox.h"
+#include "html/shadow/MediaControlElements.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/RenderFlexibleBox.h"
 
 namespace WebCore {
 

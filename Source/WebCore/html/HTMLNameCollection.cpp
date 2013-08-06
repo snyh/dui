@@ -21,15 +21,15 @@
  */
 
 #include "config.h"
-#include "HTMLNameCollection.h"
+#include "html/HTMLNameCollection.h"
 
-#include "Element.h"
-#include "HTMLDocument.h"
-#include "HTMLFormElement.h"
-#include "HTMLImageElement.h"
+#include "dom/Element.h"
+#include "html/HTMLDocument.h"
+#include "html/HTMLFormElement.h"
+#include "html/HTMLImageElement.h"
 #include "HTMLNames.h"
-#include "NodeRareData.h"
-#include "NodeTraversal.h"
+#include "dom/NodeRareData.h"
+#include "dom/NodeTraversal.h"
 
 namespace WebCore {
 

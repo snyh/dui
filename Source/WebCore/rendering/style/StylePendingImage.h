@@ -26,14 +26,14 @@
 #ifndef StylePendingImage_h
 #define StylePendingImage_h
 
-#include "CSSCursorImageValue.h"
-#include "CSSImageGeneratorValue.h"
+#include "css/CSSCursorImageValue.h"
+#include "css/CSSImageGeneratorValue.h"
 #if ENABLE(CSS_IMAGE_SET)
-#include "CSSImageSetValue.h"
+#include "css/CSSImageSetValue.h"
 #endif
-#include "CSSImageValue.h"
-#include "Image.h"
-#include "StyleImage.h"
+#include "css/CSSImageValue.h"
+#include "platform/graphics/Image.h"
+#include "rendering/style/StyleImage.h"
 
 namespace WebCore {
 

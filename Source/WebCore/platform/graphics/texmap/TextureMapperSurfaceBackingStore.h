@@ -23,7 +23,7 @@
 #if USE(ACCELERATED_COMPOSITING) && USE(GRAPHICS_SURFACE)
 
 #include "GraphicsSurface.h"
-#include "TextureMapperBackingStore.h"
+#include "platform/graphics/texmap/TextureMapperBackingStore.h"
 #include <wtf/RefPtr.h>
 
 namespace WebCore {

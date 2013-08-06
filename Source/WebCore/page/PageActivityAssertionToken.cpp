@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "PageActivityAssertionToken.h"
+#include "page/PageActivityAssertionToken.h"
 
-#include "PageThrottler.h"
+#include "page/PageThrottler.h"
 
 namespace WebCore {
 

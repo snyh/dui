@@ -21,8 +21,8 @@
 #ifndef ArrayConventions_h
 #define ArrayConventions_h
 
-#include "IndexingHeader.h"
-#include "WriteBarrier.h"
+#include "runtime/IndexingHeader.h"
+#include "runtime/WriteBarrier.h"
 
 namespace JSC {
 

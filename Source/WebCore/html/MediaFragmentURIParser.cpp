@@ -27,13 +27,13 @@
 
 #if ENABLE(VIDEO)
 
-#include "MediaFragmentURIParser.h"
+#include "html/MediaFragmentURIParser.h"
 
-#include "HTMLElement.h"
-#include "MediaPlayer.h"
-#include "ProcessingInstruction.h"
-#include "SegmentedString.h"
-#include "Text.h"
+#include "html/HTMLElement.h"
+#include "platform/graphics/MediaPlayer.h"
+#include "dom/ProcessingInstruction.h"
+#include "platform/text/SegmentedString.h"
+#include "dom/Text.h"
 #include <wtf/text/CString.h>
 #include <wtf/text/StringBuilder.h>
 #include <wtf/text/WTFString.h>

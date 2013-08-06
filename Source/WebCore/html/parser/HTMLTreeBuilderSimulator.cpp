@@ -27,13 +27,13 @@
 
 #if ENABLE(THREADED_HTML_PARSER)
 
-#include "HTMLTreeBuilderSimulator.h"
+#include "html/parser/HTMLTreeBuilderSimulator.h"
 
-#include "HTMLDocumentParser.h"
+#include "html/parser/HTMLDocumentParser.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "HTMLTokenizer.h"
-#include "HTMLTreeBuilder.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "html/parser/HTMLTokenizer.h"
+#include "html/parser/HTMLTreeBuilder.h"
 #include "MathMLNames.h"
 #include "SVGNames.h"
 

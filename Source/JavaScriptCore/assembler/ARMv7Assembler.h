@@ -29,7 +29,7 @@
 
 #if ENABLE(ASSEMBLER) && CPU(ARM_THUMB2)
 
-#include "AssemblerBuffer.h"
+#include "assembler/AssemblerBuffer.h"
 #include <wtf/Assertions.h>
 #include <wtf/Vector.h>
 #include <stdint.h>

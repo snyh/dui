@@ -27,8 +27,8 @@
 #define PublicURLManager_h
 
 #if ENABLE(BLOB)
-#include "ScriptExecutionContext.h"
-#include "ThreadableBlobRegistry.h"
+#include "dom/ScriptExecutionContext.h"
+#include "fileapi/ThreadableBlobRegistry.h"
 #include <wtf/HashSet.h>
 #include <wtf/text/WTFString.h>
 

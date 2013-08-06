@@ -25,11 +25,11 @@
  */
 
 #include "config.h"
-#include "Timer.h"
+#include "platform/Timer.h"
 
-#include "SharedTimer.h"
-#include "ThreadGlobalData.h"
-#include "ThreadTimers.h"
+#include "platform/SharedTimer.h"
+#include "platform/ThreadGlobalData.h"
+#include "platform/ThreadTimers.h"
 #include <limits.h>
 #include <limits>
 #include <math.h>

@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "CanvasRenderingContext.h"
+#include "html/canvas/CanvasRenderingContext.h"
 
-#include "CachedImage.h"
-#include "CanvasPattern.h"
-#include "HTMLCanvasElement.h"
-#include "HTMLImageElement.h"
-#include "HTMLVideoElement.h"
-#include "Image.h"
-#include "KURL.h"
-#include "SecurityOrigin.h"
+#include "loader/cache/CachedImage.h"
+#include "html/canvas/CanvasPattern.h"
+#include "html/HTMLCanvasElement.h"
+#include "html/HTMLImageElement.h"
+#include "html/HTMLVideoElement.h"
+#include "platform/graphics/Image.h"
+#include "platform/KURL.h"
+#include "page/SecurityOrigin.h"
 
 namespace WebCore {
 

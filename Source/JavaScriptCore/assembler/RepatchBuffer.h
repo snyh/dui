@@ -28,7 +28,7 @@
 
 #if ENABLE(JIT)
 
-#include "CodeBlock.h"
+#include "bytecode/CodeBlock.h"
 #include <MacroAssembler.h>
 #include <wtf/Noncopyable.h>
 

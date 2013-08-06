@@ -24,25 +24,25 @@
  */
 
 #include "config.h"
-#include "PageGroup.h"
+#include "page/PageGroup.h"
 
-#include "Chrome.h"
-#include "ChromeClient.h"
-#include "DOMWrapperWorld.h"
-#include "Document.h"
-#include "DocumentStyleSheetCollection.h"
-#include "Frame.h"
-#include "GroupSettings.h"
-#include "Page.h"
-#include "SecurityOrigin.h"
-#include "Settings.h"
-#include "StorageNamespace.h"
+#include "page/Chrome.h"
+#include "page/ChromeClient.h"
+#include "bindings/dui/saved/DOMWrapperWorld.h"
+#include "dom/Document.h"
+#include "dom/DocumentStyleSheetCollection.h"
+#include "page/Frame.h"
+#include "page/GroupSettings.h"
+#include "page/Page.h"
+#include "page/SecurityOrigin.h"
+#include "page/Settings.h"
+#include "storage/StorageNamespace.h"
 
 #if ENABLE(VIDEO_TRACK)
 #if (PLATFORM(MAC) && !PLATFORM(IOS)) || HAVE(MEDIA_ACCESSIBILITY_FRAMEWORK)
 #include "CaptionUserPreferencesMediaAF.h"
 #else
-#include "CaptionUserPreferences.h"
+#include "page/CaptionUserPreferences.h"
 #endif
 #endif
 

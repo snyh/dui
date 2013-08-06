@@ -22,8 +22,8 @@
  */
 
 #include "config.h"
-#include "KURL.h"
-#include "LinkHash.h"
+#include "platform/KURL.h"
+#include "platform/LinkHash.h"
 #include <wtf/text/AtomicString.h>
 #include <wtf/text/StringHash.h>
 #include <wtf/text/WTFString.h>

@@ -21,21 +21,21 @@
  */
 
 #include "config.h"
-#include "HTMLCollection.h"
+#include "html/HTMLCollection.h"
 
-#include "ClassNodeList.h"
-#include "HTMLDocument.h"
-#include "HTMLElement.h"
-#include "HTMLNameCollection.h"
+#include "dom/ClassNodeList.h"
+#include "html/HTMLDocument.h"
+#include "html/HTMLElement.h"
+#include "html/HTMLNameCollection.h"
 #include "HTMLNames.h"
-#include "HTMLOptionElement.h"
-#include "NodeList.h"
-#include "NodeRareData.h"
-#include "NodeTraversal.h"
+#include "html/HTMLOptionElement.h"
+#include "dom/NodeList.h"
+#include "dom/NodeRareData.h"
+#include "dom/NodeTraversal.h"
 
 #if ENABLE(MICRODATA)
-#include "HTMLPropertiesCollection.h"
-#include "PropertyNodeList.h"
+#include "html/HTMLPropertiesCollection.h"
+#include "dom/PropertyNodeList.h"
 #endif
 
 namespace WebCore {

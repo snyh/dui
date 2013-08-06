@@ -29,10 +29,10 @@
 #ifndef ImageDecoder_h
 #define ImageDecoder_h
 
-#include "IntRect.h"
-#include "ImageSource.h"
-#include "PlatformScreen.h"
-#include "SharedBuffer.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/ImageSource.h"
+#include "platform/PlatformScreen.h"
+#include "platform/SharedBuffer.h"
 #include <wtf/Assertions.h>
 #include <wtf/RefPtr.h>
 #include <wtf/Vector.h>

@@ -28,11 +28,11 @@
 
 #if ENABLE(MATHML)
 
-#include "MathMLTextElement.h"
+#include "mathml/MathMLTextElement.h"
 
 #include "MathMLNames.h"
-#include "RenderMathMLOperator.h"
-#include "RenderMathMLSpace.h"
+#include "rendering/mathml/RenderMathMLOperator.h"
+#include "rendering/mathml/RenderMathMLSpace.h"
 
 namespace WebCore {
     

@@ -33,13 +33,13 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "AudioTrack.h"
+#include "html/track/AudioTrack.h"
 
-#include "AudioTrackList.h"
-#include "Event.h"
-#include "ExceptionCode.h"
-#include "HTMLMediaElement.h"
-#include "TrackBase.h"
+#include "html/track/AudioTrackList.h"
+#include "dom/Event.h"
+#include "dom/ExceptionCode.h"
+#include "html/HTMLMediaElement.h"
+#include "html/track/TrackBase.h"
 
 namespace WebCore {
 

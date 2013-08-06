@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "TextCodecLatin1.h"
+#include "platform/text/TextCodecLatin1.h"
 
-#include "TextCodecASCIIFastPath.h"
+#include "platform/text/TextCodecASCIIFastPath.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/CString.h>
 #include <wtf/text/StringBuffer.h>

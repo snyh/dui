@@ -29,17 +29,17 @@
 
 #if USE(3D_GRAPHICS)
 
-#include "GraphicsContext3D.h"
+#include "platform/graphics/GraphicsContext3D.h"
 
-#include "CheckedInt.h"
-#include "DrawingBuffer.h"
-#include "Extensions3D.h"
-#include "Image.h"
-#include "ImageData.h"
-#include "ImageObserver.h"
+#include "html/canvas/CheckedInt.h"
+#include "platform/graphics/gpu/DrawingBuffer.h"
+#include "platform/graphics/Extensions3D.h"
+#include "platform/graphics/Image.h"
+#include "html/ImageData.h"
+#include "platform/graphics/ImageObserver.h"
 
 #if HAVE(ARM_NEON_INTRINSICS)
-#include "GraphicsContext3DNEON.h"
+#include "platform/graphics/cpu/arm/GraphicsContext3DNEON.h"
 #endif
 
 #include <wtf/ArrayBufferView.h>

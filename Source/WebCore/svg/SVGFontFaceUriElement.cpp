@@ -21,15 +21,15 @@
 #include "config.h"
 
 #if ENABLE(SVG_FONTS)
-#include "SVGFontFaceUriElement.h"
+#include "svg/SVGFontFaceUriElement.h"
 
-#include "Attribute.h"
-#include "CSSFontFaceSrcValue.h"
-#include "CachedFont.h"
-#include "CachedResourceLoader.h"
-#include "CachedResourceRequest.h"
-#include "Document.h"
-#include "SVGFontFaceElement.h"
+#include "dom/Attribute.h"
+#include "css/CSSFontFaceSrcValue.h"
+#include "loader/cache/CachedFont.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "dom/Document.h"
+#include "svg/SVGFontFaceElement.h"
 #include "SVGNames.h"
 #include "XLinkNames.h"
 

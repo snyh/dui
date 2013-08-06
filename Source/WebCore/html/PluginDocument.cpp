@@ -23,21 +23,21 @@
  */
 
 #include "config.h"
-#include "PluginDocument.h"
+#include "html/PluginDocument.h"
 
-#include "DocumentLoader.h"
-#include "ExceptionCodePlaceholder.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
-#include "FrameView.h"
+#include "loader/DocumentLoader.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
+#include "page/FrameView.h"
 #include "HTMLEmbedElement.h"
-#include "HTMLHtmlElement.h"
+#include "html/HTMLHtmlElement.h"
 #include "HTMLNames.h"
-#include "Page.h"
-#include "RawDataDocumentParser.h"
+#include "page/Page.h"
+#include "dom/RawDataDocumentParser.h"
 #include "RenderEmbeddedObject.h"
-#include "Settings.h"
+#include "page/Settings.h"
 
 namespace WebCore {
     

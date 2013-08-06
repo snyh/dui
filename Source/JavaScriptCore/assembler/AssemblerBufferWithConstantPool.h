@@ -29,7 +29,7 @@
 
 #if ENABLE(ASSEMBLER)
 
-#include "AssemblerBuffer.h"
+#include "assembler/AssemblerBuffer.h"
 #include <wtf/SegmentedVector.h>
 
 #define ASSEMBLER_HAS_CONSTANT_POOL 1

@@ -25,7 +25,7 @@
 #ifndef RangeException_h
 #define RangeException_h
 
-#include "ExceptionBase.h"
+#include "dom/ExceptionBase.h"
 
 namespace WebCore {
 

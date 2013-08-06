@@ -27,7 +27,7 @@
 
 #if USE(REQUEST_ANIMATION_FRAME_DISPLAY_MONITOR)
 
-#include "DisplayRefreshMonitor.h"
+#include "platform/graphics/DisplayRefreshMonitor.h"
 
 #include <wtf/CurrentTime.h>
 

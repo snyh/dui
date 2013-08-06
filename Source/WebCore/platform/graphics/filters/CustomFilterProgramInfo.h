@@ -31,8 +31,8 @@
 #define CustomFilterProgramInfo_h
 
 #if ENABLE(CSS_SHADERS)
-#include "CustomFilterConstants.h"
-#include "GraphicsTypes.h"
+#include "platform/graphics/filters/CustomFilterConstants.h"
+#include "platform/graphics/GraphicsTypes.h"
 
 #include <wtf/HashTraits.h>
 #include <wtf/text/WTFString.h>

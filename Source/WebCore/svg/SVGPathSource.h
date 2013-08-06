@@ -21,7 +21,7 @@
 #define SVGPathSource_h
 
 #if ENABLE(SVG)
-#include "SVGPathSeg.h"
+#include "svg/SVGPathSeg.h"
 
 namespace WebCore {
 

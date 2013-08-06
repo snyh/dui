@@ -27,18 +27,18 @@
  */
 
 #include "config.h"
-#include "InitializeThreading.h"
+#include "runtime/InitializeThreading.h"
 
-#include "ExecutableAllocator.h"
-#include "Heap.h"
-#include "HeapStatistics.h"
-#include "Options.h"
-#include "Identifier.h"
-#include "JSDateMath.h"
-#include "JSGlobalObject.h"
-#include "JSLock.h"
-#include "LLIntData.h"
-#include "WriteBarrier.h"
+#include "jit/ExecutableAllocator.h"
+#include "heap/Heap.h"
+#include "heap/HeapStatistics.h"
+#include "runtime/Options.h"
+#include "runtime/Identifier.h"
+#include "runtime/JSDateMath.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSLock.h"
+#include "llint/LLIntData.h"
+#include "runtime/WriteBarrier.h"
 #include <wtf/dtoa.h>
 #include <wtf/Threading.h>
 #include <wtf/dtoa/cached-powers.h>

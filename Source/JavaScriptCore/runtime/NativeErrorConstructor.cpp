@@ -19,13 +19,13 @@
  */
 
 #include "config.h"
-#include "NativeErrorConstructor.h"
+#include "runtime/NativeErrorConstructor.h"
 
-#include "ErrorInstance.h"
-#include "JSFunction.h"
-#include "JSString.h"
-#include "NativeErrorPrototype.h"
-#include "Operations.h"
+#include "runtime/ErrorInstance.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSString.h"
+#include "runtime/NativeErrorPrototype.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

@@ -28,7 +28,7 @@
  */
 
 #include "config.h"
-#include "JumpTable.h"
+#include "bytecode/JumpTable.h"
 
 #include <wtf/text/StringHash.h>
 

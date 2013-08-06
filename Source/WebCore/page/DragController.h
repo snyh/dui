@@ -26,10 +26,10 @@
 #ifndef DragController_h
 #define DragController_h
 
-#include "DragActions.h"
-#include "DragImage.h"
-#include "IntPoint.h"
-#include "KURL.h"
+#include "page/DragActions.h"
+#include "platform/DragImage.h"
+#include "platform/graphics/IntPoint.h"
+#include "platform/KURL.h"
 
 namespace WebCore {
 

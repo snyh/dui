@@ -22,8 +22,8 @@
 #define SVGTRefElement_h
 
 #if ENABLE(SVG)
-#include "SVGTextPositioningElement.h"
-#include "SVGURIReference.h"
+#include "svg/SVGTextPositioningElement.h"
+#include "svg/SVGURIReference.h"
 
 namespace WebCore {
 

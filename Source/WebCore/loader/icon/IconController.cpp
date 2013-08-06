@@ -33,20 +33,20 @@
  */
 
 #include "config.h"
-#include "IconController.h"
+#include "loader/icon/IconController.h"
 
-#include "Document.h"
-#include "DocumentLoader.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
-#include "IconDatabase.h"
-#include "IconDatabaseBase.h"
-#include "IconLoader.h"
-#include "IconURL.h"
-#include "Logging.h"
-#include "Page.h"
-#include "Settings.h"
+#include "dom/Document.h"
+#include "loader/DocumentLoader.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
+#include "loader/icon/IconDatabase.h"
+#include "loader/icon/IconDatabaseBase.h"
+#include "loader/icon/IconLoader.h"
+#include "dom/IconURL.h"
+#include "platform/Logging.h"
+#include "page/Page.h"
+#include "page/Settings.h"
 
 namespace WebCore {
 

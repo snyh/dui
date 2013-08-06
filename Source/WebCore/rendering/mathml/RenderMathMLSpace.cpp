@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "RenderMathMLSpace.h"
+#include "rendering/mathml/RenderMathMLSpace.h"
 
 #if ENABLE(MATHML)
 
-#include "GraphicsContext.h"
+#include "platform/graphics/GraphicsContext.h"
 #include "MathMLNames.h"
-#include "PaintInfo.h"
+#include "rendering/PaintInfo.h"
 
 namespace WebCore {
     

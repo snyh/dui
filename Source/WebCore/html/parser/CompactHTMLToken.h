@@ -28,8 +28,8 @@
 
 #if ENABLE(THREADED_HTML_PARSER)
 
-#include "HTMLIdentifier.h"
-#include "HTMLToken.h"
+#include "html/parser/HTMLIdentifier.h"
+#include "html/parser/HTMLToken.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>
 #include <wtf/RefCounted.h>

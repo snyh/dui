@@ -23,9 +23,9 @@
 #ifndef InlineTextBox_h
 #define InlineTextBox_h
 
-#include "InlineBox.h"
+#include "rendering/InlineBox.h"
 #include "RenderText.h" // so textRenderer() can be inline
-#include "TextRun.h"
+#include "platform/graphics/TextRun.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

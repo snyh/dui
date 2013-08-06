@@ -26,8 +26,8 @@
 #ifndef StructureInlines_h
 #define StructureInlines_h
 
-#include "PropertyMapHashTable.h"
-#include "Structure.h"
+#include "runtime/PropertyMapHashTable.h"
+#include "runtime/Structure.h"
 
 namespace JSC {
 

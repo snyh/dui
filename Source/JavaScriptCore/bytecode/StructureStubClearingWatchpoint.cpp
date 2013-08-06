@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "StructureStubClearingWatchpoint.h"
+#include "bytecode/StructureStubClearingWatchpoint.h"
 
 #if ENABLE(JIT)
 
-#include "CodeBlock.h"
-#include "StructureStubInfo.h"
+#include "bytecode/CodeBlock.h"
+#include "bytecode/StructureStubInfo.h"
 
 namespace JSC {
 

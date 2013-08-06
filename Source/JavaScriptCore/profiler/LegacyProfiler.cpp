@@ -27,19 +27,19 @@
  */
 
 #include "config.h"
-#include "LegacyProfiler.h"
+#include "profiler/LegacyProfiler.h"
 
-#include "CallFrame.h"
-#include "CodeBlock.h"
-#include "CommonIdentifiers.h"
-#include "InternalFunction.h"
-#include "JSFunction.h"
-#include "JSGlobalObject.h"
-#include "Nodes.h"
-#include "Operations.h"
-#include "Profile.h"
-#include "ProfileGenerator.h"
-#include "ProfileNode.h"
+#include "interpreter/CallFrame.h"
+#include "bytecode/CodeBlock.h"
+#include "runtime/CommonIdentifiers.h"
+#include "runtime/InternalFunction.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSGlobalObject.h"
+#include "parser/Nodes.h"
+#include "runtime/Operations.h"
+#include "profiler/Profile.h"
+#include "profiler/ProfileGenerator.h"
+#include "profiler/ProfileNode.h"
 #include <stdio.h>
 
 namespace JSC {

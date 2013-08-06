@@ -21,19 +21,19 @@
  */
 
 #include "config.h"
-#include "JSArray.h"
+#include "runtime/JSArray.h"
 
-#include "ArrayPrototype.h"
-#include "ButterflyInlines.h"
-#include "CachedCall.h"
-#include "CopiedSpace.h"
-#include "CopiedSpaceInlines.h"
-#include "Error.h"
-#include "Executable.h"
-#include "GetterSetter.h"
-#include "IndexingHeaderInlines.h"
-#include "PropertyNameArray.h"
-#include "Reject.h"
+#include "runtime/ArrayPrototype.h"
+#include "runtime/ButterflyInlines.h"
+#include "interpreter/CachedCall.h"
+#include "heap/CopiedSpace.h"
+#include "heap/CopiedSpaceInlines.h"
+#include "runtime/Error.h"
+#include "runtime/Executable.h"
+#include "runtime/GetterSetter.h"
+#include "runtime/IndexingHeaderInlines.h"
+#include "runtime/PropertyNameArray.h"
+#include "runtime/Reject.h"
 #include <wtf/AVLTree.h>
 #include <wtf/Assertions.h>
 #include <wtf/OwnPtr.h>

@@ -30,14 +30,14 @@
 #ifndef Interpreter_h
 #define Interpreter_h
 
-#include "ArgList.h"
-#include "JSCJSValue.h"
-#include "JSCell.h"
-#include "JSFunction.h"
-#include "JSObject.h"
-#include "JSStack.h"
-#include "LLIntData.h"
-#include "Opcode.h"
+#include "runtime/ArgList.h"
+#include "runtime/JSCJSValue.h"
+#include "runtime/JSCell.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSObject.h"
+#include "interpreter/JSStack.h"
+#include "llint/LLIntData.h"
+#include "bytecode/Opcode.h"
 
 #include <wtf/HashMap.h>
 #include <wtf/text/StringBuilder.h>

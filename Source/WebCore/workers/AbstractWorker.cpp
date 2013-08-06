@@ -32,16 +32,16 @@
 
 #if ENABLE(WORKERS)
 
-#include "AbstractWorker.h"
+#include "workers/AbstractWorker.h"
 
-#include "ContentSecurityPolicy.h"
-#include "ErrorEvent.h"
-#include "Event.h"
-#include "EventException.h"
-#include "EventNames.h"
-#include "ExceptionCode.h"
-#include "ScriptExecutionContext.h"
-#include "SecurityOrigin.h"
+#include "page/ContentSecurityPolicy.h"
+#include "dom/ErrorEvent.h"
+#include "dom/Event.h"
+#include "dom/EventException.h"
+#include "dom/EventNames.h"
+#include "dom/ExceptionCode.h"
+#include "dom/ScriptExecutionContext.h"
+#include "page/SecurityOrigin.h"
 
 namespace WebCore {
 

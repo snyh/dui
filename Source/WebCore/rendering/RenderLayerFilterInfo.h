@@ -32,20 +32,20 @@
 
 #if ENABLE(CSS_FILTERS)
 
-#include "CachedResourceHandle.h"
-#include "FilterOperation.h"
-#include "LayoutRect.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "platform/graphics/filters/FilterOperation.h"
+#include "platform/graphics/LayoutRect.h"
 #include <wtf/HashMap.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>
 
 #if ENABLE(CSS_SHADERS)
-#include "CustomFilterProgramClient.h"
+#include "platform/graphics/filters/CustomFilterProgramClient.h"
 #endif
 
 #if ENABLE(SVG)
-#include "CachedSVGDocumentClient.h"
-#include "Element.h"
+#include "loader/cache/CachedSVGDocumentClient.h"
+#include "dom/Element.h"
 #endif
 
 namespace WebCore {

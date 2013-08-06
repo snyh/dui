@@ -21,10 +21,10 @@
  */
 
 #include "config.h"
-#include "HTMLQuoteElement.h"
+#include "html/HTMLQuoteElement.h"
 
-#include "Document.h"
-#include "DocumentStyleSheetCollection.h"
+#include "dom/Document.h"
+#include "dom/DocumentStyleSheetCollection.h"
 #include "HTMLNames.h"
 
 namespace WebCore {

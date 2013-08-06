@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "WebKitCSSTransformValue.h"
+#include "css/WebKitCSSTransformValue.h"
 
-#include "CSSValueList.h"
+#include "css/CSSValueList.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/text/WTFString.h>
 

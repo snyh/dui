@@ -30,9 +30,9 @@
 #ifndef PolicyChecker_h
 #define PolicyChecker_h
 
-#include "FrameLoaderTypes.h"
-#include "PolicyCallback.h"
-#include "ResourceRequest.h"
+#include "loader/FrameLoaderTypes.h"
+#include "loader/PolicyCallback.h"
+#include "platform/network/soup/ResourceRequest.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/text/WTFString.h>
 

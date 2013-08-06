@@ -24,8 +24,8 @@
  */
 
 #include "config.h"
-#include "DragIcon.h"
-#include "GdkCairoUtilities.h"
+#include "platform/gtk/DragIcon.h"
+#include "platform/graphics/gtk/GdkCairoUtilities.h"
 
 #include <gtk/gtk.h>
 

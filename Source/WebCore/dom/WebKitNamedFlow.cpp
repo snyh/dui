@@ -28,15 +28,15 @@
  */
 
 #include "config.h"
-#include "WebKitNamedFlow.h"
+#include "dom/WebKitNamedFlow.h"
 
-#include "EventNames.h"
-#include "NamedFlowCollection.h"
-#include "RenderNamedFlowThread.h"
-#include "RenderRegion.h"
-#include "ScriptExecutionContext.h"
-#include "StaticNodeList.h"
-#include "UIEvent.h"
+#include "dom/EventNames.h"
+#include "dom/NamedFlowCollection.h"
+#include "rendering/RenderNamedFlowThread.h"
+#include "rendering/RenderRegion.h"
+#include "dom/ScriptExecutionContext.h"
+#include "dom/StaticNodeList.h"
+#include "dom/UIEvent.h"
 
 namespace WebCore {
 

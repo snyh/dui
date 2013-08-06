@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "UserTypingGestureIndicator.h"
+#include "dom/UserTypingGestureIndicator.h"
 
-#include "Document.h"
-#include "Element.h"
-#include "Frame.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
+#include "page/Frame.h"
 #include <wtf/StdLibExtras.h>
 
 namespace WebCore {

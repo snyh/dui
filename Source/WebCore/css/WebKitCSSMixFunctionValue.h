@@ -32,7 +32,7 @@
 
 #if ENABLE(CSS_SHADERS)
 
-#include "CSSValueList.h"
+#include "css/CSSValueList.h"
 #include <wtf/PassRefPtr.h>
 
 namespace WebCore {

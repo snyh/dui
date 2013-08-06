@@ -26,7 +26,7 @@
 #ifndef SourceProviderCache_h
 #define SourceProviderCache_h
 
-#include "SourceProviderCacheItem.h"
+#include "parser/SourceProviderCacheItem.h"
 #include <wtf/HashMap.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>

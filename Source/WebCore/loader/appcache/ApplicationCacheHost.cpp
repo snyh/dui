@@ -24,22 +24,22 @@
  */
 
 #include "config.h"
-#include "ApplicationCacheHost.h"
+#include "loader/appcache/ApplicationCacheHost.h"
 
-#include "ExceptionCodePlaceholder.h"
-#include "ApplicationCache.h"
-#include "ApplicationCacheGroup.h"
-#include "ApplicationCacheResource.h"
-#include "DocumentLoader.h"
-#include "DOMApplicationCache.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
-#include "ProgressEvent.h"
-#include "ResourceHandle.h"
-#include "ResourceLoader.h"
-#include "ResourceRequest.h"
-#include "Settings.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "loader/appcache/ApplicationCache.h"
+#include "loader/appcache/ApplicationCacheGroup.h"
+#include "loader/appcache/ApplicationCacheResource.h"
+#include "loader/DocumentLoader.h"
+#include "loader/appcache/DOMApplicationCache.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
+#include "dom/ProgressEvent.h"
+#include "platform/network/ResourceHandle.h"
+#include "loader/ResourceLoader.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "page/Settings.h"
 
 namespace WebCore {
 

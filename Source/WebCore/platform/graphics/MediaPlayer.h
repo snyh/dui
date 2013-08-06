@@ -27,18 +27,18 @@
 #define MediaPlayer_h
 
 #if ENABLE(VIDEO)
-#include "GraphicsTypes3D.h"
+#include "platform/graphics/GraphicsTypes3D.h"
 #if ENABLE(PLUGIN_PROXY_FOR_VIDEO)
 #include "MediaPlayerProxy.h"
 #endif
 
-#include "AudioTrackPrivate.h"
-#include "InbandTextTrackPrivate.h"
-#include "IntRect.h"
-#include "KURL.h"
-#include "LayoutRect.h"
-#include "Timer.h"
-#include "VideoTrackPrivate.h"
+#include "platform/graphics/AudioTrackPrivate.h"
+#include "platform/graphics/InbandTextTrackPrivate.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/KURL.h"
+#include "platform/graphics/LayoutRect.h"
+#include "platform/Timer.h"
+#include "platform/graphics/VideoTrackPrivate.h"
 #include <wtf/Forward.h>
 #include <wtf/HashSet.h>
 #include <wtf/OwnPtr.h>
@@ -47,7 +47,7 @@
 #include <wtf/text/StringHash.h>
 
 #if USE(ACCELERATED_COMPOSITING)
-#include "PlatformLayer.h"
+#include "platform/graphics/PlatformLayer.h"
 #endif
 
 #if USE(PLATFORM_TEXT_TRACK_MENU)

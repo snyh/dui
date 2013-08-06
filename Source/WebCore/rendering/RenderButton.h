@@ -21,8 +21,8 @@
 #ifndef RenderButton_h
 #define RenderButton_h
 
-#include "RenderFlexibleBox.h"
-#include "Timer.h"
+#include "rendering/RenderFlexibleBox.h"
+#include "platform/Timer.h"
 #include <wtf/OwnPtr.h>
 
 namespace WebCore {

@@ -20,14 +20,14 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGTextLayoutEngineBaseline.h"
+#include "rendering/svg/SVGTextLayoutEngineBaseline.h"
 
-#include "Font.h"
-#include "RenderObject.h"
-#include "SVGLengthContext.h"
-#include "SVGRenderStyle.h"
-#include "SVGTextMetrics.h"
-#include "UnicodeRange.h"
+#include "platform/graphics/Font.h"
+#include "rendering/RenderObject.h"
+#include "svg/SVGLengthContext.h"
+#include "rendering/style/SVGRenderStyle.h"
+#include "rendering/svg/SVGTextMetrics.h"
+#include "platform/text/UnicodeRange.h"
 
 namespace WebCore {
 

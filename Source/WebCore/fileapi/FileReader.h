@@ -33,11 +33,11 @@
 
 #if ENABLE(BLOB)
 
-#include "ActiveDOMObject.h"
-#include "EventTarget.h"
-#include "FileError.h"
-#include "FileReaderLoader.h"
-#include "FileReaderLoaderClient.h"
+#include "dom/ActiveDOMObject.h"
+#include "dom/EventTarget.h"
+#include "fileapi/FileError.h"
+#include "fileapi/FileReaderLoader.h"
+#include "fileapi/FileReaderLoaderClient.h"
 #include <wtf/Forward.h>
 #include <wtf/RefCounted.h>
 #include <wtf/text/WTFString.h>

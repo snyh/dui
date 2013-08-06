@@ -29,10 +29,10 @@
 #if ENABLE(INDEXED_DATABASE)
 #if USE(LEVELDB)
 
-#include "LevelDBComparator.h"
-#include "LevelDBDatabase.h"
-#include "LevelDBIterator.h"
-#include "LevelDBSlice.h"
+#include "platform/leveldb/LevelDBComparator.h"
+#include "platform/leveldb/LevelDBDatabase.h"
+#include "platform/leveldb/LevelDBIterator.h"
+#include "platform/leveldb/LevelDBSlice.h"
 #include <wtf/AVLTree.h>
 #include <wtf/HashSet.h>
 #include <wtf/PassOwnPtr.h>

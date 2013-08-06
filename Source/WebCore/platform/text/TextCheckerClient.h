@@ -28,7 +28,7 @@
 #ifndef TextCheckerClient_h
 #define TextCheckerClient_h
 
-#include "TextChecking.h"
+#include "platform/text/TextChecking.h"
 
 #include <wtf/Forward.h>
 #include <wtf/PassRefPtr.h>

@@ -28,13 +28,13 @@
  */
 
 #include "config.h"
-#include "WebKitCSSFilterRule.h"
+#include "css/WebKitCSSFilterRule.h"
 
 #if ENABLE(CSS_SHADERS)
 
-#include "PropertySetCSSStyleDeclaration.h"
-#include "StylePropertySet.h"
-#include "StyleRule.h"
+#include "css/PropertySetCSSStyleDeclaration.h"
+#include "css/StylePropertySet.h"
+#include "css/StyleRule.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

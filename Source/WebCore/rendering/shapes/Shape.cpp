@@ -28,14 +28,14 @@
  */
 
 #include "config.h"
-#include "Shape.h"
+#include "rendering/shapes/Shape.h"
 
-#include "BasicShapeFunctions.h"
-#include "FloatSize.h"
-#include "LengthFunctions.h"
-#include "PolygonShape.h"
-#include "RectangleShape.h"
-#include "WindRule.h"
+#include "css/BasicShapeFunctions.h"
+#include "platform/graphics/FloatSize.h"
+#include "css/LengthFunctions.h"
+#include "rendering/shapes/PolygonShape.h"
+#include "rendering/shapes/RectangleShape.h"
+#include "platform/graphics/WindRule.h"
 #include <wtf/MathExtras.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>

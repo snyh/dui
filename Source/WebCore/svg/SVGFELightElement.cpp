@@ -22,16 +22,16 @@
 #include "config.h"
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "SVGFELightElement.h"
+#include "svg/SVGFELightElement.h"
 
-#include "Attribute.h"
-#include "RenderObject.h"
-#include "RenderSVGResource.h"
-#include "SVGElementInstance.h"
-#include "SVGFEDiffuseLightingElement.h"
-#include "SVGFESpecularLightingElement.h"
-#include "SVGFilterElement.h"
-#include "SVGFilterPrimitiveStandardAttributes.h"
+#include "dom/Attribute.h"
+#include "rendering/RenderObject.h"
+#include "rendering/svg/RenderSVGResource.h"
+#include "svg/SVGElementInstance.h"
+#include "svg/SVGFEDiffuseLightingElement.h"
+#include "svg/SVGFESpecularLightingElement.h"
+#include "svg/SVGFilterElement.h"
+#include "svg/SVGFilterPrimitiveStandardAttributes.h"
 #include "SVGNames.h"
 
 namespace WebCore {

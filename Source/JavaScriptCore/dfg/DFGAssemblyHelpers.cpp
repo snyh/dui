@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "DFGAssemblyHelpers.h"
+#include "dfg/DFGAssemblyHelpers.h"
 
 #if ENABLE(DFG_JIT)
 

@@ -27,11 +27,11 @@
 #ifndef DOMWindow_h
 #define DOMWindow_h
 
-#include "ContextDestructionObserver.h"
-#include "EventTarget.h"
-#include "FrameDestructionObserver.h"
-#include "KURL.h"
-#include "Supplementable.h"
+#include "dom/ContextDestructionObserver.h"
+#include "dom/EventTarget.h"
+#include "page/FrameDestructionObserver.h"
+#include "platform/KURL.h"
+#include "platform/Supplementable.h"
 
 namespace WebCore {
 

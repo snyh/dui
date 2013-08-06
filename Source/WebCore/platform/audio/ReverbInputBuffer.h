@@ -29,7 +29,7 @@
 #ifndef ReverbInputBuffer_h
 #define ReverbInputBuffer_h
 
-#include "AudioArray.h"
+#include "platform/audio/AudioArray.h"
 
 namespace WebCore {
 

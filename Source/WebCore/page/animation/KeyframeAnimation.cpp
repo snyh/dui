@@ -27,16 +27,16 @@
  */
 
 #include "config.h"
-#include "KeyframeAnimation.h"
+#include "page/animation/KeyframeAnimation.h"
 
-#include "AnimationControllerPrivate.h"
-#include "CSSPropertyAnimation.h"
+#include "page/animation/AnimationControllerPrivate.h"
+#include "page/animation/CSSPropertyAnimation.h"
 #include "CSSPropertyNames.h"
-#include "CompositeAnimation.h"
-#include "EventNames.h"
-#include "RenderBoxModelObject.h"
-#include "RenderStyle.h"
-#include "StyleResolver.h"
+#include "page/animation/CompositeAnimation.h"
+#include "dom/EventNames.h"
+#include "rendering/RenderBoxModelObject.h"
+#include "rendering/style/RenderStyle.h"
+#include "css/StyleResolver.h"
 
 using namespace std;
 

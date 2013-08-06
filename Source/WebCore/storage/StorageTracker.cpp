@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "StorageTracker.h"
+#include "storage/StorageTracker.h"
 
-#include "FileSystem.h"
-#include "StorageThread.h"
-#include "Logging.h"
-#include "PageGroup.h"
-#include "SecurityOrigin.h"
-#include "StorageTrackerClient.h"
-#include "TextEncoding.h"
+#include "platform/FileSystem.h"
+#include "storage/StorageThread.h"
+#include "platform/Logging.h"
+#include "page/PageGroup.h"
+#include "page/SecurityOrigin.h"
+#include "storage/StorageTrackerClient.h"
+#include "platform/text/TextEncoding.h"
 #include <wtf/Functional.h>
 #include <wtf/MainThread.h>
 #include <wtf/StdLibExtras.h>

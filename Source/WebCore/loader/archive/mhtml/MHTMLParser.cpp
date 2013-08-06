@@ -31,12 +31,12 @@
 #include "config.h"
 
 #if ENABLE(MHTML)
-#include "MHTMLParser.h"
+#include "loader/archive/mhtml/MHTMLParser.h"
 
-#include "MHTMLArchive.h"
-#include "MIMEHeader.h"
-#include "MIMETypeRegistry.h"
-#include "QuotedPrintable.h"
+#include "loader/archive/mhtml/MHTMLArchive.h"
+#include "platform/network/MIMEHeader.h"
+#include "platform/MIMETypeRegistry.h"
+#include "platform/text/QuotedPrintable.h"
 #include <wtf/HashMap.h>
 #include <wtf/NotFound.h>
 #include <wtf/text/Base64.h>

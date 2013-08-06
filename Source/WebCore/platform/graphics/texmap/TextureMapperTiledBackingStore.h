@@ -22,10 +22,10 @@
 
 #if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER)
 
-#include "FloatRect.h"
-#include "Image.h"
-#include "TextureMapperBackingStore.h"
-#include "TextureMapperTile.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/texmap/TextureMapperBackingStore.h"
+#include "platform/graphics/texmap/TextureMapperTile.h"
 #include <wtf/RefPtr.h>
 
 namespace WebCore {

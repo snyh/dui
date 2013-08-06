@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "LoaderStrategy.h"
+#include "loader/LoaderStrategy.h"
 
-#include "BlobRegistryImpl.h"
-#include "ResourceHandle.h"
-#include "ResourceLoadScheduler.h"
+#include "platform/network/BlobRegistryImpl.h"
+#include "platform/network/ResourceHandle.h"
+#include "loader/ResourceLoadScheduler.h"
 
 namespace WebCore {
 

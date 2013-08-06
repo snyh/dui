@@ -25,7 +25,7 @@
 #define QNAME_DEFAULT_CONSTRUCTOR
 #endif
 
-#include "QualifiedName.h"
+#include "dom/QualifiedName.h"
 #include "HTMLNames.h"
 #include "XLinkNames.h"
 #include "XMLNSNames.h"

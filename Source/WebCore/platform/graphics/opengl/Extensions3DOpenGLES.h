@@ -27,7 +27,7 @@
 #ifndef Extensions3DOpenGLES_h
 #define Extensions3DOpenGLES_h
 
-#include "Extensions3DOpenGLCommon.h"
+#include "platform/graphics/opengl/Extensions3DOpenGLCommon.h"
 
 #if PLATFORM(QT)
 // Takes care of declaring the GLES extensions.

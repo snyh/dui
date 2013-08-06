@@ -28,7 +28,7 @@
  */
 
 #include "config.h"
-#include "Opcode.h"
+#include "bytecode/Opcode.h"
 
 #if ENABLE(OPCODE_STATS)
 #include <stdio.h>

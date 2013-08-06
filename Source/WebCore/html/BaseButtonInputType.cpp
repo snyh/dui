@@ -30,12 +30,12 @@
  */
 
 #include "config.h"
-#include "BaseButtonInputType.h"
+#include "html/BaseButtonInputType.h"
 
-#include "HTMLInputElement.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "KeyboardEvent.h"
-#include "RenderButton.h"
+#include "dom/KeyboardEvent.h"
+#include "rendering/RenderButton.h"
 
 namespace WebCore {
 

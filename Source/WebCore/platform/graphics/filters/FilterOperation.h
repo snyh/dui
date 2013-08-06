@@ -28,10 +28,10 @@
 
 #if ENABLE(CSS_FILTERS)
 
-#include "Color.h"
-#include "FilterEffect.h"
-#include "LayoutSize.h"
-#include "Length.h"
+#include "platform/graphics/Color.h"
+#include "platform/graphics/filters/FilterEffect.h"
+#include "platform/graphics/LayoutSize.h"
+#include "platform/Length.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>
 #include <wtf/RefCounted.h>

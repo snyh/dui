@@ -30,11 +30,11 @@
 
 #include "config.h"
 
-#include "WebKitCSSRegionRule.h"
+#include "css/WebKitCSSRegionRule.h"
 
-#include "CSSParser.h"
-#include "CSSRuleList.h"
-#include "StyleRule.h"
+#include "css/CSSParser.h"
+#include "css/CSSRuleList.h"
+#include "css/StyleRule.h"
 #include <wtf/text/StringBuilder.h>
 
 #if ENABLE(CSS_REGIONS)

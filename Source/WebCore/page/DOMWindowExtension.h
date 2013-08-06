@@ -26,7 +26,7 @@
 #ifndef DOMWindowExtension_h
 #define DOMWindowExtension_h
 
-#include "DOMWindowProperty.h"
+#include "page/DOMWindowProperty.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>

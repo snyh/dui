@@ -26,9 +26,9 @@
 #ifndef ProfilerOSRExit_h
 #define ProfilerOSRExit_h
 
-#include "ExitKind.h"
-#include "JSCJSValue.h"
-#include "ProfilerOriginStack.h"
+#include "bytecode/ExitKind.h"
+#include "runtime/JSCJSValue.h"
+#include "profiler/ProfilerOriginStack.h"
 
 namespace JSC { namespace Profiler {
 

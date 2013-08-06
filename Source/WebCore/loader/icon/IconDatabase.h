@@ -27,8 +27,8 @@
 #ifndef IconDatabase_h
 #define IconDatabase_h
 
-#include "IconDatabaseBase.h"
-#include "Timer.h"
+#include "loader/icon/IconDatabaseBase.h"
+#include "platform/Timer.h"
 #include <wtf/HashCountedSet.h>
 #include <wtf/HashMap.h>
 #include <wtf/HashSet.h>

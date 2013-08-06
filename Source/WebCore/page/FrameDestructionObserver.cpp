@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "FrameDestructionObserver.h"
+#include "page/FrameDestructionObserver.h"
 
-#include "Frame.h"
+#include "page/Frame.h"
 
 namespace WebCore {
 

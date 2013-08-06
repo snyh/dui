@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "GCAwareJITStubRoutine.h"
+#include "jit/GCAwareJITStubRoutine.h"
 
 #if ENABLE(JIT)
 
-#include "Heap.h"
-#include "VM.h"
-#include "Operations.h"
-#include "SlotVisitor.h"
-#include "Structure.h"
+#include "heap/Heap.h"
+#include "runtime/VM.h"
+#include "runtime/Operations.h"
+#include "heap/SlotVisitor.h"
+#include "runtime/Structure.h"
 
 namespace JSC {
 

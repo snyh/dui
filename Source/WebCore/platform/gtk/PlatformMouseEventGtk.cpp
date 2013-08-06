@@ -25,7 +25,7 @@
 */
 
 #include "config.h"
-#include "PlatformMouseEvent.h"
+#include "platform/PlatformMouseEvent.h"
 
 #include <wtf/Assertions.h>
 

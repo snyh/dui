@@ -31,9 +31,9 @@
 #include "config.h"
 
 #if ENABLE(MICRODATA)
-#include "MicroDataItemValue.h"
+#include "html/MicroDataItemValue.h"
 
-#include "Node.h"
+#include "dom/Node.h"
 
 namespace WebCore {
 

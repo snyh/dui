@@ -31,8 +31,8 @@
 #ifndef FormSubmission_h
 #define FormSubmission_h
 
-#include "FormState.h"
-#include "KURL.h"
+#include "loader/FormState.h"
+#include "platform/KURL.h"
 
 namespace WebCore {
 

@@ -24,10 +24,10 @@
 #ifndef StyleImage_h
 #define StyleImage_h
 
-#include "CSSValue.h"
-#include "Image.h"
-#include "IntSize.h"
-#include "LayoutSize.h"
+#include "css/CSSValue.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/graphics/LayoutSize.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>

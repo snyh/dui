@@ -31,8 +31,8 @@
 
 #if ENABLE(ASSEMBLER) && CPU(MIPS)
 
-#include "AssemblerBuffer.h"
-#include "JITCompilationEffort.h"
+#include "assembler/AssemblerBuffer.h"
+#include "jit/JITCompilationEffort.h"
 #include <wtf/Assertions.h>
 #include <wtf/SegmentedVector.h>
 

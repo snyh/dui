@@ -25,8 +25,8 @@
 
 #if ENABLE(XSLT)
 
-#include "ProcessingInstruction.h"
-#include "StyleSheet.h"
+#include "dom/ProcessingInstruction.h"
+#include "css/StyleSheet.h"
 
 #if !USE(QXMLQUERY)
 #include <libxml/parser.h>

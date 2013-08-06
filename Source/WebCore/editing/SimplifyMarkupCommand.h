@@ -26,7 +26,7 @@
 #ifndef SimplifyMarkupCommand_h
 #define SimplifyMarkupCommand_h
 
-#include "CompositeEditCommand.h"
+#include "editing/CompositeEditCommand.h"
 
 namespace WebCore {
 

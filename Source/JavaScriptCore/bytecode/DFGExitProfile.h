@@ -26,7 +26,7 @@
 #ifndef DFGExitProfile_h
 #define DFGExitProfile_h
 
-#include "ExitKind.h"
+#include "bytecode/ExitKind.h"
 #include <wtf/HashSet.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/Vector.h>

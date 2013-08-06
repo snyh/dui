@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "SimplifyMarkupCommand.h"
+#include "editing/SimplifyMarkupCommand.h"
 
-#include "NodeRenderStyle.h"
-#include "NodeTraversal.h"
-#include "RenderInline.h"
-#include "RenderObject.h"
-#include "RenderStyle.h"
+#include "dom/NodeRenderStyle.h"
+#include "dom/NodeTraversal.h"
+#include "rendering/RenderInline.h"
+#include "rendering/RenderObject.h"
+#include "rendering/style/RenderStyle.h"
 
 namespace WebCore {
 

@@ -26,8 +26,8 @@
 #ifndef Reject_h
 #define Reject_h
 
-#include "CallFrame.h"
-#include "Error.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/Error.h"
 
 namespace JSC {
 

@@ -21,8 +21,8 @@
 #define SVGGlyphRefElement_h
 
 #if ENABLE(SVG) && ENABLE(SVG_FONTS)
-#include "SVGStyledElement.h"
-#include "SVGURIReference.h"
+#include "svg/SVGStyledElement.h"
+#include "svg/SVGURIReference.h"
 
 namespace WebCore {
 

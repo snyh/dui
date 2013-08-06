@@ -20,10 +20,10 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGAnimatedLength.h"
+#include "svg/SVGAnimatedLength.h"
 
-#include "SVGAnimateElement.h"
-#include "SVGAnimatedNumber.h"
+#include "svg/SVGAnimateElement.h"
+#include "svg/SVGAnimatedNumber.h"
 
 namespace WebCore {
 

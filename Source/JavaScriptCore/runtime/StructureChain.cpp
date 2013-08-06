@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "StructureChain.h"
+#include "runtime/StructureChain.h"
 
-#include "JSObject.h"
-#include "Operations.h"
-#include "Structure.h"
+#include "runtime/JSObject.h"
+#include "runtime/Operations.h"
+#include "runtime/Structure.h"
 #include <wtf/RefPtr.h>
 
 namespace JSC {

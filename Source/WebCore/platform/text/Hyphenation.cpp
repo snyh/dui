@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "Hyphenation.h"
+#include "platform/text/Hyphenation.h"
 
-#include "NotImplemented.h"
+#include "platform/NotImplemented.h"
 
 namespace WebCore {
 

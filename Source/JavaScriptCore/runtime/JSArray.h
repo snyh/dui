@@ -21,9 +21,9 @@
 #ifndef JSArray_h
 #define JSArray_h
 
-#include "ArrayConventions.h"
-#include "ButterflyInlines.h"
-#include "JSObject.h"
+#include "runtime/ArrayConventions.h"
+#include "runtime/ButterflyInlines.h"
+#include "runtime/JSObject.h"
 
 namespace JSC {
 

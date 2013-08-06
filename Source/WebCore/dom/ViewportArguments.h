@@ -28,7 +28,7 @@
 #ifndef ViewportArguments_h
 #define ViewportArguments_h
 
-#include "FloatSize.h"
+#include "platform/graphics/FloatSize.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

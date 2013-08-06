@@ -21,7 +21,7 @@
 #ifndef CommonIdentifiers_h
 #define CommonIdentifiers_h
 
-#include "Identifier.h"
+#include "runtime/Identifier.h"
 #include <wtf/Noncopyable.h>
 
 // MarkedArgumentBuffer of property names, passed to a macro so we can do set them up various

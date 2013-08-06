@@ -20,16 +20,16 @@
  */
 
 #include "config.h"
-#include "TextureMapperGL.h"
+#include "platform/graphics/texmap/TextureMapperGL.h"
 
-#include "Extensions3D.h"
-#include "FilterOperations.h"
-#include "GraphicsContext.h"
-#include "Image.h"
-#include "LengthFunctions.h"
-#include "NotImplemented.h"
-#include "TextureMapperShaderProgram.h"
-#include "Timer.h"
+#include "platform/graphics/Extensions3D.h"
+#include "platform/graphics/filters/FilterOperations.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/Image.h"
+#include "css/LengthFunctions.h"
+#include "platform/NotImplemented.h"
+#include "platform/graphics/texmap/TextureMapperShaderProgram.h"
+#include "platform/Timer.h"
 #include <wtf/HashMap.h>
 #include <wtf/OwnArrayPtr.h>
 #include <wtf/PassOwnArrayPtr.h>
@@ -42,19 +42,19 @@
 #endif
 
 #if USE(CAIRO)
-#include "CairoUtilities.h"
-#include "RefPtrCairo.h"
+#include "platform/graphics/cairo/CairoUtilities.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 #include <cairo.h>
 #include <wtf/text/CString.h>
 #endif
 
 #if ENABLE(CSS_SHADERS)
-#include "CustomFilterCompiledProgram.h"
-#include "CustomFilterOperation.h"
-#include "CustomFilterProgram.h"
-#include "CustomFilterRenderer.h"
-#include "CustomFilterValidatedProgram.h"
-#include "ValidatedCustomFilterOperation.h"
+#include "platform/graphics/filters/CustomFilterCompiledProgram.h"
+#include "platform/graphics/filters/CustomFilterOperation.h"
+#include "platform/graphics/filters/CustomFilterProgram.h"
+#include "platform/graphics/filters/CustomFilterRenderer.h"
+#include "platform/graphics/filters/CustomFilterValidatedProgram.h"
+#include "platform/graphics/filters/ValidatedCustomFilterOperation.h"
 #endif
 
 #if !USE(TEXMAP_OPENGL_ES_2)

@@ -24,14 +24,14 @@
 */
 
 #include "config.h"
-#include "Path.h"
+#include "platform/graphics/Path.h"
 
-#include "AffineTransform.h"
-#include "FloatRect.h"
-#include "GraphicsContext.h"
-#include "OwnPtrCairo.h"
-#include "PlatformPathCairo.h"
-#include "StrokeStyleApplier.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/cairo/OwnPtrCairo.h"
+#include "platform/graphics/cairo/PlatformPathCairo.h"
+#include "platform/graphics/StrokeStyleApplier.h"
 #include <cairo.h>
 #include <math.h>
 #include <wtf/MathExtras.h>

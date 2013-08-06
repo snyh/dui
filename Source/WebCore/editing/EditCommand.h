@@ -26,8 +26,8 @@
 #ifndef EditCommand_h
 #define EditCommand_h
 
-#include "EditAction.h"
-#include "VisibleSelection.h"
+#include "editing/EditAction.h"
+#include "editing/VisibleSelection.h"
 
 #ifndef NDEBUG
 #include <wtf/HashSet.h>

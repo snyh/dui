@@ -22,15 +22,15 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGLength.h"
+#include "svg/SVGLength.h"
 
-#include "CSSHelper.h"
-#include "CSSPrimitiveValue.h"
-#include "ExceptionCode.h"
-#include "ExceptionCodePlaceholder.h"
-#include "FloatConversion.h"
+#include "css/CSSHelper.h"
+#include "css/CSSPrimitiveValue.h"
+#include "dom/ExceptionCode.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "platform/FloatConversion.h"
 #include "SVGNames.h"
-#include "SVGParserUtilities.h"
+#include "svg/SVGParserUtilities.h"
 
 #include <wtf/MathExtras.h>
 #include <wtf/text/WTFString.h>

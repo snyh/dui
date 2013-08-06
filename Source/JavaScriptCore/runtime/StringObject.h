@@ -21,8 +21,8 @@
 #ifndef StringObject_h
 #define StringObject_h
 
-#include "JSWrapperObject.h"
-#include "JSString.h"
+#include "runtime/JSWrapperObject.h"
+#include "runtime/JSString.h"
 
 namespace JSC {
 

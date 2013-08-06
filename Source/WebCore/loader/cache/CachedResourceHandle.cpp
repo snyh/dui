@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "CachedResourceHandle.h"
+#include "loader/cache/CachedResourceHandle.h"
 
-#include "CachedResource.h"
+#include "loader/cache/CachedResource.h"
 
 namespace WebCore {
 

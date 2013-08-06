@@ -20,7 +20,7 @@
 #ifndef WeakReferenceHarvester_h
 #define WeakReferenceHarvester_h
 
-#include "ListableHandler.h"
+#include "heap/ListableHandler.h"
 
 namespace JSC {
 

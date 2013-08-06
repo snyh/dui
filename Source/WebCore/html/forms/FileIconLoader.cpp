@@ -28,9 +28,9 @@
  */
 
 #include "config.h"
-#include "FileIconLoader.h"
+#include "html/forms/FileIconLoader.h"
 
-#include "Icon.h"
+#include "platform/graphics/Icon.h"
 
 namespace WebCore {
 

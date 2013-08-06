@@ -29,14 +29,14 @@
  */
 
 #include "config.h"
-#include "PlatformScreen.h"
+#include "platform/PlatformScreen.h"
 
-#include "FloatRect.h"
-#include "GtkVersioning.h"
-#include "HostWindow.h"
-#include "NotImplemented.h"
-#include "ScrollView.h"
-#include "Widget.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/gtk/GtkVersioning.h"
+#include "platform/HostWindow.h"
+#include "platform/NotImplemented.h"
+#include "platform/ScrollView.h"
+#include "platform/Widget.h"
 
 #include <gtk/gtk.h>
 

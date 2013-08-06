@@ -31,10 +31,10 @@
 #ifndef DrawingBuffer_h
 #define DrawingBuffer_h
 
-#include "GraphicsContext3D.h"
-#include "GraphicsTypes3D.h"
-#include "IntSize.h"
-#include "PlatformLayer.h"
+#include "platform/graphics/GraphicsContext3D.h"
+#include "platform/graphics/GraphicsTypes3D.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/graphics/PlatformLayer.h"
 
 #include <wtf/Noncopyable.h>
 #include <wtf/OwnPtr.h>

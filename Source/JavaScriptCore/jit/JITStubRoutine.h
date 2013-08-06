@@ -30,8 +30,8 @@
 
 #if ENABLE(JIT)
 
-#include "ExecutableAllocator.h"
-#include "MacroAssemblerCodeRef.h"
+#include "jit/ExecutableAllocator.h"
+#include "assembler/MacroAssemblerCodeRef.h"
 #include <wtf/RefCounted.h>
 #include <wtf/Vector.h>
 

@@ -22,9 +22,9 @@
  */
 
 #include "config.h"
-#include "BidiRun.h"
-#include "InlineBox.h"
-#include "RenderArena.h"
+#include "rendering/BidiRun.h"
+#include "rendering/InlineBox.h"
+#include "rendering/RenderArena.h"
 #include <wtf/RefCountedLeakCounter.h>
 #include <wtf/StdLibExtras.h>
 

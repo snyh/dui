@@ -28,10 +28,10 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "FloatPoint.h"
-#include "RenderBlock.h"
-#include "RenderInline.h"
-#include "RenderView.h"
+#include "platform/graphics/FloatPoint.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/RenderInline.h"
+#include "rendering/RenderView.h"
 
 namespace WebCore {
 

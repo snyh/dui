@@ -20,10 +20,10 @@
 #ifndef PopupMenuGtk_h
 #define PopupMenuGtk_h
 
-#include "GtkPopupMenu.h"
-#include "IntRect.h"
-#include "PopupMenu.h"
-#include "PopupMenuClient.h"
+#include "platform/gtk/GtkPopupMenu.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/PopupMenu.h"
+#include "platform/PopupMenuClient.h"
 
 namespace WebCore {
 

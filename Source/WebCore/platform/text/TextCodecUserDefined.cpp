@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "TextCodecUserDefined.h"
+#include "platform/text/TextCodecUserDefined.h"
 
 #include <stdio.h>
 #include <wtf/PassOwnPtr.h>

@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "OpaqueJSString.h"
+#include "API/OpaqueJSString.h"
 
 #include <interpreter/CallFrame.h>
 #include <runtime/JSGlobalObject.h>

@@ -23,16 +23,16 @@
  */
 
 #include "config.h"
-#include "FormAssociatedElement.h"
+#include "html/FormAssociatedElement.h"
 
-#include "EditorClient.h"
-#include "FormController.h"
-#include "Frame.h"
-#include "HTMLFormControlElement.h"
-#include "HTMLFormElement.h"
+#include "page/EditorClient.h"
+#include "html/FormController.h"
+#include "page/Frame.h"
+#include "html/HTMLFormControlElement.h"
+#include "html/HTMLFormElement.h"
 #include "HTMLNames.h"
-#include "IdTargetObserver.h"
-#include "ValidityState.h"
+#include "dom/IdTargetObserver.h"
+#include "html/ValidityState.h"
 
 namespace WebCore {
 

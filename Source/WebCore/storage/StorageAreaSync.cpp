@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "StorageAreaSync.h"
+#include "storage/StorageAreaSync.h"
 
-#include "EventNames.h"
-#include "FileSystem.h"
-#include "HTMLElement.h"
-#include "SecurityOrigin.h"
-#include "StorageAreaImpl.h"
-#include "StorageSyncManager.h"
-#include "StorageTracker.h"
-#include "SuddenTermination.h"
+#include "dom/EventNames.h"
+#include "platform/FileSystem.h"
+#include "html/HTMLElement.h"
+#include "page/SecurityOrigin.h"
+#include "storage/StorageAreaImpl.h"
+#include "storage/StorageSyncManager.h"
+#include "storage/StorageTracker.h"
+#include "platform/SuddenTermination.h"
 #include <wtf/Functional.h>
 #include <wtf/MainThread.h>
 #include <wtf/text/CString.h>

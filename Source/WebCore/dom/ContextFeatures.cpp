@@ -25,11 +25,11 @@
  */
 
 #include "config.h"
-#include "ContextFeatures.h"
+#include "dom/ContextFeatures.h"
 
-#include "Document.h"
-#include "Page.h"
-#include "RuntimeEnabledFeatures.h"
+#include "dom/Document.h"
+#include "page/Page.h"
+#include "bindings/dui/saved/RuntimeEnabledFeatures.h"
 
 namespace WebCore {
 

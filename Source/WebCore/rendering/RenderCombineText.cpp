@@ -19,10 +19,10 @@
  */
 
 #include "config.h"
-#include "RenderCombineText.h"
+#include "rendering/RenderCombineText.h"
 
-#include "RenderBlock.h"
-#include "StyleInheritedData.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/style/StyleInheritedData.h"
 
 namespace WebCore {
 

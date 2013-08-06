@@ -26,7 +26,7 @@
 #ifndef CachedFontClient_h
 #define CachedFontClient_h
 
-#include "CachedResourceClient.h"
+#include "loader/cache/CachedResourceClient.h"
 
 namespace WebCore {
 

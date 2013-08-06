@@ -34,7 +34,7 @@
 
 #if ENABLE(MEDIA_STREAM)
 
-#include "MediaStreamCenter.h"
+#include "platform/mediastream/MediaStreamCenter.h"
 
 #include <wtf/PassRefPtr.h>
 #include <wtf/text/WTFString.h>

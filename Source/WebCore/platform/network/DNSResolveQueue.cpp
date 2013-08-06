@@ -25,7 +25,7 @@
  */
 
 #include "config.h"
-#include "DNSResolveQueue.h"
+#include "platform/network/DNSResolveQueue.h"
 
 #include <wtf/CurrentTime.h>
 

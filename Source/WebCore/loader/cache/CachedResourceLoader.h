@@ -26,12 +26,12 @@
 #ifndef CachedResourceLoader_h
 #define CachedResourceLoader_h
 
-#include "CachePolicy.h"
-#include "CachedResource.h"
-#include "CachedResourceHandle.h"
-#include "CachedResourceRequest.h"
-#include "ResourceLoadPriority.h"
-#include "Timer.h"
+#include "loader/cache/CachePolicy.h"
+#include "loader/cache/CachedResource.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "platform/network/ResourceLoadPriority.h"
+#include "platform/Timer.h"
 #include <wtf/Deque.h>
 #include <wtf/HashMap.h>
 #include <wtf/HashSet.h>

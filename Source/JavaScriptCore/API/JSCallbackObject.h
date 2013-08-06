@@ -27,9 +27,9 @@
 #ifndef JSCallbackObject_h
 #define JSCallbackObject_h
 
-#include "JSObjectRef.h"
-#include "JSValueRef.h"
-#include "JSObject.h"
+#include "API/JSObjectRef.h"
+#include "API/JSValueRef.h"
+#include "runtime/JSObject.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace JSC {
@@ -220,6 +220,6 @@ private:
 } // namespace JSC
 
 // include the actual template class implementation
-#include "JSCallbackObjectFunctions.h"
+#include "API/JSCallbackObjectFunctions.h"
 
 #endif // JSCallbackObject_h

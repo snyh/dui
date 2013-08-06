@@ -25,9 +25,9 @@
  */
 
 #include "config.h"
-#include "ImageBuffer.h"
+#include "platform/graphics/ImageBuffer.h"
 
-#include "IntRect.h"
+#include "platform/graphics/IntRect.h"
 #include <wtf/MathExtras.h>
 
 namespace WebCore {

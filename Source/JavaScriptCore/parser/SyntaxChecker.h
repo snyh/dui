@@ -26,7 +26,7 @@
 #ifndef SyntaxChecker_h
 #define SyntaxChecker_h
 
-#include "Lexer.h"
+#include "parser/Lexer.h"
 #include <yarr/YarrSyntaxChecker.h>
 
 namespace JSC {

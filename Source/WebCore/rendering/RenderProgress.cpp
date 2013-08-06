@@ -20,12 +20,12 @@
 
 #include "config.h"
 #if ENABLE(PROGRESS_ELEMENT)
-#include "RenderProgress.h"
+#include "rendering/RenderProgress.h"
 
 #include "HTMLNames.h"
-#include "HTMLProgressElement.h"
-#include "PaintInfo.h"
-#include "RenderTheme.h"
+#include "html/HTMLProgressElement.h"
+#include "rendering/PaintInfo.h"
+#include "rendering/RenderTheme.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/RefPtr.h>
 

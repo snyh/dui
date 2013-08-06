@@ -26,7 +26,7 @@
 #ifndef DebuggerActivation_h
 #define DebuggerActivation_h
 
-#include "JSObject.h"
+#include "runtime/JSObject.h"
 
 namespace JSC {
 

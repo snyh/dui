@@ -27,7 +27,7 @@
 #ifndef CompositionEvent_h
 #define CompositionEvent_h
 
-#include "UIEvent.h"
+#include "dom/UIEvent.h"
 
 namespace WebCore {
 

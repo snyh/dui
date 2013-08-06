@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "HTMLAllCollection.h"
+#include "html/HTMLAllCollection.h"
 
-#include "Element.h"
+#include "dom/Element.h"
 
 namespace WebCore {
 

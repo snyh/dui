@@ -23,15 +23,15 @@
  */
 
 #include "config.h"
-#include "PointerLockController.h"
+#include "page/PointerLockController.h"
 
-#include "Chrome.h"
-#include "ChromeClient.h"
-#include "Element.h"
-#include "Event.h"
-#include "Page.h"
-#include "PlatformMouseEvent.h"
-#include "VoidCallback.h"
+#include "page/Chrome.h"
+#include "page/ChromeClient.h"
+#include "dom/Element.h"
+#include "dom/Event.h"
+#include "page/Page.h"
+#include "platform/PlatformMouseEvent.h"
+#include "html/VoidCallback.h"
 
 #if ENABLE(POINTER_LOCK)
 

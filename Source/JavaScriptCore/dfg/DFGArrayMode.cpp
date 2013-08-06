@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "DFGArrayMode.h"
+#include "dfg/DFGArrayMode.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGAbstractValue.h"
-#include "DFGGraph.h"
-#include "Operations.h"
+#include "dfg/DFGAbstractValue.h"
+#include "dfg/DFGGraph.h"
+#include "runtime/Operations.h"
 
 namespace JSC { namespace DFG {
 

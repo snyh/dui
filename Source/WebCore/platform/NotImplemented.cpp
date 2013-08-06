@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "NotImplemented.h"
+#include "platform/NotImplemented.h"
 
-#include "Logging.h"
+#include "platform/Logging.h"
 
 namespace WebCore {
 

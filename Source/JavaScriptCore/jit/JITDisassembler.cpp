@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "JITDisassembler.h"
+#include "jit/JITDisassembler.h"
 
 #if ENABLE(JIT)
 
-#include "CodeBlock.h"
-#include "CodeBlockWithJITType.h"
-#include "JIT.h"
+#include "bytecode/CodeBlock.h"
+#include "bytecode/CodeBlockWithJITType.h"
+#include "jit/JIT.h"
 #include <wtf/StringPrintStream.h>
 
 namespace JSC {

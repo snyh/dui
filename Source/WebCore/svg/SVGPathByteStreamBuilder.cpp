@@ -20,11 +20,11 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGPathByteStreamBuilder.h"
+#include "svg/SVGPathByteStreamBuilder.h"
 
-#include "SVGPathParser.h"
-#include "SVGPathSeg.h"
-#include "SVGPathStringSource.h"
+#include "svg/SVGPathParser.h"
+#include "svg/SVGPathSeg.h"
+#include "svg/SVGPathStringSource.h"
 #include <wtf/OwnPtr.h>
 
 namespace WebCore {

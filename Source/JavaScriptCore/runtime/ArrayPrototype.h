@@ -21,8 +21,8 @@
 #ifndef ArrayPrototype_h
 #define ArrayPrototype_h
 
-#include "JSArray.h"
-#include "Lookup.h"
+#include "runtime/JSArray.h"
+#include "runtime/Lookup.h"
 
 namespace JSC {
 

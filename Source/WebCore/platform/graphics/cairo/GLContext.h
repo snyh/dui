@@ -20,8 +20,8 @@
 #ifndef GLContext_h
 #define GLContext_h
 
-#include "GraphicsContext3D.h"
-#include "Widget.h"
+#include "platform/graphics/GraphicsContext3D.h"
+#include "platform/Widget.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/PassOwnPtr.h>
 

@@ -29,7 +29,7 @@
  */
 
 #include "config.h"
-#include "LayoutBoxExtent.h"
+#include "platform/graphics/LayoutBoxExtent.h"
 
 namespace WebCore {
 

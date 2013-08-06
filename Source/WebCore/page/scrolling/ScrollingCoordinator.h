@@ -26,12 +26,12 @@
 #ifndef ScrollingCoordinator_h
 #define ScrollingCoordinator_h
 
-#include "IntRect.h"
-#include "LayoutRect.h"
-#include "PlatformWheelEvent.h"
-#include "RenderObject.h"
-#include "ScrollTypes.h"
-#include "Timer.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/LayoutRect.h"
+#include "platform/PlatformWheelEvent.h"
+#include "rendering/RenderObject.h"
+#include "platform/ScrollTypes.h"
+#include "platform/Timer.h"
 #include <wtf/Forward.h>
 
 #if ENABLE(THREADED_SCROLLING)

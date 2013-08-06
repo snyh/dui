@@ -26,9 +26,9 @@
 #ifndef StructureRareData_h
 #define StructureRareData_h
 
-#include "ClassInfo.h"
-#include "JSCell.h"
-#include "JSTypeInfo.h"
+#include "runtime/ClassInfo.h"
+#include "runtime/JSCell.h"
+#include "runtime/JSTypeInfo.h"
 
 namespace JSC {
 

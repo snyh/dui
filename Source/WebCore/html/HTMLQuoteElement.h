@@ -25,7 +25,7 @@
 #define HTMLQuoteElement_h
 
 #include <wtf/Forward.h>
-#include "HTMLElement.h"
+#include "html/HTMLElement.h"
 
 namespace WebCore {
 

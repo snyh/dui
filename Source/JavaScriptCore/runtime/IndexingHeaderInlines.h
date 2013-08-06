@@ -26,9 +26,9 @@
 #ifndef IndexingHeaderInlines_h
 #define IndexingHeaderInlines_h
 
-#include "ArrayStorage.h"
-#include "IndexingHeader.h"
-#include "Structure.h"
+#include "runtime/ArrayStorage.h"
+#include "runtime/IndexingHeader.h"
+#include "runtime/Structure.h"
 
 namespace JSC {
 

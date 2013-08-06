@@ -29,7 +29,7 @@
 #ifndef AccessibilityTableCell_h
 #define AccessibilityTableCell_h
 
-#include "AccessibilityRenderObject.h"
+#include "accessibility/AccessibilityRenderObject.h"
 
 namespace WebCore {
     

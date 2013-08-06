@@ -30,7 +30,7 @@
 #include "config.h"
 
 #if ENABLE(CSS_SHADERS)
-#include "CustomFilterProgramInfo.h"
+#include "platform/graphics/filters/CustomFilterProgramInfo.h"
 
 #include <wtf/HashFunctions.h>
 #include <wtf/text/StringHash.h>

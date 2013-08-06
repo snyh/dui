@@ -22,10 +22,10 @@
  */
 
 #include "config.h"
-#include "StyleCachedImage.h"
+#include "rendering/style/StyleCachedImage.h"
 
-#include "CachedImage.h"
-#include "RenderObject.h"
+#include "loader/cache/CachedImage.h"
+#include "rendering/RenderObject.h"
 
 namespace WebCore {
 

@@ -33,9 +33,9 @@
 #ifndef InputType_h
 #define InputType_h
 
-#include "FeatureObserver.h"
-#include "HTMLTextFormControlElement.h"
-#include "StepRange.h"
+#include "page/FeatureObserver.h"
+#include "html/HTMLTextFormControlElement.h"
+#include "html/StepRange.h"
 #include <wtf/Forward.h>
 #include <wtf/FastAllocBase.h>
 #include <wtf/Noncopyable.h>

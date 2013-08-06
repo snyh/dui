@@ -23,11 +23,11 @@
 #ifndef CallFrame_h
 #define CallFrame_h
 
-#include "AbstractPC.h"
-#include "VM.h"
-#include "JSStack.h"
-#include "MacroAssemblerCodeRef.h"
-#include "Register.h"
+#include "interpreter/AbstractPC.h"
+#include "runtime/VM.h"
+#include "interpreter/JSStack.h"
+#include "assembler/MacroAssemblerCodeRef.h"
+#include "interpreter/Register.h"
 
 namespace JSC  {
 

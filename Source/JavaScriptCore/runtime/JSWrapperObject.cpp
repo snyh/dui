@@ -20,9 +20,9 @@
  */
 
 #include "config.h"
-#include "JSWrapperObject.h"
+#include "runtime/JSWrapperObject.h"
 
-#include "Operations.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

@@ -24,24 +24,24 @@
  */
 
 #include "config.h"
-#include "CSSFontFaceSource.h"
+#include "css/CSSFontFaceSource.h"
 
-#include "CachedFont.h"
-#include "CSSFontFace.h"
-#include "CSSFontSelector.h"
-#include "CachedResourceLoader.h"
-#include "Document.h"
-#include "FontCache.h"
-#include "FontDescription.h"
-#include "SimpleFontData.h"
+#include "loader/cache/CachedFont.h"
+#include "css/CSSFontFace.h"
+#include "css/CSSFontSelector.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "dom/Document.h"
+#include "platform/graphics/FontCache.h"
+#include "platform/graphics/FontDescription.h"
+#include "platform/graphics/SimpleFontData.h"
 
 #if ENABLE(SVG_FONTS)
-#include "FontCustomPlatformData.h"
-#include "SVGFontData.h"
-#include "SVGFontElement.h"
-#include "SVGFontFaceElement.h"
+#include "platform/graphics/cairo/FontCustomPlatformData.h"
+#include "svg/SVGFontData.h"
+#include "svg/SVGFontElement.h"
+#include "svg/SVGFontFaceElement.h"
 #include "SVGNames.h"
-#include "SVGURIReference.h"
+#include "svg/SVGURIReference.h"
 #endif
 
 namespace WebCore {

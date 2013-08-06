@@ -27,18 +27,18 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "TextTrackCueGeneric.h"
+#include "html/track/TextTrackCueGeneric.h"
 
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
 #include "HTMLNames.h"
-#include "HTMLSpanElement.h"
-#include "InbandTextTrackPrivateClient.h"
-#include "Logging.h"
-#include "RenderObject.h"
-#include "RenderTextTrackCue.h"
-#include "ScriptExecutionContext.h"
-#include "TextTrackCue.h"
+#include "html/HTMLSpanElement.h"
+#include "platform/graphics/InbandTextTrackPrivateClient.h"
+#include "platform/Logging.h"
+#include "rendering/RenderObject.h"
+#include "rendering/RenderTextTrackCue.h"
+#include "dom/ScriptExecutionContext.h"
+#include "html/track/TextTrackCue.h"
 
 namespace WebCore {
 

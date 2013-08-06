@@ -19,7 +19,7 @@
  */
 
 #include "config.h"
-#include "CSSCharsetRule.h"
+#include "css/CSSCharsetRule.h"
 
 namespace WebCore {
 

@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "MarkedBlock.h"
+#include "heap/MarkedBlock.h"
 
-#include "IncrementalSweeper.h"
-#include "JSCell.h"
-#include "JSDestructibleObject.h"
-#include "Operations.h"
+#include "heap/IncrementalSweeper.h"
+#include "runtime/JSCell.h"
+#include "runtime/JSDestructibleObject.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

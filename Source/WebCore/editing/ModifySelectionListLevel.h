@@ -26,7 +26,7 @@
 #ifndef ModifySelectionListLevel_h
 #define ModifySelectionListLevel_h
 
-#include "CompositeEditCommand.h"
+#include "editing/CompositeEditCommand.h"
 
 namespace WebCore {
 

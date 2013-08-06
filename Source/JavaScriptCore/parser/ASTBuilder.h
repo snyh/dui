@@ -26,8 +26,8 @@
 #ifndef ASTBuilder_h
 #define ASTBuilder_h
 
-#include "NodeConstructors.h"
-#include "SyntaxChecker.h"
+#include "parser/NodeConstructors.h"
+#include "parser/SyntaxChecker.h"
 #include <utility>
 
 namespace JSC {

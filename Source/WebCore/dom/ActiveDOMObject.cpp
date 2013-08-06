@@ -25,11 +25,11 @@
  */
 
 #include "config.h"
-#include "ActiveDOMObject.h"
+#include "dom/ActiveDOMObject.h"
 
-#include "ScriptExecutionContext.h"
-#include "WorkerGlobalScope.h"
-#include "WorkerThread.h"
+#include "dom/ScriptExecutionContext.h"
+#include "workers/WorkerGlobalScope.h"
+#include "workers/WorkerThread.h"
 
 namespace WebCore {
 

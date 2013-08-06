@@ -21,7 +21,7 @@
 #ifndef StringConstructor_h
 #define StringConstructor_h
 
-#include "InternalFunction.h"
+#include "runtime/InternalFunction.h"
 
 namespace JSC {
 

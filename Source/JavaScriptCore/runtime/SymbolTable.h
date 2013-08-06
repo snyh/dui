@@ -29,8 +29,8 @@
 #ifndef SymbolTable_h
 #define SymbolTable_h
 
-#include "JSObject.h"
-#include "Watchpoint.h"
+#include "runtime/JSObject.h"
+#include "bytecode/Watchpoint.h"
 #include <wtf/HashTraits.h>
 #include <wtf/text/StringImpl.h>
 

@@ -23,10 +23,10 @@
 #ifndef GetterSetter_h
 #define GetterSetter_h
 
-#include "JSCell.h"
+#include "runtime/JSCell.h"
 
-#include "CallFrame.h"
-#include "Structure.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/Structure.h"
 
 namespace JSC {
 

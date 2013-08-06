@@ -26,18 +26,18 @@
  */
 
 #include "config.h"
-#include "CSSToStyleMap.h"
+#include "css/CSSToStyleMap.h"
 
-#include "Animation.h"
-#include "CSSBorderImageSliceValue.h"
-#include "CSSPrimitiveValue.h"
-#include "CSSPrimitiveValueMappings.h"
-#include "CSSTimingFunctionValue.h"
+#include "platform/animation/Animation.h"
+#include "css/CSSBorderImageSliceValue.h"
+#include "css/CSSPrimitiveValue.h"
+#include "css/CSSPrimitiveValueMappings.h"
+#include "css/CSSTimingFunctionValue.h"
 #include "CSSValueKeywords.h"
-#include "FillLayer.h"
-#include "Pair.h"
-#include "Rect.h"
-#include "StyleResolver.h"
+#include "rendering/style/FillLayer.h"
+#include "css/Pair.h"
+#include "css/Rect.h"
+#include "css/StyleResolver.h"
 
 namespace WebCore {
 

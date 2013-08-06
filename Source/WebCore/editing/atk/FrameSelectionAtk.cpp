@@ -18,14 +18,14 @@
  */
 
 #include "config.h"
-#include "FrameSelection.h"
+#include "editing/FrameSelection.h"
 
 #if HAVE(ACCESSIBILITY)
 
-#include "AXObjectCache.h"
-#include "Document.h"
-#include "Frame.h"
-#include "WebKitAccessibleWrapperAtk.h"
+#include "accessibility/AXObjectCache.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "accessibility/atk/WebKitAccessibleWrapperAtk.h"
 
 #if PLATFORM(EFL)
 #include <glib.h>

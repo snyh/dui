@@ -25,14 +25,14 @@
 
 #include "config.h"
 #if ENABLE(DATE_AND_TIME_INPUT_TYPES)
-#include "BaseChooserOnlyDateAndTimeInputType.h"
+#include "html/BaseChooserOnlyDateAndTimeInputType.h"
 
-#include "Chrome.h"
-#include "HTMLDivElement.h"
-#include "HTMLInputElement.h"
-#include "Page.h"
-#include "ScriptController.h"
-#include "ShadowRoot.h"
+#include "page/Chrome.h"
+#include "html/HTMLDivElement.h"
+#include "html/HTMLInputElement.h"
+#include "page/Page.h"
+#include "bindings/dui/saved/ScriptController.h"
+#include "dom/ShadowRoot.h"
 
 namespace WebCore {
 

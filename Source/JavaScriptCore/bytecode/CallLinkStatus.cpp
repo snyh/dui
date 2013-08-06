@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "CallLinkStatus.h"
+#include "bytecode/CallLinkStatus.h"
 
-#include "CodeBlock.h"
-#include "LLIntCallLinkInfo.h"
-#include "Operations.h"
+#include "bytecode/CodeBlock.h"
+#include "bytecode/LLIntCallLinkInfo.h"
+#include "runtime/Operations.h"
 #include <wtf/CommaPrinter.h>
 
 namespace JSC {

@@ -21,12 +21,12 @@
 #include "config.h"
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "SVGFEColorMatrixElement.h"
+#include "svg/SVGFEColorMatrixElement.h"
 
-#include "Attribute.h"
-#include "FilterEffect.h"
-#include "SVGElementInstance.h"
-#include "SVGFilterBuilder.h"
+#include "dom/Attribute.h"
+#include "platform/graphics/filters/FilterEffect.h"
+#include "svg/SVGElementInstance.h"
+#include "svg/graphics/filters/SVGFilterBuilder.h"
 #include "SVGNames.h"
 
 namespace WebCore {

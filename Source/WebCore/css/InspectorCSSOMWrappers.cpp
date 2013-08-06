@@ -27,19 +27,19 @@
  */
 
 #include "config.h"
-#include "InspectorCSSOMWrappers.h"
+#include "css/InspectorCSSOMWrappers.h"
 
-#include "CSSDefaultStyleSheets.h"
-#include "CSSHostRule.h"
-#include "CSSImportRule.h"
-#include "CSSMediaRule.h"
-#include "CSSRule.h"
-#include "CSSStyleRule.h"
-#include "CSSStyleSheet.h"
-#include "CSSSupportsRule.h"
-#include "DocumentStyleSheetCollection.h"
-#include "StyleSheetContents.h"
-#include "WebKitCSSRegionRule.h"
+#include "css/CSSDefaultStyleSheets.h"
+#include "css/CSSHostRule.h"
+#include "css/CSSImportRule.h"
+#include "css/CSSMediaRule.h"
+#include "css/CSSRule.h"
+#include "css/CSSStyleRule.h"
+#include "css/CSSStyleSheet.h"
+#include "css/CSSSupportsRule.h"
+#include "dom/DocumentStyleSheetCollection.h"
+#include "css/StyleSheetContents.h"
+#include "css/WebKitCSSRegionRule.h"
 
 namespace WebCore {
 

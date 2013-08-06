@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "DebuggerActivation.h"
+#include "debugger/DebuggerActivation.h"
 
-#include "JSActivation.h"
-#include "Operations.h"
+#include "runtime/JSActivation.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

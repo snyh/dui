@@ -25,8 +25,8 @@
 #ifndef RenderSelectionInfo_h
 #define RenderSelectionInfo_h
 
-#include "IntRect.h"
-#include "RenderBox.h"
+#include "platform/graphics/IntRect.h"
+#include "rendering/RenderBox.h"
 
 namespace WebCore {
 

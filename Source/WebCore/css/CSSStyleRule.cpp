@@ -20,16 +20,16 @@
  */
 
 #include "config.h"
-#include "CSSStyleRule.h"
+#include "css/CSSStyleRule.h"
 
-#include "CSSParser.h"
-#include "CSSSelector.h"
-#include "CSSStyleSheet.h"
-#include "Document.h"
-#include "PropertySetCSSStyleDeclaration.h"
-#include "RuleSet.h"
-#include "StylePropertySet.h"
-#include "StyleRule.h"
+#include "css/CSSParser.h"
+#include "css/CSSSelector.h"
+#include "css/CSSStyleSheet.h"
+#include "dom/Document.h"
+#include "css/PropertySetCSSStyleDeclaration.h"
+#include "css/RuleSet.h"
+#include "css/StylePropertySet.h"
+#include "css/StyleRule.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

@@ -23,7 +23,7 @@
 #ifndef CachedRawResourceClient_h
 #define CachedRawResourceClient_h
 
-#include "CachedResourceClient.h"
+#include "loader/cache/CachedResourceClient.h"
 
 namespace WebCore {
 

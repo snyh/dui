@@ -25,11 +25,11 @@
 #ifndef Range_h
 #define Range_h
 
-#include "ExceptionCodePlaceholder.h"
-#include "FloatRect.h"
-#include "FragmentScriptingPermission.h"
-#include "IntRect.h"
-#include "RangeBoundaryPoint.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "platform/graphics/FloatRect.h"
+#include "dom/FragmentScriptingPermission.h"
+#include "platform/graphics/IntRect.h"
+#include "dom/RangeBoundaryPoint.h"
 #include <wtf/Forward.h>
 #include <wtf/RefCounted.h>
 #include <wtf/Vector.h>

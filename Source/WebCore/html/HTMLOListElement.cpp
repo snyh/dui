@@ -21,13 +21,13 @@
  */
 
 #include "config.h"
-#include "HTMLOListElement.h"
+#include "html/HTMLOListElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
 #include "HTMLNames.h"
-#include "RenderListItem.h"
+#include "rendering/RenderListItem.h"
 
 namespace WebCore {
 

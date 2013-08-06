@@ -20,14 +20,14 @@
  */
 
 #include "config.h"
-#include "StyleRareInheritedData.h"
+#include "rendering/style/StyleRareInheritedData.h"
 
-#include "CursorList.h"
-#include "QuotesData.h"
-#include "RenderStyle.h"
-#include "RenderStyleConstants.h"
-#include "ShadowData.h"
-#include "StyleImage.h"
+#include "rendering/style/CursorList.h"
+#include "rendering/style/QuotesData.h"
+#include "rendering/style/RenderStyle.h"
+#include "rendering/style/RenderStyleConstants.h"
+#include "rendering/style/ShadowData.h"
+#include "rendering/style/StyleImage.h"
 
 namespace WebCore {
 

@@ -20,10 +20,10 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGTextChunk.h"
+#include "rendering/svg/SVGTextChunk.h"
 
-#include "SVGInlineTextBox.h"
-#include "SVGTextFragment.h"
+#include "rendering/svg/SVGInlineTextBox.h"
+#include "rendering/svg/SVGTextFragment.h"
 
 namespace WebCore {
 

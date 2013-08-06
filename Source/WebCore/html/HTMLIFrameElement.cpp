@@ -23,16 +23,16 @@
  */
 
 #include "config.h"
-#include "HTMLIFrameElement.h"
+#include "html/HTMLIFrameElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
-#include "Frame.h"
-#include "HTMLDocument.h"
+#include "page/Frame.h"
+#include "html/HTMLDocument.h"
 #include "HTMLNames.h"
-#include "NodeRenderingContext.h"
-#include "RenderIFrame.h"
-#include "ScriptableDocumentParser.h"
+#include "dom/NodeRenderingContext.h"
+#include "rendering/RenderIFrame.h"
+#include "dom/ScriptableDocumentParser.h"
 
 namespace WebCore {
 

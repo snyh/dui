@@ -28,7 +28,7 @@
 
 #if ENABLE(CSS_FILTERS)
 
-#include "FilterOperations.h"
+#include "platform/graphics/filters/FilterOperations.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 

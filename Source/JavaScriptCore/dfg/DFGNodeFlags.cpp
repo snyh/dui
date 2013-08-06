@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "DFGNodeFlags.h"
+#include "dfg/DFGNodeFlags.h"
 
 #if ENABLE(DFG_JIT)
 

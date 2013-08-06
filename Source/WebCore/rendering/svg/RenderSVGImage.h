@@ -25,11 +25,11 @@
 #define RenderSVGImage_h
 
 #if ENABLE(SVG)
-#include "AffineTransform.h"
-#include "FloatRect.h"
-#include "RenderSVGModelObject.h"
-#include "SVGPreserveAspectRatio.h"
-#include "SVGRenderSupport.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/FloatRect.h"
+#include "rendering/svg/RenderSVGModelObject.h"
+#include "svg/SVGPreserveAspectRatio.h"
+#include "rendering/svg/SVGRenderSupport.h"
 
 namespace WebCore {
 

@@ -20,7 +20,7 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGPathStringBuilder.h"
+#include "svg/SVGPathStringBuilder.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

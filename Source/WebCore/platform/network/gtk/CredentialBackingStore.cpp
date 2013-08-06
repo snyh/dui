@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "CredentialBackingStore.h"
+#include "platform/network/gtk/CredentialBackingStore.h"
 
 #if ENABLE(CREDENTIAL_STORAGE)
 #define SECRET_WITH_UNSTABLE 1
 #define SECRET_API_SUBJECT_TO_CHANGE 1
-#include "AuthenticationChallenge.h"
-#include "GRefPtrGtk.h"
+#include "platform/network/soup/AuthenticationChallenge.h"
+#include "platform/gtk/GRefPtrGtk.h"
 #include <glib/gi18n-lib.h>
 #include <libsecret/secret.h>
 #include <libsoup/soup.h>

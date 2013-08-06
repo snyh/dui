@@ -18,7 +18,7 @@
 
 
 #include "config.h"
-#include "GOwnPtrSoup.h"
+#include "platform/network/soup/GOwnPtrSoup.h"
 
 #include <libsoup/soup.h>
 

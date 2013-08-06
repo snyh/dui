@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "DFGValidate.h"
+#include "dfg/DFGValidate.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "CodeBlockWithJITType.h"
+#include "bytecode/CodeBlockWithJITType.h"
 #include <wtf/Assertions.h>
 #include <wtf/BitVector.h>
 

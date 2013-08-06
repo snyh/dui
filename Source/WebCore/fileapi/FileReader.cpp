@@ -32,14 +32,14 @@
 
 #if ENABLE(BLOB)
 
-#include "FileReader.h"
+#include "fileapi/FileReader.h"
 
-#include "CrossThreadTask.h"
-#include "ExceptionCode.h"
-#include "File.h"
-#include "Logging.h"
-#include "ProgressEvent.h"
-#include "ScriptExecutionContext.h"
+#include "dom/CrossThreadTask.h"
+#include "dom/ExceptionCode.h"
+#include "fileapi/File.h"
+#include "platform/Logging.h"
+#include "dom/ProgressEvent.h"
+#include "dom/ScriptExecutionContext.h"
 #include <wtf/ArrayBuffer.h>
 #include <wtf/CurrentTime.h>
 #include <wtf/text/CString.h>

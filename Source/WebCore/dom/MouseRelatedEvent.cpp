@@ -21,14 +21,14 @@
  */
 
 #include "config.h"
-#include "MouseRelatedEvent.h"
+#include "dom/MouseRelatedEvent.h"
 
-#include "DOMWindow.h"
-#include "Document.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "RenderLayer.h"
-#include "RenderObject.h"
+#include "page/DOMWindow.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/RenderObject.h"
 
 namespace WebCore {
 

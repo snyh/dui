@@ -26,7 +26,7 @@
 #ifndef DragIcon_h
 #define DragIcon_h
 
-#include "IntPoint.h"
+#include "platform/graphics/IntPoint.h"
 #include <RefPtrCairo.h>
 #include <wtf/gobject/GRefPtr.h>
 

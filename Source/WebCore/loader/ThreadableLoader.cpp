@@ -29,15 +29,15 @@
  */
 
 #include "config.h"
-#include "ThreadableLoader.h"
+#include "loader/ThreadableLoader.h"
 
-#include "Document.h"
-#include "DocumentThreadableLoader.h"
-#include "ScriptExecutionContext.h"
-#include "SecurityOrigin.h"
-#include "WorkerGlobalScope.h"
-#include "WorkerRunLoop.h"
-#include "WorkerThreadableLoader.h"
+#include "dom/Document.h"
+#include "loader/DocumentThreadableLoader.h"
+#include "dom/ScriptExecutionContext.h"
+#include "page/SecurityOrigin.h"
+#include "workers/WorkerGlobalScope.h"
+#include "workers/WorkerRunLoop.h"
+#include "loader/WorkerThreadableLoader.h"
 
 namespace WebCore {
 

@@ -26,7 +26,7 @@
 #ifndef ThunkGenerators_h
 #define ThunkGenerators_h
 
-#include "ThunkGenerator.h"
+#include "jit/ThunkGenerator.h"
 
 #if ENABLE(JIT)
 namespace JSC {

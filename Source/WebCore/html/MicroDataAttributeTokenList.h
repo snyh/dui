@@ -33,8 +33,8 @@
 
 #if ENABLE(MICRODATA)
 
-#include "DOMSettableTokenList.h"
-#include "QualifiedName.h"
+#include "html/DOMSettableTokenList.h"
+#include "dom/QualifiedName.h"
 
 namespace WebCore {
 

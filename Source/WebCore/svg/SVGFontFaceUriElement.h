@@ -21,9 +21,9 @@
 #define SVGFontFaceUriElement_h
 
 #if ENABLE(SVG_FONTS)
-#include "CachedFontClient.h"
-#include "CachedResourceHandle.h"
-#include "SVGElement.h"
+#include "loader/cache/CachedFontClient.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "svg/SVGElement.h"
 
 namespace WebCore {
 

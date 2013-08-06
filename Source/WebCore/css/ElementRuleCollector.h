@@ -22,9 +22,9 @@
 #ifndef ElementRuleCollector_h
 #define ElementRuleCollector_h
 
-#include "MediaQueryEvaluator.h"
-#include "SelectorChecker.h"
-#include "StyleResolver.h"
+#include "css/MediaQueryEvaluator.h"
+#include "css/SelectorChecker.h"
+#include "css/StyleResolver.h"
 #include <wtf/RefPtr.h>
 #include <wtf/Vector.h>
 

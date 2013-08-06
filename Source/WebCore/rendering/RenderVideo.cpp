@@ -26,22 +26,22 @@
 #include "config.h"
 
 #if ENABLE(VIDEO)
-#include "RenderVideo.h"
+#include "rendering/RenderVideo.h"
 
-#include "Document.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "GraphicsContext.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "platform/graphics/GraphicsContext.h"
 #include "HTMLNames.h"
-#include "HTMLVideoElement.h"
-#include "MediaPlayer.h"
-#include "Page.h"
-#include "PaintInfo.h"
-#include "RenderView.h"
+#include "html/HTMLVideoElement.h"
+#include "platform/graphics/MediaPlayer.h"
+#include "page/Page.h"
+#include "rendering/PaintInfo.h"
+#include "rendering/RenderView.h"
 #include <wtf/StackStats.h>
 
 #if ENABLE(FULLSCREEN_API)
-#include "RenderFullScreen.h"
+#include "rendering/RenderFullScreen.h"
 #endif
 
 namespace WebCore {

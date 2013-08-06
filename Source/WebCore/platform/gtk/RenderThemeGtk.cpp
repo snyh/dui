@@ -23,26 +23,26 @@
  */
 
 #include "config.h"
-#include "RenderThemeGtk.h"
+#include "platform/gtk/RenderThemeGtk.h"
 
 #include "CSSValueKeywords.h"
-#include "ExceptionCodePlaceholder.h"
-#include "FileList.h"
-#include "FileSystem.h"
-#include "FontDescription.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "fileapi/FileList.h"
+#include "platform/FileSystem.h"
+#include "platform/graphics/FontDescription.h"
 #include <wtf/gobject/GOwnPtr.h>
-#include "Gradient.h"
-#include "GraphicsContext.h"
-#include "GtkVersioning.h"
-#include "HTMLMediaElement.h"
-#include "LocalizedStrings.h"
-#include "MediaControlElements.h"
-#include "PaintInfo.h"
-#include "PlatformContextCairo.h"
-#include "RenderBox.h"
-#include "RenderObject.h"
-#include "StringTruncator.h"
-#include "TimeRanges.h"
+#include "platform/graphics/Gradient.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/gtk/GtkVersioning.h"
+#include "html/HTMLMediaElement.h"
+#include "platform/LocalizedStrings.h"
+#include "html/shadow/MediaControlElements.h"
+#include "rendering/PaintInfo.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
+#include "rendering/RenderBox.h"
+#include "rendering/RenderObject.h"
+#include "platform/graphics/StringTruncator.h"
+#include "html/TimeRanges.h"
 #include "UserAgentStyleSheets.h"
 #include <cmath>
 #include <gdk/gdk.h>
@@ -51,7 +51,7 @@
 #include <wtf/text/CString.h>
 
 #if ENABLE(PROGRESS_ELEMENT)
-#include "RenderProgress.h"
+#include "rendering/RenderProgress.h"
 #endif
 
 namespace WebCore {

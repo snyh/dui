@@ -19,20 +19,20 @@
  */
 
 #include "config.h"
-#include "ScriptController.h"
+#include "bindings/dui/saved/ScriptController.h"
 
-#include "ContentSecurityPolicy.h"
-#include "Document.h"
-#include "DocumentLoader.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
-#include "Page.h"
-#include "ScriptSourceCode.h"
-#include "ScriptValue.h"
-#include "SecurityOrigin.h"
-#include "Settings.h"
-#include "UserGestureIndicator.h"
+#include "page/ContentSecurityPolicy.h"
+#include "dom/Document.h"
+#include "loader/DocumentLoader.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
+#include "page/Page.h"
+#include "bindings/dui/saved/ScriptSourceCode.h"
+#include "bindings/dui/saved/ScriptValue.h"
+#include "page/SecurityOrigin.h"
+#include "page/Settings.h"
+#include "dom/UserGestureIndicator.h"
 #include <wtf/text/TextPosition.h>
 
 namespace WebCore {

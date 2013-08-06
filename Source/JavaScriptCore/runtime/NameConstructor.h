@@ -26,8 +26,8 @@
 #ifndef NameConstructor_h
 #define NameConstructor_h
 
-#include "InternalFunction.h"
-#include "NameInstance.h"
+#include "runtime/InternalFunction.h"
+#include "runtime/NameInstance.h"
 
 namespace JSC {
 

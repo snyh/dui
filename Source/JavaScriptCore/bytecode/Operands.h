@@ -26,8 +26,8 @@
 #ifndef Operands_h
 #define Operands_h
 
-#include "CallFrame.h"
-#include "JSObject.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/JSObject.h"
 #include <wtf/PrintStream.h>
 #include <wtf/Vector.h>
 

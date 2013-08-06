@@ -26,7 +26,7 @@
 #ifndef PropertyStorage_h
 #define PropertyStorage_h
 
-#include "WriteBarrier.h"
+#include "runtime/WriteBarrier.h"
 
 namespace JSC {
 

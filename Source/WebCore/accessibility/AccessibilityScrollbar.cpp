@@ -27,12 +27,12 @@
  */
 
 #include "config.h"
-#include "AccessibilityScrollbar.h"
+#include "accessibility/AccessibilityScrollbar.h"
 
-#include "AXObjectCache.h"
-#include "FrameView.h"
-#include "ScrollView.h"
-#include "Scrollbar.h"
+#include "accessibility/AXObjectCache.h"
+#include "page/FrameView.h"
+#include "platform/ScrollView.h"
+#include "platform/Scrollbar.h"
 
 namespace WebCore {
 

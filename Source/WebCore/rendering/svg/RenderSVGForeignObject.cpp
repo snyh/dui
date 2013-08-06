@@ -22,19 +22,19 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGForeignObject.h"
+#include "rendering/svg/RenderSVGForeignObject.h"
 
-#include "GraphicsContext.h"
-#include "HitTestResult.h"
-#include "LayoutRepainter.h"
-#include "RenderObject.h"
-#include "RenderSVGResource.h"
-#include "RenderView.h"
-#include "SVGForeignObjectElement.h"
-#include "SVGRenderingContext.h"
-#include "SVGResourcesCache.h"
-#include "SVGSVGElement.h"
-#include "TransformState.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/HitTestResult.h"
+#include "rendering/LayoutRepainter.h"
+#include "rendering/RenderObject.h"
+#include "rendering/svg/RenderSVGResource.h"
+#include "rendering/RenderView.h"
+#include "svg/SVGForeignObjectElement.h"
+#include "rendering/svg/SVGRenderingContext.h"
+#include "rendering/svg/SVGResourcesCache.h"
+#include "svg/SVGSVGElement.h"
+#include "platform/graphics/transforms/TransformState.h"
 #include <wtf/StackStats.h>
 
 namespace WebCore {

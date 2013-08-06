@@ -25,14 +25,14 @@
  */
 
 #include "config.h"
-#include "XPathEvaluator.h"
+#include "xml/XPathEvaluator.h"
 
-#include "ExceptionCode.h"
-#include "NativeXPathNSResolver.h"
-#include "Node.h"
-#include "XPathExpression.h"
-#include "XPathResult.h"
-#include "XPathUtil.h"
+#include "dom/ExceptionCode.h"
+#include "xml/NativeXPathNSResolver.h"
+#include "dom/Node.h"
+#include "xml/XPathExpression.h"
+#include "xml/XPathResult.h"
+#include "xml/XPathUtil.h"
 
 namespace WebCore {
 

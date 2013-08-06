@@ -21,9 +21,9 @@
  */
 
 #include "config.h"
-#include "JSAPIValueWrapper.h"
+#include "runtime/JSAPIValueWrapper.h"
 
-#include "NumberObject.h"
+#include "runtime/NumberObject.h"
 
 namespace JSC {
 

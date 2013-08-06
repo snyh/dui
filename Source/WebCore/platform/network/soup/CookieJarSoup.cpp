@@ -19,14 +19,14 @@
  */
 
 #include "config.h"
-#include "CookieJarSoup.h"
+#include "platform/network/soup/CookieJarSoup.h"
 
-#include "Cookie.h"
-#include "GOwnPtrSoup.h"
-#include "KURL.h"
-#include "NetworkingContext.h"
-#include "PlatformCookieJar.h"
-#include "ResourceHandle.h"
+#include "platform/Cookie.h"
+#include "platform/network/soup/GOwnPtrSoup.h"
+#include "platform/KURL.h"
+#include "platform/network/NetworkingContext.h"
+#include "platform/network/PlatformCookieJar.h"
+#include "platform/network/ResourceHandle.h"
 #include <wtf/gobject/GRefPtr.h>
 #include <wtf/text/CString.h>
 

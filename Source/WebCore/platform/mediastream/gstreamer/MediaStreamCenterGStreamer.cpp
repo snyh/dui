@@ -33,10 +33,10 @@
 
 #if ENABLE(MEDIA_STREAM)
 
-#include "MediaStreamCenterGStreamer.h"
+#include "platform/mediastream/gstreamer/MediaStreamCenterGStreamer.h"
 
-#include "MediaStreamDescriptor.h"
-#include "MediaStreamSourcesQueryClient.h"
+#include "platform/mediastream/MediaStreamDescriptor.h"
+#include "platform/mediastream/MediaStreamSourcesQueryClient.h"
 #include <wtf/MainThread.h>
 
 namespace WebCore {

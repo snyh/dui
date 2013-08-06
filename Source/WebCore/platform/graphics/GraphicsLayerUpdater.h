@@ -28,8 +28,8 @@
 
 #if USE(ACCELERATED_COMPOSITING)
 
-#include "DisplayRefreshMonitor.h"
-#include "PlatformScreen.h"
+#include "platform/graphics/DisplayRefreshMonitor.h"
+#include "platform/PlatformScreen.h"
 
 namespace WebCore {
 

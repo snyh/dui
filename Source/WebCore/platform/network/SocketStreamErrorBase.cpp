@@ -29,7 +29,7 @@
  */
 
 #include "config.h"
-#include "SocketStreamError.h"
+#include "platform/network/soup/SocketStreamError.h"
 
 namespace WebCore {
 

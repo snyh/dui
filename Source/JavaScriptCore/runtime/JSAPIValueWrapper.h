@@ -23,10 +23,10 @@
 #ifndef JSAPIValueWrapper_h
 #define JSAPIValueWrapper_h
 
-#include "JSCJSValue.h"
-#include "JSCell.h"
-#include "CallFrame.h"
-#include "Structure.h"
+#include "runtime/JSCJSValue.h"
+#include "runtime/JSCell.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/Structure.h"
 
 namespace JSC {
 

@@ -28,10 +28,10 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "Language.h"
-#include "LocalizedStrings.h"
-#include "TextTrack.h"
-#include "Timer.h"
+#include "platform/Language.h"
+#include "platform/LocalizedStrings.h"
+#include "html/track/TextTrack.h"
+#include "platform/Timer.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/AtomicString.h>
 

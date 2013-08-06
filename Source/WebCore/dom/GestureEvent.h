@@ -29,12 +29,12 @@
 
 #if ENABLE(GESTURE_EVENTS)
 
-#include "EventDispatcher.h"
-#include "EventNames.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "MouseRelatedEvent.h"
-#include "PlatformEvent.h"
+#include "dom/EventDispatcher.h"
+#include "dom/EventNames.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "dom/MouseRelatedEvent.h"
+#include "platform/PlatformEvent.h"
 #include "PlatformGestureEvent.h"
 
 namespace WebCore {

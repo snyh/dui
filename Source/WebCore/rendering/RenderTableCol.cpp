@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "RenderTableCol.h"
+#include "rendering/RenderTableCol.h"
 
 #include "HTMLNames.h"
-#include "HTMLTableColElement.h"
-#include "RenderTable.h"
-#include "RenderTableCell.h"
+#include "html/HTMLTableColElement.h"
+#include "rendering/RenderTable.h"
+#include "rendering/RenderTableCell.h"
 
 namespace WebCore {
 

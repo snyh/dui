@@ -27,9 +27,9 @@
 
 #if USE(ACCELERATED_COMPOSITING)
 
-#include "GraphicsLayerUpdater.h"
+#include "platform/graphics/GraphicsLayerUpdater.h"
 
-#include "GraphicsLayer.h"
+#include "platform/graphics/GraphicsLayer.h"
 
 namespace WebCore {
 

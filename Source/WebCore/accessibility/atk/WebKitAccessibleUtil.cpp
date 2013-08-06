@@ -29,16 +29,16 @@
  */
 
 #include "config.h"
-#include "WebKitAccessibleUtil.h"
+#include "accessibility/atk/WebKitAccessibleUtil.h"
 
 #if HAVE(ACCESSIBILITY)
 
-#include "AccessibilityObject.h"
-#include "FrameView.h"
-#include "IntRect.h"
-#include "Node.h"
-#include "Range.h"
-#include "VisibleSelection.h"
+#include "accessibility/AccessibilityObject.h"
+#include "page/FrameView.h"
+#include "platform/graphics/IntRect.h"
+#include "dom/Node.h"
+#include "dom/Range.h"
+#include "editing/VisibleSelection.h"
 
 #include <wtf/text/AtomicString.h>
 #include <wtf/text/CString.h>

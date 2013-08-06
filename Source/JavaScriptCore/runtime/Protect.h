@@ -22,8 +22,8 @@
 #ifndef Protect_h
 #define Protect_h
 
-#include "Heap.h"
-#include "JSCJSValue.h"
+#include "heap/Heap.h"
+#include "runtime/JSCJSValue.h"
 
 namespace JSC {
 

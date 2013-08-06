@@ -30,7 +30,7 @@
 
 #if ENABLE(LLINT)
 
-#include "Opcode.h"
+#include "bytecode/Opcode.h"
 
 #if ENABLE(LLINT_C_LOOP)
 

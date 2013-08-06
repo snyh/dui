@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "DFGCPSRethreadingPhase.h"
+#include "dfg/DFGCPSRethreadingPhase.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGBasicBlockInlines.h"
-#include "DFGGraph.h"
-#include "DFGPhase.h"
-#include "Operations.h"
+#include "dfg/DFGBasicBlockInlines.h"
+#include "dfg/DFGGraph.h"
+#include "dfg/DFGPhase.h"
+#include "runtime/Operations.h"
 
 namespace JSC { namespace DFG {
 

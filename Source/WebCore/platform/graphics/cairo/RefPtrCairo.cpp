@@ -17,7 +17,7 @@
  */
 
 #include "config.h"
-#include "RefPtrCairo.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 
 #include <cairo.h>
 

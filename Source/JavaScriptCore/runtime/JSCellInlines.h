@@ -26,12 +26,12 @@
 #ifndef JSCellInlines_h
 #define JSCellInlines_h
 
-#include "CallFrame.h"
-#include "Handle.h"
-#include "JSCell.h"
-#include "JSObject.h"
-#include "JSString.h"
-#include "Structure.h"
+#include "interpreter/CallFrame.h"
+#include "heap/Handle.h"
+#include "runtime/JSCell.h"
+#include "runtime/JSObject.h"
+#include "runtime/JSString.h"
+#include "runtime/Structure.h"
 
 namespace JSC {
 

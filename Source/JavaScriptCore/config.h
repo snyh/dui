@@ -30,7 +30,7 @@
 #include <wtf/Platform.h>
 #include <wtf/ExportMacros.h>
 #if !defined(BUILDING_WTF)
-#include "JSExportMacros.h"
+#include "runtime/JSExportMacros.h"
 #endif
 
 #if OS(WINDOWS)

@@ -21,9 +21,9 @@
 #ifndef HTMLPlugInImageElement_h
 #define HTMLPlugInImageElement_h
 
-#include "HTMLPlugInElement.h"
+#include "html/HTMLPlugInElement.h"
 
-#include "RenderStyle.h"
+#include "rendering/style/RenderStyle.h"
 #include <wtf/OwnPtr.h>
 
 namespace WebCore {

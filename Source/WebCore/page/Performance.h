@@ -34,12 +34,12 @@
 
 #if ENABLE(WEB_TIMING)
 
-#include "DOMWindowProperty.h"
-#include "EventTarget.h"
-#include "PerformanceEntryList.h"
-#include "PerformanceNavigation.h"
-#include "PerformanceTiming.h"
-#include "ScriptWrappable.h"
+#include "page/DOMWindowProperty.h"
+#include "dom/EventTarget.h"
+#include "page/PerformanceEntryList.h"
+#include "page/PerformanceNavigation.h"
+#include "page/PerformanceTiming.h"
+#include "bindings/dui/ScriptWrappable.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>

@@ -27,12 +27,12 @@
  */
 
 #include "config.h"
-#include "AccessibilityTableCell.h"
+#include "accessibility/AccessibilityTableCell.h"
 
-#include "AXObjectCache.h"
+#include "accessibility/AXObjectCache.h"
 #include "HTMLNames.h"
-#include "RenderObject.h"
-#include "RenderTableCell.h"
+#include "rendering/RenderObject.h"
+#include "rendering/RenderTableCell.h"
 
 using namespace std;
 

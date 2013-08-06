@@ -29,7 +29,7 @@
  */
 
 #include "config.h"
-#include "WebKitCSSMixFunctionValue.h"
+#include "css/WebKitCSSMixFunctionValue.h"
 
 #if ENABLE(CSS_SHADERS)
 

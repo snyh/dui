@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "FontData.h"
+#include "platform/graphics/FontData.h"
 
 namespace WebCore {
 

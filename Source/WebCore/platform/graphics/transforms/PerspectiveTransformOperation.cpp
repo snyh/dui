@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "PerspectiveTransformOperation.h"
+#include "platform/graphics/transforms/PerspectiveTransformOperation.h"
 
-#include "AnimationUtilities.h"
+#include "platform/animation/AnimationUtilities.h"
 #include <wtf/MathExtras.h>
 
 using namespace std;

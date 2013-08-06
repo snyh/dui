@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "GIFImageDecoder.h"
+#include "platform/image-decoders/gif/GIFImageDecoder.h"
 
-#include "GIFImageReader.h"
-#include "PlatformInstrumentation.h"
+#include "platform/image-decoders/gif/GIFImageReader.h"
+#include "platform/PlatformInstrumentation.h"
 #include <limits>
 #include <wtf/PassOwnPtr.h>
 

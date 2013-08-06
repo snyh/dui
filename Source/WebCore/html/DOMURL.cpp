@@ -28,18 +28,18 @@
 
 #if ENABLE(BLOB)
 
-#include "DOMURL.h"
+#include "html/DOMURL.h"
 
-#include "ActiveDOMObject.h"
-#include "Blob.h"
-#include "BlobURL.h"
-#include "KURL.h"
-#include "MemoryCache.h"
-#include "PublicURLManager.h"
-#include "ResourceRequest.h"
-#include "ScriptExecutionContext.h"
-#include "SecurityOrigin.h"
-#include "ThreadableBlobRegistry.h"
+#include "dom/ActiveDOMObject.h"
+#include "fileapi/Blob.h"
+#include "fileapi/BlobURL.h"
+#include "platform/KURL.h"
+#include "loader/cache/MemoryCache.h"
+#include "html/PublicURLManager.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "dom/ScriptExecutionContext.h"
+#include "page/SecurityOrigin.h"
+#include "fileapi/ThreadableBlobRegistry.h"
 #include <wtf/MainThread.h>
 
 #if ENABLE(MEDIA_SOURCE)

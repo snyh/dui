@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "CodeProfiling.h"
+#include "tools/CodeProfiling.h"
 
-#include "CodeProfile.h"
+#include "tools/CodeProfile.h"
 #include <wtf/MetaAllocator.h>
 
 #if HAVE(SIGNAL_H)

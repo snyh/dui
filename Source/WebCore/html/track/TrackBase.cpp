@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "TrackBase.h"
+#include "html/track/TrackBase.h"
 
-#include "HTMLMediaElement.h"
+#include "html/HTMLMediaElement.h"
 
 #if ENABLE(VIDEO_TRACK)
 

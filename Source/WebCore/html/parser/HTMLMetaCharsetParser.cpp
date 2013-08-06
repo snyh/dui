@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "HTMLMetaCharsetParser.h"
+#include "html/parser/HTMLMetaCharsetParser.h"
 
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "HTMLParserOptions.h"
-#include "HTMLTokenizer.h"
-#include "TextCodec.h"
-#include "TextEncodingRegistry.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "html/parser/HTMLParserOptions.h"
+#include "html/parser/HTMLTokenizer.h"
+#include "platform/text/TextCodec.h"
+#include "platform/text/TextEncodingRegistry.h"
 #include <wtf/text/WTFString.h>
 
 using namespace WTF;

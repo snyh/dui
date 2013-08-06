@@ -18,21 +18,21 @@
  */
 
 #include "config.h"
-#include "SVGResourcesCycleSolver.h"
+#include "rendering/svg/SVGResourcesCycleSolver.h"
 
 // Set to a value > 0, to debug the resource cache.
 #define DEBUG_CYCLE_DETECTION 0
 
 #if ENABLE(SVG)
-#include "RenderSVGResourceClipper.h"
-#include "RenderSVGResourceFilter.h"
-#include "RenderSVGResourceMarker.h"
-#include "RenderSVGResourceMasker.h"
-#include "SVGFilterElement.h"
-#include "SVGGradientElement.h"
-#include "SVGPatternElement.h"
-#include "SVGResources.h"
-#include "SVGResourcesCache.h"
+#include "rendering/svg/RenderSVGResourceClipper.h"
+#include "rendering/svg/RenderSVGResourceFilter.h"
+#include "rendering/svg/RenderSVGResourceMarker.h"
+#include "rendering/svg/RenderSVGResourceMasker.h"
+#include "svg/SVGFilterElement.h"
+#include "svg/SVGGradientElement.h"
+#include "svg/SVGPatternElement.h"
+#include "rendering/svg/SVGResources.h"
+#include "rendering/svg/SVGResourcesCache.h"
 
 namespace WebCore {
 

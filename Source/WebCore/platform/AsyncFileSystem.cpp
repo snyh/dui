@@ -29,13 +29,13 @@
  */
 
 #include "config.h"
-#include "AsyncFileSystem.h"
+#include "platform/AsyncFileSystem.h"
 
 #if ENABLE(FILE_SYSTEM)
 
-#include "AsyncFileSystemCallbacks.h"
-#include "ExceptionCode.h"
-#include "NotImplemented.h"
+#include "platform/AsyncFileSystemCallbacks.h"
+#include "dom/ExceptionCode.h"
+#include "platform/NotImplemented.h"
 
 namespace WebCore {
 

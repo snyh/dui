@@ -28,7 +28,7 @@
  */
 
 #include "config.h"
-#include "ShapeInterval.h"
+#include "rendering/shapes/ShapeInterval.h"
 
 #include <wtf/MathExtras.h>
 

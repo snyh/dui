@@ -19,9 +19,9 @@
  */
 
 #include "config.h"
-#include "FormDataList.h"
+#include "html/FormDataList.h"
 
-#include "LineEnding.h"
+#include "platform/text/LineEnding.h"
 
 namespace WebCore {
 

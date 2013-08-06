@@ -26,8 +26,8 @@
 #ifndef CopiedBlockInlines_h
 #define CopiedBlockInlines_h
 
-#include "CopiedBlock.h"
-#include "Heap.h"
+#include "heap/CopiedBlock.h"
+#include "heap/Heap.h"
 
 namespace JSC {
     

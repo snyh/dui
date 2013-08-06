@@ -20,15 +20,15 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "AudioDestinationGStreamer.h"
+#include "platform/audio/gstreamer/AudioDestinationGStreamer.h"
 
-#include "AudioChannel.h"
-#include "AudioSourceProvider.h"
+#include "platform/audio/AudioChannel.h"
+#include "platform/audio/AudioSourceProvider.h"
 #include <wtf/gobject/GOwnPtr.h>
-#include "GRefPtrGStreamer.h"
-#include "GStreamerVersioning.h"
-#include "Logging.h"
-#include "WebKitWebAudioSourceGStreamer.h"
+#include "platform/graphics/gstreamer/GRefPtrGStreamer.h"
+#include "platform/graphics/gstreamer/GStreamerVersioning.h"
+#include "platform/Logging.h"
+#include "platform/audio/gstreamer/WebKitWebAudioSourceGStreamer.h"
 #include <gst/gst.h>
 #include <gst/pbutils/pbutils.h>
 

@@ -27,16 +27,16 @@
 
 #if USE(3D_GRAPHICS)
 
-#include "Extensions3DOpenGL.h"
+#include "platform/graphics/opengl/Extensions3DOpenGL.h"
 
-#include "GraphicsContext3D.h"
+#include "platform/graphics/GraphicsContext3D.h"
 #include <wtf/Vector.h>
 
 #if PLATFORM(MAC)
 #include "ANGLE/ShaderLang.h"
 #include <OpenGL/gl.h>
 #elif PLATFORM(GTK) || PLATFORM(EFL) || PLATFORM(QT) || PLATFORM(WIN)
-#include "OpenGLShims.h"
+#include "platform/graphics/OpenGLShims.h"
 #endif
 
 namespace WebCore {

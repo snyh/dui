@@ -24,7 +24,7 @@
 #ifndef HTMLFontElement_h
 #define HTMLFontElement_h
 
-#include "HTMLElement.h"
+#include "html/HTMLElement.h"
 
 namespace WebCore {
 

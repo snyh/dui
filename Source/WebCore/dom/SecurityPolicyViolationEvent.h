@@ -27,8 +27,8 @@
 
 #if ENABLE(CSP_NEXT)
 
-#include "Event.h"
-#include "EventNames.h"
+#include "dom/Event.h"
+#include "dom/EventNames.h"
 
 namespace WebCore {
 

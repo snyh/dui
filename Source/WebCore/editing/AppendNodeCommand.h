@@ -26,7 +26,7 @@
 #ifndef AppendNodeCommand_h
 #define AppendNodeCommand_h
 
-#include "EditCommand.h"
+#include "editing/EditCommand.h"
 
 namespace WebCore {
 

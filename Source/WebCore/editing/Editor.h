@@ -26,21 +26,21 @@
 #ifndef Editor_h
 #define Editor_h
 
-#include "ClipboardAccessPolicy.h"
-#include "Color.h"
-#include "DictationAlternative.h"
-#include "DocumentMarker.h"
-#include "EditAction.h"
-#include "EditingBehavior.h"
-#include "EditingStyle.h"
-#include "EditorInsertAction.h"
-#include "FindOptions.h"
-#include "FrameDestructionObserver.h"
-#include "FrameSelection.h"
-#include "TextChecking.h"
-#include "TextIterator.h"
-#include "VisibleSelection.h"
-#include "WritingDirection.h"
+#include "dom/ClipboardAccessPolicy.h"
+#include "platform/graphics/Color.h"
+#include "editing/DictationAlternative.h"
+#include "dom/DocumentMarker.h"
+#include "editing/EditAction.h"
+#include "editing/EditingBehavior.h"
+#include "editing/EditingStyle.h"
+#include "editing/EditorInsertAction.h"
+#include "editing/FindOptions.h"
+#include "page/FrameDestructionObserver.h"
+#include "editing/FrameSelection.h"
+#include "platform/text/TextChecking.h"
+#include "editing/TextIterator.h"
+#include "editing/VisibleSelection.h"
+#include "editing/WritingDirection.h"
 
 #if PLATFORM(MAC) && !defined(__OBJC__)
 class NSDictionary;

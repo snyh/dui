@@ -26,7 +26,7 @@
 #ifndef IntRect_h
 #define IntRect_h
 
-#include "IntPoint.h"
+#include "platform/graphics/IntPoint.h"
 #include <wtf/Vector.h>
 
 #if USE(CG)

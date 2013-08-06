@@ -25,8 +25,8 @@
 #ifndef RenderImage_h
 #define RenderImage_h
 
-#include "RenderImageResource.h"
-#include "RenderReplaced.h"
+#include "rendering/RenderImageResource.h"
+#include "rendering/RenderReplaced.h"
 
 namespace WebCore {
 

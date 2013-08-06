@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "GCThread.h"
+#include "heap/GCThread.h"
 
-#include "CopyVisitor.h"
-#include "CopyVisitorInlines.h"
-#include "GCThreadSharedData.h"
-#include "SlotVisitor.h"
+#include "heap/CopyVisitor.h"
+#include "heap/CopyVisitorInlines.h"
+#include "heap/GCThreadSharedData.h"
+#include "heap/SlotVisitor.h"
 #include <wtf/MainThread.h>
 #include <wtf/PassOwnPtr.h>
 

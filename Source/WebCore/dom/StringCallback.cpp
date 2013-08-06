@@ -29,9 +29,9 @@
  */
 
 #include "config.h"
-#include "StringCallback.h"
+#include "dom/StringCallback.h"
 
-#include "ScriptExecutionContext.h"
+#include "dom/ScriptExecutionContext.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

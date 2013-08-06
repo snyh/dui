@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "StorageStrategy.h"
+#include "storage/StorageStrategy.h"
 
-#include "StorageNamespaceImpl.h"
+#include "storage/StorageNamespaceImpl.h"
 
 namespace WebCore {
 

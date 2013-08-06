@@ -31,7 +31,7 @@
 #ifndef SocketStreamError_h
 #define SocketStreamError_h
 
-#include "SocketStreamErrorBase.h"
+#include "platform/network/SocketStreamErrorBase.h"
 
 namespace WebCore {
 

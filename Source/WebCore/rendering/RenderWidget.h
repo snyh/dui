@@ -22,9 +22,9 @@
 #ifndef RenderWidget_h
 #define RenderWidget_h
 
-#include "OverlapTestRequestClient.h"
-#include "RenderReplaced.h"
-#include "Widget.h"
+#include "rendering/OverlapTestRequestClient.h"
+#include "rendering/RenderReplaced.h"
+#include "platform/Widget.h"
 
 namespace WebCore {
 

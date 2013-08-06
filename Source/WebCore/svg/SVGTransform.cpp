@@ -21,13 +21,13 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGTransform.h"
+#include "svg/SVGTransform.h"
 
-#include "FloatConversion.h"
-#include "FloatPoint.h"
-#include "FloatSize.h"
-#include "SVGAngle.h"
-#include "SVGSVGElement.h"
+#include "platform/FloatConversion.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/FloatSize.h"
+#include "svg/SVGAngle.h"
+#include "svg/SVGSVGElement.h"
 #include <wtf/MathExtras.h>
 #include <wtf/text/StringBuilder.h>
 #include <wtf/text/WTFString.h>

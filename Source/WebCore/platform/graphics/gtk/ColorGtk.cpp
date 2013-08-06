@@ -19,7 +19,7 @@
  */
 
 #include "config.h"
-#include "Color.h"
+#include "platform/graphics/Color.h"
 
 #include <gdk/gdk.h>
 

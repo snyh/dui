@@ -22,8 +22,8 @@
 #define SVGZoomAndPan_h
 
 #if ENABLE(SVG)
-#include "Attribute.h"
-#include "QualifiedName.h"
+#include "dom/Attribute.h"
+#include "dom/QualifiedName.h"
 #include "SVGNames.h"
 #include <wtf/HashSet.h>
 #include <wtf/RefCounted.h>

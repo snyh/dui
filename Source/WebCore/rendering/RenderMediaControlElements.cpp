@@ -28,10 +28,10 @@
 #include "config.h"
 
 #if ENABLE(VIDEO)
-#include "RenderMediaControlElements.h"
+#include "rendering/RenderMediaControlElements.h"
 
-#include "RenderTheme.h"
-#include "RenderView.h"
+#include "rendering/RenderTheme.h"
+#include "rendering/RenderView.h"
 
 namespace WebCore {
 

@@ -17,12 +17,12 @@
  */
 
 #include "config.h"
-#include "ImageBuffer.h"
+#include "platform/graphics/ImageBuffer.h"
 
-#include "GdkCairoUtilities.h"
+#include "platform/graphics/gtk/GdkCairoUtilities.h"
 #include <wtf/gobject/GOwnPtr.h>
-#include "GRefPtrGtk.h"
-#include "MIMETypeRegistry.h"
+#include "platform/gtk/GRefPtrGtk.h"
+#include "platform/MIMETypeRegistry.h"
 #include <cairo.h>
 #include <gtk/gtk.h>
 #include <wtf/text/Base64.h>

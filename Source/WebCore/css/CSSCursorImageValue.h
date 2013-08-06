@@ -21,8 +21,8 @@
 #ifndef CSSCursorImageValue_h
 #define CSSCursorImageValue_h
 
-#include "CSSImageValue.h"
-#include "IntPoint.h"
+#include "css/CSSImageValue.h"
+#include "platform/graphics/IntPoint.h"
 #include <wtf/HashSet.h>
 
 namespace WebCore {

@@ -22,14 +22,14 @@
  */
 
 #include "config.h"
-#include "HTMLHtmlElement.h"
+#include "html/HTMLHtmlElement.h"
 
-#include "ApplicationCacheHost.h"
-#include "Document.h"
-#include "DocumentLoader.h"
-#include "DocumentParser.h"
-#include "Frame.h"
-#include "FrameLoader.h"
+#include "loader/appcache/ApplicationCacheHost.h"
+#include "dom/Document.h"
+#include "loader/DocumentLoader.h"
+#include "dom/DocumentParser.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
 #include "HTMLNames.h"
 
 namespace WebCore {

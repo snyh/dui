@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "ExecutionCounter.h"
+#include "bytecode/ExecutionCounter.h"
 
-#include "CodeBlock.h"
-#include "ExecutableAllocator.h"
+#include "bytecode/CodeBlock.h"
+#include "jit/ExecutableAllocator.h"
 #include <wtf/StringExtras.h>
 
 namespace JSC {

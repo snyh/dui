@@ -22,22 +22,22 @@
 */
 
 #include "config.h"
-#include "CachedImage.h"
+#include "loader/cache/CachedImage.h"
 
-#include "BitmapImage.h"
-#include "CachedImageClient.h"
-#include "CachedResourceClient.h"
-#include "CachedResourceClientWalker.h"
-#include "CachedResourceLoader.h"
-#include "FrameLoaderClient.h"
-#include "FrameLoaderTypes.h"
-#include "FrameView.h"
-#include "MemoryCache.h"
-#include "Page.h"
-#include "RenderObject.h"
-#include "ResourceBuffer.h"
-#include "Settings.h"
-#include "SubresourceLoader.h"
+#include "platform/graphics/BitmapImage.h"
+#include "loader/cache/CachedImageClient.h"
+#include "loader/cache/CachedResourceClient.h"
+#include "loader/cache/CachedResourceClientWalker.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/FrameLoaderClient.h"
+#include "loader/FrameLoaderTypes.h"
+#include "page/FrameView.h"
+#include "loader/cache/MemoryCache.h"
+#include "page/Page.h"
+#include "rendering/RenderObject.h"
+#include "loader/ResourceBuffer.h"
+#include "page/Settings.h"
+#include "loader/SubresourceLoader.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/StdLibExtras.h>
 #include <wtf/Vector.h>
@@ -47,7 +47,7 @@
 #endif
 
 #if ENABLE(SVG)
-#include "SVGImage.h"
+#include "svg/graphics/SVGImage.h"
 #endif
 
 using std::max;

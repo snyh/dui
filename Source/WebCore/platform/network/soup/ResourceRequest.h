@@ -27,7 +27,7 @@
 #ifndef ResourceRequest_h
 #define ResourceRequest_h
 
-#include "ResourceRequestBase.h"
+#include "platform/network/ResourceRequestBase.h"
 
 #include <libsoup/soup.h>
 

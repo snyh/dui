@@ -28,9 +28,9 @@
 
 #if ENABLE(DELETION_UI)
 
-#include "DeleteButton.h"
-#include "Editor.h"
-#include "Frame.h"
+#include "editing/DeleteButton.h"
+#include "editing/Editor.h"
+#include "page/Frame.h"
 
 namespace WebCore {
 

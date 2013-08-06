@@ -26,7 +26,7 @@
 #ifndef SourceProviderCacheItem_h
 #define SourceProviderCacheItem_h
 
-#include "ParserTokens.h"
+#include "parser/ParserTokens.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/Vector.h>
 #include <wtf/text/WTFString.h>

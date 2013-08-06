@@ -29,9 +29,9 @@
 #ifndef Console_h
 #define Console_h
 
-#include "DOMWindowProperty.h"
-#include "ScriptState.h"
-#include "ScriptWrappable.h"
+#include "page/DOMWindowProperty.h"
+#include "bindings/dui/saved/ScriptState.h"
+#include "bindings/dui/ScriptWrappable.h"
 #include <wtf/Forward.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>

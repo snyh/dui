@@ -24,10 +24,10 @@
 #ifndef RenderMenuList_h
 #define RenderMenuList_h
 
-#include "LayoutRect.h"
-#include "PopupMenu.h"
-#include "PopupMenuClient.h"
-#include "RenderFlexibleBox.h"
+#include "platform/graphics/LayoutRect.h"
+#include "platform/PopupMenu.h"
+#include "platform/PopupMenuClient.h"
+#include "rendering/RenderFlexibleBox.h"
 
 #if PLATFORM(MAC)
 #define POPUP_MENU_PULLS_DOWN 0

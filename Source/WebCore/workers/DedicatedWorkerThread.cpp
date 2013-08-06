@@ -32,11 +32,11 @@
 
 #if ENABLE(WORKERS)
 
-#include "DedicatedWorkerThread.h"
+#include "workers/DedicatedWorkerThread.h"
 
-#include "DedicatedWorkerGlobalScope.h"
-#include "SecurityOrigin.h"
-#include "WorkerObjectProxy.h"
+#include "workers/DedicatedWorkerGlobalScope.h"
+#include "page/SecurityOrigin.h"
+#include "workers/WorkerObjectProxy.h"
 
 namespace WebCore {
 

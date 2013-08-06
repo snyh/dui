@@ -26,7 +26,7 @@
 #ifndef CachedXSLStyleSheet_h
 #define CachedXSLStyleSheet_h
 
-#include "CachedResource.h"
+#include "loader/cache/CachedResource.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

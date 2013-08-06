@@ -26,8 +26,8 @@
 #ifndef Cursor_h
 #define Cursor_h
 
-#include "Image.h"
-#include "IntPoint.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/IntPoint.h"
 #include <wtf/Assertions.h>
 #include <wtf/RefPtr.h>
 
@@ -39,7 +39,7 @@ typedef HICON HCURSOR;
 #elif PLATFORM(MAC)
 #include <wtf/RetainPtr.h>
 #elif PLATFORM(GTK)
-#include "GRefPtrGtk.h"
+#include "platform/gtk/GRefPtrGtk.h"
 #elif PLATFORM(QT)
 #include <QCursor>
 #elif PLATFORM(BLACKBERRY)

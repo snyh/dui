@@ -30,27 +30,27 @@
 #ifndef CSSPrimitiveValueMappings_h
 #define CSSPrimitiveValueMappings_h
 
-#include "CSSCalculationValue.h"
-#include "CSSPrimitiveValue.h"
-#include "CSSReflectionDirection.h"
-#include "ColorSpace.h"
+#include "css/CSSCalculationValue.h"
+#include "css/CSSPrimitiveValue.h"
+#include "css/CSSReflectionDirection.h"
+#include "platform/graphics/ColorSpace.h"
 #include "CSSValueKeywords.h"
-#include "FontDescription.h"
-#include "FontSmoothingMode.h"
-#include "GraphicsTypes.h"
+#include "platform/graphics/FontDescription.h"
+#include "platform/graphics/FontSmoothingMode.h"
+#include "platform/graphics/GraphicsTypes.h"
 #if ENABLE(CSS_IMAGE_ORIENTATION)
-#include "ImageOrientation.h"
+#include "platform/graphics/ImageOrientation.h"
 #endif
-#include "Length.h"
-#include "LineClampValue.h"
-#include "Path.h"
-#include "RenderStyleConstants.h"
-#include "SVGRenderStyleDefs.h"
-#include "TextDirection.h"
-#include "TextRenderingMode.h"
-#include "ThemeTypes.h"
-#include "UnicodeBidi.h"
-#include "WritingMode.h"
+#include "platform/Length.h"
+#include "rendering/style/LineClampValue.h"
+#include "platform/graphics/Path.h"
+#include "rendering/style/RenderStyleConstants.h"
+#include "rendering/style/SVGRenderStyleDefs.h"
+#include "platform/text/TextDirection.h"
+#include "platform/graphics/TextRenderingMode.h"
+#include "platform/ThemeTypes.h"
+#include "platform/text/UnicodeBidi.h"
+#include "platform/text/WritingMode.h"
 
 #include <wtf/MathExtras.h>
 

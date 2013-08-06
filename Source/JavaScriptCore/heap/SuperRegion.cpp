@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "SuperRegion.h"
+#include "heap/SuperRegion.h"
 
-#include "Region.h"
+#include "heap/Region.h"
 
 namespace JSC {
 

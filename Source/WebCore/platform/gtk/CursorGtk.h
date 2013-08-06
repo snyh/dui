@@ -39,7 +39,7 @@
 #ifndef CursorGtk_h
 #define CursorGtk_h
 
-#include "Cursor.h"
+#include "platform/Cursor.h"
 
 /*
  These cursors are copied from Mozilla code:

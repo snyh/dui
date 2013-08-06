@@ -27,7 +27,7 @@
 #ifndef DOMTimer_h
 #define DOMTimer_h
 
-#include "SuspendableTimer.h"
+#include "page/SuspendableTimer.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>
 

@@ -25,14 +25,14 @@
  */
 
 #include "config.h"
-#include "Font.h"
+#include "platform/graphics/Font.h"
 
-#include "GraphicsContext.h"
-#include "HarfBuzzShaper.h"
-#include "Logging.h"
-#include "NotImplemented.h"
-#include "PlatformContextCairo.h"
-#include "SimpleFontData.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/harfbuzz/HarfBuzzShaper.h"
+#include "platform/Logging.h"
+#include "platform/NotImplemented.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
+#include "platform/graphics/SimpleFontData.h"
 #include <cairo.h>
 
 namespace WebCore {

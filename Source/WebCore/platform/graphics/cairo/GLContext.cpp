@@ -17,16 +17,16 @@
  */
 
 #include "config.h"
-#include "GLContext.h"
+#include "platform/graphics/cairo/GLContext.h"
 
 #if USE(OPENGL)
 
 #if USE(EGL)
-#include "GLContextEGL.h"
+#include "platform/graphics/egl/GLContextEGL.h"
 #endif
 
 #if USE(GLX)
-#include "GLContextGLX.h"
+#include "platform/graphics/glx/GLContextGLX.h"
 #endif
 
 #include <wtf/ThreadSpecific.h>

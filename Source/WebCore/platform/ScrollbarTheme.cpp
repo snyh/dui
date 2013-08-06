@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "ScrollbarTheme.h"
+#include "platform/ScrollbarTheme.h"
 
-#include "ScrollbarThemeMock.h"
-#include "Settings.h"
+#include "platform/mock/ScrollbarThemeMock.h"
+#include "page/Settings.h"
 
 namespace WebCore {
 

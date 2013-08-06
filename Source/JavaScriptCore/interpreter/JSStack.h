@@ -29,8 +29,8 @@
 #ifndef JSStack_h
 #define JSStack_h
 
-#include "ExecutableAllocator.h"
-#include "Register.h"
+#include "jit/ExecutableAllocator.h"
+#include "interpreter/Register.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/PageReservation.h>
 #include <wtf/VMTags.h>

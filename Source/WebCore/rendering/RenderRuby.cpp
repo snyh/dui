@@ -30,11 +30,11 @@
 
 #include "config.h"
 
-#include "RenderRuby.h"
+#include "rendering/RenderRuby.h"
 
-#include "RenderRubyRun.h"
-#include "RenderStyle.h"
-#include "StyleInheritedData.h"
+#include "rendering/RenderRubyRun.h"
+#include "rendering/style/RenderStyle.h"
+#include "rendering/style/StyleInheritedData.h"
 #include <wtf/RefPtr.h>
 
 namespace WebCore {

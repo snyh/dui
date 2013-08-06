@@ -28,7 +28,7 @@
 
 #include <wtf/Assertions.h>
 #include <wtf/BlockStack.h>
-#include "Handle.h"
+#include "heap/Handle.h"
 
 namespace JSC {
 

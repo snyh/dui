@@ -25,34 +25,34 @@
  */
 
 #include "config.h"
-#include "XMLDocumentParser.h"
+#include "xml/parser/XMLDocumentParser.h"
 
-#include "CDATASection.h"
-#include "CachedScript.h"
-#include "Comment.h"
-#include "CachedResourceLoader.h"
-#include "Document.h"
-#include "DocumentFragment.h"
-#include "DocumentType.h"
-#include "ExceptionCodePlaceholder.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameView.h"
-#include "HTMLEntityParser.h"
-#include "HTMLHtmlElement.h"
-#include "HTMLLinkElement.h"
+#include "dom/CDATASection.h"
+#include "loader/cache/CachedScript.h"
+#include "dom/Comment.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "dom/Document.h"
+#include "dom/DocumentFragment.h"
+#include "dom/DocumentType.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "page/FrameView.h"
+#include "html/parser/HTMLEntityParser.h"
+#include "html/HTMLHtmlElement.h"
+#include "html/HTMLLinkElement.h"
 #include "HTMLNames.h"
-#include "HTMLStyleElement.h"
-#include "HTMLTemplateElement.h"
-#include "ProcessingInstruction.h"
-#include "ResourceError.h"
-#include "ResourceRequest.h"
-#include "ResourceResponse.h"
-#include "SecurityOrigin.h"
-#include "TextResourceDecoder.h"
-#include "TransformSource.h"
+#include "html/HTMLStyleElement.h"
+#include "html/HTMLTemplateElement.h"
+#include "dom/ProcessingInstruction.h"
+#include "platform/network/soup/ResourceError.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "page/SecurityOrigin.h"
+#include "loader/TextResourceDecoder.h"
+#include "dom/TransformSource.h"
 #include "XMLNSNames.h"
-#include "XMLDocumentParserScope.h"
+#include "xml/parser/XMLDocumentParserScope.h"
 #include <libxml/parser.h>
 #include <libxml/parserInternals.h>
 #include <wtf/text/CString.h>
@@ -62,7 +62,7 @@
 #include <wtf/unicode/UTF8.h>
 
 #if ENABLE(XSLT)
-#include "XMLTreeViewer.h"
+#include "xml/XMLTreeViewer.h"
 #include <libxslt/xslt.h>
 #endif
 

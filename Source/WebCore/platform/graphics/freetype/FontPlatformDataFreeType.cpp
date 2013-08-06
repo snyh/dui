@@ -23,9 +23,9 @@
  */
 
 #include "config.h"
-#include "FontPlatformData.h"
+#include "platform/graphics/FontPlatformData.h"
 
-#include "FontDescription.h"
+#include "platform/graphics/FontDescription.h"
 #include <cairo-ft.h>
 #include <cairo.h>
 #include <fontconfig/fcfreetype.h>

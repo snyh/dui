@@ -28,8 +28,8 @@
 
 #if ENABLE(THREADED_SCROLLING) || USE(COORDINATED_GRAPHICS)
 
-#include "PlatformLayer.h"
-#include "ScrollingCoordinator.h"
+#include "platform/graphics/PlatformLayer.h"
+#include "page/scrolling/ScrollingCoordinator.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>
 #include <wtf/Vector.h>

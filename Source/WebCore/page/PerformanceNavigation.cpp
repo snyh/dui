@@ -29,13 +29,13 @@
  */
 
 #include "config.h"
-#include "PerformanceNavigation.h"
+#include "page/PerformanceNavigation.h"
 
 #if ENABLE(WEB_TIMING)
 
-#include "DocumentLoader.h"
-#include "Frame.h"
-#include "FrameLoaderTypes.h"
+#include "loader/DocumentLoader.h"
+#include "page/Frame.h"
+#include "loader/FrameLoaderTypes.h"
 
 namespace WebCore {
 

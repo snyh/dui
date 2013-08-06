@@ -22,7 +22,7 @@
 #define SVGPolylineElement_h
 
 #if ENABLE(SVG)
-#include "SVGPolyElement.h"
+#include "svg/SVGPolyElement.h"
 
 namespace WebCore {
 

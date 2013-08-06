@@ -26,8 +26,8 @@
  */
 
 #include "config.h"
-#include "PlatformWheelEvent.h"
-#include "Scrollbar.h"
+#include "platform/PlatformWheelEvent.h"
+#include "platform/Scrollbar.h"
 
 #include <gdk/gdk.h>
 #include <gtk/gtk.h>

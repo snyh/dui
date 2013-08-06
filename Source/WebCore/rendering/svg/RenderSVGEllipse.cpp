@@ -27,11 +27,11 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGEllipse.h"
+#include "rendering/svg/RenderSVGEllipse.h"
 
-#include "SVGCircleElement.h"
-#include "SVGEllipseElement.h"
-#include "SVGGraphicsElement.h"
+#include "svg/SVGCircleElement.h"
+#include "svg/SVGEllipseElement.h"
+#include "svg/SVGGraphicsElement.h"
 #include "SVGNames.h"
 
 namespace WebCore {

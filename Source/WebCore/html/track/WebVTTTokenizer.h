@@ -33,8 +33,8 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "InputStreamPreprocessor.h"
-#include "WebVTTToken.h"
+#include "html/parser/InputStreamPreprocessor.h"
+#include "html/track/WebVTTToken.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

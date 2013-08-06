@@ -29,7 +29,7 @@
 #ifndef Register_h
 #define Register_h
 
-#include "JSCJSValue.h"
+#include "runtime/JSCJSValue.h"
 #include <wtf/Assertions.h>
 #include <wtf/VectorTraits.h>
 

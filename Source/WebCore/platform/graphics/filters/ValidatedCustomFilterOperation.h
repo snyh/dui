@@ -31,10 +31,10 @@
 #define ValidatedCustomFilterOperation_h
 
 #if ENABLE(CSS_SHADERS)
-#include "CustomFilterConstants.h"
-#include "CustomFilterParameterList.h"
-#include "FilterOperation.h"
-#include "LayoutSize.h"
+#include "platform/graphics/filters/CustomFilterConstants.h"
+#include "platform/graphics/filters/CustomFilterParameterList.h"
+#include "platform/graphics/filters/FilterOperation.h"
+#include "platform/graphics/LayoutSize.h"
 
 namespace WebCore {
 

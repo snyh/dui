@@ -33,22 +33,22 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "TextTrackCue.h"
+#include "html/track/TextTrackCue.h"
 
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
-#include "DocumentFragment.h"
-#include "Event.h"
-#include "HTMLDivElement.h"
-#include "HTMLSpanElement.h"
-#include "Logging.h"
-#include "NodeTraversal.h"
-#include "RenderTextTrackCue.h"
-#include "Text.h"
-#include "TextTrack.h"
-#include "TextTrackCueList.h"
-#include "WebVTTElement.h"
-#include "WebVTTParser.h"
+#include "dom/DocumentFragment.h"
+#include "dom/Event.h"
+#include "html/HTMLDivElement.h"
+#include "html/HTMLSpanElement.h"
+#include "platform/Logging.h"
+#include "dom/NodeTraversal.h"
+#include "rendering/RenderTextTrackCue.h"
+#include "dom/Text.h"
+#include "html/track/TextTrack.h"
+#include "html/track/TextTrackCueList.h"
+#include "html/track/WebVTTElement.h"
+#include "html/track/WebVTTParser.h"
 #include <wtf/MathExtras.h>
 #include <wtf/text/StringBuilder.h>
 

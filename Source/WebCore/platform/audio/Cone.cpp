@@ -30,7 +30,7 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "Cone.h"
+#include "platform/audio/Cone.h"
 #include <wtf/MathExtras.h>
 
 namespace WebCore {

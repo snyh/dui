@@ -30,15 +30,15 @@
 
 #include "config.h"
 
-#include "WebKitBlobBuilder.h"
+#include "fileapi/WebKitBlobBuilder.h"
 
-#include "Blob.h"
-#include "Document.h"
-#include "ExceptionCode.h"
-#include "File.h"
-#include "HistogramSupport.h"
-#include "LineEnding.h"
-#include "TextEncoding.h"
+#include "fileapi/Blob.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCode.h"
+#include "fileapi/File.h"
+#include "platform/HistogramSupport.h"
+#include "platform/text/LineEnding.h"
+#include "platform/text/TextEncoding.h"
 #include <wtf/ArrayBuffer.h>
 #include <wtf/ArrayBufferView.h>
 #include <wtf/PassRefPtr.h>

@@ -31,14 +31,14 @@
 
 #if ENABLE(CSS_SHADERS)
 
-#include "CustomFilterValidatedProgram.h"
+#include "platform/graphics/filters/CustomFilterValidatedProgram.h"
 
-#include "ANGLEWebKitBridge.h"
-#include "CustomFilterCompiledProgram.h"
-#include "CustomFilterConstants.h"
-#include "CustomFilterGlobalContext.h"
-#include "CustomFilterProgramInfo.h"
-#include "NotImplemented.h"
+#include "platform/graphics/ANGLEWebKitBridge.h"
+#include "platform/graphics/filters/CustomFilterCompiledProgram.h"
+#include "platform/graphics/filters/CustomFilterConstants.h"
+#include "platform/graphics/filters/CustomFilterGlobalContext.h"
+#include "platform/graphics/filters/CustomFilterProgramInfo.h"
+#include "platform/NotImplemented.h"
 #include <wtf/HashMap.h>
 #include <wtf/Vector.h>
 #include <wtf/text/StringBuilder.h>

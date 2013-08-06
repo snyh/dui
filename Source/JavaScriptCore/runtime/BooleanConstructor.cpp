@@ -19,11 +19,11 @@
  */
 
 #include "config.h"
-#include "BooleanConstructor.h"
+#include "runtime/BooleanConstructor.h"
 
-#include "BooleanPrototype.h"
-#include "JSGlobalObject.h"
-#include "Operations.h"
+#include "runtime/BooleanPrototype.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

@@ -26,7 +26,7 @@
 #ifndef ManifestParser_h
 #define ManifestParser_h
 
-#include "ApplicationCache.h"
+#include "loader/appcache/ApplicationCache.h"
 
 namespace WebCore {
 

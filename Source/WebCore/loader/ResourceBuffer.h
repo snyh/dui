@@ -26,7 +26,7 @@
 #ifndef ResourceBuffer_h
 #define ResourceBuffer_h
 
-#include "SharedBuffer.h"
+#include "platform/SharedBuffer.h"
 
 #include <wtf/PassOwnPtr.h>
 #include <wtf/PassRefPtr.h>

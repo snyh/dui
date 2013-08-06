@@ -28,9 +28,9 @@
 
 #if ENABLE(GESTURE_EVENTS)
 
-#include "GestureEvent.h"
+#include "dom/GestureEvent.h"
 
-#include "Element.h"
+#include "dom/Element.h"
 #include <wtf/text/AtomicString.h>
 
 namespace WebCore {

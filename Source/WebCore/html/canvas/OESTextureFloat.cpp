@@ -27,7 +27,7 @@
 
 #if ENABLE(WEBGL)
 
-#include "OESTextureFloat.h"
+#include "html/canvas/OESTextureFloat.h"
 
 namespace WebCore {
 

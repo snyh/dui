@@ -20,21 +20,21 @@
  */
 
 #include "config.h"
-#include "XSLStyleSheet.h"
+#include "xml/XSLStyleSheet.h"
 
 #if ENABLE(XSLT)
 
-#include "CachedResourceLoader.h"
-#include "Document.h"
-#include "Frame.h"
-#include "Node.h"
-#include "Page.h"
-#include "PageConsole.h"
-#include "TransformSource.h"
-#include "XMLDocumentParser.h"
-#include "XMLDocumentParserScope.h"
-#include "XSLImportRule.h"
-#include "XSLTProcessor.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "dom/Node.h"
+#include "page/Page.h"
+#include "page/PageConsole.h"
+#include "dom/TransformSource.h"
+#include "xml/parser/XMLDocumentParser.h"
+#include "xml/parser/XMLDocumentParserScope.h"
+#include "xml/XSLImportRule.h"
+#include "xml/XSLTProcessor.h"
 #include <wtf/text/CString.h>
 
 #include <libxml/uri.h>

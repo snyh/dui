@@ -28,17 +28,17 @@
 #ifndef ImageBuffer_h
 #define ImageBuffer_h
 
-#include "AffineTransform.h"
-#include "ColorSpace.h"
-#include "FloatRect.h"
-#include "GraphicsContext.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/ColorSpace.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/GraphicsContext.h"
 #if USE(ACCELERATED_COMPOSITING)
-#include "PlatformLayer.h"
+#include "platform/graphics/PlatformLayer.h"
 #endif
-#include "GraphicsTypes.h"
-#include "GraphicsTypes3D.h"
-#include "IntSize.h"
-#include "ImageBufferData.h"
+#include "platform/graphics/GraphicsTypes.h"
+#include "platform/graphics/GraphicsTypes3D.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/graphics/ImageBufferData.h"
 #include <wtf/Forward.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>

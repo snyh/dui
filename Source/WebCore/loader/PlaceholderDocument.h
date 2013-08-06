@@ -26,7 +26,7 @@
 #ifndef PlaceholderDocument_h
 #define PlaceholderDocument_h
 
-#include "Document.h"
+#include "dom/Document.h"
 
 namespace WebCore {
 

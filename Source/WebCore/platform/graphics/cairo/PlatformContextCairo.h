@@ -26,9 +26,9 @@
 #ifndef PlatformContextCairo_h
 #define PlatformContextCairo_h
 
-#include "GraphicsContext.h"
-#include "RefPtrCairo.h"
-#include "ShadowBlur.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
+#include "platform/graphics/ShadowBlur.h"
 
 namespace WebCore {
 

@@ -30,8 +30,8 @@
 
 #if ENABLE(ASSEMBLER) && CPU(ARM_TRADITIONAL)
 
-#include "ARMAssembler.h"
-#include "AbstractMacroAssembler.h"
+#include "assembler/ARMAssembler.h"
+#include "assembler/AbstractMacroAssembler.h"
 
 namespace JSC {
 

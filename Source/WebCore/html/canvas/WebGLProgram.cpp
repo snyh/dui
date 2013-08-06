@@ -27,10 +27,10 @@
 
 #if ENABLE(WEBGL)
 
-#include "WebGLProgram.h"
+#include "html/canvas/WebGLProgram.h"
 
-#include "WebGLContextGroup.h"
-#include "WebGLRenderingContext.h"
+#include "html/canvas/WebGLContextGroup.h"
+#include "html/canvas/WebGLRenderingContext.h"
 
 namespace WebCore {
 

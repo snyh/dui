@@ -24,23 +24,23 @@
  */
 
 #include "config.h"
-#include "VisibleUnits.h"
+#include "editing/VisibleUnits.h"
 
-#include "Document.h"
-#include "Element.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
 #include "HTMLNames.h"
-#include "InlineTextBox.h"
-#include "NodeTraversal.h"
-#include "Position.h"
-#include "RenderBlock.h"
-#include "RenderObject.h"
-#include "RenderedPosition.h"
-#include "Text.h"
-#include "TextBoundaries.h"
-#include "TextIterator.h"
-#include "VisiblePosition.h"
-#include "VisibleSelection.h"
-#include "htmlediting.h"
+#include "rendering/InlineTextBox.h"
+#include "dom/NodeTraversal.h"
+#include "dom/Position.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/RenderObject.h"
+#include "editing/RenderedPosition.h"
+#include "dom/Text.h"
+#include "platform/text/TextBoundaries.h"
+#include "editing/TextIterator.h"
+#include "editing/VisiblePosition.h"
+#include "editing/VisibleSelection.h"
+#include "editing/htmlediting.h"
 
 namespace WebCore {
 

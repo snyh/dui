@@ -28,9 +28,9 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "EventListener.h"
-#include "EventTarget.h"
-#include "Timer.h"
+#include "dom/EventListener.h"
+#include "dom/EventTarget.h"
+#include "platform/Timer.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/Vector.h>

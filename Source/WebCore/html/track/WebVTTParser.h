@@ -33,11 +33,11 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "DocumentFragment.h"
+#include "dom/DocumentFragment.h"
 #include "HTMLNames.h"
-#include "TextTrackCue.h"
+#include "html/track/TextTrackCue.h"
 #include "TextTrackRegion.h"
-#include "WebVTTTokenizer.h"
+#include "html/track/WebVTTTokenizer.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/StringBuilder.h>
 

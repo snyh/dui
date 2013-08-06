@@ -28,8 +28,8 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "Event.h"
-#include "TrackBase.h"
+#include "dom/Event.h"
+#include "html/track/TrackBase.h"
 
 namespace WebCore {
 

@@ -31,7 +31,7 @@
 #ifndef TilingData_h
 #define TilingData_h
 
-#include "IntSize.h"
+#include "platform/graphics/IntSize.h"
 #include <wtf/Noncopyable.h>
 
 namespace WebCore {

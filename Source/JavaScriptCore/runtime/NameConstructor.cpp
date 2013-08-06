@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "NameConstructor.h"
+#include "runtime/NameConstructor.h"
 
-#include "JSGlobalObject.h"
-#include "NamePrototype.h"
-#include "Operations.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/NamePrototype.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

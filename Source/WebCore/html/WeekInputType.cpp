@@ -30,12 +30,12 @@
 
 #include "config.h"
 #if ENABLE(INPUT_TYPE_WEEK)
-#include "WeekInputType.h"
+#include "html/WeekInputType.h"
 
-#include "DateComponents.h"
-#include "HTMLInputElement.h"
+#include "platform/DateComponents.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "InputTypeNames.h"
+#include "html/InputTypeNames.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

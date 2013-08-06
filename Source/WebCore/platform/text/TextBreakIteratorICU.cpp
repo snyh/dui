@@ -20,9 +20,9 @@
  */
 
 #include "config.h"
-#include "TextBreakIterator.h"
+#include "platform/text/TextBreakIterator.h"
 
-#include "LineBreakIteratorPoolICU.h"
+#include "platform/text/LineBreakIteratorPoolICU.h"
 #include <wtf/Atomics.h>
 #include <wtf/text/WTFString.h>
 

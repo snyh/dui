@@ -30,7 +30,7 @@
 #ifndef HTMLUnknownElement_h
 #define HTMLUnknownElement_h
 
-#include "HTMLElement.h"
+#include "html/HTMLElement.h"
 
 namespace WebCore {
 

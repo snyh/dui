@@ -22,13 +22,13 @@
 
 #if USE(TEXTURE_MAPPER)
 
-#include "GraphicsLayer.h"
-#include "GraphicsLayerClient.h"
-#include "Image.h"
-#include "TextureMapperLayer.h"
-#include "TextureMapperPlatformLayer.h"
-#include "TextureMapperTiledBackingStore.h"
-#include "Timer.h"
+#include "platform/graphics/GraphicsLayer.h"
+#include "platform/graphics/GraphicsLayerClient.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/texmap/TextureMapperLayer.h"
+#include "platform/graphics/texmap/TextureMapperPlatformLayer.h"
+#include "platform/graphics/texmap/TextureMapperTiledBackingStore.h"
+#include "platform/Timer.h"
 
 namespace WebCore {
 

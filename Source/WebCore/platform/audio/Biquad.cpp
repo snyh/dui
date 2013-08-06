@@ -30,9 +30,9 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "Biquad.h"
+#include "platform/audio/Biquad.h"
 
-#include "DenormalDisabler.h"
+#include "platform/audio/DenormalDisabler.h"
 #include <algorithm>
 #include <stdio.h>
 #include <wtf/MathExtras.h>

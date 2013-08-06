@@ -29,7 +29,7 @@
 #ifndef AccessibilityARIAGridRow_h
 #define AccessibilityARIAGridRow_h
 
-#include "AccessibilityTableRow.h"
+#include "accessibility/AccessibilityTableRow.h"
 
 namespace WebCore {
     

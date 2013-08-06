@@ -32,8 +32,8 @@
 #ifndef PingLoader_h
 #define PingLoader_h
 
-#include "ResourceHandleClient.h"
-#include "Timer.h"
+#include "platform/network/ResourceHandleClient.h"
+#include "platform/Timer.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/RefPtr.h>
 

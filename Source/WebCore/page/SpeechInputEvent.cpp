@@ -32,9 +32,9 @@
 
 #if ENABLE(INPUT_SPEECH)
 
-#include "SpeechInputEvent.h"
+#include "page/SpeechInputEvent.h"
 
-#include "EventNames.h"
+#include "dom/EventNames.h"
 
 namespace WebCore {
 

@@ -26,7 +26,7 @@
 #ifndef PreciseJumpTargets_h
 #define PreciseJumpTargets_h
 
-#include "CodeBlock.h"
+#include "bytecode/CodeBlock.h"
 
 namespace JSC {
 

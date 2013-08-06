@@ -25,11 +25,11 @@
  */
 
 #include "config.h"
-#include "GtkPluginWidget.h"
+#include "platform/gtk/GtkPluginWidget.h"
 
-#include "GraphicsContext.h"
-#include "GtkVersioning.h"
-#include "ScrollView.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/gtk/GtkVersioning.h"
+#include "platform/ScrollView.h"
 
 #include <gtk/gtk.h>
 

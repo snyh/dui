@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "WeakHandleOwner.h"
+#include "heap/WeakHandleOwner.h"
 
 namespace JSC {
 

@@ -26,8 +26,8 @@
 #ifndef NameInstance_h
 #define NameInstance_h
 
-#include "JSDestructibleObject.h"
-#include "PrivateName.h"
+#include "runtime/JSDestructibleObject.h"
+#include "runtime/PrivateName.h"
 
 namespace JSC {
 

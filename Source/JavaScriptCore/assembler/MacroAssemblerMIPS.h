@@ -29,8 +29,8 @@
 
 #if ENABLE(ASSEMBLER) && CPU(MIPS)
 
-#include "AbstractMacroAssembler.h"
-#include "MIPSAssembler.h"
+#include "assembler/AbstractMacroAssembler.h"
+#include "assembler/MIPSAssembler.h"
 
 namespace JSC {
 

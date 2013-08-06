@@ -27,11 +27,11 @@
  */
 
 #include "config.h"
-#include "RegExpCache.h"
+#include "runtime/RegExpCache.h"
 
-#include "Operations.h"
-#include "RegExpObject.h"
-#include "StrongInlines.h"
+#include "runtime/Operations.h"
+#include "runtime/RegExpObject.h"
+#include "heap/StrongInlines.h"
 
 namespace JSC {
 

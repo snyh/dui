@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "DFGOSRExitJumpPlaceholder.h"
+#include "dfg/DFGOSRExitJumpPlaceholder.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGJITCompiler.h"
-#include "DFGSpeculativeJIT.h"
+#include "dfg/DFGJITCompiler.h"
+#include "dfg/DFGSpeculativeJIT.h"
 
 namespace JSC { namespace DFG {
 

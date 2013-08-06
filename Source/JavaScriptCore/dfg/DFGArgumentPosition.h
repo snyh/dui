@@ -26,10 +26,10 @@
 #ifndef DFGArgumentPosition_h
 #define DFGArgumentPosition_h
 
-#include "DFGDoubleFormatState.h"
-#include "DFGVariableAccessData.h"
-#include "DFGVariableAccessDataDump.h"
-#include "SpeculatedType.h"
+#include "dfg/DFGDoubleFormatState.h"
+#include "dfg/DFGVariableAccessData.h"
+#include "dfg/DFGVariableAccessDataDump.h"
+#include "bytecode/SpeculatedType.h"
 
 namespace JSC { namespace DFG {
 

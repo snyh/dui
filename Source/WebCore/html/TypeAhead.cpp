@@ -26,9 +26,9 @@
  */
 
 #include "config.h"
-#include "TypeAhead.h"
+#include "html/TypeAhead.h"
 
-#include "KeyboardEvent.h"
+#include "dom/KeyboardEvent.h"
 #include <wtf/unicode/CharacterNames.h>
 
 using namespace WTF::Unicode;

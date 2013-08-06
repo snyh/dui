@@ -28,20 +28,20 @@
 
 #if USE(ACCELERATED_COMPOSITING)
 
-#include "Animation.h"
-#include "Color.h"
-#include "FloatPoint.h"
-#include "FloatPoint3D.h"
-#include "FloatSize.h"
-#include "GraphicsLayerClient.h"
-#include "IntRect.h"
-#include "PlatformLayer.h"
-#include "TransformOperations.h"
+#include "platform/animation/Animation.h"
+#include "platform/graphics/Color.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/FloatPoint3D.h"
+#include "platform/graphics/FloatSize.h"
+#include "platform/graphics/GraphicsLayerClient.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/PlatformLayer.h"
+#include "platform/graphics/transforms/TransformOperations.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>
 
 #if ENABLE(CSS_FILTERS)
-#include "FilterOperations.h"
+#include "platform/graphics/filters/FilterOperations.h"
 #endif
 
 enum LayerTreeAsTextBehaviorFlags {

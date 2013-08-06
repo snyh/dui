@@ -30,7 +30,7 @@
 #ifndef GlyphPage_h
 #define GlyphPage_h
 
-#include "Glyph.h"
+#include "platform/graphics/Glyph.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>

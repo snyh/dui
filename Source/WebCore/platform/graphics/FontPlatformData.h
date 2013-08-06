@@ -36,8 +36,8 @@
 #ifndef FontPlatformData_h
 #define FontPlatformData_h
 
-#include "FontOrientation.h"
-#include "FontWidthVariant.h"
+#include "platform/graphics/FontOrientation.h"
+#include "platform/graphics/FontWidthVariant.h"
 
 #if PLATFORM(WIN)
 #include "RefCountedGDIHandle.h"

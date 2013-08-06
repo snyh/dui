@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "PlatformStrategies.h"
+#include "platform/PlatformStrategies.h"
 
 namespace WebCore {
 

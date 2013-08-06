@@ -20,19 +20,19 @@
  */
 
 #include "config.h"
-#include "RadioInputType.h"
+#include "html/RadioInputType.h"
 
-#include "Frame.h"
-#include "HTMLFormElement.h"
-#include "HTMLInputElement.h"
+#include "page/Frame.h"
+#include "html/HTMLFormElement.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "InputTypeNames.h"
-#include "KeyboardEvent.h"
-#include "LocalizedStrings.h"
-#include "MouseEvent.h"
-#include "NodeTraversal.h"
-#include "Settings.h"
-#include "SpatialNavigation.h"
+#include "html/InputTypeNames.h"
+#include "dom/KeyboardEvent.h"
+#include "platform/LocalizedStrings.h"
+#include "dom/MouseEvent.h"
+#include "dom/NodeTraversal.h"
+#include "page/Settings.h"
+#include "page/SpatialNavigation.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

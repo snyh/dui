@@ -23,12 +23,12 @@
 #include "config.h"
 
 #if ENABLE(FILTERS)
-#include "FEFlood.h"
+#include "platform/graphics/filters/FEFlood.h"
 
-#include "Filter.h"
-#include "GraphicsContext.h"
-#include "RenderTreeAsText.h"
-#include "TextStream.h"
+#include "platform/graphics/filters/Filter.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/RenderTreeAsText.h"
+#include "platform/text/TextStream.h"
 
 namespace WebCore {
 

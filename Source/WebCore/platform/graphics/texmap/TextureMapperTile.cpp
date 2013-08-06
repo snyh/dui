@@ -19,10 +19,10 @@
 #include "config.h"
 
 #if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER)
-#include "TextureMapperTile.h"
+#include "platform/graphics/texmap/TextureMapperTile.h"
 
-#include "Image.h"
-#include "TextureMapper.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/texmap/TextureMapper.h"
 #include <wtf/RefPtr.h>
 
 namespace WebCore {

@@ -32,11 +32,11 @@
 #ifndef EventSource_h
 #define EventSource_h
 
-#include "ActiveDOMObject.h"
-#include "EventTarget.h"
-#include "KURL.h"
-#include "ThreadableLoaderClient.h"
-#include "Timer.h"
+#include "dom/ActiveDOMObject.h"
+#include "dom/EventTarget.h"
+#include "platform/KURL.h"
+#include "loader/ThreadableLoaderClient.h"
+#include "platform/Timer.h"
 #include <wtf/RefPtr.h>
 #include <wtf/Vector.h>
 

@@ -25,10 +25,10 @@
  */
 
 #include "config.h"
-#include "Gradient.h"
+#include "platform/graphics/Gradient.h"
 
-#include "Color.h"
-#include "FloatRect.h"
+#include "platform/graphics/Color.h"
+#include "platform/graphics/FloatRect.h"
 #include <wtf/HashFunctions.h>
 #include <wtf/StringHasher.h>
 

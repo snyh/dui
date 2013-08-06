@@ -27,39 +27,39 @@
  */
 
 #include "config.h"
-#include "VM.h"
+#include "runtime/VM.h"
 
-#include "ArgList.h"
-#include "CodeCache.h"
-#include "CommonIdentifiers.h"
-#include "DFGLongLivedState.h"
-#include "DebuggerActivation.h"
-#include "FunctionConstructor.h"
-#include "GCActivityCallback.h"
-#include "GetterSetter.h"
-#include "Heap.h"
-#include "HostCallReturnValue.h"
-#include "IncrementalSweeper.h"
-#include "Interpreter.h"
-#include "JSActivation.h"
-#include "JSAPIValueWrapper.h"
-#include "JSArray.h"
-#include "JSFunction.h"
-#include "JSLock.h"
-#include "JSNameScope.h"
-#include "JSNotAnObject.h"
-#include "JSPropertyNameIterator.h"
-#include "JSWithScope.h"
-#include "Lexer.h"
-#include "Lookup.h"
-#include "Nodes.h"
-#include "ParserArena.h"
-#include "RegExpCache.h"
-#include "RegExpObject.h"
-#include "SourceProviderCache.h"
-#include "StrictEvalActivation.h"
-#include "StrongInlines.h"
-#include "UnlinkedCodeBlock.h"
+#include "runtime/ArgList.h"
+#include "runtime/CodeCache.h"
+#include "runtime/CommonIdentifiers.h"
+#include "dfg/DFGLongLivedState.h"
+#include "debugger/DebuggerActivation.h"
+#include "runtime/FunctionConstructor.h"
+#include "runtime/GCActivityCallback.h"
+#include "runtime/GetterSetter.h"
+#include "heap/Heap.h"
+#include "jit/HostCallReturnValue.h"
+#include "heap/IncrementalSweeper.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/JSActivation.h"
+#include "runtime/JSAPIValueWrapper.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSLock.h"
+#include "runtime/JSNameScope.h"
+#include "runtime/JSNotAnObject.h"
+#include "runtime/JSPropertyNameIterator.h"
+#include "runtime/JSWithScope.h"
+#include "parser/Lexer.h"
+#include "runtime/Lookup.h"
+#include "parser/Nodes.h"
+#include "parser/ParserArena.h"
+#include "runtime/RegExpCache.h"
+#include "runtime/RegExpObject.h"
+#include "parser/SourceProviderCache.h"
+#include "runtime/StrictEvalActivation.h"
+#include "heap/StrongInlines.h"
+#include "bytecode/UnlinkedCodeBlock.h"
 #include <wtf/ProcessID.h>
 #include <wtf/RetainPtr.h>
 #include <wtf/StringPrintStream.h>
@@ -67,11 +67,11 @@
 #include <wtf/WTFThreadData.h>
 
 #if ENABLE(DFG_JIT)
-#include "ConservativeRoots.h"
+#include "heap/ConservativeRoots.h"
 #endif
 
 #if ENABLE(REGEXP_TRACING)
-#include "RegExp.h"
+#include "runtime/RegExp.h"
 #endif
 
 #if USE(CF)

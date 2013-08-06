@@ -30,9 +30,9 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGCommon.h"
-#include "DFGSilentRegisterSavePlan.h"
-#include "DFGSpeculativeJIT.h"
+#include "dfg/DFGCommon.h"
+#include "dfg/DFGSilentRegisterSavePlan.h"
+#include "dfg/DFGSpeculativeJIT.h"
 #include <wtf/FastAllocBase.h>
 #include <wtf/PassOwnPtr.h>
 

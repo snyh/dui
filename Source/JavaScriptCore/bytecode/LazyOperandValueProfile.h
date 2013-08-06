@@ -30,7 +30,7 @@
 
 #if ENABLE(VALUE_PROFILER)
 
-#include "ValueProfile.h"
+#include "bytecode/ValueProfile.h"
 #include <wtf/HashMap.h>
 #include <wtf/Noncopyable.h>
 #include <wtf/OwnPtr.h>

@@ -25,16 +25,16 @@
 */
 
 #include "config.h"
-#include "CachedScript.h"
+#include "loader/cache/CachedScript.h"
 
-#include "CachedResourceClient.h"
-#include "CachedResourceClientWalker.h"
-#include "HTTPParsers.h"
-#include "MIMETypeRegistry.h"
-#include "MemoryCache.h"
-#include "ResourceBuffer.h"
-#include "RuntimeApplicationChecks.h"
-#include "TextResourceDecoder.h"
+#include "loader/cache/CachedResourceClient.h"
+#include "loader/cache/CachedResourceClientWalker.h"
+#include "platform/network/HTTPParsers.h"
+#include "platform/MIMETypeRegistry.h"
+#include "loader/cache/MemoryCache.h"
+#include "loader/ResourceBuffer.h"
+#include "platform/RuntimeApplicationChecks.h"
+#include "loader/TextResourceDecoder.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

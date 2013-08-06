@@ -23,8 +23,8 @@
 #define SVGAltGlyphElement_h
 
 #if ENABLE(SVG_FONTS)
-#include "SVGTextPositioningElement.h"
-#include "SVGURIReference.h"
+#include "svg/SVGTextPositioningElement.h"
+#include "svg/SVGURIReference.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

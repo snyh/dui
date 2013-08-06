@@ -26,8 +26,8 @@
 #ifndef PassWeak_h
 #define PassWeak_h
 
-#include "JSCell.h"
-#include "WeakSetInlines.h"
+#include "runtime/JSCell.h"
+#include "heap/WeakSetInlines.h"
 #include <wtf/Assertions.h>
 #include <wtf/NullPtr.h>
 #include <wtf/TypeTraits.h>

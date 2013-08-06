@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "FileSystem.h"
+#include "platform/FileSystem.h"
 
 #include <wtf/HexNumber.h>
 #include <wtf/text/StringBuilder.h>

@@ -21,17 +21,17 @@
  */
 
 #include "config.h"
-#include "KeyboardEvent.h"
+#include "dom/KeyboardEvent.h"
 
-#include "Document.h"
-#include "DOMWindow.h"
-#include "EventDispatcher.h"
-#include "EventNames.h"
-#include "EventHandler.h"
-#include "Frame.h"
-#include "PlatformKeyboardEvent.h"
-#include "Settings.h"
-#include "WindowsKeyboardCodes.h"
+#include "dom/Document.h"
+#include "page/DOMWindow.h"
+#include "dom/EventDispatcher.h"
+#include "dom/EventNames.h"
+#include "page/EventHandler.h"
+#include "page/Frame.h"
+#include "platform/PlatformKeyboardEvent.h"
+#include "page/Settings.h"
+#include "platform/WindowsKeyboardCodes.h"
 
 namespace WebCore {
 

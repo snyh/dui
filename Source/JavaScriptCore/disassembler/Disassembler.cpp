@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "Disassembler.h"
+#include "disassembler/Disassembler.h"
 
-#include "MacroAssemblerCodeRef.h"
+#include "assembler/MacroAssemblerCodeRef.h"
 #include <wtf/DataLog.h>
 
 namespace JSC {

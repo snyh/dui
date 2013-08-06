@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "CopiedSpace.h"
+#include "heap/CopiedSpace.h"
 
-#include "CopiedSpaceInlines.h"
-#include "GCActivityCallback.h"
-#include "Operations.h"
-#include "Options.h"
+#include "heap/CopiedSpaceInlines.h"
+#include "runtime/GCActivityCallback.h"
+#include "runtime/Operations.h"
+#include "runtime/Options.h"
 
 namespace JSC {
 

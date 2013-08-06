@@ -29,9 +29,9 @@
  */
 
 #include "config.h"
-#include "GeneratedImage.h"
+#include "platform/graphics/GeneratedImage.h"
 
-#include "FloatSize.h"
+#include "platform/graphics/FloatSize.h"
 
 
 namespace WebCore {

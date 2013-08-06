@@ -24,17 +24,17 @@
  */
 
 #include "config.h"
-#include "LLIntExceptions.h"
+#include "llint/LLIntExceptions.h"
 
 #if ENABLE(LLINT)
 
-#include "CallFrame.h"
-#include "CodeBlock.h"
-#include "Instruction.h"
-#include "JITExceptions.h"
-#include "LLIntCommon.h"
-#include "LowLevelInterpreter.h"
-#include "Operations.h"
+#include "interpreter/CallFrame.h"
+#include "bytecode/CodeBlock.h"
+#include "bytecode/Instruction.h"
+#include "jit/JITExceptions.h"
+#include "llint/LLIntCommon.h"
+#include "llint/LowLevelInterpreter.h"
+#include "runtime/Operations.h"
 
 namespace JSC { namespace LLInt {
 

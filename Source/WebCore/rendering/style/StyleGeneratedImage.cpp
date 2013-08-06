@@ -22,11 +22,11 @@
  */
 
 #include "config.h"
-#include "StyleGeneratedImage.h"
+#include "rendering/style/StyleGeneratedImage.h"
 
-#include "CSSImageGeneratorValue.h"
-#include "RenderObject.h"
-#include "StyleResolver.h"
+#include "css/CSSImageGeneratorValue.h"
+#include "rendering/RenderObject.h"
+#include "css/StyleResolver.h"
 
 namespace WebCore {
     

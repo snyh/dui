@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "RenderMultiColumnFlowThread.h"
+#include "rendering/RenderMultiColumnFlowThread.h"
 
-#include "RenderMultiColumnBlock.h"
-#include "RenderMultiColumnSet.h"
+#include "rendering/RenderMultiColumnBlock.h"
+#include "rendering/RenderMultiColumnSet.h"
 
 namespace WebCore {
 

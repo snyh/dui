@@ -25,10 +25,10 @@
 #ifndef StyledElement_h
 #define StyledElement_h
 
-#include "CSSPrimitiveValue.h"
+#include "css/CSSPrimitiveValue.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
-#include "Element.h"
+#include "dom/Element.h"
 
 namespace WebCore {
 

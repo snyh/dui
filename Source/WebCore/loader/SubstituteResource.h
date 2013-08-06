@@ -28,9 +28,9 @@
 
 #include <wtf/RefCounted.h>
 
-#include "KURL.h"
-#include "ResourceResponse.h"
-#include "SharedBuffer.h"
+#include "platform/KURL.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "platform/SharedBuffer.h"
 
 #include <wtf/RefPtr.h>
 

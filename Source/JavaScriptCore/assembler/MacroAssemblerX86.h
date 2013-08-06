@@ -28,7 +28,7 @@
 
 #if ENABLE(ASSEMBLER) && CPU(X86)
 
-#include "MacroAssemblerX86Common.h"
+#include "assembler/MacroAssemblerX86Common.h"
 
 namespace JSC {
 

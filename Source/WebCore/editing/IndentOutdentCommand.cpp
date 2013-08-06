@@ -24,20 +24,20 @@
  */
 
 #include "config.h"
-#include "IndentOutdentCommand.h"
+#include "editing/IndentOutdentCommand.h"
 
-#include "Document.h"
-#include "HTMLElement.h"
+#include "dom/Document.h"
+#include "html/HTMLElement.h"
 #include "HTMLNames.h"
-#include "InsertLineBreakCommand.h"
-#include "InsertListCommand.h"
-#include "Range.h"
-#include "RenderObject.h"
-#include "SplitElementCommand.h"
-#include "Text.h"
-#include "TextIterator.h"
-#include "VisibleUnits.h"
-#include "htmlediting.h"
+#include "editing/InsertLineBreakCommand.h"
+#include "editing/InsertListCommand.h"
+#include "dom/Range.h"
+#include "rendering/RenderObject.h"
+#include "editing/SplitElementCommand.h"
+#include "dom/Text.h"
+#include "editing/TextIterator.h"
+#include "editing/VisibleUnits.h"
+#include "editing/htmlediting.h"
 
 namespace WebCore {
 

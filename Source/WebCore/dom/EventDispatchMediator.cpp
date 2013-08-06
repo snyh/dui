@@ -29,12 +29,12 @@
  */
 
 #include "config.h"
-#include "EventDispatchMediator.h"
+#include "dom/EventDispatchMediator.h"
 
-#include "Event.h"
-#include "EventDispatcher.h"
-#include "EventRetargeter.h"
-#include "Node.h"
+#include "dom/Event.h"
+#include "dom/EventDispatcher.h"
+#include "dom/EventRetargeter.h"
+#include "dom/Node.h"
 
 namespace WebCore {
 

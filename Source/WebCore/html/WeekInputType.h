@@ -32,7 +32,7 @@
 #define WeekInputType_h
 
 #if ENABLE(INPUT_TYPE_WEEK)
-#include "BaseChooserOnlyDateAndTimeInputType.h"
+#include "html/BaseChooserOnlyDateAndTimeInputType.h"
 
 namespace WebCore {
 

@@ -26,7 +26,7 @@
 #ifndef StructureRareDataInlines_h
 #define StructureRareDataInlines_h
 
-#include "StructureRareData.h"
+#include "runtime/StructureRareData.h"
 
 namespace JSC {
 

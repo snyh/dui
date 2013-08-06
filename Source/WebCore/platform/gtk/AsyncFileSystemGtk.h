@@ -22,7 +22,7 @@
 
 #if ENABLE(FILE_SYSTEM)
 
-#include "AsyncFileSystem.h"
+#include "platform/AsyncFileSystem.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

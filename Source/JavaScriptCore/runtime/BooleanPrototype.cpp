@@ -19,14 +19,14 @@
  */
 
 #include "config.h"
-#include "BooleanPrototype.h"
+#include "runtime/BooleanPrototype.h"
 
-#include "Error.h"
-#include "ExceptionHelpers.h"
-#include "JSFunction.h"
-#include "JSString.h"
-#include "ObjectPrototype.h"
-#include "Operations.h"
+#include "runtime/Error.h"
+#include "runtime/ExceptionHelpers.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSString.h"
+#include "runtime/ObjectPrototype.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

@@ -29,10 +29,10 @@
  */
 
 #include "config.h"
-#include "BMPImageDecoder.h"
+#include "platform/image-decoders/bmp/BMPImageDecoder.h"
 
-#include "BMPImageReader.h"
-#include "PlatformInstrumentation.h"
+#include "platform/image-decoders/bmp/BMPImageReader.h"
+#include "platform/PlatformInstrumentation.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

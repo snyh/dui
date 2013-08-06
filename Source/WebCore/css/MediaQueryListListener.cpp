@@ -18,9 +18,9 @@
  */
 
 #include "config.h"
-#include "MediaQueryListListener.h"
+#include "css/MediaQueryListListener.h"
 
-#include "MediaQueryList.h"
+#include "css/MediaQueryList.h"
 
 namespace WebCore {
 

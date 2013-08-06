@@ -28,8 +28,8 @@
 
 #include <JavaScriptCore/JSObjectRef.h>
 
-#include "Weak.h"
-#include "Protect.h"
+#include "heap/Weak.h"
+#include "runtime/Protect.h"
 #include <wtf/HashMap.h>
 #include <wtf/text/WTFString.h>
 

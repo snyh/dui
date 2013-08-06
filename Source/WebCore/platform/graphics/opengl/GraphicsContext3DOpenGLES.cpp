@@ -30,15 +30,15 @@
 
 #if USE(3D_GRAPHICS)
 
-#include "GraphicsContext3D.h"
+#include "platform/graphics/GraphicsContext3D.h"
 
-#include "Extensions3DOpenGLES.h"
-#include "IntRect.h"
-#include "IntSize.h"
+#include "platform/graphics/opengl/Extensions3DOpenGLES.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/IntSize.h"
 #if PLATFORM(BLACKBERRY)
 #include "LayerWebKitThread.h"
 #endif
-#include "NotImplemented.h"
+#include "platform/NotImplemented.h"
 
 namespace WebCore {
 

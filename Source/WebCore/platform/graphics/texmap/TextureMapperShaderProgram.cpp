@@ -20,12 +20,12 @@
  */
 
 #include "config.h"
-#include "TextureMapperShaderProgram.h"
+#include "platform/graphics/texmap/TextureMapperShaderProgram.h"
 
 #if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER)
-#include "LengthFunctions.h"
-#include "Logging.h"
-#include "TextureMapperGL.h"
+#include "css/LengthFunctions.h"
+#include "platform/Logging.h"
+#include "platform/graphics/texmap/TextureMapperGL.h"
 
 #include <wtf/text/StringBuilder.h>
 

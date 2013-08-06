@@ -28,12 +28,12 @@
 
 #if ENABLE(MATHML)
 
-#include "RenderMathMLOperator.h"
+#include "rendering/mathml/RenderMathMLOperator.h"
 
-#include "FontCache.h"
-#include "FontSelector.h"
+#include "platform/graphics/FontCache.h"
+#include "platform/graphics/FontSelector.h"
 #include "MathMLNames.h"
-#include "RenderText.h"
+#include "rendering/RenderText.h"
 
 namespace WebCore {
     

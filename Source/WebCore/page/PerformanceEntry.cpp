@@ -29,7 +29,7 @@
  */
 
 #include "config.h"
-#include "PerformanceEntry.h"
+#include "page/PerformanceEntry.h"
 
 #if ENABLE(WEB_TIMING) && ENABLE(PERFORMANCE_TIMELINE)
 

@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "DFGGraph.h"
+#include "dfg/DFGGraph.h"
 
-#include "CodeBlock.h"
-#include "CodeBlockWithJITType.h"
-#include "DFGVariableAccessDataDump.h"
-#include "FunctionExecutableDump.h"
-#include "Operations.h"
+#include "bytecode/CodeBlock.h"
+#include "bytecode/CodeBlockWithJITType.h"
+#include "dfg/DFGVariableAccessDataDump.h"
+#include "runtime/FunctionExecutableDump.h"
+#include "runtime/Operations.h"
 #include <wtf/CommaPrinter.h>
 
 #if ENABLE(DFG_JIT)

@@ -30,12 +30,12 @@
 
 #include "config.h"
 
-#include "MutationObserverInterestGroup.h"
+#include "dom/MutationObserverInterestGroup.h"
 
-#include "MutationObserverRegistration.h"
-#include "MutationRecord.h"
-#include "Node.h"
-#include "QualifiedName.h"
+#include "dom/MutationObserverRegistration.h"
+#include "dom/MutationRecord.h"
+#include "dom/Node.h"
+#include "dom/QualifiedName.h"
 
 namespace WebCore {
 

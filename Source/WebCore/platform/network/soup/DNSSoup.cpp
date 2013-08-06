@@ -25,11 +25,11 @@
  */
 
 #include "config.h"
-#include "DNS.h"
-#include "DNSResolveQueue.h"
+#include "platform/network/DNS.h"
+#include "platform/network/DNSResolveQueue.h"
 
-#include "GOwnPtrSoup.h"
-#include "ResourceHandle.h"
+#include "platform/network/soup/GOwnPtrSoup.h"
+#include "platform/network/ResourceHandle.h"
 #include <libsoup/soup.h>
 #include <wtf/MainThread.h>
 #include <wtf/text/CString.h>

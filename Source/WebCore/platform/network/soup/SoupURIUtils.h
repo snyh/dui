@@ -26,7 +26,7 @@
 #ifndef SoupURIUtils_h
 #define SoupURIUtils_h
 
-#include "KURL.h"
+#include "platform/KURL.h"
 
 typedef struct _SoupURI SoupURI;
 

@@ -31,7 +31,7 @@
 #define StyleCustomFilterProgramCache_h
 
 #if ENABLE(CSS_SHADERS)
-#include "CustomFilterProgramInfo.h"
+#include "platform/graphics/filters/CustomFilterProgramInfo.h"
 #include <wtf/FastAllocBase.h>
 #include <wtf/HashMap.h>
 

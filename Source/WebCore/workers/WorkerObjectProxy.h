@@ -33,8 +33,8 @@
 
 #if ENABLE(WORKERS)
 
-#include "WorkerReportingProxy.h"
-#include "MessagePort.h"
+#include "workers/WorkerReportingProxy.h"
+#include "dom/MessagePort.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

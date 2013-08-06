@@ -24,12 +24,12 @@
  */
  
 #include "config.h"
-#include "ScrollingStateTree.h"
+#include "page/scrolling/ScrollingStateTree.h"
 
 #if ENABLE(THREADED_SCROLLING) || USE(COORDINATED_GRAPHICS)
 
-#include "ScrollingStateFixedNode.h"
-#include "ScrollingStateScrollingNode.h"
+#include "page/scrolling/ScrollingStateFixedNode.h"
+#include "page/scrolling/ScrollingStateScrollingNode.h"
 #include "ScrollingStateStickyNode.h"
 
 namespace WebCore {

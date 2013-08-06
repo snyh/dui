@@ -25,7 +25,7 @@
 #ifndef NamedNodeMap_h
 #define NamedNodeMap_h
 
-#include "ScriptWrappable.h"
+#include "bindings/dui/ScriptWrappable.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/text/AtomicString.h>

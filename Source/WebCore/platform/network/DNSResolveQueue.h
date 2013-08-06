@@ -27,7 +27,7 @@
 #ifndef DNSResolveQueue_h
 #define DNSResolveQueue_h
 
-#include "Timer.h"
+#include "platform/Timer.h"
 #include <wtf/Forward.h>
 #include <wtf/HashSet.h>
 #include <wtf/text/StringHash.h>

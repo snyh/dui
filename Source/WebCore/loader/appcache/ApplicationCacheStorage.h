@@ -26,7 +26,7 @@
 #ifndef ApplicationCacheStorage_h
 #define ApplicationCacheStorage_h
 
-#include "SecurityOriginHash.h"
+#include "page/SecurityOriginHash.h"
 #include <wtf/HashCountedSet.h>
 #include <wtf/HashSet.h>
 #include <wtf/text/StringHash.h>

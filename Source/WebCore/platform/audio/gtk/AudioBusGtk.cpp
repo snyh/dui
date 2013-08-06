@@ -20,10 +20,10 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "AudioBus.h"
+#include "platform/audio/AudioBus.h"
 
-#include "AudioFileReader.h"
-#include "FileSystem.h"
+#include "platform/audio/AudioFileReader.h"
+#include "platform/FileSystem.h"
 
 #include <wtf/gobject/GOwnPtr.h>
 #include <wtf/text/CString.h>

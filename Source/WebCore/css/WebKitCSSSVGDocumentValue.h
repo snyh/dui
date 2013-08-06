@@ -25,8 +25,8 @@
 #ifndef WebKitCSSSVGDocumentValue_h
 #define WebKitCSSSVGDocumentValue_h
 
-#include "CSSValue.h"
-#include "CachedResourceHandle.h"
+#include "css/CSSValue.h"
+#include "loader/cache/CachedResourceHandle.h"
 
 namespace WebCore {
 

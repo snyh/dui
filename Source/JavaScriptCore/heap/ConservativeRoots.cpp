@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "ConservativeRoots.h"
+#include "heap/ConservativeRoots.h"
 
-#include "CodeBlock.h"
-#include "CopiedSpace.h"
-#include "CopiedSpaceInlines.h"
-#include "DFGCodeBlocks.h"
-#include "JSCell.h"
-#include "JSObject.h"
-#include "Structure.h"
+#include "bytecode/CodeBlock.h"
+#include "heap/CopiedSpace.h"
+#include "heap/CopiedSpaceInlines.h"
+#include "heap/DFGCodeBlocks.h"
+#include "runtime/JSCell.h"
+#include "runtime/JSObject.h"
+#include "runtime/Structure.h"
 
 namespace JSC {
 

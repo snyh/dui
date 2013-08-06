@@ -27,9 +27,9 @@
 
 #if ENABLE(WEBGL)
 
-#include "WebGLDebugRendererInfo.h"
+#include "html/canvas/WebGLDebugRendererInfo.h"
 
-#include "WebGLRenderingContext.h"
+#include "html/canvas/WebGLRenderingContext.h"
 
 namespace WebCore {
 

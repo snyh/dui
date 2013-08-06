@@ -32,7 +32,7 @@
 
 #if ENABLE(CSS_FILTERS)
 
-#include "LayoutRect.h"
+#include "platform/graphics/LayoutRect.h"
 
 namespace WebCore {
 

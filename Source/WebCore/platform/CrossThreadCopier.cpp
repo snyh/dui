@@ -30,13 +30,13 @@
 
 #include "config.h"
 
-#include "CrossThreadCopier.h"
+#include "platform/CrossThreadCopier.h"
 
-#include "KURL.h"
-#include "ResourceError.h"
-#include "ResourceRequest.h"
-#include "ResourceResponse.h"
-#include "SerializedScriptValue.h"
+#include "platform/KURL.h"
+#include "platform/network/soup/ResourceError.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "bindings/dui/saved/SerializedScriptValue.h"
 #include <wtf/Assertions.h>
 #include <wtf/text/WTFString.h>
 

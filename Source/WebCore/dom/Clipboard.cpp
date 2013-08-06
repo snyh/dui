@@ -24,18 +24,18 @@
  */
 
 #include "config.h"
-#include "Clipboard.h"
+#include "dom/Clipboard.h"
 
-#include "CachedImage.h"
-#include "CachedImageClient.h"
-#include "DragData.h"
-#include "Editor.h"
-#include "FileList.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "HTMLImageElement.h"
-#include "Image.h"
-#include "Pasteboard.h"
+#include "loader/cache/CachedImage.h"
+#include "loader/cache/CachedImageClient.h"
+#include "platform/DragData.h"
+#include "editing/Editor.h"
+#include "fileapi/FileList.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "html/HTMLImageElement.h"
+#include "platform/graphics/Image.h"
+#include "platform/Pasteboard.h"
 
 namespace WebCore {
 

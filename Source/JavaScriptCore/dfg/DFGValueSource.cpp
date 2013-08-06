@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "DFGValueSource.h"
+#include "dfg/DFGValueSource.h"
 
 #if ENABLE(DFG_JIT)
 

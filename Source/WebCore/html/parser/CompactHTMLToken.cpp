@@ -27,12 +27,12 @@
 
 #if ENABLE(THREADED_HTML_PARSER)
 
-#include "CompactHTMLToken.h"
+#include "html/parser/CompactHTMLToken.h"
 
-#include "HTMLParserIdioms.h"
-#include "HTMLToken.h"
-#include "QualifiedName.h"
-#include "XSSAuditorDelegate.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "html/parser/HTMLToken.h"
+#include "dom/QualifiedName.h"
+#include "html/parser/XSSAuditorDelegate.h"
 
 namespace WebCore {
 

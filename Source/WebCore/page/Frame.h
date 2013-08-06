@@ -28,13 +28,13 @@
 #ifndef Frame_h
 #define Frame_h
 
-#include "AdjustViewSizeOrNot.h"
-#include "DragImage.h"
-#include "FrameLoader.h"
-#include "FrameTree.h"
-#include "IntRect.h"
-#include "ScrollTypes.h"
-#include "UserScriptTypes.h"
+#include "page/AdjustViewSizeOrNot.h"
+#include "platform/DragImage.h"
+#include "loader/FrameLoader.h"
+#include "page/FrameTree.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/ScrollTypes.h"
+#include "page/UserScriptTypes.h"
 #include <wtf/RefCounted.h>
 
 #if PLATFORM(WIN)

@@ -18,18 +18,18 @@
  */
 
 #include "config.h"
-#include "AXObjectCache.h"
+#include "accessibility/AXObjectCache.h"
 
 #if HAVE(ACCESSIBILITY)
 
-#include "AccessibilityObject.h"
-#include "AccessibilityRenderObject.h"
-#include "Document.h"
-#include "Element.h"
-#include "HTMLSelectElement.h"
-#include "Range.h"
-#include "TextIterator.h"
-#include "WebKitAccessibleWrapperAtk.h"
+#include "accessibility/AccessibilityObject.h"
+#include "accessibility/AccessibilityRenderObject.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
+#include "html/HTMLSelectElement.h"
+#include "dom/Range.h"
+#include "editing/TextIterator.h"
+#include "accessibility/atk/WebKitAccessibleWrapperAtk.h"
 #include <wtf/gobject/GOwnPtr.h>
 #include <wtf/text/CString.h>
 

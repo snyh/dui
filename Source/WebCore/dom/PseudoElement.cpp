@@ -25,12 +25,12 @@
  */
 
 #include "config.h"
-#include "PseudoElement.h"
+#include "dom/PseudoElement.h"
 
-#include "ContentData.h"
-#include "NodeRenderingContext.h"
-#include "RenderObject.h"
-#include "RenderQuote.h"
+#include "rendering/style/ContentData.h"
+#include "dom/NodeRenderingContext.h"
+#include "rendering/RenderObject.h"
+#include "rendering/RenderQuote.h"
 
 namespace WebCore {
 

@@ -23,7 +23,7 @@
 #ifndef RenderTextFragment_h
 #define RenderTextFragment_h
 
-#include "RenderText.h"
+#include "rendering/RenderText.h"
 
 namespace WebCore {
 

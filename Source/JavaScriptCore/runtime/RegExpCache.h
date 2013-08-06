@@ -25,11 +25,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "RegExp.h"
-#include "RegExpKey.h"
-#include "Strong.h"
-#include "Weak.h"
-#include "WeakInlines.h"
+#include "runtime/RegExp.h"
+#include "runtime/RegExpKey.h"
+#include "heap/Strong.h"
+#include "heap/Weak.h"
+#include "heap/WeakInlines.h"
 #include <wtf/FixedArray.h>
 #include <wtf/HashMap.h>
 

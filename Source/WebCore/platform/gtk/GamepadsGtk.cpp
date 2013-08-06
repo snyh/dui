@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "Gamepads.h"
+#include "platform/Gamepads.h"
 
 #if ENABLE(GAMEPAD)
 
-#include "GamepadDeviceLinux.h"
+#include "platform/linux/GamepadDeviceLinux.h"
 #include "GamepadList.h"
-#include "Logging.h"
+#include "platform/Logging.h"
 #include <gio/gunixinputstream.h>
 #include <gudev/gudev.h>
 #include <wtf/HashMap.h>

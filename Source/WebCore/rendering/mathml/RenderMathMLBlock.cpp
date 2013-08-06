@@ -28,15 +28,15 @@
 
 #if ENABLE(MATHML)
 
-#include "RenderMathMLBlock.h"
+#include "rendering/mathml/RenderMathMLBlock.h"
 
-#include "GraphicsContext.h"
+#include "platform/graphics/GraphicsContext.h"
 #include "MathMLNames.h"
-#include "RenderView.h"
+#include "rendering/RenderView.h"
 #include <wtf/text/StringBuilder.h>
 
 #if ENABLE(DEBUG_MATH_LAYOUT)
-#include "PaintInfo.h"
+#include "rendering/PaintInfo.h"
 #endif
 
 namespace WebCore {

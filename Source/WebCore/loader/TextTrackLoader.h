@@ -28,10 +28,10 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "CachedResourceClient.h"
-#include "CachedResourceHandle.h"
-#include "Timer.h"
-#include "WebVTTParser.h"
+#include "loader/cache/CachedResourceClient.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "platform/Timer.h"
+#include "html/track/WebVTTParser.h"
 #include <wtf/OwnPtr.h>
 
 namespace WebCore {

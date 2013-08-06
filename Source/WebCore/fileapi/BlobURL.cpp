@@ -30,11 +30,11 @@
 
 #include "config.h"
 
-#include "BlobURL.h"
+#include "fileapi/BlobURL.h"
 
-#include "KURL.h"
-#include "SecurityOrigin.h"
-#include "UUID.h"
+#include "platform/KURL.h"
+#include "page/SecurityOrigin.h"
+#include "platform/UUID.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

@@ -26,11 +26,11 @@
 #ifndef CopiedBlock_h
 #define CopiedBlock_h
 
-#include "BlockAllocator.h"
-#include "CopyWorkList.h"
-#include "HeapBlock.h"
-#include "JSCJSValue.h"
-#include "Options.h"
+#include "heap/BlockAllocator.h"
+#include "heap/CopyWorkList.h"
+#include "heap/HeapBlock.h"
+#include "runtime/JSCJSValue.h"
+#include "runtime/Options.h"
 #include <wtf/Atomics.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>

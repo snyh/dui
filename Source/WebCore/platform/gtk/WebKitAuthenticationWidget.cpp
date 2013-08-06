@@ -18,10 +18,10 @@
  */
 
 #include "config.h"
-#include "WebKitAuthenticationWidget.h"
+#include "platform/gtk/WebKitAuthenticationWidget.h"
 
-#include "CredentialBackingStore.h"
-#include "GtkVersioning.h"
+#include "platform/network/gtk/CredentialBackingStore.h"
+#include "platform/gtk/GtkVersioning.h"
 #include <glib/gi18n-lib.h>
 #include <wtf/gobject/GOwnPtr.h>
 #include <wtf/text/CString.h>

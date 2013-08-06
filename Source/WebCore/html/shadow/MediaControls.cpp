@@ -27,10 +27,10 @@
 #include "config.h"
 
 #if ENABLE(VIDEO)
-#include "MediaControls.h"
+#include "html/shadow/MediaControls.h"
 
-#include "ExceptionCodePlaceholder.h"
-#include "Settings.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "page/Settings.h"
 
 namespace WebCore {
 

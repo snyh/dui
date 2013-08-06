@@ -32,12 +32,12 @@
 
 #if ENABLE(BLOB)
 
-#include "FileReaderSync.h"
+#include "fileapi/FileReaderSync.h"
 
-#include "Blob.h"
-#include "BlobURL.h"
-#include "FileException.h"
-#include "FileReaderLoader.h"
+#include "fileapi/Blob.h"
+#include "fileapi/BlobURL.h"
+#include "fileapi/FileException.h"
+#include "fileapi/FileReaderLoader.h"
 #include <wtf/ArrayBuffer.h>
 #include <wtf/PassRefPtr.h>
 

@@ -27,7 +27,7 @@
 #ifndef DeviceMotionController_h
 #define DeviceMotionController_h
 
-#include "DeviceController.h"
+#include "page/DeviceController.h"
 
 namespace WebCore {
 

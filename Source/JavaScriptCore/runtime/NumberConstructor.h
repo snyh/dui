@@ -21,7 +21,7 @@
 #ifndef NumberConstructor_h
 #define NumberConstructor_h
 
-#include "InternalFunction.h"
+#include "runtime/InternalFunction.h"
 
 namespace JSC {
 

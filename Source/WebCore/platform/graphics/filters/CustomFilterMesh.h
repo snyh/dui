@@ -32,9 +32,9 @@
 
 #if ENABLE(CSS_SHADERS) && USE(3D_GRAPHICS)
 
-#include "CustomFilterOperation.h"
-#include "FloatRect.h"
-#include "GraphicsTypes3D.h"
+#include "platform/graphics/filters/CustomFilterOperation.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/GraphicsTypes3D.h"
 #include <wtf/RefCounted.h>
 
 namespace WebCore {

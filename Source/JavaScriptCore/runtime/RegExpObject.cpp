@@ -19,21 +19,21 @@
  */
 
 #include "config.h"
-#include "RegExpObject.h"
+#include "runtime/RegExpObject.h"
 
-#include "ButterflyInlines.h"
-#include "CopiedSpaceInlines.h"
-#include "Error.h"
-#include "ExceptionHelpers.h"
-#include "JSArray.h"
-#include "JSGlobalObject.h"
-#include "JSString.h"
-#include "Lexer.h"
-#include "Lookup.h"
-#include "Operations.h"
-#include "RegExpConstructor.h"
-#include "RegExpMatchesArray.h"
-#include "RegExpPrototype.h"
+#include "runtime/ButterflyInlines.h"
+#include "heap/CopiedSpaceInlines.h"
+#include "runtime/Error.h"
+#include "runtime/ExceptionHelpers.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSString.h"
+#include "parser/Lexer.h"
+#include "runtime/Lookup.h"
+#include "runtime/Operations.h"
+#include "runtime/RegExpConstructor.h"
+#include "runtime/RegExpMatchesArray.h"
+#include "runtime/RegExpPrototype.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/StringBuilder.h>
 

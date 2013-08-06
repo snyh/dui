@@ -26,7 +26,7 @@
 #ifndef ParserArena_h
 #define ParserArena_h
 
-#include "Identifier.h"
+#include "runtime/Identifier.h"
 #include <wtf/SegmentedVector.h>
 
 namespace JSC {

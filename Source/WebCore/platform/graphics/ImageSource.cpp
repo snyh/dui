@@ -27,12 +27,12 @@
  */
 
 #include "config.h"
-#include "ImageSource.h"
+#include "platform/graphics/ImageSource.h"
 
-#include "ImageDecoder.h"
+#include "platform/image-decoders/ImageDecoder.h"
 
-#include "ImageOrientation.h"
-#include "NotImplemented.h"
+#include "platform/graphics/ImageOrientation.h"
+#include "platform/NotImplemented.h"
 
 namespace WebCore {
 

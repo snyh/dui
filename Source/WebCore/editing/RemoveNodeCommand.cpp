@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "RemoveNodeCommand.h"
+#include "editing/RemoveNodeCommand.h"
 
-#include "ExceptionCodePlaceholder.h"
-#include "Node.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "dom/Node.h"
 #include <wtf/Assertions.h>
 
 namespace WebCore {

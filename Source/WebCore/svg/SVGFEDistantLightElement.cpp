@@ -20,10 +20,10 @@
 #include "config.h"
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "SVGFEDistantLightElement.h"
+#include "svg/SVGFEDistantLightElement.h"
 #include "SVGNames.h"
 
-#include "DistantLightSource.h"
+#include "platform/graphics/filters/DistantLightSource.h"
 
 namespace WebCore {
 

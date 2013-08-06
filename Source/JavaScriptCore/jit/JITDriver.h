@@ -30,10 +30,10 @@
 
 #if ENABLE(JIT)
 
-#include "BytecodeGenerator.h"
-#include "DFGDriver.h"
-#include "JIT.h"
-#include "LLIntEntrypoints.h"
+#include "bytecompiler/BytecodeGenerator.h"
+#include "dfg/DFGDriver.h"
+#include "jit/JIT.h"
+#include "llint/LLIntEntrypoints.h"
 
 namespace JSC {
 

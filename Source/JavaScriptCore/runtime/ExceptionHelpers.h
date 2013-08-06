@@ -29,7 +29,7 @@
 #ifndef ExceptionHelpers_h
 #define ExceptionHelpers_h
 
-#include "JSObject.h"
+#include "runtime/JSObject.h"
 
 namespace JSC {
 

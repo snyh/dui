@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "LLIntCLoop.h"
+#include "llint/LLIntCLoop.h"
 
-#include "Instruction.h"
+#include "bytecode/Instruction.h"
 
 namespace JSC {
 

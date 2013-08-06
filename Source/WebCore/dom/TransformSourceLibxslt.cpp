@@ -26,7 +26,7 @@
 #include "config.h"
 
 #if ENABLE(XSLT)
-#include "TransformSource.h"
+#include "dom/TransformSource.h"
 
 #include <libxml/tree.h>
 

@@ -30,22 +30,22 @@
 
 #include "config.h"
 #if ENABLE(INPUT_TYPE_COLOR)
-#include "ColorInputType.h"
+#include "html/ColorInputType.h"
 
 #include "CSSPropertyNames.h"
-#include "Chrome.h"
-#include "Color.h"
-#include "ElementShadow.h"
-#include "HTMLDataListElement.h"
-#include "HTMLDivElement.h"
-#include "HTMLInputElement.h"
-#include "HTMLOptionElement.h"
-#include "InputTypeNames.h"
-#include "MouseEvent.h"
-#include "RenderObject.h"
-#include "RenderView.h"
-#include "ScriptController.h"
-#include "ShadowRoot.h"
+#include "page/Chrome.h"
+#include "platform/graphics/Color.h"
+#include "dom/ElementShadow.h"
+#include "html/HTMLDataListElement.h"
+#include "html/HTMLDivElement.h"
+#include "html/HTMLInputElement.h"
+#include "html/HTMLOptionElement.h"
+#include "html/InputTypeNames.h"
+#include "dom/MouseEvent.h"
+#include "rendering/RenderObject.h"
+#include "rendering/RenderView.h"
+#include "bindings/dui/saved/ScriptController.h"
+#include "dom/ShadowRoot.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/WTFString.h>
 

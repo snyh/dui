@@ -26,11 +26,11 @@
 #ifndef CommonSlowPaths_h
 #define CommonSlowPaths_h
 
-#include "CodeBlock.h"
-#include "CodeSpecializationKind.h"
-#include "ExceptionHelpers.h"
-#include "JSArray.h"
-#include "NameInstance.h"
+#include "bytecode/CodeBlock.h"
+#include "runtime/CodeSpecializationKind.h"
+#include "runtime/ExceptionHelpers.h"
+#include "runtime/JSArray.h"
+#include "runtime/NameInstance.h"
 
 namespace JSC {
 

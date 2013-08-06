@@ -26,11 +26,11 @@
 #ifndef CopiedSpaceInlines_h
 #define CopiedSpaceInlines_h
 
-#include "CopiedBlock.h"
-#include "CopiedSpace.h"
-#include "Heap.h"
-#include "HeapBlock.h"
-#include "VM.h"
+#include "heap/CopiedBlock.h"
+#include "heap/CopiedSpace.h"
+#include "heap/Heap.h"
+#include "heap/HeapBlock.h"
+#include "runtime/VM.h"
 #include <wtf/CheckedBoolean.h>
 
 namespace JSC {

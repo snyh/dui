@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "BeforeTextInsertedEvent.h"
+#include "dom/BeforeTextInsertedEvent.h"
 
-#include "EventNames.h"
+#include "dom/EventNames.h"
 
 namespace WebCore {
 

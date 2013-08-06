@@ -22,10 +22,10 @@
 #ifndef RenderView_h
 #define RenderView_h
 
-#include "FrameView.h"
-#include "LayoutState.h"
-#include "PODFreeListArena.h"
-#include "RenderBlock.h"
+#include "page/FrameView.h"
+#include "rendering/LayoutState.h"
+#include "platform/PODFreeListArena.h"
+#include "rendering/RenderBlock.h"
 #include <wtf/OwnPtr.h>
 
 namespace WebCore {

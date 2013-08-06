@@ -26,17 +26,17 @@
  */
 
 #include "config.h"
-#include "AutoscrollController.h"
+#include "page/AutoscrollController.h"
 
-#include "Chrome.h"
-#include "ChromeClient.h"
-#include "EventHandler.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "HitTestResult.h"
-#include "Page.h"
-#include "RenderBox.h"
-#include "ScrollView.h"
+#include "page/Chrome.h"
+#include "page/ChromeClient.h"
+#include "page/EventHandler.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "rendering/HitTestResult.h"
+#include "page/Page.h"
+#include "rendering/RenderBox.h"
+#include "platform/ScrollView.h"
 #include <wtf/CurrentTime.h>
 
 namespace WebCore {

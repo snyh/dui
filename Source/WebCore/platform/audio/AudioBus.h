@@ -29,7 +29,7 @@
 #ifndef AudioBus_h
 #define AudioBus_h
 
-#include "AudioChannel.h"
+#include "platform/audio/AudioChannel.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/PassOwnPtr.h>
 #include <wtf/ThreadSafeRefCounted.h>

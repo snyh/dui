@@ -30,16 +30,16 @@
 #include "config.h"
 
 #if ENABLE(CSS_SHADERS)
-#include "WebKitCSSShaderValue.h"
+#include "css/WebKitCSSShaderValue.h"
 
-#include "CSSParser.h"
-#include "CachedResourceLoader.h"
-#include "CachedResourceRequest.h"
-#include "CachedResourceRequestInitiators.h"
-#include "Document.h"
-#include "KURL.h"
-#include "StyleCachedShader.h"
-#include "StylePendingShader.h"
+#include "css/CSSParser.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "loader/cache/CachedResourceRequest.h"
+#include "loader/cache/CachedResourceRequestInitiators.h"
+#include "dom/Document.h"
+#include "platform/KURL.h"
+#include "rendering/style/StyleCachedShader.h"
+#include "rendering/style/StylePendingShader.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

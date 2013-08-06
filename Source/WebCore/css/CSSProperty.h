@@ -22,10 +22,10 @@
 #define CSSProperty_h
 
 #include "CSSPropertyNames.h"
-#include "CSSValue.h"
-#include "RenderStyleConstants.h"
-#include "TextDirection.h"
-#include "WritingMode.h"
+#include "css/CSSValue.h"
+#include "rendering/style/RenderStyleConstants.h"
+#include "platform/text/TextDirection.h"
+#include "platform/text/WritingMode.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>
 

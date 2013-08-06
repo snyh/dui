@@ -27,7 +27,7 @@
  */
 
 #include "config.h"
-#include "BitmapInfo.h"
+#include "platform/win/BitmapInfo.h"
 
 #include <wtf/Assertions.h>
 

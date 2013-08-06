@@ -21,10 +21,10 @@
  */
 
 #include "config.h"
-#include "GetterSetter.h"
+#include "runtime/GetterSetter.h"
 
-#include "JSObject.h"
-#include "Operations.h"
+#include "runtime/JSObject.h"
+#include "runtime/Operations.h"
 #include <wtf/Assertions.h>
 
 namespace JSC {

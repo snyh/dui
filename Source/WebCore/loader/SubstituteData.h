@@ -26,8 +26,8 @@
 #ifndef SubstituteData_h
 #define SubstituteData_h
 
-#include "KURL.h"
-#include "SharedBuffer.h"
+#include "platform/KURL.h"
+#include "platform/SharedBuffer.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>
 

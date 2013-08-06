@@ -23,11 +23,11 @@
 #ifndef RenderBox_h
 #define RenderBox_h
 
-#include "RenderBoxModelObject.h"
-#include "RenderOverflow.h"
-#include "ScrollTypes.h"
+#include "rendering/RenderBoxModelObject.h"
+#include "rendering/RenderOverflow.h"
+#include "platform/ScrollTypes.h"
 #if ENABLE(CSS_SHAPES)
-#include "ShapeOutsideInfo.h"
+#include "rendering/shapes/ShapeOutsideInfo.h"
 #endif
 
 namespace WebCore {

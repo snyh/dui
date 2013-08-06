@@ -25,20 +25,20 @@
  */
 
 #include "config.h"
-#include "StyleScopeResolver.h"
+#include "css/StyleScopeResolver.h"
 
 #if ENABLE(STYLE_SCOPED) || ENABLE(SHADOW_DOM)
 
-#include "CSSStyleRule.h"
-#include "CSSStyleSheet.h"
-#include "ContentDistributor.h"
-#include "ContextFeatures.h"
-#include "ElementShadow.h"
+#include "css/CSSStyleRule.h"
+#include "css/CSSStyleSheet.h"
+#include "html/shadow/ContentDistributor.h"
+#include "dom/ContextFeatures.h"
+#include "dom/ElementShadow.h"
 #include "HTMLNames.h"
-#include "HTMLStyleElement.h"
-#include "RuleFeature.h"
-#include "RuleSet.h"
-#include "ShadowRoot.h"
+#include "html/HTMLStyleElement.h"
+#include "css/RuleFeature.h"
+#include "css/RuleSet.h"
+#include "dom/ShadowRoot.h"
 
 namespace WebCore {
 

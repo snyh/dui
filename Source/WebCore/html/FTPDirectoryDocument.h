@@ -25,7 +25,7 @@
 #ifndef FTPDirectoryDocument_h
 #define FTPDirectoryDocument_h
 
-#include "HTMLDocument.h"
+#include "html/HTMLDocument.h"
 
 namespace WebCore {
     

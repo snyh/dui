@@ -24,7 +24,7 @@
 
 #include "EventInterfaces.h"
 #include "EventTargetInterfaces.h"
-#include "ThreadGlobalData.h"
+#include "platform/ThreadGlobalData.h"
 #include <wtf/text/AtomicString.h>
 
 namespace WebCore {

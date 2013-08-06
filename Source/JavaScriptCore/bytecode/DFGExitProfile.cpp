@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "DFGExitProfile.h"
+#include "bytecode/DFGExitProfile.h"
 
 #include <wtf/PassOwnPtr.h>
 

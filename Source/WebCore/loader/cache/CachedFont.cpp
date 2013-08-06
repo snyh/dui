@@ -25,24 +25,24 @@
  */
 
 #include "config.h"
-#include "CachedFont.h"
+#include "loader/cache/CachedFont.h"
 
-#include "CachedFontClient.h"
-#include "CachedResourceClientWalker.h"
-#include "CachedResourceLoader.h"
-#include "FontCustomPlatformData.h"
-#include "FontPlatformData.h"
-#include "MemoryCache.h"
-#include "ResourceBuffer.h"
-#include "TextResourceDecoder.h"
+#include "loader/cache/CachedFontClient.h"
+#include "loader/cache/CachedResourceClientWalker.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "platform/graphics/cairo/FontCustomPlatformData.h"
+#include "platform/graphics/FontPlatformData.h"
+#include "loader/cache/MemoryCache.h"
+#include "loader/ResourceBuffer.h"
+#include "loader/TextResourceDecoder.h"
 #include <wtf/Vector.h>
 
 #if ENABLE(SVG_FONTS)
-#include "NodeList.h"
-#include "SVGDocument.h"
-#include "SVGElement.h"
-#include "SVGFontElement.h"
-#include "SVGGElement.h"
+#include "dom/NodeList.h"
+#include "svg/SVGDocument.h"
+#include "svg/SVGElement.h"
+#include "svg/SVGFontElement.h"
+#include "svg/SVGGElement.h"
 #include "SVGNames.h"
 #endif
 

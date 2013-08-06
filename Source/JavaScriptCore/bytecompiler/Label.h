@@ -29,8 +29,8 @@
 #ifndef Label_h
 #define Label_h
 
-#include "CodeBlock.h"
-#include "Instruction.h"
+#include "bytecode/CodeBlock.h"
+#include "bytecode/Instruction.h"
 #include <wtf/Assertions.h>
 #include <wtf/Vector.h>
 #include <limits.h>

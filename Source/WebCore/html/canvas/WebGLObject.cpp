@@ -27,18 +27,18 @@
 
 #if ENABLE(WEBGL)
 
-#include "WebGLObject.h"
+#include "html/canvas/WebGLObject.h"
 
-#include "EXTTextureFilterAnisotropic.h"
-#include "OESStandardDerivatives.h"
-#include "OESTextureFloat.h"
-#include "OESVertexArrayObject.h"
-#include "WebGLCompressedTextureS3TC.h"
-#include "WebGLContextGroup.h"
-#include "WebGLDebugRendererInfo.h"
-#include "WebGLDebugShaders.h"
-#include "WebGLLoseContext.h"
-#include "WebGLRenderingContext.h"
+#include "html/canvas/EXTTextureFilterAnisotropic.h"
+#include "html/canvas/OESStandardDerivatives.h"
+#include "html/canvas/OESTextureFloat.h"
+#include "html/canvas/OESVertexArrayObject.h"
+#include "html/canvas/WebGLCompressedTextureS3TC.h"
+#include "html/canvas/WebGLContextGroup.h"
+#include "html/canvas/WebGLDebugRendererInfo.h"
+#include "html/canvas/WebGLDebugShaders.h"
+#include "html/canvas/WebGLLoseContext.h"
+#include "html/canvas/WebGLRenderingContext.h"
 
 namespace WebCore {
 

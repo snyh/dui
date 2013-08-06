@@ -30,7 +30,7 @@
  */
 
 #include "config.h"
-#include "Decimal.h"
+#include "platform/Decimal.h"
 
 #include <algorithm>
 #include <float.h>

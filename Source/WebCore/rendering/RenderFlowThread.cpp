@@ -29,21 +29,21 @@
 
 #include "config.h"
 
-#include "RenderFlowThread.h"
+#include "rendering/RenderFlowThread.h"
 
-#include "FlowThreadController.h"
-#include "HitTestRequest.h"
-#include "HitTestResult.h"
-#include "Node.h"
-#include "PODIntervalTree.h"
-#include "PaintInfo.h"
-#include "RenderBoxRegionInfo.h"
-#include "RenderInline.h"
-#include "RenderLayer.h"
-#include "RenderRegion.h"
-#include "RenderView.h"
-#include "TransformState.h"
-#include "WebKitNamedFlow.h"
+#include "rendering/FlowThreadController.h"
+#include "rendering/HitTestRequest.h"
+#include "rendering/HitTestResult.h"
+#include "dom/Node.h"
+#include "platform/PODIntervalTree.h"
+#include "rendering/PaintInfo.h"
+#include "rendering/RenderBoxRegionInfo.h"
+#include "rendering/RenderInline.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/RenderRegion.h"
+#include "rendering/RenderView.h"
+#include "platform/graphics/transforms/TransformState.h"
+#include "dom/WebKitNamedFlow.h"
 #include <wtf/StackStats.h>
 
 namespace WebCore {

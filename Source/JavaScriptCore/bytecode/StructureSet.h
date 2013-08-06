@@ -26,9 +26,9 @@
 #ifndef StructureSet_h
 #define StructureSet_h
 
-#include "ArrayProfile.h"
-#include "SpeculatedType.h"
-#include "Structure.h"
+#include "bytecode/ArrayProfile.h"
+#include "bytecode/SpeculatedType.h"
+#include "runtime/Structure.h"
 #include <stdio.h>
 #include <wtf/Vector.h>
 

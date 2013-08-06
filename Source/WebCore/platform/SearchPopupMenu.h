@@ -21,7 +21,7 @@
 #ifndef SearchPopupMenu_h
 #define SearchPopupMenu_h
 
-#include "PopupMenu.h"
+#include "platform/PopupMenu.h"
 #include <wtf/Forward.h>
 #include <wtf/Vector.h>
 #include <wtf/text/WTFString.h>

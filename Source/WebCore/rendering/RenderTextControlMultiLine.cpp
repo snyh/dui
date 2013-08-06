@@ -20,15 +20,15 @@
  */
 
 #include "config.h"
-#include "RenderTextControlMultiLine.h"
+#include "rendering/RenderTextControlMultiLine.h"
 
-#include "Frame.h"
+#include "page/Frame.h"
 #include "HTMLNames.h"
-#include "HTMLTextAreaElement.h"
-#include "HitTestResult.h"
-#include "ShadowRoot.h"
-#include "StyleInheritedData.h"
-#include "TextControlInnerElements.h"
+#include "html/HTMLTextAreaElement.h"
+#include "rendering/HitTestResult.h"
+#include "dom/ShadowRoot.h"
+#include "rendering/style/StyleInheritedData.h"
+#include "html/shadow/TextControlInnerElements.h"
 
 namespace WebCore {
 

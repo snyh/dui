@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "CSSCanvasValue.h"
+#include "css/CSSCanvasValue.h"
 
-#include "ImageBuffer.h"
-#include "RenderObject.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "rendering/RenderObject.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {

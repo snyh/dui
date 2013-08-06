@@ -27,10 +27,10 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "WebVTTElement.h"
+#include "html/track/WebVTTElement.h"
 
 #include "HTMLElementFactory.h"
-#include "TextTrack.h"
+#include "html/track/TextTrack.h"
 
 namespace WebCore {
 

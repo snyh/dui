@@ -17,11 +17,11 @@
  */
 
 #include "config.h"
-#include "GLContextGLX.h"
+#include "platform/graphics/glx/GLContextGLX.h"
 
 #if USE(GLX)
-#include "GraphicsContext3D.h"
-#include "OpenGLShims.h"
+#include "platform/graphics/GraphicsContext3D.h"
+#include "platform/graphics/OpenGLShims.h"
 #include <GL/glx.h>
 #include <cairo.h>
 #include <wtf/OwnPtr.h>

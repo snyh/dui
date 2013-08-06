@@ -30,21 +30,21 @@
  */
 
 #include "config.h"
-#include "Performance.h"
+#include "page/Performance.h"
 
-#include "Document.h"
-#include "DocumentLoader.h"
-#include "PerformanceEntry.h"
-#include "PerformanceNavigation.h"
-#include "PerformanceResourceTiming.h"
-#include "PerformanceTiming.h"
-#include "PerformanceUserTiming.h"
-#include "ResourceResponse.h"
+#include "dom/Document.h"
+#include "loader/DocumentLoader.h"
+#include "page/PerformanceEntry.h"
+#include "page/PerformanceNavigation.h"
+#include "page/PerformanceResourceTiming.h"
+#include "page/PerformanceTiming.h"
+#include "page/PerformanceUserTiming.h"
+#include "platform/network/soup/ResourceResponse.h"
 #include <wtf/CurrentTime.h>
 
 #if ENABLE(WEB_TIMING)
 
-#include "Frame.h"
+#include "page/Frame.h"
 
 namespace WebCore {
 

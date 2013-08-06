@@ -21,9 +21,9 @@
 #define SVGVKernElement_h
 
 #if ENABLE(SVG_FONTS)
-#include "SVGFontElement.h"
-#include "SVGParserUtilities.h"
-#include "SVGStyledElement.h"
+#include "svg/SVGFontElement.h"
+#include "svg/SVGParserUtilities.h"
+#include "svg/SVGStyledElement.h"
 
 #include <limits>
 #include <wtf/Forward.h>

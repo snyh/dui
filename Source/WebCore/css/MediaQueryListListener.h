@@ -20,8 +20,8 @@
 #ifndef MediaQueryListListener_h
 #define MediaQueryListListener_h
 
-#include "ScriptState.h"
-#include "ScriptValue.h"
+#include "bindings/dui/saved/ScriptState.h"
+#include "bindings/dui/saved/ScriptValue.h"
 #include <wtf/RefCounted.h>
 #include <wtf/text/WTFString.h>
 

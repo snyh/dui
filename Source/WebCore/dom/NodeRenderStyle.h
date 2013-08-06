@@ -25,9 +25,9 @@
 #ifndef NodeRenderStyle_h
 #define NodeRenderStyle_h
 
-#include "RenderObject.h"
-#include "RenderStyle.h"
-#include "Node.h"
+#include "rendering/RenderObject.h"
+#include "rendering/style/RenderStyle.h"
+#include "dom/Node.h"
 
 namespace WebCore {
 

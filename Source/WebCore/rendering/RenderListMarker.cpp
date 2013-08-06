@@ -23,14 +23,14 @@
  */
 
 #include "config.h"
-#include "RenderListMarker.h"
+#include "rendering/RenderListMarker.h"
 
-#include "Document.h"
-#include "Font.h"
-#include "GraphicsContext.h"
-#include "RenderLayer.h"
-#include "RenderListItem.h"
-#include "RenderView.h"
+#include "dom/Document.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/RenderListItem.h"
+#include "rendering/RenderView.h"
 #include <wtf/StackStats.h>
 #include <wtf/text/StringBuilder.h>
 #include <wtf/unicode/CharacterNames.h>

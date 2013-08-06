@@ -26,7 +26,7 @@
 #ifndef WeakHandleOwner_h
 #define WeakHandleOwner_h
 
-#include "Handle.h"
+#include "heap/Handle.h"
 
 namespace JSC {
 

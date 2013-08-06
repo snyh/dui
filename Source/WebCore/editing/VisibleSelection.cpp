@@ -24,15 +24,15 @@
  */
   
 #include "config.h"
-#include "VisibleSelection.h"
+#include "editing/VisibleSelection.h"
 
-#include "Document.h"
-#include "Element.h"
-#include "Range.h"
-#include "TextIterator.h"
-#include "VisiblePosition.h"
-#include "VisibleUnits.h"
-#include "htmlediting.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
+#include "dom/Range.h"
+#include "editing/TextIterator.h"
+#include "editing/VisiblePosition.h"
+#include "editing/VisibleUnits.h"
+#include "editing/htmlediting.h"
 #include <stdio.h>
 #include <wtf/Assertions.h>
 #include <wtf/text/CString.h>

@@ -26,8 +26,8 @@
 #ifndef LLIntData_h
 #define LLIntData_h
 
-#include "JSCJSValue.h"
-#include "Opcode.h"
+#include "runtime/JSCJSValue.h"
+#include "bytecode/Opcode.h"
 #include <wtf/Platform.h>
 
 namespace JSC {

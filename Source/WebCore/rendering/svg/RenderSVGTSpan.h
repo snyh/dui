@@ -23,7 +23,7 @@
 #define RenderSVGTSpan_h
 
 #if ENABLE(SVG)
-#include "RenderSVGInline.h"
+#include "rendering/svg/RenderSVGInline.h"
 
 namespace WebCore {
 class RenderSVGTSpan : public RenderSVGInline {

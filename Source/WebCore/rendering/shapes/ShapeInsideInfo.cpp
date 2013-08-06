@@ -28,12 +28,12 @@
  */
 
 #include "config.h"
-#include "ShapeInsideInfo.h"
+#include "rendering/shapes/ShapeInsideInfo.h"
 
 #if ENABLE(CSS_SHAPES)
 
-#include "InlineIterator.h"
-#include "RenderBlock.h"
+#include "rendering/InlineIterator.h"
+#include "rendering/RenderBlock.h"
 
 namespace WebCore {
 

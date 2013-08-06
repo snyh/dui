@@ -43,15 +43,15 @@
 
 #define ASSERT_JIT_OFFSET(actual, expected) ASSERT_WITH_MESSAGE(actual == expected, "JIT Offset \"%s\" should be %d, not %d.\n", #expected, static_cast<int>(expected), static_cast<int>(actual));
 
-#include "CodeBlock.h"
-#include "CompactJITCodeMap.h"
-#include "Interpreter.h"
-#include "JITDisassembler.h"
-#include "JSInterfaceJIT.h"
-#include "LegacyProfiler.h"
-#include "Opcode.h"
-#include "ResultType.h"
-#include "UnusedPointer.h"
+#include "bytecode/CodeBlock.h"
+#include "jit/CompactJITCodeMap.h"
+#include "interpreter/Interpreter.h"
+#include "jit/JITDisassembler.h"
+#include "jit/JSInterfaceJIT.h"
+#include "profiler/LegacyProfiler.h"
+#include "bytecode/Opcode.h"
+#include "parser/ResultType.h"
+#include "jit/UnusedPointer.h"
 #include <bytecode/SamplingTool.h>
 
 namespace JSC {

@@ -21,7 +21,7 @@
 #ifndef ErrorInstance_h
 #define ErrorInstance_h
 
-#include "JSObject.h"
+#include "runtime/JSObject.h"
 
 namespace JSC {
 

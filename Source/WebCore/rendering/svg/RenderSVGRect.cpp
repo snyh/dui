@@ -28,10 +28,10 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGRect.h"
+#include "rendering/svg/RenderSVGRect.h"
 
 #include "SVGNames.h"
-#include "SVGRectElement.h"
+#include "svg/SVGRectElement.h"
 
 namespace WebCore {
 

@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "HeapTimer.h"
+#include "heap/HeapTimer.h"
 
-#include "APIShims.h"
-#include "JSObject.h"
-#include "JSString.h"
+#include "API/APIShims.h"
+#include "runtime/JSObject.h"
+#include "runtime/JSString.h"
 
 #include <wtf/MainThread.h>
 #include <wtf/Threading.h>

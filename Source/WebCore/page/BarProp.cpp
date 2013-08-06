@@ -27,11 +27,11 @@
  */
 
 #include "config.h"
-#include "BarProp.h"
+#include "page/BarProp.h"
 
-#include "Chrome.h"
-#include "Frame.h"
-#include "Page.h"
+#include "page/Chrome.h"
+#include "page/Frame.h"
+#include "page/Page.h"
 
 namespace WebCore {
 

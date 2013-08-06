@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "DFGMinifiedNode.h"
+#include "dfg/DFGMinifiedNode.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGNode.h"
+#include "dfg/DFGNode.h"
 
 namespace JSC { namespace DFG {
 

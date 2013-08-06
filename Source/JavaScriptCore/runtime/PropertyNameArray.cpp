@@ -19,12 +19,12 @@
  */
 
 #include "config.h"
-#include "PropertyNameArray.h"
+#include "runtime/PropertyNameArray.h"
 
-#include "JSObject.h"
+#include "runtime/JSObject.h"
 
-#include "Structure.h"
-#include "StructureChain.h"
+#include "runtime/Structure.h"
+#include "runtime/StructureChain.h"
 
 namespace JSC {
 

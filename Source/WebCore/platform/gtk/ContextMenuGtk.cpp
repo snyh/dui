@@ -21,7 +21,7 @@
 
 #if ENABLE(CONTEXT_MENUS)
 
-#include "ContextMenu.h"
+#include "platform/ContextMenu.h"
 
 #include <gtk/gtk.h>
 #include <wtf/gobject/GOwnPtr.h>

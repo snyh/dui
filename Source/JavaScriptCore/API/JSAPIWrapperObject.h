@@ -26,9 +26,9 @@
 #ifndef JSAPIWrapperObject_h
 #define JSAPIWrapperObject_h
 
-#include "JSBase.h"
-#include "JSDestructibleObject.h"
-#include "WeakReferenceHarvester.h"
+#include "API/JSBase.h"
+#include "runtime/JSDestructibleObject.h"
+#include "heap/WeakReferenceHarvester.h"
 
 #if JSC_OBJC_API_ENABLED
 

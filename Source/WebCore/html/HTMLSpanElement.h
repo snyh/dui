@@ -26,7 +26,7 @@
 #ifndef HTMLSpanElement_h
 #define HTMLSpanElement_h
 
-#include "HTMLElement.h"
+#include "html/HTMLElement.h"
 
 namespace WebCore {
 

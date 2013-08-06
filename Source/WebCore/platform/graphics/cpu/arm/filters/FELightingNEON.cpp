@@ -25,7 +25,7 @@
  */
 
 #include "config.h"
-#include "FELightingNEON.h"
+#include "platform/graphics/cpu/arm/filters/FELightingNEON.h"
 
 #if CPU(ARM_NEON) && CPU(ARM_TRADITIONAL) && COMPILER(GCC)
 

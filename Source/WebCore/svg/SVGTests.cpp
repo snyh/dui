@@ -21,14 +21,14 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGTests.h"
+#include "svg/SVGTests.h"
 
-#include "Attribute.h"
-#include "DOMImplementation.h"
-#include "Language.h"
-#include "SVGElement.h"
+#include "dom/Attribute.h"
+#include "dom/DOMImplementation.h"
+#include "platform/Language.h"
+#include "svg/SVGElement.h"
 #include "SVGNames.h"
-#include "SVGStringList.h"
+#include "svg/SVGStringList.h"
 
 namespace WebCore {
 

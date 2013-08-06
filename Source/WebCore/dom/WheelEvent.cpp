@@ -21,12 +21,12 @@
  */
 
 #include "config.h"
-#include "WheelEvent.h"
+#include "dom/WheelEvent.h"
 
-#include "Clipboard.h"
-#include "EventDispatcher.h"
-#include "EventNames.h"
-#include "PlatformWheelEvent.h"
+#include "dom/Clipboard.h"
+#include "dom/EventDispatcher.h"
+#include "dom/EventNames.h"
+#include "platform/PlatformWheelEvent.h"
 
 #include <wtf/MathExtras.h>
 

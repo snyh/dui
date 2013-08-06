@@ -26,7 +26,7 @@
 #ifndef JITStubCall_h
 #define JITStubCall_h
 
-#include "MacroAssemblerCodeRef.h"
+#include "assembler/MacroAssemblerCodeRef.h"
 
 #if ENABLE(JIT)
 

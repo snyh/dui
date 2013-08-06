@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "DFGSpeculativeJIT.h"
+#include "dfg/DFGSpeculativeJIT.h"
 
 #if ENABLE(DFG_JIT)
 
-#include "Arguments.h"
-#include "ArrayPrototype.h"
-#include "DFGCallArrayAllocatorSlowPathGenerator.h"
-#include "DFGSlowPathGenerator.h"
-#include "JSCJSValueInlines.h"
-#include "ObjectPrototype.h"
+#include "runtime/Arguments.h"
+#include "runtime/ArrayPrototype.h"
+#include "dfg/DFGCallArrayAllocatorSlowPathGenerator.h"
+#include "dfg/DFGSlowPathGenerator.h"
+#include "runtime/JSCJSValueInlines.h"
+#include "runtime/ObjectPrototype.h"
 
 namespace JSC { namespace DFG {
 

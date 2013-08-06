@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "RenderIFrame.h"
+#include "rendering/RenderIFrame.h"
 
-#include "Frame.h"
-#include "FrameView.h"
-#include "HTMLIFrameElement.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "html/HTMLIFrameElement.h"
 #include "HTMLNames.h"
-#include "Page.h"
-#include "RenderView.h"
-#include "Settings.h"
+#include "page/Page.h"
+#include "rendering/RenderView.h"
+#include "page/Settings.h"
 #include <wtf/StackStats.h>
 
 namespace WebCore {

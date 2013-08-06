@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "SmallStrings.h"
+#include "runtime/SmallStrings.h"
 
-#include "HeapRootVisitor.h"
-#include "JSGlobalObject.h"
-#include "JSString.h"
-#include "Operations.h"
+#include "heap/HeapRootVisitor.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSString.h"
+#include "runtime/Operations.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/StringImpl.h>

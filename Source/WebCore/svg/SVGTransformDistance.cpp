@@ -19,12 +19,12 @@
 
 #include "config.h"
 #if ENABLE(SVG)
-#include "SVGTransformDistance.h"
+#include "svg/SVGTransformDistance.h"
 
-#include "FloatConversion.h"
-#include "FloatPoint.h"
-#include "FloatSize.h"
-#include "SVGTransform.h"
+#include "platform/FloatConversion.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/FloatSize.h"
+#include "svg/SVGTransform.h"
 
 #include <math.h>
 

@@ -33,7 +33,7 @@
 
 #if ENABLE(DATA_TRANSFER_ITEMS)
 
-#include "DataTransferItem.h"
+#include "dom/DataTransferItem.h"
 #include <wtf/Forward.h>
 #include <wtf/RefCounted.h>
 

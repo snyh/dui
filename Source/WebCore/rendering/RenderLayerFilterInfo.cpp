@@ -30,22 +30,22 @@
 #include "config.h"
 
 #if ENABLE(CSS_FILTERS)
-#include "RenderLayerFilterInfo.h"
+#include "rendering/RenderLayerFilterInfo.h"
 
-#include "FilterEffectRenderer.h"
-#include "RenderLayer.h"
+#include "rendering/FilterEffectRenderer.h"
+#include "rendering/RenderLayer.h"
 
 #if ENABLE(SVG)
-#include "CachedSVGDocument.h"
-#include "CachedSVGDocumentReference.h"
-#include "SVGElement.h"
-#include "SVGFilter.h"
-#include "SVGFilterPrimitiveStandardAttributes.h"
+#include "loader/cache/CachedSVGDocument.h"
+#include "loader/cache/CachedSVGDocumentReference.h"
+#include "svg/SVGElement.h"
+#include "svg/graphics/filters/SVGFilter.h"
+#include "svg/SVGFilterPrimitiveStandardAttributes.h"
 #endif
 
 #if ENABLE(CSS_SHADERS)
-#include "CustomFilterOperation.h"
-#include "CustomFilterProgram.h"
+#include "platform/graphics/filters/CustomFilterOperation.h"
+#include "platform/graphics/filters/CustomFilterProgram.h"
 #endif
 
 namespace WebCore {

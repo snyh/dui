@@ -30,10 +30,10 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "DynamicsCompressor.h"
+#include "platform/audio/DynamicsCompressor.h"
 
-#include "AudioBus.h"
-#include "AudioUtilities.h"
+#include "platform/audio/AudioBus.h"
+#include "platform/audio/AudioUtilities.h"
 #include <wtf/MathExtras.h>
 
 namespace WebCore {

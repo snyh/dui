@@ -21,14 +21,14 @@
 #define RenderSVGResourceClipper_h
 
 #if ENABLE(SVG)
-#include "FloatRect.h"
-#include "GraphicsContext.h"
-#include "ImageBuffer.h"
-#include "IntSize.h"
-#include "Path.h"
-#include "RenderSVGResourceContainer.h"
-#include "SVGClipPathElement.h"
-#include "SVGUnitTypes.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/graphics/Path.h"
+#include "rendering/svg/RenderSVGResourceContainer.h"
+#include "svg/SVGClipPathElement.h"
+#include "svg/SVGUnitTypes.h"
 
 #include <wtf/HashMap.h>
 #include <wtf/OwnPtr.h>

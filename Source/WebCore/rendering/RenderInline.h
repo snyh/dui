@@ -23,9 +23,9 @@
 #ifndef RenderInline_h
 #define RenderInline_h
 
-#include "InlineFlowBox.h"
-#include "RenderBoxModelObject.h"
-#include "RenderLineBoxList.h"
+#include "rendering/InlineFlowBox.h"
+#include "rendering/RenderBoxModelObject.h"
+#include "rendering/RenderLineBoxList.h"
 
 namespace WebCore {
 

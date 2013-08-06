@@ -24,15 +24,15 @@
 #define MediaPlayerPrivateGStreamerBase_h
 #if ENABLE(VIDEO) && USE(GSTREAMER)
 
-#include "GRefPtrGStreamer.h"
-#include "MediaPlayerPrivate.h"
+#include "platform/graphics/gstreamer/GRefPtrGStreamer.h"
+#include "platform/graphics/MediaPlayerPrivate.h"
 
 #include <glib.h>
 
 #include <wtf/Forward.h>
 
 #if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER_GL) && !USE(COORDINATED_GRAPHICS)
-#include "TextureMapperPlatformLayer.h"
+#include "platform/graphics/texmap/TextureMapperPlatformLayer.h"
 #endif
 
 typedef struct _GstBuffer GstBuffer;

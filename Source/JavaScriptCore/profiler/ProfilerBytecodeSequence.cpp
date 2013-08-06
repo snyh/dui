@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "ProfilerBytecodeSequence.h"
+#include "profiler/ProfilerBytecodeSequence.h"
 
-#include "CodeBlock.h"
-#include "JSGlobalObject.h"
-#include "Operands.h"
-#include "Operations.h"
+#include "bytecode/CodeBlock.h"
+#include "runtime/JSGlobalObject.h"
+#include "bytecode/Operands.h"
+#include "runtime/Operations.h"
 #include <wtf/StringPrintStream.h>
 
 namespace JSC { namespace Profiler {

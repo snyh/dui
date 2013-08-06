@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "WebKitCSSFilterValue.h"
+#include "css/WebKitCSSFilterValue.h"
 
 #if ENABLE(CSS_FILTERS)
 
-#include "CSSValueList.h"
+#include "css/CSSValueList.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/text/WTFString.h>
 

@@ -30,11 +30,11 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGCommon.h"
-#include "DFGMinifiedID.h"
-#include "DataFormat.h"
-#include "SpeculatedType.h"
-#include "ValueRecovery.h"
+#include "dfg/DFGCommon.h"
+#include "dfg/DFGMinifiedID.h"
+#include "bytecode/DataFormat.h"
+#include "bytecode/SpeculatedType.h"
+#include "bytecode/ValueRecovery.h"
 
 namespace JSC { namespace DFG {
 

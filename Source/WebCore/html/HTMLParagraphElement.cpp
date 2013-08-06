@@ -21,12 +21,12 @@
  */
 
 #include "config.h"
-#include "HTMLParagraphElement.h"
+#include "html/HTMLParagraphElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
-#include "Document.h"
+#include "dom/Document.h"
 #include "HTMLNames.h"
 
 namespace WebCore {

@@ -27,11 +27,11 @@
  */
 
 #include "config.h"
-#include "StringTruncator.h"
+#include "platform/graphics/StringTruncator.h"
 
-#include "Font.h"
-#include "TextBreakIterator.h"
-#include "TextRun.h"
+#include "platform/graphics/Font.h"
+#include "platform/text/TextBreakIterator.h"
+#include "platform/graphics/TextRun.h"
 #include <wtf/Assertions.h>
 #include <wtf/Vector.h>
 #include <wtf/unicode/CharacterNames.h>

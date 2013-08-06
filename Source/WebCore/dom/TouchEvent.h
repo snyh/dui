@@ -29,9 +29,9 @@
 
 #if ENABLE(TOUCH_EVENTS)
 
-#include "EventDispatchMediator.h"
-#include "MouseRelatedEvent.h"
-#include "TouchList.h"
+#include "dom/EventDispatchMediator.h"
+#include "dom/MouseRelatedEvent.h"
+#include "dom/TouchList.h"
 
 namespace WebCore {
 

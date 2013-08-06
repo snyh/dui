@@ -24,11 +24,11 @@
 #include "config.h"
 
 #if ENABLE(FILTERS)
-#include "FEConvolveMatrix.h"
+#include "platform/graphics/filters/FEConvolveMatrix.h"
 
-#include "Filter.h"
-#include "RenderTreeAsText.h"
-#include "TextStream.h"
+#include "platform/graphics/filters/Filter.h"
+#include "rendering/RenderTreeAsText.h"
+#include "platform/text/TextStream.h"
 
 #include <wtf/ParallelJobs.h>
 #include <wtf/Uint8ClampedArray.h>

@@ -25,9 +25,9 @@
  */
 
 #include "config.h"
-#include "ContextDestructionObserver.h"
+#include "dom/ContextDestructionObserver.h"
 
-#include "ScriptExecutionContext.h"
+#include "dom/ScriptExecutionContext.h"
 
 namespace WebCore {
 

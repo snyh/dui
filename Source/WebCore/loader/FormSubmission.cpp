@@ -29,23 +29,23 @@
  */
 
 #include "config.h"
-#include "FormSubmission.h"
+#include "loader/FormSubmission.h"
 
-#include "DOMFormData.h"
-#include "Document.h"
-#include "Event.h"
-#include "FormData.h"
-#include "FormDataBuilder.h"
-#include "FormState.h"
-#include "Frame.h"
-#include "FrameLoadRequest.h"
-#include "FrameLoader.h"
-#include "HTMLFormControlElement.h"
-#include "HTMLFormElement.h"
-#include "HTMLInputElement.h"
+#include "html/DOMFormData.h"
+#include "dom/Document.h"
+#include "dom/Event.h"
+#include "platform/network/FormData.h"
+#include "platform/network/FormDataBuilder.h"
+#include "loader/FormState.h"
+#include "page/Frame.h"
+#include "loader/FrameLoadRequest.h"
+#include "loader/FrameLoader.h"
+#include "html/HTMLFormControlElement.h"
+#include "html/HTMLFormElement.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "TextEncoding.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "platform/text/TextEncoding.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/RandomNumber.h>
 

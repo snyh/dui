@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "ArrayProfile.h"
+#include "bytecode/ArrayProfile.h"
 
-#include "CodeBlock.h"
+#include "bytecode/CodeBlock.h"
 #include <wtf/StringExtras.h>
 #include <wtf/StringPrintStream.h>
 

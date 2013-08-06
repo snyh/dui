@@ -30,7 +30,7 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "SpeculatedType.h"
+#include "bytecode/SpeculatedType.h"
 
 namespace JSC { namespace DFG {
 

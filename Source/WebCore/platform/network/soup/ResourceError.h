@@ -26,7 +26,7 @@
 #ifndef ResourceError_h
 #define ResourceError_h
 
-#include "ResourceErrorBase.h"
+#include "platform/network/ResourceErrorBase.h"
 #include <wtf/gobject/GRefPtr.h>
 
 typedef struct _GTlsCertificate GTlsCertificate;

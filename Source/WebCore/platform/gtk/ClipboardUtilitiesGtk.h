@@ -19,7 +19,7 @@
 #ifndef ClipboardUtilitiesGtk_h
 #define ClipboardUtilitiesGtk_h
 
-#include "DragActions.h"
+#include "page/DragActions.h"
 #include <gdk/gdk.h>
 
 namespace WebCore {

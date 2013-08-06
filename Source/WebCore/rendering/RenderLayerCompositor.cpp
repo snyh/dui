@@ -26,48 +26,48 @@
 #include "config.h"
 
 #if USE(ACCELERATED_COMPOSITING)
-#include "RenderLayerCompositor.h"
+#include "rendering/RenderLayerCompositor.h"
 
-#include "AnimationController.h"
-#include "CanvasRenderingContext.h"
+#include "page/animation/AnimationController.h"
+#include "html/canvas/CanvasRenderingContext.h"
 #include "CSSPropertyNames.h"
-#include "Chrome.h"
-#include "ChromeClient.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "GraphicsLayer.h"
-#include "HTMLCanvasElement.h"
-#include "HTMLIFrameElement.h"
+#include "page/Chrome.h"
+#include "page/ChromeClient.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "platform/graphics/GraphicsLayer.h"
+#include "html/HTMLCanvasElement.h"
+#include "html/HTMLIFrameElement.h"
 #include "HTMLNames.h"
-#include "HitTestResult.h"
-#include "Logging.h"
-#include "NodeList.h"
-#include "Page.h"
-#include "RenderFullScreen.h"
-#include "RenderGeometryMap.h"
-#include "RenderIFrame.h"
-#include "RenderLayerBacking.h"
-#include "RenderReplica.h"
-#include "RenderVideo.h"
-#include "RenderView.h"
-#include "ScrollbarTheme.h"
-#include "ScrollingConstraints.h"
-#include "ScrollingCoordinator.h"
-#include "Settings.h"
-#include "TiledBacking.h"
-#include "TransformState.h"
+#include "rendering/HitTestResult.h"
+#include "platform/Logging.h"
+#include "dom/NodeList.h"
+#include "page/Page.h"
+#include "rendering/RenderFullScreen.h"
+#include "rendering/RenderGeometryMap.h"
+#include "rendering/RenderIFrame.h"
+#include "rendering/RenderLayerBacking.h"
+#include "rendering/RenderReplica.h"
+#include "rendering/RenderVideo.h"
+#include "rendering/RenderView.h"
+#include "platform/ScrollbarTheme.h"
+#include "page/scrolling/ScrollingConstraints.h"
+#include "page/scrolling/ScrollingCoordinator.h"
+#include "page/Settings.h"
+#include "platform/graphics/TiledBacking.h"
+#include "platform/graphics/transforms/TransformState.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/TemporaryChange.h>
 #include <wtf/text/CString.h>
 #include <wtf/text/StringBuilder.h>
 
 #if ENABLE(PLUGIN_PROXY_FOR_VIDEO)
-#include "HTMLAudioElement.h"
-#include "HTMLMediaElement.h"
+#include "html/HTMLAudioElement.h"
+#include "html/HTMLMediaElement.h"
 #endif
 
 #ifndef NDEBUG
-#include "RenderTreeAsText.h"
+#include "rendering/RenderTreeAsText.h"
 #endif
 
 #if ENABLE(3D_RENDERING)

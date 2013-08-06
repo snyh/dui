@@ -26,22 +26,22 @@
 #ifndef CanvasRenderingContext2D_h
 #define CanvasRenderingContext2D_h
 
-#include "AffineTransform.h"
-#include "CanvasPathMethods.h"
-#include "CanvasRenderingContext.h"
-#include "CanvasStyle.h"
-#include "Color.h"
-#include "ColorSpace.h"
-#include "FloatSize.h"
-#include "Font.h"
-#include "GraphicsTypes.h"
-#include "ImageBuffer.h"
-#include "Path.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "html/canvas/CanvasPathMethods.h"
+#include "html/canvas/CanvasRenderingContext.h"
+#include "html/canvas/CanvasStyle.h"
+#include "platform/graphics/Color.h"
+#include "platform/graphics/ColorSpace.h"
+#include "platform/graphics/FloatSize.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/GraphicsTypes.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "platform/graphics/Path.h"
 #include <wtf/Vector.h>
 #include <wtf/text/WTFString.h>
 
 #if USE(ACCELERATED_COMPOSITING)
-#include "PlatformLayer.h"
+#include "platform/graphics/PlatformLayer.h"
 #endif
 
 namespace WebCore {

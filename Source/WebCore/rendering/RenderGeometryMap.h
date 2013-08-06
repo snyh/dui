@@ -26,12 +26,12 @@
 #ifndef RenderGeometryMap_h
 #define RenderGeometryMap_h
 
-#include "FloatPoint.h"
-#include "FloatQuad.h"
-#include "IntSize.h"
-#include "LayoutSize.h"
-#include "RenderObject.h"
-#include "TransformationMatrix.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/FloatQuad.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/graphics/LayoutSize.h"
+#include "rendering/RenderObject.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
 #include <wtf/OwnPtr.h>
 
 namespace WebCore {

@@ -21,7 +21,7 @@
 #define SVGAnimatedNumberOptionalNumber_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedTypeAnimator.h"
+#include "svg/SVGAnimatedTypeAnimator.h"
 
 namespace WebCore {
 

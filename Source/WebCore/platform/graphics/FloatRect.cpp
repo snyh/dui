@@ -25,10 +25,10 @@
  */
 
 #include "config.h"
-#include "FloatRect.h"
+#include "platform/graphics/FloatRect.h"
 
-#include "FloatConversion.h"
-#include "IntRect.h"
+#include "platform/FloatConversion.h"
+#include "platform/graphics/IntRect.h"
 #include <algorithm>
 #include <math.h>
 #include <wtf/MathExtras.h>

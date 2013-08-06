@@ -26,8 +26,8 @@
 #ifndef JSC_Region_h
 #define JSC_Region_h
 
-#include "HeapBlock.h"
-#include "SuperRegion.h"
+#include "heap/HeapBlock.h"
+#include "heap/SuperRegion.h"
 #include <wtf/DoublyLinkedList.h>
 #include <wtf/MetaAllocatorHandle.h>
 #include <wtf/PageAllocationAligned.h>

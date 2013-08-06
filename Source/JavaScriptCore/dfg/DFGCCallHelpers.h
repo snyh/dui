@@ -30,8 +30,8 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGAssemblyHelpers.h"
-#include "DFGGPRInfo.h"
+#include "dfg/DFGAssemblyHelpers.h"
+#include "dfg/DFGGPRInfo.h"
 
 namespace JSC { namespace DFG {
 

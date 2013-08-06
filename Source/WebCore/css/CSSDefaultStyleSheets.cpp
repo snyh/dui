@@ -27,17 +27,17 @@
  */
 
 #include "config.h"
-#include "CSSDefaultStyleSheets.h"
+#include "css/CSSDefaultStyleSheets.h"
 
-#include "Chrome.h"
-#include "ChromeClient.h"
-#include "HTMLAnchorElement.h"
-#include "HTMLAudioElement.h"
-#include "MediaQueryEvaluator.h"
-#include "Page.h"
-#include "RenderTheme.h"
-#include "RuleSet.h"
-#include "StyleSheetContents.h"
+#include "page/Chrome.h"
+#include "page/ChromeClient.h"
+#include "html/HTMLAnchorElement.h"
+#include "html/HTMLAudioElement.h"
+#include "css/MediaQueryEvaluator.h"
+#include "page/Page.h"
+#include "rendering/RenderTheme.h"
+#include "css/RuleSet.h"
+#include "css/StyleSheetContents.h"
 #include "UserAgentStyleSheets.h"
 
 namespace WebCore {

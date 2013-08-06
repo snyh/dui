@@ -25,12 +25,12 @@
  */
 
 #include "config.h"
-#include "FloatPoint.h"
+#include "platform/graphics/FloatPoint.h"
 
-#include "AffineTransform.h"
-#include "FloatConversion.h"
-#include "IntPoint.h"
-#include "TransformationMatrix.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/FloatConversion.h"
+#include "platform/graphics/IntPoint.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
 #include <limits>
 #include <math.h>
 

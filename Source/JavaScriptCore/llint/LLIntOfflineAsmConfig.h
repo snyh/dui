@@ -26,7 +26,7 @@
 #ifndef LLIntOfflineAsmConfig_h
 #define LLIntOfflineAsmConfig_h
 
-#include "LLIntCommon.h"
+#include "llint/LLIntCommon.h"
 #include <wtf/Assertions.h>
 #include <wtf/InlineASM.h>
 #include <wtf/Platform.h>

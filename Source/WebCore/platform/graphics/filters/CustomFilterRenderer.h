@@ -34,10 +34,10 @@
 
 #if ENABLE(CSS_SHADERS) && USE(3D_GRAPHICS)
 
-#include "CustomFilterConstants.h"
-#include "CustomFilterParameterList.h"
-#include "GraphicsTypes3D.h"
-#include "IntSize.h"
+#include "platform/graphics/filters/CustomFilterConstants.h"
+#include "platform/graphics/filters/CustomFilterParameterList.h"
+#include "platform/graphics/GraphicsTypes3D.h"
+#include "platform/graphics/IntSize.h"
 #include <wtf/RefCounted.h>
 #include <wtf/RefPtr.h>
 

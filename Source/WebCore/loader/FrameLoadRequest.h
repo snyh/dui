@@ -26,9 +26,9 @@
 #ifndef FrameLoadRequest_h
 #define FrameLoadRequest_h
 
-#include "ResourceRequest.h"
-#include "SecurityOrigin.h"
-#include "SubstituteData.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "page/SecurityOrigin.h"
+#include "loader/SubstituteData.h"
 
 namespace WebCore {
 class Frame;

@@ -17,10 +17,10 @@
  */
 
 #include "config.h"
-#include "DragImage.h"
+#include "platform/DragImage.h"
 
-#include "Image.h"
-#include "RefPtrCairo.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 #include <cairo.h>
 #include <gdk/gdk.h>
 

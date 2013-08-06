@@ -18,11 +18,11 @@
  */
 
 #include "config.h"
-#include "XMLSerializer.h"
+#include "xml/XMLSerializer.h"
 
-#include "Document.h"
-#include "ExceptionCode.h"
-#include "markup.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCode.h"
+#include "editing/markup.h"
 #include <wtf/text/WTFString.h>
 
 namespace WebCore {

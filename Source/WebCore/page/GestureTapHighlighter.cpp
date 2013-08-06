@@ -28,19 +28,19 @@
  */
 
 #include "config.h"
-#include "GestureTapHighlighter.h"
+#include "page/GestureTapHighlighter.h"
 
-#include "Element.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "GraphicsContext.h"
-#include "GraphicsTypes.h"
-#include "Node.h"
-#include "Page.h"
-#include "RenderBoxModelObject.h"
-#include "RenderInline.h"
-#include "RenderLayer.h"
-#include "RenderObject.h"
+#include "dom/Element.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/GraphicsTypes.h"
+#include "dom/Node.h"
+#include "page/Page.h"
+#include "rendering/RenderBoxModelObject.h"
+#include "rendering/RenderInline.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/RenderObject.h"
 
 namespace WebCore {
 

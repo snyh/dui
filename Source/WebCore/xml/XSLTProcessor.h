@@ -25,8 +25,8 @@
 
 #if ENABLE(XSLT)
 
-#include "Node.h"
-#include "XSLStyleSheet.h"
+#include "dom/Node.h"
+#include "xml/XSLStyleSheet.h"
 #include <wtf/HashMap.h>
 #include <wtf/text/StringHash.h>
 

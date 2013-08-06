@@ -24,17 +24,17 @@
  */
 
 #include "config.h"
-#include "StorageNamespaceImpl.h"
+#include "storage/StorageNamespaceImpl.h"
 
-#include "GroupSettings.h"
-#include "Page.h"
-#include "PageGroup.h"
-#include "SecurityOriginHash.h"
-#include "Settings.h"
-#include "StorageAreaImpl.h"
-#include "StorageMap.h"
-#include "StorageSyncManager.h"
-#include "StorageTracker.h"
+#include "page/GroupSettings.h"
+#include "page/Page.h"
+#include "page/PageGroup.h"
+#include "page/SecurityOriginHash.h"
+#include "page/Settings.h"
+#include "storage/StorageAreaImpl.h"
+#include "storage/StorageMap.h"
+#include "storage/StorageSyncManager.h"
+#include "storage/StorageTracker.h"
 #include <wtf/MainThread.h>
 #include <wtf/StdLibExtras.h>
 #include <wtf/text/StringHash.h>

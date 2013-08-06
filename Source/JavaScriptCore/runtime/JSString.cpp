@@ -21,14 +21,14 @@
  */
 
 #include "config.h"
-#include "JSString.h"
+#include "runtime/JSString.h"
 
-#include "JSGlobalObject.h"
-#include "JSGlobalObjectFunctions.h"
-#include "JSObject.h"
-#include "Operations.h"
-#include "StringObject.h"
-#include "StringPrototype.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSGlobalObjectFunctions.h"
+#include "runtime/JSObject.h"
+#include "runtime/Operations.h"
+#include "runtime/StringObject.h"
+#include "runtime/StringPrototype.h"
 
 namespace JSC {
     

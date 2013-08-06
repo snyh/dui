@@ -18,7 +18,7 @@
  */
 
 #include "config.h"
-#include "IntPoint.h"
+#include "platform/graphics/IntPoint.h"
 
 #include <gdk/gdk.h>
 

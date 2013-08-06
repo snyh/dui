@@ -22,13 +22,13 @@
  */
 
 #include "config.h"
-#include "HTMLFrameElement.h"
+#include "html/HTMLFrameElement.h"
 
-#include "Attribute.h"
-#include "Frame.h"
-#include "HTMLFrameSetElement.h"
+#include "dom/Attribute.h"
+#include "page/Frame.h"
+#include "html/HTMLFrameSetElement.h"
 #include "HTMLNames.h"
-#include "RenderFrame.h"
+#include "rendering/RenderFrame.h"
 
 namespace WebCore {
 

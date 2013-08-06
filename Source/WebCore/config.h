@@ -38,7 +38,7 @@
 #endif
 
 #include <wtf/ExportMacros.h>
-#include "PlatformExportMacros.h"
+#include "platform/PlatformExportMacros.h"
 
 #include <runtime/JSExportMacros.h>
 

@@ -20,8 +20,8 @@
 #ifndef GtkInputMethodFilter_h
 #define GtkInputMethodFilter_h
 
-#include "GRefPtrGtk.h"
-#include "IntRect.h"
+#include "platform/gtk/GRefPtrGtk.h"
+#include "platform/graphics/IntRect.h"
 #include <gdk/gdk.h>
 #include <wtf/text/WTFString.h>
 

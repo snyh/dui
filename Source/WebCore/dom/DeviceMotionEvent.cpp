@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "DeviceMotionEvent.h"
+#include "dom/DeviceMotionEvent.h"
 
-#include "DeviceMotionData.h"
-#include "EventNames.h"
+#include "dom/DeviceMotionData.h"
+#include "dom/EventNames.h"
 
 namespace WebCore {
 

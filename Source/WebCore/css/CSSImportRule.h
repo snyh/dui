@@ -22,7 +22,7 @@
 #ifndef CSSImportRule_h
 #define CSSImportRule_h
 
-#include "CSSRule.h"
+#include "css/CSSRule.h"
 
 namespace WebCore {
 

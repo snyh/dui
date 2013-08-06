@@ -21,14 +21,14 @@
  */
 
 #include "config.h"
-#include "HTMLLIElement.h"
+#include "html/HTMLLIElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
-#include "EventPathWalker.h"
+#include "dom/EventPathWalker.h"
 #include "HTMLNames.h"
-#include "RenderListItem.h"
+#include "rendering/RenderListItem.h"
 
 namespace WebCore {
 

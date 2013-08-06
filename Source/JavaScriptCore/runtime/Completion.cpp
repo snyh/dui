@@ -21,16 +21,16 @@
  */
 
 #include "config.h"
-#include "Completion.h"
+#include "runtime/Completion.h"
 
-#include "CallFrame.h"
-#include "CodeProfiling.h"
-#include "Debugger.h"
-#include "Interpreter.h"
-#include "JSGlobalObject.h"
-#include "JSLock.h"
-#include "Operations.h"
-#include "Parser.h"
+#include "interpreter/CallFrame.h"
+#include "tools/CodeProfiling.h"
+#include "debugger/Debugger.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSLock.h"
+#include "runtime/Operations.h"
+#include "parser/Parser.h"
 #include <wtf/WTFThreadData.h>
 #include <stdio.h>
 

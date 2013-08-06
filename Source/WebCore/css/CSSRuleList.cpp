@@ -20,10 +20,10 @@
  */
 
 #include "config.h"
-#include "CSSRuleList.h"
+#include "css/CSSRuleList.h"
 
-#include "CSSRule.h"
-#include "CSSStyleSheet.h"
+#include "css/CSSRule.h"
+#include "css/CSSStyleSheet.h"
 
 namespace WebCore {
 

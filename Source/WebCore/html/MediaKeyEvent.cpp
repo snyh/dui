@@ -27,9 +27,9 @@
 
 #if ENABLE(ENCRYPTED_MEDIA)
 
-#include "MediaKeyEvent.h"
+#include "html/MediaKeyEvent.h"
 
-#include "EventNames.h"
+#include "dom/EventNames.h"
 #include <wtf/Uint8Array.h>
 
 namespace WebCore {

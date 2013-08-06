@@ -29,9 +29,9 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "ExceptionCode.h"
-#include "TextTrackCue.h"
-#include "TrackBase.h"
+#include "dom/ExceptionCode.h"
+#include "html/track/TextTrackCue.h"
+#include "html/track/TrackBase.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/text/WTFString.h>

@@ -30,9 +30,9 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "JSCell.h"
-#include "SpeculatedType.h"
-#include "StructureSet.h"
+#include "runtime/JSCell.h"
+#include "bytecode/SpeculatedType.h"
+#include "bytecode/StructureSet.h"
 
 namespace JSC { namespace DFG {
 

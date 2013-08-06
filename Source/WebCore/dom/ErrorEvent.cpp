@@ -29,9 +29,9 @@
  */
 
 #include "config.h"
-#include "ErrorEvent.h"
+#include "dom/ErrorEvent.h"
 
-#include "EventNames.h"
+#include "dom/EventNames.h"
 
 namespace WebCore {
 

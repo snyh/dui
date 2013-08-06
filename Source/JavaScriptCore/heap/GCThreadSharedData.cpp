@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "GCThreadSharedData.h"
+#include "heap/GCThreadSharedData.h"
 
-#include "CopyVisitor.h"
-#include "CopyVisitorInlines.h"
-#include "GCThread.h"
-#include "VM.h"
-#include "MarkStack.h"
-#include "SlotVisitor.h"
-#include "SlotVisitorInlines.h"
+#include "heap/CopyVisitor.h"
+#include "heap/CopyVisitorInlines.h"
+#include "heap/GCThread.h"
+#include "runtime/VM.h"
+#include "heap/MarkStack.h"
+#include "heap/SlotVisitor.h"
+#include "heap/SlotVisitorInlines.h"
 
 namespace JSC {
 

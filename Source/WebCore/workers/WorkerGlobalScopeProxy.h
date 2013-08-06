@@ -33,8 +33,8 @@
 
 #if ENABLE(WORKERS)
 
-#include "MessagePort.h"
-#include "WorkerThread.h"
+#include "dom/MessagePort.h"
+#include "workers/WorkerThread.h"
 #include <wtf/Forward.h>
 #include <wtf/PassOwnPtr.h>
 

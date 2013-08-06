@@ -24,11 +24,11 @@
 #ifndef JSFunction_h
 #define JSFunction_h
 
-#include "InternalFunction.h"
-#include "JSDestructibleObject.h"
-#include "JSScope.h"
-#include "ObjectAllocationProfile.h"
-#include "Watchpoint.h"
+#include "runtime/InternalFunction.h"
+#include "runtime/JSDestructibleObject.h"
+#include "runtime/JSScope.h"
+#include "bytecode/ObjectAllocationProfile.h"
+#include "bytecode/Watchpoint.h"
 
 namespace JSC {
 

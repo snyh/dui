@@ -25,11 +25,11 @@
 #ifndef FillLayer_h
 #define FillLayer_h
 
-#include "GraphicsTypes.h"
-#include "Length.h"
-#include "LengthSize.h"
-#include "RenderStyleConstants.h"
-#include "StyleImage.h"
+#include "platform/graphics/GraphicsTypes.h"
+#include "platform/Length.h"
+#include "platform/LengthSize.h"
+#include "rendering/style/RenderStyleConstants.h"
+#include "rendering/style/StyleImage.h"
 #include <wtf/RefPtr.h>
 
 namespace WebCore {

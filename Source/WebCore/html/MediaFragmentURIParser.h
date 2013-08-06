@@ -28,7 +28,7 @@
 
 #if ENABLE(VIDEO)
 
-#include "KURL.h"
+#include "platform/KURL.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

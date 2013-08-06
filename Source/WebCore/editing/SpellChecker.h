@@ -26,10 +26,10 @@
 #ifndef SpellChecker_h
 #define SpellChecker_h
 
-#include "Element.h"
-#include "Range.h"
-#include "TextChecking.h"
-#include "Timer.h"
+#include "dom/Element.h"
+#include "dom/Range.h"
+#include "platform/text/TextChecking.h"
+#include "platform/Timer.h"
 #include <wtf/Deque.h>
 #include <wtf/RefPtr.h>
 #include <wtf/Noncopyable.h>

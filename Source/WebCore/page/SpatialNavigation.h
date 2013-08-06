@@ -21,10 +21,10 @@
 #ifndef SpatialNavigation_h
 #define SpatialNavigation_h
 
-#include "FocusDirection.h"
-#include "HTMLFrameOwnerElement.h"
-#include "LayoutRect.h"
-#include "Node.h"
+#include "page/FocusDirection.h"
+#include "html/HTMLFrameOwnerElement.h"
+#include "platform/graphics/LayoutRect.h"
+#include "dom/Node.h"
 
 #include <limits>
 

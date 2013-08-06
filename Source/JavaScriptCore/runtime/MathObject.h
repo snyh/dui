@@ -21,7 +21,7 @@
 #ifndef MathObject_h
 #define MathObject_h
 
-#include "JSObject.h"
+#include "runtime/JSObject.h"
 
 namespace JSC {
 

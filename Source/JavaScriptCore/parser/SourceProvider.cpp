@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "SourceProvider.h"
+#include "parser/SourceProvider.h"
 #include <wtf/StdLibExtras.h>
 #include <wtf/TCSpinLock.h>
 

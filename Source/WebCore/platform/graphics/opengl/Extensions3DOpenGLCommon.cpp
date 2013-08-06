@@ -27,23 +27,23 @@
 #include "config.h"
 
 #if USE(3D_GRAPHICS)
-#include "Extensions3DOpenGLCommon.h"
+#include "platform/graphics/opengl/Extensions3DOpenGLCommon.h"
 
-#include "ANGLEWebKitBridge.h"
-#include "GraphicsContext3D.h"
+#include "platform/graphics/ANGLEWebKitBridge.h"
+#include "platform/graphics/GraphicsContext3D.h"
 
 #if PLATFORM(BLACKBERRY)
 #include <BlackBerryPlatformLog.h>
 #endif
 
 #if USE(OPENGL_ES_2)
-#include "OpenGLESShims.h"
+#include "platform/graphics/OpenGLESShims.h"
 #include <GLES2/gl2.h>
 #include <GLES2/gl2ext.h>
 #elif PLATFORM(MAC)
 #include <OpenGL/gl.h>
 #elif PLATFORM(GTK) || PLATFORM(EFL) || PLATFORM(QT) || PLATFORM(WIN)
-#include "OpenGLShims.h"
+#include "platform/graphics/OpenGLShims.h"
 #endif
 
 #include <wtf/MainThread.h>

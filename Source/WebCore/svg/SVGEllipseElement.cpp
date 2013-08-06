@@ -21,15 +21,15 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGEllipseElement.h"
+#include "svg/SVGEllipseElement.h"
 
-#include "Attribute.h"
-#include "FloatPoint.h"
-#include "RenderSVGEllipse.h"
-#include "RenderSVGPath.h"
-#include "RenderSVGResource.h"
-#include "SVGElementInstance.h"
-#include "SVGLength.h"
+#include "dom/Attribute.h"
+#include "platform/graphics/FloatPoint.h"
+#include "rendering/svg/RenderSVGEllipse.h"
+#include "rendering/svg/RenderSVGPath.h"
+#include "rendering/svg/RenderSVGResource.h"
+#include "svg/SVGElementInstance.h"
+#include "svg/SVGLength.h"
 #include "SVGNames.h"
 
 namespace WebCore {

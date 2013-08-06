@@ -29,9 +29,9 @@
  */
 
 #include "config.h"
-#include "TextEncodingDetector.h"
+#include "platform/text/TextEncodingDetector.h"
 
-#include "TextEncoding.h"
+#include "platform/text/TextEncoding.h"
 
 namespace WebCore {
 

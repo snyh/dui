@@ -30,16 +30,16 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "CodeOrigin.h"
-#include "DFGCommon.h"
-#include "DFGExitProfile.h"
-#include "DFGGPRInfo.h"
-#include "DFGValueRecoveryOverride.h"
-#include "MacroAssembler.h"
-#include "MethodOfGettingAValueProfile.h"
-#include "Operands.h"
-#include "ValueProfile.h"
-#include "ValueRecovery.h"
+#include "bytecode/CodeOrigin.h"
+#include "dfg/DFGCommon.h"
+#include "bytecode/DFGExitProfile.h"
+#include "dfg/DFGGPRInfo.h"
+#include "dfg/DFGValueRecoveryOverride.h"
+#include "assembler/MacroAssembler.h"
+#include "bytecode/MethodOfGettingAValueProfile.h"
+#include "bytecode/Operands.h"
+#include "bytecode/ValueProfile.h"
+#include "bytecode/ValueRecovery.h"
 #include <wtf/Vector.h>
 
 namespace JSC { namespace DFG {

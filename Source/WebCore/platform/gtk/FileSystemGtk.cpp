@@ -21,10 +21,10 @@
  */
 
 #include "config.h"
-#include "FileSystem.h"
+#include "platform/FileSystem.h"
 
-#include "FileMetadata.h"
-#include "UUID.h"
+#include "platform/FileMetadata.h"
+#include "platform/UUID.h"
 #include <gio/gio.h>
 #include <glib.h>
 #include <glib/gstdio.h>

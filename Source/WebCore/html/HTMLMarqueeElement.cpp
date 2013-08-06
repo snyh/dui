@@ -21,15 +21,15 @@
  */
 
 #include "config.h"
-#include "HTMLMarqueeElement.h"
+#include "html/HTMLMarqueeElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
-#include "ExceptionCode.h"
+#include "dom/ExceptionCode.h"
 #include "HTMLNames.h"
-#include "RenderLayer.h"
-#include "RenderMarquee.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/RenderMarquee.h"
 
 namespace WebCore {
 

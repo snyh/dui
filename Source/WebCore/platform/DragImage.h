@@ -26,10 +26,10 @@
 #ifndef DragImage_h
 #define DragImage_h
 
-#include "FontRenderingMode.h"
-#include "ImageOrientation.h"
-#include "IntSize.h"
-#include "FloatSize.h"
+#include "platform/graphics/FontRenderingMode.h"
+#include "platform/graphics/ImageOrientation.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/graphics/FloatSize.h"
 #include <wtf/Forward.h>
 
 #if PLATFORM(MAC)

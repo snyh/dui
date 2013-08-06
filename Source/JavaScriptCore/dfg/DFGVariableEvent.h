@@ -30,10 +30,10 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "DFGCommon.h"
-#include "DFGMinifiedID.h"
-#include "DataFormat.h"
-#include "MacroAssembler.h"
+#include "dfg/DFGCommon.h"
+#include "dfg/DFGMinifiedID.h"
+#include "bytecode/DataFormat.h"
+#include "assembler/MacroAssembler.h"
 #include <stdio.h>
 
 namespace JSC { namespace DFG {

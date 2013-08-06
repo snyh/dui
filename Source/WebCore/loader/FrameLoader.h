@@ -32,17 +32,17 @@
 #ifndef FrameLoader_h
 #define FrameLoader_h
 
-#include "CachePolicy.h"
-#include "FrameLoaderStateMachine.h"
-#include "FrameLoaderTypes.h"
-#include "IconURL.h"
-#include "LayoutMilestones.h"
-#include "MixedContentChecker.h"
-#include "ResourceHandleTypes.h"
-#include "ResourceLoadNotifier.h"
-#include "SecurityContext.h"
-#include "SubframeLoader.h"
-#include "Timer.h"
+#include "loader/cache/CachePolicy.h"
+#include "loader/FrameLoaderStateMachine.h"
+#include "loader/FrameLoaderTypes.h"
+#include "dom/IconURL.h"
+#include "page/LayoutMilestones.h"
+#include "loader/MixedContentChecker.h"
+#include "platform/network/ResourceHandleTypes.h"
+#include "loader/ResourceLoadNotifier.h"
+#include "dom/SecurityContext.h"
+#include "loader/SubframeLoader.h"
+#include "platform/Timer.h"
 #include <wtf/Forward.h>
 #include <wtf/HashSet.h>
 

@@ -26,7 +26,7 @@
 #ifndef PropertyDescriptor_h
 #define PropertyDescriptor_h
 
-#include "JSCJSValue.h"
+#include "runtime/JSCJSValue.h"
 
 namespace JSC {
     class GetterSetter;

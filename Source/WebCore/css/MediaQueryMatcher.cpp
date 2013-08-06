@@ -18,17 +18,17 @@
  */
 
 #include "config.h"
-#include "MediaQueryMatcher.h"
+#include "css/MediaQueryMatcher.h"
 
-#include "Document.h"
-#include "Element.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "MediaList.h"
-#include "MediaQueryEvaluator.h"
-#include "MediaQueryList.h"
-#include "MediaQueryListListener.h"
-#include "StyleResolver.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "css/MediaList.h"
+#include "css/MediaQueryEvaluator.h"
+#include "css/MediaQueryList.h"
+#include "css/MediaQueryListListener.h"
+#include "css/StyleResolver.h"
 
 namespace WebCore {
 

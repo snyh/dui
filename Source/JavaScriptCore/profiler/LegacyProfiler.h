@@ -29,7 +29,7 @@
 #ifndef LegacyProfiler_h
 #define LegacyProfiler_h
 
-#include "Profile.h"
+#include "profiler/Profile.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>
 #include <wtf/Vector.h>

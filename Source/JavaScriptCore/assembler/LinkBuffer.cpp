@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "LinkBuffer.h"
+#include "assembler/LinkBuffer.h"
 
 #if ENABLE(ASSEMBLER)
 
-#include "Options.h"
+#include "runtime/Options.h"
 
 namespace JSC {
 

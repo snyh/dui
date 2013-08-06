@@ -30,14 +30,14 @@
  */
 
 #include "config.h"
-#include "SubmitInputType.h"
+#include "html/SubmitInputType.h"
 
-#include "Event.h"
-#include "FormDataList.h"
-#include "HTMLFormElement.h"
-#include "HTMLInputElement.h"
-#include "InputTypeNames.h"
-#include "LocalizedStrings.h"
+#include "dom/Event.h"
+#include "html/FormDataList.h"
+#include "html/HTMLFormElement.h"
+#include "html/HTMLInputElement.h"
+#include "html/InputTypeNames.h"
+#include "platform/LocalizedStrings.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

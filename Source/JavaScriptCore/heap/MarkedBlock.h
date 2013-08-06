@@ -22,10 +22,10 @@
 #ifndef MarkedBlock_h
 #define MarkedBlock_h
 
-#include "BlockAllocator.h"
-#include "HeapBlock.h"
+#include "heap/BlockAllocator.h"
+#include "heap/HeapBlock.h"
 
-#include "WeakSet.h"
+#include "heap/WeakSet.h"
 #include <wtf/Bitmap.h>
 #include <wtf/DataLog.h>
 #include <wtf/DoublyLinkedList.h>

@@ -26,7 +26,7 @@
 #ifndef RawDataDocumentParser_h
 #define RawDataDocumentParser_h
 
-#include "DocumentParser.h"
+#include "dom/DocumentParser.h"
 
 namespace WebCore {
 

@@ -26,10 +26,10 @@
 #ifndef RenderImageResource_h
 #define RenderImageResource_h
 
-#include "CachedResourceHandle.h"
-#include "Image.h"
-#include "LayoutSize.h"
-#include "StyleImage.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/LayoutSize.h"
+#include "rendering/style/StyleImage.h"
 
 namespace WebCore {
 

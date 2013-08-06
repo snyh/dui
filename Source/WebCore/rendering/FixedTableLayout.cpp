@@ -20,12 +20,12 @@
  */
 
 #include "config.h"
-#include "FixedTableLayout.h"
+#include "rendering/FixedTableLayout.h"
 
-#include "RenderTable.h"
-#include "RenderTableCell.h"
-#include "RenderTableCol.h"
-#include "RenderTableSection.h"
+#include "rendering/RenderTable.h"
+#include "rendering/RenderTableCell.h"
+#include "rendering/RenderTableCol.h"
+#include "rendering/RenderTableSection.h"
 
 /*
   The text below is from the CSS 2.1 specs.

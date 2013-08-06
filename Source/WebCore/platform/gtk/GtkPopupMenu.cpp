@@ -25,10 +25,10 @@
  */
 
 #include "config.h"
-#include "GtkPopupMenu.h"
+#include "platform/gtk/GtkPopupMenu.h"
 
 #include <wtf/gobject/GOwnPtr.h>
-#include "GtkVersioning.h"
+#include "platform/gtk/GtkVersioning.h"
 #include <gtk/gtk.h>
 #include <wtf/text/CString.h>
 

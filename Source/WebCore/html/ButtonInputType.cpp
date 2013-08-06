@@ -29,9 +29,9 @@
  */
 
 #include "config.h"
-#include "ButtonInputType.h"
+#include "html/ButtonInputType.h"
 
-#include "InputTypeNames.h"
+#include "html/InputTypeNames.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

@@ -34,8 +34,8 @@
 #define GLOBAL_THUNK_ID reinterpret_cast<void*>(static_cast<intptr_t>(-1))
 #define REGEXP_CODE_ID reinterpret_cast<void*>(static_cast<intptr_t>(-2))
 
-#include "JITCompilationEffort.h"
-#include "MacroAssembler.h"
+#include "jit/JITCompilationEffort.h"
+#include "assembler/MacroAssembler.h"
 #include <wtf/DataLog.h>
 #include <wtf/Noncopyable.h>
 

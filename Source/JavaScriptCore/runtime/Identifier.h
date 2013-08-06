@@ -21,7 +21,7 @@
 #ifndef Identifier_h
 #define Identifier_h
 
-#include "VM.h"
+#include "runtime/VM.h"
 #include <wtf/ThreadSpecific.h>
 #include <wtf/WTFThreadData.h>
 #include <wtf/text/CString.h>

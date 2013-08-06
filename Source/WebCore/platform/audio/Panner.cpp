@@ -30,10 +30,10 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "Panner.h"
+#include "platform/audio/Panner.h"
 
-#include "EqualPowerPanner.h"
-#include "HRTFPanner.h"
+#include "platform/audio/EqualPowerPanner.h"
+#include "platform/audio/HRTFPanner.h"
 #include <wtf/OwnPtr.h>
 
 namespace WebCore {

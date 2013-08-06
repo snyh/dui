@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "PendingScript.h"
+#include "dom/PendingScript.h"
 
-#include "CachedScript.h"
-#include "Element.h"
+#include "loader/cache/CachedScript.h"
+#include "dom/Element.h"
 
 namespace WebCore {
 

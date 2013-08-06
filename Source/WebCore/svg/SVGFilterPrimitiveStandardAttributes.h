@@ -22,11 +22,11 @@
 #define SVGFilterPrimitiveStandardAttributes_h
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "RenderSVGResourceFilter.h"
-#include "RenderSVGResourceFilterPrimitive.h"
-#include "SVGAnimatedLength.h"
-#include "SVGAnimatedString.h"
-#include "SVGStyledElement.h"
+#include "rendering/svg/RenderSVGResourceFilter.h"
+#include "rendering/svg/RenderSVGResourceFilterPrimitive.h"
+#include "svg/SVGAnimatedLength.h"
+#include "svg/SVGAnimatedString.h"
+#include "svg/SVGStyledElement.h"
 
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>

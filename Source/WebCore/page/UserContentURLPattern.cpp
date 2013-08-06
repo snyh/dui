@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "UserContentURLPattern.h"
+#include "page/UserContentURLPattern.h"
 
-#include "KURL.h"
+#include "platform/KURL.h"
 #include <wtf/StdLibExtras.h>
 
 namespace WebCore {

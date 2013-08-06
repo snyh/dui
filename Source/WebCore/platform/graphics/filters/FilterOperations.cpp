@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "FilterOperations.h"
+#include "platform/graphics/filters/FilterOperations.h"
 
-#include "FEGaussianBlur.h"
-#include "IntSize.h"
-#include "LengthFunctions.h"
+#include "platform/graphics/filters/FEGaussianBlur.h"
+#include "platform/graphics/IntSize.h"
+#include "css/LengthFunctions.h"
 
 #if ENABLE(CSS_FILTERS)
 

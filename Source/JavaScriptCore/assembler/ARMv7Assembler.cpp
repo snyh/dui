@@ -27,7 +27,7 @@
 
 #if ENABLE(ASSEMBLER) && CPU(ARM_THUMB2)
 
-#include "ARMv7Assembler.h"
+#include "assembler/ARMv7Assembler.h"
 
 namespace JSC {
 

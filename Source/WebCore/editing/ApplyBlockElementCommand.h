@@ -31,8 +31,8 @@
 #ifndef ApplyBlockElementCommand_h
 #define ApplyBlockElementCommand_h
 
-#include "CompositeEditCommand.h"
-#include "QualifiedName.h"
+#include "editing/CompositeEditCommand.h"
+#include "dom/QualifiedName.h"
 
 namespace WebCore {
 

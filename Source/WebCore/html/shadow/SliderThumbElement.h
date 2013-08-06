@@ -32,9 +32,9 @@
 #ifndef SliderThumbElement_h
 #define SliderThumbElement_h
 
-#include "HTMLDivElement.h"
+#include "html/HTMLDivElement.h"
 #include "HTMLNames.h"
-#include "RenderBlock.h"
+#include "rendering/RenderBlock.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

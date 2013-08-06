@@ -23,12 +23,12 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "PlatformContextCairo.h"
-#include "RefPtrCairo.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 
 #if ENABLE(ACCELERATED_2D_CANVAS)
-#include "TextureMapper.h"
-#include "TextureMapperPlatformLayer.h"
+#include "platform/graphics/texmap/TextureMapper.h"
+#include "platform/graphics/texmap/TextureMapperPlatformLayer.h"
 #endif
 
 namespace WebCore {

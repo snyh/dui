@@ -26,13 +26,13 @@
 #ifndef AlternativeTextController_h
 #define AlternativeTextController_h
 
-#include "AlternativeTextClient.h"
-#include "DocumentMarker.h"
-#include "FrameSelection.h"
-#include "Range.h"
-#include "TextChecking.h"
-#include "Timer.h"
-#include "VisibleSelection.h"
+#include "page/AlternativeTextClient.h"
+#include "dom/DocumentMarker.h"
+#include "editing/FrameSelection.h"
+#include "dom/Range.h"
+#include "platform/text/TextChecking.h"
+#include "platform/Timer.h"
+#include "editing/VisibleSelection.h"
 #include <wtf/Noncopyable.h>
 
 namespace WebCore {

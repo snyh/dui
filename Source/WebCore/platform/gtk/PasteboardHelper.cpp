@@ -20,15 +20,15 @@
  *
  */
 #include "config.h"
-#include "PasteboardHelper.h"
+#include "platform/gtk/PasteboardHelper.h"
 
-#include "Chrome.h"
-#include "DataObjectGtk.h"
-#include "Frame.h"
-#include "GtkVersioning.h"
-#include "Page.h"
-#include "Pasteboard.h"
-#include "TextResourceDecoder.h"
+#include "page/Chrome.h"
+#include "platform/gtk/DataObjectGtk.h"
+#include "page/Frame.h"
+#include "platform/gtk/GtkVersioning.h"
+#include "page/Page.h"
+#include "platform/Pasteboard.h"
+#include "loader/TextResourceDecoder.h"
 #include <gtk/gtk.h>
 #include <wtf/gobject/GOwnPtr.h>
 

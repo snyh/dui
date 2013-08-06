@@ -20,13 +20,13 @@
  */
 
 #include "config.h"
-#include "FontCache.h"
+#include "platform/graphics/FontCache.h"
 
-#include "Font.h"
-#include "OwnPtrCairo.h"
-#include "RefPtrCairo.h"
-#include "SimpleFontData.h"
-#include "UTF16UChar32Iterator.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/cairo/OwnPtrCairo.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
+#include "platform/graphics/SimpleFontData.h"
+#include "platform/graphics/freetype/UTF16UChar32Iterator.h"
 #include <cairo-ft.h>
 #include <cairo.h>
 #include <fontconfig/fcfreetype.h>

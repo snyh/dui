@@ -27,11 +27,11 @@
  */
 
 #include "config.h"
-#include "NetscapePlugInStreamLoader.h"
+#include "loader/NetscapePlugInStreamLoader.h"
 
-#include "DocumentLoader.h"
-#include "FrameLoader.h"
-#include "FrameLoaderClient.h"
+#include "loader/DocumentLoader.h"
+#include "loader/FrameLoader.h"
+#include "loader/FrameLoaderClient.h"
 
 namespace WebCore {
 

@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "DragData.h"
-#include "PlatformEvent.h"
-#include "PlatformKeyboardEvent.h"
+#include "platform/DragData.h"
+#include "platform/PlatformEvent.h"
+#include "platform/PlatformKeyboardEvent.h"
 
 #if ENABLE(DRAG_SUPPORT)
 namespace WebCore {

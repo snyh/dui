@@ -28,11 +28,11 @@
 #ifndef ScriptExecutionContext_h
 #define ScriptExecutionContext_h
 
-#include "ActiveDOMObject.h"
-#include "ConsoleTypes.h"
-#include "KURL.h"
-#include "SecurityContext.h"
-#include "Supplementable.h"
+#include "dom/ActiveDOMObject.h"
+#include "page/ConsoleTypes.h"
+#include "platform/KURL.h"
+#include "dom/SecurityContext.h"
+#include "platform/Supplementable.h"
 #include <wtf/HashSet.h>
 
 namespace JSC {

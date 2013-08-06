@@ -26,8 +26,8 @@
 #ifndef LocalScope_h
 #define LocalScope_h
 
-#include "HandleStack.h"
-#include "Local.h"
+#include "heap/HandleStack.h"
+#include "heap/Local.h"
 
 namespace JSC {
 /*  

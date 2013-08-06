@@ -27,7 +27,7 @@
 #ifndef CairoUtilities_h
 #define CairoUtilities_h
 
-#include "GraphicsTypes.h"
+#include "platform/graphics/GraphicsTypes.h"
 #include <cairo.h>
 
 namespace WebCore {

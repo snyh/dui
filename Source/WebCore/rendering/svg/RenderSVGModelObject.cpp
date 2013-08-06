@@ -31,13 +31,13 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGModelObject.h"
+#include "rendering/svg/RenderSVGModelObject.h"
 
-#include "RenderLayerModelObject.h"
-#include "RenderSVGResource.h"
+#include "rendering/RenderLayerModelObject.h"
+#include "rendering/svg/RenderSVGResource.h"
 #include "SVGNames.h"
-#include "SVGResourcesCache.h"
-#include "SVGStyledElement.h"
+#include "rendering/svg/SVGResourcesCache.h"
+#include "svg/SVGStyledElement.h"
 
 namespace WebCore {
 

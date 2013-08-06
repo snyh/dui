@@ -21,20 +21,20 @@
  */
 
 #include "config.h"
-#include "HTMLImageElement.h"
+#include "html/HTMLImageElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
-#include "CachedImage.h"
-#include "EventNames.h"
-#include "FrameView.h"
-#include "HTMLDocument.h"
-#include "HTMLFormElement.h"
+#include "loader/cache/CachedImage.h"
+#include "dom/EventNames.h"
+#include "page/FrameView.h"
+#include "html/HTMLDocument.h"
+#include "html/HTMLFormElement.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "RenderImage.h"
-#include "ScriptEventListener.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "rendering/RenderImage.h"
+#include "bindings/dui/saved/ScriptEventListener.h"
 
 using namespace std;
 

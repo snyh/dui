@@ -24,9 +24,9 @@
 #define MediaPlayerPrivateGStreamer_h
 #if ENABLE(VIDEO) && USE(GSTREAMER)
 
-#include "GRefPtrGStreamer.h"
-#include "MediaPlayerPrivateGStreamerBase.h"
-#include "Timer.h"
+#include "platform/graphics/gstreamer/GRefPtrGStreamer.h"
+#include "platform/graphics/gstreamer/MediaPlayerPrivateGStreamerBase.h"
+#include "platform/Timer.h"
 
 #include <glib.h>
 #include <gst/gst.h>

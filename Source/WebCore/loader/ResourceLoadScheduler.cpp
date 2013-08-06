@@ -23,20 +23,20 @@
  */
 
 #include "config.h"
-#include "ResourceLoadScheduler.h"
+#include "loader/ResourceLoadScheduler.h"
 
-#include "Document.h"
-#include "DocumentLoader.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "KURL.h"
-#include "LoaderStrategy.h"
-#include "Logging.h"
-#include "NetscapePlugInStreamLoader.h"
-#include "PlatformStrategies.h"
-#include "ResourceLoader.h"
-#include "ResourceRequest.h"
-#include "SubresourceLoader.h"
+#include "dom/Document.h"
+#include "loader/DocumentLoader.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "platform/KURL.h"
+#include "loader/LoaderStrategy.h"
+#include "platform/Logging.h"
+#include "loader/NetscapePlugInStreamLoader.h"
+#include "platform/PlatformStrategies.h"
+#include "loader/ResourceLoader.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "loader/SubresourceLoader.h"
 #include <wtf/MainThread.h>
 #include <wtf/TemporaryChange.h>
 #include <wtf/text/CString.h>

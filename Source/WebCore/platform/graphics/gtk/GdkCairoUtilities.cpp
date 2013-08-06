@@ -24,8 +24,8 @@
  */
 
 #include "config.h"
-#include "GdkCairoUtilities.h"
-#include "GtkVersioning.h"
+#include "platform/graphics/gtk/GdkCairoUtilities.h"
+#include "platform/gtk/GtkVersioning.h"
 
 #include <cairo.h>
 #include <gtk/gtk.h>

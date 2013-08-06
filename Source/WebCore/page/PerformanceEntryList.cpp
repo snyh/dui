@@ -30,11 +30,11 @@
  */
 
 #include "config.h"
-#include "PerformanceEntryList.h"
+#include "page/PerformanceEntryList.h"
 
 #if ENABLE(WEB_TIMING) && ENABLE(PERFORMANCE_TIMELINE)
 
-#include "PerformanceEntry.h"
+#include "page/PerformanceEntry.h"
 
 namespace WebCore {
 

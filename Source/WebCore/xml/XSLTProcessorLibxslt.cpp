@@ -24,23 +24,23 @@
 
 #if ENABLE(XSLT)
 
-#include "XSLTProcessor.h"
+#include "xml/XSLTProcessor.h"
 
-#include "CachedResourceLoader.h"
-#include "Document.h"
-#include "Frame.h"
-#include "Page.h"
-#include "PageConsole.h"
-#include "ResourceError.h"
-#include "ResourceRequest.h"
-#include "ResourceResponse.h"
-#include "SecurityOrigin.h"
-#include "TransformSource.h"
-#include "XMLDocumentParser.h"
-#include "XSLStyleSheet.h"
-#include "XSLTExtensions.h"
-#include "XSLTUnicodeSort.h"
-#include "markup.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "page/Page.h"
+#include "page/PageConsole.h"
+#include "platform/network/soup/ResourceError.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/ResourceResponse.h"
+#include "page/SecurityOrigin.h"
+#include "dom/TransformSource.h"
+#include "xml/parser/XMLDocumentParser.h"
+#include "xml/XSLStyleSheet.h"
+#include "xml/XSLTExtensions.h"
+#include "xml/XSLTUnicodeSort.h"
+#include "editing/markup.h"
 #include <libxslt/imports.h>
 #include <libxslt/security.h>
 #include <libxslt/variables.h>

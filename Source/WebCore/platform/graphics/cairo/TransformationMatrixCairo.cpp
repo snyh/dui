@@ -23,11 +23,11 @@
  */
 
 #include "config.h"
-#include "AffineTransform.h"
-#include "TransformationMatrix.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
 
-#include "FloatRect.h"
-#include "IntRect.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/IntRect.h"
 
 #include <cairo.h>
 

@@ -28,7 +28,7 @@
 
 #if ENABLE(TOUCH_EVENTS)
 
-#include "Touch.h"
+#include "dom/Touch.h"
 #include <wtf/RefCounted.h>
 #include <wtf/Vector.h>
 

@@ -28,10 +28,10 @@
 
 #if ENABLE(ASSEMBLER)
 
-#include "ExecutableAllocator.h"
-#include "JITCompilationEffort.h"
-#include "VM.h"
-#include "stdint.h"
+#include "jit/ExecutableAllocator.h"
+#include "jit/JITCompilationEffort.h"
+#include "runtime/VM.h"
+#include "os-win32/stdint.h"
 #include <string.h>
 #include <wtf/Assertions.h>
 #include <wtf/FastMalloc.h>

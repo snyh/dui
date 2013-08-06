@@ -27,14 +27,14 @@
  */
 
 #include "config.h"
-#include "DocumentRuleSets.h"
+#include "css/DocumentRuleSets.h"
 
-#include "CSSDefaultStyleSheets.h"
-#include "CSSStyleSheet.h"
-#include "DocumentStyleSheetCollection.h"
-#include "MediaQueryEvaluator.h"
-#include "StyleResolver.h"
-#include "StyleSheetContents.h"
+#include "css/CSSDefaultStyleSheets.h"
+#include "css/CSSStyleSheet.h"
+#include "dom/DocumentStyleSheetCollection.h"
+#include "css/MediaQueryEvaluator.h"
+#include "css/StyleResolver.h"
+#include "css/StyleSheetContents.h"
 
 namespace WebCore {
 

@@ -35,7 +35,7 @@
 #ifndef RenderArena_h
 #define RenderArena_h
 
-#include "Arena.h"
+#include "platform/Arena.h"
 #include <wtf/FastAllocBase.h>
 #include <wtf/Noncopyable.h>
 #include <wtf/PassRefPtr.h>

@@ -26,7 +26,7 @@
 #ifndef WebGLTexture_h
 #define WebGLTexture_h
 
-#include "WebGLSharedObject.h"
+#include "html/canvas/WebGLSharedObject.h"
 
 #include <wtf/PassRefPtr.h>
 #include <wtf/Vector.h>

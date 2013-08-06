@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "HTMLFormattingElementList.h"
+#include "html/parser/HTMLFormattingElementList.h"
 
-#include "Element.h"
-#include "NotImplemented.h"
+#include "dom/Element.h"
+#include "platform/NotImplemented.h"
 
 #ifndef NDEBUG
 #include <stdio.h>

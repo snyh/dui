@@ -25,23 +25,23 @@
 
 #include "config.h"
 
-#include "ScrollingCoordinator.h"
+#include "page/scrolling/ScrollingCoordinator.h"
 
-#include "Document.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "GraphicsLayer.h"
-#include "IntRect.h"
-#include "Page.h"
-#include "PlatformWheelEvent.h"
-#include "Region.h"
-#include "RenderView.h"
-#include "ScrollAnimator.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "platform/graphics/GraphicsLayer.h"
+#include "platform/graphics/IntRect.h"
+#include "page/Page.h"
+#include "platform/PlatformWheelEvent.h"
+#include "platform/graphics/Region.h"
+#include "rendering/RenderView.h"
+#include "platform/ScrollAnimator.h"
 #include <wtf/MainThread.h>
 #include <wtf/text/StringBuilder.h>
 
 #if USE(ACCELERATED_COMPOSITING)
-#include "RenderLayerCompositor.h"
+#include "rendering/RenderLayerCompositor.h"
 #endif
 
 #if ENABLE(THREADED_SCROLLING)

@@ -21,9 +21,9 @@
 #ifndef StylePropertySet_h
 #define StylePropertySet_h
 
-#include "CSSParserMode.h"
-#include "CSSPrimitiveValue.h"
-#include "CSSProperty.h"
+#include "css/CSSParserMode.h"
+#include "css/CSSPrimitiveValue.h"
+#include "css/CSSProperty.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
 #include <wtf/ListHashSet.h>

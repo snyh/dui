@@ -29,20 +29,20 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "StyleResolver.h"
+#include "css/StyleResolver.h"
 
-#include "CSSPrimitiveValueMappings.h"
+#include "css/CSSPrimitiveValueMappings.h"
 #include "CSSPropertyNames.h"
-#include "CSSValueList.h"
-#include "Document.h"
-#include "ShadowValue.h"
-#include "SVGColor.h"
+#include "css/CSSValueList.h"
+#include "dom/Document.h"
+#include "css/ShadowValue.h"
+#include "svg/SVGColor.h"
 #include "SVGNames.h"
-#include "SVGPaint.h"
-#include "SVGRenderStyle.h"
-#include "SVGRenderStyleDefs.h"
-#include "SVGStyledElement.h"
-#include "SVGURIReference.h"
+#include "svg/SVGPaint.h"
+#include "rendering/style/SVGRenderStyle.h"
+#include "rendering/style/SVGRenderStyleDefs.h"
+#include "svg/SVGStyledElement.h"
+#include "svg/SVGURIReference.h"
 #include <stdlib.h>
 #include <wtf/MathExtras.h>
 

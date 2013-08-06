@@ -25,9 +25,9 @@
 
 #include "config.h"
 
-#include "GenericEventQueue.h"
+#include "dom/GenericEventQueue.h"
 
-#include "Event.h"
+#include "dom/Event.h"
 
 namespace WebCore {
 

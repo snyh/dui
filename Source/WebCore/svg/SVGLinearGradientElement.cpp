@@ -24,19 +24,19 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGLinearGradientElement.h"
+#include "svg/SVGLinearGradientElement.h"
 
-#include "Attribute.h"
-#include "Document.h"
-#include "FloatPoint.h"
-#include "LinearGradientAttributes.h"
-#include "RenderSVGResourceLinearGradient.h"
-#include "SVGElementInstance.h"
-#include "SVGLength.h"
+#include "dom/Attribute.h"
+#include "dom/Document.h"
+#include "platform/graphics/FloatPoint.h"
+#include "svg/LinearGradientAttributes.h"
+#include "rendering/svg/RenderSVGResourceLinearGradient.h"
+#include "svg/SVGElementInstance.h"
+#include "svg/SVGLength.h"
 #include "SVGNames.h"
-#include "SVGTransform.h"
-#include "SVGTransformList.h"
-#include "SVGUnitTypes.h"
+#include "svg/SVGTransform.h"
+#include "svg/SVGTransformList.h"
+#include "svg/SVGUnitTypes.h"
 
 namespace WebCore {
 

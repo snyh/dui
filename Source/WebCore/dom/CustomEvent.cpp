@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "CustomEvent.h"
+#include "dom/CustomEvent.h"
 
-#include "EventNames.h"
+#include "dom/EventNames.h"
 
 namespace WebCore {
 

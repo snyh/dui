@@ -33,9 +33,9 @@
 
 #if ENABLE(WORKERS)
 
-#include "ThreadableLoader.h"
-#include "ThreadableLoaderClient.h"
-#include "ThreadableLoaderClientWrapper.h"
+#include "loader/ThreadableLoader.h"
+#include "loader/ThreadableLoaderClient.h"
+#include "loader/ThreadableLoaderClientWrapper.h"
 
 #include <wtf/PassOwnPtr.h>
 #include <wtf/PassRefPtr.h>

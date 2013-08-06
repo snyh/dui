@@ -27,7 +27,7 @@
 #ifndef CanvasGradient_h
 #define CanvasGradient_h
 
-#include "Gradient.h"
+#include "platform/graphics/Gradient.h"
 #include <wtf/Forward.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>

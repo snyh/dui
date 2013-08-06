@@ -44,9 +44,9 @@
 #ifndef RenderLayer_h
 #define RenderLayer_h
 
-#include "PaintInfo.h"
-#include "RenderBox.h"
-#include "ScrollableArea.h"
+#include "rendering/PaintInfo.h"
+#include "rendering/RenderBox.h"
+#include "platform/ScrollableArea.h"
 #include <wtf/OwnPtr.h>
 
 namespace WebCore {

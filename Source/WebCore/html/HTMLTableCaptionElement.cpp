@@ -23,9 +23,9 @@
  */
 
 #include "config.h"
-#include "HTMLTableCaptionElement.h"
+#include "html/HTMLTableCaptionElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
 #include "HTMLNames.h"
 

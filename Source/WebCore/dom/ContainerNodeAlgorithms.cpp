@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "ContainerNodeAlgorithms.h"
+#include "dom/ContainerNodeAlgorithms.h"
 
-#include "Element.h"
-#include "ElementShadow.h"
-#include "HTMLFrameOwnerElement.h"
+#include "dom/Element.h"
+#include "dom/ElementShadow.h"
+#include "html/HTMLFrameOwnerElement.h"
 
 namespace WebCore {
 

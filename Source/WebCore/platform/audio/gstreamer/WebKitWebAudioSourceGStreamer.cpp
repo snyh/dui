@@ -18,15 +18,15 @@
 
 #include "config.h"
 
-#include "WebKitWebAudioSourceGStreamer.h"
+#include "platform/audio/gstreamer/WebKitWebAudioSourceGStreamer.h"
 
 #if ENABLE(WEB_AUDIO) && USE(GSTREAMER)
 
-#include "AudioBus.h"
-#include "AudioIOCallback.h"
+#include "platform/audio/AudioBus.h"
+#include "platform/audio/AudioIOCallback.h"
 #include <wtf/gobject/GOwnPtr.h>
-#include "GRefPtrGStreamer.h"
-#include "GStreamerVersioning.h"
+#include "platform/graphics/gstreamer/GRefPtrGStreamer.h"
+#include "platform/graphics/gstreamer/GStreamerVersioning.h"
 #ifdef GST_API_VERSION_1
 #include <gst/audio/audio.h>
 #else

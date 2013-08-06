@@ -22,12 +22,12 @@
 
 #ifndef JSString_h
 #define JSString_h
-#include "CallFrame.h"
-#include "CommonIdentifiers.h"
-#include "Identifier.h"
-#include "PropertyDescriptor.h"
-#include "PropertySlot.h"
-#include "Structure.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/CommonIdentifiers.h"
+#include "runtime/Identifier.h"
+#include "runtime/PropertyDescriptor.h"
+#include "runtime/PropertySlot.h"
+#include "runtime/Structure.h"
 
 namespace JSC {
 

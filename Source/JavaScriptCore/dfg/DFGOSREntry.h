@@ -26,8 +26,8 @@
 #ifndef DFGOSREntry_h
 #define DFGOSREntry_h
 
-#include "DFGAbstractValue.h"
-#include "Operands.h"
+#include "dfg/DFGAbstractValue.h"
+#include "bytecode/Operands.h"
 #include <wtf/BitVector.h>
 
 namespace JSC {

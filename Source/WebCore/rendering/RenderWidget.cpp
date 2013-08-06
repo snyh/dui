@@ -21,21 +21,21 @@
  */
 
 #include "config.h"
-#include "RenderWidget.h"
+#include "rendering/RenderWidget.h"
 
-#include "AXObjectCache.h"
-#include "AnimationController.h"
-#include "Frame.h"
-#include "GraphicsContext.h"
-#include "HitTestResult.h"
-#include "RenderCounter.h"
-#include "RenderLayer.h"
-#include "RenderView.h"
-#include "RenderWidgetProtector.h"
+#include "accessibility/AXObjectCache.h"
+#include "page/animation/AnimationController.h"
+#include "page/Frame.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "rendering/HitTestResult.h"
+#include "rendering/RenderCounter.h"
+#include "rendering/RenderLayer.h"
+#include "rendering/RenderView.h"
+#include "rendering/RenderWidgetProtector.h"
 #include <wtf/StackStats.h>
 
 #if USE(ACCELERATED_COMPOSITING)
-#include "RenderLayerBacking.h"
+#include "rendering/RenderLayerBacking.h"
 #endif
 
 using namespace std;

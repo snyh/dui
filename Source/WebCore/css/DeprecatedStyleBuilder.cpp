@@ -24,31 +24,31 @@
  */
 
 #include "config.h"
-#include "DeprecatedStyleBuilder.h"
+#include "css/DeprecatedStyleBuilder.h"
 
-#include "BasicShapeFunctions.h"
-#include "BasicShapes.h"
-#include "CSSAspectRatioValue.h"
-#include "CSSCalculationValue.h"
-#include "CSSCursorImageValue.h"
-#include "CSSPrimitiveValueMappings.h"
-#include "CSSToStyleMap.h"
-#include "CSSValueList.h"
-#include "ClipPathOperation.h"
-#include "CursorList.h"
-#include "Document.h"
-#include "Element.h"
-#include "Pair.h"
-#include "Rect.h"
-#include "RenderObject.h"
-#include "RenderStyle.h"
-#include "RenderView.h"
-#include "Settings.h"
-#include "StyleResolver.h"
+#include "css/BasicShapeFunctions.h"
+#include "rendering/style/BasicShapes.h"
+#include "css/CSSAspectRatioValue.h"
+#include "css/CSSCalculationValue.h"
+#include "css/CSSCursorImageValue.h"
+#include "css/CSSPrimitiveValueMappings.h"
+#include "css/CSSToStyleMap.h"
+#include "css/CSSValueList.h"
+#include "rendering/ClipPathOperation.h"
+#include "rendering/style/CursorList.h"
+#include "dom/Document.h"
+#include "dom/Element.h"
+#include "css/Pair.h"
+#include "css/Rect.h"
+#include "rendering/RenderObject.h"
+#include "rendering/style/RenderStyle.h"
+#include "rendering/RenderView.h"
+#include "page/Settings.h"
+#include "css/StyleResolver.h"
 #include <wtf/StdLibExtras.h>
 
 #if ENABLE(CSS_SHAPES)
-#include "ShapeValue.h"
+#include "rendering/style/ShapeValue.h"
 #endif
 
 using namespace std;

@@ -20,18 +20,18 @@
  */
 
 #include "config.h"
-#include "HTMLAreaElement.h"
+#include "html/HTMLAreaElement.h"
 
-#include "AffineTransform.h"
-#include "Attribute.h"
-#include "Frame.h"
-#include "HTMLImageElement.h"
-#include "HTMLMapElement.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "dom/Attribute.h"
+#include "page/Frame.h"
+#include "html/HTMLImageElement.h"
+#include "html/HTMLMapElement.h"
 #include "HTMLNames.h"
-#include "HitTestResult.h"
-#include "Path.h"
-#include "RenderImage.h"
-#include "RenderView.h"
+#include "rendering/HitTestResult.h"
+#include "platform/graphics/Path.h"
+#include "rendering/RenderImage.h"
+#include "rendering/RenderView.h"
 
 using namespace std;
 

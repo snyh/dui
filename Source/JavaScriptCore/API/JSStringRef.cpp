@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "JSStringRef.h"
-#include "JSStringRefPrivate.h"
+#include "API/JSStringRef.h"
+#include "API/JSStringRefPrivate.h"
 
-#include "InitializeThreading.h"
-#include "OpaqueJSString.h"
+#include "runtime/InitializeThreading.h"
+#include "API/OpaqueJSString.h"
 #include <wtf/unicode/UTF8.h>
 
 using namespace JSC;

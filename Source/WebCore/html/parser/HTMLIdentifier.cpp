@@ -27,7 +27,7 @@
 
 #if ENABLE(THREADED_HTML_PARSER)
 
-#include "HTMLIdentifier.h"
+#include "html/parser/HTMLIdentifier.h"
 
 #include "HTMLNames.h"
 #include <wtf/HashMap.h>

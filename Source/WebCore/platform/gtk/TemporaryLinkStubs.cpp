@@ -27,8 +27,8 @@
 
 #include "config.h"
 
-#include "KURL.h"
-#include "NotImplemented.h"
+#include "platform/KURL.h"
+#include "platform/NotImplemented.h"
 #include <float.h>
 #include <wtf/text/WTFString.h>
 

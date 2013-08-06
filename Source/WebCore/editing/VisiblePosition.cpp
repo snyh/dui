@@ -25,20 +25,20 @@
  */
 
 #include "config.h"
-#include "VisiblePosition.h"
+#include "editing/VisiblePosition.h"
 
-#include "Document.h"
-#include "FloatQuad.h"
-#include "HTMLElement.h"
+#include "dom/Document.h"
+#include "platform/graphics/FloatQuad.h"
+#include "html/HTMLElement.h"
 #include "HTMLNames.h"
-#include "InlineTextBox.h"
-#include "Logging.h"
-#include "Range.h"
-#include "RenderBlock.h"
-#include "RootInlineBox.h"
-#include "Text.h"
-#include "VisibleUnits.h"
-#include "htmlediting.h"
+#include "rendering/InlineTextBox.h"
+#include "platform/Logging.h"
+#include "dom/Range.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/RootInlineBox.h"
+#include "dom/Text.h"
+#include "editing/VisibleUnits.h"
+#include "editing/htmlediting.h"
 #include <stdio.h>
 #include <wtf/text/CString.h>
 

@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "LevelDBWriteBatch.h"
+#include "platform/leveldb/LevelDBWriteBatch.h"
 
 #if USE(LEVELDB)
 
-#include "LevelDBSlice.h"
+#include "platform/leveldb/LevelDBSlice.h"
 #include <leveldb/slice.h>
 #include <leveldb/write_batch.h>
 

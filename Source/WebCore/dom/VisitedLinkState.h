@@ -29,9 +29,9 @@
 #ifndef VisitedLinkState_h
 #define VisitedLinkState_h
 
-#include "Element.h"
-#include "LinkHash.h"
-#include "RenderStyleConstants.h"
+#include "dom/Element.h"
+#include "platform/LinkHash.h"
+#include "rendering/style/RenderStyleConstants.h"
 #include "XLinkNames.h"
 #include <wtf/HashSet.h>
 #include <wtf/OwnPtr.h>

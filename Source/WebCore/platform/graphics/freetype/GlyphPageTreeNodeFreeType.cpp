@@ -29,10 +29,10 @@
  */
 
 #include "config.h"
-#include "GlyphPageTreeNode.h"
+#include "platform/graphics/GlyphPageTreeNode.h"
 
-#include "SimpleFontData.h"
-#include "UTF16UChar32Iterator.h"
+#include "platform/graphics/SimpleFontData.h"
+#include "platform/graphics/freetype/UTF16UChar32Iterator.h"
 #include <cairo-ft.h>
 #include <cairo.h>
 #include <fontconfig/fcfreetype.h>

@@ -33,14 +33,14 @@
 
 #if ENABLE(BLOB)
 
-#include "AsyncFileStream.h"
+#include "fileapi/AsyncFileStream.h"
 
-#include "Blob.h"
-#include "FileStream.h"
-#include "FileStreamClient.h"
-#include "FileThread.h"
-#include "FileThreadTask.h"
-#include "MainThreadTask.h"
+#include "fileapi/Blob.h"
+#include "platform/FileStream.h"
+#include "platform/FileStreamClient.h"
+#include "fileapi/FileThread.h"
+#include "fileapi/FileThreadTask.h"
+#include "platform/MainThreadTask.h"
 #include <wtf/MainThread.h>
 #include <wtf/text/WTFString.h>
 

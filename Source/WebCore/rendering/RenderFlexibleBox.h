@@ -31,7 +31,7 @@
 #ifndef RenderFlexibleBox_h
 #define RenderFlexibleBox_h
 
-#include "RenderBlock.h"
+#include "rendering/RenderBlock.h"
 
 namespace WebCore {
 

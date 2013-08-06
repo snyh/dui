@@ -22,13 +22,13 @@
 #ifndef ElementRareData_h
 #define ElementRareData_h
 
-#include "ClassList.h"
-#include "DatasetDOMStringMap.h"
-#include "ElementShadow.h"
-#include "NamedNodeMap.h"
-#include "NodeRareData.h"
-#include "PseudoElement.h"
-#include "StyleInheritedData.h"
+#include "html/ClassList.h"
+#include "dom/DatasetDOMStringMap.h"
+#include "dom/ElementShadow.h"
+#include "dom/NamedNodeMap.h"
+#include "dom/NodeRareData.h"
+#include "dom/PseudoElement.h"
+#include "rendering/style/StyleInheritedData.h"
 #include <wtf/OwnPtr.h>
 
 namespace WebCore {

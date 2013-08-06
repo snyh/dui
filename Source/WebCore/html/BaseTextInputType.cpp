@@ -22,11 +22,11 @@
  */
 
 #include "config.h"
-#include "BaseTextInputType.h"
+#include "html/BaseTextInputType.h"
 
-#include "HTMLInputElement.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "RegularExpression.h"
+#include "platform/text/RegularExpression.h"
 
 namespace WebCore {
 

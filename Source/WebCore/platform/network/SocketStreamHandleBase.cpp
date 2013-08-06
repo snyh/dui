@@ -29,10 +29,10 @@
  */
 
 #include "config.h"
-#include "SocketStreamHandleBase.h"
+#include "platform/network/SocketStreamHandleBase.h"
 
-#include "SocketStreamHandle.h"
-#include "SocketStreamHandleClient.h"
+#include "platform/network/soup/SocketStreamHandle.h"
+#include "platform/network/SocketStreamHandleClient.h"
 
 namespace WebCore {
 

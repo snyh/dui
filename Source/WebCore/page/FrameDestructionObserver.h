@@ -26,7 +26,7 @@
 #ifndef FrameDestructionObserver_h
 #define FrameDestructionObserver_h
 
-#include "PlatformExportMacros.h"
+#include "platform/PlatformExportMacros.h"
 
 namespace WebCore {
 

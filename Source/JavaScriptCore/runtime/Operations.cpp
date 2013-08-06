@@ -20,11 +20,11 @@
  */
 
 #include "config.h"
-#include "Operations.h"
+#include "runtime/Operations.h"
 
-#include "Error.h"
-#include "JSObject.h"
-#include "JSString.h"
+#include "runtime/Error.h"
+#include "runtime/JSObject.h"
+#include "runtime/JSString.h"
 #include <math.h>
 #include <stdio.h>
 #include <wtf/MathExtras.h>

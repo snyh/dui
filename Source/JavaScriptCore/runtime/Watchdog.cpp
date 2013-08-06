@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "Watchdog.h"
+#include "runtime/Watchdog.h"
 
-#include "CallFrame.h"
+#include "interpreter/CallFrame.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/MathExtras.h>
 

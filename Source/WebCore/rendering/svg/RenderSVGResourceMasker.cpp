@@ -20,22 +20,22 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGResourceMasker.h"
+#include "rendering/svg/RenderSVGResourceMasker.h"
 
-#include "AffineTransform.h"
-#include "Element.h"
-#include "FloatPoint.h"
-#include "FloatRect.h"
-#include "GraphicsContext.h"
-#include "Image.h"
-#include "ImageBuffer.h"
-#include "IntRect.h"
-#include "RenderSVGResource.h"
-#include "SVGElement.h"
-#include "SVGMaskElement.h"
-#include "SVGRenderingContext.h"
-#include "SVGStyledElement.h"
-#include "SVGUnitTypes.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "dom/Element.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "platform/graphics/IntRect.h"
+#include "rendering/svg/RenderSVGResource.h"
+#include "svg/SVGElement.h"
+#include "svg/SVGMaskElement.h"
+#include "rendering/svg/SVGRenderingContext.h"
+#include "svg/SVGStyledElement.h"
+#include "svg/SVGUnitTypes.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

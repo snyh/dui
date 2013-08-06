@@ -31,15 +31,15 @@
 #include "config.h"
 
 #if ENABLE(CSS_SHADERS) && USE(3D_GRAPHICS)
-#include "FECustomFilter.h"
+#include "platform/graphics/filters/FECustomFilter.h"
 
-#include "CustomFilterCompiledProgram.h"
-#include "CustomFilterRenderer.h"
-#include "CustomFilterValidatedProgram.h"
-#include "Extensions3D.h"
-#include "GraphicsContext3D.h"
-#include "RenderTreeAsText.h"
-#include "TextStream.h"
+#include "platform/graphics/filters/CustomFilterCompiledProgram.h"
+#include "platform/graphics/filters/CustomFilterRenderer.h"
+#include "platform/graphics/filters/CustomFilterValidatedProgram.h"
+#include "platform/graphics/Extensions3D.h"
+#include "platform/graphics/GraphicsContext3D.h"
+#include "rendering/RenderTreeAsText.h"
+#include "platform/text/TextStream.h"
 
 #include <wtf/Uint8ClampedArray.h>
 

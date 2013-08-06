@@ -26,11 +26,11 @@
 #ifndef GeneratorGeneratedImage_h
 #define GeneratorGeneratedImage_h
 
-#include "GeneratedImage.h"
-#include "Gradient.h"
-#include "Image.h"
-#include "ImageBuffer.h"
-#include "IntSize.h"
+#include "platform/graphics/GeneratedImage.h"
+#include "platform/graphics/Gradient.h"
+#include "platform/graphics/Image.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "platform/graphics/IntSize.h"
 #include <wtf/RefPtr.h>
 
 namespace WebCore {

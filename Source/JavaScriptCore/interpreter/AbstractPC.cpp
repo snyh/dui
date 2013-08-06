@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "AbstractPC.h"
+#include "interpreter/AbstractPC.h"
 
-#include "CallFrame.h"
-#include "VM.h"
-#include "JSObject.h"
+#include "interpreter/CallFrame.h"
+#include "runtime/VM.h"
+#include "runtime/JSObject.h"
 
 
 namespace JSC {

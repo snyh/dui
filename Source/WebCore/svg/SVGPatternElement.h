@@ -22,18 +22,18 @@
 #define SVGPatternElement_h
 
 #if ENABLE(SVG)
-#include "SVGAnimatedBoolean.h"
-#include "SVGAnimatedEnumeration.h"
-#include "SVGAnimatedLength.h"
-#include "SVGAnimatedPreserveAspectRatio.h"
-#include "SVGAnimatedRect.h"
-#include "SVGAnimatedTransformList.h"
-#include "SVGExternalResourcesRequired.h"
-#include "SVGFitToViewBox.h"
-#include "SVGStyledElement.h"
-#include "SVGTests.h"
-#include "SVGURIReference.h"
-#include "SVGUnitTypes.h"
+#include "svg/SVGAnimatedBoolean.h"
+#include "svg/SVGAnimatedEnumeration.h"
+#include "svg/SVGAnimatedLength.h"
+#include "svg/SVGAnimatedPreserveAspectRatio.h"
+#include "svg/SVGAnimatedRect.h"
+#include "svg/SVGAnimatedTransformList.h"
+#include "svg/SVGExternalResourcesRequired.h"
+#include "svg/SVGFitToViewBox.h"
+#include "svg/SVGStyledElement.h"
+#include "svg/SVGTests.h"
+#include "svg/SVGURIReference.h"
+#include "svg/SVGUnitTypes.h"
 
 namespace WebCore {
 

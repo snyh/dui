@@ -17,9 +17,9 @@
  */
 
 #include "config.h"
-#include "DataObjectGtk.h"
+#include "platform/gtk/DataObjectGtk.h"
 
-#include "markup.h"
+#include "editing/markup.h"
 #include <gtk/gtk.h>
 #include <wtf/gobject/GOwnPtr.h>
 #include <wtf/text/StringBuilder.h>

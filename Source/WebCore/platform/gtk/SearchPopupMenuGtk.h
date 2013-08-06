@@ -21,8 +21,8 @@
 #ifndef SearchPopupMenuGtk_h
 #define SearchPopupMenuGtk_h
 
-#include "PopupMenuGtk.h"
-#include "SearchPopupMenu.h"
+#include "platform/gtk/PopupMenuGtk.h"
+#include "platform/SearchPopupMenu.h"
 
 namespace WebCore {
 

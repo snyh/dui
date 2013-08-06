@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "HTMLInterchange.h"
+#include "editing/HTMLInterchange.h"
 
-#include "RenderObject.h"
-#include "Text.h"
-#include "TextIterator.h"
+#include "rendering/RenderObject.h"
+#include "dom/Text.h"
+#include "editing/TextIterator.h"
 #include <wtf/text/StringBuilder.h>
 #include <wtf/unicode/CharacterNames.h>
 

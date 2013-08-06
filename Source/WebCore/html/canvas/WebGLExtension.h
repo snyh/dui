@@ -26,7 +26,7 @@
 #ifndef WebGLExtension_h
 #define WebGLExtension_h
 
-#include "WebGLRenderingContext.h"
+#include "html/canvas/WebGLRenderingContext.h"
 
 namespace WebCore {
 

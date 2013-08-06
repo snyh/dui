@@ -28,18 +28,18 @@
 
 #if ENABLE(DFG_JIT)
 
-#include "CodeBlock.h"
-#include "DFGCCallHelpers.h"
-#include "DFGDisassembler.h"
-#include "DFGFPRInfo.h"
-#include "DFGGPRInfo.h"
-#include "DFGGraph.h"
-#include "DFGOSRExitCompilationInfo.h"
-#include "DFGRegisterBank.h"
-#include "DFGRegisterSet.h"
-#include "JITCode.h"
-#include "LinkBuffer.h"
-#include "MacroAssembler.h"
+#include "bytecode/CodeBlock.h"
+#include "dfg/DFGCCallHelpers.h"
+#include "dfg/DFGDisassembler.h"
+#include "dfg/DFGFPRInfo.h"
+#include "dfg/DFGGPRInfo.h"
+#include "dfg/DFGGraph.h"
+#include "dfg/DFGOSRExitCompilationInfo.h"
+#include "dfg/DFGRegisterBank.h"
+#include "dfg/DFGRegisterSet.h"
+#include "jit/JITCode.h"
+#include "assembler/LinkBuffer.h"
+#include "assembler/MacroAssembler.h"
 
 namespace JSC {
 

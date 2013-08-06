@@ -20,11 +20,11 @@
  */
 
 #include "config.h"
-#include "FontCustomPlatformData.h"
+#include "platform/graphics/cairo/FontCustomPlatformData.h"
 
-#include "FontPlatformData.h"
-#include "SharedBuffer.h"
-#include "WOFFFileFormat.h"
+#include "platform/graphics/FontPlatformData.h"
+#include "platform/SharedBuffer.h"
+#include "platform/graphics/WOFFFileFormat.h"
 #include <cairo-ft.h>
 #include <cairo.h>
 

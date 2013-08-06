@@ -22,7 +22,7 @@
 #ifndef CSSStyleRule_h
 #define CSSStyleRule_h
 
-#include "CSSRule.h"
+#include "css/CSSRule.h"
 
 namespace WebCore {
 

@@ -27,18 +27,18 @@
  */
 
 #include "config.h"
-#include "SubresourceLoader.h"
+#include "loader/SubresourceLoader.h"
 
-#include "CachedResourceLoader.h"
-#include "Document.h"
-#include "DocumentLoader.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "Logging.h"
-#include "MemoryCache.h"
-#include "Page.h"
-#include "PageActivityAssertionToken.h"
-#include "ResourceBuffer.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "dom/Document.h"
+#include "loader/DocumentLoader.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "platform/Logging.h"
+#include "loader/cache/MemoryCache.h"
+#include "page/Page.h"
+#include "page/PageActivityAssertionToken.h"
+#include "loader/ResourceBuffer.h"
 #include <wtf/RefCountedLeakCounter.h>
 #include <wtf/StdLibExtras.h>
 #include <wtf/text/CString.h>

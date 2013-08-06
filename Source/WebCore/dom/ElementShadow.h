@@ -27,9 +27,9 @@
 #ifndef ElementShadow_h
 #define ElementShadow_h
 
-#include "ContentDistributor.h"
-#include "ExceptionCode.h"
-#include "ShadowRoot.h"
+#include "html/shadow/ContentDistributor.h"
+#include "dom/ExceptionCode.h"
+#include "dom/ShadowRoot.h"
 #include <wtf/Noncopyable.h>
 #include <wtf/PassOwnPtr.h>
 #include <wtf/PassRefPtr.h>

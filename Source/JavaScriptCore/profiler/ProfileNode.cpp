@@ -27,9 +27,9 @@
  */
 
 #include "config.h"
-#include "ProfileNode.h"
+#include "profiler/ProfileNode.h"
 
-#include "LegacyProfiler.h"
+#include "profiler/LegacyProfiler.h"
 #include <stdio.h>
 #include <wtf/DateMath.h>
 #include <wtf/DataLog.h>

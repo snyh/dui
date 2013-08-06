@@ -19,9 +19,9 @@
  */
 
 #include "config.h"
-#include "SpaceSplitString.h"
+#include "dom/SpaceSplitString.h"
 
-#include "HTMLParserIdioms.h"
+#include "html/parser/HTMLParserIdioms.h"
 #include <wtf/ASCIICType.h>
 #include <wtf/HashMap.h>
 #include <wtf/text/AtomicStringHash.h>

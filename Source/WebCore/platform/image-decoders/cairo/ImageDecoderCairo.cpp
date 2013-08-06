@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "ImageDecoder.h"
+#include "platform/image-decoders/ImageDecoder.h"
 
 #include <cairo.h>
 

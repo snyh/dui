@@ -34,7 +34,7 @@
  */
 
 #include "config.h"
-#include "RenderArena.h"
+#include "rendering/RenderArena.h"
 
 #include <limits>
 #include <stdlib.h>

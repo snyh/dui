@@ -20,34 +20,34 @@
  */
 
 #include "config.h"
-#include "RenderTheme.h"
+#include "rendering/RenderTheme.h"
 
 #include "CSSValueKeywords.h"
-#include "Document.h"
-#include "FileList.h"
-#include "FileSystem.h"
-#include "FloatConversion.h"
-#include "FocusController.h"
-#include "FontSelector.h"
-#include "Frame.h"
-#include "FrameSelection.h"
-#include "GraphicsContext.h"
-#include "HTMLInputElement.h"
+#include "dom/Document.h"
+#include "fileapi/FileList.h"
+#include "platform/FileSystem.h"
+#include "platform/FloatConversion.h"
+#include "page/FocusController.h"
+#include "platform/graphics/FontSelector.h"
+#include "page/Frame.h"
+#include "editing/FrameSelection.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "LocalizedStrings.h"
-#include "MediaControlElements.h"
-#include "Page.h"
-#include "PaintInfo.h"
-#include "RenderStyle.h"
-#include "RenderView.h"
-#include "Settings.h"
-#include "SpinButtonElement.h"
-#include "StringTruncator.h"
-#include "TextControlInnerElements.h"
+#include "platform/LocalizedStrings.h"
+#include "html/shadow/MediaControlElements.h"
+#include "page/Page.h"
+#include "rendering/PaintInfo.h"
+#include "rendering/style/RenderStyle.h"
+#include "rendering/RenderView.h"
+#include "page/Settings.h"
+#include "html/shadow/SpinButtonElement.h"
+#include "platform/graphics/StringTruncator.h"
+#include "html/shadow/TextControlInnerElements.h"
 
 #if ENABLE(METER_ELEMENT)
-#include "HTMLMeterElement.h"
-#include "RenderMeter.h"
+#include "html/HTMLMeterElement.h"
+#include "rendering/RenderMeter.h"
 #endif
 
 #if ENABLE(INPUT_SPEECH)
@@ -55,11 +55,11 @@
 #endif
 
 #if ENABLE(DATALIST_ELEMENT)
-#include "ElementShadow.h"
-#include "HTMLCollection.h"
-#include "HTMLDataListElement.h"
-#include "HTMLOptionElement.h"
-#include "HTMLParserIdioms.h"
+#include "dom/ElementShadow.h"
+#include "html/HTMLCollection.h"
+#include "html/HTMLDataListElement.h"
+#include "html/HTMLOptionElement.h"
+#include "html/parser/HTMLParserIdioms.h"
 #endif
 
 // The methods in this file are shared by all themes on every platform.

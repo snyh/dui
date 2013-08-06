@@ -27,19 +27,19 @@
  */
 
 #include "config.h"
-#include "Console.h"
+#include "page/Console.h"
 
-#include "Chrome.h"
-#include "ChromeClient.h"
-#include "ConsoleTypes.h"
-#include "Document.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "FrameTree.h"
-#include "Page.h"
-#include "PageConsole.h"
-#include "PageGroup.h"
-#include "Settings.h"
+#include "page/Chrome.h"
+#include "page/ChromeClient.h"
+#include "page/ConsoleTypes.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "page/FrameTree.h"
+#include "page/Page.h"
+#include "page/PageConsole.h"
+#include "page/PageGroup.h"
+#include "page/Settings.h"
 #include <stdio.h>
 #include <wtf/text/CString.h>
 #include <wtf/text/WTFString.h>

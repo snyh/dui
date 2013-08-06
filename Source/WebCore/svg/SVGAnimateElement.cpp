@@ -23,16 +23,16 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGAnimateElement.h"
+#include "svg/SVGAnimateElement.h"
 
-#include "CSSParser.h"
+#include "css/CSSParser.h"
 #include "CSSPropertyNames.h"
-#include "QualifiedName.h"
-#include "RenderObject.h"
-#include "SVGAnimatorFactory.h"
+#include "dom/QualifiedName.h"
+#include "rendering/RenderObject.h"
+#include "svg/SVGAnimatorFactory.h"
 #include "SVGNames.h"
-#include "SVGStyledElement.h"
-#include "StylePropertySet.h"
+#include "svg/SVGStyledElement.h"
+#include "css/StylePropertySet.h"
 
 namespace WebCore {
 

@@ -21,7 +21,7 @@
  */
 
 #include "config.h"
-#include "CSSHostRule.h"
+#include "css/CSSHostRule.h"
 
 #if ENABLE(SHADOW_DOM)
 

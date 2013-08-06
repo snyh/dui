@@ -22,10 +22,10 @@
 #define RenderSVGForeignObject_h
 
 #if ENABLE(SVG)
-#include "AffineTransform.h"
-#include "FloatPoint.h"
-#include "FloatRect.h"
-#include "RenderSVGBlock.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/FloatPoint.h"
+#include "platform/graphics/FloatRect.h"
+#include "rendering/svg/RenderSVGBlock.h"
 
 namespace WebCore {
 

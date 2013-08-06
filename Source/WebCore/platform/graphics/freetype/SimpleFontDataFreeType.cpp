@@ -31,15 +31,15 @@
  */
 
 #include "config.h"
-#include "SimpleFontData.h"
+#include "platform/graphics/SimpleFontData.h"
 
-#include "FloatConversion.h"
-#include "FloatRect.h"
-#include "Font.h"
-#include "FontCache.h"
-#include "FontDescription.h"
-#include "GlyphBuffer.h"
-#include "UTF16UChar32Iterator.h"
+#include "platform/FloatConversion.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/FontCache.h"
+#include "platform/graphics/FontDescription.h"
+#include "platform/graphics/GlyphBuffer.h"
+#include "platform/graphics/freetype/UTF16UChar32Iterator.h"
 #include <cairo-ft.h>
 #include <cairo.h>
 #include <fontconfig/fcfreetype.h>

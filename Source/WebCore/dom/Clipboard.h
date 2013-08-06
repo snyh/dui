@@ -24,12 +24,12 @@
 #ifndef Clipboard_h
 #define Clipboard_h
 
-#include "CachedResourceHandle.h"
-#include "ClipboardAccessPolicy.h"
-#include "DragActions.h"
-#include "DragImage.h"
-#include "IntPoint.h"
-#include "Node.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "dom/ClipboardAccessPolicy.h"
+#include "page/DragActions.h"
+#include "platform/DragImage.h"
+#include "platform/graphics/IntPoint.h"
+#include "dom/Node.h"
 
 // This DOM object now works by calling through to classes in the platform layer.
 // Specifically, the class currently named Pasteboard. The legacy style instead

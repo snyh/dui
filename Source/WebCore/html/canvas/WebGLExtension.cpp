@@ -27,7 +27,7 @@
 
 #if ENABLE(WEBGL)
 
-#include "WebGLExtension.h"
+#include "html/canvas/WebGLExtension.h"
 
 namespace WebCore {
 

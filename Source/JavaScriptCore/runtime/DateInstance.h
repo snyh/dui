@@ -21,7 +21,7 @@
 #ifndef DateInstance_h
 #define DateInstance_h
 
-#include "JSWrapperObject.h"
+#include "runtime/JSWrapperObject.h"
 
 namespace JSC {
 

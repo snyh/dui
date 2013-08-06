@@ -21,9 +21,9 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGPointList.h"
+#include "svg/SVGPointList.h"
 
-#include "FloatPoint.h"
+#include "platform/graphics/FloatPoint.h"
 #include <wtf/text/StringBuilder.h>
 #include <wtf/text/WTFString.h>
 

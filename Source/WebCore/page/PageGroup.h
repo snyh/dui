@@ -26,11 +26,11 @@
 #ifndef PageGroup_h
 #define PageGroup_h
 
-#include "LinkHash.h"
-#include "SecurityOriginHash.h"
-#include "Supplementable.h"
-#include "UserScript.h"
-#include "UserStyleSheet.h"
+#include "platform/LinkHash.h"
+#include "page/SecurityOriginHash.h"
+#include "platform/Supplementable.h"
+#include "page/UserScript.h"
+#include "page/UserStyleSheet.h"
 #include <wtf/HashSet.h>
 #include <wtf/Noncopyable.h>
 

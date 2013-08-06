@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "CSSFontFace.h"
+#include "css/CSSFontFace.h"
 
-#include "CSSFontFaceSource.h"
-#include "CSSFontSelector.h"
-#include "CSSSegmentedFontFace.h"
-#include "Document.h"
-#include "FontDescription.h"
-#include "FontLoader.h"
-#include "RuntimeEnabledFeatures.h"
-#include "SimpleFontData.h"
+#include "css/CSSFontFaceSource.h"
+#include "css/CSSFontSelector.h"
+#include "css/CSSSegmentedFontFace.h"
+#include "dom/Document.h"
+#include "platform/graphics/FontDescription.h"
+#include "css/FontLoader.h"
+#include "bindings/dui/saved/RuntimeEnabledFeatures.h"
+#include "platform/graphics/SimpleFontData.h"
 
 namespace WebCore {
 

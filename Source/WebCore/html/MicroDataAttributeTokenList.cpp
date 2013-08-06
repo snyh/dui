@@ -32,9 +32,9 @@
 
 #if ENABLE(MICRODATA)
 
-#include "MicroDataAttributeTokenList.h"
+#include "html/MicroDataAttributeTokenList.h"
 
-#include "Element.h"
+#include "dom/Element.h"
 
 namespace WebCore {
 

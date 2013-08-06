@@ -25,13 +25,13 @@
 #ifndef Element_h
 #define Element_h
 
-#include "Attribute.h"
-#include "CollectionType.h"
-#include "Document.h"
+#include "dom/Attribute.h"
+#include "html/CollectionType.h"
+#include "dom/Document.h"
 #include "HTMLNames.h"
-#include "RegionOversetState.h"
-#include "ScrollTypes.h"
-#include "SpaceSplitString.h"
+#include "rendering/RegionOversetState.h"
+#include "platform/ScrollTypes.h"
+#include "dom/SpaceSplitString.h"
 
 namespace WebCore {
 

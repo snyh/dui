@@ -25,11 +25,11 @@
  */
 
 #include "config.h"
-#include "EventPathWalker.h"
+#include "dom/EventPathWalker.h"
 
-#include "ContentDistributor.h"
-#include "InsertionPoint.h"
-#include "ShadowRoot.h"
+#include "html/shadow/ContentDistributor.h"
+#include "html/shadow/InsertionPoint.h"
+#include "dom/ShadowRoot.h"
 
 namespace WebCore {
 

@@ -25,7 +25,7 @@
  */
 
 #include "config.h"
-#include "RunLoop.h"
+#include "platform/RunLoop.h"
 
 #include <gdk/gdk.h>
 #include <glib.h>

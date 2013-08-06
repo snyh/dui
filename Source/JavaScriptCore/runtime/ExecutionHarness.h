@@ -30,8 +30,8 @@
 
 #if ENABLE(JIT)
 
-#include "JITDriver.h"
-#include "LLIntEntrypoints.h"
+#include "jit/JITDriver.h"
+#include "llint/LLIntEntrypoints.h"
 
 namespace JSC {
 

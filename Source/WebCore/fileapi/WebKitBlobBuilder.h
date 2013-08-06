@@ -31,7 +31,7 @@
 #ifndef WebKitBlobBuilder_h
 #define WebKitBlobBuilder_h
 
-#include "BlobData.h"
+#include "platform/network/BlobData.h"
 #include <wtf/Forward.h>
 
 namespace WebCore {

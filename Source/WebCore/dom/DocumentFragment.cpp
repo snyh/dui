@@ -21,13 +21,13 @@
  */
 
 #include "config.h"
-#include "DocumentFragment.h"
+#include "dom/DocumentFragment.h"
 
-#include "Document.h"
-#include "HTMLDocumentParser.h"
-#include "Page.h"
-#include "Settings.h"
-#include "XMLDocumentParser.h"
+#include "dom/Document.h"
+#include "html/parser/HTMLDocumentParser.h"
+#include "page/Page.h"
+#include "page/Settings.h"
+#include "xml/parser/XMLDocumentParser.h"
 
 namespace WebCore {
 

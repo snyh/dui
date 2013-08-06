@@ -23,8 +23,8 @@
 #ifndef RenderSearchField_h
 #define RenderSearchField_h
 
-#include "PopupMenuClient.h"
-#include "RenderTextControlSingleLine.h"
+#include "platform/PopupMenuClient.h"
+#include "rendering/RenderTextControlSingleLine.h"
 
 namespace WebCore {
 

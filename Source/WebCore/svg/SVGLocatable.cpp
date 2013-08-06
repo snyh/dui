@@ -23,11 +23,11 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGLocatable.h"
+#include "svg/SVGLocatable.h"
 
-#include "RenderObject.h"
-#include "SVGException.h"
-#include "SVGGraphicsElement.h"
+#include "rendering/RenderObject.h"
+#include "svg/SVGException.h"
+#include "svg/SVGGraphicsElement.h"
 #include "SVGNames.h"
 
 namespace WebCore {

@@ -33,7 +33,7 @@
 
 #if ENABLE(BLOB)
 
-#include "FileSystem.h"
+#include "platform/FileSystem.h"
 #include <wtf/Forward.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>

@@ -27,16 +27,16 @@
  */
 
 #include "config.h"
-#include "VisitedLinkState.h"
+#include "dom/VisitedLinkState.h"
 
-#include "Frame.h"
-#include "HTMLAnchorElement.h"
+#include "page/Frame.h"
+#include "html/HTMLAnchorElement.h"
 #include "HTMLNames.h"
-#include "NodeTraversal.h"
-#include "Page.h"
-#include "PageGroup.h"
-#include "PlatformStrategies.h"
-#include "VisitedLinkStrategy.h"
+#include "dom/NodeTraversal.h"
+#include "page/Page.h"
+#include "page/PageGroup.h"
+#include "platform/PlatformStrategies.h"
+#include "platform/VisitedLinkStrategy.h"
 
 namespace WebCore {
 

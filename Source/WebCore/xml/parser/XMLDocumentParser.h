@@ -25,12 +25,12 @@
 #ifndef XMLDocumentParser_h
 #define XMLDocumentParser_h
 
-#include "CachedResourceClient.h"
-#include "CachedResourceHandle.h"
-#include "FragmentScriptingPermission.h"
-#include "ScriptableDocumentParser.h"
-#include "SegmentedString.h"
-#include "XMLErrors.h"
+#include "loader/cache/CachedResourceClient.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "dom/FragmentScriptingPermission.h"
+#include "dom/ScriptableDocumentParser.h"
+#include "platform/text/SegmentedString.h"
+#include "xml/XMLErrors.h"
 #include <wtf/HashMap.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/text/AtomicStringHash.h>

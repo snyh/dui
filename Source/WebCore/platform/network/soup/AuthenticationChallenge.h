@@ -25,8 +25,8 @@
 #ifndef AuthenticationChallenge_h
 #define AuthenticationChallenge_h
 
-#include "AuthenticationChallengeBase.h"
-#include "AuthenticationClient.h"
+#include "platform/network/AuthenticationChallengeBase.h"
+#include "platform/network/AuthenticationClient.h"
 
 typedef struct _SoupAuth SoupAuth;
 typedef struct _SoupMessage SoupMessage;

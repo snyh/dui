@@ -27,26 +27,26 @@
  */
 
 #include "config.h"
-#include "ImageBuffer.h"
+#include "platform/graphics/ImageBuffer.h"
 
-#include "BitmapImage.h"
-#include "CairoUtilities.h"
-#include "Color.h"
-#include "GraphicsContext.h"
-#include "MIMETypeRegistry.h"
-#include "NotImplemented.h"
-#include "Pattern.h"
-#include "PlatformContextCairo.h"
-#include "RefPtrCairo.h"
+#include "platform/graphics/BitmapImage.h"
+#include "platform/graphics/cairo/CairoUtilities.h"
+#include "platform/graphics/Color.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/MIMETypeRegistry.h"
+#include "platform/NotImplemented.h"
+#include "platform/graphics/Pattern.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 #include <cairo.h>
 #include <wtf/Vector.h>
 #include <wtf/text/Base64.h>
 #include <wtf/text/WTFString.h>
 
 #if ENABLE(ACCELERATED_2D_CANVAS)
-#include "GLContext.h"
-#include "OpenGLShims.h"
-#include "TextureMapperGL.h"
+#include "platform/graphics/cairo/GLContext.h"
+#include "platform/graphics/OpenGLShims.h"
+#include "platform/graphics/texmap/TextureMapperGL.h"
 #include <cairo-gl.h>
 #endif
 

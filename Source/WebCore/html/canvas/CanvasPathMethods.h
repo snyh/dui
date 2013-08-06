@@ -29,7 +29,7 @@
 #ifndef CanvasPathMethods_h
 #define CanvasPathMethods_h
 
-#include "Path.h"
+#include "platform/graphics/Path.h"
 
 namespace WebCore {
 

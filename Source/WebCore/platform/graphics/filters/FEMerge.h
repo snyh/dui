@@ -23,8 +23,8 @@
 #define FEMerge_h
 
 #if ENABLE(FILTERS)
-#include "FilterEffect.h"
-#include "Filter.h"
+#include "platform/graphics/filters/FilterEffect.h"
+#include "platform/graphics/filters/Filter.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

@@ -18,15 +18,15 @@
  */
 
 #include "config.h"
-#include "ErrorsGtk.h"
+#include "platform/gtk/ErrorsGtk.h"
 
-#include "DocumentLoader.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "PrintContext.h"
-#include "ResourceError.h"
-#include "ResourceRequest.h"
-#include "ResourceResponse.h"
+#include "loader/DocumentLoader.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "page/PrintContext.h"
+#include "platform/network/soup/ResourceError.h"
+#include "platform/network/soup/ResourceRequest.h"
+#include "platform/network/soup/ResourceResponse.h"
 #include <glib/gi18n-lib.h>
 
 namespace WebCore {

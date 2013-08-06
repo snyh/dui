@@ -17,9 +17,9 @@
  */
 
 #include "config.h"
-#include "GtkClickCounter.h"
+#include "platform/gtk/GtkClickCounter.h"
 
-#include "GOwnPtrGtk.h"
+#include "platform/gtk/GOwnPtrGtk.h"
 #include <gtk/gtk.h>
 
 namespace WebCore {

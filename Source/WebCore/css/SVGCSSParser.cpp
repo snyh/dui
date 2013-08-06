@@ -23,14 +23,14 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "CSSInheritedValue.h"
-#include "CSSInitialValue.h"
-#include "CSSParser.h"
+#include "css/CSSInheritedValue.h"
+#include "css/CSSInitialValue.h"
+#include "css/CSSParser.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
-#include "CSSValueList.h"
-#include "RenderTheme.h"
-#include "SVGPaint.h"
+#include "css/CSSValueList.h"
+#include "rendering/RenderTheme.h"
+#include "svg/SVGPaint.h"
 
 using namespace std;
 

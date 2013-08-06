@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "InsertIntoTextNodeCommand.h"
+#include "editing/InsertIntoTextNodeCommand.h"
 
-#include "AXObjectCache.h"
-#include "Document.h"
-#include "ExceptionCodePlaceholder.h"
-#include "RenderText.h"
-#include "Settings.h"
-#include "Text.h"
+#include "accessibility/AXObjectCache.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "rendering/RenderText.h"
+#include "page/Settings.h"
+#include "dom/Text.h"
 
 namespace WebCore {
 

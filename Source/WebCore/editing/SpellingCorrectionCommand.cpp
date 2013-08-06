@@ -24,17 +24,17 @@
  */
 
 #include "config.h"
-#include "SpellingCorrectionCommand.h"
+#include "editing/SpellingCorrectionCommand.h"
 
-#include "AlternativeTextController.h"
-#include "Document.h"
-#include "DocumentFragment.h"
-#include "Editor.h"
-#include "Frame.h"
-#include "ReplaceSelectionCommand.h"
-#include "SetSelectionCommand.h"
-#include "TextIterator.h"
-#include "markup.h"
+#include "editing/AlternativeTextController.h"
+#include "dom/Document.h"
+#include "dom/DocumentFragment.h"
+#include "editing/Editor.h"
+#include "page/Frame.h"
+#include "editing/ReplaceSelectionCommand.h"
+#include "editing/SetSelectionCommand.h"
+#include "editing/TextIterator.h"
+#include "editing/markup.h"
 
 namespace WebCore {
 

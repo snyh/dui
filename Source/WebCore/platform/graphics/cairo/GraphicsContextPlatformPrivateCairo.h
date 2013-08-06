@@ -28,10 +28,10 @@
 #ifndef GraphicsContextPlatformPrivateCairo_h
 #define GraphicsContextPlatformPrivateCairo_h
 
-#include "GraphicsContext.h"
+#include "platform/graphics/GraphicsContext.h"
 
-#include "PlatformContextCairo.h"
-#include "RefPtrCairo.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
 #include <cairo.h>
 #include <math.h>
 #include <stdio.h>

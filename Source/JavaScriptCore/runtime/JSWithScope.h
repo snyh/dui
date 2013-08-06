@@ -26,7 +26,7 @@
 #ifndef JSWithScope_h
 #define JSWithScope_h
 
-#include "JSGlobalObject.h"
+#include "runtime/JSGlobalObject.h"
 
 namespace JSC {
 

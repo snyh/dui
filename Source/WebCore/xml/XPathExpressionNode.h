@@ -27,8 +27,8 @@
 #ifndef XPathExpressionNode_h
 #define XPathExpressionNode_h
 
-#include "Node.h"
-#include "XPathValue.h"
+#include "dom/Node.h"
+#include "xml/XPathValue.h"
 #include <wtf/HashMap.h>
 #include <wtf/Vector.h>
 #include <wtf/text/StringHash.h>

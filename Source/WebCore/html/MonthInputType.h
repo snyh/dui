@@ -32,7 +32,7 @@
 #define MonthInputType_h
 
 #if ENABLE(INPUT_TYPE_MONTH)
-#include "BaseChooserOnlyDateAndTimeInputType.h"
+#include "html/BaseChooserOnlyDateAndTimeInputType.h"
 
 namespace WebCore {
 

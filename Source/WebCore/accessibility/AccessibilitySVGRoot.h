@@ -29,7 +29,7 @@
 #ifndef AccessibilitySVGRoot_h
 #define AccessibilitySVGRoot_h
 
-#include "AccessibilityRenderObject.h"
+#include "accessibility/AccessibilityRenderObject.h"
 
 namespace WebCore {
 

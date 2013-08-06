@@ -26,7 +26,7 @@
 #ifndef PageTransitionEvent_h
 #define PageTransitionEvent_h
 
-#include "Event.h"
+#include "dom/Event.h"
 
 namespace WebCore {
 

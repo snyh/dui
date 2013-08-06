@@ -30,7 +30,7 @@
 #ifndef Opcode_h
 #define Opcode_h
 
-#include "LLIntOpcode.h"
+#include "llint/LLIntOpcode.h"
 
 #include <algorithm>
 #include <string.h>

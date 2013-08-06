@@ -31,10 +31,10 @@
 #ifndef DocumentThreadableLoader_h
 #define DocumentThreadableLoader_h
 
-#include "CachedRawResourceClient.h"
-#include "CachedResourceHandle.h"
-#include "FrameLoaderTypes.h"
-#include "ThreadableLoader.h"
+#include "loader/cache/CachedRawResourceClient.h"
+#include "loader/cache/CachedResourceHandle.h"
+#include "loader/FrameLoaderTypes.h"
+#include "loader/ThreadableLoader.h"
 #include <wtf/Forward.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/PassRefPtr.h>

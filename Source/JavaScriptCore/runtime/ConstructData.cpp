@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "ConstructData.h"
+#include "runtime/ConstructData.h"
 
-#include "Executable.h"
-#include "Interpreter.h"
-#include "JSFunction.h"
-#include "JSGlobalObject.h"
-#include "Operations.h"
+#include "runtime/Executable.h"
+#include "interpreter/Interpreter.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

@@ -26,10 +26,10 @@
 #ifndef WriteBarrier_h
 #define WriteBarrier_h
 
-#include "GCAssertions.h"
-#include "HandleTypes.h"
-#include "Heap.h"
-#include "SamplingCounter.h"
+#include "heap/GCAssertions.h"
+#include "heap/HandleTypes.h"
+#include "heap/Heap.h"
+#include "runtime/SamplingCounter.h"
 #include <wtf/TypeTraits.h>
 
 namespace JSC {

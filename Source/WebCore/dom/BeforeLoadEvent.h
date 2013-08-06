@@ -27,8 +27,8 @@
 #ifndef BeforeLoadEvent_h
 #define BeforeLoadEvent_h
 
-#include "Event.h"
-#include "EventNames.h"
+#include "dom/Event.h"
+#include "dom/EventNames.h"
 
 namespace WebCore {
 

@@ -22,7 +22,7 @@
 #define HTMLProgressElement_h
 
 #if ENABLE(PROGRESS_ELEMENT)
-#include "LabelableElement.h"
+#include "html/LabelableElement.h"
 
 namespace WebCore {
 

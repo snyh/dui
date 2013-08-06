@@ -18,11 +18,11 @@
  */
 
 #include "config.h"
-#include "Lookup.h"
+#include "runtime/Lookup.h"
 
-#include "Executable.h"
-#include "JSFunction.h"
-#include "Operations.h"
+#include "runtime/Executable.h"
+#include "runtime/JSFunction.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

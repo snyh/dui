@@ -25,12 +25,12 @@
  */
 
 #include "config.h"
-#include "ContentDistributor.h"
+#include "html/shadow/ContentDistributor.h"
 
-#include "ElementShadow.h"
-#include "HTMLContentElement.h"
-#include "NodeTraversal.h"
-#include "ShadowRoot.h"
+#include "dom/ElementShadow.h"
+#include "html/shadow/HTMLContentElement.h"
+#include "dom/NodeTraversal.h"
+#include "dom/ShadowRoot.h"
 
 
 namespace WebCore {

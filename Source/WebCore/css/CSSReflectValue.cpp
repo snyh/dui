@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "CSSReflectValue.h"
+#include "css/CSSReflectValue.h"
 
-#include "CSSPrimitiveValue.h"
+#include "css/CSSPrimitiveValue.h"
 #include <wtf/text/StringBuilder.h>
 
 using namespace std;

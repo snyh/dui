@@ -20,12 +20,12 @@
  */
 
 #include "config.h"
-#include "AutoTableLayout.h"
+#include "rendering/AutoTableLayout.h"
 
-#include "RenderTable.h"
-#include "RenderTableCell.h"
-#include "RenderTableCol.h"
-#include "RenderTableSection.h"
+#include "rendering/RenderTable.h"
+#include "rendering/RenderTableCell.h"
+#include "rendering/RenderTableCol.h"
+#include "rendering/RenderTableSection.h"
 
 using namespace std;
 

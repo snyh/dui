@@ -28,7 +28,7 @@
 #ifndef Pattern_h
 #define Pattern_h
 
-#include "AffineTransform.h"
+#include "platform/graphics/transforms/AffineTransform.h"
 
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>

@@ -27,7 +27,7 @@
 #ifndef HTMLElementStack_h
 #define HTMLElementStack_h
 
-#include "HTMLStackItem.h"
+#include "html/parser/HTMLStackItem.h"
 #include <wtf/Forward.h>
 #include <wtf/Noncopyable.h>
 #include <wtf/OwnPtr.h>

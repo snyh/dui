@@ -28,12 +28,12 @@
 
 #if USE(3D_GRAPHICS)
 
-#include "GraphicsContext3D.h"
+#include "platform/graphics/GraphicsContext3D.h"
 
-#include "Extensions3DOpenGL.h"
-#include "IntRect.h"
-#include "IntSize.h"
-#include "NotImplemented.h"
+#include "platform/graphics/opengl/Extensions3DOpenGL.h"
+#include "platform/graphics/IntRect.h"
+#include "platform/graphics/IntSize.h"
+#include "platform/NotImplemented.h"
 
 #include <algorithm>
 #include <cstring>
@@ -43,7 +43,7 @@
 #if PLATFORM(MAC)
 #include <OpenGL/gl.h>
 #elif PLATFORM(GTK) || PLATFORM(EFL) || PLATFORM(QT) || PLATFORM(WIN)
-#include "OpenGLShims.h"
+#include "platform/graphics/OpenGLShims.h"
 #endif
 
 namespace WebCore {

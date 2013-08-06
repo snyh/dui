@@ -26,9 +26,9 @@
 #ifndef JSCTypedArrayStubs_h
 #define JSCTypedArrayStubs_h
 
-#include "JSDestructibleObject.h"
-#include "ObjectPrototype.h"
-#include "Operations.h"
+#include "runtime/JSDestructibleObject.h"
+#include "runtime/ObjectPrototype.h"
+#include "runtime/Operations.h"
 #include <wtf/Float32Array.h>
 #include <wtf/Float64Array.h>
 #include <wtf/Forward.h>

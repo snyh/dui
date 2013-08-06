@@ -31,9 +31,9 @@
 
 #if ENABLE(CSS_SHAPES)
 
-#include "ShapeOutsideInfo.h"
+#include "rendering/shapes/ShapeOutsideInfo.h"
 
-#include "RenderBox.h"
+#include "rendering/RenderBox.h"
 
 namespace WebCore {
 bool ShapeOutsideInfo::isEnabledFor(const RenderBox* box)

@@ -26,7 +26,7 @@
 #ifndef WeakSet_h
 #define WeakSet_h
 
-#include "WeakBlock.h"
+#include "heap/WeakBlock.h"
 
 namespace JSC {
 

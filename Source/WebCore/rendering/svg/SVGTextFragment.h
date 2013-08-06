@@ -21,7 +21,7 @@
 #define SVGTextFragment_h
 
 #if ENABLE(SVG)
-#include "AffineTransform.h"
+#include "platform/graphics/transforms/AffineTransform.h"
 
 namespace WebCore {
 

@@ -27,13 +27,13 @@
 
 #if ENABLE(VIDEO)
 
-#include "RenderMediaControls.h"
+#include "rendering/RenderMediaControls.h"
 
-#include "GraphicsContext.h"
-#include "HTMLMediaElement.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "html/HTMLMediaElement.h"
 #include "HTMLNames.h"
-#include "PaintInfo.h"
-#include "RenderTheme.h"
+#include "rendering/PaintInfo.h"
+#include "rendering/RenderTheme.h"
 
 // FIXME: Unify more of the code for Mac and Win.
 #if PLATFORM(WIN)

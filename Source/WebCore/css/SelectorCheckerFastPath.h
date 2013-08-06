@@ -29,8 +29,8 @@
 #ifndef SelectorCheckerFastPath_h
 #define SelectorCheckerFastPath_h
 
-#include "CSSSelector.h"
-#include "SelectorChecker.h"
+#include "css/CSSSelector.h"
+#include "css/SelectorChecker.h"
 
 namespace WebCore {
 

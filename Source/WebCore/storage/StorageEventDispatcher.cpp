@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "StorageEventDispatcher.h"
+#include "storage/StorageEventDispatcher.h"
 
-#include "Document.h"
-#include "DOMWindow.h"
-#include "EventNames.h"
-#include "Frame.h"
-#include "Page.h"
-#include "PageGroup.h"
-#include "SecurityOrigin.h"
-#include "StorageEvent.h"
+#include "dom/Document.h"
+#include "page/DOMWindow.h"
+#include "dom/EventNames.h"
+#include "page/Frame.h"
+#include "page/Page.h"
+#include "page/PageGroup.h"
+#include "page/SecurityOrigin.h"
+#include "storage/StorageEvent.h"
 
 namespace WebCore {
 

@@ -25,13 +25,13 @@
 #define RenderSVGResourceFilter_h
 
 #if ENABLE(SVG) && ENABLE(FILTERS)
-#include "FloatRect.h"
-#include "ImageBuffer.h"
-#include "RenderSVGResourceContainer.h"
-#include "SVGFilter.h"
-#include "SVGFilterBuilder.h"
-#include "SVGFilterElement.h"
-#include "SVGUnitTypes.h"
+#include "platform/graphics/FloatRect.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "rendering/svg/RenderSVGResourceContainer.h"
+#include "svg/graphics/filters/SVGFilter.h"
+#include "svg/graphics/filters/SVGFilterBuilder.h"
+#include "svg/SVGFilterElement.h"
+#include "svg/SVGUnitTypes.h"
 
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>

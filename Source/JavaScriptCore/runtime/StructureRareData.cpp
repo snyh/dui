@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "StructureRareData.h"
+#include "runtime/StructureRareData.h"
 
-#include "JSString.h"
-#include "Operations.h"
+#include "runtime/JSString.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

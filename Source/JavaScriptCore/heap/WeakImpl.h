@@ -26,7 +26,7 @@
 #ifndef WeakImpl_h
 #define WeakImpl_h
 
-#include "JSCJSValue.h"
+#include "runtime/JSCJSValue.h"
 
 namespace JSC {
 

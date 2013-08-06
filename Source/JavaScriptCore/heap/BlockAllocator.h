@@ -26,8 +26,8 @@
 #ifndef BlockAllocator_h
 #define BlockAllocator_h
 
-#include "HeapBlock.h"
-#include "Region.h"
+#include "heap/HeapBlock.h"
+#include "heap/Region.h"
 #include <wtf/DoublyLinkedList.h>
 #include <wtf/Forward.h>
 #include <wtf/PageAllocationAligned.h>

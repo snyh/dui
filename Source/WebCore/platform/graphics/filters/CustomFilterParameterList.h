@@ -31,7 +31,7 @@
 #define CustomFilterParameterList_h
 
 #if ENABLE(CSS_SHADERS)
-#include "LayoutSize.h"
+#include "platform/graphics/LayoutSize.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {

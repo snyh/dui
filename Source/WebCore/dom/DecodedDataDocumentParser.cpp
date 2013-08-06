@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "DecodedDataDocumentParser.h"
+#include "dom/DecodedDataDocumentParser.h"
 
-#include "DocumentWriter.h"
-#include "SegmentedString.h"
-#include "TextResourceDecoder.h"
+#include "loader/DocumentWriter.h"
+#include "platform/text/SegmentedString.h"
+#include "loader/TextResourceDecoder.h"
 
 namespace WebCore {
 

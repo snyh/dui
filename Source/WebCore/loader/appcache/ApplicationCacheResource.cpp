@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "ApplicationCacheResource.h"
+#include "loader/appcache/ApplicationCacheResource.h"
 #include <stdio.h>
 
 namespace WebCore {

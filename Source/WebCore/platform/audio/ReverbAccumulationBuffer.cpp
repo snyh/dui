@@ -30,9 +30,9 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "ReverbAccumulationBuffer.h"
+#include "platform/audio/ReverbAccumulationBuffer.h"
 
-#include "VectorMath.h"
+#include "platform/audio/VectorMath.h"
 
 namespace WebCore {
 

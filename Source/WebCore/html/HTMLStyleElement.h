@@ -23,8 +23,8 @@
 #ifndef HTMLStyleElement_h
 #define HTMLStyleElement_h
 
-#include "HTMLElement.h"
-#include "StyleElement.h"
+#include "html/HTMLElement.h"
+#include "dom/StyleElement.h"
 
 namespace WebCore {
 

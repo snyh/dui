@@ -19,7 +19,7 @@
  */
 
 #include "config.h"
-#include "CommonIdentifiers.h"
+#include "runtime/CommonIdentifiers.h"
 
 namespace JSC {
 

@@ -29,23 +29,23 @@
 
 #if ENABLE(WORKERS)
 
-#include "Worker.h"
+#include "workers/Worker.h"
 
-#include "DOMWindow.h"
-#include "CachedResourceLoader.h"
-#include "Document.h"
-#include "EventException.h"
-#include "EventListener.h"
-#include "EventNames.h"
-#include "ExceptionCode.h"
-#include "FeatureObserver.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "MessageEvent.h"
-#include "TextEncoding.h"
-#include "WorkerGlobalScopeProxy.h"
-#include "WorkerScriptLoader.h"
-#include "WorkerThread.h"
+#include "page/DOMWindow.h"
+#include "loader/cache/CachedResourceLoader.h"
+#include "dom/Document.h"
+#include "dom/EventException.h"
+#include "dom/EventListener.h"
+#include "dom/EventNames.h"
+#include "dom/ExceptionCode.h"
+#include "page/FeatureObserver.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "dom/MessageEvent.h"
+#include "platform/text/TextEncoding.h"
+#include "workers/WorkerGlobalScopeProxy.h"
+#include "workers/WorkerScriptLoader.h"
+#include "workers/WorkerThread.h"
 #include <wtf/MainThread.h>
 
 namespace WebCore {

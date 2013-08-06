@@ -26,8 +26,8 @@
 #ifndef HTMLInputStream_h
 #define HTMLInputStream_h
 
-#include "InputStreamPreprocessor.h"
-#include "SegmentedString.h"
+#include "html/parser/InputStreamPreprocessor.h"
+#include "platform/text/SegmentedString.h"
 
 namespace WebCore {
 

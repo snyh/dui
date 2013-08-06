@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "WebGLContextEvent.h"
+#include "html/canvas/WebGLContextEvent.h"
 
-#include "EventNames.h"
+#include "dom/EventNames.h"
 
 #if ENABLE(WEBGL)
 

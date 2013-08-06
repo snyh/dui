@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "WebKitTransitionEvent.h"
+#include "dom/WebKitTransitionEvent.h"
 
-#include "EventNames.h"
+#include "dom/EventNames.h"
 
 namespace WebCore {
 

@@ -20,10 +20,10 @@
  */
 
 #include "config.h"
-#include "TransformOperations.h"
+#include "platform/graphics/transforms/TransformOperations.h"
 
-#include "IdentityTransformOperation.h"
-#include "Matrix3DTransformOperation.h"
+#include "platform/graphics/transforms/IdentityTransformOperation.h"
+#include "platform/graphics/transforms/Matrix3DTransformOperation.h"
 #include <algorithm>
 
 using namespace std;

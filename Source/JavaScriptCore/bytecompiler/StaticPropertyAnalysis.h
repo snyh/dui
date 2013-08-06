@@ -26,8 +26,8 @@
 #ifndef StaticPropertyAnalysis_h
 #define StaticPropertyAnalysis_h
 
-#include "Executable.h"
-#include "JSGlobalObject.h"
+#include "runtime/Executable.h"
+#include "runtime/JSGlobalObject.h"
 #include <wtf/HashSet.h>
 
 namespace JSC {

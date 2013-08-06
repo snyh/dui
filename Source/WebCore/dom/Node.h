@@ -25,16 +25,16 @@
 #ifndef Node_h
 #define Node_h
 
-#include "EditingBoundary.h"
-#include "EventTarget.h"
-#include "KURLHash.h"
-#include "LayoutRect.h"
-#include "MutationObserver.h"
-#include "RenderStyleConstants.h"
-#include "ScriptWrappable.h"
-#include "SimulatedClickOptions.h"
-#include "TreeScope.h"
-#include "TreeShared.h"
+#include "editing/EditingBoundary.h"
+#include "dom/EventTarget.h"
+#include "platform/KURLHash.h"
+#include "platform/graphics/LayoutRect.h"
+#include "dom/MutationObserver.h"
+#include "rendering/style/RenderStyleConstants.h"
+#include "bindings/dui/ScriptWrappable.h"
+#include "dom/SimulatedClickOptions.h"
+#include "dom/TreeScope.h"
+#include "platform/TreeShared.h"
 #include <wtf/Forward.h>
 #include <wtf/ListHashSet.h>
 #include <wtf/text/AtomicString.h>

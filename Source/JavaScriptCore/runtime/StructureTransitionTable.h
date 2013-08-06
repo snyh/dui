@@ -26,8 +26,8 @@
 #ifndef StructureTransitionTable_h
 #define StructureTransitionTable_h
 
-#include "IndexingType.h"
-#include "WeakGCMap.h"
+#include "runtime/IndexingType.h"
+#include "runtime/WeakGCMap.h"
 #include <wtf/HashFunctions.h>
 #include <wtf/OwnPtr.h>
 #include <wtf/RefPtr.h>

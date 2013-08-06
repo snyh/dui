@@ -29,10 +29,10 @@
  */
 
 #include "config.h"
-#include "FontTranscoder.h"
+#include "platform/text/transcoder/FontTranscoder.h"
 
-#include "FontDescription.h"
-#include "TextEncoding.h"
+#include "platform/graphics/FontDescription.h"
+#include "platform/text/TextEncoding.h"
 #include <wtf/unicode/CharacterNames.h>
 
 namespace WebCore {

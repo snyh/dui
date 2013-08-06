@@ -21,15 +21,15 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGForeignObjectElement.h"
+#include "svg/SVGForeignObjectElement.h"
 
-#include "Attribute.h"
+#include "dom/Attribute.h"
 #include "CSSPropertyNames.h"
-#include "NodeRenderingContext.h"
-#include "RenderSVGForeignObject.h"
-#include "RenderSVGResource.h"
-#include "SVGElementInstance.h"
-#include "SVGLength.h"
+#include "dom/NodeRenderingContext.h"
+#include "rendering/svg/RenderSVGForeignObject.h"
+#include "rendering/svg/RenderSVGResource.h"
+#include "svg/SVGElementInstance.h"
+#include "svg/SVGLength.h"
 #include "SVGNames.h"
 #include <wtf/Assertions.h>
 

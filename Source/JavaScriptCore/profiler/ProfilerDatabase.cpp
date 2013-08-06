@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "ProfilerDatabase.h"
+#include "profiler/ProfilerDatabase.h"
 
-#include "CodeBlock.h"
-#include "JSONObject.h"
-#include "ObjectConstructor.h"
-#include "Operations.h"
+#include "bytecode/CodeBlock.h"
+#include "runtime/JSONObject.h"
+#include "runtime/ObjectConstructor.h"
+#include "runtime/Operations.h"
 
 namespace JSC { namespace Profiler {
 

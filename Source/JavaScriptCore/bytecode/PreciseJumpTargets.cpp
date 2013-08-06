@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "PreciseJumpTargets.h"
+#include "bytecode/PreciseJumpTargets.h"
 
 namespace JSC {
 

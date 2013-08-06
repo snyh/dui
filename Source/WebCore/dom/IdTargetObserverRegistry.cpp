@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "IdTargetObserverRegistry.h"
+#include "dom/IdTargetObserverRegistry.h"
 
-#include "IdTargetObserver.h"
+#include "dom/IdTargetObserver.h"
 
 namespace WebCore {
 

@@ -22,10 +22,10 @@
 #ifndef MarkedSpace_h
 #define MarkedSpace_h
 
-#include "MachineStackMarker.h"
-#include "MarkedAllocator.h"
-#include "MarkedBlock.h"
-#include "MarkedBlockSet.h"
+#include "heap/MachineStackMarker.h"
+#include "heap/MarkedAllocator.h"
+#include "heap/MarkedBlock.h"
+#include "heap/MarkedBlockSet.h"
 #include <wtf/PageAllocationAligned.h>
 #include <wtf/Bitmap.h>
 #include <wtf/DoublyLinkedList.h>

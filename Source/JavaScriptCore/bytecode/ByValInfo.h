@@ -30,11 +30,11 @@
 
 #if ENABLE(JIT)
 
-#include "ClassInfo.h"
-#include "CodeLocation.h"
-#include "IndexingType.h"
-#include "JITStubRoutine.h"
-#include "Structure.h"
+#include "runtime/ClassInfo.h"
+#include "assembler/CodeLocation.h"
+#include "runtime/IndexingType.h"
+#include "jit/JITStubRoutine.h"
+#include "runtime/Structure.h"
 
 namespace JSC {
 

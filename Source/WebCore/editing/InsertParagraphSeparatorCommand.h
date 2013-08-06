@@ -26,7 +26,7 @@
 #ifndef InsertParagraphSeparatorCommand_h
 #define InsertParagraphSeparatorCommand_h
 
-#include "CompositeEditCommand.h"
+#include "editing/CompositeEditCommand.h"
 
 namespace WebCore {
 

@@ -32,7 +32,7 @@
 #define StyleGridItemData_h
 
 
-#include "GridPosition.h"
+#include "rendering/style/GridPosition.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/Vector.h>

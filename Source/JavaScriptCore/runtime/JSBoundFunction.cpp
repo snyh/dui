@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "JSBoundFunction.h"
+#include "runtime/JSBoundFunction.h"
 
-#include "GetterSetter.h"
-#include "JSGlobalObject.h"
-#include "Operations.h"
+#include "runtime/GetterSetter.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

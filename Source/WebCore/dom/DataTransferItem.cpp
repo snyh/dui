@@ -29,7 +29,7 @@
  */
 
 #include "config.h"
-#include "DataTransferItem.h"
+#include "dom/DataTransferItem.h"
 
 #if ENABLE(DATA_TRANSFER_ITEMS)
 

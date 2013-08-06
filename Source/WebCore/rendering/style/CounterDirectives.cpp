@@ -20,7 +20,7 @@
  */
 
 #include "config.h"
-#include "CounterDirectives.h"
+#include "rendering/style/CounterDirectives.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

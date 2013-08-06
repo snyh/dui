@@ -22,13 +22,13 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGInline.h"
+#include "rendering/svg/RenderSVGInline.h"
 
-#include "RenderSVGInlineText.h"
-#include "RenderSVGResource.h"
-#include "RenderSVGText.h"
-#include "SVGInlineFlowBox.h"
-#include "SVGResourcesCache.h"
+#include "rendering/svg/RenderSVGInlineText.h"
+#include "rendering/svg/RenderSVGResource.h"
+#include "rendering/svg/RenderSVGText.h"
+#include "rendering/svg/SVGInlineFlowBox.h"
+#include "rendering/svg/SVGResourcesCache.h"
 
 namespace WebCore {
     

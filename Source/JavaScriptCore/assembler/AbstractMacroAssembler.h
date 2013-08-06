@@ -26,9 +26,9 @@
 #ifndef AbstractMacroAssembler_h
 #define AbstractMacroAssembler_h
 
-#include "AssemblerBuffer.h"
-#include "CodeLocation.h"
-#include "MacroAssemblerCodeRef.h"
+#include "assembler/AssemblerBuffer.h"
+#include "assembler/CodeLocation.h"
+#include "assembler/MacroAssemblerCodeRef.h"
 #include <wtf/CryptographicallyRandomNumber.h>
 #include <wtf/Noncopyable.h>
 

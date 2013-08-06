@@ -28,9 +28,9 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "InbandTextTrackPrivateClient.h"
-#include "TextTrack.h"
-#include "TextTrackCueGeneric.h"
+#include "platform/graphics/InbandTextTrackPrivateClient.h"
+#include "html/track/TextTrack.h"
+#include "html/track/TextTrackCueGeneric.h"
 #include <wtf/RefPtr.h>
 
 namespace WebCore {

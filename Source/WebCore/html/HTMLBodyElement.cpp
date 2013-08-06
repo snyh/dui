@@ -22,21 +22,21 @@
  */
 
 #include "config.h"
-#include "HTMLBodyElement.h"
+#include "html/HTMLBodyElement.h"
 
-#include "Attribute.h"
-#include "CSSImageValue.h"
-#include "CSSParser.h"
+#include "dom/Attribute.h"
+#include "css/CSSImageValue.h"
+#include "css/CSSParser.h"
 #include "CSSValueKeywords.h"
-#include "EventNames.h"
-#include "Frame.h"
-#include "FrameView.h"
-#include "HTMLFrameElementBase.h"
+#include "dom/EventNames.h"
+#include "page/Frame.h"
+#include "page/FrameView.h"
+#include "html/HTMLFrameElementBase.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "Page.h"
-#include "ScriptEventListener.h"
-#include "StylePropertySet.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "page/Page.h"
+#include "bindings/dui/saved/ScriptEventListener.h"
+#include "css/StylePropertySet.h"
 
 namespace WebCore {
 

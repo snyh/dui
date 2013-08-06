@@ -24,14 +24,14 @@
  */
 
 #include "config.h"
-#include "DeleteButton.h"
+#include "editing/DeleteButton.h"
 
-#include "DeleteButtonController.h"
-#include "Document.h"
-#include "Editor.h"
-#include "Event.h"
-#include "EventNames.h"
-#include "Frame.h"
+#include "editing/DeleteButtonController.h"
+#include "dom/Document.h"
+#include "editing/Editor.h"
+#include "dom/Event.h"
+#include "dom/EventNames.h"
+#include "page/Frame.h"
 #include "HTMLNames.h"
 
 namespace WebCore {

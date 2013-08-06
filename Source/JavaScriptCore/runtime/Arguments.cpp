@@ -23,12 +23,12 @@
  */
 
 #include "config.h"
-#include "Arguments.h"
+#include "runtime/Arguments.h"
 
-#include "JSActivation.h"
-#include "JSFunction.h"
-#include "JSGlobalObject.h"
-#include "Operations.h"
+#include "runtime/JSActivation.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/Operations.h"
 
 using namespace std;
 

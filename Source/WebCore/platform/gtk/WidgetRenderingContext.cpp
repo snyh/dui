@@ -27,16 +27,16 @@
  */
 
 #include "config.h"
-#include "WidgetRenderingContext.h"
+#include "platform/gtk/WidgetRenderingContext.h"
 
 #ifdef GTK_API_VERSION_2
 
-#include "GraphicsContext.h"
-#include "GtkVersioning.h"
-#include "PlatformContextCairo.h"
-#include "RefPtrCairo.h"
-#include "RenderThemeGtk.h"
-#include "Timer.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/gtk/GtkVersioning.h"
+#include "platform/graphics/cairo/PlatformContextCairo.h"
+#include "platform/graphics/cairo/RefPtrCairo.h"
+#include "platform/gtk/RenderThemeGtk.h"
+#include "platform/Timer.h"
 #include <gdk/gdk.h>
 #include <gtk/gtk.h>
 #include <wtf/StdLibExtras.h>

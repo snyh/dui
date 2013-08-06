@@ -26,10 +26,10 @@
 #ifndef JSValueInlines_h
 #define JSValueInlines_h
 
-#include "InternalFunction.h"
-#include "JSCJSValue.h"
-#include "JSCellInlines.h"
-#include "JSFunction.h"
+#include "runtime/InternalFunction.h"
+#include "runtime/JSCJSValue.h"
+#include "runtime/JSCellInlines.h"
+#include "runtime/JSFunction.h"
 
 namespace JSC {
 

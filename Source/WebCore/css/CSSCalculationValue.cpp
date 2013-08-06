@@ -29,11 +29,11 @@
  */
 
 #include "config.h"
-#include "CSSCalculationValue.h"
+#include "css/CSSCalculationValue.h"
 
-#include "CSSValueList.h"
-#include "Length.h"
-#include "StyleResolver.h"
+#include "css/CSSValueList.h"
+#include "platform/Length.h"
+#include "css/StyleResolver.h"
 
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>

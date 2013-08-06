@@ -29,13 +29,13 @@
  */
 
 #include "config.h"
-#include "InsertionPoint.h"
+#include "html/shadow/InsertionPoint.h"
 
-#include "ElementShadow.h"
+#include "dom/ElementShadow.h"
 #include "HTMLNames.h"
-#include "QualifiedName.h"
-#include "ShadowRoot.h"
-#include "StaticNodeList.h"
+#include "dom/QualifiedName.h"
+#include "dom/ShadowRoot.h"
+#include "dom/StaticNodeList.h"
 
 namespace WebCore {
 

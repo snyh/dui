@@ -29,24 +29,24 @@
  */
 
 #include "config.h"
-#include "ValidationMessage.h"
+#include "html/ValidationMessage.h"
 
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
-#include "ElementShadow.h"
-#include "ExceptionCodePlaceholder.h"
-#include "HTMLBRElement.h"
-#include "HTMLDivElement.h"
-#include "HTMLFormControlElement.h"
+#include "dom/ElementShadow.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "html/HTMLBRElement.h"
+#include "html/HTMLDivElement.h"
+#include "html/HTMLFormControlElement.h"
 #include "HTMLNames.h"
-#include "Page.h"
-#include "RenderBlock.h"
-#include "RenderObject.h"
-#include "Settings.h"
-#include "ShadowRoot.h"
-#include "StyleResolver.h"
-#include "Text.h"
-#include "ValidationMessageClient.h"
+#include "page/Page.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/RenderObject.h"
+#include "page/Settings.h"
+#include "dom/ShadowRoot.h"
+#include "css/StyleResolver.h"
+#include "dom/Text.h"
+#include "page/ValidationMessageClient.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

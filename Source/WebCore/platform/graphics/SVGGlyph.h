@@ -24,8 +24,8 @@
 #define SVGGlyph_h
 
 #if ENABLE(SVG_FONTS)
-#include "Glyph.h"
-#include "Path.h"
+#include "platform/graphics/Glyph.h"
+#include "platform/graphics/Path.h"
 
 #include <limits>
 #include <wtf/Vector.h>

@@ -34,8 +34,8 @@
 
 #if ENABLE(VIDEO_TRACK)
 
-#include "EventTarget.h"
-#include "HTMLElement.h"
+#include "dom/EventTarget.h"
+#include "html/HTMLElement.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/RefCounted.h>
 

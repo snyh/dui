@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "CookieJar.h"
+#include "loader/CookieJar.h"
 
-#include "CookiesStrategy.h"
-#include "Document.h"
-#include "Frame.h"
-#include "FrameLoader.h"
-#include "NetworkingContext.h"
-#include "PlatformCookieJar.h"
-#include "PlatformStrategies.h"
+#include "platform/CookiesStrategy.h"
+#include "dom/Document.h"
+#include "page/Frame.h"
+#include "loader/FrameLoader.h"
+#include "platform/network/NetworkingContext.h"
+#include "platform/network/PlatformCookieJar.h"
+#include "platform/PlatformStrategies.h"
 
 namespace WebCore {
 

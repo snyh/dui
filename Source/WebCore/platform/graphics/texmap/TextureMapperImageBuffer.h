@@ -20,8 +20,8 @@
 #ifndef TextureMapperImageBuffer_h
 #define TextureMapperImageBuffer_h
 
-#include "ImageBuffer.h"
-#include "TextureMapper.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "platform/graphics/texmap/TextureMapper.h"
 
 #if USE(TEXTURE_MAPPER)
 namespace WebCore {

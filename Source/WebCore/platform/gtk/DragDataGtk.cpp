@@ -15,13 +15,13 @@
  */
 
 #include "config.h"
-#include "DragData.h"
+#include "platform/DragData.h"
 
-#include "DataObjectGtk.h"
-#include "Document.h"
-#include "DocumentFragment.h"
-#include "Frame.h"
-#include "markup.h"
+#include "platform/gtk/DataObjectGtk.h"
+#include "dom/Document.h"
+#include "dom/DocumentFragment.h"
+#include "page/Frame.h"
+#include "editing/markup.h"
 
 namespace WebCore {
 

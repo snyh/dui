@@ -19,20 +19,20 @@
  */
 
 #include "config.h"
-#include "ObjectConstructor.h"
+#include "runtime/ObjectConstructor.h"
 
-#include "ButterflyInlines.h"
-#include "CopiedSpaceInlines.h"
-#include "Error.h"
-#include "ExceptionHelpers.h"
-#include "JSFunction.h"
-#include "JSArray.h"
-#include "JSGlobalObject.h"
-#include "Lookup.h"
-#include "ObjectPrototype.h"
-#include "Operations.h"
-#include "PropertyDescriptor.h"
-#include "PropertyNameArray.h"
+#include "runtime/ButterflyInlines.h"
+#include "heap/CopiedSpaceInlines.h"
+#include "runtime/Error.h"
+#include "runtime/ExceptionHelpers.h"
+#include "runtime/JSFunction.h"
+#include "runtime/JSArray.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/Lookup.h"
+#include "runtime/ObjectPrototype.h"
+#include "runtime/Operations.h"
+#include "runtime/PropertyDescriptor.h"
+#include "runtime/PropertyNameArray.h"
 
 namespace JSC {
 

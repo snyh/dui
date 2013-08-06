@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "LLIntData.h"
+#include "llint/LLIntData.h"
 
 #if ENABLE(LLINT)
 
-#include "BytecodeConventions.h"
-#include "CodeType.h"
-#include "Instruction.h"
-#include "LLIntCLoop.h"
-#include "Opcode.h"
+#include "bytecode/BytecodeConventions.h"
+#include "bytecode/CodeType.h"
+#include "bytecode/Instruction.h"
+#include "llint/LLIntCLoop.h"
+#include "bytecode/Opcode.h"
 
 namespace JSC { namespace LLInt {
 

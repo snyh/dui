@@ -29,7 +29,7 @@
 #include "config.h"
 
 #if ENABLE(VIDEO)
-#include "MediaControlsGtk.h"
+#include "html/shadow/MediaControlsGtk.h"
 
 namespace WebCore {
 

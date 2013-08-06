@@ -19,23 +19,23 @@
  */
 
 #include "config.h"
-#include "RenderFileUploadControl.h"
+#include "rendering/RenderFileUploadControl.h"
 
-#include "ElementShadow.h"
-#include "FileList.h"
-#include "Font.h"
-#include "GraphicsContext.h"
-#include "HTMLInputElement.h"
+#include "dom/ElementShadow.h"
+#include "fileapi/FileList.h"
+#include "platform/graphics/Font.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "Icon.h"
-#include "LocalizedStrings.h"
-#include "PaintInfo.h"
-#include "RenderButton.h"
-#include "RenderText.h"
-#include "RenderTheme.h"
-#include "ShadowRoot.h"
-#include "TextRun.h"
-#include "VisiblePosition.h"
+#include "platform/graphics/Icon.h"
+#include "platform/LocalizedStrings.h"
+#include "rendering/PaintInfo.h"
+#include "rendering/RenderButton.h"
+#include "rendering/RenderText.h"
+#include "rendering/RenderTheme.h"
+#include "dom/ShadowRoot.h"
+#include "platform/graphics/TextRun.h"
+#include "editing/VisiblePosition.h"
 #include <math.h>
 
 using namespace std;

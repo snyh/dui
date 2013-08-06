@@ -25,14 +25,14 @@
 
 #include "config.h"
 #if ENABLE(VIDEO)
-#include "HTMLSourceElement.h"
+#include "html/HTMLSourceElement.h"
 
-#include "Event.h"
-#include "EventNames.h"
-#include "HTMLDocument.h"
-#include "HTMLMediaElement.h"
+#include "dom/Event.h"
+#include "dom/EventNames.h"
+#include "html/HTMLDocument.h"
+#include "html/HTMLMediaElement.h"
 #include "HTMLNames.h"
-#include "Logging.h"
+#include "platform/Logging.h"
 
 using namespace std;
 

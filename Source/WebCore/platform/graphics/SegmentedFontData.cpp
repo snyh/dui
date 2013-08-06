@@ -24,9 +24,9 @@
  */
 
 #include "config.h"
-#include "SegmentedFontData.h"
+#include "platform/graphics/SegmentedFontData.h"
 
-#include "SimpleFontData.h"
+#include "platform/graphics/SimpleFontData.h"
 #include <wtf/Assertions.h>
 #include <wtf/text/WTFString.h>
 

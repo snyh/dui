@@ -18,19 +18,19 @@
  */
 
 #include "config.h"
-#include "SVGPathData.h"
+#include "rendering/svg/SVGPathData.h"
 
 #if ENABLE(SVG)
-#include "Path.h"
-#include "SVGCircleElement.h"
-#include "SVGEllipseElement.h"
-#include "SVGLineElement.h"
+#include "platform/graphics/Path.h"
+#include "svg/SVGCircleElement.h"
+#include "svg/SVGEllipseElement.h"
+#include "svg/SVGLineElement.h"
 #include "SVGNames.h"
-#include "SVGPathElement.h"
-#include "SVGPathUtilities.h"
-#include "SVGPolygonElement.h"
-#include "SVGPolylineElement.h"
-#include "SVGRectElement.h"
+#include "svg/SVGPathElement.h"
+#include "svg/SVGPathUtilities.h"
+#include "svg/SVGPolygonElement.h"
+#include "svg/SVGPolylineElement.h"
+#include "svg/SVGRectElement.h"
 #include <wtf/HashMap.h>
 
 namespace WebCore {

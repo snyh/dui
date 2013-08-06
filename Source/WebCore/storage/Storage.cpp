@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "Storage.h"
+#include "storage/Storage.h"
 
-#include "Document.h"
-#include "ExceptionCode.h"
-#include "Frame.h"
-#include "Page.h"
-#include "SchemeRegistry.h"
-#include "Settings.h"
-#include "StorageArea.h"
+#include "dom/Document.h"
+#include "dom/ExceptionCode.h"
+#include "page/Frame.h"
+#include "page/Page.h"
+#include "platform/SchemeRegistry.h"
+#include "page/Settings.h"
+#include "storage/StorageArea.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/text/WTFString.h>
 

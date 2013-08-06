@@ -25,10 +25,10 @@
  */
 
 #include "config.h"
-#include "ImageOrientation.h"
+#include "platform/graphics/ImageOrientation.h"
 
-#include "AffineTransform.h"
-#include "FloatSize.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "platform/graphics/FloatSize.h"
 
 namespace WebCore {
 

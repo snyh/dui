@@ -26,11 +26,11 @@
 #ifndef CodeCache_h
 #define CodeCache_h
 
-#include "CodeSpecializationKind.h"
-#include "ParserModes.h"
-#include "SourceCode.h"
-#include "Strong.h"
-#include "WeakRandom.h"
+#include "runtime/CodeSpecializationKind.h"
+#include "parser/ParserModes.h"
+#include "parser/SourceCode.h"
+#include "heap/Strong.h"
+#include "runtime/WeakRandom.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/FixedArray.h>
 #include <wtf/Forward.h>

@@ -23,9 +23,9 @@
 #define RenderSVGText_h
 
 #if ENABLE(SVG)
-#include "AffineTransform.h"
-#include "RenderSVGBlock.h"
-#include "SVGTextLayoutAttributesBuilder.h"
+#include "platform/graphics/transforms/AffineTransform.h"
+#include "rendering/svg/RenderSVGBlock.h"
+#include "rendering/svg/SVGTextLayoutAttributesBuilder.h"
 
 namespace WebCore {
 

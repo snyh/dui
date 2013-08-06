@@ -21,7 +21,7 @@
 #ifndef NativeErrorPrototype_h
 #define NativeErrorPrototype_h
 
-#include "ErrorPrototype.h"
+#include "runtime/ErrorPrototype.h"
 
 namespace JSC {
     class NativeErrorConstructor;

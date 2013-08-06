@@ -24,12 +24,12 @@
  */
 
 #include "config.h"
-#include "RemoveCSSPropertyCommand.h"
+#include "editing/RemoveCSSPropertyCommand.h"
 
-#include "CSSStyleDeclaration.h"
-#include "ExceptionCodePlaceholder.h"
-#include "StylePropertySet.h"
-#include "StyledElement.h"
+#include "css/CSSStyleDeclaration.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "css/StylePropertySet.h"
+#include "dom/StyledElement.h"
 #include <wtf/Assertions.h>
 
 namespace WebCore {

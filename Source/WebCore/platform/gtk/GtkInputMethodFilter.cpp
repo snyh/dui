@@ -17,10 +17,10 @@
  */
 
 #include "config.h"
-#include "GtkInputMethodFilter.h"
+#include "platform/gtk/GtkInputMethodFilter.h"
 
-#include "GOwnPtrGtk.h"
-#include "GtkVersioning.h"
+#include "platform/gtk/GOwnPtrGtk.h"
+#include "platform/gtk/GtkVersioning.h"
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 #include <wtf/MathExtras.h>

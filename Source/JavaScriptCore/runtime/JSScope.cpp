@@ -24,13 +24,13 @@
  */
 
 #include "config.h"
-#include "JSScope.h"
+#include "runtime/JSScope.h"
 
-#include "JSActivation.h"
-#include "JSGlobalObject.h"
-#include "JSNameScope.h"
-#include "JSWithScope.h"
-#include "Operations.h"
+#include "runtime/JSActivation.h"
+#include "runtime/JSGlobalObject.h"
+#include "runtime/JSNameScope.h"
+#include "runtime/JSWithScope.h"
+#include "runtime/Operations.h"
 
 namespace JSC {
 

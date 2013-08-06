@@ -26,8 +26,8 @@
 #ifndef ArrayProfile_h
 #define ArrayProfile_h
 
-#include "JSArray.h"
-#include "Structure.h"
+#include "runtime/JSArray.h"
+#include "runtime/Structure.h"
 #include <wtf/HashMap.h>
 #include <wtf/SegmentedVector.h>
 

@@ -20,15 +20,15 @@
 #include "config.h"
 
 #if USE(ACCELERATED_COMPOSITING) && USE(TEXTURE_MAPPER)
-#include "TextureMapperBackingStore.h"
+#include "platform/graphics/texmap/TextureMapperBackingStore.h"
 
-#include "GraphicsLayer.h"
-#include "ImageBuffer.h"
-#include "TextureMapper.h"
+#include "platform/graphics/GraphicsLayer.h"
+#include "platform/graphics/ImageBuffer.h"
+#include "platform/graphics/texmap/TextureMapper.h"
 
 #if USE(GRAPHICS_SURFACE)
 #include "GraphicsSurface.h"
-#include "TextureMapperGL.h"
+#include "platform/graphics/texmap/TextureMapperGL.h"
 #endif
 
 namespace WebCore {

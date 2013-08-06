@@ -26,7 +26,7 @@
 #ifndef JSBoundFunction_h
 #define JSBoundFunction_h
 
-#include "JSFunction.h"
+#include "runtime/JSFunction.h"
 
 namespace JSC {
 

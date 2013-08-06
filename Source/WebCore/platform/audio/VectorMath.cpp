@@ -26,7 +26,7 @@
 
 #if ENABLE(WEB_AUDIO)
 
-#include "VectorMath.h"
+#include "platform/audio/VectorMath.h"
 
 #if OS(DARWIN)
 #include <Accelerate/Accelerate.h>

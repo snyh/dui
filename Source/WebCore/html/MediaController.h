@@ -28,10 +28,10 @@
 
 #if ENABLE(VIDEO)
 
-#include "Event.h"
-#include "EventTarget.h"
-#include "MediaControllerInterface.h"
-#include "Timer.h"
+#include "dom/Event.h"
+#include "dom/EventTarget.h"
+#include "html/MediaControllerInterface.h"
+#include "platform/Timer.h"
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/Vector.h>

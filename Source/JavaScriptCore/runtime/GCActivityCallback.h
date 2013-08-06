@@ -29,7 +29,7 @@
 #ifndef GCActivityCallback_h
 #define GCActivityCallback_h
 
-#include "HeapTimer.h"
+#include "heap/HeapTimer.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>
 

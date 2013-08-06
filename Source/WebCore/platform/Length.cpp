@@ -23,9 +23,9 @@
  */
 
 #include "config.h"
-#include "Length.h"
+#include "platform/Length.h"
 
-#include "CalculationValue.h"
+#include "platform/CalculationValue.h"
 #include <wtf/ASCIICType.h>
 #include <wtf/Assertions.h>
 #include <wtf/OwnArrayPtr.h>

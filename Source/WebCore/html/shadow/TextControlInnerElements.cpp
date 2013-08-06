@@ -25,23 +25,23 @@
  */
 
 #include "config.h"
-#include "TextControlInnerElements.h"
+#include "html/shadow/TextControlInnerElements.h"
 
-#include "Document.h"
-#include "EventHandler.h"
-#include "EventNames.h"
-#include "Frame.h"
-#include "HTMLInputElement.h"
+#include "dom/Document.h"
+#include "page/EventHandler.h"
+#include "dom/EventNames.h"
+#include "page/Frame.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "MouseEvent.h"
-#include "RenderSearchField.h"
-#include "RenderTextControl.h"
-#include "RenderView.h"
-#include "ScriptController.h"
-#include "SpeechInput.h"
-#include "SpeechInputEvent.h"
-#include "TextEvent.h"
-#include "TextEventInputType.h"
+#include "dom/MouseEvent.h"
+#include "rendering/RenderSearchField.h"
+#include "rendering/RenderTextControl.h"
+#include "rendering/RenderView.h"
+#include "bindings/dui/saved/ScriptController.h"
+#include "page/SpeechInput.h"
+#include "page/SpeechInputEvent.h"
+#include "dom/TextEvent.h"
+#include "dom/TextEventInputType.h"
 
 namespace WebCore {
 

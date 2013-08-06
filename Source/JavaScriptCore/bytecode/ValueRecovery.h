@@ -26,10 +26,10 @@
 #ifndef ValueRecovery_h
 #define ValueRecovery_h
 
-#include "DataFormat.h"
-#include "JSCJSValue.h"
-#include "MacroAssembler.h"
-#include "VirtualRegister.h"
+#include "bytecode/DataFormat.h"
+#include "runtime/JSCJSValue.h"
+#include "assembler/MacroAssembler.h"
+#include "bytecode/VirtualRegister.h"
 #include <stdio.h>
 #include <wtf/Platform.h>
 

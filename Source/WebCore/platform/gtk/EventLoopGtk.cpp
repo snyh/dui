@@ -18,7 +18,7 @@
  */
 
 #include "config.h"
-#include "EventLoop.h"
+#include "platform/EventLoop.h"
 
 #include <glib.h>
 

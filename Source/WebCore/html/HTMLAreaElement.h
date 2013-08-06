@@ -23,8 +23,8 @@
 #ifndef HTMLAreaElement_h
 #define HTMLAreaElement_h
 
-#include "HTMLAnchorElement.h"
-#include "LayoutRect.h"
+#include "html/HTMLAnchorElement.h"
+#include "platform/graphics/LayoutRect.h"
 #include <wtf/OwnArrayPtr.h>
 
 namespace WebCore {

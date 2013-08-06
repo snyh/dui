@@ -24,7 +24,7 @@
  */
 
 #include "config.h"
-#include "GeolocationProviderGeoclue.h"
+#include "platform/geoclue/GeolocationProviderGeoclue.h"
 
 #if ENABLE(GEOLOCATION)
 

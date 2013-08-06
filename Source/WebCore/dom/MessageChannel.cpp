@@ -25,10 +25,10 @@
  */
 
 #include "config.h"
-#include "MessageChannel.h"
+#include "dom/MessageChannel.h"
 
-#include "MessagePort.h"
-#include "MessagePortChannel.h"
+#include "dom/MessagePort.h"
+#include "dom/MessagePortChannel.h"
 
 namespace WebCore {
 

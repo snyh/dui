@@ -26,10 +26,10 @@
 #ifndef ProfilerDatabase_h
 #define ProfilerDatabase_h
 
-#include "JSCJSValue.h"
-#include "ProfilerBytecodes.h"
-#include "ProfilerCompilation.h"
-#include "ProfilerCompilationKind.h"
+#include "runtime/JSCJSValue.h"
+#include "profiler/ProfilerBytecodes.h"
+#include "profiler/ProfilerCompilation.h"
+#include "profiler/ProfilerCompilationKind.h"
 #include <wtf/FastAllocBase.h>
 #include <wtf/HashMap.h>
 #include <wtf/Noncopyable.h>

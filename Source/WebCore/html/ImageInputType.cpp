@@ -21,18 +21,18 @@
  */
 
 #include "config.h"
-#include "ImageInputType.h"
+#include "html/ImageInputType.h"
 
-#include "CachedImage.h"
-#include "FormDataList.h"
-#include "HTMLFormElement.h"
-#include "HTMLImageLoader.h"
-#include "HTMLInputElement.h"
+#include "loader/cache/CachedImage.h"
+#include "html/FormDataList.h"
+#include "html/HTMLFormElement.h"
+#include "html/HTMLImageLoader.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "InputTypeNames.h"
-#include "MouseEvent.h"
-#include "RenderImage.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "html/InputTypeNames.h"
+#include "dom/MouseEvent.h"
+#include "rendering/RenderImage.h"
 #include <wtf/PassOwnPtr.h>
 
 namespace WebCore {

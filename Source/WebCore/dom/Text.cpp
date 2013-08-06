@@ -20,23 +20,23 @@
  */
 
 #include "config.h"
-#include "Text.h"
+#include "dom/Text.h"
 
-#include "ExceptionCode.h"
-#include "ExceptionCodePlaceholder.h"
-#include "NodeRenderingContext.h"
-#include "RenderCombineText.h"
-#include "RenderText.h"
-#include "ScopedEventQueue.h"
-#include "ShadowRoot.h"
+#include "dom/ExceptionCode.h"
+#include "dom/ExceptionCodePlaceholder.h"
+#include "dom/NodeRenderingContext.h"
+#include "rendering/RenderCombineText.h"
+#include "rendering/RenderText.h"
+#include "dom/ScopedEventQueue.h"
+#include "dom/ShadowRoot.h"
 
 #if ENABLE(SVG)
-#include "RenderSVGInlineText.h"
+#include "rendering/svg/RenderSVGInlineText.h"
 #include "SVGNames.h"
 #endif
 
-#include "StyleInheritedData.h"
-#include "StyleResolver.h"
+#include "rendering/style/StyleInheritedData.h"
+#include "css/StyleResolver.h"
 #include <wtf/text/CString.h>
 #include <wtf/text/StringBuilder.h>
 

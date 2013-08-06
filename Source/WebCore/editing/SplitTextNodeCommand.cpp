@@ -24,11 +24,11 @@
  */
 
 #include "config.h"
-#include "SplitTextNodeCommand.h"
+#include "editing/SplitTextNodeCommand.h"
 
-#include "Document.h"
-#include "DocumentMarkerController.h"
-#include "Text.h"
+#include "dom/Document.h"
+#include "dom/DocumentMarkerController.h"
+#include "dom/Text.h"
 #include <wtf/Assertions.h>
 
 namespace WebCore {

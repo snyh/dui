@@ -25,10 +25,10 @@
  */
 
 #include "config.h"
-#include "CrossOriginPreflightResultCache.h"
+#include "loader/CrossOriginPreflightResultCache.h"
 
-#include "CrossOriginAccessControl.h"
-#include "ResourceResponse.h"
+#include "loader/CrossOriginAccessControl.h"
+#include "platform/network/soup/ResourceResponse.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/MainThread.h>
 #include <wtf/StdLibExtras.h>

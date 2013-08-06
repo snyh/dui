@@ -24,10 +24,10 @@
  */
 
 #include "config.h"
-#include "ScrollbarThemeComposite.h"
+#include "platform/ScrollbarThemeComposite.h"
 
-#include "GraphicsContext.h"
-#include "ScrollbarThemeClient.h"
+#include "platform/graphics/GraphicsContext.h"
+#include "platform/ScrollbarThemeClient.h"
 
 using namespace std;
 

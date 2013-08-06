@@ -23,23 +23,23 @@
  */
 
 #include "config.h"
-#include "HTMLTableElement.h"
+#include "html/HTMLTableElement.h"
 
-#include "Attribute.h"
-#include "CSSImageValue.h"
+#include "dom/Attribute.h"
+#include "css/CSSImageValue.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
-#include "CSSValuePool.h"
-#include "ExceptionCode.h"
-#include "ExceptionCodePlaceholder.h"
+#include "css/CSSValuePool.h"
+#include "dom/ExceptionCode.h"
+#include "dom/ExceptionCodePlaceholder.h"
 #include "HTMLNames.h"
-#include "HTMLParserIdioms.h"
-#include "HTMLTableCaptionElement.h"
-#include "HTMLTableRowElement.h"
-#include "HTMLTableRowsCollection.h"
-#include "HTMLTableSectionElement.h"
-#include "RenderTable.h"
-#include "StylePropertySet.h"
+#include "html/parser/HTMLParserIdioms.h"
+#include "html/HTMLTableCaptionElement.h"
+#include "html/HTMLTableRowElement.h"
+#include "html/HTMLTableRowsCollection.h"
+#include "html/HTMLTableSectionElement.h"
+#include "rendering/RenderTable.h"
+#include "css/StylePropertySet.h"
 
 namespace WebCore {
 

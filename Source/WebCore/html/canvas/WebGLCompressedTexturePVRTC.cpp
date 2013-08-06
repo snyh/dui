@@ -27,10 +27,10 @@
 
 #if ENABLE(WEBGL)
 
-#include "WebGLCompressedTexturePVRTC.h"
+#include "html/canvas/WebGLCompressedTexturePVRTC.h"
 
-#include "Extensions3D.h"
-#include "WebGLRenderingContext.h"
+#include "platform/graphics/Extensions3D.h"
+#include "html/canvas/WebGLRenderingContext.h"
 
 namespace WebCore {
 

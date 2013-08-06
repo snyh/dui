@@ -19,8 +19,8 @@
 #ifndef AudioDestinationGStreamer_h
 #define AudioDestinationGStreamer_h
 
-#include "AudioBus.h"
-#include "AudioDestination.h"
+#include "platform/audio/AudioBus.h"
+#include "platform/audio/AudioDestination.h"
 #include <wtf/RefPtr.h>
 
 typedef struct _GstElement GstElement;

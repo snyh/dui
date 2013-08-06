@@ -30,12 +30,12 @@
 
 #include "config.h"
 #if ENABLE(DATE_AND_TIME_INPUT_TYPES)
-#include "BaseDateAndTimeInputType.h"
+#include "html/BaseDateAndTimeInputType.h"
 
-#include "HTMLInputElement.h"
+#include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "KeyboardEvent.h"
-#include "PlatformLocale.h"
+#include "dom/KeyboardEvent.h"
+#include "platform/text/PlatformLocale.h"
 #include <limits>
 #include <wtf/CurrentTime.h>
 #include <wtf/DateMath.h>

@@ -20,10 +20,10 @@
 
 #include "config.h"
 
-#include "GStreamerVersioning.h"
+#include "platform/graphics/gstreamer/GStreamerVersioning.h"
 
 #if USE(GSTREAMER)
-#include "IntSize.h"
+#include "platform/graphics/IntSize.h"
 
 #ifdef GST_API_VERSION_1
 #include <gst/audio/audio.h>

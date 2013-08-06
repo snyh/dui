@@ -18,8 +18,8 @@
 
 
 #include "config.h"
-#include "GRefPtrGStreamer.h"
-#include "GStreamerVersioning.h"
+#include "platform/graphics/gstreamer/GRefPtrGStreamer.h"
+#include "platform/graphics/gstreamer/GStreamerVersioning.h"
 
 #if USE(GSTREAMER)
 #include <gst/gstelement.h>

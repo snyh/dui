@@ -27,8 +27,8 @@
 #define RenderDialog_h
 
 #if ENABLE(DIALOG_ELEMENT)
-#include "RenderBlock.h"
-#include "RenderWidget.h"
+#include "rendering/RenderBlock.h"
+#include "rendering/RenderWidget.h"
 
 namespace WebCore {
 

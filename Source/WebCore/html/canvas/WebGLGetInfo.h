@@ -27,12 +27,12 @@
 #ifndef WebGLGetInfo_h
 #define WebGLGetInfo_h
 
-#include "WebGLBuffer.h"
-#include "WebGLFramebuffer.h"
-#include "WebGLProgram.h"
-#include "WebGLRenderbuffer.h"
-#include "WebGLTexture.h"
-#include "WebGLVertexArrayObjectOES.h"
+#include "html/canvas/WebGLBuffer.h"
+#include "html/canvas/WebGLFramebuffer.h"
+#include "html/canvas/WebGLProgram.h"
+#include "html/canvas/WebGLRenderbuffer.h"
+#include "html/canvas/WebGLTexture.h"
+#include "html/canvas/WebGLVertexArrayObjectOES.h"
 #include <wtf/Float32Array.h>
 #include <wtf/Int32Array.h>
 #include <wtf/PassRefPtr.h>

@@ -29,14 +29,14 @@
  */
 
 #include "config.h"
-#include "DedicatedWorkerGlobalScope.h"
+#include "workers/DedicatedWorkerGlobalScope.h"
 
 #if ENABLE(WORKERS)
-#include "DOMWindow.h"
-#include "DedicatedWorkerThread.h"
-#include "MessageEvent.h"
-#include "SecurityOrigin.h"
-#include "WorkerObjectProxy.h"
+#include "page/DOMWindow.h"
+#include "workers/DedicatedWorkerThread.h"
+#include "dom/MessageEvent.h"
+#include "page/SecurityOrigin.h"
+#include "workers/WorkerObjectProxy.h"
 
 namespace WebCore {
 

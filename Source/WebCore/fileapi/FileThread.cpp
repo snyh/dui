@@ -32,9 +32,9 @@
 
 #if ENABLE(BLOB)
 
-#include "FileThread.h"
+#include "fileapi/FileThread.h"
 
-#include "Logging.h"
+#include "platform/Logging.h"
 #include <wtf/AutodrainedPool.h>
 
 namespace WebCore {

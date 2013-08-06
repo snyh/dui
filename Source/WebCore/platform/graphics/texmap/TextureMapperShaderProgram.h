@@ -22,8 +22,8 @@
 #define TextureMapperShaderProgram_h
 
 #if USE(TEXTURE_MAPPER)
-#include "GraphicsContext3D.h"
-#include "TransformationMatrix.h"
+#include "platform/graphics/GraphicsContext3D.h"
+#include "platform/graphics/transforms/TransformationMatrix.h"
 #include <wtf/HashMap.h>
 #include <wtf/PassRefPtr.h>
 #include <wtf/RefPtr.h>

@@ -22,8 +22,8 @@
 #define RenderSVGResourceLinearGradient_h
 
 #if ENABLE(SVG)
-#include "LinearGradientAttributes.h"
-#include "RenderSVGResourceGradient.h"
+#include "svg/LinearGradientAttributes.h"
+#include "rendering/svg/RenderSVGResourceGradient.h"
 
 namespace WebCore {
 

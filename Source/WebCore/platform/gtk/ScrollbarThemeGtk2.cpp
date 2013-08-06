@@ -24,16 +24,16 @@
  */
 
 #include "config.h"
-#include "ScrollbarThemeGtk.h"
+#include "platform/gtk/ScrollbarThemeGtk.h"
 
 #ifdef GTK_API_VERSION_2
 
-#include "GtkVersioning.h"
-#include "PlatformMouseEvent.h"
-#include "RenderThemeGtk.h"
-#include "ScrollView.h"
-#include "Scrollbar.h"
-#include "WidgetRenderingContext.h"
+#include "platform/gtk/GtkVersioning.h"
+#include "platform/PlatformMouseEvent.h"
+#include "platform/gtk/RenderThemeGtk.h"
+#include "platform/ScrollView.h"
+#include "platform/Scrollbar.h"
+#include "platform/gtk/WidgetRenderingContext.h"
 #include <gtk/gtk.h>
 
 namespace WebCore {

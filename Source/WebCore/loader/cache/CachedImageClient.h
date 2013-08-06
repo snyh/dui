@@ -23,7 +23,7 @@
 #ifndef CachedImageClient_h
 #define CachedImageClient_h
 
-#include "CachedResourceClient.h"
+#include "loader/cache/CachedResourceClient.h"
 
 namespace WebCore {
 

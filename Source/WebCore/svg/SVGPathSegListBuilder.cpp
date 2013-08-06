@@ -24,21 +24,21 @@
 #include "config.h"
 
 #if ENABLE(SVG)
-#include "SVGPathSegListBuilder.h"
+#include "svg/SVGPathSegListBuilder.h"
 
-#include "ExceptionCode.h"
-#include "SVGPathElement.h"
-#include "SVGPathSegArc.h"
-#include "SVGPathSegClosePath.h"
-#include "SVGPathSegCurvetoCubic.h"
-#include "SVGPathSegCurvetoCubicSmooth.h"
-#include "SVGPathSegCurvetoQuadratic.h"
-#include "SVGPathSegCurvetoQuadraticSmooth.h"
-#include "SVGPathSegLineto.h"
-#include "SVGPathSegLinetoHorizontal.h"
-#include "SVGPathSegLinetoVertical.h"
-#include "SVGPathSegList.h"
-#include "SVGPathSegMoveto.h"
+#include "dom/ExceptionCode.h"
+#include "svg/SVGPathElement.h"
+#include "svg/SVGPathSegArc.h"
+#include "svg/SVGPathSegClosePath.h"
+#include "svg/SVGPathSegCurvetoCubic.h"
+#include "svg/SVGPathSegCurvetoCubicSmooth.h"
+#include "svg/SVGPathSegCurvetoQuadratic.h"
+#include "svg/SVGPathSegCurvetoQuadraticSmooth.h"
+#include "svg/SVGPathSegLineto.h"
+#include "svg/SVGPathSegLinetoHorizontal.h"
+#include "svg/SVGPathSegLinetoVertical.h"
+#include "svg/SVGPathSegList.h"
+#include "svg/SVGPathSegMoveto.h"
 
 namespace WebCore {
 

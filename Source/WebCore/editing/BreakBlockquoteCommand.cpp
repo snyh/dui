@@ -24,15 +24,15 @@
  */
 
 #include "config.h"
-#include "BreakBlockquoteCommand.h"
+#include "editing/BreakBlockquoteCommand.h"
 
-#include "HTMLElement.h"
+#include "html/HTMLElement.h"
 #include "HTMLNames.h"
-#include "NodeTraversal.h"
-#include "RenderListItem.h"
-#include "Text.h"
-#include "VisiblePosition.h"
-#include "htmlediting.h"
+#include "dom/NodeTraversal.h"
+#include "rendering/RenderListItem.h"
+#include "dom/Text.h"
+#include "editing/VisiblePosition.h"
+#include "editing/htmlediting.h"
 
 namespace WebCore {
 
