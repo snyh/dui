@@ -55,6 +55,12 @@ DerivedSources/WebCore/MathMLElementFactory.cpp DerivedSources/WebCore/MathMLNam
 
 # ----
 # SVG Support
+# SVG tag and attribute names (need to pass an extra flag if svg experimental features are enabled)
+DerivedSources/WebCore/SVGNames.cpp: DerivedSources/WebCore/SVGElementFactory.cpp
+DerivedSources/WebCore/JSSVGElementWrapperFactory.cpp: DerivedSources/WebCore/SVGElementFactory.cpp
+DerivedSources/WebCore/SVGElementFactory.cpp: $(WebCore)/dom/make_names.pl $(WebCore)/svg/svgtags.in $(WebCore)/svg/svgattrs.in
+	$(AM_V_GEN)$(PERL) -I$(WebCore)/bindings/scripts $< --tags $(WebCore)/svg/svgtags.in --attrs $(WebCore)/svg/svgattrs.in --extraDefines "$(feature_defines)" --factory --wrapperFactory --outputDir "$(GENSOURCES_WEBCORE)"
+#
 #
 # FIXME: allow a more fine-grained inclusion/generation of sources per SVG feature
 # ----
@@ -233,50 +239,6 @@ DerivedSources/ANGLE/glslang_tab.cpp: Source/ThirdParty/ANGLE/src/compiler/glsla
 	$(AM_V_GEN)$(BISON) --no-lines --defines="DerivedSources/ANGLE/glslang_tab.h" --skeleton=yacc.c --output="$@" $<
 DerivedSources/ANGLE/glslang_tab.h: DerivedSources/ANGLE/glslang_tab.cpp
 
-IDL_PATH := \
-    $(WebCore)/css \
-    $(WebCore)/dom \
-    $(WebCore)/fileapi \
-    $(WebCore)/html \
-    $(WebCore)/html/canvas \
-    $(WebCore)/html/shadow \
-    $(WebCore)/html/track \
-    $(WebCore)/loader/appcache \
-    $(WebCore)/page \
-    $(WebCore)/svg \
-    $(WebCore)/xml
-
-vpath %.idl $(IDL_PATH)
-
-supplemental_dependency_file = $(top_builddir)/DerivedSources/WebCore/idl_supplemental_dependencies
-window_constructors_file = $(top_builddir)/DerivedSources/WebCore/DOMWindowConstructors.idl
-workerglobalscope_constructors_file = $(top_builddir)/DerivedSources/WebCore/WorkerGlobalScopeConstructors.idl
-sharedworkerglobalscope_constructors_file = $(top_builddir)/DerivedSources/WebCore/SharedWorkerGlobalScopeConstructors.idl
-dedicatedworkerglobalscope_constructors_file = $(top_builddir)/DerivedSources/WebCore/DedicatedWorkerGlobalScopeConstructors.idl
-idl_files_list = $(top_builddir)/DerivedSources/WebCore/idl_files_list
-idl_attributes_file = $(WebCore)/bindings/scripts/IDLAttributes.txt
-
-.SECONDARY:
-$(supplemental_dependency_file): $(SCRIPTS_FOR_PREPROCESS_IDLS) $(dom_binding_idls)
-	$(AM_V_GEN)
-	$(AM_V_at)echo -n > $(idl_files_list)
-	$(AM_V_at)($(foreach idl, $(dom_binding_idls), echo $(idl) &&) echo -n) >> $(idl_files_list)
-	$(AM_V_at)$(PERL) -I$(WebCore)/bindings/scripts $(WebCore)/bindings/scripts/preprocess-idls.pl --defines "LANGUAGE_JAVASCRIPT=1 $(feature_defines)" --idlFilesList $(idl_files_list) --windowConstructorsFile $(window_constructors_file) --workerGlobalScopeConstructorsFile $(workerglobalscope_constructors_file) --sharedWorkerGlobalScopeConstructorsFile $(sharedworkerglobalscope_constructors_file) --dedicatedWorkerGlobalScopeConstructorsFile $(dedicatedworkerglobalscope_constructors_file) --supplementalDependencyFile $@
-
-.PHONY: $(window_constructors_file) $(workerglobalscope_constructors_file) $(sharedworkerglobalscope_constructors_file) $(dedicatedworkerglobalscope_constructors_file)
-
-# This does not appear to work correctly with gnumake unless
-# it includes an empty command list (the semicolon).
-DerivedSources/WebCore/JS%.cpp: DerivedSources/WebCore/JS%.h;
-
-.SECONDARY:
-DerivedSources/WebCore/JS%.h: %.idl $(SCRIPTS_FOR_GENERATE_BINDINGS) $(WebCore)/bindings/scripts/CodeGeneratorJS.pm $(supplemental_dependency_file) $(idl_attributes_file)
-	$(AM_V_GEN)$(PERL) -I$(WebCore)/bindings/scripts $(WebCore)/bindings/scripts/generate-bindings.pl $(IDL_PATH:%=--include "%") --outputDir "$(GENSOURCES_WEBCORE)" --defines "LANGUAGE_JAVASCRIPT=1 $(feature_defines)" --generator JS --idlAttributesFile $(idl_attributes_file) --supplementalDependencyFile $(supplemental_dependency_file) $<
-
-.SECONDARY:
-DerivedSources/WebCore/JSInternalSettingsGenerated.h: DerivedSources/WebCore/InternalSettingsGenerated.idl $(SCRIPTS_FOR_GENERATE_BINDINGS) $(WebCore)/bindings/scripts/CodeGeneratorJS.pm $(supplemental_dependency_file) $(idl_attributes_file)
-	$(AM_V_GEN)$(PERL) -I$(WebCore)/bindings/scripts $(WebCore)/bindings/scripts/generate-bindings.pl $(IDL_PATH:%=--include "%") --outputDir "$(GENSOURCES_WEBCORE)" --defines "LANGUAGE_JAVASCRIPT=1 $(feature_defines)" --generator JS --idlAttributesFile $(idl_attributes_file) --supplementalDependencyFile $(supplemental_dependency_file) $<
-
 # See https://bugs.webkit.org/show_bug.cgi?id=76388
 # We need to introduce a manual dependency to prevent non-generated sources from
 # trying to build before the generated ones. This can happen if the supplemental
@@ -437,17 +399,6 @@ libWebCoreGtk_la_CPPFLAGS = \
 	$(XT_CFLAGS)
 
 EXTRA_DIST += \
-	$(wildcard $(srcdir)/Source/WebCore/css/*.idl) \
-	$(wildcard $(srcdir)/Source/WebCore/dom/*.idl) \
-	$(wildcard $(srcdir)/Source/WebCore/fileapi/*.idl) \
-	$(wildcard $(srcdir)/Source/WebCore/html/canvas/*.idl) \
-	$(wildcard $(srcdir)/Source/WebCore/html/shadow/*.idl) \
-	$(wildcard $(srcdir)/Source/WebCore/html/track/*.idl) \
-	$(wildcard $(srcdir)/Source/WebCore/html/*.idl) \
-	$(wildcard $(srcdir)/Source/WebCore/loader/appcache/*.idl) \
-	$(wildcard $(srcdir)/Source/WebCore/page/*.idl) \
-	$(wildcard $(srcdir)/Source/WebCore/svg/*.idl) \
-	$(wildcard $(srcdir)/Source/WebCore/xml/*.idl) \
 	Source/ThirdParty/ANGLE/src/compiler/glslang.l \
 	Source/ThirdParty/ANGLE/src/compiler/glslang.y \
 	Source/WebCore/bindings/scripts/CodeGeneratorGObject.pm \
