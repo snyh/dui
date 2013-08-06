@@ -54,7 +54,6 @@
 #include "HTMLImageElement.h"
 #include "HTMLInputElement.h"
 #include "HTMLNames.h"
-#include "HTMLPlugInElement.h"
 #include "HitTestRequest.h"
 #include "HitTestResult.h"
 #include "Image.h"
@@ -62,8 +61,6 @@
 #include "MoveSelectionCommand.h"
 #include "Page.h"
 #include "PlatformKeyboardEvent.h"
-#include "PluginDocument.h"
-#include "PluginViewBase.h"
 #include "RenderFileUploadControl.h"
 #include "RenderImage.h"
 #include "RenderView.h"
@@ -561,11 +558,7 @@ bool DragController::canProcessDrag(DragData* dragData)
     if (dragData->containsFiles() && asFileInput(result.innerNonSharedNode()))
         return true;
 
-    if (result.innerNonSharedNode()->isPluginElement()) {
-        HTMLPlugInElement* plugin = static_cast<HTMLPlugInElement*>(result.innerNonSharedNode());
-        if (!plugin->canProcessDrag() && !result.innerNonSharedNode()->rendererIsEditable())
-            return false;
-    } else if (!result.innerNonSharedNode()->rendererIsEditable())
+    if (!result.innerNonSharedNode()->rendererIsEditable())
         return false;
 
     if (m_didInitiateDrag && m_documentUnderMouse == m_dragInitiator && result.isSelected())

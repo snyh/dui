@@ -55,8 +55,6 @@
 #include "PageGroup.h"
 #include "PageThrottler.h"
 #include "PlugInClient.h"
-#include "PluginData.h"
-#include "PluginView.h"
 #include "PointerLockController.h"
 #include "ProgressTracker.h"
 #include "RenderArena.h"
@@ -132,7 +130,6 @@ Page::Page(PageClients& pageClients)
     , m_progress(ProgressTracker::create())
     , m_theme(RenderTheme::themeForPage(this))
     , m_editorClient(pageClients.editorClient)
-    , m_plugInClient(pageClients.plugInClient)
     , m_validationMessageClient(pageClients.validationMessageClient)
     , m_subframeCount(0)
     , m_openedByDOM(false)
@@ -203,8 +200,6 @@ Page::~Page()
     }
 
     m_editorClient->pageDestroyed();
-    if (m_plugInClient)
-        m_plugInClient->pageDestroyed();
     if (m_alternativeTextClient)
         m_alternativeTextClient->pageDestroyed();
 
@@ -389,43 +384,6 @@ void Page::setNeedsRecalcStyleInAllFrames()
 {
     for (Frame* frame = mainFrame(); frame; frame = frame->tree()->traverseNext())
         frame->document()->styleResolverChanged(DeferRecalcStyle);
-}
-
-void Page::refreshPlugins(bool reload)
-{
-    if (!allPages)
-        return;
-
-    PluginData::refresh();
-
-    Vector<RefPtr<Frame> > framesNeedingReload;
-
-    HashSet<Page*>::iterator end = allPages->end();
-    for (HashSet<Page*>::iterator it = allPages->begin(); it != end; ++it) {
-        Page* page = *it;
-        
-        // Clear out the page's plug-in data.
-        if (page->m_pluginData)
-            page->m_pluginData = 0;
-
-        if (!reload)
-            continue;
-        
-        for (Frame* frame = (*it)->mainFrame(); frame; frame = frame->tree()->traverseNext()) {
-            if (frame->loader()->subframeLoader()->containsPlugins())
-                framesNeedingReload.append(frame);
-        }
-    }
-
-    for (size_t i = 0; i < framesNeedingReload.size(); ++i)
-        framesNeedingReload[i]->loader()->reload();
-}
-
-PluginData* Page::pluginData() const
-{
-    if (!m_pluginData)
-        m_pluginData = PluginData::create(this);
-    return m_pluginData.get();
 }
 
 inline MediaCanStartListener* Page::takeAnyMediaCanStartListener()
@@ -1072,37 +1030,10 @@ void Page::dnsPrefetchingStateChanged()
         frame->document()->initDNSPrefetch();
 }
 
-void Page::collectPluginViews(Vector<RefPtr<PluginViewBase>, 32>& pluginViewBases)
-{
-    for (Frame* frame = mainFrame(); frame; frame = frame->tree()->traverseNext()) {
-        FrameView* view = frame->view();
-        if (!view)
-            return;
-
-        const HashSet<RefPtr<Widget> >* children = view->children();
-        ASSERT(children);
-
-        HashSet<RefPtr<Widget> >::const_iterator end = children->end();
-        for (HashSet<RefPtr<Widget> >::const_iterator it = children->begin(); it != end; ++it) {
-            Widget* widget = (*it).get();
-            if (widget->isPluginViewBase())
-                pluginViewBases.append(toPluginViewBase(widget));
-        }
-    }
-}
-
 void Page::storageBlockingStateChanged()
 {
     for (Frame* frame = mainFrame(); frame; frame = frame->tree()->traverseNext())
         frame->document()->storageBlockingStateDidChange();
-
-    // Collect the PluginViews in to a vector to ensure that action the plug-in takes
-    // from below storageBlockingStateChanged does not affect their lifetime.
-    Vector<RefPtr<PluginViewBase>, 32> pluginViewBases;
-    collectPluginViews(pluginViewBases);
-
-    for (size_t i = 0; i < pluginViewBases.size(); ++i)
-        pluginViewBases[i]->storageBlockingStateChanged();
 }
 
 void Page::privateBrowsingStateChanged()
@@ -1111,14 +1042,6 @@ void Page::privateBrowsingStateChanged()
 
     for (Frame* frame = mainFrame(); frame; frame = frame->tree()->traverseNext())
         frame->document()->privateBrowsingStateDidChange();
-
-    // Collect the PluginViews in to a vector to ensure that action the plug-in takes
-    // from below privateBrowsingStateChanged does not affect their lifetime.
-    Vector<RefPtr<PluginViewBase>, 32> pluginViewBases;
-    collectPluginViews(pluginViewBases);
-
-    for (size_t i = 0; i < pluginViewBases.size(); ++i)
-        pluginViewBases[i]->privateBrowsingStateChanged(privateBrowsingEnabled);
 }
 
 #if !ASSERT_DISABLED
@@ -1370,25 +1293,6 @@ void Page::resumeActiveDOMObjectsAndAnimations()
         frame->resumeActiveDOMObjectsAndAnimations();
 }
 
-bool Page::hasSeenAnyPlugin() const
-{
-    return !m_seenPlugins.isEmpty();
-}
-
-bool Page::hasSeenPlugin(const String& serviceType) const
-{
-    return m_seenPlugins.contains(serviceType);
-}
-
-void Page::sawPlugin(const String& serviceType)
-{
-    m_seenPlugins.add(serviceType);
-}
-
-void Page::resetSeenPlugins()
-{
-    m_seenPlugins.clear();
-}
 
 bool Page::hasSeenAnyMediaEngine() const
 {
@@ -1456,7 +1360,6 @@ Page::PageClients::PageClients()
 #endif
     , editorClient(0)
     , dragClient(0)
-    , plugInClient(0)
     , validationMessageClient(0)
 {
 }

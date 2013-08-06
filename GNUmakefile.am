@@ -189,6 +189,7 @@ include Source/WTF/GNUmakefile.am
 include Source/JavaScriptCore/GNUmakefile.am
 include Source/Platform/GNUmakefile.am 
 include Source/WebCore/GNUmakefile.am
+include Source/dui/GNUmakefile.am
 #include Source/WebCore/bindings/gobject/GNUmakefile.am
 #include Source/WebCore/platform/gtk/po/GNUmakefile.am
 #include Source/WebKit/gtk/GNUmakefile.am

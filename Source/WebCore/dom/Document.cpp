@@ -75,7 +75,6 @@
 #include "FrameView.h"
 #include "HashChangeEvent.h"
 #include "HistogramSupport.h"
-#include "History.h"
 #include "HTMLAllCollection.h"
 #include "HTMLAnchorElement.h"
 #include "HTMLCanvasElement.h"
@@ -2385,7 +2384,6 @@ void Document::implicitClose()
 
     dispatchWindowLoadEvent();
     enqueuePageshowEvent(PageshowEventNotPersisted);
-    enqueuePopstateEvent(m_pendingStateObject ? m_pendingStateObject.release() : SerializedScriptValue::nullValue());
     
     if (f)
         f->loader()->handledOnloadEvents();
@@ -4567,9 +4565,7 @@ void Document::statePopped(PassRefPtr<SerializedScriptValue> stateObject)
     
     // Per step 11 of section 6.5.9 (history traversal) of the HTML5 spec, we 
     // defer firing of popstate until we're in the complete state.
-    if (m_readyState == Complete)
-        enqueuePopstateEvent(stateObject);
-    else
+    if (m_readyState != Complete)
         m_pendingStateObject = stateObject;
 }
 
@@ -4827,15 +4823,6 @@ void Document::enqueuePageshowEvent(PageshowEventPersistence persisted)
 void Document::enqueueHashchangeEvent(const String& oldURL, const String& newURL)
 {
     enqueueWindowEvent(HashChangeEvent::create(oldURL, newURL));
-}
-
-void Document::enqueuePopstateEvent(PassRefPtr<SerializedScriptValue> stateObject)
-{
-    if (!ContextFeatures::pushStateEnabled(this))
-        return;
-
-    // FIXME: https://bugs.webkit.org/show_bug.cgi?id=36202 Popstate event needs to fire asynchronously
-    dispatchWindowEvent(PopStateEvent::create(stateObject, domWindow() ? domWindow()->history() : 0));
 }
 
 void Document::addMediaCanStartListener(MediaCanStartListener* listener)

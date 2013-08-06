@@ -70,9 +70,6 @@ class PageActivityAssertionToken;
 class PageConsole;
 class PageGroup;
 class PageThrottler;
-class PlugInClient;
-class PluginData;
-class PluginViewBase;
 class PointerLockController;
 class ProgressTracker;
 class Range;
@@ -123,7 +120,6 @@ public:
 #endif
         EditorClient* editorClient;
         DragClient* dragClient;
-        PlugInClient* plugInClient;
         ValidationMessageClient* validationMessageClient;
     };
 
@@ -138,14 +134,10 @@ public:
 
     ViewportArguments viewportArguments() const;
 
-    static void refreshPlugins(bool reload);
-    PluginData* pluginData() const;
-
     void setCanStartMedia(bool);
     bool canStartMedia() const { return m_canStartMedia; }
 
     EditorClient* editorClient() const { return m_editorClient; }
-    PlugInClient* plugInClient() const { return m_plugInClient; }
 
     void setMainFrame(PassRefPtr<Frame>);
     Frame* mainFrame() const { return m_mainFrame.get(); }
@@ -351,11 +343,6 @@ public:
 
     AlternativeTextClient* alternativeTextClient() const { return m_alternativeTextClient; }
 
-    bool hasSeenPlugin(const String& serviceType) const;
-    bool hasSeenAnyPlugin() const;
-    void sawPlugin(const String& serviceType);
-    void resetSeenPlugins();
-
     bool hasSeenMediaEngine(const String& engineName) const;
     bool hasSeenAnyMediaEngine() const;
     void sawMediaEngine(const String& engineName);
@@ -399,8 +386,6 @@ private:
     void setTimerAlignmentInterval(double);
     double timerAlignmentInterval() const;
 
-    void collectPluginViews(Vector<RefPtr<PluginViewBase>, 32>& pluginViewBases);
-
     void throttleTimers();
     void unthrottleTimers();
 
@@ -424,12 +409,9 @@ private:
 
     RefPtr<Frame> m_mainFrame;
 
-    mutable RefPtr<PluginData> m_pluginData;
-
     RefPtr<RenderTheme> m_theme;
 
     EditorClient* m_editorClient;
-    PlugInClient* m_plugInClient;
     ValidationMessageClient* m_validationMessageClient;
 
     FeatureObserver m_featureObserver;

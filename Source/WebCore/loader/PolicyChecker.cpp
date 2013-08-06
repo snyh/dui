@@ -77,8 +77,6 @@ void PolicyChecker::checkNavigationPolicy(const ResourceRequest& request, Docume
     // We are always willing to show alternate content for unreachable URLs;
     // treat it like a reload so it maintains the right state for b/f list.
     if (loader->substituteData().isValid() && !loader->substituteData().failingURL().isEmpty()) {
-        if (isBackForwardLoadType(m_loadType))
-            m_loadType = FrameLoadTypeReload;
         function(argument, request, 0, true);
         return;
     }

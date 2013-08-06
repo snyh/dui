@@ -4288,11 +4288,13 @@ platformgtk_sources += \
 	Source/WebCore/platform/text/gtk/TextBreakIteratorInternalICUGtk.cpp
 
 if TARGET_X11
+
 platformgtk_sources += \
 	Source/WebCore/platform/gtk/WidgetBackingStoreGtkX11.h \
 	Source/WebCore/platform/gtk/WidgetBackingStoreGtkX11.cpp \
 	Source/WebCore/platform/cairo/WidgetBackingStoreCairo.h \
 	Source/WebCore/platform/cairo/WidgetBackingStoreCairo.cpp
+
 if USE_OPENGL
 platformgtk_sources += \
 	Source/WebCore/platform/graphics/cairo/GLContext.cpp \
@@ -4300,11 +4302,13 @@ platformgtk_sources += \
 	Source/WebCore/platform/gtk/RedirectedXCompositeWindow.cpp \
 	Source/WebCore/platform/gtk/RedirectedXCompositeWindow.h
 endif # END USE_OPENGL
+
 if USE_EGL
 webcoregtk_sources += \
 	Source/WebCore/platform/graphics/egl/GLContextEGL.cpp \
 	Source/WebCore/platform/graphics/egl/GLContextEGL.h
 endif # END USE_EGL
+
 if USE_GLX
 webcoregtk_sources += \
 	Source/WebCore/platform/graphics/glx/GLContextGLX.cpp \

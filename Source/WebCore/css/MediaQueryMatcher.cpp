@@ -143,17 +143,7 @@ void MediaQueryMatcher::styleResolverChanged()
 {
     ASSERT(m_document);
 
-    ScriptState* scriptState = mainWorldScriptState(m_document->frame());
-    if (!scriptState)
-        return;
-
-    ++m_evaluationRound;
-    OwnPtr<MediaQueryEvaluator> evaluator = prepareEvaluator();
-    if (!evaluator)
-        return;
-
-    for (size_t i = 0; i < m_listeners.size(); ++i)
-        m_listeners[i]->evaluate(scriptState, evaluator.get());
+    return;
 }
 
 }

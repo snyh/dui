@@ -1,0 +1,54 @@
+bin_PROGRAMS += dui_test
+dui_test_SOURCES= Source/dui/test.cpp
+dui_test_CXXFLAGS= \
+	$(webcore_cppflags) \
+	-DBUILDING_WebCore \
+	-I$(srcdir)/Source/JavaScriptCore \
+	-I$(srcdir)/Source/WTF \
+	-I$(srcdir)/Source/dui \
+	-I$(CAIRO_CFLAGS) \
+	-I$(GLIB_CFLAGS) \
+	-I$(GTK_CFLAGS) \
+	$(global_cxxflags)
+
+dui_test_LDADD = \
+	libWebCore.la \
+	libWebCorePlatform.la \
+	libWebCoreGtk.la \
+	libPlatform.la \
+	libPlatformGtk.la \
+	libWTF.la \
+	libANGLE.la \
+	libWebCoreSVG.la \
+	$(CAIRO_LIBS) \
+	$(COVERAGE_LDFLAGS) \
+	$(ENCHANT_LIBS) \
+	$(FREETYPE_LIBS) \
+	$(GAIL_LIBS) \
+	$(GAMEPAD_LIBS) \
+	$(GEOCLUE_LIBS) \
+	$(GLIB_LIBS) \
+	$(GSTREAMER_LIBS) \
+	$(GTK_LIBS) \
+	$(JPEG_LIBS) \
+	$(LIBSECRET_LIBS) \
+	$(LIBSOUP_LIBS) \
+	$(LIBXML_LIBS) \
+	$(LIBXSLT_LIBS) \
+	$(OPENGL_LIBS) \
+	$(PANGO_LIBS) \
+	$(PNG_LIBS) \
+	$(SQLITE3_LIBS) \
+	$(UNICODE_LIBS) \
+	$(WEBP_LIBS) \
+	$(XCOMPOSITE_LIBS) \
+	$(XDAMAGE_LIBS) \
+	$(XRENDER_LIBS) \
+	$(XT_LIBS) \
+	$(SHLWAPI_LIBS) \
+	$(ZLIB_LIBS) \
+	-lpthread \
+	-lxslt -lxml2 \
+	-lm \
+	-lstdc++ \
+	-lxcb-util

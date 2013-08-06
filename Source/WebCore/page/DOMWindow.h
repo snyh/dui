@@ -51,7 +51,6 @@ namespace WebCore {
     class EventListener;
     class FloatRect;
     class Frame;
-    class History;
     class IDBFactory;
     class Location;
     class MediaQueryList;
@@ -131,7 +130,6 @@ namespace WebCore {
         // DOM Level 0
 
         Screen* screen() const;
-        History* history() const;
         Crypto* crypto() const;
         BarProp* locationbar() const;
         BarProp* menubar() const;
@@ -438,7 +436,6 @@ namespace WebCore {
         HashSet<DOMWindowProperty*> m_properties;
 
         mutable RefPtr<Screen> m_screen;
-        mutable RefPtr<History> m_history;
         mutable RefPtr<Crypto>  m_crypto;
         mutable RefPtr<BarProp> m_locationbar;
         mutable RefPtr<BarProp> m_menubar;

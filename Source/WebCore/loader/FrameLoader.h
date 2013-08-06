@@ -75,8 +75,6 @@ class SubstituteData;
 struct FrameLoadRequest;
 struct WindowFeatures;
 
-bool isBackForwardLoadType(FrameLoadType);
-
 class FrameLoader {
     WTF_MAKE_NONCOPYABLE(FrameLoader);
 public:

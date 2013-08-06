@@ -196,10 +196,6 @@ String pathGetFileName(const String& pathName)
 
 CString applicationDirectoryPath()
 {
-    CString path = getCurrentExecutablePath();
-    if (!path.isNull())
-        return path;
-
     // If the above fails, check the PATH env variable.
     GOwnPtr<char> currentExePath(g_find_program_in_path(g_get_prgname()));
     if (!currentExePath.get())

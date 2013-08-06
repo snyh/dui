@@ -24,15 +24,12 @@
 #include "Navigator.h"
 
 #include "CookieJar.h"
-#include "DOMMimeTypeArray.h"
-#include "DOMPluginArray.h"
 #include "Document.h"
 #include "Frame.h"
 #include "FrameLoader.h"
 #include "FrameLoaderClient.h"
 #include "Language.h"
 #include "Page.h"
-#include "PluginData.h"
 #include "ScriptController.h"
 #include "SecurityOrigin.h"
 #include "Settings.h"
@@ -89,20 +86,6 @@ String Navigator::userAgent() const
         return String();
         
     return m_frame->loader()->userAgent(m_frame->document()->url());
-}
-
-DOMPluginArray* Navigator::plugins() const
-{
-    if (!m_plugins)
-        m_plugins = DOMPluginArray::create(m_frame);
-    return m_plugins.get();
-}
-
-DOMMimeTypeArray* Navigator::mimeTypes() const
-{
-    if (!m_mimeTypes)
-        m_mimeTypes = DOMMimeTypeArray::create(m_frame);
-    return m_mimeTypes.get();
 }
 
 bool Navigator::cookieEnabled() const

@@ -2548,7 +2548,6 @@ void FrameLoader::dispatchDidCommitLoad()
     m_client->dispatchDidCommitLoad();
 
     if (isLoadingMainFrame()) {
-        m_frame->page()->resetSeenPlugins();
         m_frame->page()->resetSeenMediaEngines();
     }
 

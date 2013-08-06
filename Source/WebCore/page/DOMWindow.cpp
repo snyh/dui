@@ -66,7 +66,6 @@
 #include "FrameTree.h"
 #include "FrameView.h"
 #include "HTMLFrameOwnerElement.h"
-#include "History.h"
 #include "KURL.h"
 #include "Location.h"
 #include "MediaQueryList.h"
@@ -367,7 +366,6 @@ DOMWindow::~DOMWindow()
 #ifndef NDEBUG
     if (!m_suspendedForPageCache) {
         ASSERT(!m_screen);
-        ASSERT(!m_history);
         ASSERT(!m_crypto);
         ASSERT(!m_locationbar);
         ASSERT(!m_menubar);
@@ -523,7 +521,6 @@ void DOMWindow::resetDOMWindowProperties()
     m_properties.clear();
 
     m_screen = 0;
-    m_history = 0;
     m_crypto = 0;
     m_locationbar = 0;
     m_menubar = 0;
@@ -565,15 +562,6 @@ Screen* DOMWindow::screen() const
     if (!m_screen)
         m_screen = Screen::create(m_frame);
     return m_screen.get();
-}
-
-History* DOMWindow::history() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    if (!m_history)
-        m_history = History::create(m_frame);
-    return m_history.get();
 }
 
 Crypto* DOMWindow::crypto() const

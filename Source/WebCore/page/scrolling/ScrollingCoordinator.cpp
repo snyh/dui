@@ -34,7 +34,6 @@
 #include "IntRect.h"
 #include "Page.h"
 #include "PlatformWheelEvent.h"
-#include "PluginViewBase.h"
 #include "Region.h"
 #include "RenderView.h"
 #include "ScrollAnimator.h"
@@ -137,17 +136,6 @@ Region ScrollingCoordinator::computeNonFastScrollableRegion(const Frame* frame, 
             IntRect box = scrollableArea->scrollableAreaBoundingBox();
             box.moveBy(offset);
             nonFastScrollableRegion.unite(box);
-        }
-    }
-
-    if (const HashSet<RefPtr<Widget> >* children = frameView->children()) {
-        for (HashSet<RefPtr<Widget> >::const_iterator it = children->begin(), end = children->end(); it != end; ++it) {
-            if (!(*it)->isPluginViewBase())
-                continue;
-
-            PluginViewBase* pluginViewBase = toPluginViewBase((*it).get());
-            if (pluginViewBase->wantsWheelEvents())
-                nonFastScrollableRegion.unite(pluginViewBase->frameRect());
         }
     }
 

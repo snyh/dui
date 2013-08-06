@@ -32,10 +32,7 @@
 
 namespace WebCore {
 
-class DOMMimeTypeArray;
-class DOMPluginArray;
 class Frame;
-class PluginData;
 
 typedef int ExceptionCode;
 
@@ -46,8 +43,6 @@ public:
 
     String appVersion() const;
     String language() const;
-    DOMPluginArray* plugins() const;
-    DOMMimeTypeArray* mimeTypes() const;
     bool cookieEnabled() const;
     bool javaEnabled() const;
 
@@ -58,9 +53,6 @@ public:
 
 private:
     explicit Navigator(Frame*);
-
-    mutable RefPtr<DOMPluginArray> m_plugins;
-    mutable RefPtr<DOMMimeTypeArray> m_mimeTypes;
 };
 
 }
