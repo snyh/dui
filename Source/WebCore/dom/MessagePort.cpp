@@ -35,7 +35,6 @@
 #include "dom/MessageEvent.h"
 #include "page/SecurityOrigin.h"
 #include "platform/Timer.h"
-#include "workers/WorkerGlobalScope.h"
 #include <wtf/text/AtomicString.h>
 
 namespace WebCore {
@@ -170,12 +169,6 @@ void MessagePort::dispatchMessages()
     RefPtr<SerializedScriptValue> message;
     OwnPtr<MessagePortChannelArray> channels;
     while (m_entangledChannel && m_entangledChannel->tryGetMessageFromRemote(message, channels)) {
-
-#if ENABLE(WORKERS)
-        // close() in Worker onmessage handler should prevent next message from dispatching.
-        if (m_scriptExecutionContext->isWorkerGlobalScope() && static_cast<WorkerGlobalScope*>(m_scriptExecutionContext)->isClosing())
-            return;
-#endif
 
         OwnPtr<MessagePortArray> ports = MessagePort::entanglePorts(*m_scriptExecutionContext, channels.release());
         RefPtr<Event> evt = MessageEvent::create(ports.release(), message.release());

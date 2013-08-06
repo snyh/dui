@@ -36,7 +36,7 @@
 #include "dom/ContextDestructionObserver.h"
 #include "dom/ExceptionCode.h"
 #include "dom/QualifiedName.h"
-#include "bindings/dui/saved/ScriptValue.h"
+#include "bindings/dui/ScriptValue.h"
 #include "platform/Supplementable.h"
 #include <wtf/HashSet.h>
 #include <wtf/ListHashSet.h>

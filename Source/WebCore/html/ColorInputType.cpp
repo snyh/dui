@@ -44,7 +44,7 @@
 #include "dom/MouseEvent.h"
 #include "rendering/RenderObject.h"
 #include "rendering/RenderView.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "dom/ShadowRoot.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/WTFString.h>

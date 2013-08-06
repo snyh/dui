@@ -31,7 +31,7 @@
 #ifndef MessagePortChannel_h
 #define MessagePortChannel_h
 
-#include "bindings/dui/saved/SerializedScriptValue.h"
+#include "bindings/dui/SerializedScriptValue.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/Forward.h>
 #include <wtf/PassOwnPtr.h>

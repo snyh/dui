@@ -37,7 +37,7 @@
 #include "rendering/RenderSearchField.h"
 #include "rendering/RenderTextControl.h"
 #include "rendering/RenderView.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "page/SpeechInput.h"
 #include "page/SpeechInputEvent.h"
 #include "dom/TextEvent.h"

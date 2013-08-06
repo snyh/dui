@@ -30,7 +30,7 @@
 #include "HTMLNames.h"
 #include "svg/properties/SVGAnimatedStaticPropertyTearOff.h"
 #include "svg/SVGElementInstance.h"
-#include "bindings/dui/saved/ScriptEventListener.h"
+#include "bindings/dui/ScriptEventListener.h"
 
 namespace WebCore {
 

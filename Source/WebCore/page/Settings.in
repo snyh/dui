@@ -3,7 +3,6 @@
 
 defaultTextEncodingName type=String
 ftpDirectoryTemplatePath type=String
-localStorageDatabasePath type=String
 editableLinkBehavior type=EditableLinkBehavior, initial=EditableLinkDefaultBehavior
 textDirectionSubmenuInclusionBehavior type=TextDirectionSubmenuInclusionBehavior, initial=TextDirectionSubmenuAutomaticallyIncluded
 passwordEchoDurationInSeconds type=double, initial=1
@@ -29,10 +28,6 @@ maximumDecodedImageSize type=size_t, initial=numeric_limits<size_t>::max()
 deviceWidth type=int, initial=0
 deviceHeight type=int, initial=0
 
-# Allow clients concerned with memory consumption to set a quota on session storage
-# since the memory used won't be released until the Page is destroyed.
-sessionStorageQuota type=unsigned, initial=StorageMap::noQuota
-
 minimumFontSize type=int, initial=0, setNeedsStyleRecalcInAllFrames=1
 minimumLogicalFontSize type=int, initial=0, setNeedsStyleRecalcInAllFrames=1
 defaultFontSize type=int, initial=0, setNeedsStyleRecalcInAllFrames=1
@@ -46,7 +41,6 @@ maximumHTMLParserDOMTreeDepth type=unsigned, initial=defaultMaximumHTMLParserDOM
 loadsSiteIconsIgnoringImageLoadingSetting initial=false
 
 caretBrowsingEnabled initial=false
-localStorageEnabled initial=false
 allowUniversalAccessFromFileURLs initial=true
 allowFileAccessFromFileURLs initial=true
 javaScriptCanOpenWindowsAutomatically initial=false

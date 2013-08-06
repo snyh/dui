@@ -30,7 +30,7 @@
 #define Console_h
 
 #include "page/DOMWindowProperty.h"
-#include "bindings/dui/saved/ScriptState.h"
+#include "bindings/dui/ScriptState.h"
 #include "bindings/dui/ScriptWrappable.h"
 #include <wtf/Forward.h>
 #include <wtf/PassRefPtr.h>

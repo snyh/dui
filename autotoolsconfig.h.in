@@ -151,6 +151,9 @@
 #undef WTF_SYSTEM_MALLOC
 
 /* */
+#undef WTF_USE_3D_GRAPHICS
+
+/* */
 #undef WTF_USE_ACCELERATED_COMPOSITING
 
 /* */

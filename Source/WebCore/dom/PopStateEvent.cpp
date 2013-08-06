@@ -28,7 +28,7 @@
 #include "dom/PopStateEvent.h"
 
 #include "dom/EventNames.h"
-#include "bindings/dui/saved/SerializedScriptValue.h"
+#include "bindings/dui/SerializedScriptValue.h"
 
 namespace WebCore {
 

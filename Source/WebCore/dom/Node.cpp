@@ -96,7 +96,6 @@
 #include "page/Settings.h"
 #include "dom/ShadowRoot.h"
 #include "dom/StaticNodeList.h"
-#include "storage/StorageEvent.h"
 #include "css/StyleResolver.h"
 #include "dom/TagNodeList.h"
 #include "dom/TemplateContentDocumentFragment.h"
@@ -128,9 +127,6 @@
 #if ENABLE(INDIE_UI)
 #include "UIRequestEvent.h"
 #endif
-
-#include <runtime/VM.h>
-#include <runtime/Operations.h>
 
 #if ENABLE(MICRODATA)
 #include "html/HTMLPropertiesCollection.h"
@@ -176,7 +172,6 @@ void Node::dumpStatistics()
 
     size_t attributes = 0;
     size_t attributesWithAttr = 0;
-    size_t elementsWithAttributeStorage = 0;
     size_t elementsWithRareData = 0;
     size_t elementsWithNamedNodeMap = 0;
 
@@ -204,7 +199,6 @@ void Node::dumpStatistics()
 
                 if (ElementData* elementData = element->elementData()) {
                     attributes += elementData->length();
-                    ++elementsWithAttributeStorage;
                     for (unsigned i = 0; i < elementData->length(); ++i) {
                         Attribute* attr = elementData->attributeItem(i);
                         if (attr->attr())
@@ -293,7 +287,6 @@ void Node::dumpStatistics()
     printf("Attributes:\n");
     printf("  Number of Attributes (non-Node and Node): %zu [%zu]\n", attributes, sizeof(Attribute));
     printf("  Number of Attributes with an Attr: %zu\n", attributesWithAttr);
-    printf("  Number of Elements with attribute storage: %zu [%zu]\n", elementsWithAttributeStorage, sizeof(ElementData));
     printf("  Number of Elements with RareData: %zu\n", elementsWithRareData);
     printf("  Number of Elements with NamedNodeMap: %zu [%zu]\n", elementsWithNamedNodeMap, sizeof(NamedNodeMap));
 #endif

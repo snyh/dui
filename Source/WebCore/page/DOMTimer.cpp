@@ -27,7 +27,7 @@
 #include "config.h"
 #include "page/DOMTimer.h"
 
-#include "bindings/dui/saved/ScheduledAction.h"
+#include "bindings/dui/ScheduledAction.h"
 #include "dom/ScriptExecutionContext.h"
 #include "dom/UserGestureIndicator.h"
 #include <wtf/CurrentTime.h>

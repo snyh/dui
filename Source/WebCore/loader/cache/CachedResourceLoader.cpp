@@ -51,7 +51,7 @@
 #include "loader/PingLoader.h"
 #include "platform/PlatformStrategies.h"
 #include "loader/ResourceLoadScheduler.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "page/SecurityOrigin.h"
 #include "page/Settings.h"
 #include <wtf/text/CString.h>

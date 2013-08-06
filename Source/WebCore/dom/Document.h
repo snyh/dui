@@ -948,7 +948,6 @@ public:
 
     void registerForPrivateBrowsingStateChangedCallbacks(Element*);
     void unregisterForPrivateBrowsingStateChangedCallbacks(Element*);
-    void storageBlockingStateDidChange();
     void privateBrowsingStateDidChange();
 
 #if ENABLE(VIDEO_TRACK)

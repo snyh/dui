@@ -25,7 +25,7 @@
 #ifndef Traversal_h
 #define Traversal_h
 
-#include "bindings/dui/saved/ScriptState.h"
+#include "bindings/dui/ScriptState.h"
 #include <wtf/RefPtr.h>
 
 namespace WebCore {

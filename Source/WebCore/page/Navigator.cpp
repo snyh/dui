@@ -30,10 +30,9 @@
 #include "loader/FrameLoaderClient.h"
 #include "platform/Language.h"
 #include "page/Page.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "page/SecurityOrigin.h"
 #include "page/Settings.h"
-#include "storage/StorageNamespace.h"
 #include <wtf/HashSet.h>
 #include <wtf/StdLibExtras.h>
 

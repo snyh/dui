@@ -8,84 +8,8 @@ webcore_cppflags += \
 	-I$(srcdir)/Source/ThirdParty/ANGLE/include \
 	-I$(srcdir)/Source/ThirdParty/ANGLE/include/GLSLANG \
 	-I$(srcdir)/Source/ThirdParty/ANGLE/include/KHR \
+	-I$(srcdir)/Source/WTF \
 	-I$(srcdir)/Source/WebCore \
-	-I$(srcdir)/Source/WebCore/accessibility \
-	-I$(srcdir)/Source/WebCore/bindings \
-	-I$(srcdir)/Source/WebCore/bindings/dui \
-	-I$(srcdir)/Source/WebCore/bindings/generic \
-	-I$(srcdir)/Source/WebCore/bindings/js \
-	-I$(srcdir)/Source/WebCore/bridge \
-	-I$(srcdir)/Source/WebCore/bridge/c \
-	-I$(srcdir)/Source/WebCore/bridge/jsc \
-	-I$(srcdir)/Source/WebCore/css \
-	-I$(srcdir)/Source/WebCore/dom \
-	-I$(srcdir)/Source/WebCore/dom/default \
-	-I$(srcdir)/Source/WebCore/editing \
-	-I$(srcdir)/Source/WebCore/fileapi \
-	-I$(srcdir)/Source/WebCore/html \
-	-I$(srcdir)/Source/WebCore/html/canvas \
-	-I$(srcdir)/Source/WebCore/html/forms \
-	-I$(srcdir)/Source/WebCore/html/parser \
-	-I$(srcdir)/Source/WebCore/html/shadow \
-	-I$(srcdir)/Source/WebCore/html/track \
-	-I$(srcdir)/Source/WebCore/loader \
-	-I$(srcdir)/Source/WebCore/loader/appcache \
-	-I$(srcdir)/Source/WebCore/loader/archive \
-	-I$(srcdir)/Source/WebCore/loader/archive/mhtml \
-	-I$(srcdir)/Source/WebCore/loader/cache \
-	-I$(srcdir)/Source/WebCore/loader/icon \
-	-I$(srcdir)/Source/WebCore/mathml \
-	-I$(srcdir)/Source/WebCore/page \
-	-I$(srcdir)/Source/WebCore/page/animation \
-	-I$(srcdir)/Source/WebCore/page/scrolling \
-	-I$(srcdir)/Source/WebCore/platform \
-	-I$(srcdir)/Source/WebCore/platform/animation \
-	-I$(srcdir)/Source/WebCore/platform/audio \
-	-I$(srcdir)/Source/WebCore/platform/graphics \
-	-I$(srcdir)/Source/WebCore/platform/graphics/cpu/arm \
-	-I$(srcdir)/Source/WebCore/platform/graphics/cpu/arm/filters/ \
-	-I$(srcdir)/Source/WebCore/platform/graphics/filters \
-	-I$(srcdir)/Source/WebCore/platform/graphics/filters/texmap \
-	-I$(srcdir)/Source/WebCore/platform/graphics/freetype \
-	-I$(srcdir)/Source/WebCore/platform/graphics/gpu \
-	-I$(srcdir)/Source/WebCore/platform/graphics/harfbuzz \
-	-I$(srcdir)/Source/WebCore/platform/graphics/harfbuzz/ng \
-	-I$(srcdir)/Source/WebCore/platform/graphics/opengl \
-	-I$(srcdir)/Source/WebCore/platform/graphics/opentype \
-	-I$(srcdir)/Source/WebCore/platform/graphics/transforms \
-	-I$(srcdir)/Source/WebCore/platform/image-decoders \
-	-I$(srcdir)/Source/WebCore/platform/image-decoders/bmp \
-	-I$(srcdir)/Source/WebCore/platform/image-decoders/gif \
-	-I$(srcdir)/Source/WebCore/platform/image-decoders/ico \
-	-I$(srcdir)/Source/WebCore/platform/image-decoders/jpeg \
-	-I$(srcdir)/Source/WebCore/platform/image-decoders/png \
-	-I$(srcdir)/Source/WebCore/platform/image-decoders/webp \
-	-I$(srcdir)/Source/WebCore/platform/leveldb \
-	-I$(srcdir)/Source/WebCore/platform/linux \
-	-I$(srcdir)/Source/WebCore/platform/mediastream \
-	-I$(srcdir)/Source/WebCore/platform/mediastream/gstreamer \
-	-I$(srcdir)/Source/WebCore/platform/mock \
-	-I$(srcdir)/Source/WebCore/platform/network \
-	-I$(srcdir)/Source/WebCore/platform/network/gtk \
-	-I$(srcdir)/Source/WebCore/platform/text \
-	-I$(srcdir)/Source/WebCore/platform/text/transcoder \
-	-I$(srcdir)/Source/WebCore/platform/win \
-	-I$(srcdir)/Source/WebCore/rendering \
-	-I$(srcdir)/Source/WebCore/rendering/mathml \
-	-I$(srcdir)/Source/WebCore/rendering/shapes \
-	-I$(srcdir)/Source/WebCore/rendering/style \
-	-I$(srcdir)/Source/WebCore/rendering/svg \
-	-I$(srcdir)/Source/WebCore/storage \
-	-I$(srcdir)/Source/WebCore/svg \
-	-I$(srcdir)/Source/WebCore/svg/animation \
-	-I$(srcdir)/Source/WebCore/svg/graphics \
-	-I$(srcdir)/Source/WebCore/svg/graphics/filters \
-	-I$(srcdir)/Source/WebCore/svg/properties \
-	-I$(srcdir)/Source/WebCore/websockets \
-	-I$(srcdir)/Source/WebCore/workers \
-	-I$(srcdir)/Source/WebCore/xml \
-	-I$(srcdir)/Source/WebCore/xml/parser \
-	-I$(top_builddir)/WebCore/bindings/js \
 	-I$(top_builddir)/DerivedSources/WebCore \
 	-I$(top_builddir)/DerivedSources \
 	-I$(top_builddir)/DerivedSources/JavaScriptCore
@@ -319,9 +243,7 @@ IDL_PATH := \
     $(WebCore)/html/track \
     $(WebCore)/loader/appcache \
     $(WebCore)/page \
-    $(WebCore)/storage \
     $(WebCore)/svg \
-    $(WebCore)/workers \
     $(WebCore)/xml
 
 vpath %.idl $(IDL_PATH)
@@ -524,9 +446,7 @@ EXTRA_DIST += \
 	$(wildcard $(srcdir)/Source/WebCore/html/*.idl) \
 	$(wildcard $(srcdir)/Source/WebCore/loader/appcache/*.idl) \
 	$(wildcard $(srcdir)/Source/WebCore/page/*.idl) \
-	$(wildcard $(srcdir)/Source/WebCore/storage/*.idl) \
 	$(wildcard $(srcdir)/Source/WebCore/svg/*.idl) \
-	$(wildcard $(srcdir)/Source/WebCore/workers/*.idl) \
 	$(wildcard $(srcdir)/Source/WebCore/xml/*.idl) \
 	Source/ThirdParty/ANGLE/src/compiler/glslang.l \
 	Source/ThirdParty/ANGLE/src/compiler/glslang.y \

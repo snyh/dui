@@ -32,7 +32,6 @@
 #include "platform/KURL.h"
 #include "loader/LoaderStrategy.h"
 #include "platform/Logging.h"
-#include "loader/NetscapePlugInStreamLoader.h"
 #include "platform/PlatformStrategies.h"
 #include "loader/ResourceLoader.h"
 #include "platform/network/soup/ResourceRequest.h"
@@ -104,14 +103,6 @@ PassRefPtr<SubresourceLoader> ResourceLoadScheduler::scheduleSubresourceLoad(Fra
     if (loader)
         scheduleLoad(loader.get(), priority);
     return loader.release();
-}
-
-PassRefPtr<NetscapePlugInStreamLoader> ResourceLoadScheduler::schedulePluginStreamLoad(Frame* frame, NetscapePlugInStreamLoaderClient* client, const ResourceRequest& request)
-{
-    PassRefPtr<NetscapePlugInStreamLoader> loader = NetscapePlugInStreamLoader::create(frame, client, request);
-    if (loader)
-        scheduleLoad(loader.get(), ResourceLoadPriorityLow);
-    return loader;
 }
 
 void ResourceLoadScheduler::scheduleLoad(ResourceLoader* resourceLoader, ResourceLoadPriority priority)

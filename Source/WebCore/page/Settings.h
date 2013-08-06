@@ -238,9 +238,6 @@ namespace WebCore {
         bool isTouchEventEmulationEnabled() const { return m_touchEventEmulationEnabled; }
 #endif
 
-        void setStorageBlockingPolicy(SecurityOrigin::StorageBlockingPolicy);
-        SecurityOrigin::StorageBlockingPolicy storageBlockingPolicy() const { return m_storageBlockingPolicy; }
-
         void setScrollingPerformanceLoggingEnabled(bool);
         bool scrollingPerformanceLoggingEnabled() { return m_scrollingPerformanceLoggingEnabled; }
         
@@ -271,7 +268,6 @@ namespace WebCore {
         String m_mediaTypeOverride;
         KURL m_userStyleSheetLocation;
         RefPtr<FontGenericFamilies> m_fontGenericFamilies;
-        SecurityOrigin::StorageBlockingPolicy m_storageBlockingPolicy;
 #if ENABLE(TEXT_AUTOSIZING)
         float m_textAutosizingFontScaleFactor;
         IntSize m_textAutosizingWindowSizeOverride;

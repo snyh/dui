@@ -29,7 +29,7 @@
 #include "dom/ContainerNode.h"
 #include "dom/NodeFilter.h"
 #include "dom/NodeTraversal.h"
-#include "bindings/dui/saved/ScriptState.h"
+#include "bindings/dui/ScriptState.h"
 #include <wtf/PassRefPtr.h>
 
 namespace WebCore {

@@ -43,7 +43,8 @@ sub defaultItemFactory
     return (
         'interfaceName' => 0,
         'conditional' => 0,
-        'runtimeConditional' => 0
+        'runtimeConditional' => 0,
+        'path' => 'dom'
     );
 }
 
@@ -83,7 +84,7 @@ sub generateImplementation()
     print F $InCompiler->license();
 
     print F "#include \"config.h\"\n";
-    print F "#include \"${namespace}Factory.h\"\n";
+    print F "#include \"dom/${namespace}Factory.h\"\n";
     print F "\n";
     print F "#include \"${namespace}Headers.h\"\n";
     print F "\n";

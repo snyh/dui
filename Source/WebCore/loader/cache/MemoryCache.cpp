@@ -35,9 +35,6 @@
 #include "platform/PublicSuffix.h"
 #include "page/SecurityOrigin.h"
 #include "page/SecurityOriginHash.h"
-#include "workers/WorkerGlobalScope.h"
-#include "workers/WorkerLoaderProxy.h"
-#include "workers/WorkerThread.h"
 #include <stdio.h>
 #include <wtf/CurrentTime.h>
 #include <wtf/MathExtras.h>
@@ -709,14 +706,6 @@ void MemoryCache::removeUrlFromCache(ScriptExecutionContext* context, const Stri
 
 void MemoryCache::removeRequestFromCache(ScriptExecutionContext* context, const ResourceRequest& request)
 {
-#if ENABLE(WORKERS)
-    if (context->isWorkerGlobalScope()) {
-        WorkerGlobalScope* workerGlobalScope = static_cast<WorkerGlobalScope*>(context);
-        workerGlobalScope->thread()->workerLoaderProxy().postTaskToLoader(createCallbackTask(&crossThreadRemoveRequestFromCache, request));
-        return;
-    }
-#endif
-
     removeRequestFromCacheImpl(context, request);
 }
 

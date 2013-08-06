@@ -35,7 +35,7 @@
 
 #include "page/ContentSecurityPolicy.h"
 #include "page/DOMWindow.h"
-#include "bindings/dui/saved/Dictionary.h"
+#include "bindings/dui/Dictionary.h"
 #include "dom/Document.h"
 #include "dom/Event.h"
 #include "dom/EventException.h"
@@ -46,10 +46,10 @@
 #include "platform/network/soup/ResourceError.h"
 #include "platform/network/soup/ResourceRequest.h"
 #include "platform/network/soup/ResourceResponse.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "dom/ScriptExecutionContext.h"
 #include "page/SecurityOrigin.h"
-#include "bindings/dui/saved/SerializedScriptValue.h"
+#include "bindings/dui/SerializedScriptValue.h"
 #include "loader/TextResourceDecoder.h"
 #include "loader/ThreadableLoader.h"
 #include <wtf/text/StringBuilder.h>

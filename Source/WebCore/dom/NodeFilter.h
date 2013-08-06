@@ -25,7 +25,7 @@
 #ifndef NodeFilter_h
 #define NodeFilter_h
 
-#include "bindings/dui/saved/DOMWrapperWorld.h"
+#include "bindings/dui/DOMWrapperWorld.h"
 #include "dom/NodeFilterCondition.h"
 #include <wtf/RefPtr.h>
 

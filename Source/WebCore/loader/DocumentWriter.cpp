@@ -38,7 +38,7 @@
 #include "page/FrameView.h"
 #include "loader/PlaceholderDocument.h"
 #include "dom/RawDataDocumentParser.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "dom/ScriptableDocumentParser.h"
 #include "page/SecurityOrigin.h"
 #include "platform/text/SegmentedString.h"

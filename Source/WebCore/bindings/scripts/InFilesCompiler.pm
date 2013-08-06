@@ -272,14 +272,14 @@ sub generateHeadersHeader()
 
     for my $itemName (sort keys %parsedItems) {
         my $conditional = $parsedItems{$itemName}{"conditional"};
+        my $path = $parsedItems{$itemName}{"path"};
         my $interfaceName = $object->interfaceForItem($itemName);
 
         next if defined($includedInterfaces{$interfaceName});
         $includedInterfaces{$interfaceName} = 1;
 
         print F "#if " . $object->conditionalStringFromAttributeValue($conditional) . "\n" if $conditional;
-        print F "#include \"$interfaceName.h\"\n";
-        #print F "#include \"JS$interfaceName.h\"\n";
+        print F "#include \"".$path."/".$interfaceName.".h\"\n";
         print F "#endif\n" if $conditional;
     }
 

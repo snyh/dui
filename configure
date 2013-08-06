@@ -21348,6 +21348,10 @@ $as_echo "#define WTF_USE_OPENGL_ES_2 1" >>confdefs.h
 fi
 
 
+$as_echo "#define WTF_USE_3D_GRAPHICS 1" >>confdefs.h
+
+
+
 
 # This adds the include line to the bottom of the autoconfig header.
 
@@ -22872,7 +22876,7 @@ fi
 # Processing of configuration files
 ######################################################################################
 
-ac_config_files="$ac_config_files GNUmakefile Source/WebCore/platform/gtk/po/POTFILES Source/JavaScriptCore/javascriptcoregtk-${WEBKITGTK_API_VERSION}.pc:Source/JavaScriptCore/javascriptcoregtk.pc.in JavaScriptCore-${WEBKITGTK_API_VERSION}.gir:Source/JavaScriptCore/JavaScriptCore.gir.in"
+ac_config_files="$ac_config_files GNUmakefile"
 
 
 cat >confcache <<\_ACEOF
@@ -24131,9 +24135,6 @@ do
     "libtool") CONFIG_COMMANDS="$CONFIG_COMMANDS libtool" ;;
     "depfiles") CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
     "GNUmakefile") CONFIG_FILES="$CONFIG_FILES GNUmakefile" ;;
-    "Source/WebCore/platform/gtk/po/POTFILES") CONFIG_FILES="$CONFIG_FILES Source/WebCore/platform/gtk/po/POTFILES" ;;
-    "Source/JavaScriptCore/javascriptcoregtk-${WEBKITGTK_API_VERSION}.pc") CONFIG_FILES="$CONFIG_FILES Source/JavaScriptCore/javascriptcoregtk-${WEBKITGTK_API_VERSION}.pc:Source/JavaScriptCore/javascriptcoregtk.pc.in" ;;
-    "JavaScriptCore-${WEBKITGTK_API_VERSION}.gir") CONFIG_FILES="$CONFIG_FILES JavaScriptCore-${WEBKITGTK_API_VERSION}.gir:Source/JavaScriptCore/JavaScriptCore.gir.in" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

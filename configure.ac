@@ -38,9 +38,6 @@ m4_include([Source/autotools/SetupAutomake.m4])
 # Processing of configuration files
 ######################################################################################
 
-AC_CONFIG_FILES([
-    GNUmakefile Source/WebCore/platform/gtk/po/POTFILES
-    Source/JavaScriptCore/javascriptcoregtk-${WEBKITGTK_API_VERSION}.pc:Source/JavaScriptCore/javascriptcoregtk.pc.in
-    JavaScriptCore-${WEBKITGTK_API_VERSION}.gir:Source/JavaScriptCore/JavaScriptCore.gir.in])
+AC_CONFIG_FILES([ GNUmakefile ])
 
 m4_include([Source/autotools/PrintBuildConfiguration.m4])

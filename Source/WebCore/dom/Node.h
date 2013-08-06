@@ -39,10 +39,6 @@
 #include <wtf/ListHashSet.h>
 #include <wtf/text/AtomicString.h>
 
-namespace JSC {
-    class VM;
-    class SlotVisitor;
-}
 
 // This needs to be here because Document.h also depends on it.
 #define DUMP_NODE_STATISTICS 0

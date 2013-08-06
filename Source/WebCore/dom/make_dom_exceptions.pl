@@ -141,15 +141,23 @@ sub generateImplementation()
     print F "#include \"config.h\"\n";
     print F "#include \"ExceptionCodeDescription.h\"\n";
     print F "\n";
-    print F "#include \"ExceptionCode.h\"\n";
+    print F "#include \"dom/ExceptionCode.h\"\n";
 
-    for my $exceptionType (sort keys %parsedItems) {
-        my $conditional = $parsedItems{$exceptionType}{"conditional"};
+    #for my $exceptionType (sort keys %parsedItems) {
+        #my $conditional = $parsedItems{$exceptionType}{"conditional"};
 
-        print F "#if ENABLE($conditional)\n" if $conditional;
-        print F "#include \"$exceptionType.h\"\n";
-        print F "#endif\n" if $conditional;
-    }
+        #print F "#if ENABLE($conditional)\n" if $conditional;
+        #print F "#include \"$exceptionType.h\"\n";
+        #print F "#endif\n" if $conditional;
+    #}
+    print F "#include \"dom/RangeException.h\"\n";
+    print F "#include \"dom/EventException.h\"\n";
+    print F "#include \"dom/DOMCoreException.h\"\n";
+    print F "#include \"svg/SVGException.h\"\n";
+    print F "#include \"fileapi/FileException.h\"\n";
+    print F "#include \"xml/XMLHttpRequestException.h\"\n";
+    print F "#include \"xml/XPathException.h\"\n";
+
 
     print F "#if ENABLE(INDEXED_DATABASE)\n";
     print F "#include \"IDBDatabaseException.h\"\n";

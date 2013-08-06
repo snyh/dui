@@ -83,3 +83,5 @@ fi
 if test "$enable_gles2" = "yes"; then
     AC_DEFINE([WTF_USE_OPENGL_ES_2], [1], [ ])
 fi
+
+AC_DEFINE([WTF_USE_3D_GRAPHICS], [1], [ ])

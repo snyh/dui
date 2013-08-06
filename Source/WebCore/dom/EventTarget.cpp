@@ -36,7 +36,7 @@
 #include "page/FeatureObserver.h"
 #include "dom/Event.h"
 #include "dom/EventException.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "dom/WebKitTransitionEvent.h"
 #include <wtf/MainThread.h>
 #include <wtf/StdLibExtras.h>

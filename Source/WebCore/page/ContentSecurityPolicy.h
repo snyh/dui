@@ -27,7 +27,7 @@
 #define ContentSecurityPolicy_h
 
 #include "platform/KURL.h"
-#include "bindings/dui/saved/ScriptState.h"
+#include "bindings/dui/ScriptState.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/RefCounted.h>
 #include <wtf/Vector.h>

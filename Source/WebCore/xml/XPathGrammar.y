@@ -29,13 +29,13 @@
 
 #include "config.h"
 
-#include "XPathFunctions.h"
-#include "XPathNSResolver.h"
-#include "XPathParser.h"
-#include "XPathPath.h"
-#include "XPathPredicate.h"
-#include "XPathStep.h"
-#include "XPathVariableReference.h"
+#include "xml/XPathFunctions.h"
+#include "xml/XPathNSResolver.h"
+#include "xml/XPathParser.h"
+#include "xml/XPathPath.h"
+#include "xml/XPathPredicate.h"
+#include "xml/XPathStep.h"
+#include "xml/XPathVariableReference.h"
 #include <wtf/FastMalloc.h>
 
 #define YYMALLOC fastMalloc

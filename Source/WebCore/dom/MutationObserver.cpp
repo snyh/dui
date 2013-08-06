@@ -32,7 +32,7 @@
 
 #include "dom/MutationObserver.h"
 
-#include "bindings/dui/saved/Dictionary.h"
+#include "bindings/dui/Dictionary.h"
 #include "dom/Document.h"
 #include "dom/ExceptionCode.h"
 #include "dom/MutationCallback.h"

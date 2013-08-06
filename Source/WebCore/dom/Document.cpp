@@ -49,7 +49,7 @@
 #include "dom/DOMNamedFlowCollection.h"
 #include "page/DOMWindow.h"
 #include "platform/DateComponents.h"
-#include "bindings/dui/saved/Dictionary.h"
+#include "bindings/dui/Dictionary.h"
 #include "dom/DocumentEventQueue.h"
 #include "dom/DocumentFragment.h"
 #include "loader/DocumentLoader.h"
@@ -123,7 +123,7 @@
 #include "rendering/RenderView.h"
 #include "rendering/RenderWidget.h"
 #include "loader/ResourceLoader.h"
-#include "bindings/dui/saved/RuntimeEnabledFeatures.h"
+#include "bindings/dui/RuntimeEnabledFeatures.h"
 #include "platform/SchemeRegistry.h"
 #include "dom/ScopedEventQueue.h"
 #include "page/scrolling/ScrollingCoordinator.h"
@@ -4014,12 +4014,6 @@ void Document::unregisterForMediaVolumeCallbacks(Element* e)
     m_mediaVolumeCallbackElements.remove(e);
 }
 
-void Document::storageBlockingStateDidChange()
-{
-    if (Settings* settings = this->settings())
-        securityOrigin()->setStorageBlockingPolicy(settings->storageBlockingPolicy());
-}
-
 void Document::privateBrowsingStateDidChange() 
 {
     HashSet<Element*>::iterator end = m_privateBrowsingStateChangedElements.end();
@@ -4488,7 +4482,6 @@ void Document::initSecurityContext()
                 securityOrigin()->enforceFilePathSeparation();
             }
         }
-        securityOrigin()->setStorageBlockingPolicy(settings->storageBlockingPolicy());
     }
 
     Document* parentDocument = ownerElement() ? ownerElement()->document() : 0;

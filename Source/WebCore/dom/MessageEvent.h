@@ -32,8 +32,8 @@
 #include "page/DOMWindow.h"
 #include "dom/Event.h"
 #include "dom/MessagePort.h"
-#include "bindings/dui/saved/ScriptValue.h"
-#include "bindings/dui/saved/SerializedScriptValue.h"
+#include "bindings/dui/ScriptValue.h"
+#include "bindings/dui/SerializedScriptValue.h"
 #include <wtf/ArrayBuffer.h>
 
 namespace WebCore {

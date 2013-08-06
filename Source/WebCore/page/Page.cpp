@@ -62,14 +62,12 @@
 #include "rendering/RenderTheme.h"
 #include "rendering/RenderView.h"
 #include "rendering/RenderWidget.h"
-#include "bindings/dui/saved/RuntimeEnabledFeatures.h"
+#include "bindings/dui/RuntimeEnabledFeatures.h"
 #include "platform/SchemeRegistry.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "page/scrolling/ScrollingCoordinator.h"
 #include "page/Settings.h"
 #include "platform/SharedBuffer.h"
-#include "storage/StorageArea.h"
-#include "storage/StorageNamespace.h"
 #include "css/StyleResolver.h"
 #include "loader/TextResourceDecoder.h"
 #include "dom/VisitedLinkState.h"
@@ -948,19 +946,6 @@ void Page::visitedStateChanged(PageGroup* group, LinkHash linkHash)
     }
 }
 
-StorageNamespace* Page::sessionStorage(bool optionalCreate)
-{
-    if (!m_sessionStorage && optionalCreate)
-        m_sessionStorage = StorageNamespace::sessionStorageNamespace(this);
-
-    return m_sessionStorage.get();
-}
-
-void Page::setSessionStorage(PassRefPtr<StorageNamespace> newStorage)
-{
-    m_sessionStorage = newStorage;
-}
-
 void Page::setCustomHTMLTokenizerTimeDelay(double customHTMLTokenizerTimeDelay)
 {
     if (customHTMLTokenizerTimeDelay < 0) {
@@ -1028,12 +1013,6 @@ void Page::dnsPrefetchingStateChanged()
 {
     for (Frame* frame = mainFrame(); frame; frame = frame->tree()->traverseNext())
         frame->document()->initDNSPrefetch();
-}
-
-void Page::storageBlockingStateChanged()
-{
-    for (Frame* frame = mainFrame(); frame; frame = frame->tree()->traverseNext())
-        frame->document()->storageBlockingStateDidChange();
 }
 
 void Page::privateBrowsingStateChanged()

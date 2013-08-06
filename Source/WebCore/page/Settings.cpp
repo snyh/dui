@@ -37,7 +37,6 @@
 #include "page/FrameView.h"
 #include "html/HTMLMediaElement.h"
 #include "page/Page.h"
-#include "storage/StorageMap.h"
 #include "rendering/TextAutosizer.h"
 #include <limits>
 
@@ -120,7 +119,6 @@ Settings::Settings(Page* page)
     : m_page(0)
     , m_mediaTypeOverride("screen")
     , m_fontGenericFamilies(FontGenericFamilies::create())
-    , m_storageBlockingPolicy(SecurityOrigin::AllowAllStorage)
 #if ENABLE(TEXT_AUTOSIZING)
     , m_textAutosizingFontScaleFactor(1)
 #if HACK_FORCE_TEXT_AUTOSIZING_ON_DESKTOP
@@ -496,15 +494,6 @@ void Settings::setShouldUseHighResolutionTimers(bool shouldUseHighResolutionTime
     gShouldUseHighResolutionTimers = shouldUseHighResolutionTimers;
 }
 #endif
-
-void Settings::setStorageBlockingPolicy(SecurityOrigin::StorageBlockingPolicy enabled)
-{
-    if (m_storageBlockingPolicy == enabled)
-        return;
-
-    m_storageBlockingPolicy = enabled;
-    m_page->storageBlockingStateChanged();
-}
 
 void Settings::setTiledBackingStoreEnabled(bool enabled)
 {

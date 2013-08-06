@@ -62,11 +62,11 @@
 #include "platform/PlatformMouseEvent.h"
 #include "rendering/RenderTextControlSingleLine.h"
 #include "rendering/RenderTheme.h"
-#include "bindings/dui/saved/RuntimeEnabledFeatures.h"
+#include "bindings/dui/RuntimeEnabledFeatures.h"
 #include "dom/ScopedEventQueue.h"
 #include "html/SearchInputType.h"
 #include "dom/ShadowRoot.h"
-#include "bindings/dui/saved/ScriptEventListener.h"
+#include "bindings/dui/ScriptEventListener.h"
 #include "css/StyleResolver.h"
 #include <wtf/MathExtras.h>
 
@@ -75,7 +75,7 @@
 #endif
 
 #if ENABLE(INPUT_SPEECH)
-#include "bindings/dui/saved/RuntimeEnabledFeatures.h"
+#include "bindings/dui/RuntimeEnabledFeatures.h"
 #endif
 
 #if ENABLE(TOUCH_EVENTS)

@@ -40,7 +40,7 @@
 #include "svg/SVGGraphicsElement.h"
 #include "SVGNames.h"
 #include "svg/SVGSVGElement.h"
-#include "bindings/dui/saved/ScriptEventListener.h"
+#include "bindings/dui/ScriptEventListener.h"
 #include "XMLNames.h"
 
 namespace WebCore {

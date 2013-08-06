@@ -617,9 +617,6 @@ dom_binding_idls += \
 	$(WebCore)/page/SpeechInputResultList.idl \
 	$(WebCore)/page/WebKitPoint.idl \
 	$(WebCore)/page/WindowTimers.idl \
-	$(WebCore)/page/WorkerNavigator.idl \
-	$(WebCore)/storage/Storage.idl \
-	$(WebCore)/storage/StorageEvent.idl \
 	$(WebCore)/svg/SVGAElement.idl \
 	$(WebCore)/svg/SVGAltGlyphDefElement.idl \
 	$(WebCore)/svg/SVGAltGlyphElement.idl \
@@ -768,13 +765,6 @@ dom_binding_idls += \
 	$(WebCore)/svg/SVGViewSpec.idl \
 	$(WebCore)/svg/SVGZoomAndPan.idl \
 	$(WebCore)/svg/SVGZoomEvent.idl \
-	$(WebCore)/workers/AbstractWorker.idl \
-	$(WebCore)/workers/DedicatedWorkerGlobalScope.idl \
-	$(WebCore)/workers/SharedWorker.idl \
-	$(WebCore)/workers/SharedWorkerGlobalScope.idl \
-	$(WebCore)/workers/Worker.idl \
-	$(WebCore)/workers/WorkerGlobalScope.idl \
-	$(WebCore)/workers/WorkerLocation.idl \
 	$(WebCore)/xml/DOMParser.idl \
 	$(WebCore)/xml/XMLHttpRequest.idl \
 	$(WebCore)/xml/XMLHttpRequestException.idl \
@@ -844,6 +834,7 @@ webcore_sources += \
 	Source/WebCore/accessibility/AXObjectCache.cpp \
 	Source/WebCore/accessibility/AXObjectCache.h \
 	Source/WebCore/bindings/dui/RuntimeEnabledFeatures.h \
+	Source/WebCore/bindings/dui/RuntimeEnabledFeatures.cpp \
 	Source/WebCore/config.h \
 	Source/WebCore/css/BasicShapeFunctions.cpp \
 	Source/WebCore/css/BasicShapeFunctions.h \
@@ -2221,8 +2212,6 @@ webcore_sources += \
 	Source/WebCore/loader/ThreadableLoaderClientWrapper.h \
 	Source/WebCore/loader/ThreadableLoader.cpp \
 	Source/WebCore/loader/ThreadableLoader.h \
-	Source/WebCore/loader/WorkerThreadableLoader.cpp \
-	Source/WebCore/loader/WorkerThreadableLoader.h \
 	Source/WebCore/mathml/MathMLElement.cpp \
 	Source/WebCore/mathml/MathMLElement.h \
 	Source/WebCore/mathml/MathMLInlineContainerElement.cpp \
@@ -2411,8 +2400,6 @@ webcore_sources += \
 	Source/WebCore/page/WindowFeatures.h \
 	Source/WebCore/page/WindowFocusAllowedIndicator.cpp \
 	Source/WebCore/page/WindowFocusAllowedIndicator.h \
-	Source/WebCore/page/WorkerNavigator.cpp \
-	Source/WebCore/page/WorkerNavigator.h \
 	Source/WebCore/rendering/AutoTableLayout.cpp \
 	Source/WebCore/rendering/AutoTableLayout.h \
 	Source/WebCore/rendering/BidiRun.cpp \
@@ -2752,71 +2739,7 @@ webcore_sources += \
 	Source/WebCore/rendering/style/GridTrackSize.h \
 	Source/WebCore/rendering/TableLayout.h \
 	Source/WebCore/rendering/TrailingFloatsRootInlineBox.h \
-	Source/WebCore/storage/StorageThread.cpp \
-	Source/WebCore/storage/StorageThread.h \
-	Source/WebCore/storage/StorageArea.h \
-	Source/WebCore/storage/StorageAreaImpl.cpp \
-	Source/WebCore/storage/StorageAreaImpl.h \
-	Source/WebCore/storage/StorageAreaSync.cpp \
-	Source/WebCore/storage/StorageAreaSync.h \
-	Source/WebCore/storage/Storage.cpp \
-	Source/WebCore/storage/Storage.h \
-	Source/WebCore/storage/StorageEvent.cpp \
-	Source/WebCore/storage/StorageEvent.h \
-	Source/WebCore/storage/StorageEventDispatcher.cpp \
-	Source/WebCore/storage/StorageEventDispatcher.h \
-	Source/WebCore/storage/StorageMap.cpp \
-	Source/WebCore/storage/StorageMap.h \
-	Source/WebCore/storage/StorageNamespace.cpp \
-	Source/WebCore/storage/StorageNamespace.h \
-	Source/WebCore/storage/StorageNamespaceImpl.cpp \
-	Source/WebCore/storage/StorageNamespaceImpl.h \
-	Source/WebCore/storage/StorageStrategy.cpp \
-	Source/WebCore/storage/StorageStrategy.h \
-	Source/WebCore/storage/StorageSyncManager.cpp \
-	Source/WebCore/storage/StorageSyncManager.h \
-	Source/WebCore/storage/StorageTracker.cpp \
-	Source/WebCore/storage/StorageTracker.h \
-	Source/WebCore/storage/StorageTrackerClient.h \
 	Source/WebCore/WebCorePrefix.h \
-	Source/WebCore/workers/AbstractWorker.cpp \
-	Source/WebCore/workers/AbstractWorker.h \
-	Source/WebCore/workers/DedicatedWorkerGlobalScope.cpp \
-	Source/WebCore/workers/DedicatedWorkerGlobalScope.h \
-	Source/WebCore/workers/DedicatedWorkerThread.cpp \
-	Source/WebCore/workers/DedicatedWorkerThread.h \
-	Source/WebCore/workers/DefaultSharedWorkerRepository.cpp \
-	Source/WebCore/workers/DefaultSharedWorkerRepository.h \
-	Source/WebCore/workers/SharedWorkerGlobalScope.cpp \
-	Source/WebCore/workers/SharedWorkerGlobalScope.h \
-	Source/WebCore/workers/SharedWorker.cpp \
-	Source/WebCore/workers/SharedWorker.h \
-	Source/WebCore/workers/SharedWorkerRepository.cpp \
-	Source/WebCore/workers/SharedWorkerRepository.h \
-	Source/WebCore/workers/SharedWorkerStrategy.h \
-	Source/WebCore/workers/SharedWorkerThread.cpp \
-	Source/WebCore/workers/SharedWorkerThread.h \
-	Source/WebCore/workers/WorkerGlobalScope.cpp \
-	Source/WebCore/workers/WorkerGlobalScope.h \
-	Source/WebCore/workers/WorkerGlobalScopeProxy.h \
-	Source/WebCore/workers/WorkerEventQueue.cpp \
-	Source/WebCore/workers/WorkerEventQueue.h \
-	Source/WebCore/workers/Worker.cpp \
-	Source/WebCore/workers/Worker.h \
-	Source/WebCore/workers/WorkerLoaderProxy.h \
-	Source/WebCore/workers/WorkerLocation.cpp \
-	Source/WebCore/workers/WorkerLocation.h \
-	Source/WebCore/workers/WorkerMessagingProxy.cpp \
-	Source/WebCore/workers/WorkerMessagingProxy.h \
-	Source/WebCore/workers/WorkerObjectProxy.h \
-	Source/WebCore/workers/WorkerReportingProxy.h \
-	Source/WebCore/workers/WorkerRunLoop.cpp \
-	Source/WebCore/workers/WorkerRunLoop.h \
-	Source/WebCore/workers/WorkerScriptLoaderClient.h \
-	Source/WebCore/workers/WorkerScriptLoader.cpp \
-	Source/WebCore/workers/WorkerScriptLoader.h \
-	Source/WebCore/workers/WorkerThread.cpp \
-	Source/WebCore/workers/WorkerThread.h \
 	Source/WebCore/xml/parser/CharacterReferenceParserInlines.h \
 	Source/WebCore/xml/parser/MarkupTokenizerInlines.h \
 	Source/WebCore/xml/parser/XMLDocumentParser.cpp \

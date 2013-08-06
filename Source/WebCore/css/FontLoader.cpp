@@ -33,7 +33,7 @@
 #include "css/CSSFontSelector.h"
 #include "css/CSSParser.h"
 #include "css/CSSSegmentedFontFace.h"
-#include "bindings/dui/saved/Dictionary.h"
+#include "bindings/dui/Dictionary.h"
 #include "dom/Document.h"
 #include "page/FrameView.h"
 #include "css/StylePropertySet.h"

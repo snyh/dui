@@ -43,7 +43,7 @@
 #include "rendering/RenderImage.h"
 #include "RenderSnapshottedPlugIn.h"
 #include "platform/SchemeRegistry.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "page/SecurityOrigin.h"
 #include "page/Settings.h"
 #include "dom/ShadowRoot.h"

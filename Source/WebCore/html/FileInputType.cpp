@@ -38,7 +38,7 @@
 #include "html/InputTypeNames.h"
 #include "platform/LocalizedStrings.h"
 #include "rendering/RenderFileUploadControl.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "dom/ShadowRoot.h"
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/StringBuilder.h>

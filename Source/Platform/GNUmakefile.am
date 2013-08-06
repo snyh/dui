@@ -11,6 +11,8 @@ platform_cppflags += \
 	-I$(srcdir)/Source/ThirdParty/ANGLE/include \
 	-I$(srcdir)/Source/ThirdParty/ANGLE/include/GLSLANG \
 	-I$(srcdir)/Source/ThirdParty/ANGLE/include/KHR \
+	-I$(srcdir)/Source/WTF/ \
+	-I$(srcdir)/Source/WebCore/ \
 	-I$(top_builddir)/DerivedSources/Platform
 
 platformgtk_cppflags += \

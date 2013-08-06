@@ -31,7 +31,7 @@
 #include "html/HTMLDivElement.h"
 #include "html/HTMLInputElement.h"
 #include "page/Page.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "dom/ShadowRoot.h"
 
 namespace WebCore {

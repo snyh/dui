@@ -36,9 +36,9 @@
 #include "dom/ExceptionCodePlaceholder.h"
 #include "page/Frame.h"
 #include "page/Page.h"
-#include "bindings/dui/saved/ScriptController.h"
-#include "bindings/dui/saved/ScriptSourceCode.h"
-#include "bindings/dui/saved/ScriptValue.h"
+#include "bindings/dui/ScriptController.h"
+#include "bindings/dui/ScriptSourceCode.h"
+#include "bindings/dui/ScriptValue.h"
 #include "page/Settings.h"
 #include "dom/Text.h"
 

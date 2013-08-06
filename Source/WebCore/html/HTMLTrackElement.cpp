@@ -32,8 +32,8 @@
 #include "html/HTMLMediaElement.h"
 #include "HTMLNames.h"
 #include "platform/Logging.h"
-#include "bindings/dui/saved/RuntimeEnabledFeatures.h"
-#include "bindings/dui/saved/ScriptEventListener.h"
+#include "bindings/dui/RuntimeEnabledFeatures.h"
+#include "bindings/dui/ScriptEventListener.h"
 
 using namespace std;
 

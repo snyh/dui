@@ -88,7 +88,7 @@
 #include "page/SecurityOrigin.h"
 #include "page/SecurityPolicy.h"
 #include "platform/text/SegmentedString.h"
-#include "bindings/dui/saved/SerializedScriptValue.h"
+#include "bindings/dui/SerializedScriptValue.h"
 #include "page/Settings.h"
 #include "loader/TextResourceDecoder.h"
 #include "page/WindowFeatures.h"

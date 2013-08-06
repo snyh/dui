@@ -40,7 +40,7 @@
 #include "RenderEmbeddedObject.h"
 #include "RenderSnapshottedPlugIn.h"
 #include "rendering/RenderWidget.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "page/Settings.h"
 #include "platform/Widget.h"
 

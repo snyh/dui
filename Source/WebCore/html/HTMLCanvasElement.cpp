@@ -47,9 +47,6 @@
 #include "page/Settings.h"
 #include <math.h>
 
-#include <runtime/JSLock.h>
-#include <runtime/Operations.h>
-
 #if ENABLE(WEBGL)    
 #include "html/canvas/WebGLContextAttributes.h"
 #include "html/canvas/WebGLRenderingContext.h"

@@ -34,9 +34,7 @@
 #include "dom/MessagePort.h"
 #include "html/PublicURLManager.h"
 #include "page/Settings.h"
-#include "workers/WorkerGlobalScope.h"
-#include "workers/WorkerThread.h"
-#include "bindings/dui/saved/ScriptState.h"
+#include "bindings/dui/ScriptState.h"
 #include <wtf/MainThread.h>
 
 namespace WebCore {
@@ -116,10 +114,6 @@ void ScriptExecutionContext::dispatchMessagePortEvents()
 void ScriptExecutionContext::createdMessagePort(MessagePort* port)
 {
     ASSERT(port);
-#if ENABLE(WORKERS)
-    ASSERT((isDocument() && isMainThread())
-        || (isWorkerGlobalScope() && currentThread() == static_cast<WorkerGlobalScope*>(this)->thread()->threadID()));
-#endif
 
     m_messagePorts.add(port);
 }
@@ -127,10 +121,6 @@ void ScriptExecutionContext::createdMessagePort(MessagePort* port)
 void ScriptExecutionContext::destroyedMessagePort(MessagePort* port)
 {
     ASSERT(port);
-#if ENABLE(WORKERS)
-    ASSERT((isDocument() && isMainThread())
-        || (isWorkerGlobalScope() && currentThread() == static_cast<WorkerGlobalScope*>(this)->thread()->threadID()));
-#endif
 
     m_messagePorts.remove(port);
 }

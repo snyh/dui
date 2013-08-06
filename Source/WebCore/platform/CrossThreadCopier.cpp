@@ -36,7 +36,7 @@
 #include "platform/network/soup/ResourceError.h"
 #include "platform/network/soup/ResourceRequest.h"
 #include "platform/network/soup/ResourceResponse.h"
-#include "bindings/dui/saved/SerializedScriptValue.h"
+#include "bindings/dui/SerializedScriptValue.h"
 #include <wtf/Assertions.h>
 #include <wtf/text/WTFString.h>
 

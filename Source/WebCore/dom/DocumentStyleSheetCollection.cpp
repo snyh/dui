@@ -29,7 +29,7 @@
 #include "dom/DocumentStyleSheetCollection.h"
 
 #include "css/CSSStyleSheet.h"
-#include "bindings/dui/saved/DOMWrapperWorld.h"
+#include "bindings/dui/DOMWrapperWorld.h"
 #include "dom/Document.h"
 #include "dom/Element.h"
 #include "html/HTMLIFrameElement.h"

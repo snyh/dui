@@ -30,7 +30,7 @@
 #define PageConsole_h
 
 #include "page/ConsoleTypes.h"
-#include "bindings/dui/saved/ScriptState.h"
+#include "bindings/dui/ScriptState.h"
 #include <wtf/Forward.h>
 #include <wtf/PassOwnPtr.h>
 

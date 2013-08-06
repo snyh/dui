@@ -79,7 +79,6 @@ class VisibleSelection;
 class ScrollableArea;
 class ScrollingCoordinator;
 class Settings;
-class StorageNamespace;
 class ValidationMessageClient;
 
 typedef uint64_t LinkHash;
@@ -278,16 +277,12 @@ public:
     const String& userStyleSheet() const;
 
     void dnsPrefetchingStateChanged();
-    void storageBlockingStateChanged();
     void privateBrowsingStateChanged();
 
     static void removeAllVisitedLinks();
 
     static void allVisitedStateChanged(PageGroup*);
     static void visitedStateChanged(PageGroup*, LinkHash visitedHash);
-
-    StorageNamespace* sessionStorage(bool optionalCreate = true);
-    void setSessionStorage(PassRefPtr<StorageNamespace>);
 
     void setCustomHTMLTokenizerTimeDelay(double);
     bool hasCustomHTMLTokenizerTimeDelay() const { return m_customHTMLTokenizerTimeDelay != -1; }
@@ -448,8 +443,6 @@ private:
     int m_customHTMLTokenizerChunkSize;
 
     bool m_canStartMedia;
-
-    RefPtr<StorageNamespace> m_sessionStorage;
 
 #if ENABLE(VIEW_MODE_CSS_MEDIA)
     ViewMode m_viewMode;

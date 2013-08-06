@@ -30,9 +30,6 @@
 #include "html/parser/HTMLParserIdioms.h"
 #include "page/Settings.h"
 
-#include <runtime/JSLock.h>
-#include <runtime/Operations.h>
-
 namespace WebCore {
 
 HTMLImageLoader::HTMLImageLoader(Element* node)

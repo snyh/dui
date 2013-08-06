@@ -71,7 +71,7 @@
 #include "HTMLNames.h"
 #include "platform/KURL.h"
 #include "page/Page.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "page/Settings.h"
 #include "css/StyleResolver.h"
 #include <wtf/text/CString.h>

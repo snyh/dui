@@ -65,7 +65,6 @@ namespace WebCore {
     class ScriptCallStack;
     class SecurityOrigin;
     class SerializedScriptValue;
-    class Storage;
     class StyleMedia;
     class WebKitPoint;
     class DOMWindowCSS;
@@ -332,7 +331,6 @@ namespace WebCore {
         DEFINE_ATTRIBUTE_EVENT_LISTENER(seeking);
         DEFINE_ATTRIBUTE_EVENT_LISTENER(select);
         DEFINE_ATTRIBUTE_EVENT_LISTENER(stalled);
-        DEFINE_ATTRIBUTE_EVENT_LISTENER(storage);
         DEFINE_ATTRIBUTE_EVENT_LISTENER(submit);
         DEFINE_ATTRIBUTE_EVENT_LISTENER(suspend);
         DEFINE_ATTRIBUTE_EVENT_LISTENER(timeupdate);
@@ -364,12 +362,6 @@ namespace WebCore {
 #if ENABLE(PROXIMITY_EVENTS)
         DEFINE_ATTRIBUTE_EVENT_LISTENER(webkitdeviceproximity);
 #endif
-
-        // HTML 5 key/value storage
-        Storage* sessionStorage(ExceptionCode&) const;
-        Storage* localStorage(ExceptionCode&) const;
-        Storage* optionalSessionStorage() const { return m_sessionStorage.get(); }
-        Storage* optionalLocalStorage() const { return m_localStorage.get(); }
 
         DOMApplicationCache* applicationCache() const;
         DOMApplicationCache* optionalApplicationCache() const { return m_applicationCache.get(); }
@@ -453,8 +445,6 @@ namespace WebCore {
         String m_status;
         String m_defaultStatus;
 
-        mutable RefPtr<Storage> m_sessionStorage;
-        mutable RefPtr<Storage> m_localStorage;
         mutable RefPtr<DOMApplicationCache> m_applicationCache;
 
 #if ENABLE(WEB_TIMING)

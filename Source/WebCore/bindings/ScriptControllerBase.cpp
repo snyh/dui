@@ -19,7 +19,7 @@
  */
 
 #include "config.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 
 #include "page/ContentSecurityPolicy.h"
 #include "dom/Document.h"
@@ -28,8 +28,8 @@
 #include "loader/FrameLoader.h"
 #include "loader/FrameLoaderClient.h"
 #include "page/Page.h"
-#include "bindings/dui/saved/ScriptSourceCode.h"
-#include "bindings/dui/saved/ScriptValue.h"
+#include "bindings/dui/ScriptSourceCode.h"
+#include "bindings/dui/ScriptValue.h"
 #include "page/SecurityOrigin.h"
 #include "page/Settings.h"
 #include "dom/UserGestureIndicator.h"

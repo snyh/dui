@@ -60,7 +60,7 @@
 #include "dom/ShadowRoot.h"
 #include "page/SpatialNavigation.h"
 #include "platform/Widget.h"
-#include "htmlediting.h" // For firstPositionInOrBeforeNode
+#include "editing/htmlediting.h" // For firstPositionInOrBeforeNode
 #include <limits>
 
 namespace WebCore {

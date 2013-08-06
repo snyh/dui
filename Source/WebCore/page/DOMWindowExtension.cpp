@@ -27,7 +27,7 @@
 #include "page/DOMWindowExtension.h"
 
 #include "page/DOMWindow.h"
-#include "bindings/dui/saved/DOMWrapperWorld.h"
+#include "bindings/dui/DOMWrapperWorld.h"
 #include "page/Frame.h"
 #include "loader/FrameLoader.h"
 #include "loader/FrameLoaderClient.h"

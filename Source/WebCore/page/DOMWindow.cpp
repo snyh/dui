@@ -78,17 +78,14 @@
 #include "dom/PageTransitionEvent.h"
 #include "page/Performance.h"
 #include "platform/PlatformScreen.h"
-#include "bindings/dui/saved/RuntimeEnabledFeatures.h"
-#include "bindings/dui/saved/ScheduledAction.h"
+#include "bindings/dui/RuntimeEnabledFeatures.h"
+#include "bindings/dui/ScheduledAction.h"
 #include "page/Screen.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "page/SecurityOrigin.h"
 #include "page/SecurityPolicy.h"
-#include "bindings/dui/saved/SerializedScriptValue.h"
+#include "bindings/dui/SerializedScriptValue.h"
 #include "page/Settings.h"
-#include "storage/Storage.h"
-#include "storage/StorageArea.h"
-#include "storage/StorageNamespace.h"
 #include "css/StyleMedia.h"
 #include "css/StyleResolver.h"
 #include "platform/SuddenTermination.h"
@@ -380,8 +377,6 @@ DOMWindow::~DOMWindow()
 #endif
         ASSERT(!m_location);
         ASSERT(!m_media);
-        ASSERT(!m_sessionStorage);
-        ASSERT(!m_localStorage);
         ASSERT(!m_applicationCache);
     }
 #endif
@@ -535,8 +530,6 @@ void DOMWindow::resetDOMWindowProperties()
 #endif
     m_location = 0;
     m_media = 0;
-    m_sessionStorage = 0;
-    m_localStorage = 0;
     m_applicationCache = 0;
 }
 
@@ -679,86 +672,6 @@ Location* DOMWindow::location() const
     if (!m_location)
         m_location = Location::create(m_frame);
     return m_location.get();
-}
-
-Storage* DOMWindow::sessionStorage(ExceptionCode& ec) const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-
-    Document* document = this->document();
-    if (!document)
-        return 0;
-
-    if (!document->securityOrigin()->canAccessSessionStorage(document->topOrigin())) {
-        ec = SECURITY_ERR;
-        return 0;
-    }
-
-    if (m_sessionStorage) {
-        if (!m_sessionStorage->area().canAccessStorage(m_frame)) {
-            ec = SECURITY_ERR;
-            return 0;
-        }
-        return m_sessionStorage.get();
-    }
-
-    Page* page = document->page();
-    if (!page)
-        return 0;
-
-    RefPtr<StorageArea> storageArea = page->sessionStorage()->storageArea(document->securityOrigin());
-    if (!storageArea->canAccessStorage(m_frame)) {
-        ec = SECURITY_ERR;
-        return 0;
-    }
-
-    m_sessionStorage = Storage::create(m_frame, storageArea.release());
-    return m_sessionStorage.get();
-}
-
-Storage* DOMWindow::localStorage(ExceptionCode& ec) const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-
-    Document* document = this->document();
-    if (!document)
-        return 0;
-
-    if (!document->securityOrigin()->canAccessLocalStorage(0)) {
-        ec = SECURITY_ERR;
-        return 0;
-    }
-
-    if (m_localStorage) {
-        if (!m_localStorage->area().canAccessStorage(m_frame)) {
-            ec = SECURITY_ERR;
-            return 0;
-        }
-        return m_localStorage.get();
-    }
-
-    Page* page = document->page();
-    if (!page)
-        return 0;
-
-    if (!page->settings()->localStorageEnabled())
-        return 0;
-
-    RefPtr<StorageArea> storageArea;
-    if (!document->securityOrigin()->canAccessLocalStorage(document->topOrigin()))
-        storageArea = page->group().transientLocalStorage(document->topOrigin())->storageArea(document->securityOrigin());
-    else
-        storageArea = page->group().localStorage()->storageArea(document->securityOrigin());
-
-    if (!storageArea->canAccessStorage(m_frame)) {
-        ec = SECURITY_ERR;
-        return 0;
-    }
-
-    m_localStorage = Storage::create(m_frame, storageArea.release());
-    return m_localStorage.get();
 }
 
 DOMSelection* DOMWindow::getSelection()
@@ -1447,16 +1360,6 @@ DOMWindowCSS* DOMWindow::css()
 }
 #endif
 
-static void didAddStorageEventListener(DOMWindow* window)
-{
-    // Creating these WebCore::Storage objects informs the system that we'd like to receive
-    // notifications about storage events that might be triggered in other processes. Rather
-    // than subscribe to these notifications explicitly, we subscribe to them implicitly to
-    // simplify the work done by the system. 
-    window->localStorage(IGNORE_EXCEPTION);
-    window->sessionStorage(IGNORE_EXCEPTION);
-}
-
 bool DOMWindow::addEventListener(const AtomicString& eventType, PassRefPtr<EventListener> listener, bool useCapture)
 {
     if (!EventTarget::addEventListener(eventType, listener, useCapture))
@@ -1468,8 +1371,6 @@ bool DOMWindow::addEventListener(const AtomicString& eventType, PassRefPtr<Event
             document->didAddWheelEventHandler();
         else if (eventNames().isTouchEventType(eventType))
             document->didAddTouchEventHandler(document);
-        else if (eventType == eventNames().storageEvent)
-            didAddStorageEventListener(this);
     }
 
     if (eventType == eventNames().unloadEvent)

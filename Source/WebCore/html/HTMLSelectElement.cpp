@@ -53,7 +53,7 @@
 #include "rendering/RenderListBox.h"
 #include "rendering/RenderMenuList.h"
 #include "rendering/RenderTheme.h"
-#include "bindings/dui/saved/ScriptEventListener.h"
+#include "bindings/dui/ScriptEventListener.h"
 #include "page/Settings.h"
 #include "page/SpatialNavigation.h"
 

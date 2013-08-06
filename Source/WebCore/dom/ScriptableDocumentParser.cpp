@@ -28,7 +28,7 @@
 
 #include "dom/Document.h"
 #include "page/Frame.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 #include "page/Settings.h"
 
 namespace WebCore {

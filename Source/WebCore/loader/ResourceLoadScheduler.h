@@ -39,8 +39,6 @@ namespace WebCore {
 class CachedResource;
 class Frame;
 class KURL;
-class NetscapePlugInStreamLoader;
-class NetscapePlugInStreamLoaderClient;
 class ResourceLoader;
 class ResourceRequest;
 class SubresourceLoader;
@@ -51,7 +49,6 @@ public:
     friend ResourceLoadScheduler* resourceLoadScheduler();
 
     virtual PassRefPtr<SubresourceLoader> scheduleSubresourceLoad(Frame*, CachedResource*, const ResourceRequest&, ResourceLoadPriority, const ResourceLoaderOptions&);
-    virtual PassRefPtr<NetscapePlugInStreamLoader> schedulePluginStreamLoad(Frame*, NetscapePlugInStreamLoaderClient*, const ResourceRequest&);
     virtual void remove(ResourceLoader*);
     virtual void crossOriginRedirectReceived(ResourceLoader*, const KURL& redirectURL);
     

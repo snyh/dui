@@ -28,7 +28,7 @@
 
 #include "page/Chrome.h"
 #include "page/ChromeClient.h"
-#include "bindings/dui/saved/DOMWrapperWorld.h"
+#include "bindings/dui/DOMWrapperWorld.h"
 #include "dom/Document.h"
 #include "dom/DocumentStyleSheetCollection.h"
 #include "page/Frame.h"
@@ -36,7 +36,6 @@
 #include "page/Page.h"
 #include "page/SecurityOrigin.h"
 #include "page/Settings.h"
-#include "storage/StorageNamespace.h"
 
 #if ENABLE(VIDEO_TRACK)
 #if (PLATFORM(MAC) && !PLATFORM(IOS)) || HAVE(MEDIA_ACCESSIBILITY_FRAMEWORK)
@@ -104,67 +103,6 @@ PageGroup* PageGroup::pageGroup(const String& groupName)
 
     ASSERT(result.iterator->value);
     return result.iterator->value;
-}
-
-void PageGroup::closeLocalStorage()
-{
-    if (!pageGroups)
-        return;
-
-    PageGroupMap::iterator end = pageGroups->end();
-
-    for (PageGroupMap::iterator it = pageGroups->begin(); it != end; ++it) {
-        if (it->value->hasLocalStorage())
-            it->value->localStorage()->close();
-    }
-}
-
-void PageGroup::clearLocalStorageForAllOrigins()
-{
-    if (!pageGroups)
-        return;
-
-    PageGroupMap::iterator end = pageGroups->end();
-    for (PageGroupMap::iterator it = pageGroups->begin(); it != end; ++it) {
-        if (it->value->hasLocalStorage())
-            it->value->localStorage()->clearAllOriginsForDeletion();
-    }
-}
-
-void PageGroup::clearLocalStorageForOrigin(SecurityOrigin* origin)
-{
-    if (!pageGroups)
-        return;
-
-    PageGroupMap::iterator end = pageGroups->end();
-    for (PageGroupMap::iterator it = pageGroups->begin(); it != end; ++it) {
-        if (it->value->hasLocalStorage())
-            it->value->localStorage()->clearOriginForDeletion(origin);
-    }
-}
-
-void PageGroup::closeIdleLocalStorageDatabases()
-{
-    if (!pageGroups)
-        return;
-
-    PageGroupMap::iterator end = pageGroups->end();
-    for (PageGroupMap::iterator it = pageGroups->begin(); it != end; ++it) {
-        if (it->value->hasLocalStorage())
-            it->value->localStorage()->closeIdleLocalStorageDatabases();
-    }
-}
-
-void PageGroup::syncLocalStorage()
-{
-    if (!pageGroups)
-        return;
-
-    PageGroupMap::iterator end = pageGroups->end();
-    for (PageGroupMap::iterator it = pageGroups->begin(); it != end; ++it) {
-        if (it->value->hasLocalStorage())
-            it->value->localStorage()->sync();
-    }
 }
 
 unsigned PageGroup::numberOfPageGroups()
@@ -249,24 +187,6 @@ void PageGroup::setShouldTrackVisitedLinks(bool shouldTrack)
     shouldTrackVisitedLinks = shouldTrack;
     if (!shouldTrackVisitedLinks)
         removeAllVisitedLinks();
-}
-
-StorageNamespace* PageGroup::localStorage()
-{
-    if (!m_localStorage)
-        m_localStorage = StorageNamespace::localStorageNamespace(this);
-
-    return m_localStorage.get();
-}
-
-StorageNamespace* PageGroup::transientLocalStorage(SecurityOrigin* topOrigin)
-{
-    HashMap<RefPtr<SecurityOrigin>, RefPtr<StorageNamespace> >::AddResult result = m_transientLocalStorageMap.add(topOrigin, 0);
-
-    if (result.isNewEntry)
-        result.iterator->value = StorageNamespace::transientLocalStorageNamespace(this, topOrigin);
-
-    return result.iterator->value.get();
 }
 
 void PageGroup::addUserScriptToWorld(DOMWrapperWorld* world, const String& source, const KURL& url,

@@ -616,7 +616,7 @@ sub printNamesHeaderFile
     open F, ">$headerPath";
 
     printLicenseHeader($F);
-    printHeaderHead($F, "DOM", $parameters{namespace}, "#include \"QualifiedName.h\"");
+    printHeaderHead($F, "DOM", $parameters{namespace}, "#include \"dom/QualifiedName.h\"");
 
     my $lowerNamespace = lc($parameters{namespacePrefix});
     print F "// Namespace\n";
@@ -748,9 +748,17 @@ sub printElementIncludes
         }
         $tagsSeen{$interfaceName} = 1;
 
-        print F "#include \"${interfaceName}.h\"\n";
+        if (${interfaceName} ~~ m/^html/i) {
+            print F "#include \"html/${interfaceName}.h\"\n";
+        } elsif  (${interfaceName} ~~ m/^svg/i) {
+            print F "#include \"svg/${interfaceName}.h\"\n";
+        } elsif  (${interfaceName} ~~ m/^math/i) {
+            print F "#include \"mathml/${interfaceName}.h\"\n";
+        } else {
+            print F "#include \"dom/${interfaceName}.h\"\n";
+        }
     }
-    print F "#include \"$parameters{fallbackInterfaceName}.h\"\n";
+    print F "#include \"html/$parameters{fallbackInterfaceName}.h\"\n";
 }
 
 sub printConditionalElementIncludes
@@ -842,17 +850,17 @@ printConditionalElementIncludes($F, 0);
 
 print F <<END
 
-#include "ContextFeatures.h"
-#include "RuntimeEnabledFeatures.h"
+#include "dom/ContextFeatures.h"
+#include "bindings/dui/RuntimeEnabledFeatures.h"
 
 #if ENABLE(CUSTOM_ELEMENTS)
-#include "CustomElementConstructor.h"
-#include "CustomElementRegistry.h"
+#include "dom/CustomElementConstructor.h"
+#include "dom/CustomElementRegistry.h"
 #endif
 
 #if ENABLE(DASHBOARD_SUPPORT) || ENABLE(VIDEO)
-#include "Document.h"
-#include "Settings.h"
+#include "dom/Document.h"
+#include "page/Settings.h"
 #endif
 
 namespace WebCore {
@@ -1127,12 +1135,12 @@ sub printWrapperFactoryCppFile
 
     print F <<END
 
-#include "ContextFeatures.h"
-#include "RuntimeEnabledFeatures.h"
+#include "dom/ContextFeatures.h"
+#include "bindings/dui/RuntimeEnabledFeatures.h"
 
 #if ENABLE(VIDEO)
-#include "Document.h"
-#include "Settings.h"
+#include "dom/Document.h"
+#include "page/Settings.h"
 #endif
 
 END

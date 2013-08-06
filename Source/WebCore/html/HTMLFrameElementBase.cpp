@@ -36,8 +36,8 @@
 #include "platform/KURL.h"
 #include "page/Page.h"
 #include "rendering/RenderPart.h"
-#include "bindings/dui/saved/ScriptController.h"
-#include "bindings/dui/saved/ScriptEventListener.h"
+#include "bindings/dui/ScriptController.h"
+#include "bindings/dui/ScriptEventListener.h"
 #include "page/Settings.h"
 
 namespace WebCore {

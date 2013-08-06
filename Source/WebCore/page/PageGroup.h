@@ -45,7 +45,6 @@ namespace WebCore {
     class IDBFactoryBackendInterface;
     class Page;
     class SecurityOrigin;
-    class StorageNamespace;
 
     class PageGroup : public Supplementable<PageGroup> {
         WTF_MAKE_NONCOPYABLE(PageGroup); WTF_MAKE_FAST_ALLOCATED;
@@ -56,13 +55,6 @@ namespace WebCore {
         static PassOwnPtr<PageGroup> create(Page*);
         static PageGroup* pageGroup(const String& groupName);
 
-        static void closeLocalStorage();
-
-        static void clearLocalStorageForAllOrigins();
-        static void clearLocalStorageForOrigin(SecurityOrigin*);
-        static void closeIdleLocalStorageDatabases();
-        // DumpRenderTree helper that triggers a StorageArea sync.
-        static void syncLocalStorage();
 
         static unsigned numberOfPageGroups();
 
@@ -83,11 +75,6 @@ namespace WebCore {
 
         const String& name() { return m_name; }
         unsigned identifier() { return m_identifier; }
-
-        StorageNamespace* localStorage();
-        bool hasLocalStorage() { return m_localStorage; }
-
-        StorageNamespace* transientLocalStorage(SecurityOrigin* topOrigin);
 
         void addUserScriptToWorld(DOMWrapperWorld*, const String& source, const KURL&,
                                   const Vector<String>& whitelist, const Vector<String>& blacklist,
@@ -129,8 +116,6 @@ namespace WebCore {
         bool m_visitedLinksPopulated;
 
         unsigned m_identifier;
-        RefPtr<StorageNamespace> m_localStorage;
-        HashMap<RefPtr<SecurityOrigin>, RefPtr<StorageNamespace> > m_transientLocalStorageMap;
 
         OwnPtr<UserScriptMap> m_userScripts;
         OwnPtr<UserStyleSheetMap> m_userStyleSheets;

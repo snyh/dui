@@ -32,7 +32,7 @@
 #include "page/Frame.h"
 #include "loader/FrameLoader.h"
 #include "xml/XSLStyleSheet.h"
-#include "XMLDocumentParser.h" // for parseAttributes()
+#include "xml/parser/XMLDocumentParser.h" // for parseAttributes()
 #include "css/MediaList.h"
 #include "css/StyleSheetContents.h"
 

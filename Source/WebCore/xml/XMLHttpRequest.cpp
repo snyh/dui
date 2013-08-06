@@ -52,9 +52,6 @@
 #include "xml/XMLHttpRequestProgressEvent.h"
 #include "xml/XMLHttpRequestUpload.h"
 #include "editing/markup.h"
-#include <heap/Strong.h>
-#include <runtime/JSLock.h>
-#include <runtime/Operations.h>
 #include <wtf/ArrayBuffer.h>
 #include <wtf/ArrayBufferView.h>
 #include <wtf/RefCountedLeakCounter.h>
@@ -907,17 +904,6 @@ void XMLHttpRequest::abortError()
 
 void XMLHttpRequest::dropProtection()
 {
-    // The XHR object itself holds on to the responseText, and
-    // thus has extra cost even independent of any
-    // responseText or responseXML objects it has handed
-    // out. But it is protected from GC while loading, so this
-    // can't be recouped until the load is done, so only
-    // report the extra cost at that point.
-    JSC::VM* vm = scriptExecutionContext()->vm();
-    JSC::JSLockHolder lock(vm);
-    vm->heap.reportExtraMemoryCost(m_responseBuilder.length() * 2);
-
-    unsetPendingActivity(this);
 }
 
 void XMLHttpRequest::overrideMimeType(const String& override)

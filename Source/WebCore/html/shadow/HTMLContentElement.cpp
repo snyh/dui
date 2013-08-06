@@ -31,7 +31,7 @@
 #include "html/shadow/ContentDistributor.h"
 #include "HTMLNames.h"
 #include "dom/QualifiedName.h"
-#include "bindings/dui/saved/RuntimeEnabledFeatures.h"
+#include "bindings/dui/RuntimeEnabledFeatures.h"
 #include "dom/ShadowRoot.h"
 
 namespace WebCore {

@@ -42,7 +42,7 @@
 #include "dom/KeyboardEvent.h"
 #include "dom/NodeList.h"
 #include "dom/RawDataDocumentParser.h"
-#include "bindings/dui/saved/ScriptController.h"
+#include "bindings/dui/ScriptController.h"
 
 namespace WebCore {
 
