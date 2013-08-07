@@ -12,7 +12,7 @@ webcore_cppflags += \
 	-I$(srcdir)/Source/WebCore \
 	-I$(top_builddir)/DerivedSources/WebCore \
 	-I$(top_builddir)/DerivedSources \
-	-I$(top_builddir)/DerivedSources/JavaScriptCore
+	-I$(top_builddir)/DerivedSources/Platform
 
 webcoregtk_cppflags += \
 	-DWEBKITGTK_API_VERSION_STRING=\"@WEBKITGTK_API_VERSION@\" \

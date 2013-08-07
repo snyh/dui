@@ -23,26 +23,6 @@ if test "$GTK_API_VERSION" = "2.0"; then
     AC_DEFINE([GTK_API_VERSION_2], [1], [ ])
 fi
 
-if test "$enable_webkit2" = "yes"; then
-    AC_DEFINE([ENABLE_PLUGIN_PROCESS], [1], [ ])
-    if test "$have_gtk_unix_printing" = "yes"; then
-        AC_DEFINE([HAVE_GTK_UNIX_PRINTING], [1], [Define if GTK+ UNIX Printing is available])
-    fi
-fi
-
-if test "$os_win32" = "yes"; then
-    AC_DEFINE([XP_WIN], [1], [ ])
-    AC_DEFINE([UNICODE], [1], [ ])
-    AC_DEFINE([_UNICODE], [1], [ ])
-else
-    AC_DEFINE([XP_UNIX], [1], [ ])
-fi
-
-if test "$with_target" = "x11"; then
-    AC_DEFINE([MOZ_X11], [1], [ ])
-    AC_DEFINE([WTF_PLATFORM_X11], [1], [Define if target is X11])
-fi
-
 if test "$enable_fast_malloc" = "no"; then
     AC_DEFINE([WTF_SYSTEM_MALLOC], [1], [ ])
 fi
@@ -85,3 +65,6 @@ if test "$enable_gles2" = "yes"; then
 fi
 
 AC_DEFINE([WTF_USE_3D_GRAPHICS], [1], [ ])
+AC_DEFINE([WTF_USE_CAIRO], [1], [ ])
+AC_DEFINE([WTF_PLATFORM_GTK], [1], [Define if target is GTK])
+AC_DEFINE([WTF_PLATFORM_X11], [1], [Define if target is X11])
