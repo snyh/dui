@@ -116,17 +116,6 @@ webcore_cppflags += \
 	-I$(srcdir)/Source/WebCore/platform/graphics/texmap
 endif  # END USETEXTURE_MAPPER_GL
 
-if ENABLE_INDEXED_DATABASE
-webcore_cppflags += \
-	-DWTF_USE_LEVELDB=1 \
-	-I$(srcdir)/Source/ThirdParty/leveldb \
-	-I$(srcdir)/Source/ThirdParty/leveldb/include
-platform_cppflags += \
-	-DWTF_USE_LEVELDB=1 \
-	-I$(srcdir)/Source/ThirdParty/leveldb \
-	-I$(srcdir)/Source/ThirdParty/leveldb/include
-endif
-
 $(WEBCORE_CSS_PROPERTY_NAMES): $(srcdir)/configure.ac $(srcdir)/Source/WebCore/GNUmakefile.am
 
 $(WEBCORE_CSS_VALUE_KEYWORDS): $(srcdir)/configure.ac $(srcdir)/Source/WebCore/GNUmakefile.am
