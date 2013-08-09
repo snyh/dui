@@ -38,7 +38,6 @@
 #include "loader/LoaderStrategy.h"
 #include "platform/Logging.h"
 #include "loader/cache/MemoryCache.h"
-#include "platform/PlatformStrategies.h"
 #include "platform/PurgeableBuffer.h"
 #include "loader/ResourceBuffer.h"
 #include "platform/network/ResourceHandle.h"
@@ -350,7 +349,6 @@ void CachedResource::load(CachedResourceLoader* cachedResourceLoader, const Reso
         m_fragmentIdentifierForRequest = String();
     }
 
-    m_loader = platformStrategies()->loaderStrategy()->resourceLoadScheduler()->scheduleSubresourceLoad(cachedResourceLoader->frame(), this, request, request.priority(), options);
     if (!m_loader) {
         failBeforeStarting();
         return;

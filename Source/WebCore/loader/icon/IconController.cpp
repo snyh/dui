@@ -35,6 +35,8 @@
 #include "config.h"
 #include "loader/icon/IconController.h"
 
+#include <wtf/text/WTFString.h>
+#include <wtf/text/CString.h>
 #include "dom/Document.h"
 #include "loader/DocumentLoader.h"
 #include "page/Frame.h"

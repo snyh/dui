@@ -418,7 +418,6 @@ bool XSSAuditor::filterParamToken(const FilterTokenRequest& request)
 bool XSSAuditor::filterEmbedToken(const FilterTokenRequest& request)
 {
     ASSERT(request.token.type() == HTMLToken::StartTag);
-    ASSERT(hasName(request.token, embedTag));
 
     bool didBlockScript = false;
     if (isContainedInRequest(decodedSnippetForName(request))) {

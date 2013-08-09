@@ -67,7 +67,6 @@
 #include "platform/PlatformEvent.h"
 #include "platform/PlatformKeyboardEvent.h"
 #include "platform/PlatformWheelEvent.h"
-#include "html/PluginDocument.h"
 #include "rendering/RenderFrameSet.h"
 #include "rendering/RenderLayer.h"
 #include "rendering/RenderTextControlSingleLine.h"

@@ -30,7 +30,6 @@
 
 #include "platform/network/BlobRegistryImpl.h"
 #include "loader/LoaderStrategy.h"
-#include "platform/PlatformStrategies.h"
 #include <wtf/MainThread.h>
 
 namespace WebCore {
@@ -39,7 +38,7 @@ BlobRegistry& blobRegistry()
 {
     ASSERT(isMainThread());
 
-    static BlobRegistry& instance = *platformStrategies()->loaderStrategy()->createBlobRegistry();
+    static BlobRegistry& instance = NULL;
     return instance;
 }
 

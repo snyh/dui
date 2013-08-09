@@ -485,8 +485,8 @@ Document::Document(Frame* frame, const KURL& url, unsigned documentClasses)
 
     m_markers = adoptPtr(new DocumentMarkerController);
 
-    if (m_frame)
-        m_cachedResourceLoader = m_frame->loader()->activeDocumentLoader()->cachedResourceLoader();
+    //if (m_frame)
+        //m_cachedResourceLoader = m_frame->loader()->activeDocumentLoader()->cachedResourceLoader();
     if (!m_cachedResourceLoader)
         m_cachedResourceLoader = CachedResourceLoader::create(0);
     m_cachedResourceLoader->setDocument(this);

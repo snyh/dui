@@ -32,7 +32,6 @@
 #include "platform/KURL.h"
 #include "loader/LoaderStrategy.h"
 #include "platform/Logging.h"
-#include "platform/PlatformStrategies.h"
 #include "loader/ResourceLoader.h"
 #include "platform/network/soup/ResourceRequest.h"
 #include "loader/SubresourceLoader.h"
@@ -67,7 +66,7 @@ ResourceLoadScheduler* resourceLoadScheduler()
     static ResourceLoadScheduler* globalScheduler = 0;
     
     if (!globalScheduler) {
-        static bool isCallingOutToStrategy = false;
+        static bool isCallingOutToStrategy = true;
         
         // If we're re-entering resourceLoadScheduler() while calling out to the LoaderStrategy,
         // then the LoaderStrategy is trying to use the default resourceLoadScheduler.
@@ -76,9 +75,6 @@ ResourceLoadScheduler* resourceLoadScheduler()
             globalScheduler = new ResourceLoadScheduler;
             return globalScheduler;
         }
-        
-        TemporaryChange<bool> recursionGuard(isCallingOutToStrategy, true);
-        globalScheduler = platformStrategies()->loaderStrategy()->resourceLoadScheduler();
     }
 
     return globalScheduler;

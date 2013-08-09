@@ -32,7 +32,6 @@
 #include "loader/FrameLoader.h"
 #include "platform/network/NetworkingContext.h"
 #include "platform/network/PlatformCookieJar.h"
-#include "platform/PlatformStrategies.h"
 
 namespace WebCore {
 
@@ -64,37 +63,33 @@ inline NetworkStorageSession& storageSession(const Document* document)
 String cookies(const Document* document, const KURL& url)
 {
     LOCAL_SESSION(document)
-    return platformStrategies()->cookiesStrategy()->cookiesForDOM(session, document->firstPartyForCookies(), url);
+    return "";
 }
 
 void setCookies(Document* document, const KURL& url, const String& cookieString)
 {
-    LOCAL_SESSION(document)
-    platformStrategies()->cookiesStrategy()->setCookiesFromDOM(session, document->firstPartyForCookies(), url, cookieString);
 }
 
 bool cookiesEnabled(const Document* document)
 {
     LOCAL_SESSION(document)
-    return platformStrategies()->cookiesStrategy()->cookiesEnabled(session, document->firstPartyForCookies(), document->cookieURL());
+    return false; 
 }
 
 String cookieRequestHeaderFieldValue(const Document* document, const KURL& url)
 {
     LOCAL_SESSION(document)
-    return platformStrategies()->cookiesStrategy()->cookieRequestHeaderFieldValue(session, document->firstPartyForCookies(), url);
+    return String("");
 }
 
 bool getRawCookies(const Document* document, const KURL& url, Vector<Cookie>& cookies)
 {
     LOCAL_SESSION(document)
-    return platformStrategies()->cookiesStrategy()->getRawCookies(session, document->firstPartyForCookies(), url, cookies);
+    return false;
 }
 
 void deleteCookie(const Document* document, const KURL& url, const String& cookieName)
 {
-    LOCAL_SESSION(document)
-    platformStrategies()->cookiesStrategy()->deleteCookie(session, url, cookieName);
 }
 
 }

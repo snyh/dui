@@ -43,7 +43,6 @@
 #include "dom/NodeRenderStyle.h"
 #include "dom/NodeTraversal.h"
 #include "page/Page.h"
-#include "platform/PlatformStrategies.h"
 #include "rendering/RenderBox.h"
 #include "rendering/RenderTheme.h"
 #include "rendering/RenderWidget.h"
@@ -717,7 +716,6 @@ void ContainerNode::suspendPostAttachCallbacks()
                 s_shouldReEnableMemoryCacheCallsAfterAttach = true;
             }
         }
-        platformStrategies()->loaderStrategy()->resourceLoadScheduler()->suspendPendingRequests();
     }
     ++s_attachDepth;
 }
@@ -734,7 +732,6 @@ void ContainerNode::resumePostAttachCallbacks()
             if (Page* page = document()->page())
                 page->setMemoryCacheClientCallsEnabled(true);
         }
-        platformStrategies()->loaderStrategy()->resourceLoadScheduler()->resumePendingRequests();
     }
     --s_attachDepth;
 }

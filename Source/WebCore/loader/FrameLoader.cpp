@@ -78,7 +78,6 @@
 #include "page/Page.h"
 #include "page/PageActivityAssertionToken.h"
 #include "dom/PageTransitionEvent.h"
-#include "platform/PlatformStrategies.h"
 #include "loader/PolicyChecker.h"
 #include "loader/ProgressTracker.h"
 #include "platform/network/ResourceHandle.h"
@@ -223,14 +222,22 @@ FrameLoader::~FrameLoader()
 void FrameLoader::init()
 {
     // This somewhat odd set of steps gives the frame an initial empty document.
-    setPolicyDocumentLoader(m_client->createDocumentLoader(ResourceRequest(KURL(ParsedURLString, emptyString())), SubstituteData()).get());
+    printf("1:%p\n", m_client);
+    //setPolicyDocumentLoader(m_client->createDocumentLoader(ResourceRequest(KURL(ParsedURLString, emptyString())), SubstituteData()).get());
+    printf("2\n");
     setProvisionalDocumentLoader(m_policyDocumentLoader.get());
-    m_provisionalDocumentLoader->startLoadingMainResource();
-    m_frame->document()->cancelParsing();
+    printf("3\n");
+    //m_provisionalDocumentLoader->startLoadingMainResource();
+    printf("4\n");
+    //m_frame->document()->cancelParsing();
+    printf("5\n");
     m_stateMachine.advanceTo(FrameLoaderStateMachine::DisplayingInitialEmptyDocument);
+    printf("6\n");
 
-    m_networkingContext = m_client->createNetworkingContext();
+    //m_networkingContext = m_client->createNetworkingContext();
+    printf("7\n");
     m_progressTracker = FrameProgressTracker::create(m_frame);
+    printf("8\n");
 }
 
 void FrameLoader::setDefersLoading(bool defers)
@@ -2066,7 +2073,7 @@ unsigned long FrameLoader::loadResourceSynchronously(const ResourceRequest& requ
         ASSERT(!newRequest.isNull());
         
         if (!documentLoader()->applicationCacheHost()->maybeLoadSynchronously(newRequest, error, response, data)) {
-            platformStrategies()->loaderStrategy()->loadResourceSynchronously(networkingContext(), identifier, newRequest, storedCredentials, clientCredentialPolicy, error, response, data);
+            //platformStrategies()->loaderStrategy()->loadResourceSynchronously(networkingContext(), identifier, newRequest, storedCredentials, clientCredentialPolicy, error, response, data);
             documentLoader()->applicationCacheHost()->maybeLoadFallbackSynchronously(newRequest, error, response, data);
         }
     }

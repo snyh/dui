@@ -49,7 +49,6 @@
 #include "platform/Logging.h"
 #include "loader/cache/MemoryCache.h"
 #include "loader/PingLoader.h"
-#include "platform/PlatformStrategies.h"
 #include "loader/ResourceLoadScheduler.h"
 #include "bindings/dui/ScriptController.h"
 #include "page/SecurityOrigin.h"
@@ -808,8 +807,6 @@ void CachedResourceLoader::garbageCollectDocumentResources()
 void CachedResourceLoader::performPostLoadActions()
 {
     checkForPendingPreloads();
-
-    platformStrategies()->loaderStrategy()->resourceLoadScheduler()->servePendingRequests();
 }
 
 void CachedResourceLoader::incrementRequestCount(const CachedResource* res)

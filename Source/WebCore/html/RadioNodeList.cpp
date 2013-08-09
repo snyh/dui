@@ -82,7 +82,7 @@ void RadioNodeList::setValue(const String& value)
 
 bool RadioNodeList::checkElementMatchesRadioNodeListFilter(Element* testElement) const
 {
-    ASSERT(testElement->hasTagName(objectTag) || testElement->isFormControlElement());
+    ASSERT(testElement->isFormControlElement());
     if (isHTMLFormElement(ownerNode())) {
         HTMLFormElement* formElement = 0;
         formElement = static_cast<HTMLFormControlElement*>(testElement)->form();
