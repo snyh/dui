@@ -41,7 +41,7 @@
 
 
 // This needs to be here because Document.h also depends on it.
-#define DUMP_NODE_STATISTICS 0
+#define DUMP_NODE_STATISTICS 1
 
 namespace WebCore {
 

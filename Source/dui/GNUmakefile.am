@@ -4,6 +4,7 @@ lib_LTLIBRARIES += \
 libdui_la_SOURCES = Source/dui/dui.cpp
 
 libdui_la_CXXFLAGS= \
+	-Wl,-e_Z9test_mainiPPc -g \
 	$(webcore_cppflags) \
 	-DBUILDING_WebCore \
 	-I$(srcdir)/Source/JavaScriptCore \
@@ -60,3 +61,4 @@ bin_PROGRAMS += dui_test
 dui_test_SOURCES= Source/dui/test.cpp
 dui_test_LDADD = \
 	libdui.la
+dui_test_CXXFLAGS = -g

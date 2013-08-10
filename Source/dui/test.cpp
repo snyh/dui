@@ -1,5 +1,5 @@
-int test();
+void test_main(int argc, char**argv);
 int main()
 {
-    test();
+    test_main(1, 0);
 }
