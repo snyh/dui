@@ -9,6 +9,7 @@
 #include "dom/Document.h"
 #include "dom/DocumentParser.h"
 #include "dom/Element.h"
+#include "rendering/RenderView.h"
 #include "rendering/style/RenderStyle.h"
 #include "rendering/style/StyleInheritedData.h"
 #include <wtf/MainThread.h>
@@ -16,6 +17,7 @@
 #include <wtf/text/CString.h>
 #include <glib.h>
 #include "loader/EmptyClients.h"
+#include <gtk/gtk.h>
 
 using namespace WebCore;
 void take_snapshot(RefPtr<Frame> frame)
@@ -40,6 +42,7 @@ void load_content(RefPtr<Document> document, const char* path)
 const char my_interp[] __attribute__((section(".interp"))) = "/lib/ld-linux.so.2";
 void test_main(int argc, char* argv[])
 {
+    gtk_init(NULL, NULL);
     WTF::double_conversion::initialize();
     WTF::initializeThreading();
     WTF::initializeMainThread();
@@ -50,7 +53,6 @@ void test_main(int argc, char* argv[])
     clients.dragClient = new EmptyDragClient();
     clients.contextMenuClient = new EmptyContextMenuClient();
     Page* page = new Page(clients);
-    //page->setDeviceScaleFactor(1000000);
 
     RefPtr<Frame> frame = Frame::create(page, 0, new EmptyFrameLoaderClient);
     frame->loader()->init();
@@ -61,8 +63,9 @@ void test_main(int argc, char* argv[])
     document->createDOMWindow();
     frame->setDocument(document);
     load_content(document, "/dev/shm/t.htm");
+
     document->updateLayout();
-    document->dumpStatistics();
+    //document->dumpStatistics();
     Element* _snyh = document->getElementById("snyh");
     HTMLStyleElement* style = toHTMLStyleElement(document->getElementById("s"));
     printf("scope: %p\n", style->scopingElement());
@@ -70,4 +73,5 @@ void test_main(int argc, char* argv[])
 
     DOMWindow* window = document->defaultView();
     take_snapshot(frame);
+    gtk_main();
 }

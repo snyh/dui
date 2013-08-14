@@ -976,8 +976,6 @@ webcore_sources += \
 	Source/WebCore/dom/OverflowEvent.h \
 	Source/WebCore/dom/PageTransitionEvent.cpp \
 	Source/WebCore/dom/PageTransitionEvent.h \
-	Source/WebCore/dom/PendingScript.cpp \
-	Source/WebCore/dom/PendingScript.h \
 	Source/WebCore/dom/PopStateEvent.cpp \
 	Source/WebCore/dom/PopStateEvent.h \
 	Source/WebCore/dom/Position.cpp \
