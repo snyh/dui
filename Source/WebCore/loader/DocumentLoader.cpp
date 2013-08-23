@@ -31,7 +31,6 @@
 #include "loader/DocumentLoader.h"
 #include "loader/SubstituteResource.h"
 
-#include "loader/appcache/ApplicationCacheHost.h"
 #include "loader/cache/CachedRawResource.h"
 #include "loader/cache/CachedResourceLoader.h"
 #include "page/DOMWindow.h"
@@ -110,7 +109,6 @@ DocumentLoader::DocumentLoader(const ResourceRequest& req, const SubstituteData&
     , m_identifierForLoadWithoutResourceLoader(0)
     , m_dataLoadTimer(this, &DocumentLoader::handleSubstituteDataLoadNow)
     , m_waitingForContentPolicy(false)
-    , m_applicationCacheHost(adoptPtr(new ApplicationCacheHost(this)))
 {
 }
 
@@ -221,7 +219,6 @@ void DocumentLoader::mainReceivedError(const ResourceError& error)
     ASSERT(!mainResourceLoader() || !mainResourceLoader()->defersLoading());
 #endif
 
-    m_applicationCacheHost->failedLoadingMainResource();
 
     if (!frameLoader())
         return;
@@ -255,9 +252,6 @@ void DocumentLoader::stopLoading()
 
     // Always cancel multipart loaders
     cancelAll(m_multipartSubresourceLoaders);
-
-    // Appcache uses ResourceHandle directly, DocumentLoader doesn't count these loads.
-    m_applicationCacheHost->stopLoadingInFrame(m_frame);
 
     if (!loading) {
         // If something above restarted loading we might run into mysterious crashes like 
@@ -391,7 +385,6 @@ void DocumentLoader::finishedLoading(double finishTime)
         if (m_mainResource && m_frame->document()->hasManifest())
             memoryCache()->remove(m_mainResource.get());
     }
-    m_applicationCacheHost->finishedLoadingMainResource();
 }
 
 bool DocumentLoader::isPostOrRedirectAfterPost(const ResourceRequest& newRequest, const ResourceResponse& redirectResponse)
@@ -491,7 +484,6 @@ void DocumentLoader::willSendRequest(ResourceRequest& newRequest, const Resource
     if (!redirectResponse.isNull()) {
         // We checked application cache for initial URL, now we need to check it for redirected one.
         ASSERT(!m_substituteData.isValid());
-        m_applicationCacheHost->maybeLoadMainResourceForRedirect(newRequest, m_substituteData);
         if (m_substituteData.isValid())
             m_identifierForLoadWithoutResourceLoader = mainResourceLoader()->identifier();
     }
@@ -536,15 +528,6 @@ void DocumentLoader::responseReceived(CachedResource* resource, const ResourceRe
 {
     ASSERT_UNUSED(resource, m_mainResource == resource);
     RefPtr<DocumentLoader> protect(this);
-    bool willLoadFallback = m_applicationCacheHost->maybeLoadFallbackForMainResponse(request(), response);
-
-    // The memory cache doesn't understand the application cache or its caching rules. So if a main resource is served
-    // from the application cache, ensure we don't save the result for future use.
-    if (willLoadFallback)
-        memoryCache()->remove(m_mainResource.get());
-
-    if (willLoadFallback)
-        return;
 
     DEFINE_STATIC_LOCAL(AtomicString, xFrameOptionHeader, ("x-frame-options", AtomicString::ConstructFromLiteral));
     HTTPHeaderMap::const_iterator it = response.httpHeaderFields().find(xFrameOptionHeader);
@@ -796,7 +779,6 @@ void DocumentLoader::dataReceived(CachedResource* resource, const char* data, in
     if (m_identifierForLoadWithoutResourceLoader)
         frameLoader()->notifier()->dispatchDidReceiveData(this, m_identifierForLoadWithoutResourceLoader, data, length, -1);
 
-    m_applicationCacheHost->mainResourceDataReceived(data, length, -1, false);
     m_timeOfLastDataReceived = monotonicallyIncreasingTime();
 
     if (!isMultipartReplacingLoad())
@@ -862,7 +844,6 @@ void DocumentLoader::detachFromFrame()
     if (m_mainResource && m_mainResource->hasClient(this))
         m_mainResource->removeClient(this);
 
-    m_applicationCacheHost->setDOMApplicationCache(0);
     m_frame = 0;
 }
 
@@ -1152,8 +1133,6 @@ void DocumentLoader::startLoadingMainResource()
     if (!m_frame || m_request.isNull())
         return;
 
-    m_applicationCacheHost->maybeLoadMainResource(m_request, m_substituteData);
-
     if (m_substituteData.isValid()) {
         m_identifierForLoadWithoutResourceLoader = m_frame->page()->progress()->createUniqueIdentifier();
         frameLoader()->notifier()->assignIdentifierToInitialRequest(m_identifierForLoadWithoutResourceLoader, this, m_request);
@@ -1169,10 +1148,6 @@ void DocumentLoader::startLoadingMainResource()
     m_mainResource = m_cachedResourceLoader->requestMainResource(cachedResourceRequest);
     if (!m_mainResource) {
         setRequest(ResourceRequest());
-        // If the load was aborted by clearing m_request, it's possible the ApplicationCacheHost
-        // is now in a state where starting an empty load will be inconsistent. Replace it with
-        // a new ApplicationCacheHost.
-        m_applicationCacheHost = adoptPtr(new ApplicationCacheHost(this));
         maybeLoadEmpty();
         return;
     }
@@ -1245,7 +1220,6 @@ void DocumentLoader::maybeFinishLoadingMultipartContent()
 void DocumentLoader::handledOnloadEvents()
 {
     m_wasOnloadHandled = true;
-    applicationCacheHost()->stopDeferringEvents();
 }
 
 } // namespace WebCore

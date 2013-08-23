@@ -27,8 +27,6 @@
 #if ENABLE(VIDEO)
 #include "html/HTMLMediaElement.h"
 
-#include "loader/appcache/ApplicationCacheHost.h"
-#include "loader/appcache/ApplicationCacheResource.h"
 #include "dom/Attribute.h"
 #include "page/Chrome.h"
 #include "page/ChromeClient.h"
@@ -1046,19 +1044,6 @@ void HTMLMediaElement::loadResource(const KURL& initialURL, ContentType& content
     
     // The resource fetch algorithm 
     m_networkState = NETWORK_LOADING;
-
-    // If the url should be loaded from the application cache, pass the url of the cached file
-    // to the media engine.
-    ApplicationCacheHost* cacheHost = frame->loader()->documentLoader()->applicationCacheHost();
-    ApplicationCacheResource* resource = 0;
-    if (cacheHost && cacheHost->shouldLoadResourceFromApplicationCache(ResourceRequest(url), resource)) {
-        // Resources that are not present in the manifest will always fail to load (at least, after the
-        // cache has been primed the first time), making the testing of offline applications simpler.
-        if (!resource || resource->path().isEmpty()) {
-            mediaLoadingFailed(MediaPlayer::NetworkError);
-            return;
-        }
-    }
 
     // Set m_currentSrc *before* changing to the cache url, the fact that we are loading from the app
     // cache is an internal detail not exposed through the media element API.

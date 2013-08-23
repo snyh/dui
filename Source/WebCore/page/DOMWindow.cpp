@@ -36,7 +36,6 @@
 #include "page/ChromeClient.h"
 #include "page/Console.h"
 #include "page/Crypto.h"
-#include "loader/appcache/DOMApplicationCache.h"
 #include "page/DOMSelection.h"
 #include "html/DOMSettableTokenList.h"
 #include "dom/DOMStringList.h"
@@ -377,7 +376,6 @@ DOMWindow::~DOMWindow()
 #endif
         ASSERT(!m_location);
         ASSERT(!m_media);
-        ASSERT(!m_applicationCache);
     }
 #endif
 
@@ -530,7 +528,6 @@ void DOMWindow::resetDOMWindowProperties()
 #endif
     m_location = 0;
     m_media = 0;
-    m_applicationCache = 0;
 }
 
 bool DOMWindow::isCurrentlyDisplayedInFrame() const
@@ -634,15 +631,6 @@ PageConsole* DOMWindow::pageConsole() const
     if (!isCurrentlyDisplayedInFrame())
         return 0;
     return m_frame->page() ? m_frame->page()->console() : 0;
-}
-
-DOMApplicationCache* DOMWindow::applicationCache() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    if (!m_applicationCache)
-        m_applicationCache = DOMApplicationCache::create(m_frame);
-    return m_applicationCache.get();
 }
 
 Navigator* DOMWindow::navigator() const

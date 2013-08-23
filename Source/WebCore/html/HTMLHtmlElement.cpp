@@ -24,7 +24,6 @@
 #include "config.h"
 #include "html/HTMLHtmlElement.h"
 
-#include "loader/appcache/ApplicationCacheHost.h"
 #include "dom/Document.h"
 #include "loader/DocumentLoader.h"
 #include "dom/DocumentParser.h"
@@ -69,12 +68,6 @@ void HTMLHtmlElement::insertedByParser()
     DocumentLoader* documentLoader = document()->frame()->loader()->documentLoader();
     if (!documentLoader)
         return;
-
-    const AtomicString& manifest = getAttribute(manifestAttr);
-    if (manifest.isEmpty())
-        documentLoader->applicationCacheHost()->selectCacheWithoutManifest();
-    else
-        documentLoader->applicationCacheHost()->selectCacheWithManifest(document()->completeURL(manifest));
 }
 
 }

@@ -295,7 +295,6 @@ dom_binding_idls += \
 	$(WebCore)/html/track/TrackEvent.idl \
 	$(WebCore)/html/track/VideoTrack.idl \
 	$(WebCore)/html/track/VideoTrackList.idl \
-	$(WebCore)/loader/appcache/DOMApplicationCache.idl \
 	$(WebCore)/page/BarProp.idl \
 	$(WebCore)/page/Console.idl \
 	$(WebCore)/page/Crypto.idl \
@@ -1757,20 +1756,6 @@ webcore_sources += \
 	Source/WebCore/icu/unicode/utf_old.h \
 	Source/WebCore/icu/unicode/utypes.h \
 	Source/WebCore/icu/unicode/uversion.h \
-	Source/WebCore/loader/appcache/ApplicationCache.cpp \
-	Source/WebCore/loader/appcache/ApplicationCacheGroup.cpp \
-	Source/WebCore/loader/appcache/ApplicationCacheGroup.h \
-	Source/WebCore/loader/appcache/ApplicationCache.h \
-	Source/WebCore/loader/appcache/ApplicationCacheHost.cpp \
-	Source/WebCore/loader/appcache/ApplicationCacheHost.h \
-	Source/WebCore/loader/appcache/ApplicationCacheResource.cpp \
-	Source/WebCore/loader/appcache/ApplicationCacheResource.h \
-	Source/WebCore/loader/appcache/ApplicationCacheStorage.cpp \
-	Source/WebCore/loader/appcache/ApplicationCacheStorage.h \
-	Source/WebCore/loader/appcache/DOMApplicationCache.cpp \
-	Source/WebCore/loader/appcache/DOMApplicationCache.h \
-	Source/WebCore/loader/appcache/ManifestParser.cpp \
-	Source/WebCore/loader/appcache/ManifestParser.h \
 	Source/WebCore/loader/cache/MemoryCache.cpp \
 	Source/WebCore/loader/cache/CachedCSSStyleSheet.cpp \
 	Source/WebCore/loader/cache/CachedCSSStyleSheet.h \

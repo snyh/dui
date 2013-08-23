@@ -31,7 +31,6 @@
 #include "loader/ResourceLoader.h"
 
 #include "dom/Document.h"
-#include "loader/appcache/ApplicationCacheHost.h"
 #include "fileapi/AsyncFileStream.h"
 #include "platform/network/soup/AuthenticationChallenge.h"
 #include "loader/DocumentLoader.h"
@@ -140,9 +139,6 @@ void ResourceLoader::start()
     ASSERT(!m_handle);
     ASSERT(!m_request.isNull());
     ASSERT(m_deferredRequest.isNull());
-
-    if (m_documentLoader->applicationCacheHost()->maybeLoadResource(this, m_request, m_request.url()))
-        return;
 
     if (m_defersLoading) {
         m_deferredRequest = m_request;
@@ -438,8 +434,6 @@ ResourceError ResourceLoader::cannotShowURLError()
 
 void ResourceLoader::willSendRequest(ResourceHandle*, ResourceRequest& request, const ResourceResponse& redirectResponse)
 {
-    if (documentLoader()->applicationCacheHost()->maybeLoadFallbackForRedirect(this, request, redirectResponse))
-        return;
     willSendRequest(request, redirectResponse);
 }
 
@@ -450,8 +444,6 @@ void ResourceLoader::didSendData(ResourceHandle*, unsigned long long bytesSent, 
 
 void ResourceLoader::didReceiveResponse(ResourceHandle*, const ResourceResponse& response)
 {
-    if (documentLoader()->applicationCacheHost()->maybeLoadFallbackForResponse(this, response))
-        return;
     didReceiveResponse(response);
 }
 
@@ -472,8 +464,6 @@ void ResourceLoader::didFinishLoading(ResourceHandle*, double finishTime)
 
 void ResourceLoader::didFail(ResourceHandle*, const ResourceError& error)
 {
-    if (documentLoader()->applicationCacheHost()->maybeLoadFallbackForError(this, error))
-        return;
     didFail(error);
 }
 

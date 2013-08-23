@@ -44,7 +44,6 @@ namespace WebCore {
     class AudioContext;
     class AudioTrackList;
     class DedicatedWorkerGlobalScope;
-    class DOMApplicationCache;
     class DOMWindow;
     class Event;
     class EventListener;

@@ -36,7 +36,6 @@
 #include "loader/FrameLoader.h"
 
 #include "accessibility/AXObjectCache.h"
-#include "loader/appcache/ApplicationCacheHost.h"
 #include "dom/BeforeUnloadEvent.h"
 #include "loader/cache/CachedResourceLoader.h"
 #include "page/Chrome.h"
@@ -2041,11 +2040,6 @@ unsigned long FrameLoader::loadResourceSynchronously(const ResourceRequest& requ
 
     if (error.isNull()) {
         ASSERT(!newRequest.isNull());
-        
-        if (!documentLoader()->applicationCacheHost()->maybeLoadSynchronously(newRequest, error, response, data)) {
-            //platformStrategies()->loaderStrategy()->loadResourceSynchronously(networkingContext(), identifier, newRequest, storedCredentials, clientCredentialPolicy, error, response, data);
-            documentLoader()->applicationCacheHost()->maybeLoadFallbackSynchronously(newRequest, error, response, data);
-        }
     }
     notifier()->sendRemainingDelegateMessages(m_documentLoader.get(), identifier, request, response, data.data(), data.size(), -1, error);
     return identifier;

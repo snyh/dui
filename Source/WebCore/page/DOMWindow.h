@@ -363,9 +363,6 @@ namespace WebCore {
         DEFINE_ATTRIBUTE_EVENT_LISTENER(webkitdeviceproximity);
 #endif
 
-        DOMApplicationCache* applicationCache() const;
-        DOMApplicationCache* optionalApplicationCache() const { return m_applicationCache.get(); }
-
 #if ENABLE(ORIENTATION_EVENTS)
         // This is the interface orientation in degrees. Some examples are:
         //  0 is straight up; -90 is when the device is rotated 90 clockwise;
@@ -444,8 +441,6 @@ namespace WebCore {
 
         String m_status;
         String m_defaultStatus;
-
-        mutable RefPtr<DOMApplicationCache> m_applicationCache;
 
 #if ENABLE(WEB_TIMING)
         mutable RefPtr<Performance> m_performance;

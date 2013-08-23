@@ -55,7 +55,6 @@ class SchedulePair;
 }
 
 namespace WebCore {
-    class ApplicationCacheHost;
     class CachedRawResource;
     class CachedResourceLoader;
     class ContentFilter;
@@ -211,8 +210,6 @@ namespace WebCore {
         // actually be added to the document.
         void commitData(const char* bytes, size_t length);
 
-        ApplicationCacheHost* applicationCacheHost() const { return m_applicationCacheHost.get(); }
-
         void checkLoadComplete();
 
     protected:
@@ -352,9 +349,6 @@ namespace WebCore {
 
         DocumentLoaderTimer m_dataLoadTimer;
         bool m_waitingForContentPolicy;
-
-        friend class ApplicationCacheHost;  // for substitute resource delivery
-        OwnPtr<ApplicationCacheHost> m_applicationCacheHost;
 
 #if USE(CONTENT_FILTERING)
         RefPtr<ContentFilter> m_contentFilter;
