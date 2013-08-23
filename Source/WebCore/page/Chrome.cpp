@@ -484,11 +484,6 @@ void Chrome::runOpenPanel(Frame* frame, PassRefPtr<FileChooser> fileChooser)
     m_client->runOpenPanel(frame, fileChooser);
 }
 
-void Chrome::loadIconForFiles(const Vector<String>& filenames, FileIconLoader* loader)
-{
-    m_client->loadIconForFiles(filenames, loader);
-}
-
 void Chrome::dispatchViewportPropertiesDidChange(const ViewportArguments& arguments) const
 {
     m_client->dispatchViewportPropertiesDidChange(arguments);

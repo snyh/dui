@@ -35,7 +35,6 @@
 #include "loader/cache/CachePolicy.h"
 #include "loader/FrameLoaderStateMachine.h"
 #include "loader/FrameLoaderTypes.h"
-#include "dom/IconURL.h"
 #include "page/LayoutMilestones.h"
 #include "loader/MixedContentChecker.h"
 #include "platform/network/ResourceHandleTypes.h"
@@ -43,6 +42,7 @@
 #include "dom/SecurityContext.h"
 #include "loader/SubframeLoader.h"
 #include "platform/Timer.h"
+#include "platform/KURL.h"
 #include <wtf/Forward.h>
 #include <wtf/HashSet.h>
 
@@ -58,7 +58,6 @@ class FormState;
 class FormSubmission;
 class FrameLoaderClient;
 class FrameNetworkingContext;
-class IconController;
 class NavigationAction;
 class NetworkingContext;
 class Page;
@@ -88,7 +87,6 @@ public:
     PolicyChecker* policyChecker() const { return m_policyChecker.get(); }
     ResourceLoadNotifier* notifier() const { return &m_notifer; }
     SubframeLoader* subframeLoader() const { return &m_subframeLoader; }
-    IconController* icon() const { return m_icon.get(); }
     MixedContentChecker* mixedContentChecker() const { return &m_mixedContentChecker; }
 
     void setupForReplace();
@@ -156,7 +154,6 @@ public:
     bool subframeIsLoading() const;
     void willChangeTitle(DocumentLoader*);
     void didChangeTitle(DocumentLoader*);
-    void didChangeIcons(IconType);
 
     bool shouldTreatURLAsSrcdocDocument(const KURL&) const;
 
@@ -368,7 +365,6 @@ private:
     mutable ResourceLoadNotifier m_notifer;
     mutable SubframeLoader m_subframeLoader;
     mutable FrameLoaderStateMachine m_stateMachine;
-    OwnPtr<IconController> m_icon;
     mutable MixedContentChecker m_mixedContentChecker;
 
     class FrameProgressTracker;

@@ -46,7 +46,6 @@
 #include "page/FrameTree.h"
 #include "html/HTMLFormElement.h"
 #include "html/HTMLFrameOwnerElement.h"
-#include "loader/icon/IconController.h"
 #include "platform/Logging.h"
 #include "loader/cache/MemoryCache.h"
 #include "page/Page.h"
@@ -134,10 +133,6 @@ ResourceLoader* DocumentLoader::mainResourceLoader() const
 DocumentLoader::~DocumentLoader()
 {
     ASSERT(!m_frame || frameLoader()->activeDocumentLoader() != this || !isLoading());
-    if (m_iconLoadDecisionCallback)
-        m_iconLoadDecisionCallback->invalidate();
-    if (m_iconDataCallback)
-        m_iconDataCallback->invalidate();
     m_cachedResourceLoader->clearDocumentLoader();
     
     clearMainResource();
@@ -1433,46 +1428,6 @@ void DocumentLoader::maybeFinishLoadingMultipartContent()
     m_committed = false;
     RefPtr<ResourceBuffer> resourceData = mainResourceData();
     commitLoad(resourceData->data(), resourceData->size());
-}
-
-void DocumentLoader::iconLoadDecisionAvailable()
-{
-    if (m_frame)
-        m_frame->loader()->icon()->loadDecisionReceived(iconDatabase().synchronousLoadDecisionForIconURL(frameLoader()->icon()->url(), this));
-}
-
-static void iconLoadDecisionCallback(IconLoadDecision decision, void* context)
-{
-    static_cast<DocumentLoader*>(context)->continueIconLoadWithDecision(decision);
-}
-
-void DocumentLoader::getIconLoadDecisionForIconURL(const String& urlString)
-{
-    if (m_iconLoadDecisionCallback)
-        m_iconLoadDecisionCallback->invalidate();
-    m_iconLoadDecisionCallback = IconLoadDecisionCallback::create(this, iconLoadDecisionCallback);
-    iconDatabase().loadDecisionForIconURL(urlString, m_iconLoadDecisionCallback);
-}
-
-void DocumentLoader::continueIconLoadWithDecision(IconLoadDecision decision)
-{
-    ASSERT(m_iconLoadDecisionCallback);
-    m_iconLoadDecisionCallback = 0;
-    if (m_frame)
-        m_frame->loader()->icon()->continueLoadWithDecision(decision);
-}
-
-static void iconDataCallback(SharedBuffer*, void*)
-{
-    // FIXME: Implement this once we know what parts of WebCore actually need the icon data returned.
-}
-
-void DocumentLoader::getIconDataForIconURL(const String& urlString)
-{   
-    if (m_iconDataCallback)
-        m_iconDataCallback->invalidate();
-    m_iconDataCallback = IconDataCallback::create(this, iconDataCallback);
-    iconDatabase().iconDataForIconURL(urlString, m_iconDataCallback);
 }
 
 void DocumentLoader::handledOnloadEvents()

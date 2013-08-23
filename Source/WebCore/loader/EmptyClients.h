@@ -164,7 +164,6 @@ public:
 #endif
 
     virtual void runOpenPanel(Frame*, PassRefPtr<FileChooser>) OVERRIDE;
-    virtual void loadIconForFiles(const Vector<String>&, FileIconLoader*) { }
 
     virtual void formStateDidChange(const Node*) { }
 
@@ -246,10 +245,8 @@ public:
     virtual void dispatchDidReplaceStateWithinPage() { }
     virtual void dispatchDidPopStateWithinPage() { }
     virtual void dispatchWillClose() { }
-    virtual void dispatchDidReceiveIcon() { }
     virtual void dispatchDidStartProvisionalLoad() { }
     virtual void dispatchDidReceiveTitle(const StringWithDirection&) { }
-    virtual void dispatchDidChangeIcons(IconType) { }
     virtual void dispatchDidCommitLoad() { }
     virtual void dispatchDidFailProvisionalLoad(const ResourceError&) { }
     virtual void dispatchDidFailLoad(const ResourceError&) { }
@@ -354,8 +351,6 @@ public:
     virtual void dispatchDidClearWindowObjectInWorld(DOMWrapperWorld*) { }
     virtual void documentElementAvailable() { }
     virtual void didPerformFirstNavigation() const { }
-
-    virtual void registerForIconNotification(bool) { }
 
 #if PLATFORM(MAC)
     virtual RemoteAXObjectRef accessibilityRemoteObject() { return 0; }

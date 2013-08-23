@@ -94,7 +94,6 @@
 #include "platform/network/HTTPParsers.h"
 #include "rendering/HitTestRequest.h"
 #include "rendering/HitTestResult.h"
-#include "loader/icon/IconController.h"
 #include "loader/ImageLoader.h"
 #include "platform/Language.h"
 #include "platform/Logging.h"
@@ -2363,7 +2362,6 @@ void Document::implicitClose()
     // ramifications, and we need to decide what is the Right Thing To Do(tm)
     Frame* f = frame();
     if (f) {
-        f->loader()->icon()->startLoader();
         f->animation()->startAnimationsIfNotSuspended(this);
     }
 
@@ -4381,52 +4379,6 @@ PassRefPtr<XPathResult> Document::evaluate(const String& expression,
     if (!m_xpathEvaluator)
         m_xpathEvaluator = XPathEvaluator::create();
     return m_xpathEvaluator->evaluate(expression, contextNode, resolver, type, result, ec);
-}
-
-const Vector<IconURL>& Document::shortcutIconURLs()
-{
-    // Include any icons where type = link, rel = "shortcut icon".
-    return iconURLs(Favicon);
-}
-
-const Vector<IconURL>& Document::iconURLs(int iconTypesMask)
-{
-    m_iconURLs.clear();
-
-    if (!head() || !(head()->children()))
-        return m_iconURLs;
-
-    RefPtr<HTMLCollection> children = head()->children();
-    unsigned int length = children->length();
-    for (unsigned int i = 0; i < length; ++i) {
-        Node* child = children->item(i);
-        if (!child->hasTagName(linkTag))
-            continue;
-        HTMLLinkElement* linkElement = static_cast<HTMLLinkElement*>(child);
-        if (!(linkElement->iconType() & iconTypesMask))
-            continue;
-        if (linkElement->href().isEmpty())
-            continue;
-
-        // Put it at the front to ensure that icons seen later take precedence as required by the spec.
-        IconURL newURL(linkElement->href(), linkElement->iconSizes(), linkElement->type(), linkElement->iconType());
-        m_iconURLs.append(newURL);
-    }
-
-    m_iconURLs.reverse();
-    return m_iconURLs;
-}
-
-void Document::addIconURL(const String& url, const String&, const String&, IconType iconType)
-{
-    if (url.isEmpty())
-        return;
-
-    Frame* f = frame();
-    if (!f)
-        return;
-
-    f->loader()->didChangeIcons(iconType);
 }
 
 static bool isEligibleForSeamless(Document* parent, Document* child)

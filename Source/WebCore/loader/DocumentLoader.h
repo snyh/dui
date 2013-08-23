@@ -34,7 +34,6 @@
 #include "loader/cache/CachedResourceHandle.h"
 #include "loader/DocumentLoadTiming.h"
 #include "loader/DocumentWriter.h"
-#include "loader/icon/IconDatabaseBase.h"
 #include "loader/NavigationAction.h"
 #include "platform/network/soup/ResourceError.h"
 #include "loader/ResourceLoaderOptions.h"
@@ -200,14 +199,6 @@ namespace WebCore {
         void startLoadingMainResource();
         void cancelMainResourceLoad(const ResourceError&);
         
-        // Support iconDatabase in synchronous mode.
-        void iconLoadDecisionAvailable();
-        
-        // Support iconDatabase in asynchronous mode.
-        void continueIconLoadWithDecision(IconLoadDecision);
-        void getIconLoadDecisionForIconURL(const String&);
-        void getIconDataForIconURL(const String&);
-
         bool isLoadingMainResource() const { return m_loadingMainResource; }
         bool isLoadingMultipartContent() const { return m_isLoadingMultipartContent; }
 
@@ -395,9 +386,6 @@ namespace WebCore {
 
         DocumentLoaderTimer m_dataLoadTimer;
         bool m_waitingForContentPolicy;
-
-        RefPtr<IconLoadDecisionCallback> m_iconLoadDecisionCallback;
-        RefPtr<IconDataCallback> m_iconDataCallback;
 
         friend class ApplicationCacheHost;  // for substitute resource delivery
         OwnPtr<ApplicationCacheHost> m_applicationCacheHost;

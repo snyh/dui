@@ -909,8 +909,6 @@ webcore_sources += \
 	Source/WebCore/dom/ExceptionCodePlaceholder.h \
 	Source/WebCore/dom/GenericEventQueue.cpp \
 	Source/WebCore/dom/GenericEventQueue.h \
-	Source/WebCore/dom/IconURL.cpp \
-	Source/WebCore/dom/IconURL.h \
 	Source/WebCore/dom/IdTargetObserver.cpp \
 	Source/WebCore/dom/IdTargetObserver.h \
 	Source/WebCore/dom/IdTargetObserverRegistry.cpp \
@@ -1854,19 +1852,6 @@ webcore_sources += \
 	Source/WebCore/loader/FrameNetworkingContext.h \
 	Source/WebCore/loader/FTPDirectoryParser.cpp \
 	Source/WebCore/loader/FTPDirectoryParser.h \
-	Source/WebCore/loader/icon/IconController.cpp \
-	Source/WebCore/loader/icon/IconController.h \
-	Source/WebCore/loader/icon/IconDatabaseClient.h \
-	Source/WebCore/loader/icon/IconDatabase.cpp \
-	Source/WebCore/loader/icon/IconDatabase.h \
-	Source/WebCore/loader/icon/IconDatabaseBase.cpp \
-	Source/WebCore/loader/icon/IconDatabaseBase.h \
-	Source/WebCore/loader/icon/IconLoader.cpp \
-	Source/WebCore/loader/icon/IconLoader.h \
-	Source/WebCore/loader/icon/IconRecord.cpp \
-	Source/WebCore/loader/icon/IconRecord.h \
-	Source/WebCore/loader/icon/PageURLRecord.cpp \
-	Source/WebCore/loader/icon/PageURLRecord.h \
 	Source/WebCore/loader/ImageLoader.cpp \
 	Source/WebCore/loader/ImageLoader.h \
 	Source/WebCore/loader/LinkLoader.h \

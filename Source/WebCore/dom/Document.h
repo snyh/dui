@@ -35,7 +35,6 @@
 #include "dom/DocumentTiming.h"
 #include "page/FocusDirection.h"
 #include "rendering/HitTestRequest.h"
-#include "dom/IconURL.h"
 #include "dom/MutationObserver.h"
 #include "page/PageVisibilityState.h"
 #include "platform/PlatformScreen.h"
@@ -906,10 +905,6 @@ public:
     bool hasNodesWithPlaceholderStyle() const { return m_hasNodesWithPlaceholderStyle; }
     void setHasNodesWithPlaceholderStyle() { m_hasNodesWithPlaceholderStyle = true; }
 
-    const Vector<IconURL>& shortcutIconURLs();
-    const Vector<IconURL>& iconURLs(int iconTypesMask);
-    void addIconURL(const String& url, const String& mimeType, const String& size, IconType);
-
     void updateFocusAppearanceSoon(bool restorePreviousSelection);
     void cancelFocusAppearanceUpdate();
         
@@ -1430,7 +1425,6 @@ private:
 
     bool m_createRenderers;
     bool m_inPageCache;
-    Vector<IconURL> m_iconURLs;
 
     HashSet<Element*> m_documentSuspensionCallbackElements;
     HashSet<Element*> m_mediaVolumeCallbackElements;

@@ -346,8 +346,6 @@ void FileInputType::requestIcon(const Vector<String>& paths)
         m_fileIconLoader->invalidate();
 
     m_fileIconLoader = FileIconLoader::create(this);
-
-    chrome->loadIconForFiles(paths, m_fileIconLoader.get());
 }
 
 void FileInputType::applyFileChooserSettings(const FileChooserSettings& settings)

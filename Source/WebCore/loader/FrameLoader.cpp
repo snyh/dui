@@ -70,7 +70,6 @@
 #include "HTMLNames.h"
 #include "html/parser/HTMLParserIdioms.h"
 #include "platform/network/HTTPParsers.h"
-#include "loader/icon/IconController.h"
 #include "loader/LoaderStrategy.h"
 #include "platform/Logging.h"
 #include "platform/MIMETypeRegistry.h"
@@ -181,7 +180,6 @@ FrameLoader::FrameLoader(Frame* frame, FrameLoaderClient* client)
     , m_policyChecker(adoptPtr(new PolicyChecker(frame)))
     , m_notifer(frame)
     , m_subframeLoader(frame)
-    , m_icon(adoptPtr(new IconController(frame)))
     , m_mixedContentChecker(frame)
     , m_state(FrameStateProvisional)
     , m_loadType(FrameLoadTypeStandard)
@@ -426,8 +424,6 @@ void FrameLoader::stop()
         parser->stopParsing();
         parser->finish();
     }
-    
-    icon()->stopLoader();
 }
 
 void FrameLoader::willTransitionToCommitted()
@@ -2540,11 +2536,6 @@ void FrameLoader::didChangeTitle(DocumentLoader* loader)
         m_client->setMainFrameDocumentReady(true); // update observers with new DOMDocument
         m_client->dispatchDidReceiveTitle(loader->title());
     }
-}
-
-void FrameLoader::didChangeIcons(IconType type)
-{
-    m_client->dispatchDidChangeIcons(type);
 }
 
 void FrameLoader::dispatchDidCommitLoad()

@@ -32,14 +32,13 @@
 #ifndef LinkRelAttribute_h
 #define LinkRelAttribute_h
 
-#include "dom/IconURL.h"
+#include "wtf/text/WTFString.h"
 
 namespace WebCore {
 
 struct LinkRelAttribute {
 public:
     bool m_isStyleSheet;
-    IconType m_iconType;
     bool m_isAlternate;
     bool m_isDNSPrefetch;
 #if ENABLE(LINK_PREFETCH)

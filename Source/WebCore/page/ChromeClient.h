@@ -52,7 +52,6 @@ class DateTimeChooser;
 class DateTimeChooserClient;
 class Element;
 class FileChooser;
-class FileIconLoader;
 class FloatRect;
 class Frame;
 class Geolocation;
@@ -212,8 +211,6 @@ public:
 #endif
 
     virtual void runOpenPanel(Frame*, PassRefPtr<FileChooser>) = 0;
-    // Asynchronous request to load an icon for specified filenames.
-    virtual void loadIconForFiles(const Vector<String>&, FileIconLoader*) = 0;
 
 #if ENABLE(DIRECTORY_UPLOAD)
     // Asychronous request to enumerate all files in a directory chosen by the user.

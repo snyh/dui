@@ -31,7 +31,6 @@
 #define FrameLoaderClient_h
 
 #include "loader/FrameLoaderTypes.h"
-#include "dom/IconURL.h"
 #include "page/LayoutMilestones.h"
 #include "platform/network/ResourceLoadPriority.h"
 #include <wtf/Forward.h>
@@ -147,10 +146,8 @@ namespace WebCore {
         virtual void dispatchDidReplaceStateWithinPage() = 0;
         virtual void dispatchDidPopStateWithinPage() = 0;
         virtual void dispatchWillClose() = 0;
-        virtual void dispatchDidReceiveIcon() = 0;
         virtual void dispatchDidStartProvisionalLoad() = 0;
         virtual void dispatchDidReceiveTitle(const StringWithDirection&) = 0;
-        virtual void dispatchDidChangeIcons(IconType) = 0;
         virtual void dispatchDidCommitLoad() = 0;
         virtual void dispatchDidFailProvisionalLoad(const ResourceError&) = 0;
         virtual void dispatchDidFailLoad(const ResourceError&) = 0;
@@ -280,8 +277,6 @@ namespace WebCore {
         virtual void didPerformFirstNavigation() const = 0; // "Navigation" here means a transition from one page to another that ends up in the back/forward list.
 
         virtual void didExhaustMemoryAvailableForScript() { };
-
-        virtual void registerForIconNotification(bool listen = true) = 0;
         
 #if PLATFORM(MAC)
         // Allow an accessibility object to retrieve a Frame parent if there's no PlatformWidget.

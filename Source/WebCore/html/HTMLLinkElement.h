@@ -29,7 +29,6 @@
 #include "loader/cache/CachedResourceHandle.h"
 #include "html/DOMSettableTokenList.h"
 #include "html/HTMLElement.h"
-#include "dom/IconURL.h"
 #include "loader/LinkLoader.h"
 #include "loader/LinkLoaderClient.h"
 #include "html/LinkRelAttribute.h"
@@ -53,11 +52,6 @@ public:
     virtual String target() const;
 
     String type() const;
-
-    IconType iconType() const;
-
-    // the icon size string as parsed from the HTML attribute
-    String iconSizes() const;
 
     CSSStyleSheet* sheet() const { return m_sheet.get(); }
 

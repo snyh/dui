@@ -36,7 +36,6 @@ namespace WebCore {
 
 LinkRelAttribute::LinkRelAttribute()
     : m_isStyleSheet(false)
-    , m_iconType(InvalidIcon)
     , m_isAlternate(false)
     , m_isDNSPrefetch(false)
 #if ENABLE(LINK_PREFETCH)
@@ -48,7 +47,6 @@ LinkRelAttribute::LinkRelAttribute()
 
 LinkRelAttribute::LinkRelAttribute(const String& rel)
     : m_isStyleSheet(false)
-    , m_iconType(InvalidIcon)
     , m_isAlternate(false)
     , m_isDNSPrefetch(false)
 #if ENABLE(LINK_PREFETCH)
@@ -58,14 +56,6 @@ LinkRelAttribute::LinkRelAttribute(const String& rel)
 {
     if (equalIgnoringCase(rel, "stylesheet"))
         m_isStyleSheet = true;
-    else if (equalIgnoringCase(rel, "icon") || equalIgnoringCase(rel, "shortcut icon"))
-        m_iconType = Favicon;
-#if ENABLE(TOUCH_ICON_LOADING)
-    else if (equalIgnoringCase(rel, "apple-touch-icon"))
-        m_iconType = TouchIcon;
-    else if (equalIgnoringCase(rel, "apple-touch-icon-precomposed"))
-        m_iconType = TouchPrecomposedIcon;
-#endif
     else if (equalIgnoringCase(rel, "dns-prefetch"))
         m_isDNSPrefetch = true;
     else if (equalIgnoringCase(rel, "alternate stylesheet") || equalIgnoringCase(rel, "stylesheet alternate")) {
@@ -83,14 +73,6 @@ LinkRelAttribute::LinkRelAttribute(const String& rel)
                 m_isStyleSheet = true;
             else if (equalIgnoringCase(*it, "alternate"))
                 m_isAlternate = true;
-            else if (equalIgnoringCase(*it, "icon"))
-                m_iconType = Favicon;
-#if ENABLE(TOUCH_ICON_LOADING)
-            else if (equalIgnoringCase(*it, "apple-touch-icon"))
-                m_iconType = TouchIcon;
-            else if (equalIgnoringCase(*it, "apple-touch-icon-precomposed"))
-                m_iconType = TouchPrecomposedIcon;
-#endif
 #if ENABLE(LINK_PREFETCH)
             else if (equalIgnoringCase(*it, "prefetch"))
               m_isLinkPrefetch = true;

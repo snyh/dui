@@ -161,7 +161,6 @@ public:
 #endif
 
     void runOpenPanel(Frame*, PassRefPtr<FileChooser>);
-    void loadIconForFiles(const Vector<String>&, FileIconLoader*);
 #if ENABLE(DIRECTORY_UPLOAD)
     void enumerateChosenDirectory(FileChooser*);
 #endif
