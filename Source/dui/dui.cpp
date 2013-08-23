@@ -18,17 +18,25 @@
 #include <glib.h>
 #include "loader/EmptyClients.h"
 #include <gtk/gtk.h>
+#include "platform/network/soup/ResourceRequest.h"
+#include "loader/SubstituteData.h"
+#include "loader/DocumentLoader.h"
+#include "page/SecurityOrigin.h"
+#include "loader/FrameLoadRequest.h"
+
+#include "loader/cache/MemoryCache.h"
 
 using namespace WebCore;
-void take_snapshot(RefPtr<Frame> frame)
+RefPtr<Frame> frame = 0;
+void take_snapshot(cairo_t* cr)
 {
-    cairo_surface_t* surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, 300, 300);
-    RefPtr<cairo_t> cr = adoptRef(cairo_create(surface));
-    GraphicsContext gc(cr.get());
+    //cairo_surface_t* surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, 300, 300);
+    //RefPtr<cairo_t> cr = adoptRef(cairo_create(surface));
+    GraphicsContext gc(cr);
     gc.clip(IntRect(0, 0, 300, 300));
     frame->view()->paint(&gc, IntRect(0, 0, 300, 300));
     printf("1render: %p\n", frame->document()->renderView());
-    cairo_surface_write_to_png(surface, "/dev/shm/t.png");
+    //cairo_surface_write_to_png(surface, "/dev/shm/t.png");
 }
 
 void load_content(RefPtr<Document> document, const char* path)
@@ -40,9 +48,8 @@ void load_content(RefPtr<Document> document, const char* path)
 }
 
 const char my_interp[] __attribute__((section(".interp"))) = "/lib/ld-linux.so.2";
-void test_main(int argc, char* argv[])
+void test_main(const char* url)
 {
-    gtk_init(NULL, NULL);
     WTF::double_conversion::initialize();
     WTF::initializeThreading();
     WTF::initializeMainThread();
@@ -54,15 +61,18 @@ void test_main(int argc, char* argv[])
     clients.contextMenuClient = new EmptyContextMenuClient();
     Page* page = new Page(clients);
 
-    RefPtr<Frame> frame = Frame::create(page, 0, new EmptyFrameLoaderClient);
+    frame = Frame::create(page, 0, new EmptyFrameLoaderClient);
     frame->loader()->init();
+
     frame->createView(IntSize(300, 300), WebCore::Color::white, false);
 
-    KURL url;
-    RefPtr<Document> document = HTMLDocument::create(frame.get(), url);
+    //frame->loader()->load(FrameLoadRequest(SecurityOrigin::createUnique().get()));
+
+    KURL _url;
+    RefPtr<Document> document = HTMLDocument::create(frame.get(), _url);
     document->createDOMWindow();
     frame->setDocument(document);
-    load_content(document, "/dev/shm/t.htm");
+    load_content(document, url);
 
     document->updateLayout();
     //document->dumpStatistics();
@@ -70,8 +80,7 @@ void test_main(int argc, char* argv[])
     HTMLStyleElement* style = toHTMLStyleElement(document->getElementById("s"));
     printf("scope: %p\n", style->scopingElement());
 
+    //memoryCache()->dumpStats();
 
     DOMWindow* window = document->defaultView();
-    take_snapshot(frame);
-    gtk_main();
 }

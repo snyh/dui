@@ -34,8 +34,8 @@ namespace WebCore {
 
 WTFLogChannel LogNotYetImplemented = { 0x00000001, "WebCoreLogLevel", WTFLogChannelOff };
 
-WTFLogChannel LogFrames =            { 0x00000010, "WebCoreLogLevel", WTFLogChannelOff };
-WTFLogChannel LogLoading =           { 0x00000020, "WebCoreLogLevel", WTFLogChannelOff };
+WTFLogChannel LogFrames =            { 0x00000010, "WebCoreLogLevel", WTFLogChannelOn };
+WTFLogChannel LogLoading =           { 0x00000020, "WebCoreLogLevel", WTFLogChannelOn };
 WTFLogChannel LogPopupBlocking =     { 0x00000040, "WebCoreLogLevel", WTFLogChannelOff };
 WTFLogChannel LogEvents =            { 0x00000080, "WebCoreLogLevel", WTFLogChannelOff };
 
@@ -47,10 +47,10 @@ WTFLogChannel LogSQLDatabase =       { 0x00000800, "WebCoreLogLevel", WTFLogChan
 WTFLogChannel LogSpellingAndGrammar ={ 0x00001000, "WebCoreLogLevel", WTFLogChannelOff };
 WTFLogChannel LogBackForward =       { 0x00002000, "WebCoreLogLevel", WTFLogChannelOff };
 WTFLogChannel LogHistory =           { 0x00004000, "WebCoreLogLevel", WTFLogChannelOff };
-WTFLogChannel LogPageCache =         { 0x00008000, "WebCoreLogLevel", WTFLogChannelOff };
+WTFLogChannel LogPageCache =         { 0x00008000, "WebCoreLogLevel", WTFLogChannelOn };
 
 WTFLogChannel LogPlatformLeaks =     { 0x00010000, "WebCoreLogLevel", WTFLogChannelOff };
-WTFLogChannel LogResourceLoading =   { 0x00020000, "WebCoreLogLevel", WTFLogChannelOff };
+WTFLogChannel LogResourceLoading =   { 0x00020000, "WebCoreLogLevel", WTFLogChannelOn };
 WTFLogChannel LogAnimations =        { 0x00040000, "WebCoreLogLevel", WTFLogChannelOff };
 
 WTFLogChannel LogNetwork =           { 0x00100000, "WebCoreLogLevel", WTFLogChannelOff };

@@ -13,6 +13,7 @@ libdui_la_CXXFLAGS= \
 	-I$(CAIRO_CFLAGS) \
 	-I$(GLIB_CFLAGS) \
 	-I$(GTK_CFLAGS) \
+	-I$(LIBSOUP_CFLAGS) \
 	$(global_cxxflags)
 
 libdui_la_LIBADD := \
@@ -60,5 +61,6 @@ libdui_la_LIBADD := \
 bin_PROGRAMS += dui_test
 dui_test_SOURCES= Source/dui/test.cpp
 dui_test_LDADD = \
-	libdui.la
-dui_test_CXXFLAGS = -g
+	libdui.la \
+	$(GTK_LIBS)
+dui_test_CXXFLAGS = -g -I$(GTK_CFLAGS)
