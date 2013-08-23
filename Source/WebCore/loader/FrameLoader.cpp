@@ -110,11 +110,6 @@
 #include "svg/SVGViewSpec.h"
 #endif
 
-#if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-#include "loader/archive/Archive.h"
-#endif
-
-
 namespace WebCore {
 
 using namespace HTMLNames;
@@ -759,27 +754,6 @@ void FrameLoader::loadURLIntoChildFrame(const KURL& url, const String& referer, 
     ASSERT(childFrame);
     childFrame->loader()->loadURL(url, referer, "_self", false, FrameLoadTypeRedirectWithLockedBackForwardList, 0, 0);
 }
-
-#if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-void FrameLoader::loadArchive(PassRefPtr<Archive> archive)
-{
-    ArchiveResource* mainResource = archive->mainResource();
-    ASSERT(mainResource);
-    if (!mainResource)
-        return;
-        
-    SubstituteData substituteData(mainResource->data(), mainResource->mimeType(), mainResource->textEncoding(), KURL());
-    
-    ResourceRequest request(mainResource->url());
-#if PLATFORM(MAC)
-    request.applyWebArchiveHackForMail();
-#endif
-
-    RefPtr<DocumentLoader> documentLoader = m_client->createDocumentLoader(request, substituteData);
-    documentLoader->setArchive(archive.get());
-    load(documentLoader.get());
-}
-#endif // ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
 
 ObjectContentType FrameLoader::defaultObjectContentType(const KURL& url, const String& mimeTypeIn, bool shouldPreferPlugInsForImages)
 {

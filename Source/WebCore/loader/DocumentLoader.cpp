@@ -29,9 +29,9 @@
 
 #include "config.h"
 #include "loader/DocumentLoader.h"
+#include "loader/SubstituteResource.h"
 
 #include "loader/appcache/ApplicationCacheHost.h"
-#include "loader/archive/ArchiveResourceCollection.h"
 #include "loader/cache/CachedRawResource.h"
 #include "loader/cache/CachedResourceLoader.h"
 #include "page/DOMWindow.h"
@@ -61,10 +61,6 @@
 #include <wtf/text/CString.h>
 #include <wtf/text/WTFString.h>
 #include <wtf/unicode/Unicode.h>
-
-#if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-#include "loader/archive/ArchiveFactory.h"
-#endif
 
 #if USE(CONTENT_FILTERING)
 #include "ContentFilter.h"
@@ -262,10 +258,6 @@ void DocumentLoader::stopLoading()
 
     // Appcache uses ResourceHandle directly, DocumentLoader doesn't count these loads.
     m_applicationCacheHost->stopLoadingInFrame(m_frame);
-    
-#if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-    clearArchiveResources();
-#endif
 
     if (!loading) {
         // If something above restarted loading we might run into mysterious crashes like 
@@ -714,10 +706,6 @@ void DocumentLoader::commitLoad(const char* data, int length)
     FrameLoader* frameLoader = DocumentLoader::frameLoader();
     if (!frameLoader)
         return;
-#if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-    if (ArchiveFactory::isArchiveMimeType(response().mimeType()))
-        return;
-#endif
     frameLoader->client()->committedLoad(this, data, length);
 }
 
@@ -750,13 +738,6 @@ void DocumentLoader::commitData(const char* bytes, size_t length)
 
         if (frameLoader()->stateMachine()->creatingInitialEmptyDocument())
             return;
-        
-#if ENABLE(MHTML)
-        // The origin is the MHTML file, we need to set the base URL to the document encoded in the MHTML so
-        // relative URLs are resolved properly.
-        if (m_archive && m_archive->type() == Archive::MHTML)
-            m_frame->document()->setBaseURLOverride(m_archive->mainResource()->url());
-#endif
 
         // Call receivedFirstData() exactly once per load. We should only reach this point multiple times
         // for multipart loads, and FrameLoader::isReplacing() will be true after the first time.
@@ -768,10 +749,6 @@ void DocumentLoader::commitData(const char* bytes, size_t length)
         if (encoding.isNull()) {
             userChosen = false;
             encoding = response().textEncodingName();
-#if ENABLE(WEB_ARCHIVE)
-            if (m_archive && m_archive->type() == Archive::WebArchive)
-                encoding = m_archive->mainResource()->textEncoding();
-#endif
         }
         m_writer.setEncoding(encoding, userChosen);
     }
@@ -844,9 +821,6 @@ void DocumentLoader::setupForReplace()
     
     stopLoadingSubresources();
     stopLoadingPlugIns();
-#if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-    clearArchiveResources();
-#endif
 }
 
 void DocumentLoader::checkLoadComplete()
@@ -922,137 +896,7 @@ bool DocumentLoader::isLoadingInAPISense() const
 
 bool DocumentLoader::maybeCreateArchive()
 {
-#if !ENABLE(WEB_ARCHIVE) && !ENABLE(MHTML)
     return false;
-#else
-    
-    // Give the archive machinery a crack at this document. If the MIME type is not an archive type, it will return 0.
-    RefPtr<ResourceBuffer> mainResourceBuffer = mainResourceData();
-    m_archive = ArchiveFactory::create(m_response.url(), mainResourceBuffer ? mainResourceBuffer->sharedBuffer() : 0, m_response.mimeType());
-    if (!m_archive)
-        return false;
-    
-    addAllArchiveResources(m_archive.get());
-    ArchiveResource* mainResource = m_archive->mainResource();
-    m_parsedArchiveData = mainResource->data();
-    m_writer.setMIMEType(mainResource->mimeType());
-    
-    ASSERT(m_frame->document());
-    commitData(mainResource->data()->data(), mainResource->data()->size());
-    return true;
-#endif // !ENABLE(WEB_ARCHIVE) && !ENABLE(MHTML)
-}
-
-#if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-void DocumentLoader::setArchive(PassRefPtr<Archive> archive)
-{
-    m_archive = archive;
-    addAllArchiveResources(m_archive.get());
-}
-
-void DocumentLoader::addAllArchiveResources(Archive* archive)
-{
-    if (!m_archiveResourceCollection)
-        m_archiveResourceCollection = adoptPtr(new ArchiveResourceCollection);
-        
-    ASSERT(archive);
-    if (!archive)
-        return;
-        
-    m_archiveResourceCollection->addAllResources(archive);
-}
-
-// FIXME: Adding a resource directly to a DocumentLoader/ArchiveResourceCollection seems like bad design, but is API some apps rely on.
-// Can we change the design in a manner that will let us deprecate that API without reducing functionality of those apps?
-void DocumentLoader::addArchiveResource(PassRefPtr<ArchiveResource> resource)
-{
-    if (!m_archiveResourceCollection)
-        m_archiveResourceCollection = adoptPtr(new ArchiveResourceCollection);
-        
-    ASSERT(resource);
-    if (!resource)
-        return;
-        
-    m_archiveResourceCollection->addResource(resource);
-}
-
-PassRefPtr<Archive> DocumentLoader::popArchiveForSubframe(const String& frameName, const KURL& url)
-{
-    return m_archiveResourceCollection ? m_archiveResourceCollection->popSubframeArchive(frameName, url) : PassRefPtr<Archive>(0);
-}
-
-void DocumentLoader::clearArchiveResources()
-{
-    m_archiveResourceCollection.clear();
-    m_substituteResourceDeliveryTimer.stop();
-}
-
-SharedBuffer* DocumentLoader::parsedArchiveData() const
-{
-    return m_parsedArchiveData.get();
-}
-#endif // ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-
-ArchiveResource* DocumentLoader::archiveResourceForURL(const KURL& url) const
-{
-    if (!m_archiveResourceCollection)
-        return 0;
-        
-    ArchiveResource* resource = m_archiveResourceCollection->archiveResourceForURL(url);
-
-    return resource && !resource->shouldIgnoreWhenUnarchiving() ? resource : 0;
-}
-
-PassRefPtr<ArchiveResource> DocumentLoader::mainResource() const
-{
-    const ResourceResponse& r = response();
-    
-    RefPtr<ResourceBuffer> mainResourceBuffer = mainResourceData();
-    RefPtr<SharedBuffer> data = mainResourceBuffer ? mainResourceBuffer->sharedBuffer() : 0;
-    if (!data)
-        data = SharedBuffer::create();
-        
-    return ArchiveResource::create(data, r.url(), r.mimeType(), r.textEncodingName(), frame()->tree()->uniqueName());
-}
-
-PassRefPtr<ArchiveResource> DocumentLoader::subresource(const KURL& url) const
-{
-    if (!isCommitted())
-        return 0;
-    
-    CachedResource* resource = m_cachedResourceLoader->cachedResource(url);
-    if (!resource || !resource->isLoaded())
-        return archiveResourceForURL(url);
-
-    if (resource->type() == CachedResource::MainResource)
-        return 0;
-
-    // FIXME: This has the side effect of making the resource non-purgeable.
-    // It would be better if it didn't have this permanent effect.
-    if (!resource->makePurgeable(false))
-        return 0;
-
-    ResourceBuffer* data = resource->resourceBuffer();
-    if (!data)
-        return 0;
-
-    return ArchiveResource::create(data->sharedBuffer(), url, resource->response());
-}
-
-void DocumentLoader::getSubresources(Vector<PassRefPtr<ArchiveResource> >& subresources) const
-{
-    if (!isCommitted())
-        return;
-
-    const CachedResourceLoader::DocumentResourceMap& allResources = m_cachedResourceLoader->allCachedResources();
-    CachedResourceLoader::DocumentResourceMap::const_iterator end = allResources.end();
-    for (CachedResourceLoader::DocumentResourceMap::const_iterator it = allResources.begin(); it != end; ++it) {
-        RefPtr<ArchiveResource> subresource = this->subresource(KURL(ParsedURLString, it->value->url()));
-        if (subresource)
-            subresources.append(subresource.release());
-    }
-
-    return;
 }
 
 void DocumentLoader::deliverSubstituteResourcesAfterDelay()
@@ -1124,34 +968,6 @@ void DocumentLoader::cancelPendingSubstituteLoad(ResourceLoader* loader)
         m_substituteResourceDeliveryTimer.stop();
 }
 
-#if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-bool DocumentLoader::scheduleArchiveLoad(ResourceLoader* loader, const ResourceRequest& request)
-{
-    if (ArchiveResource* resource = archiveResourceForURL(request.url())) {
-        m_pendingSubstituteResources.set(loader, resource);
-        deliverSubstituteResourcesAfterDelay();
-        return true;
-    }
-
-    if (!m_archive)
-        return false;
-
-    switch (m_archive->type()) {
-#if ENABLE(WEB_ARCHIVE)
-    case Archive::WebArchive:
-        // WebArchiveDebugMode means we fail loads instead of trying to fetch them from the network if they're not in the archive.
-        return m_frame->settings() && m_frame->settings()->webArchiveDebugModeEnabled() && ArchiveFactory::isArchiveMimeType(responseMIMEType());
-#endif
-#if ENABLE(MHTML)
-    case Archive::MHTML:
-        return true; // Always fail the load for resources not included in the MHTML.
-#endif
-    default:
-        return false;
-    }
-}
-#endif // ENABLE(WEB_ARCHIVE)
-
 void DocumentLoader::addResponse(const ResourceResponse& r)
 {
     if (!m_stopRecordingResponses)
@@ -1208,10 +1024,6 @@ const KURL& DocumentLoader::responseURL() const
 KURL DocumentLoader::documentURL() const
 {
     KURL url = substituteData().responseURL();
-#if ENABLE(WEB_ARCHIVE)
-    if (url.isEmpty() && m_archive && m_archive->type() == Archive::WebArchive)
-        url = m_archive->mainResource()->url();
-#endif
     if (url.isEmpty())
         url = requestURL();
     if (url.isEmpty())

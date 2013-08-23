@@ -56,11 +56,6 @@ class SchedulePair;
 
 namespace WebCore {
     class ApplicationCacheHost;
-#if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-    class Archive;
-#endif
-    class ArchiveResource;
-    class ArchiveResourceCollection;
     class CachedRawResource;
     class CachedResourceLoader;
     class ContentFilter;
@@ -136,26 +131,6 @@ namespace WebCore {
         void schedule(WTF::SchedulePair*);
         void unschedule(WTF::SchedulePair*);
 #endif
-
-#if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-        void setArchive(PassRefPtr<Archive>);
-        void addAllArchiveResources(Archive*);
-        void addArchiveResource(PassRefPtr<ArchiveResource>);
-        PassRefPtr<Archive> popArchiveForSubframe(const String& frameName, const KURL&);
-        SharedBuffer* parsedArchiveData() const;
-
-        bool scheduleArchiveLoad(ResourceLoader*, const ResourceRequest&);
-#endif // ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-
-        // Return the ArchiveResource for the URL only when loading an Archive
-        ArchiveResource* archiveResourceForURL(const KURL&) const;
-
-        PassRefPtr<ArchiveResource> mainResource() const;
-
-        // Return an ArchiveResource for the URL, either creating from live data or
-        // pulling from the ArchiveResourceCollection
-        PassRefPtr<ArchiveResource> subresource(const KURL&) const;
-        void getSubresources(Vector<PassRefPtr<ArchiveResource> >&) const;
 
 
 #ifndef NDEBUG
@@ -262,9 +237,6 @@ namespace WebCore {
         void maybeFinishLoadingMultipartContent();
         
         bool maybeCreateArchive();
-#if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-        void clearArchiveResources();
-#endif
 
         void willSendRequest(ResourceRequest&, const ResourceResponse&);
         void finishedLoading(double finishTime);
@@ -365,12 +337,6 @@ namespace WebCore {
         typedef HashMap<RefPtr<ResourceLoader>, RefPtr<SubstituteResource> > SubstituteResourceMap;
         SubstituteResourceMap m_pendingSubstituteResources;
         Timer<DocumentLoader> m_substituteResourceDeliveryTimer;
-
-        OwnPtr<ArchiveResourceCollection> m_archiveResourceCollection;
-#if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-        RefPtr<Archive> m_archive;
-        RefPtr<SharedBuffer> m_parsedArchiveData;
-#endif
 
         HashSet<String> m_resourcesClientKnowsAbout;
         Vector<ResourceRequest> m_resourcesLoadedFromMemoryCacheForClientNotification;

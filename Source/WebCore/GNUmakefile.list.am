@@ -1771,18 +1771,6 @@ webcore_sources += \
 	Source/WebCore/loader/appcache/DOMApplicationCache.h \
 	Source/WebCore/loader/appcache/ManifestParser.cpp \
 	Source/WebCore/loader/appcache/ManifestParser.h \
-	Source/WebCore/loader/archive/mhtml/MHTMLArchive.cpp \
-	Source/WebCore/loader/archive/mhtml/MHTMLArchive.h \
-	Source/WebCore/loader/archive/mhtml/MHTMLParser.cpp \
-	Source/WebCore/loader/archive/mhtml/MHTMLParser.h \
-	Source/WebCore/loader/archive/ArchiveFactory.cpp \
-	Source/WebCore/loader/archive/ArchiveFactory.h \
-	Source/WebCore/loader/archive/Archive.cpp \
-	Source/WebCore/loader/archive/Archive.h \
-	Source/WebCore/loader/archive/ArchiveResourceCollection.cpp \
-	Source/WebCore/loader/archive/ArchiveResourceCollection.h \
-	Source/WebCore/loader/archive/ArchiveResource.cpp \
-	Source/WebCore/loader/archive/ArchiveResource.h \
 	Source/WebCore/loader/cache/MemoryCache.cpp \
 	Source/WebCore/loader/cache/CachedCSSStyleSheet.cpp \
 	Source/WebCore/loader/cache/CachedCSSStyleSheet.h \
