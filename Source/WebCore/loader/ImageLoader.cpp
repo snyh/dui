@@ -25,7 +25,6 @@
 #include "loader/cache/CachedImage.h"
 #include "loader/cache/CachedResourceLoader.h"
 #include "loader/cache/CachedResourceRequest.h"
-#include "loader/CrossOriginAccessControl.h"
 #include "dom/Document.h"
 #include "dom/Element.h"
 #include "dom/Event.h"
@@ -181,12 +180,6 @@ void ImageLoader::updateFromElement()
         CachedResourceRequest request(ResourceRequest(document->completeURL(sourceURI(attr))));
         request.setInitiator(element());
 
-        String crossOriginMode = m_element->fastGetAttribute(HTMLNames::crossoriginAttr);
-        if (!crossOriginMode.isNull()) {
-            StoredCredentials allowCredentials = equalIgnoringCase(crossOriginMode, "use-credentials") ? AllowStoredCredentials : DoNotAllowStoredCredentials;
-            updateRequestForAccessControl(request.mutableResourceRequest(), document->securityOrigin(), allowCredentials);
-        }
-
         if (m_loadManually) {
             bool autoLoadOtherImages = document->cachedResourceLoader()->autoLoadImages();
             document->cachedResourceLoader()->setAutoLoadImages(false);
@@ -282,26 +275,6 @@ void ImageLoader::notifyFinished(CachedResource* resource)
 
     if (!m_hasPendingLoadEvent)
         return;
-
-    if (m_element->fastHasAttribute(HTMLNames::crossoriginAttr)
-        && !m_element->document()->securityOrigin()->canRequest(image()->response().url())
-        && !resource->passesAccessControlCheck(m_element->document()->securityOrigin())) {
-
-        setImageWithoutConsideringPendingLoadEvent(0);
-
-        m_hasPendingErrorEvent = true;
-        errorEventSender().dispatchEventSoon(this);
-
-        DEFINE_STATIC_LOCAL(String, consoleMessage, (ASCIILiteral("Cross-origin image load denied by Cross-Origin Resource Sharing policy.")));
-        m_element->document()->addConsoleMessage(SecurityMessageSource, ErrorMessageLevel, consoleMessage);
-
-        ASSERT(!m_hasPendingLoadEvent);
-
-        // Only consider updating the protection ref-count of the Element immediately before returning
-        // from this function as doing so might result in the destruction of this ImageLoader.
-        updatedHasPendingEvent();
-        return;
-    }
 
     if (resource->wasCanceled()) {
         m_hasPendingLoadEvent = false;

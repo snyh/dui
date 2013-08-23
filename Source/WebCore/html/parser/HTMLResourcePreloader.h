@@ -44,7 +44,6 @@ public:
 
     const String& charset() const { return m_charset; }
     void setCharset(const String& charset) { m_charset = charset.isolatedCopy(); }
-    void setCrossOriginModeAllowsCookies(bool allowsCookies) { m_crossOriginModeAllowsCookies = allowsCookies; }
     CachedResource::Type resourceType() const { return m_resourceType; }
 
 private:
@@ -53,7 +52,6 @@ private:
         , m_resourceURL(resourceURL.isolatedCopy())
         , m_baseURL(baseURL.copy())
         , m_resourceType(resourceType)
-        , m_crossOriginModeAllowsCookies(false)
     {
     }
 
@@ -64,7 +62,6 @@ private:
     KURL m_baseURL;
     String m_charset;
     CachedResource::Type m_resourceType;
-    bool m_crossOriginModeAllowsCookies;
 };
 
 typedef Vector<OwnPtr<PreloadRequest> > PreloadRequestStream;

@@ -65,8 +65,6 @@ public:
     enum LoadStatus { Failure, Success };
     virtual void didCompleteLoad(LoadableTextTrack*, LoadStatus);
 
-    const AtomicString& mediaElementCrossOriginAttribute() const;
-
 private:
     HTMLTrackElement(const QualifiedName&, Document*);
     virtual ~HTMLTrackElement();

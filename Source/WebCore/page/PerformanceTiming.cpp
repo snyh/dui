@@ -71,9 +71,6 @@ unsigned long long PerformanceTiming::unloadEventStart() const
     if (!timing)
         return 0;
 
-    if (timing->hasCrossOriginRedirect() || !timing->hasSameOriginAsPreviousDocument())
-        return 0;
-
     return monotonicTimeToIntegerMilliseconds(timing->unloadEventStart());
 }
 
@@ -81,9 +78,6 @@ unsigned long long PerformanceTiming::unloadEventEnd() const
 {
     DocumentLoadTiming* timing = documentLoadTiming();
     if (!timing)
-        return 0;
-
-    if (timing->hasCrossOriginRedirect() || !timing->hasSameOriginAsPreviousDocument())
         return 0;
 
     return monotonicTimeToIntegerMilliseconds(timing->unloadEventEnd());
@@ -95,9 +89,6 @@ unsigned long long PerformanceTiming::redirectStart() const
     if (!timing)
         return 0;
 
-    if (timing->hasCrossOriginRedirect())
-        return 0;
-
     return monotonicTimeToIntegerMilliseconds(timing->redirectStart());
 }
 
@@ -105,9 +96,6 @@ unsigned long long PerformanceTiming::redirectEnd() const
 {
     DocumentLoadTiming* timing = documentLoadTiming();
     if (!timing)
-        return 0;
-
-    if (timing->hasCrossOriginRedirect())
         return 0;
 
     return monotonicTimeToIntegerMilliseconds(timing->redirectEnd());

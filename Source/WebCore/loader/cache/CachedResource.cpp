@@ -28,7 +28,6 @@
 #include "loader/cache/CachedResourceClientWalker.h"
 #include "loader/cache/CachedResourceHandle.h"
 #include "loader/cache/CachedResourceLoader.h"
-#include "loader/CrossOriginAccessControl.h"
 #include "dom/Document.h"
 #include "loader/DocumentLoader.h"
 #include "page/Frame.h"
@@ -411,8 +410,7 @@ void CachedResource::finish()
 
 bool CachedResource::passesAccessControlCheck(SecurityOrigin* securityOrigin)
 {
-    String errorDescription;
-    return WebCore::passesAccessControlCheck(m_response, resourceRequest().allowCookies() ? AllowStoredCredentials : DoNotAllowStoredCredentials, securityOrigin, errorDescription);
+    return true;
 }
 
 bool CachedResource::isExpired() const

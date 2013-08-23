@@ -74,8 +74,6 @@ unsigned short PerformanceNavigation::redirectCount() const
         return 0;
 
     DocumentLoadTiming* timing = loader->timing();
-    if (timing->hasCrossOriginRedirect())
-        return 0;
 
     return timing->redirectCount();
 }

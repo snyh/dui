@@ -495,7 +495,7 @@ void ResourceLoader::didReceiveAuthenticationChallenge(const AuthenticationChall
     RefPtr<ResourceLoader> protector(this);
 
     if (m_options.allowCredentials == AllowStoredCredentials) {
-        if (m_options.clientCredentialPolicy == AskClientForAllCredentials || (m_options.clientCredentialPolicy == DoNotAskClientForCrossOriginCredentials && m_frame->document()->securityOrigin()->canRequest(originalRequest().url()))) {
+        if (m_options.clientCredentialPolicy == AskClientForAllCredentials) {
             frameLoader()->notifier()->didReceiveAuthenticationChallenge(this, challenge);
             return;
         }

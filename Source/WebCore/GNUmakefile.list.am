@@ -301,7 +301,6 @@ dom_binding_idls += \
 	$(WebCore)/page/DOMSecurityPolicy.idl \
 	$(WebCore)/page/DOMSelection.idl \
 	$(WebCore)/page/DOMWindow.idl \
-	$(WebCore)/page/EventSource.idl \
 	$(WebCore)/page/Location.idl \
 	$(WebCore)/page/Navigator.idl \
 	$(WebCore)/page/Performance.idl \
@@ -1793,19 +1792,12 @@ webcore_sources += \
 	Source/WebCore/loader/cache/CachePolicy.h \
 	Source/WebCore/loader/CookieJar.cpp \
 	Source/WebCore/loader/CookieJar.h \
-	Source/WebCore/loader/CrossOriginAccessControl.cpp \
-	Source/WebCore/loader/CrossOriginAccessControl.h \
-	Source/WebCore/loader/CrossOriginPreflightResultCache.cpp \
-	Source/WebCore/loader/CrossOriginPreflightResultCache.h \
 	Source/WebCore/loader/TextTrackLoader.cpp \
 	Source/WebCore/loader/TextTrackLoader.h \
 	Source/WebCore/loader/DocumentLoadTiming.cpp \
 	Source/WebCore/loader/DocumentLoadTiming.h \
 	Source/WebCore/loader/DocumentLoader.cpp \
 	Source/WebCore/loader/DocumentLoader.h \
-	Source/WebCore/loader/DocumentThreadableLoader.cpp \
-	Source/WebCore/loader/DocumentThreadableLoader.h \
-	Source/WebCore/loader/DocumentThreadableLoaderClient.h \
 	Source/WebCore/loader/DocumentWriter.cpp \
 	Source/WebCore/loader/DocumentWriter.h \
 	Source/WebCore/loader/EmptyClients.cpp \
@@ -1866,10 +1858,6 @@ webcore_sources += \
 	Source/WebCore/loader/SubstituteResource.h \
 	Source/WebCore/loader/TextResourceDecoder.cpp \
 	Source/WebCore/loader/TextResourceDecoder.h \
-	Source/WebCore/loader/ThreadableLoaderClient.h \
-	Source/WebCore/loader/ThreadableLoaderClientWrapper.h \
-	Source/WebCore/loader/ThreadableLoader.cpp \
-	Source/WebCore/loader/ThreadableLoader.h \
 	Source/WebCore/mathml/MathMLElement.cpp \
 	Source/WebCore/mathml/MathMLElement.h \
 	Source/WebCore/mathml/MathMLInlineContainerElement.cpp \
@@ -1939,8 +1927,6 @@ webcore_sources += \
 	Source/WebCore/page/EditorClient.h \
 	Source/WebCore/page/EventHandler.cpp \
 	Source/WebCore/page/EventHandler.h \
-	Source/WebCore/page/EventSource.cpp \
-	Source/WebCore/page/EventSource.h \
 	Source/WebCore/page/FeatureObserver.cpp \
 	Source/WebCore/page/FeatureObserver.h \
 	Source/WebCore/page/FocusController.cpp \

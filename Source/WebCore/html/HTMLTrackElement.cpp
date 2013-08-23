@@ -304,14 +304,6 @@ HTMLTrackElement::ReadyState HTMLTrackElement::readyState()
     return static_cast<ReadyState>(ensureTrack()->readinessState());
 }
 
-const AtomicString& HTMLTrackElement::mediaElementCrossOriginAttribute() const
-{
-    if (HTMLMediaElement* parent = mediaElement())
-        return parent->fastGetAttribute(HTMLNames::crossoriginAttr);
-    
-    return nullAtom;
-}
-
 void HTMLTrackElement::textTrackKindChanged(TextTrack* track)
 {
     if (HTMLMediaElement* parent = mediaElement())

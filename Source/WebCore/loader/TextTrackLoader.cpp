@@ -32,7 +32,6 @@
 #include "loader/cache/CachedResourceLoader.h"
 #include "loader/cache/CachedResourceRequest.h"
 #include "loader/cache/CachedTextTrack.h"
-#include "loader/CrossOriginAccessControl.h"
 #include "dom/Document.h"
 #include "platform/Logging.h"
 #include "loader/ResourceBuffer.h"
@@ -112,25 +111,11 @@ void TextTrackLoader::deprecatedDidReceiveCachedResource(CachedResource* resourc
     processNewCueData(resource);
 }
 
-void TextTrackLoader::corsPolicyPreventedLoad()
-{
-    DEFINE_STATIC_LOCAL(String, consoleMessage, (ASCIILiteral("Cross-origin text track load denied by Cross-Origin Resource Sharing policy.")));
-    Document* document = toDocument(m_scriptExecutionContext);
-    document->addConsoleMessage(SecurityMessageSource, ErrorMessageLevel, consoleMessage);
-    m_state = Failed;
-}
-
 void TextTrackLoader::notifyFinished(CachedResource* resource)
 {
     ASSERT(m_cachedCueData == resource);
 
     Document* document = toDocument(m_scriptExecutionContext);
-    if (!m_crossOriginMode.isNull()
-        && !document->securityOrigin()->canRequest(resource->response().url())
-        && !resource->passesAccessControlCheck(document->securityOrigin())) {
-
-        corsPolicyPreventedLoad();
-    }
 
     if (m_state != Failed) {
         processNewCueData(resource);
@@ -154,18 +139,6 @@ bool TextTrackLoader::load(const KURL& url, const String& crossOriginMode)
     ASSERT(m_scriptExecutionContext->isDocument());
     Document* document = toDocument(m_scriptExecutionContext);
     CachedResourceRequest cueRequest(ResourceRequest(document->completeURL(url)));
-
-    if (!crossOriginMode.isNull()) {
-        m_crossOriginMode = crossOriginMode;
-        StoredCredentials allowCredentials = equalIgnoringCase(crossOriginMode, "use-credentials") ? AllowStoredCredentials : DoNotAllowStoredCredentials;
-        updateRequestForAccessControl(cueRequest.mutableResourceRequest(), document->securityOrigin(), allowCredentials);
-    } else {
-        // Cross-origin resources that are not suitably CORS-enabled may not load.
-        if (!document->securityOrigin()->canRequest(url)) {
-            corsPolicyPreventedLoad();
-            return false;
-        }
-    }
 
     CachedResourceLoader* cachedResourceLoader = document->cachedResourceLoader();
     m_cachedCueData = cachedResourceLoader->requestTextTrack(cueRequest);

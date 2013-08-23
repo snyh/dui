@@ -29,11 +29,11 @@
 #include "platform/network/FormData.h"
 #include "platform/network/soup/ResourceResponse.h"
 #include "bindings/dui/ScriptWrappable.h"
-#include "loader/ThreadableLoaderClient.h"
 #include "xml/XMLHttpRequestProgressEventThrottle.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/text/AtomicStringHash.h>
 #include <wtf/text/StringBuilder.h>
+#include "platform/network/soup/ResourceError.h"
 
 namespace WebCore {
 
@@ -44,9 +44,8 @@ class ResourceRequest;
 class SecurityOrigin;
 class SharedBuffer;
 class TextResourceDecoder;
-class ThreadableLoader;
 
-class XMLHttpRequest : public ScriptWrappable, public RefCounted<XMLHttpRequest>, public EventTarget, private ThreadableLoaderClient, public ActiveDOMObject {
+class XMLHttpRequest : public ScriptWrappable, public RefCounted<XMLHttpRequest>, public EventTarget, public ActiveDOMObject {
     WTF_MAKE_FAST_ALLOCATED;
 public:
     static PassRefPtr<XMLHttpRequest> create(ScriptExecutionContext*);
@@ -207,7 +206,6 @@ private:
 #endif
     RefPtr<Blob> m_responseBlob;
 
-    RefPtr<ThreadableLoader> m_loader;
     State m_state;
 
     ResourceResponse m_response;

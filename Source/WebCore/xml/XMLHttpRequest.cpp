@@ -28,7 +28,6 @@
 #include "platform/network/BlobData.h"
 #include "page/ContentSecurityPolicy.h"
 #include "dom/ContextFeatures.h"
-#include "loader/CrossOriginAccessControl.h"
 #include "html/DOMFormData.h"
 #include "dom/DOMImplementation.h"
 #include "dom/Event.h"
@@ -47,7 +46,6 @@
 #include "page/Settings.h"
 #include "platform/SharedBuffer.h"
 #include "loader/TextResourceDecoder.h"
-#include "loader/ThreadableLoader.h"
 #include "xml/XMLHttpRequestException.h"
 #include "xml/XMLHttpRequestProgressEvent.h"
 #include "xml/XMLHttpRequestUpload.h"
@@ -413,7 +411,7 @@ void XMLHttpRequest::callReadyStateChangeListener()
 
 void XMLHttpRequest::setWithCredentials(bool value, ExceptionCode& ec)
 {
-    if (m_state > OPENED || m_loader) {
+    if (m_state > OPENED) {
         ec = INVALID_STATE_ERR;
         return;
     }
@@ -519,8 +517,6 @@ void XMLHttpRequest::open(const String& method, const KURL& url, bool async, Exc
 
     m_async = async;
 
-    ASSERT(!m_loader);
-
     // Check previous state to avoid dispatching readyState event
     // when calling open several times in a row.
     if (previousState != OPENED)
@@ -551,7 +547,7 @@ bool XMLHttpRequest::initSend(ExceptionCode& ec)
     if (!scriptExecutionContext())
         return false;
 
-    if (m_state != OPENED || m_loader) {
+    if (m_state != OPENED) {
         ec = INVALID_STATE_ERR;
         return false;
     }
@@ -738,7 +734,7 @@ void XMLHttpRequest::createRequest(ExceptionCode& ec)
 
     // We also remember whether upload events should be allowed for this request in case the upload listeners are
     // added after the request is started.
-    m_uploadEventsAllowed = m_sameOriginRequest || uploadEvents || !isSimpleCrossOriginAccessRequest(m_method, m_requestHeaders);
+    m_uploadEventsAllowed = m_sameOriginRequest || uploadEvents;
 
     ResourceRequest request(m_url);
     request.setHTTPMethod(m_method);
@@ -755,17 +751,6 @@ void XMLHttpRequest::createRequest(ExceptionCode& ec)
     if (m_requestHeaders.size() > 0)
         request.addHTTPHeaderFields(m_requestHeaders);
 
-    ThreadableLoaderOptions options;
-    options.sendLoadCallbacks = SendCallbacks;
-    options.sniffContent = DoNotSniffContent;
-    options.preflightPolicy = uploadEvents ? ForcePreflight : ConsiderPreflight;
-    options.allowCredentials = (m_sameOriginRequest || m_includeCredentials) ? AllowStoredCredentials : DoNotAllowStoredCredentials;
-    options.crossOriginRequestPolicy = UseAccessControl;
-    options.securityOrigin = securityOrigin();
-#if ENABLE(RESOURCE_TIMING)
-    options.initiator = cachedResourceRequestInitiators().xmlhttprequest;
-#endif
-
 #if ENABLE(XHR_TIMEOUT)
     if (m_timeoutMilliseconds)
         request.setTimeoutInterval(m_timeoutMilliseconds / 1000.0);
@@ -777,20 +762,6 @@ void XMLHttpRequest::createRequest(ExceptionCode& ec)
     if (m_async) {
         if (m_upload)
             request.setReportUploadProgress(true);
-
-        // ThreadableLoader::create can return null here, for example if we're no longer attached to a page.
-        // This is true while running onunload handlers.
-        // FIXME: Maybe we need to be able to send XMLHttpRequests from onunload, <http://bugs.webkit.org/show_bug.cgi?id=10904>.
-        // FIXME: Maybe create() can return null for other reasons too?
-        m_loader = ThreadableLoader::create(scriptExecutionContext(), this, request, options);
-        if (m_loader) {
-            // Neither this object nor the JavaScript wrapper should be deleted while
-            // a request is in progress because we need to keep the listeners alive,
-            // and they are referenced by the JavaScript wrapper.
-            setPendingActivity(this);
-        }
-    } else {
-        ThreadableLoader::loadResourceSynchronously(scriptExecutionContext(), request, *this, options);
     }
 
     if (!m_exceptionCode && m_error)
@@ -803,7 +774,6 @@ void XMLHttpRequest::abort()
     // internalAbort() calls dropProtection(), which may release the last reference.
     RefPtr<XMLHttpRequest> protect(this);
 
-    bool sendFlag = m_loader;
 
     internalAbort();
 
@@ -812,10 +782,9 @@ void XMLHttpRequest::abort()
     // Clear headers as required by the spec
     m_requestHeaders.clear();
 
-    if ((m_state <= OPENED && !sendFlag) || m_state == DONE)
+    if ((m_state <= OPENED) || m_state == DONE)
         m_state = UNSENT;
     else {
-        ASSERT(!m_loader);
         changeState(DONE);
         m_state = UNSENT;
     }
@@ -830,22 +799,12 @@ void XMLHttpRequest::abort()
 
 void XMLHttpRequest::internalAbort()
 {
-    bool hadLoader = m_loader;
-
     m_error = true;
 
     // FIXME: when we add the support for multi-part XHR, we will have to think be careful with this initialization.
     m_receivedLength = 0;
 
-    if (hadLoader) {
-        m_loader->cancel();
-        m_loader = 0;
-    }
-
     m_decoder = 0;
-
-    if (hadLoader)
-        dropProtection();
 }
 
 void XMLHttpRequest::clearResponse()
@@ -913,7 +872,7 @@ void XMLHttpRequest::overrideMimeType(const String& override)
 
 void XMLHttpRequest::setRequestHeader(const AtomicString& name, const String& value, ExceptionCode& ec)
 {
-    if (m_state != OPENED || m_loader) {
+    if (m_state != OPENED) {
 #if ENABLE(DASHBOARD_SUPPORT)
         if (usesDashboardBackwardCompatibilityMode())
             return;
@@ -958,54 +917,12 @@ String XMLHttpRequest::getAllResponseHeaders(ExceptionCode& ec) const
 
     StringBuilder stringBuilder;
 
-    HTTPHeaderSet accessControlExposeHeaderSet;
-    parseAccessControlExposeHeadersAllowList(m_response.httpHeaderField("Access-Control-Expose-Headers"), accessControlExposeHeaderSet);
-    HTTPHeaderMap::const_iterator end = m_response.httpHeaderFields().end();
-    for (HTTPHeaderMap::const_iterator it = m_response.httpHeaderFields().begin(); it!= end; ++it) {
-        // Hide Set-Cookie header fields from the XMLHttpRequest client for these reasons:
-        //     1) If the client did have access to the fields, then it could read HTTP-only
-        //        cookies; those cookies are supposed to be hidden from scripts.
-        //     2) There's no known harm in hiding Set-Cookie header fields entirely; we don't
-        //        know any widely used technique that requires access to them.
-        //     3) Firefox has implemented this policy.
-        if (isSetCookieHeader(it->key) && !securityOrigin()->canLoadLocalResources())
-            continue;
-
-        if (!m_sameOriginRequest && !isOnAccessControlResponseHeaderWhitelist(it->key) && !accessControlExposeHeaderSet.contains(it->key))
-            continue;
-
-        stringBuilder.append(it->key);
-        stringBuilder.append(':');
-        stringBuilder.append(' ');
-        stringBuilder.append(it->value);
-        stringBuilder.append('\r');
-        stringBuilder.append('\n');
-    }
-
     return stringBuilder.toString();
 }
 
 String XMLHttpRequest::getResponseHeader(const AtomicString& name, ExceptionCode& ec) const
 {
-    if (m_state < HEADERS_RECEIVED) {
-        ec = INVALID_STATE_ERR;
-        return String();
-    }
-
-    // See comment in getAllResponseHeaders above.
-    if (isSetCookieHeader(name) && !securityOrigin()->canLoadLocalResources()) {
-        logConsoleError(scriptExecutionContext(), "Refused to get unsafe header \"" + name + "\"");
-        return String();
-    }
-
-    HTTPHeaderSet accessControlExposeHeaderSet;
-    parseAccessControlExposeHeadersAllowList(m_response.httpHeaderField("Access-Control-Expose-Headers"), accessControlExposeHeaderSet);
-
-    if (!m_sameOriginRequest && !isOnAccessControlResponseHeaderWhitelist(name) && !accessControlExposeHeaderSet.contains(name)) {
-        logConsoleError(scriptExecutionContext(), "Refused to get unsafe header \"" + name + "\"");
-        return String();
-    }
-    return m_response.httpHeaderField(name);
+    return String();
 }
 
 String XMLHttpRequest::responseMIMEType() const
@@ -1103,14 +1020,8 @@ void XMLHttpRequest::didFinishLoading(unsigned long identifier, double)
 
     m_responseBuilder.shrinkToFit();
 
-    bool hadLoader = m_loader;
-    m_loader = 0;
-
     changeState(DONE);
     m_decoder = 0;
-
-    if (hadLoader)
-        dropProtection();
 }
 
 void XMLHttpRequest::didSendData(unsigned long long bytesSent, unsigned long long totalBytesToBeSent)
@@ -1229,7 +1140,7 @@ void XMLHttpRequest::didTimeout()
 
 bool XMLHttpRequest::canSuspend() const
 {
-    return !m_loader;
+    return false;
 }
 
 void XMLHttpRequest::suspend(ReasonForSuspension)
@@ -1249,7 +1160,6 @@ void XMLHttpRequest::stop()
 
 void XMLHttpRequest::contextDestroyed()
 {
-    ASSERT(!m_loader);
     ActiveDOMObject::contextDestroyed();
 }
 

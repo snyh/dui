@@ -1669,7 +1669,7 @@ Vector<RefPtr<StyleRuleBase> > StyleResolver::pseudoStyleRulesForElement(Element
     }
 
     if (m_matchAuthorAndUserStyles && (rulesToInclude & AuthorCSSRules)) {
-        collector.setSameOriginOnly(!(rulesToInclude & CrossOriginCSSRules));
+        collector.setSameOriginOnly(!rulesToInclude);
 
         // Check the rules in author sheets.
         collector.matchAuthorRules(rulesToInclude & EmptyCSSRules);

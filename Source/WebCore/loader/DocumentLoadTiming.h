@@ -53,8 +53,6 @@ public:
     void markLoadEventStart() { m_loadEventStart = monotonicallyIncreasingTime(); }
     void markLoadEventEnd() { m_loadEventEnd = monotonicallyIncreasingTime(); }
 
-    void setHasSameOriginAsPreviousDocument(bool value) { m_hasSameOriginAsPreviousDocument = value; }
-
     double navigationStart() const { return m_navigationStart; }
     double unloadEventStart() const { return m_unloadEventStart; }
     double unloadEventEnd() const { return m_unloadEventEnd; }
@@ -65,8 +63,6 @@ public:
     double responseEnd() const { return m_responseEnd; }
     double loadEventStart() const { return m_loadEventStart; }
     double loadEventEnd() const { return m_loadEventEnd; }
-    bool hasCrossOriginRedirect() const { return m_hasCrossOriginRedirect; }
-    bool hasSameOriginAsPreviousDocument() const { return m_hasSameOriginAsPreviousDocument; }
 
 private:
     double m_referenceMonotonicTime;
@@ -81,8 +77,6 @@ private:
     double m_responseEnd;
     double m_loadEventStart;
     double m_loadEventEnd;
-    bool m_hasCrossOriginRedirect;
-    bool m_hasSameOriginAsPreviousDocument;
 };
 
 } // namespace WebCore

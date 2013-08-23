@@ -49,8 +49,6 @@ DocumentLoadTiming::DocumentLoadTiming()
     , m_responseEnd(0.0)
     , m_loadEventStart(0.0)
     , m_loadEventEnd(0.0)
-    , m_hasCrossOriginRedirect(false)
-    , m_hasSameOriginAsPreviousDocument(false)
 {
 }
 
@@ -88,9 +86,6 @@ void DocumentLoadTiming::addRedirect(const KURL& redirectingUrl, const KURL& red
     if (!m_redirectStart)
         m_redirectStart = m_fetchStart;
     m_redirectEnd = m_fetchStart = monotonicallyIncreasingTime();
-    // Check if the redirected url is allowed to access the redirecting url's timing information.
-    RefPtr<SecurityOrigin> redirectedSecurityOrigin = SecurityOrigin::create(redirectedUrl);
-    m_hasCrossOriginRedirect = !redirectedSecurityOrigin->canRequest(redirectingUrl);
 }
 
 } // namespace WebCore

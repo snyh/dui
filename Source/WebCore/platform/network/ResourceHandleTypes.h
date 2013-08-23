@@ -35,7 +35,6 @@ enum StoredCredentials {
 
 enum ClientCredentialPolicy {
     AskClientForAllCredentials,
-    DoNotAskClientForCrossOriginCredentials,
     DoNotAskClientForAnyCredentials
 };
 

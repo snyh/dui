@@ -292,26 +292,6 @@ void StyleSheetContents::parseAuthorStyleSheet(const CachedCSSStyleSheet* cached
 
     CSSParser p(parserContext());
     p.parseSheet(this, sheetText, 0, 0, true);
-
-    // If we're loading a stylesheet cross-origin, and the MIME type is not standard, require the CSS
-    // to at least start with a syntactically valid CSS rule.
-    // This prevents an attacker playing games by injecting CSS strings into HTML, XML, JSON, etc. etc.
-    if (!hasValidMIMEType && !hasSyntacticallyValidCSSHeader()) {
-        bool isCrossOriginCSS = !securityOrigin || !securityOrigin->canRequest(baseURL());
-        if (isCrossOriginCSS) {
-            clearRules();
-            return;
-        }
-    }
-    if (m_parserContext.needsSiteSpecificQuirks && isStrictParserMode(m_parserContext.mode)) {
-        // Work around <https://bugs.webkit.org/show_bug.cgi?id=28350>.
-        DEFINE_STATIC_LOCAL(const String, mediaWikiKHTMLFixesStyleSheet, (ASCIILiteral("/* KHTML fix stylesheet */\n/* work around the horizontal scrollbars */\n#column-content { margin-left: 0; }\n\n")));
-        // There are two variants of KHTMLFixes.css. One is equal to mediaWikiKHTMLFixesStyleSheet,
-        // while the other lacks the second trailing newline.
-        if (baseURL().string().endsWith("/KHTMLFixes.css") && !sheetText.isNull() && mediaWikiKHTMLFixesStyleSheet.startsWith(sheetText)
-            && sheetText.length() >= mediaWikiKHTMLFixesStyleSheet.length() - 1)
-            clearRules();
-    }
 }
 
 bool StyleSheetContents::parseString(const String& sheetText)
