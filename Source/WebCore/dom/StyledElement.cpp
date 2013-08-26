@@ -33,7 +33,6 @@
 #include "css/CSSValuePool.h"
 #include "platform/graphics/Color.h"
 #include "html/ClassList.h"
-#include "page/ContentSecurityPolicy.h"
 #include "html/DOMTokenList.h"
 #include "dom/Document.h"
 #include "HTMLNames.h"
@@ -210,7 +209,7 @@ void StyledElement::styleAttributeChanged(const AtomicString& newStyleString, At
         if (PropertySetCSSStyleDeclaration* cssomWrapper = inlineStyleCSSOMWrapper())
             cssomWrapper->clearParentElement();
         ensureUniqueElementData()->m_inlineStyle.clear();
-    } else if (reason == ModifiedByCloning || document()->contentSecurityPolicy()->allowInlineStyle(document()->url(), startLineNumber))
+    } else
         setInlineStyleFromString(newStyleString);
 
     elementData()->m_styleAttributeIsDirty = false;

@@ -132,7 +132,6 @@ dom_binding_idls += \
 	$(WebCore)/dom/Range.idl \
 	$(WebCore)/dom/RangeException.idl \
 	$(WebCore)/dom/RequestAnimationFrameCallback.idl \
-	$(WebCore)/dom/SecurityPolicyViolationEvent.idl \
 	$(WebCore)/dom/ShadowRoot.idl \
 	$(WebCore)/dom/StringCallback.idl \
 	$(WebCore)/dom/Text.idl \
@@ -298,7 +297,6 @@ dom_binding_idls += \
 	$(WebCore)/page/BarProp.idl \
 	$(WebCore)/page/Console.idl \
 	$(WebCore)/page/Crypto.idl \
-	$(WebCore)/page/DOMSecurityPolicy.idl \
 	$(WebCore)/page/DOMSelection.idl \
 	$(WebCore)/page/DOMWindow.idl \
 	$(WebCore)/page/Location.idl \
@@ -1008,7 +1006,6 @@ webcore_sources += \
 	Source/WebCore/dom/ScriptExecutionContext.h \
 	Source/WebCore/dom/SecurityContext.cpp \
 	Source/WebCore/dom/SecurityContext.h \
-	Source/WebCore/dom/SecurityPolicyViolationEvent.h \
 	Source/WebCore/dom/SelectorQuery.cpp \
 	Source/WebCore/dom/SelectorQuery.h \
 	Source/WebCore/dom/ShadowRoot.cpp \
@@ -1893,8 +1890,6 @@ webcore_sources += \
 	Source/WebCore/page/Console.cpp \
 	Source/WebCore/page/Console.h \
 	Source/WebCore/page/ConsoleTypes.h \
-	Source/WebCore/page/ContentSecurityPolicy.cpp \
-	Source/WebCore/page/ContentSecurityPolicy.h \
 	Source/WebCore/page/ContextMenuClient.h \
 	Source/WebCore/page/ContextMenuController.cpp \
 	Source/WebCore/page/ContextMenuController.h \
@@ -1906,8 +1901,6 @@ webcore_sources += \
 	Source/WebCore/page/DeviceController.h \
 	Source/WebCore/page/DiagnosticLoggingKeys.cpp \
 	Source/WebCore/page/DiagnosticLoggingKeys.h \
-	Source/WebCore/page/DOMSecurityPolicy.cpp \
-	Source/WebCore/page/DOMSecurityPolicy.h \
 	Source/WebCore/page/DOMSelection.cpp \
 	Source/WebCore/page/DOMSelection.h \
 	Source/WebCore/page/DOMTimer.cpp \
@@ -2009,9 +2002,6 @@ webcore_sources += \
 	Source/WebCore/page/scrolling/ScrollingStateScrollingNode.h \
 	Source/WebCore/page/scrolling/ScrollingStateTree.cpp \
 	Source/WebCore/page/scrolling/ScrollingStateTree.h \
-	Source/WebCore/page/SecurityOriginHash.h \
-	Source/WebCore/page/SecurityPolicy.cpp \
-	Source/WebCore/page/SecurityPolicy.h \
 	Source/WebCore/page/Settings.cpp \
 	Source/WebCore/page/Settings.h \
 	Source/WebCore/page/SpatialNavigation.cpp \

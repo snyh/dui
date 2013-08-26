@@ -12,7 +12,6 @@ namespace JSC {
 namespace WebCore {
 
     class Document;
-    class ContentSecurityPolicy;
     class ScriptExecutionContext;
     class WorkerContext;
 

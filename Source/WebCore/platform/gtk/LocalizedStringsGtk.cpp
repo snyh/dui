@@ -508,12 +508,6 @@ String crashedPluginText()
     return String::fromUTF8(_("Plug-in Failure"));
 }
 
-String blockedPluginByContentSecurityPolicyText()
-{
-    notImplemented();
-    return String();
-}
-
 String insecurePluginVersionText()
 {
     notImplemented();

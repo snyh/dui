@@ -33,7 +33,6 @@
 #include "config.h"
 #include "platform/network/HTTPParsers.h"
 
-#include "page/ContentSecurityPolicy.h"
 #include <wtf/DateMath.h>
 #include <wtf/text/CString.h>
 #include <wtf/text/StringBuilder.h>
@@ -346,95 +345,6 @@ void findCharsetInMediaType(const String& mediaType, unsigned int& charsetPos, u
         charsetPos = pos;
         charsetLen = endpos - pos;
         return;
-    }
-}
-
-ContentSecurityPolicy::ReflectedXSSDisposition parseXSSProtectionHeader(const String& header, String& failureReason, unsigned& failurePosition, String& reportURL)
-{
-    DEFINE_STATIC_LOCAL(String, failureReasonInvalidToggle, (ASCIILiteral("expected 0 or 1")));
-    DEFINE_STATIC_LOCAL(String, failureReasonInvalidSeparator, (ASCIILiteral("expected semicolon")));
-    DEFINE_STATIC_LOCAL(String, failureReasonInvalidEquals, (ASCIILiteral("expected equals sign")));
-    DEFINE_STATIC_LOCAL(String, failureReasonInvalidMode, (ASCIILiteral("invalid mode directive")));
-    DEFINE_STATIC_LOCAL(String, failureReasonInvalidReport, (ASCIILiteral("invalid report directive")));
-    DEFINE_STATIC_LOCAL(String, failureReasonDuplicateMode, (ASCIILiteral("duplicate mode directive")));
-    DEFINE_STATIC_LOCAL(String, failureReasonDuplicateReport, (ASCIILiteral("duplicate report directive")));
-    DEFINE_STATIC_LOCAL(String, failureReasonInvalidDirective, (ASCIILiteral("unrecognized directive")));
-
-    unsigned pos = 0;
-
-    if (!skipWhiteSpace(header, pos, false))
-        return ContentSecurityPolicy::ReflectedXSSUnset;
-
-    if (header[pos] == '0')
-        return ContentSecurityPolicy::AllowReflectedXSS;
-
-    if (header[pos++] != '1') {
-        failureReason = failureReasonInvalidToggle;
-        return ContentSecurityPolicy::ReflectedXSSInvalid;
-    }
-
-    ContentSecurityPolicy::ReflectedXSSDisposition result = ContentSecurityPolicy::FilterReflectedXSS;
-    bool modeDirectiveSeen = false;
-    bool reportDirectiveSeen = false;
-
-    while (1) {
-        // At end of previous directive: consume whitespace, semicolon, and whitespace.
-        if (!skipWhiteSpace(header, pos, false))
-            return result;
-
-        if (header[pos++] != ';') {
-            failureReason = failureReasonInvalidSeparator;
-            failurePosition = pos;
-            return ContentSecurityPolicy::ReflectedXSSInvalid;
-        }
-
-        if (!skipWhiteSpace(header, pos, false))
-            return result;
-
-        // At start of next directive.
-        if (skipToken(header, pos, "mode")) {
-            if (modeDirectiveSeen) {
-                failureReason = failureReasonDuplicateMode;
-                failurePosition = pos;
-                return ContentSecurityPolicy::ReflectedXSSInvalid;
-            }
-            modeDirectiveSeen = true;
-            if (!skipEquals(header, pos)) {
-                failureReason = failureReasonInvalidEquals;
-                failurePosition = pos;
-                return ContentSecurityPolicy::ReflectedXSSInvalid;
-            }
-            if (!skipToken(header, pos, "block")) {
-                failureReason = failureReasonInvalidMode;
-                failurePosition = pos;
-                return ContentSecurityPolicy::ReflectedXSSInvalid;
-            }
-            result = ContentSecurityPolicy::BlockReflectedXSS;
-        } else if (skipToken(header, pos, "report")) {
-            if (reportDirectiveSeen) {
-                failureReason = failureReasonDuplicateReport;
-                failurePosition = pos;
-                return ContentSecurityPolicy::ReflectedXSSInvalid;
-            }
-            reportDirectiveSeen = true;
-            if (!skipEquals(header, pos)) {
-                failureReason = failureReasonInvalidEquals;
-                failurePosition = pos;
-                return ContentSecurityPolicy::ReflectedXSSInvalid;
-            }
-            size_t startPos = pos;
-            if (!skipValue(header, pos)) {
-                failureReason = failureReasonInvalidReport;
-                failurePosition = pos;
-                return ContentSecurityPolicy::ReflectedXSSInvalid;
-            }
-            reportURL = header.substring(startPos, pos - startPos);
-            failurePosition = startPos; // If later semantic check deems unacceptable.
-        } else {
-            failureReason = failureReasonInvalidDirective;
-            failurePosition = pos;
-            return ContentSecurityPolicy::ReflectedXSSInvalid;
-        }
     }
 }
 

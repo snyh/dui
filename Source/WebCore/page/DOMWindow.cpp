@@ -81,7 +81,6 @@
 #include "bindings/dui/ScheduledAction.h"
 #include "page/Screen.h"
 #include "bindings/dui/ScriptController.h"
-#include "page/SecurityPolicy.h"
 #include "bindings/dui/SerializedScriptValue.h"
 #include "page/Settings.h"
 #include "css/StyleMedia.h"
@@ -1554,7 +1553,7 @@ PassRefPtr<Frame> DOMWindow::createWindow(const String& urlString, const AtomicS
     }
 
     // For whatever reason, Firefox uses the first frame to determine the outgoingReferrer. We replicate that behavior here.
-    String referrer = SecurityPolicy::generateReferrerHeader(firstFrame->document()->referrerPolicy(), completedURL, firstFrame->loader()->outgoingReferrer());
+    String referrer = String();
 
     ResourceRequest request(completedURL, referrer);
     FrameLoader::addHTTPOriginIfNeeded(request, firstFrame->loader()->outgoingOrigin());

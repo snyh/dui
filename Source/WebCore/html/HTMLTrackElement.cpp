@@ -27,7 +27,6 @@
 #if ENABLE(VIDEO_TRACK)
 #include "html/HTMLTrackElement.h"
 
-#include "page/ContentSecurityPolicy.h"
 #include "dom/Event.h"
 #include "html/HTMLMediaElement.h"
 #include "HTMLNames.h"
@@ -250,11 +249,6 @@ bool HTMLTrackElement::canLoadUrl(const KURL& url)
     if (url.isEmpty())
         return false;
 
-    if (!document()->contentSecurityPolicy()->allowMediaFromSource(url)) {
-        LOG(Media, "HTMLTrackElement::canLoadUrl(%s) -> rejected by Content Security Policy", urlForLoggingTrack(url).utf8().data());
-        return false;
-    }
-    
     return dispatchBeforeLoadEvent(url.string());
 }
 

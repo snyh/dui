@@ -22,7 +22,6 @@
 #include "dom/StyleElement.h"
 
 #include "dom/Attribute.h"
-#include "page/ContentSecurityPolicy.h"
 #include "dom/Document.h"
 #include "dom/DocumentStyleSheetCollection.h"
 #include "dom/Element.h"

@@ -33,7 +33,6 @@
 
 namespace WebCore {
 
-class ContentSecurityPolicy;
 class KURL;
 
 enum SandboxFlag {
@@ -57,7 +56,6 @@ typedef int SandboxFlags;
 class SecurityContext {
 public:
     SandboxFlags sandboxFlags() const { return m_sandboxFlags; }
-    ContentSecurityPolicy* contentSecurityPolicy() { return m_contentSecurityPolicy.get(); }
 
     bool isSecureTransitionTo(const KURL&) const;
 
@@ -75,8 +73,6 @@ protected:
     SecurityContext();
     virtual ~SecurityContext();
 
-    void setContentSecurityPolicy(PassOwnPtr<ContentSecurityPolicy>);
-
     void didFailToInitializeSecurityOrigin() { m_haveInitializedSecurityOrigin = false; }
     bool haveInitializedSecurityOrigin() const { return m_haveInitializedSecurityOrigin; }
 
@@ -87,7 +83,6 @@ protected:
 private:
     bool m_haveInitializedSecurityOrigin;
     SandboxFlags m_sandboxFlags;
-    OwnPtr<ContentSecurityPolicy> m_contentSecurityPolicy;
 };
 
 } // namespace WebCore

@@ -35,7 +35,6 @@
 
 #include "page/Chrome.h"
 #include "page/ChromeClient.h"
-#include "page/ContentSecurityPolicy.h"
 #include "page/DiagnosticLoggingKeys.h"
 #include "page/Frame.h"
 #include "loader/FrameLoader.h"
@@ -46,7 +45,6 @@
 #include "page/Page.h"
 #include "rendering/RenderWidget.h"
 #include "rendering/RenderView.h"
-#include "page/SecurityPolicy.h"
 #include "page/Settings.h"
 
 #if ENABLE(PLUGIN_PROXY_FOR_VIDEO)
@@ -113,9 +111,6 @@ PassRefPtr<Widget> SubframeLoader::loadMediaPlayerProxyPlugin(Node* node, const 
     if (!url.isEmpty())
         completedURL = completeURL(url);
 
-    if (!m_frame->document()->contentSecurityPolicy()->allowMediaFromSource(completedURL))
-        return 0;
-
     HTMLMediaElement* mediaElement = static_cast<HTMLMediaElement*>(node);
     RenderPart* renderer = toRenderPart(node->renderer());
     IntSize size;
@@ -163,7 +158,7 @@ Frame* SubframeLoader::loadSubframe(HTMLFrameOwnerElement* ownerElement, const K
         marginHeight = o->marginHeight();
     }
 
-    String referrerToUse = SecurityPolicy::generateReferrerHeader(ownerElement->document()->referrerPolicy(), url, referrer);
+    String referrerToUse;
     RefPtr<Frame> frame = m_frame->loader()->client()->createFrame(url, name, ownerElement, referrerToUse, allowsScrolling, marginWidth, marginHeight);
 
     if (!frame)  {

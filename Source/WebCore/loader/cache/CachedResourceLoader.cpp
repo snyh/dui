@@ -36,7 +36,6 @@
 #include "loader/cache/CachedScript.h"
 #include "loader/cache/CachedXSLStyleSheet.h"
 #include "page/Console.h"
-#include "page/ContentSecurityPolicy.h"
 #include "page/DOMWindow.h"
 #include "dom/Document.h"
 #include "loader/DocumentLoader.h"

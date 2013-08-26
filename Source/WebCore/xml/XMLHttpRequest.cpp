@@ -26,7 +26,6 @@
 #include "page/Frame.h"
 #include "fileapi/Blob.h"
 #include "platform/network/BlobData.h"
-#include "page/ContentSecurityPolicy.h"
 #include "dom/ContextFeatures.h"
 #include "html/DOMFormData.h"
 #include "dom/DOMImplementation.h"
@@ -464,16 +463,6 @@ void XMLHttpRequest::open(const String& method, const KURL& url, bool async, Exc
     }
 
     if (!isAllowedHTTPMethod(method)) {
-        ec = SECURITY_ERR;
-        return;
-    }
-
-    // FIXME: Convert this to check the isolated world's Content Security Policy once webkit.org/b/104520 is solved.
-    bool shouldBypassMainWorldContentSecurityPolicy = false;
-    if (scriptExecutionContext()->isDocument()) {
-    }
-    if (!shouldBypassMainWorldContentSecurityPolicy && !scriptExecutionContext()->contentSecurityPolicy()->allowConnectToSource(url)) {
-        // FIXME: Should this be throwing an exception?
         ec = SECURITY_ERR;
         return;
     }

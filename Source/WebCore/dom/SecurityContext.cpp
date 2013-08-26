@@ -27,7 +27,6 @@
 #include "config.h"
 #include "dom/SecurityContext.h"
 
-#include "page/ContentSecurityPolicy.h"
 #include "html/parser/HTMLParserIdioms.h"
 #include <wtf/text/StringBuilder.h>
 
@@ -46,11 +45,6 @@ SecurityContext::~SecurityContext()
 
 void SecurityContext::setSecurityOrigin()
 {
-}
-
-void SecurityContext::setContentSecurityPolicy(PassOwnPtr<ContentSecurityPolicy> contentSecurityPolicy)
-{
-    m_contentSecurityPolicy = contentSecurityPolicy;
 }
 
 bool SecurityContext::isSecureTransitionTo(const KURL& url) const

@@ -52,7 +52,6 @@
 #include "loader/ProgressTracker.h"
 #include "loader/ResourceBuffer.h"
 #include "platform/SchemeRegistry.h"
-#include "page/SecurityPolicy.h"
 #include "page/Settings.h"
 #include "loader/SubresourceLoader.h"
 #include "loader/TextResourceDecoder.h"
@@ -440,11 +439,6 @@ void DocumentLoader::willSendRequest(ResourceRequest& newRequest, const Resource
     // deferrals plays less of a part in this function in preventing the bad behavior deferring 
     // callbacks is meant to prevent.
     ASSERT(!newRequest.isNull());
-
-    if (!frameLoader()->checkIfFormActionAllowedByCSP(newRequest.url())) {
-        cancelMainResourceLoad(frameLoader()->cancelledError(newRequest));
-        return;
-    }
 
     ASSERT(timing()->fetchStart());
     if (!redirectResponse.isNull()) {

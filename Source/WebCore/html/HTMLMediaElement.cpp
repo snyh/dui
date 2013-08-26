@@ -32,7 +32,6 @@
 #include "page/ChromeClient.h"
 #include "dom/ClientRect.h"
 #include "dom/ClientRectList.h"
-#include "page/ContentSecurityPolicy.h"
 #include "platform/ContentType.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
@@ -73,7 +72,6 @@
 #include "rendering/RenderView.h"
 #include "bindings/dui/ScriptController.h"
 #include "bindings/dui/ScriptEventListener.h"
-#include "page/SecurityPolicy.h"
 #include "page/Settings.h"
 #include "dom/ShadowRoot.h"
 #include "html/TimeRanges.h"
@@ -4966,11 +4964,7 @@ bool HTMLMediaElement::shouldDisableSleep() const
 
 String HTMLMediaElement::mediaPlayerReferrer() const
 {
-    Frame* frame = document()->frame();
-    if (!frame)
-        return String();
-
-    return SecurityPolicy::generateReferrerHeader(document()->referrerPolicy(), m_currentSrc, frame->loader()->outgoingReferrer());
+    return String();
 }
 
 String HTMLMediaElement::mediaPlayerUserAgent() const

@@ -40,7 +40,6 @@
 #include "page/Chrome.h"
 #include "page/ChromeClient.h"
 #include "dom/Comment.h"
-#include "page/ContentSecurityPolicy.h"
 #include "dom/ContextFeatures.h"
 #include "loader/CookieJar.h"
 #include "dom/CustomElementConstructor.h"
@@ -126,7 +125,6 @@
 #include "platform/SchemeRegistry.h"
 #include "dom/ScopedEventQueue.h"
 #include "page/scrolling/ScrollingCoordinator.h"
-#include "page/SecurityPolicy.h"
 #include "platform/text/SegmentedString.h"
 #include "dom/SelectorQuery.h"
 #include "page/Settings.h"
@@ -2590,7 +2588,7 @@ void Document::processBaseElement()
         if (!strippedHref.isEmpty())
             baseElementURL = KURL(url(), strippedHref);
     }
-    if (m_baseElementURL != baseElementURL && contentSecurityPolicy()->allowBaseURI(baseElementURL)) {
+    if (m_baseElementURL != baseElementURL) {
         m_baseElementURL = baseElementURL;
         updateBaseURL();
     }
@@ -2666,16 +2664,6 @@ void Document::processHttpEquiv(const String& equiv, const String& content)
         }
     } else if (equalIgnoringCase(equiv, "content-language"))
         setContentLanguage(content);
-    else if (equalIgnoringCase(equiv, "x-dns-prefetch-control"))
-        parseDNSPrefetchControlHeader(content);
-    else if (equalIgnoringCase(equiv, "content-security-policy"))
-        contentSecurityPolicy()->didReceiveHeader(content, ContentSecurityPolicy::Enforce);
-    else if (equalIgnoringCase(equiv, "content-security-policy-report-only"))
-        contentSecurityPolicy()->didReceiveHeader(content, ContentSecurityPolicy::Report);
-    else if (equalIgnoringCase(equiv, "x-webkit-csp"))
-        contentSecurityPolicy()->didReceiveHeader(content, ContentSecurityPolicy::PrefixedEnforce);
-    else if (equalIgnoringCase(equiv, "x-webkit-csp-report-only"))
-        contentSecurityPolicy()->didReceiveHeader(content, ContentSecurityPolicy::PrefixedReport);
 }
 
 // Though isspace() considers \t and \v to be whitespace, Win IE doesn't.
@@ -4196,18 +4184,6 @@ PassRefPtr<XPathResult> Document::evaluate(const String& expression,
     if (!m_xpathEvaluator)
         m_xpathEvaluator = XPathEvaluator::create();
     return m_xpathEvaluator->evaluate(expression, contextNode, resolver, type, result, ec);
-}
-
-static bool isEligibleForSeamless(Document* parent, Document* child)
-{
-    // It should not matter what we return for the top-most document.
-    if (!parent)
-        return false;
-    if (parent->isSandboxed(SandboxSeamlessIframes))
-        return false;
-    if (child->isSrcdocDocument())
-        return true;
-    return true;
 }
 
 bool Document::isContextThread() const

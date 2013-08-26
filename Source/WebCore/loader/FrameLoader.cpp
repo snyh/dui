@@ -41,7 +41,6 @@
 #include "page/Chrome.h"
 #include "page/ChromeClient.h"
 #include "page/Console.h"
-#include "page/ContentSecurityPolicy.h"
 #include "dom/DOMImplementation.h"
 #include "page/DOMWindow.h"
 #include "dom/Document.h"
@@ -82,7 +81,6 @@
 #include "platform/network/soup/ResourceRequest.h"
 #include "platform/SchemeRegistry.h"
 #include "platform/ScrollAnimator.h"
-#include "page/SecurityPolicy.h"
 #include "platform/text/SegmentedString.h"
 #include "bindings/dui/SerializedScriptValue.h"
 #include "page/Settings.h"
@@ -579,26 +577,6 @@ void FrameLoader::didBeginDocument(bool dispatch)
     }
 
     if (m_documentLoader) {
-        String dnsPrefetchControl = m_documentLoader->response().httpHeaderField("X-DNS-Prefetch-Control");
-        if (!dnsPrefetchControl.isEmpty())
-            m_frame->document()->parseDNSPrefetchControlHeader(dnsPrefetchControl);
-
-        String policyValue = m_documentLoader->response().httpHeaderField("Content-Security-Policy");
-        if (!policyValue.isEmpty())
-            m_frame->document()->contentSecurityPolicy()->didReceiveHeader(policyValue, ContentSecurityPolicy::Enforce);
-
-        policyValue = m_documentLoader->response().httpHeaderField("Content-Security-Policy-Report-Only");
-        if (!policyValue.isEmpty())
-            m_frame->document()->contentSecurityPolicy()->didReceiveHeader(policyValue, ContentSecurityPolicy::Report);
-
-        policyValue = m_documentLoader->response().httpHeaderField("X-WebKit-CSP");
-        if (!policyValue.isEmpty())
-            m_frame->document()->contentSecurityPolicy()->didReceiveHeader(policyValue, ContentSecurityPolicy::PrefixedEnforce);
-
-        policyValue = m_documentLoader->response().httpHeaderField("X-WebKit-CSP-Report-Only");
-        if (!policyValue.isEmpty())
-            m_frame->document()->contentSecurityPolicy()->didReceiveHeader(policyValue, ContentSecurityPolicy::PrefixedReport);
-
         String headerContentLanguage = m_documentLoader->response().httpHeaderField("Content-Language");
         if (!headerContentLanguage.isEmpty()) {
             size_t commaIndex = headerContentLanguage.find(',');
@@ -774,14 +752,6 @@ String FrameLoader::outgoingReferrer() const
 String FrameLoader::outgoingOrigin() const
 {
     return String();
-}
-
-bool FrameLoader::checkIfFormActionAllowedByCSP(const KURL& url) const
-{
-    if (m_submittedFormURL.isEmpty())
-        return true;
-
-    return m_frame->document()->contentSecurityPolicy()->allowFormAction(url);
 }
 
 Frame* FrameLoader::opener()
@@ -1977,13 +1947,10 @@ void FrameLoader::loadPostRequest(const ResourceRequest& inRequest, const String
 unsigned long FrameLoader::loadResourceSynchronously(const ResourceRequest& request, StoredCredentials storedCredentials, ClientCredentialPolicy clientCredentialPolicy, ResourceError& error, ResourceResponse& response, Vector<char>& data)
 {
     ASSERT(m_frame->document());
-    String referrer = SecurityPolicy::generateReferrerHeader(m_frame->document()->referrerPolicy(), request.url(), outgoingReferrer());
-    
+
     ResourceRequest initialRequest = request;
     initialRequest.setTimeoutInterval(10);
     
-    if (!referrer.isEmpty())
-        initialRequest.setHTTPReferrer(referrer);
     addHTTPOriginIfNeeded(initialRequest, outgoingOrigin());
 
     if (Page* page = m_frame->page())
@@ -2508,9 +2475,6 @@ PassRefPtr<Frame> createWindow(Frame* openerFrame, Frame* lookupFrame, const Fra
 
     // FIXME: Setting the referrer should be the caller's responsibility.
     FrameLoadRequest requestWithReferrer = request;
-    String referrer = SecurityPolicy::generateReferrerHeader(openerFrame->document()->referrerPolicy(), request.resourceRequest().url(), openerFrame->loader()->outgoingReferrer());
-    if (!referrer.isEmpty())
-        requestWithReferrer.resourceRequest().setHTTPReferrer(referrer);
     FrameLoader::addHTTPOriginIfNeeded(requestWithReferrer.resourceRequest(), openerFrame->loader()->outgoingOrigin());
 
     if (openerFrame->settings() && !openerFrame->settings()->supportsMultipleWindows()) {

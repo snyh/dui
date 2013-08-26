@@ -29,7 +29,6 @@
 #include "html/parser/AtomicHTMLToken.h"
 #include "html/parser/BackgroundHTMLParser.h"
 #include "html/parser/CompactHTMLToken.h"
-#include "page/ContentSecurityPolicy.h"
 #include "dom/DocumentFragment.h"
 #include "loader/DocumentLoader.h"
 #include "dom/Element.h"

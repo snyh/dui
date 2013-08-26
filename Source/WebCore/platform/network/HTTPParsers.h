@@ -31,7 +31,6 @@
 #ifndef HTTPParsers_h
 #define HTTPParsers_h
 
-#include "page/ContentSecurityPolicy.h"
 #include <wtf/Forward.h>
 #include <wtf/Vector.h>
 
@@ -72,7 +71,6 @@ String filenameFromHTTPContentDisposition(const String&);
 String extractMIMETypeFromMediaType(const String&);
 String extractCharsetFromMediaType(const String&); 
 void findCharsetInMediaType(const String& mediaType, unsigned int& charsetPos, unsigned int& charsetLen, unsigned int start = 0);
-ContentSecurityPolicy::ReflectedXSSDisposition parseXSSProtectionHeader(const String& header, String& failureReason, unsigned& failurePosition, String& reportURL);
 String extractReasonPhraseFromHTTPStatusLine(const String&);
 XFrameOptionsDisposition parseXFrameOptionsHeader(const String&);
 

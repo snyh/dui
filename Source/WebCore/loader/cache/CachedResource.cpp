@@ -42,7 +42,6 @@
 #include "platform/network/ResourceHandle.h"
 #include "loader/ResourceLoadScheduler.h"
 #include "platform/SchemeRegistry.h"
-#include "page/SecurityPolicy.h"
 #include "loader/SubresourceLoader.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/MathExtras.h>

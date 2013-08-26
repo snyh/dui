@@ -185,8 +185,6 @@ namespace WebCore {
 
     String missingPluginText();
     String crashedPluginText();
-    String blockedPluginByContentSecurityPolicyText();
-    String insecurePluginVersionText();
 
     String multipleFileUploadText(unsigned numberOfFiles);
     String unknownFileSizeText();

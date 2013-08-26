@@ -21,7 +21,6 @@
 #include "config.h"
 #include "bindings/dui/ScriptController.h"
 
-#include "page/ContentSecurityPolicy.h"
 #include "dom/Document.h"
 #include "loader/DocumentLoader.h"
 #include "page/Frame.h"
@@ -74,47 +73,7 @@ ScriptValue ScriptController::executeScript(const ScriptSourceCode& sourceCode)
 
 bool ScriptController::executeIfJavaScriptURL(const KURL& url, ShouldReplaceDocumentIfJavaScriptURL shouldReplaceDocumentIfJavaScriptURL)
 {
-    if (!protocolIsJavaScript(url))
-        return false;
-
-    if (!m_frame->page()
-        || !m_frame->document()->contentSecurityPolicy()->allowJavaScriptURLs(m_frame->document()->url(), eventHandlerPosition().m_line))
-        return true;
-
-    // We need to hold onto the Frame here because executing script can
-    // destroy the frame.
-    RefPtr<Frame> protector(m_frame);
-    RefPtr<Document> ownerDocument(m_frame->document());
-
-    const int javascriptSchemeLength = sizeof("javascript:") - 1;
-
-    String decodedURL = decodeURLEscapeSequences(url.string());
-    ScriptValue result = executeScript(decodedURL.substring(javascriptSchemeLength));
-
-    // If executing script caused this frame to be removed from the page, we
-    // don't want to try to replace its document!
-    if (!m_frame->page())
-        return true;
-
-    String scriptResult;
-    JSDOMWindowShell* shell = windowShell(mainThreadNormalWorld());
-    JSC::ExecState* exec = shell->window()->globalExec();
-    if (!result.getString(exec, scriptResult))
-        return true;
-
-    // FIXME: We should always replace the document, but doing so
-    //        synchronously can cause crashes:
-    //        http://bugs.webkit.org/show_bug.cgi?id=16782
-    if (shouldReplaceDocumentIfJavaScriptURL == ReplaceDocumentIfJavaScriptURL) {
-        // We're still in a frame, so there should be a DocumentLoader.
-        ASSERT(m_frame->document()->loader());
-        
-        // DocumentWriter::replaceDocument can cause the DocumentLoader to get deref'ed and possible destroyed,
-        // so protect it with a RefPtr.
-        if (RefPtr<DocumentLoader> loader = m_frame->document()->loader())
-            loader->writer()->replaceDocument(scriptResult, ownerDocument.get());
-    }
-    return true;
+    return false;
 }
 
 } // namespace WebCore

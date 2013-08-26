@@ -28,7 +28,6 @@
 
 #include "dom/DOMImplementation.h"
 #include "loader/cache/CachedResourceLoader.h"
-#include "page/ContentSecurityPolicy.h"
 #include "dom/DocumentFragment.h"
 #include "page/Frame.h"
 #include "loader/FrameLoader.h"
@@ -91,7 +90,6 @@ PassRefPtr<Document> XSLTProcessor::createDocumentFromSource(const String& sourc
             result->takeDOMWindowFrom(oldDocument);
             result->setCookieURL(oldDocument->cookieURL());
             result->setFirstPartyForCookies(oldDocument->firstPartyForCookies());
-            result->contentSecurityPolicy()->copyStateFrom(oldDocument->contentSecurityPolicy());
         }
 
         frame->setDocument(result);
