@@ -2930,7 +2930,6 @@ webcore_platform_sources += \
 	Source/WebCore/platform/DragImage.cpp \
 	Source/WebCore/platform/DragImage.h \
 	Source/WebCore/platform/EventLoop.h \
-	Source/WebCore/platform/Gamepads.h \
 	Source/WebCore/platform/graphics/filters/DistantLightSource.cpp \
 	Source/WebCore/platform/graphics/filters/DistantLightSource.h \
 	Source/WebCore/platform/graphics/filters/FEBlend.cpp \
@@ -2999,7 +2998,6 @@ webcore_platform_sources += \
 	Source/WebCore/platform/graphics/transforms/TranslateTransformOperation.h \
 	Source/WebCore/platform/gtk/ErrorsGtk.cpp \
 	Source/WebCore/platform/gtk/ErrorsGtk.h \
-	Source/WebCore/platform/gtk/GamepadsGtk.cpp \
 	Source/WebCore/platform/LengthBox.cpp \
 	Source/WebCore/platform/LengthBox.h \
 	Source/WebCore/platform/Length.cpp \
@@ -3009,8 +3007,6 @@ webcore_platform_sources += \
 	Source/WebCore/platform/MainThreadTask.h \
 	Source/WebCore/platform/MIMETypeRegistry.cpp \
 	Source/WebCore/platform/MIMETypeRegistry.h \
-	Source/WebCore/platform/linux/GamepadDeviceLinux.cpp \
-	Source/WebCore/platform/linux/GamepadDeviceLinux.h \
 	Source/WebCore/platform/mediastream/MediaConstraints.h \
 	Source/WebCore/platform/mediastream/MediaStreamCenter.cpp \
 	Source/WebCore/platform/mediastream/MediaStreamCenter.h \
@@ -3181,9 +3177,6 @@ platform_sources += \
 	Source/WebCore/platform/audio/VectorMath.h \
 	Source/WebCore/platform/audio/ZeroPole.cpp \
 	Source/WebCore/platform/audio/ZeroPole.h \
-	Source/WebCore/platform/geoclue/GeolocationProviderGeoclue.h \
-	Source/WebCore/platform/geoclue/GeolocationProviderGeoclue.cpp \
-	Source/WebCore/platform/geoclue/GeolocationProviderGeoclueClient.h \
 	Source/WebCore/platform/graphics/cairo/BitmapImageCairo.cpp \
 	Source/WebCore/platform/graphics/cairo/CairoUtilities.cpp \
 	Source/WebCore/platform/graphics/cairo/CairoUtilities.h \
