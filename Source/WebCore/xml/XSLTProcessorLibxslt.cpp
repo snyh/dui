@@ -30,7 +30,6 @@
 #include "dom/Document.h"
 #include "page/Frame.h"
 #include "page/Page.h"
-#include "page/PageConsole.h"
 #include "platform/network/soup/ResourceError.h"
 #include "platform/network/soup/ResourceRequest.h"
 #include "platform/network/soup/ResourceResponse.h"
@@ -80,24 +79,7 @@ void XSLTProcessor::genericErrorFunc(void*, const char*, ...)
 
 void XSLTProcessor::parseErrorFunc(void* userData, xmlError* error)
 {
-    PageConsole* console = static_cast<PageConsole*>(userData);
-    if (!console)
-        return;
-
-    MessageLevel level;
-    switch (error->level) {
-    case XML_ERR_NONE:
-        level = DebugMessageLevel;
-        break;
-    case XML_ERR_WARNING:
-        level = WarningMessageLevel;
-        break;
-    case XML_ERR_ERROR:
-    case XML_ERR_FATAL:
-    default:
-        level = ErrorMessageLevel;
-        break;
-    }
+    return;
 }
 
 // FIXME: There seems to be no way to control the ctxt pointer for loading here, thus we have globals.
@@ -123,12 +105,8 @@ static xmlDocPtr docLoaderFunc(const xmlChar* uri,
 
         Vector<char> data;
 
-        PageConsole* console = 0;
-        Frame* frame = globalProcessor->xslStylesheet()->ownerDocument()->frame();
-        if (frame && frame->page())
-            console = frame->page()->console();
-        xmlSetStructuredErrorFunc(console, XSLTProcessor::parseErrorFunc);
-        xmlSetGenericErrorFunc(console, XSLTProcessor::genericErrorFunc);
+        xmlSetStructuredErrorFunc(0, XSLTProcessor::parseErrorFunc);
+        xmlSetGenericErrorFunc(0, XSLTProcessor::genericErrorFunc);
 
         // We don't specify an encoding here. Neither Gecko nor WinIE respects
         // the encoding specified in the HTTP headers.

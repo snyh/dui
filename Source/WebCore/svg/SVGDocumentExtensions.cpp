@@ -24,7 +24,6 @@
 #if ENABLE(SVG)
 #include "svg/SVGDocumentExtensions.h"
 
-#include "page/Console.h"
 #include "page/DOMWindow.h"
 #include "dom/Document.h"
 #include "dom/EventListener.h"

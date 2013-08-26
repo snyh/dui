@@ -29,7 +29,6 @@
 #include "dom/ViewportArguments.h"
 
 #include "page/Chrome.h"
-#include "page/Console.h"
 #include "page/DOMWindow.h"
 #include "dom/Document.h"
 #include "page/Frame.h"

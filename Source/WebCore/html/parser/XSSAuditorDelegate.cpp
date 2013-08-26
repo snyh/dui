@@ -26,7 +26,6 @@
 #include "config.h"
 #include "html/parser/XSSAuditorDelegate.h"
 
-#include "page/Console.h"
 #include "page/DOMWindow.h"
 #include "dom/Document.h"
 #include "loader/DocumentLoader.h"

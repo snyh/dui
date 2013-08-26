@@ -23,7 +23,6 @@
 #include "css/CSSImportRule.h"
 #include "css/CSSParser.h"
 #include "css/CSSStyleSheet.h"
-#include "page/Console.h"
 #include "page/DOMWindow.h"
 #include "dom/Document.h"
 #include "dom/ExceptionCode.h"

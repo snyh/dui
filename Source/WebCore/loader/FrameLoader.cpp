@@ -40,7 +40,6 @@
 #include "loader/cache/CachedResourceLoader.h"
 #include "page/Chrome.h"
 #include "page/ChromeClient.h"
-#include "page/Console.h"
 #include "dom/DOMImplementation.h"
 #include "page/DOMWindow.h"
 #include "dom/Document.h"

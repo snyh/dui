@@ -67,7 +67,6 @@
 #include "css/MediaList.h"
 #include "css/MediaQueryExp.h"
 #include "page/Page.h"
-#include "page/PageConsole.h"
 #include "css/Pair.h"
 #include "css/Rect.h"
 #include "rendering/RenderTheme.h"

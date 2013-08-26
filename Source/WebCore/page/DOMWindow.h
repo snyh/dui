@@ -35,10 +35,8 @@
 
 namespace WebCore {
 
-    class BarProp;
     class CSSRuleList;
     class CSSStyleDeclaration;
-    class Console;
     class Crypto;
     class DOMApplicationCache;
     class DOMSelection;
@@ -52,13 +50,11 @@ namespace WebCore {
     class FloatRect;
     class Frame;
     class IDBFactory;
-    class Location;
     class MediaQueryList;
     class MessageEvent;
     class Navigator;
     class Node;
     class Page;
-    class PageConsole;
     class Performance;
     class ScheduledAction;
     class Screen;
@@ -130,16 +126,9 @@ namespace WebCore {
 
         Screen* screen() const;
         Crypto* crypto() const;
-        BarProp* locationbar() const;
-        BarProp* menubar() const;
-        BarProp* personalbar() const;
-        BarProp* scrollbars() const;
-        BarProp* statusbar() const;
-        BarProp* toolbar() const;
         Navigator* navigator() const;
         Navigator* clientInformation() const { return navigator(); }
 
-        Location* location() const;
         void setLocation(const String& location, DOMWindow* activeWindow, DOMWindow* firstWindow,
             SetLocationLocking = LockHistoryBasedOnGestureState);
 
@@ -228,9 +217,6 @@ namespace WebCore {
 
         PassRefPtr<WebKitPoint> webkitConvertPointFromPageToNode(Node*, const WebKitPoint*) const;
         PassRefPtr<WebKitPoint> webkitConvertPointFromNodeToPage(Node*, const WebKitPoint*) const;        
-
-        Console* console() const;
-        PageConsole* pageConsole() const;
 
         void printErrorMessage(const String&);
         String crossDomainAccessErrorMessage(DOMWindow* activeWindow);
@@ -425,16 +411,7 @@ namespace WebCore {
         HashSet<DOMWindowProperty*> m_properties;
 
         mutable RefPtr<Screen> m_screen;
-        mutable RefPtr<Crypto>  m_crypto;
-        mutable RefPtr<BarProp> m_locationbar;
-        mutable RefPtr<BarProp> m_menubar;
-        mutable RefPtr<BarProp> m_personalbar;
-        mutable RefPtr<BarProp> m_scrollbars;
-        mutable RefPtr<BarProp> m_statusbar;
-        mutable RefPtr<BarProp> m_toolbar;
-        mutable RefPtr<Console> m_console;
         mutable RefPtr<Navigator> m_navigator;
-        mutable RefPtr<Location> m_location;
         mutable RefPtr<StyleMedia> m_media;
 
         EventTargetData m_eventTargetData;

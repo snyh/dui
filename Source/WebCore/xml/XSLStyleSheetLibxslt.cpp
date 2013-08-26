@@ -29,7 +29,6 @@
 #include "page/Frame.h"
 #include "dom/Node.h"
 #include "page/Page.h"
-#include "page/PageConsole.h"
 #include "dom/TransformSource.h"
 #include "xml/parser/XMLDocumentParser.h"
 #include "xml/parser/XMLDocumentParserScope.h"
@@ -144,12 +143,7 @@ bool XSLStyleSheet::parseString(const String& string)
         xmlFreeDoc(m_stylesheetDoc);
     m_stylesheetDocTaken = false;
 
-    PageConsole* console = 0;
-    Frame* frame = ownerDocument()->frame();
-    if (frame && frame->page())
-        console = frame->page()->console();
-
-    XMLDocumentParserScope scope(cachedResourceLoader(), XSLTProcessor::genericErrorFunc, XSLTProcessor::parseErrorFunc, console);
+    XMLDocumentParserScope scope(cachedResourceLoader(), XSLTProcessor::genericErrorFunc, XSLTProcessor::parseErrorFunc, 0);
 
     const char* buffer = reinterpret_cast<const char*>(string.characters());
     int size = string.length() * sizeof(UChar);

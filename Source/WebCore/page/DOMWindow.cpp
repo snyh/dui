@@ -27,15 +27,12 @@
 #include "config.h"
 #include "page/DOMWindow.h"
 
-#include "page/BarProp.h"
 #include "dom/BeforeUnloadEvent.h"
 #include "css/CSSComputedStyleDeclaration.h"
 #include "css/CSSRule.h"
 #include "css/CSSRuleList.h"
 #include "page/Chrome.h"
 #include "page/ChromeClient.h"
-#include "page/Console.h"
-#include "page/Crypto.h"
 #include "page/DOMSelection.h"
 #include "html/DOMSettableTokenList.h"
 #include "dom/DOMStringList.h"
@@ -66,13 +63,11 @@
 #include "page/FrameView.h"
 #include "html/HTMLFrameOwnerElement.h"
 #include "platform/KURL.h"
-#include "page/Location.h"
 #include "css/MediaQueryList.h"
 #include "css/MediaQueryMatcher.h"
 #include "dom/MessageEvent.h"
 #include "page/Navigator.h"
 #include "page/Page.h"
-#include "page/PageConsole.h"
 #include "page/PageGroup.h"
 #include "dom/PageTransitionEvent.h"
 #include "page/Performance.h"
@@ -360,19 +355,10 @@ DOMWindow::~DOMWindow()
 #ifndef NDEBUG
     if (!m_suspendedForPageCache) {
         ASSERT(!m_screen);
-        ASSERT(!m_crypto);
-        ASSERT(!m_locationbar);
-        ASSERT(!m_menubar);
-        ASSERT(!m_personalbar);
-        ASSERT(!m_scrollbars);
-        ASSERT(!m_statusbar);
-        ASSERT(!m_toolbar);
-        ASSERT(!m_console);
         ASSERT(!m_navigator);
 #if ENABLE(WEB_TIMING)
         ASSERT(!m_performance);
 #endif
-        ASSERT(!m_location);
         ASSERT(!m_media);
     }
 #endif
@@ -512,19 +498,10 @@ void DOMWindow::resetDOMWindowProperties()
     m_properties.clear();
 
     m_screen = 0;
-    m_crypto = 0;
-    m_locationbar = 0;
-    m_menubar = 0;
-    m_personalbar = 0;
-    m_scrollbars = 0;
-    m_statusbar = 0;
-    m_toolbar = 0;
-    m_console = 0;
     m_navigator = 0;
 #if ENABLE(WEB_TIMING)
     m_performance = 0;
 #endif
-    m_location = 0;
     m_media = 0;
 }
 
@@ -552,84 +529,6 @@ Screen* DOMWindow::screen() const
     return m_screen.get();
 }
 
-Crypto* DOMWindow::crypto() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    if (!m_crypto)
-        m_crypto = Crypto::create();
-    return m_crypto.get();
-}
-
-BarProp* DOMWindow::locationbar() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    if (!m_locationbar)
-        m_locationbar = BarProp::create(m_frame, BarProp::Locationbar);
-    return m_locationbar.get();
-}
-
-BarProp* DOMWindow::menubar() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    if (!m_menubar)
-        m_menubar = BarProp::create(m_frame, BarProp::Menubar);
-    return m_menubar.get();
-}
-
-BarProp* DOMWindow::personalbar() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    if (!m_personalbar)
-        m_personalbar = BarProp::create(m_frame, BarProp::Personalbar);
-    return m_personalbar.get();
-}
-
-BarProp* DOMWindow::scrollbars() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    if (!m_scrollbars)
-        m_scrollbars = BarProp::create(m_frame, BarProp::Scrollbars);
-    return m_scrollbars.get();
-}
-
-BarProp* DOMWindow::statusbar() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    if (!m_statusbar)
-        m_statusbar = BarProp::create(m_frame, BarProp::Statusbar);
-    return m_statusbar.get();
-}
-
-BarProp* DOMWindow::toolbar() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    if (!m_toolbar)
-        m_toolbar = BarProp::create(m_frame, BarProp::Toolbar);
-    return m_toolbar.get();
-}
-
-Console* DOMWindow::console() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    if (!m_console)
-        m_console = Console::create(m_frame);
-    return m_console.get();
-}
-
-PageConsole* DOMWindow::pageConsole() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    return m_frame->page() ? m_frame->page()->console() : 0;
-}
 
 Navigator* DOMWindow::navigator() const
 {
@@ -650,15 +549,6 @@ Performance* DOMWindow::performance() const
     return m_performance.get();
 }
 #endif
-
-Location* DOMWindow::location() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    if (!m_location)
-        m_location = Location::create(m_frame);
-    return m_location.get();
-}
 
 DOMSelection* DOMWindow::getSelection()
 {
@@ -1503,36 +1393,8 @@ EventTargetData* DOMWindow::ensureEventTargetData()
     return &m_eventTargetData;
 }
 
-void DOMWindow::setLocation(const String& urlString, DOMWindow* activeWindow, DOMWindow* firstWindow, SetLocationLocking locking)
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return;
-
-    Document* activeDocument = activeWindow->document();
-    if (!activeDocument)
-        return;
-
-    if (!activeDocument->canNavigate(m_frame))
-        return;
-
-    Frame* firstFrame = firstWindow->frame();
-    if (!firstFrame)
-        return;
-
-    KURL completedURL = firstFrame->document()->completeURL(urlString);
-    if (completedURL.isNull())
-        return;
-
-    if (isInsecureScriptAccess(activeWindow, completedURL))
-        return;
-}
-
 void DOMWindow::printErrorMessage(const String& message)
 {
-    if (message.isEmpty())
-        return;
-
-    pageConsole()->addMessage(JSMessageSource, ErrorMessageLevel, message);
 }
 
 bool DOMWindow::isInsecureScriptAccess(DOMWindow* activeWindow, const String& urlString)
@@ -1627,9 +1489,6 @@ PassRefPtr<DOMWindow> DOMWindow::open(const String& urlString, const AtomicStrin
         if (urlString.isEmpty())
             return targetFrame->document()->domWindow();
 
-        // For whatever reason, Firefox uses the first window rather than the active window to
-        // determine the outgoing referrer. We replicate that behavior here.
-        bool lockHistory = !ScriptController::processingUserGesture();
         return targetFrame->document()->domWindow();
     }
 

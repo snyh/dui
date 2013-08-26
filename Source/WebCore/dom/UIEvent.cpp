@@ -23,7 +23,6 @@
 #include "config.h"
 #include "dom/UIEvent.h"
 
-#include "page/Console.h"
 #include "page/DOMWindow.h"
 #include "dom/EventDispatcher.h"
 #include "dom/Node.h"

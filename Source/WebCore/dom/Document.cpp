@@ -109,7 +109,6 @@
 #include "dom/NodeTraversal.h"
 #include "dom/NodeWithIndex.h"
 #include "page/Page.h"
-#include "page/PageConsole.h"
 #include "page/PageGroup.h"
 #include "dom/PageTransitionEvent.h"
 #include "platform/text/PlatformLocale.h"
@@ -4295,13 +4294,6 @@ void Document::parseDNSPrefetchControlHeader(const String& dnsPrefetchControl)
 
 void Document::addConsoleMessage(MessageSource source, MessageLevel level, const String& message, unsigned long requestIdentifier)
 {
-    if (!isContextThread()) {
-        postTask(AddConsoleMessageTask::create(source, level, message));
-        return;
-    }
-
-    if (Page* page = this->page())
-        page->console()->addMessage(source, level, message, requestIdentifier, this);
 }
 
 void Document::addMessage(MessageSource source, MessageLevel level, const String& message, const String& sourceURL, unsigned lineNumber, unsigned columnNumber, PassRefPtr<ScriptCallStack> callStack, ScriptState* state, unsigned long requestIdentifier)

@@ -29,7 +29,6 @@
 #include "config.h"
 #include "loader/MixedContentChecker.h"
 
-#include "page/Console.h"
 #include "page/DOMWindow.h"
 #include "dom/Document.h"
 #include "page/Frame.h"

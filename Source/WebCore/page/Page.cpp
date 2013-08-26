@@ -51,7 +51,6 @@
 #include "page/Navigator.h"
 #include "platform/network/NetworkStateNotifier.h"
 #include "page/PageActivityAssertionToken.h"
-#include "page/PageConsole.h"
 #include "page/PageGroup.h"
 #include "page/PageThrottler.h"
 #include "page/PlugInClient.h"
@@ -168,7 +167,6 @@ Page::Page(PageClients& pageClients)
     , m_alternativeTextClient(pageClients.alternativeTextClient)
     , m_scriptedAnimationsSuspended(false)
     , m_pageThrottler(PageThrottler::create(this))
-    , m_console(PageConsole::create(this))
 {
     ASSERT(m_editorClient);
 

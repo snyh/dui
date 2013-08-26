@@ -294,12 +294,8 @@ dom_binding_idls += \
 	$(WebCore)/html/track/TrackEvent.idl \
 	$(WebCore)/html/track/VideoTrack.idl \
 	$(WebCore)/html/track/VideoTrackList.idl \
-	$(WebCore)/page/BarProp.idl \
-	$(WebCore)/page/Console.idl \
-	$(WebCore)/page/Crypto.idl \
 	$(WebCore)/page/DOMSelection.idl \
 	$(WebCore)/page/DOMWindow.idl \
-	$(WebCore)/page/Location.idl \
 	$(WebCore)/page/Navigator.idl \
 	$(WebCore)/page/Performance.idl \
 	$(WebCore)/page/PerformanceEntry.idl \
@@ -1880,22 +1876,16 @@ webcore_sources += \
 	Source/WebCore/page/AlternativeTextClient.h \
 	Source/WebCore/page/AutoscrollController.cpp \
 	Source/WebCore/page/AutoscrollController.h \
-	Source/WebCore/page/BarProp.cpp \
-	Source/WebCore/page/BarProp.h \
 	Source/WebCore/page/CaptionUserPreferences.cpp \
 	Source/WebCore/page/CaptionUserPreferences.h \
 	Source/WebCore/page/Chrome.cpp \
 	Source/WebCore/page/Chrome.h \
 	Source/WebCore/page/ChromeClient.h \
-	Source/WebCore/page/Console.cpp \
-	Source/WebCore/page/Console.h \
 	Source/WebCore/page/ConsoleTypes.h \
 	Source/WebCore/page/ContextMenuClient.h \
 	Source/WebCore/page/ContextMenuController.cpp \
 	Source/WebCore/page/ContextMenuController.h \
 	Source/WebCore/page/ContextMenuProvider.h \
-	Source/WebCore/page/Crypto.cpp \
-	Source/WebCore/page/Crypto.h \
 	Source/WebCore/page/DeviceClient.h \
 	Source/WebCore/page/DeviceController.cpp \
 	Source/WebCore/page/DeviceController.h \
@@ -1940,8 +1930,6 @@ webcore_sources += \
 	Source/WebCore/page/GroupSettings.cpp \
 	Source/WebCore/page/GroupSettings.h \
 	Source/WebCore/page/LayoutMilestones.h \
-	Source/WebCore/page/Location.cpp \
-	Source/WebCore/page/Location.h \
 	Source/WebCore/page/MediaCanStartListener.h \
 	Source/WebCore/page/MouseEventWithHitTestResults.cpp \
 	Source/WebCore/page/MouseEventWithHitTestResults.h \
@@ -1955,8 +1943,6 @@ webcore_sources += \
 	Source/WebCore/page/Page.h \
 	Source/WebCore/page/PageActivityAssertionToken.h \
 	Source/WebCore/page/PageActivityAssertionToken.cpp \
-	Source/WebCore/page/PageConsole.cpp \
-	Source/WebCore/page/PageConsole.h \
 	Source/WebCore/page/PageGroup.cpp \
 	Source/WebCore/page/PageGroup.h \
 	Source/WebCore/page/PageGroupLoadDeferrer.cpp \

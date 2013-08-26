@@ -67,7 +67,6 @@ class HaltablePlugin;
 class MediaCanStartListener;
 class Node;
 class PageActivityAssertionToken;
-class PageConsole;
 class PageGroup;
 class PageThrottler;
 class PointerLockController;
@@ -346,8 +345,6 @@ public:
     PageThrottler* pageThrottler() { return m_pageThrottler.get(); }
     PassOwnPtr<PageActivityAssertionToken> createActivityToken();
 
-    PageConsole* console() { return m_console.get(); }
-
 #if ENABLE(HIDDEN_PAGE_DOM_TIMER_THROTTLING)
     void hiddenPageDOMTimerThrottlingStateChanged();
 #endif
@@ -477,8 +474,6 @@ private:
 
     bool m_scriptedAnimationsSuspended;
     OwnPtr<PageThrottler> m_pageThrottler;
-
-    OwnPtr<PageConsole> m_console;
 
     HashSet<String> m_seenPlugins;
     HashSet<String> m_seenMediaEngines;
