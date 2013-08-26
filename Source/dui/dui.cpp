@@ -21,7 +21,6 @@
 #include "platform/network/soup/ResourceRequest.h"
 #include "loader/SubstituteData.h"
 #include "loader/DocumentLoader.h"
-#include "page/SecurityOrigin.h"
 #include "loader/FrameLoadRequest.h"
 
 #include "loader/cache/MemoryCache.h"
@@ -65,8 +64,6 @@ void test_main(const char* url)
     frame->loader()->init();
 
     frame->createView(IntSize(300, 300), WebCore::Color::white, false);
-
-    //frame->loader()->load(FrameLoadRequest(SecurityOrigin::createUnique().get()));
 
     KURL _url;
     RefPtr<Document> document = HTMLDocument::create(frame.get(), _url);

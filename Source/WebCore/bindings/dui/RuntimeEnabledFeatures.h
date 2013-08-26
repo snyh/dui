@@ -281,11 +281,6 @@ public:
     static void setDialogElementEnabled(bool isEnabled) { isDialogElementEnabled = isEnabled; }
 #endif
 
-#if ENABLE(CSP_NEXT)
-    static bool experimentalContentSecurityPolicyFeaturesEnabled() { return areExperimentalContentSecurityPolicyFeaturesEnabled; }
-    static void setExperimentalContentSecurityPolicyFeaturesEnabled(bool isEnabled) { areExperimentalContentSecurityPolicyFeaturesEnabled = isEnabled; }
-#endif
-
 #if ENABLE(IFRAME_SEAMLESS)
     static bool seamlessIFramesEnabled() { return areSeamlessIFramesEnabled; }
     static void setSeamlessIFramesEnabled(bool isEnabled) { areSeamlessIFramesEnabled = isEnabled; }
@@ -400,10 +395,6 @@ private:
 
 #if ENABLE(DIALOG_ELEMENT)
     static bool isDialogElementEnabled;
-#endif
-
-#if ENABLE(CSP_NEXT)
-    static bool areExperimentalContentSecurityPolicyFeaturesEnabled;
 #endif
 
 #if ENABLE(IFRAME_SEAMLESS)

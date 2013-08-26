@@ -30,7 +30,6 @@
 #include "loader/DocumentLoader.h"
 #include "page/Frame.h"
 #include "page/Page.h"
-#include "page/SecurityOrigin.h"
 #include <wtf/CurrentTime.h>
 #include <wtf/RefPtr.h>
 

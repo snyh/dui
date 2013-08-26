@@ -40,7 +40,6 @@
 #include "dom/RawDataDocumentParser.h"
 #include "bindings/dui/ScriptController.h"
 #include "dom/ScriptableDocumentParser.h"
-#include "page/SecurityOrigin.h"
 #include "platform/text/SegmentedString.h"
 #include "page/Settings.h"
 #include "loader/SinkDocument.h"
@@ -48,11 +47,6 @@
 
 namespace WebCore {
 
-static inline bool canReferToParentFrameEncoding(const Frame* frame, const Frame* parentFrame) 
-{
-    return parentFrame && parentFrame->document()->securityOrigin()->canAccess(frame->document()->securityOrigin());
-}
-    
 DocumentWriter::DocumentWriter(Frame* frame)
     : m_frame(frame)
     , m_hasReceivedSomeData(false)
@@ -135,7 +129,6 @@ void DocumentWriter::begin(const KURL& urlReference, bool dispatch, Document* ow
         document->setDecoder(m_decoder.get());
     if (ownerDocument) {
         document->setCookieURL(ownerDocument->cookieURL());
-        document->setSecurityOrigin(ownerDocument->securityOrigin());
     }
 
     m_frame->loader()->didBeginDocument(dispatch);
@@ -170,13 +163,13 @@ TextResourceDecoder* DocumentWriter::createDecoderIfNeeded()
             // an attack vector.
             // FIXME: This might be too cautious for non-7bit-encodings and
             // we may consider relaxing this later after testing.
-            if (canReferToParentFrameEncoding(m_frame, parentFrame))
+            //if (canReferToParentFrameEncoding(m_frame, parentFrame))
                 m_decoder->setHintEncoding(parentFrame->document()->decoder());
         } else
             m_decoder = TextResourceDecoder::create(m_mimeType, String());
         Frame* parentFrame = m_frame->tree()->parent();
         if (m_encoding.isEmpty()) {
-            if (canReferToParentFrameEncoding(m_frame, parentFrame))
+            //if (canReferToParentFrameEncoding(m_frame, parentFrame))
                 m_decoder->setEncoding(parentFrame->document()->inputEncoding(), TextResourceDecoder::EncodingFromParentFrame);
         } else {
             m_decoder->setEncoding(m_encoding,

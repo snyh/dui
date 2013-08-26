@@ -40,7 +40,6 @@
 #include "platform/KURL.h"
 #include "platform/network/soup/ResourceRequest.h"
 #include "platform/network/soup/ResourceResponse.h"
-#include "page/SecurityOrigin.h"
 #include <wtf/Vector.h>
 
 namespace WebCore {
@@ -51,38 +50,13 @@ static double monotonicTimeToDocumentMilliseconds(Document* document, double sec
     return document->loader()->timing()->monotonicTimeToZeroBasedDocumentTime(seconds) * 1000.0;
 }
 
-static bool passesTimingAllowCheck(const ResourceResponse& response, Document* requestingDocument)
-{
-    AtomicallyInitializedStatic(AtomicString&, timingAllowOrigin = *new AtomicString("timing-allow-origin"));
-
-    RefPtr<SecurityOrigin> resourceOrigin = SecurityOrigin::create(response.url());
-    if (resourceOrigin->isSameSchemeHostPort(requestingDocument->securityOrigin()))
-        return true;
-
-    const String& timingAllowOriginString = response.httpHeaderField(timingAllowOrigin);
-    if (timingAllowOriginString.isEmpty() || equalIgnoringCase(timingAllowOriginString, "null"))
-        return false;
-
-    if (timingAllowOriginString == "*")
-        return true;
-
-    const String& securityOrigin = requestingDocument->securityOrigin()->toString();
-    Vector<String> timingAllowOrigins;
-    timingAllowOriginString.split(" ", timingAllowOrigins);
-    for (size_t i = 0; i < timingAllowOrigins.size(); ++i)
-        if (timingAllowOrigins[i] == securityOrigin)
-            return true;
-
-    return false;
-}
-
 PerformanceResourceTiming::PerformanceResourceTiming(const AtomicString& initiatorType, const ResourceRequest& request, const ResourceResponse& response, double initiationTime, double finishTime, Document* requestingDocument)
     : PerformanceEntry(request.url().string(), "resource", monotonicTimeToDocumentMilliseconds(requestingDocument, initiationTime), monotonicTimeToDocumentMilliseconds(requestingDocument, finishTime))
     , m_initiatorType(initiatorType)
     , m_timing(response.resourceLoadTiming())
     , m_finishTime(finishTime)
     , m_didReuseConnection(response.connectionReused())
-    , m_shouldReportDetails(passesTimingAllowCheck(response, requestingDocument))
+    , m_shouldReportDetails(true)
     , m_requestingDocument(requestingDocument)
 {
 }

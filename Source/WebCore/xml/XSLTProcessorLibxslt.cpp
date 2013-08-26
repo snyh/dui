@@ -34,7 +34,6 @@
 #include "platform/network/soup/ResourceError.h"
 #include "platform/network/soup/ResourceRequest.h"
 #include "platform/network/soup/ResourceResponse.h"
-#include "page/SecurityOrigin.h"
 #include "dom/TransformSource.h"
 #include "xml/parser/XMLDocumentParser.h"
 #include "xml/XSLStyleSheet.h"
@@ -123,15 +122,6 @@ static xmlDocPtr docLoaderFunc(const xmlChar* uri,
         ResourceResponse response;
 
         Vector<char> data;
-
-        bool requestAllowed = globalCachedResourceLoader->frame() && globalCachedResourceLoader->document()->securityOrigin()->canRequest(url);
-        if (requestAllowed) {
-            requestAllowed = globalCachedResourceLoader->document()->securityOrigin()->canRequest(response.url());
-        }
-        if (!requestAllowed) {
-            data.clear();
-            globalCachedResourceLoader->printAccessDeniedMessage(url);
-        }
 
         PageConsole* console = 0;
         Frame* frame = globalProcessor->xslStylesheet()->ownerDocument()->frame();

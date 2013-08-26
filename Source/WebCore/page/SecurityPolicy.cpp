@@ -32,7 +32,6 @@
 #include "platform/KURL.h"
 #include <wtf/MainThread.h>
 #include "page/OriginAccessEntry.h"
-#include "page/SecurityOrigin.h"
 #include <wtf/OwnPtr.h>
 #include <wtf/PassOwnPtr.h>
 #include <wtf/text/StringHash.h>
@@ -77,12 +76,7 @@ String SecurityPolicy::generateReferrerHeader(ReferrerPolicy referrerPolicy, con
     case ReferrerPolicyAlways:
         return referrer;
     case ReferrerPolicyOrigin: {
-        String origin = SecurityOrigin::createFromString(referrer)->toString();
-        if (origin == "null")
-            return String();
-        // A security origin is not a canonical URL as it lacks a path. Add /
-        // to turn it into a canonical URL we can use as referrer.
-        return origin + "/";
+        return String();
     }
     case ReferrerPolicyDefault:
         break;
@@ -104,69 +98,6 @@ bool SecurityPolicy::restrictAccessToLocal()
 bool SecurityPolicy::allowSubstituteDataAccessToLocal()
 {
     return localLoadPolicy != SecurityPolicy::AllowLocalLoadsForLocalOnly;
-}
-
-bool SecurityPolicy::isAccessWhiteListed(const SecurityOrigin* activeOrigin, const SecurityOrigin* targetOrigin)
-{
-    if (OriginAccessWhiteList* list = originAccessMap().get(activeOrigin->toString())) {
-        for (size_t i = 0; i < list->size();  ++i) {
-           if (list->at(i).matchesOrigin(*targetOrigin))
-               return true;
-       }
-    }
-    return false;
-}
-
-bool SecurityPolicy::isAccessToURLWhiteListed(const SecurityOrigin* activeOrigin, const KURL& url)
-{
-    RefPtr<SecurityOrigin> targetOrigin = SecurityOrigin::create(url);
-    return isAccessWhiteListed(activeOrigin, targetOrigin.get());
-}
-
-void SecurityPolicy::addOriginAccessWhitelistEntry(const SecurityOrigin& sourceOrigin, const String& destinationProtocol, const String& destinationDomain, bool allowDestinationSubdomains)
-{
-    ASSERT(isMainThread());
-    ASSERT(!sourceOrigin.isUnique());
-    if (sourceOrigin.isUnique())
-        return;
-
-    String sourceString = sourceOrigin.toString();
-    OriginAccessMap::AddResult result = originAccessMap().add(sourceString, nullptr);
-    if (result.isNewEntry)
-        result.iterator->value = adoptPtr(new OriginAccessWhiteList);
-
-    OriginAccessWhiteList* list = result.iterator->value.get();
-    list->append(OriginAccessEntry(destinationProtocol, destinationDomain, allowDestinationSubdomains ? OriginAccessEntry::AllowSubdomains : OriginAccessEntry::DisallowSubdomains));
-}
-
-void SecurityPolicy::removeOriginAccessWhitelistEntry(const SecurityOrigin& sourceOrigin, const String& destinationProtocol, const String& destinationDomain, bool allowDestinationSubdomains)
-{
-    ASSERT(isMainThread());
-    ASSERT(!sourceOrigin.isUnique());
-    if (sourceOrigin.isUnique())
-        return;
-
-    String sourceString = sourceOrigin.toString();
-    OriginAccessMap& map = originAccessMap();
-    OriginAccessMap::iterator it = map.find(sourceString);
-    if (it == map.end())
-        return;
-
-    OriginAccessWhiteList* list = it->value.get();
-    size_t index = list->find(OriginAccessEntry(destinationProtocol, destinationDomain, allowDestinationSubdomains ? OriginAccessEntry::AllowSubdomains : OriginAccessEntry::DisallowSubdomains));
-    if (index == notFound)
-        return;
-
-    list->remove(index);
-
-    if (list->isEmpty())
-        map.remove(it);
-}
-
-void SecurityPolicy::resetOriginAccessWhitelists()
-{
-    ASSERT(isMainThread());
-    originAccessMap().clear();
 }
 
 } // namespace WebCore

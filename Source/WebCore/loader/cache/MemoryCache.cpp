@@ -33,8 +33,6 @@
 #include "platform/graphics/Image.h"
 #include "platform/Logging.h"
 #include "platform/PublicSuffix.h"
-#include "page/SecurityOrigin.h"
-#include "page/SecurityOriginHash.h"
 #include <stdio.h>
 #include <wtf/CurrentTime.h>
 #include <wtf/MathExtras.h>
@@ -554,59 +552,6 @@ void MemoryCache::resourceAccessed(CachedResource* resource)
     
     // Now insert into the new queue.
     insertInLRUList(resource);
-}
-
-void MemoryCache::removeResourcesWithOrigin(SecurityOrigin* origin)
-{
-    Vector<CachedResource*> resourcesWithOrigin;
-
-    CachedResourceMap::iterator e = m_resources.end();
-#if ENABLE(CACHE_PARTITIONING)
-    String originPartition = ResourceRequest::partitionName(origin->host());
-#endif
-
-    for (CachedResourceMap::iterator it = m_resources.begin(); it != e; ++it) {
-#if ENABLE(CACHE_PARTITIONING)
-        for (CachedResourceItem::iterator itemIterator = it->value->begin(); itemIterator != it->value->end(); ++itemIterator) {
-            CachedResource* resource = itemIterator->value;
-            String partition = itemIterator->key;
-            if (partition == originPartition) {
-                resourcesWithOrigin.append(resource);
-                continue;
-            }
-#else
-            CachedResource* resource = it->value;
-#endif
-            RefPtr<SecurityOrigin> resourceOrigin = SecurityOrigin::createFromString(resource->url());
-            if (!resourceOrigin)
-                continue;
-            if (resourceOrigin->equal(origin))
-                resourcesWithOrigin.append(resource);
-#if ENABLE(CACHE_PARTITIONING)
-        }
-#endif
-    }
-
-    for (size_t i = 0; i < resourcesWithOrigin.size(); ++i)
-        remove(resourcesWithOrigin[i]);
-}
-
-void MemoryCache::getOriginsWithCache(SecurityOriginSet& origins)
-{
-#if ENABLE(CACHE_PARTITIONING)
-    DEFINE_STATIC_LOCAL(String, httpString, ("http"));
-#endif
-    CachedResourceMap::iterator e = m_resources.end();
-    for (CachedResourceMap::iterator it = m_resources.begin(); it != e; ++it) {
-#if ENABLE(CACHE_PARTITIONING)
-        if (it->value->begin()->key == emptyString())
-            origins.add(SecurityOrigin::createFromString(it->value->begin()->value->url()));
-        else
-            origins.add(SecurityOrigin::create(httpString, it->value->begin()->key, 0));
-#else
-        origins.add(SecurityOrigin::createFromString(it->value->url()));
-#endif
-    }
 }
 
 void MemoryCache::removeFromLiveDecodedResourcesList(CachedResource* resource)

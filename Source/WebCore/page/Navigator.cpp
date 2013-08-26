@@ -31,7 +31,6 @@
 #include "platform/Language.h"
 #include "page/Page.h"
 #include "bindings/dui/ScriptController.h"
-#include "page/SecurityOrigin.h"
 #include "page/Settings.h"
 #include <wtf/HashSet.h>
 #include <wtf/StdLibExtras.h>
@@ -100,15 +99,7 @@ bool Navigator::cookieEnabled() const
 
 bool Navigator::javaEnabled() const
 {
-    if (!m_frame || !m_frame->settings())
-        return false;
-
-    if (!m_frame->settings()->isJavaEnabled())
-        return false;
-    if (m_frame->document()->securityOrigin()->isLocal() && !m_frame->settings()->isJavaEnabledForLocalFiles())
-        return false;
-
-    return true;
+    return false;
 }
 
 void Navigator::getStorageUpdates()

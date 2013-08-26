@@ -76,8 +76,6 @@ public:
 
     bool sanitizeScriptError(String& errorMessage, int& lineNumber, String& sourceURL, CachedScript* = 0);
 
-    virtual SecurityOrigin* topOrigin() const = 0;
-
 #if ENABLE(BLOB)
     PublicURLManager& publicURLManager();
 #endif

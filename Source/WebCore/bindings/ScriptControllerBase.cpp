@@ -30,7 +30,6 @@
 #include "page/Page.h"
 #include "bindings/dui/ScriptSourceCode.h"
 #include "bindings/dui/ScriptValue.h"
-#include "page/SecurityOrigin.h"
 #include "page/Settings.h"
 #include "dom/UserGestureIndicator.h"
 #include <wtf/text/TextPosition.h>
@@ -47,7 +46,6 @@ bool ScriptController::canExecuteScripts(ReasonForCallingCanExecuteScripts reaso
     }
 
     if (m_frame->document() && m_frame->document()->isViewSource()) {
-        ASSERT(m_frame->document()->securityOrigin()->isUnique());
         return true;
     }
 

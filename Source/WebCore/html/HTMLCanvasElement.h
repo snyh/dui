@@ -125,7 +125,6 @@ public:
 
     FloatSize convertDeviceToLogical(const FloatSize&) const;
 
-    SecurityOrigin* securityOrigin() const;
     void setOriginTainted() { m_originClean = false; }
     bool originClean() const { return m_originClean; }
 

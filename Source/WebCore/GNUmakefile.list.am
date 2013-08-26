@@ -2009,8 +2009,6 @@ webcore_sources += \
 	Source/WebCore/page/scrolling/ScrollingStateScrollingNode.h \
 	Source/WebCore/page/scrolling/ScrollingStateTree.cpp \
 	Source/WebCore/page/scrolling/ScrollingStateTree.h \
-	Source/WebCore/page/SecurityOrigin.cpp \
-	Source/WebCore/page/SecurityOrigin.h \
 	Source/WebCore/page/SecurityOriginHash.h \
 	Source/WebCore/page/SecurityPolicy.cpp \
 	Source/WebCore/page/SecurityPolicy.h \

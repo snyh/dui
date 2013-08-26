@@ -46,7 +46,6 @@
 #include "page/Page.h"
 #include "rendering/RenderWidget.h"
 #include "rendering/RenderView.h"
-#include "page/SecurityOrigin.h"
 #include "page/SecurityPolicy.h"
 #include "page/Settings.h"
 
@@ -114,11 +113,6 @@ PassRefPtr<Widget> SubframeLoader::loadMediaPlayerProxyPlugin(Node* node, const 
     if (!url.isEmpty())
         completedURL = completeURL(url);
 
-    if (!m_frame->document()->securityOrigin()->canDisplay(completedURL)) {
-        FrameLoader::reportLocalLoadFailed(m_frame, completedURL.string());
-        return 0;
-    }
-
     if (!m_frame->document()->contentSecurityPolicy()->allowMediaFromSource(completedURL))
         return 0;
 
@@ -130,9 +124,6 @@ PassRefPtr<Widget> SubframeLoader::loadMediaPlayerProxyPlugin(Node* node, const 
         size = roundedIntSize(LayoutSize(renderer->contentWidth(), renderer->contentHeight()));
     else if (mediaElement->isVideo())
         size = RenderVideo::defaultSize();
-
-    if (!m_frame->loader()->mixedContentChecker()->canRunInsecureContent(m_frame->document()->securityOrigin(), completedURL))
-        return 0;
 
     RefPtr<Widget> widget = m_frame->loader()->client()->createMediaPlayerProxyPlugin(size, mediaElement, completedURL,
                                          paramNames, paramValues, "application/x-media-element-proxy-plugin");
@@ -170,11 +161,6 @@ Frame* SubframeLoader::loadSubframe(HTMLFrameOwnerElement* ownerElement, const K
         allowsScrolling = o->scrollingMode() != ScrollbarAlwaysOff;
         marginWidth = o->marginWidth();
         marginHeight = o->marginHeight();
-    }
-
-    if (!ownerElement->document()->securityOrigin()->canDisplay(url)) {
-        FrameLoader::reportLocalLoadFailed(m_frame, url.string());
-        return 0;
     }
 
     String referrerToUse = SecurityPolicy::generateReferrerHeader(ownerElement->document()->referrerPolicy(), url, referrer);

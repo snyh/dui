@@ -33,7 +33,6 @@
 #include "fileapi/BlobURL.h"
 
 #include "platform/KURL.h"
-#include "page/SecurityOrigin.h"
 #include "platform/UUID.h"
 #include <wtf/text/WTFString.h>
 
@@ -41,10 +40,9 @@ namespace WebCore {
 
 const char BlobURL::kBlobProtocol[] = "blob";
 
-KURL BlobURL::createPublicURL(SecurityOrigin* securityOrigin)
+KURL BlobURL::createPublicURL()
 {
-    ASSERT(securityOrigin);
-    return createBlobURL(securityOrigin->toString());
+    return createBlobURL("blobinternal://");
 }
 
 KURL BlobURL::createInternalURL()

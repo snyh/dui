@@ -44,7 +44,6 @@
 #include "RenderSnapshottedPlugIn.h"
 #include "platform/SchemeRegistry.h"
 #include "bindings/dui/ScriptController.h"
-#include "page/SecurityOrigin.h"
 #include "page/Settings.h"
 #include "dom/ShadowRoot.h"
 #include "css/StyleResolver.h"
@@ -168,10 +167,6 @@ bool HTMLPlugInImageElement::isImageType()
 bool HTMLPlugInImageElement::allowedToLoadFrameURL(const String& url)
 {
     KURL completeURL = document()->completeURL(url);
-
-    if (contentFrame() && protocolIsJavaScript(completeURL)
-        && !document()->securityOrigin()->canAccess(contentDocument()->securityOrigin()))
-        return false;
 
     return document()->frame()->isURLAllowed(completeURL);
 }

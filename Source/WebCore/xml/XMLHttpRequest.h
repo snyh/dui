@@ -156,7 +156,6 @@ private:
     virtual EventTargetData* ensureEventTargetData();
 
     Document* document() const;
-    SecurityOrigin* securityOrigin() const;
 
 #if ENABLE(DASHBOARD_SUPPORT)
     bool usesDashboardBackwardCompatibilityMode() const;

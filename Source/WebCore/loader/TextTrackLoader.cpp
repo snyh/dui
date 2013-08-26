@@ -35,7 +35,6 @@
 #include "dom/Document.h"
 #include "platform/Logging.h"
 #include "loader/ResourceBuffer.h"
-#include "page/SecurityOrigin.h"
 #include "html/track/WebVTTParser.h"
 
 namespace WebCore {

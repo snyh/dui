@@ -51,7 +51,6 @@
 #include "loader/PingLoader.h"
 #include "loader/ResourceLoadScheduler.h"
 #include "bindings/dui/ScriptController.h"
-#include "page/SecurityOrigin.h"
 #include "page/Settings.h"
 #include <wtf/text/CString.h>
 #include <wtf/text/WTFString.h>
@@ -259,163 +258,11 @@ CachedResourceHandle<CachedRawResource> CachedResourceLoader::requestMainResourc
 
 bool CachedResourceLoader::checkInsecureContent(CachedResource::Type type, const KURL& url) const
 {
-    switch (type) {
-    case CachedResource::Script:
-#if ENABLE(XSLT)
-    case CachedResource::XSLStyleSheet:
-#endif
-#if ENABLE(SVG)
-    case CachedResource::SVGDocumentResource:
-#endif
-    case CachedResource::CSSStyleSheet:
-        // These resource can inject script into the current document (Script,
-        // XSL) or exfiltrate the content of the current document (CSS).
-        if (Frame* f = frame())
-            if (!f->loader()->mixedContentChecker()->canRunInsecureContent(m_document->securityOrigin(), url))
-                return false;
-        break;
-#if ENABLE(VIDEO_TRACK)
-    case CachedResource::TextTrackResource:
-#endif
-#if ENABLE(CSS_SHADERS)
-    case CachedResource::ShaderResource:
-#endif
-    case CachedResource::RawResource:
-    case CachedResource::ImageResource:
-    case CachedResource::FontResource: {
-        // These resources can corrupt only the frame's pixels.
-        if (Frame* f = frame()) {
-            Frame* top = f->tree()->top();
-            if (!top->loader()->mixedContentChecker()->canDisplayInsecureContent(top->document()->securityOrigin(), url))
-                return false;
-        }
-        break;
-    }
-    case CachedResource::MainResource:
-#if ENABLE(LINK_PREFETCH)
-    case CachedResource::LinkPrefetch:
-    case CachedResource::LinkSubresource:
-        // Prefetch cannot affect the current document.
-#endif
-        break;
-    }
     return true;
 }
 
 bool CachedResourceLoader::canRequest(CachedResource::Type type, const KURL& url, const ResourceLoaderOptions& options, bool forPreload)
 {
-    if (document() && !document()->securityOrigin()->canDisplay(url)) {
-        if (!forPreload)
-            FrameLoader::reportLocalLoadFailed(frame(), url.stringCenterEllipsizedToLength());
-        LOG(ResourceLoading, "CachedResourceLoader::requestResource URL was not allowed by SecurityOrigin::canDisplay");
-        return 0;
-    }
-
-    // FIXME: Convert this to check the isolated world's Content Security Policy once webkit.org/b/104520 is solved.
-    bool shouldBypassMainWorldContentSecurityPolicy = false;
-
-    // Some types of resources can be loaded only from the same origin.  Other
-    // types of resources, like Images, Scripts, and CSS, can be loaded from
-    // any URL.
-    switch (type) {
-    case CachedResource::MainResource:
-    case CachedResource::ImageResource:
-    case CachedResource::CSSStyleSheet:
-    case CachedResource::Script:
-    case CachedResource::FontResource:
-    case CachedResource::RawResource:
-#if ENABLE(LINK_PREFETCH)
-    case CachedResource::LinkPrefetch:
-    case CachedResource::LinkSubresource:
-#endif
-#if ENABLE(VIDEO_TRACK)
-    case CachedResource::TextTrackResource:
-#endif
-#if ENABLE(CSS_SHADERS)
-    case CachedResource::ShaderResource:
-#endif
-        if (options.requestOriginPolicy == RestrictToSameOrigin && !m_document->securityOrigin()->canRequest(url)) {
-            printAccessDeniedMessage(url);
-            return false;
-        }
-        break;
-#if ENABLE(SVG)
-    case CachedResource::SVGDocumentResource:
-#endif
-#if ENABLE(XSLT)
-    case CachedResource::XSLStyleSheet:
-        if (!m_document->securityOrigin()->canRequest(url)) {
-            printAccessDeniedMessage(url);
-            return false;
-        }
-#endif
-        break;
-    }
-
-    switch (type) {
-#if ENABLE(XSLT)
-    case CachedResource::XSLStyleSheet:
-        if (!shouldBypassMainWorldContentSecurityPolicy && !m_document->contentSecurityPolicy()->allowScriptFromSource(url))
-            return false;
-        break;
-#endif
-    case CachedResource::Script:
-        if (!shouldBypassMainWorldContentSecurityPolicy && !m_document->contentSecurityPolicy()->allowScriptFromSource(url))
-            return false;
-
-        if (frame()) {
-            Settings* settings = frame()->settings();
-            if (!frame()->loader()->client()->allowScriptFromSource(!settings || settings->isScriptEnabled(), url)) {
-                frame()->loader()->client()->didNotAllowScript();
-                return false;
-            }
-        }
-        break;
-#if ENABLE(CSS_SHADERS)
-    case CachedResource::ShaderResource:
-        // Since shaders are referenced from CSS Styles use the same rules here.
-#endif
-    case CachedResource::CSSStyleSheet:
-        if (!shouldBypassMainWorldContentSecurityPolicy && !m_document->contentSecurityPolicy()->allowStyleFromSource(url))
-            return false;
-        break;
-#if ENABLE(SVG)
-    case CachedResource::SVGDocumentResource:
-#endif
-    case CachedResource::ImageResource:
-        if (!shouldBypassMainWorldContentSecurityPolicy && !m_document->contentSecurityPolicy()->allowImageFromSource(url))
-            return false;
-        break;
-    case CachedResource::FontResource: {
-        if (!shouldBypassMainWorldContentSecurityPolicy && !m_document->contentSecurityPolicy()->allowFontFromSource(url))
-            return false;
-        break;
-    }
-    case CachedResource::MainResource:
-    case CachedResource::RawResource:
-#if ENABLE(LINK_PREFETCH)
-    case CachedResource::LinkPrefetch:
-    case CachedResource::LinkSubresource:
-#endif
-        break;
-#if ENABLE(VIDEO_TRACK)
-    case CachedResource::TextTrackResource:
-        // Cues aren't called out in the CPS spec yet, but they only work with a media element
-        // so use the media policy.
-        if (!shouldBypassMainWorldContentSecurityPolicy && !m_document->contentSecurityPolicy()->allowMediaFromSource(url))
-            return false;
-        break;
-#endif
-    }
-
-    // Last of all, check for insecure content. We do this last so that when
-    // folks block insecure content with a CSP policy, they don't get a warning.
-    // They'll still get a warning in the console about CSP blocking the load.
-
-    // FIXME: Should we consider forPreload here?
-    if (!checkInsecureContent(type, url))
-        return false;
-
     return true;
 }
 

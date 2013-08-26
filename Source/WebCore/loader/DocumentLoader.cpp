@@ -448,14 +448,6 @@ void DocumentLoader::willSendRequest(ResourceRequest& newRequest, const Resource
 
     ASSERT(timing()->fetchStart());
     if (!redirectResponse.isNull()) {
-        // If the redirecting url is not allowed to display content from the target origin,
-        // then block the redirect.
-        RefPtr<SecurityOrigin> redirectingOrigin = SecurityOrigin::create(redirectResponse.url());
-        if (!redirectingOrigin->canDisplay(newRequest.url())) {
-            FrameLoader::reportLocalLoadFailed(m_frame, newRequest.url().string());
-            cancelMainResourceLoad(frameLoader()->cancelledError(newRequest));
-            return;
-        }
         timing()->addRedirect(redirectResponse.url(), newRequest.url());
     }
 
@@ -470,14 +462,6 @@ void DocumentLoader::willSendRequest(ResourceRequest& newRequest, const Resource
     // Also, POST requests always load from origin, but this does not affect subresources.
     if (newRequest.cachePolicy() == UseProtocolCachePolicy && isPostOrRedirectAfterPost(newRequest, redirectResponse))
         newRequest.setCachePolicy(ReloadIgnoringCacheData);
-
-    Frame* top = m_frame->tree()->top();
-    if (top != m_frame) {
-        if (!frameLoader()->mixedContentChecker()->canDisplayInsecureContent(top->document()->securityOrigin(), newRequest.url())) {
-            cancelMainResourceLoad(frameLoader()->cancelledError(newRequest));
-            return;
-        }
-    }
 
     setRequest(newRequest);
 
@@ -710,14 +694,6 @@ void DocumentLoader::commitData(const char* bytes, size_t length)
         m_gotFirstByte = true;
         m_writer.begin(documentURL(), false);
         m_writer.setDocumentWasLoadedAsPartOfNavigation();
-
-        if (SecurityPolicy::allowSubstituteDataAccessToLocal() && m_originalSubstituteDataWasValid) {
-            // If this document was loaded with substituteData, then the document can
-            // load local resources. See https://bugs.webkit.org/show_bug.cgi?id=16756
-            // and https://bugs.webkit.org/show_bug.cgi?id=19760 for further
-            // discussion.
-            m_frame->document()->securityOrigin()->grantLoadLocalResources();
-        }
 
         if (frameLoader()->stateMachine()->creatingInitialEmptyDocument())
             return;

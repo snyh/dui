@@ -33,7 +33,6 @@
 #include "HTMLNames.h"
 #include "html/parser/HTMLParserIdioms.h"
 #include "rendering/RenderImage.h"
-#include "page/SecurityOrigin.h"
 
 #if ENABLE(SVG)
 #include "rendering/svg/RenderSVGImage.h"

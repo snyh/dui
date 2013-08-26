@@ -43,7 +43,6 @@ namespace WebCore {
 class CSPDirectiveList;
 class DOMStringList;
 class ScriptExecutionContext;
-class SecurityOrigin;
 
 typedef int SandboxFlags;
 typedef Vector<OwnPtr<CSPDirectiveList> > CSPDirectiveListVector;
@@ -130,7 +129,6 @@ public:
 
     const KURL& url() const;
     KURL completeURL(const String&) const;
-    SecurityOrigin* securityOrigin() const;
     void enforceSandboxFlags(SandboxFlags) const;
     String evalDisabledErrorMessage() const;
 

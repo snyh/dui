@@ -45,7 +45,6 @@
 #include "css/MediaQueryEvaluator.h"
 #include "page/Page.h"
 #include "bindings/dui/ScriptEventListener.h"
-#include "page/SecurityOrigin.h"
 #include "page/Settings.h"
 #include "css/StyleResolver.h"
 #include "css/StyleSheetContents.h"
@@ -320,7 +319,7 @@ void HTMLLinkElement::setCSSStyleSheet(const String& href, const KURL& baseURL, 
     m_sheet->setMediaQueries(MediaQuerySet::createAllowingDescriptionSyntax(m_media));
     m_sheet->setTitle(title());
 
-    styleSheet->parseAuthorStyleSheet(cachedStyleSheet, document()->securityOrigin());
+    styleSheet->parseAuthorStyleSheet(cachedStyleSheet);
 
     m_loading = false;
     styleSheet->notifyLoadedSheet(cachedStyleSheet);

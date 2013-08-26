@@ -40,7 +40,6 @@
 #include "loader/FrameLoaderClient.h"
 #include "html/HTMLFormElement.h"
 #include "html/HTMLFrameOwnerElement.h"
-#include "page/SecurityOrigin.h"
 
 namespace WebCore {
 

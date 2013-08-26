@@ -198,11 +198,6 @@ Document* XMLHttpRequest::document() const
     return static_cast<Document*>(scriptExecutionContext());
 }
 
-SecurityOrigin* XMLHttpRequest::securityOrigin() const
-{
-    return scriptExecutionContext()->securityOrigin();
-}
-
 #if ENABLE(DASHBOARD_SUPPORT)
 bool XMLHttpRequest::usesDashboardBackwardCompatibilityMode() const
 {
@@ -253,7 +248,6 @@ Document* XMLHttpRequest::responseXML(ExceptionCode& ec)
                 m_responseDocument = Document::create(0, m_url);
             // FIXME: Set Last-Modified.
             m_responseDocument->setContent(m_responseBuilder.toStringPreserveCapacity());
-            m_responseDocument->setSecurityOrigin(securityOrigin());
             m_responseDocument->setContextFeatures(document()->contextFeatures());
             if (!m_responseDocument->wellFormed())
                 m_responseDocument = 0;
@@ -730,7 +724,7 @@ void XMLHttpRequest::createRequest(ExceptionCode& ec)
         }
     }
 
-    m_sameOriginRequest = securityOrigin()->canRequest(m_url);
+    m_sameOriginRequest = true;
 
     // We also remember whether upload events should be allowed for this request in case the upload listeners are
     // added after the request is started.
@@ -884,12 +878,6 @@ void XMLHttpRequest::setRequestHeader(const AtomicString& name, const String& va
 
     if (!isValidHTTPToken(name) || !isValidHTTPHeaderValue(value)) {
         ec = SYNTAX_ERR;
-        return;
-    }
-
-    // A privileged script (e.g. a Dashboard widget) can set any headers.
-    if (!securityOrigin()->canLoadLocalResources() && !isAllowedHTTPHeader(name)) {
-        logConsoleError(scriptExecutionContext(), "Refused to set unsafe header \"" + name + "\"");
         return;
     }
 

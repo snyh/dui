@@ -51,7 +51,6 @@
 #include "html/HTMLMediaElement.h"
 #include "html/HTMLVideoElement.h"
 #include "html/ImageData.h"
-#include "page/SecurityOrigin.h"
 #include "platform/graphics/StrokeStyleApplier.h"
 #include "css/StylePropertySet.h"
 #include "css/StyleResolver.h"
@@ -81,15 +80,6 @@ using namespace HTMLNames;
 static const int defaultFontSize = 10;
 static const char* const defaultFontFamily = "sans-serif";
 static const char* const defaultFont = "10px sans-serif";
-
-static bool isOriginClean(CachedImage* cachedImage, SecurityOrigin* securityOrigin)
-{
-    if (!cachedImage->image()->hasSingleSecurityOrigin())
-        return false;
-    if (cachedImage->passesAccessControlCheck(securityOrigin))
-        return true;
-    return !securityOrigin->taintsCanvas(cachedImage->response().url());
-}
 
 class CanvasStrokeStyleApplier : public StrokeStyleApplier {
 public:
@@ -1698,8 +1688,7 @@ PassRefPtr<CanvasPattern> CanvasRenderingContext2D::createPattern(HTMLImageEleme
     if (!cachedImage || !image->cachedImage()->imageForRenderer(image->renderer()))
         return CanvasPattern::create(Image::nullImage(), repeatX, repeatY, true);
 
-    bool originClean = isOriginClean(cachedImage, canvas()->securityOrigin());
-    return CanvasPattern::create(cachedImage->imageForRenderer(image->renderer()), repeatX, repeatY, originClean);
+    return CanvasPattern::create(cachedImage->imageForRenderer(image->renderer()), repeatX, repeatY, true);
 }
 
 PassRefPtr<CanvasPattern> CanvasRenderingContext2D::createPattern(HTMLCanvasElement* canvas,

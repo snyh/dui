@@ -66,7 +66,6 @@
 #include "rendering/RenderView.h"
 #include "editing/ReplaceSelectionCommand.h"
 #include "platform/network/soup/ResourceRequest.h"
-#include "page/SecurityOrigin.h"
 #include "page/Settings.h"
 #include "dom/ShadowRoot.h"
 #include "css/StylePropertySet.h"
@@ -191,7 +190,7 @@ void DragController::dragExited(DragData* dragData)
     Frame* mainFrame = m_page->mainFrame();
 
     if (RefPtr<FrameView> v = mainFrame->view()) {
-        ClipboardAccessPolicy policy = (!m_documentUnderMouse || m_documentUnderMouse->securityOrigin()->isLocal()) ? ClipboardReadable : ClipboardTypesReadable;
+        ClipboardAccessPolicy policy = ClipboardReadable;
         RefPtr<Clipboard> clipboard = Clipboard::create(policy, dragData, mainFrame);
         clipboard->setSourceOperation(dragData->draggingSourceOperationMask());
         mainFrame->eventHandler()->cancelDragAndDrop(createMouseEvent(dragData), clipboard.get());
@@ -312,9 +311,6 @@ bool DragController::tryDocumentDrag(DragData* dragData, DragDestinationAction a
     ASSERT(dragData);
 
     if (!m_documentUnderMouse)
-        return false;
-
-    if (m_dragInitiator && !m_documentUnderMouse->securityOrigin()->canReceiveDragData(m_dragInitiator->securityOrigin()))
         return false;
 
     bool isHandlingDrag = false;
@@ -595,7 +591,7 @@ bool DragController::tryDHTMLDrag(DragData* dragData, DragOperation& operation)
     if (!viewProtector)
         return false;
 
-    ClipboardAccessPolicy policy = m_documentUnderMouse->securityOrigin()->isLocal() ? ClipboardReadable : ClipboardTypesReadable;
+    ClipboardAccessPolicy policy = ClipboardReadable;
     RefPtr<Clipboard> clipboard = Clipboard::create(policy, dragData, mainFrame.get());
     DragOperation srcOpMask = dragData->draggingSourceOperationMask();
     clipboard->setSourceOperation(srcOpMask);

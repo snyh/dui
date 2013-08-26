@@ -33,7 +33,6 @@
 #include "dom/EventNames.h"
 #include "dom/ExceptionCode.h"
 #include "dom/MessageEvent.h"
-#include "page/SecurityOrigin.h"
 #include "platform/Timer.h"
 #include <wtf/text/AtomicString.h>
 

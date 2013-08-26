@@ -82,7 +82,6 @@
 #include "platform/network/soup/ResourceRequest.h"
 #include "platform/SchemeRegistry.h"
 #include "platform/ScrollAnimator.h"
-#include "page/SecurityOrigin.h"
 #include "page/SecurityPolicy.h"
 #include "platform/text/SegmentedString.h"
 #include "bindings/dui/SerializedScriptValue.h"
@@ -246,15 +245,15 @@ void FrameLoader::setDefersLoading(bool defers)
     }
 }
 
-void FrameLoader::changeLocation(SecurityOrigin* securityOrigin, const KURL& url, const String& referrer, bool lockHistory, bool lockBackForwardList, bool refresh)
+void FrameLoader::changeLocation(const KURL& url, const String& referrer, bool lockHistory, bool lockBackForwardList, bool refresh)
 {
-    urlSelected(FrameLoadRequest(securityOrigin, ResourceRequest(url, referrer, refresh ? ReloadIgnoringCacheData : UseProtocolCachePolicy), "_self"),
+    urlSelected(FrameLoadRequest(ResourceRequest(url, referrer, refresh ? ReloadIgnoringCacheData : UseProtocolCachePolicy), "_self"),
         0, lockHistory, lockBackForwardList, MaybeSendReferrer, ReplaceDocumentIfJavaScriptURL);
 }
 
 void FrameLoader::urlSelected(const KURL& url, const String& passedTarget, PassRefPtr<Event> triggeringEvent, bool lockHistory, bool lockBackForwardList, ShouldSendReferrer shouldSendReferrer)
 {
-    urlSelected(FrameLoadRequest(m_frame->document()->securityOrigin(), ResourceRequest(url), passedTarget),
+    urlSelected(FrameLoadRequest(ResourceRequest(url), passedTarget),
         triggeringEvent, lockHistory, lockBackForwardList, shouldSendReferrer, DoNotReplaceDocumentIfJavaScriptURL);
 }
 
@@ -572,7 +571,6 @@ void FrameLoader::didBeginDocument(bool dispatch)
         dispatchDidClearWindowObjectsInAllWorlds();
 
     updateFirstPartyForCookies();
-    m_frame->document()->initContentSecurityPolicy();
 
     Settings* settings = m_frame->document()->settings();
     if (settings) {
@@ -775,7 +773,7 @@ String FrameLoader::outgoingReferrer() const
 
 String FrameLoader::outgoingOrigin() const
 {
-    return m_frame->document()->securityOrigin()->toString();
+    return String();
 }
 
 bool FrameLoader::checkIfFormActionAllowedByCSP(const KURL& url) const
@@ -801,9 +799,6 @@ void FrameLoader::setOpener(Frame* opener)
     if (opener)
         opener->loader()->m_openedFrames.add(m_frame);
     m_opener = opener;
-
-    if (m_frame->document())
-        m_frame->document()->initSecurityContext();
 }
 
 // FIXME: This does not belong in FrameLoader!
@@ -956,15 +951,6 @@ void FrameLoader::loadURL(const KURL& newURL, const String& referrer, const Stri
     bool isFormSubmission = formState;
     
     ResourceRequest request(newURL);
-    if (!referrer.isEmpty()) {
-        request.setHTTPReferrer(referrer);
-        RefPtr<SecurityOrigin> referrerOrigin = SecurityOrigin::createFromString(referrer);
-        addHTTPOriginIfNeeded(request, referrerOrigin->toString());
-    }
-#if ENABLE(CACHE_PARTITIONING)
-    if (m_frame->tree()->top() != m_frame)
-        request.setCachePartition(m_frame->tree()->top()->document()->securityOrigin()->cachePartition());
-#endif
     addExtraFieldsToRequest(request, newLoadType, true);
     if (newLoadType == FrameLoadTypeReload || newLoadType == FrameLoadTypeReloadFromOrigin)
         request.setCachePolicy(ReloadIgnoringCacheData);
@@ -1943,29 +1929,6 @@ void FrameLoader::addExtraFieldsToRequest(ResourceRequest& request, FrameLoadTyp
 
 void FrameLoader::addHTTPOriginIfNeeded(ResourceRequest& request, const String& origin)
 {
-    if (!request.httpOrigin().isEmpty())
-        return;  // Request already has an Origin header.
-
-    // Don't send an Origin header for GET or HEAD to avoid privacy issues.
-    // For example, if an intranet page has a hyperlink to an external web
-    // site, we don't want to include the Origin of the request because it
-    // will leak the internal host name. Similar privacy concerns have lead
-    // to the widespread suppression of the Referer header at the network
-    // layer.
-    if (request.httpMethod() == "GET" || request.httpMethod() == "HEAD")
-        return;
-
-    // For non-GET and non-HEAD methods, always send an Origin header so the
-    // server knows we support this feature.
-
-    if (origin.isEmpty()) {
-        // If we don't know what origin header to attach, we attach the value
-        // for an empty origin.
-        request.setHTTPOrigin(SecurityOrigin::createUnique()->toString());
-        return;
-    }
-
-    request.setHTTPOrigin(origin);
 }
 
 void FrameLoader::loadPostRequest(const ResourceRequest& inRequest, const String& referrer, const String& frameName, bool lockHistory, FrameLoadType loadType, PassRefPtr<Event> event, PassRefPtr<FormState> prpFormState)
@@ -2122,16 +2085,7 @@ void FrameLoader::scrollToFragmentWithParentBoundary(const KURL& url)
     if (!view)
         return;
 
-    // Leaking scroll position to a cross-origin ancestor would permit the so-called "framesniffing" attack.
-    RefPtr<Frame> boundaryFrame(url.hasFragmentIdentifier() ? m_frame->document()->findUnsafeParentScrollPropagationBoundary() : 0);
-
-    if (boundaryFrame)
-        boundaryFrame->view()->setSafeToPropagateScrollToParent(false);
-
     view->scrollToFragment(url);
-
-    if (boundaryFrame)
-        boundaryFrame->view()->setSafeToPropagateScrollToParent(true);
 }
 
 void FrameLoader::callContinueLoadAfterNavigationPolicy(void* argument,
@@ -2338,42 +2292,7 @@ void FrameLoader::applyUserAgent(ResourceRequest& request)
 
 bool FrameLoader::shouldInterruptLoadForXFrameOptions(const String& content, const KURL& url, unsigned long requestIdentifier)
 {
-    FeatureObserver::observe(m_frame->document(), FeatureObserver::XFrameOptions);
-
-    Frame* topFrame = m_frame->tree()->top();
-    if (m_frame == topFrame)
-        return false;
-
-    XFrameOptionsDisposition disposition = parseXFrameOptionsHeader(content);
-
-    switch (disposition) {
-    case XFrameOptionsSameOrigin: {
-        FeatureObserver::observe(m_frame->document(), FeatureObserver::XFrameOptionsSameOrigin);
-        RefPtr<SecurityOrigin> origin = SecurityOrigin::create(url);
-        if (!origin->isSameSchemeHostPort(topFrame->document()->securityOrigin()))
-            return true;
-        for (Frame* frame = m_frame->tree()->parent(); frame; frame = frame->tree()->parent()) {
-            if (!origin->isSameSchemeHostPort(frame->document()->securityOrigin())) {
-                FeatureObserver::observe(m_frame->document(), FeatureObserver::XFrameOptionsSameOriginWithBadAncestorChain);
-                break;
-            }
-        }
-        return false;
-    }
-    case XFrameOptionsDeny:
-        return true;
-    case XFrameOptionsAllowAll:
-        return false;
-    case XFrameOptionsConflict:
-        m_frame->document()->addConsoleMessage(JSMessageSource, ErrorMessageLevel, "Multiple 'X-Frame-Options' headers with conflicting values ('" + content + "') encountered when loading '" + url.stringCenterEllipsizedToLength() + "'. Falling back to 'DENY'.", requestIdentifier);
-        return true;
-    case XFrameOptionsInvalid:
-        m_frame->document()->addConsoleMessage(JSMessageSource, ErrorMessageLevel, "Invalid 'X-Frame-Options' header encountered when loading '" + url.stringCenterEllipsizedToLength() + "': '" + content + "' is not a recognized directive. The header will be ignored.", requestIdentifier);
-        return false;
-    default:
-        ASSERT_NOT_REACHED();
-        return false;
-    }
+    return false;
 }
 
 bool FrameLoader::shouldTreatURLAsSameAsCurrent(const KURL& url) const

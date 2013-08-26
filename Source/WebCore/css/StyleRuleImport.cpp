@@ -28,7 +28,6 @@
 #include "loader/cache/CachedResourceRequest.h"
 #include "loader/cache/CachedResourceRequestInitiators.h"
 #include "dom/Document.h"
-#include "page/SecurityOrigin.h"
 #include "css/StyleSheetContents.h"
 #include <wtf/StdLibExtras.h>
 
@@ -73,7 +72,7 @@ void StyleRuleImport::setCSSStyleSheet(const String& href, const KURL& baseURL, 
     m_styleSheet = StyleSheetContents::create(this, href, context);
 
     Document* document = m_parentStyleSheet ? m_parentStyleSheet->singleOwnerDocument() : 0;
-    m_styleSheet->parseAuthorStyleSheet(cachedStyleSheet, document ? document->securityOrigin() : 0);
+    m_styleSheet->parseAuthorStyleSheet(cachedStyleSheet);
 
     m_loading = false;
 

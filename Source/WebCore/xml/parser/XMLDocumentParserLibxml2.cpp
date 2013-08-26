@@ -48,7 +48,6 @@
 #include "platform/network/soup/ResourceError.h"
 #include "platform/network/soup/ResourceRequest.h"
 #include "platform/network/soup/ResourceResponse.h"
-#include "page/SecurityOrigin.h"
 #include "loader/TextResourceDecoder.h"
 #include "dom/TransformSource.h"
 #include "XMLNSNames.h"
@@ -404,17 +403,6 @@ static bool shouldAllowExternalLoad(const KURL& url)
     // Similarly, there isn't much point in requesting the SVG DTD.
     if (urlString.startsWith("http://www.w3.org/Graphics/SVG", false))
         return false;
-
-    // The libxml doesn't give us a lot of context for deciding whether to
-    // allow this request.  In the worst case, this load could be for an
-    // external entity and the resulting document could simply read the
-    // retrieved content.  If we had more context, we could potentially allow
-    // the parser to load a DTD.  As things stand, we take the conservative
-    // route and allow same-origin requests only.
-    if (!XMLDocumentParserScope::currentCachedResourceLoader->document()->securityOrigin()->canRequest(url)) {
-        XMLDocumentParserScope::currentCachedResourceLoader->printAccessDeniedMessage(url);
-        return false;
-    }
 
     return true;
 }

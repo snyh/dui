@@ -37,7 +37,6 @@ namespace WebCore {
 class Document;
 class DocumentParser;
 class Frame;
-class SecurityOrigin;
 class TextResourceDecoder;
 
 class DocumentWriter {

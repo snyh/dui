@@ -33,7 +33,6 @@
 #include "html/HTMLVideoElement.h"
 #include "platform/graphics/Image.h"
 #include "platform/KURL.h"
-#include "page/SecurityOrigin.h"
 
 namespace WebCore {
 
@@ -58,14 +57,7 @@ bool CanvasRenderingContext::wouldTaintOrigin(const HTMLCanvasElement* sourceCan
 
 bool CanvasRenderingContext::wouldTaintOrigin(const HTMLImageElement* image)
 {
-    if (!image || !canvas()->originClean())
-        return false;
-
-    CachedImage* cachedImage = image->cachedImage();
-    if (!cachedImage->image()->hasSingleSecurityOrigin())
-        return true;
-
-    return wouldTaintOrigin(cachedImage->response().url()) && !cachedImage->passesAccessControlCheck(canvas()->securityOrigin());
+    return false;
 }
 
 bool CanvasRenderingContext::wouldTaintOrigin(const HTMLVideoElement* video)
@@ -93,16 +85,6 @@ bool CanvasRenderingContext::wouldTaintOrigin(const HTMLVideoElement* video)
 
 bool CanvasRenderingContext::wouldTaintOrigin(const KURL& url)
 {
-    if (!canvas()->originClean() || m_cleanURLs.contains(url.string()))
-        return false;
-
-    if (canvas()->securityOrigin()->taintsCanvas(url))
-        return true;
-
-    if (url.protocolIsData())
-        return false;
-
-    m_cleanURLs.add(url.string());
     return false;
 }
 

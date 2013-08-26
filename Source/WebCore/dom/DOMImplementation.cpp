@@ -45,7 +45,6 @@
 #include "platform/graphics/MediaPlayer.h"
 #include "platform/MIMETypeRegistry.h"
 #include "page/Page.h"
-#include "page/SecurityOrigin.h"
 #include "page/Settings.h"
 #include "css/StyleSheetContents.h"
 #include "html/TextDocument.h"
@@ -293,7 +292,6 @@ PassRefPtr<Document> DOMImplementation::createDocument(const String& namespaceUR
     else
         doc = Document::create(0, KURL());
 
-    doc->setSecurityOrigin(m_document->securityOrigin());
     doc->setContextFeatures(m_document->contextFeatures());
 
     RefPtr<Node> documentElement;
@@ -378,7 +376,6 @@ PassRefPtr<HTMLDocument> DOMImplementation::createHTMLDocument(const String& tit
     d->write("<!doctype html><html><body></body></html>");
     if (!title.isNull())
         d->setTitle(title);
-    d->setSecurityOrigin(m_document->securityOrigin());
     d->setContextFeatures(m_document->contextFeatures());
     return d.release();
 }

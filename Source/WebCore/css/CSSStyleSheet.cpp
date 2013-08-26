@@ -35,7 +35,6 @@
 #include "css/MediaList.h"
 #include "dom/Node.h"
 #include "SVGNames.h"
-#include "page/SecurityOrigin.h"
 #include "css/StyleRule.h"
 #include "css/StyleSheetContents.h"
 #include <wtf/text/StringBuilder.h>
@@ -229,9 +228,7 @@ bool CSSStyleSheet::canAccessRules() const
     Document* document = ownerDocument();
     if (!document)
         return true;
-    if (document->securityOrigin()->canRequest(baseURL))
-        return true;
-    return false;
+    return true;
 }
 
 PassRefPtr<CSSRuleList> CSSStyleSheet::rules()

@@ -31,7 +31,6 @@
 #include "platform/graphics/FontRenderingMode.h"
 #include "platform/graphics/IntSize.h"
 #include "platform/KURL.h"
-#include "page/SecurityOrigin.h"
 #include "SettingsMacros.h"
 #include "platform/Timer.h"
 #include <wtf/HashMap.h>

@@ -27,7 +27,6 @@
 #include "loader/cache/CachedResourceLoader.h"
 #include "dom/Document.h"
 #include "css/MediaList.h"
-#include "page/SecurityOrigin.h"
 #include "css/StyleRuleImport.h"
 #include "css/StyleSheetContents.h"
 #include <wtf/text/StringBuilder.h>

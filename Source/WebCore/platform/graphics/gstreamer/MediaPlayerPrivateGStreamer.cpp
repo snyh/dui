@@ -33,7 +33,6 @@
 #include "platform/MIMETypeRegistry.h"
 #include "platform/graphics/MediaPlayer.h"
 #include "platform/NotImplemented.h"
-#include "page/SecurityOrigin.h"
 #include "html/TimeRanges.h"
 #include "platform/graphics/gstreamer/WebKitWebSourceGStreamer.h"
 #include <gst/gst.h>
@@ -1287,31 +1286,27 @@ bool MediaPlayerPrivateGStreamer::loadNextLocation()
         KURL baseUrl = gst_uri_is_valid(newLocation) ? KURL() : m_url;
         KURL newUrl = KURL(baseUrl, newLocation);
 
-        RefPtr<SecurityOrigin> securityOrigin = SecurityOrigin::create(m_url);
-        if (securityOrigin->canRequest(newUrl)) {
-            INFO_MEDIA_MESSAGE("New media url: %s", newUrl.string().utf8().data());
+        INFO_MEDIA_MESSAGE("New media url: %s", newUrl.string().utf8().data());
 
-            // Reset player states.
-            m_networkState = MediaPlayer::Loading;
-            m_player->networkStateChanged();
-            m_readyState = MediaPlayer::HaveNothing;
-            m_player->readyStateChanged();
+        // Reset player states.
+        m_networkState = MediaPlayer::Loading;
+        m_player->networkStateChanged();
+        m_readyState = MediaPlayer::HaveNothing;
+        m_player->readyStateChanged();
 
-            // Reset pipeline state.
-            m_resetPipeline = true;
-            gst_element_set_state(m_playBin.get(), GST_STATE_READY);
+        // Reset pipeline state.
+        m_resetPipeline = true;
+        gst_element_set_state(m_playBin.get(), GST_STATE_READY);
 
-            GstState state;
-            gst_element_get_state(m_playBin.get(), &state, 0, 0);
-            if (state <= GST_STATE_READY) {
-                // Set the new uri and start playing.
-                g_object_set(m_playBin.get(), "uri", newUrl.string().utf8().data(), NULL);
-                m_url = newUrl;
-                gst_element_set_state(m_playBin.get(), GST_STATE_PLAYING);
-                return true;
-            }
-        } else
-            INFO_MEDIA_MESSAGE("Not allowed to load new media location: %s", newUrl.string().utf8().data());
+        GstState state;
+        gst_element_get_state(m_playBin.get(), &state, 0, 0);
+        if (state <= GST_STATE_READY) {
+            // Set the new uri and start playing.
+            g_object_set(m_playBin.get(), "uri", newUrl.string().utf8().data(), NULL);
+            m_url = newUrl;
+            gst_element_set_state(m_playBin.get(), GST_STATE_PLAYING);
+            return true;
+        }
     }
     m_mediaLocationCurrentIndex--;
     return false;

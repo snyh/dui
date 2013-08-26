@@ -97,7 +97,6 @@
 #include "css/RuleSet.h"
 #include "svg/SVGDocumentExtensions.h"
 #include "svg/SVGFontFaceElement.h"
-#include "page/SecurityOrigin.h"
 #include "css/SelectorCheckerFastPath.h"
 #include "page/Settings.h"
 #include "rendering/style/ShadowData.h"

@@ -126,7 +126,6 @@
 #include "platform/SchemeRegistry.h"
 #include "dom/ScopedEventQueue.h"
 #include "page/scrolling/ScrollingCoordinator.h"
-#include "page/SecurityOrigin.h"
 #include "page/SecurityPolicy.h"
 #include "platform/text/SegmentedString.h"
 #include "dom/SelectorQuery.h"
@@ -199,10 +198,6 @@
 
 #if ENABLE(TEXT_AUTOSIZING)
 #include "rendering/TextAutosizer.h"
-#endif
-
-#if ENABLE(CSP_NEXT)
-#include "page/DOMSecurityPolicy.h"
 #endif
 
 #if ENABLE(VIDEO_TRACK)
@@ -299,19 +294,6 @@ static inline bool isValidNamePart(UChar32 c)
     return true;
 }
 
-static bool shouldInheritSecurityOriginFromOwner(const KURL& url)
-{
-    // http://www.whatwg.org/specs/web-apps/current-work/#origin-0
-    //
-    // If a Document has the address "about:blank"
-    //     The origin of the Document is the origin it was assigned when its browsing context was created.
-    //
-    // Note: We generalize this to all "blank" URLs and invalid URLs because we
-    // treat all of these URLs as about:blank.
-    //
-    return url.isEmpty() || url.isBlankURL();
-}
-
 static Widget* widgetForNode(Node* focusedNode)
 {
     if (!focusedNode)
@@ -333,34 +315,6 @@ static bool acceptsEditingFocus(Node* node)
         return false;
 
     return frame->editor().shouldBeginEditing(rangeOfContents(root).get());
-}
-
-static bool canAccessAncestor(const SecurityOrigin* activeSecurityOrigin, Frame* targetFrame)
-{
-    // targetFrame can be 0 when we're trying to navigate a top-level frame
-    // that has a 0 opener.
-    if (!targetFrame)
-        return false;
-
-    const bool isLocalActiveOrigin = activeSecurityOrigin->isLocal();
-    for (Frame* ancestorFrame = targetFrame; ancestorFrame; ancestorFrame = ancestorFrame->tree()->parent()) {
-        Document* ancestorDocument = ancestorFrame->document();
-        // FIXME: Should be an ASSERT? Frames should alway have documents.
-        if (!ancestorDocument)
-            return true;
-
-        const SecurityOrigin* ancestorSecurityOrigin = ancestorDocument->securityOrigin();
-        if (activeSecurityOrigin->canAccess(ancestorSecurityOrigin))
-            return true;
-        
-        // Allow file URL descendant navigation even when allowFileAccessFromFileURLs is false.
-        // FIXME: It's a bit strange to special-case local origins here. Should we be doing
-        // something more general instead?
-        if (isLocalActiveOrigin && ancestorSecurityOrigin->isLocal())
-            return true;
-    }
-
-    return false;
 }
 
 static void printNavigationErrorMessage(Frame* frame, const KURL& activeURL, const char* reason)
@@ -498,7 +452,6 @@ Document::Document(Frame* frame, const KURL& url, unsigned documentClasses)
     resetVisitedLinkColor();
     resetActiveLinkColor();
 
-    initSecurityContext();
     initDNSPrefetch();
 
     for (unsigned i = 0; i < WTF_ARRAY_LENGTH(m_nodeListCounts); i++)
@@ -1583,15 +1536,6 @@ void Document::dispatchVisibilityStateChangeEvent()
 }
 #endif
 
-#if ENABLE(CSP_NEXT)
-DOMSecurityPolicy* Document::securityPolicy()
-{
-    if (!m_domSecurityPolicy)
-        m_domSecurityPolicy = DOMSecurityPolicy::create(this);
-    return m_domSecurityPolicy.get();
-}
-#endif
-
 String Document::nodeName() const
 {
     return "#document";
@@ -1967,8 +1911,6 @@ void Document::setIsViewSource(bool isViewSource)
     m_isViewSource = isViewSource;
     if (!m_isViewSource)
         return;
-
-    setSecurityOrigin(SecurityOrigin::createUnique());
 }
 
 void Document::createStyleResolver()
@@ -2178,7 +2120,6 @@ void Document::open(Document* ownerDocument)
     if (ownerDocument) {
         setURL(ownerDocument->url());
         m_cookieURL = ownerDocument->cookieURL();
-        setSecurityOrigin(ownerDocument->securityOrigin());
     }
 
     if (m_frame) {
@@ -2673,78 +2614,8 @@ bool Document::canNavigate(Frame* targetFrame)
     if (!m_frame)
         return false;
 
-    // FIXME: We shouldn't call this function without a target frame, but
-    // fast/forms/submit-to-blank-multiple-times.html depends on this function
-    // returning true when supplied with a 0 targetFrame.
-    if (!targetFrame)
-        return true;
-
-    // Frame-busting is generally allowed, but blocked for sandboxed frames lacking the 'allow-top-navigation' flag.
-    if (!isSandboxed(SandboxTopNavigation) && targetFrame == m_frame->tree()->top())
-        return true;
-
-    if (isSandboxed(SandboxNavigation)) {
-        if (targetFrame->tree()->isDescendantOf(m_frame))
-            return true;
-
-        const char* reason = "The frame attempting navigation is sandboxed, and is therefore disallowed from navigating its ancestors.";
-        if (isSandboxed(SandboxTopNavigation) && targetFrame == m_frame->tree()->top())
-            reason = "The frame attempting navigation of the top-level window is sandboxed, but the 'allow-top-navigation' flag is not set.";
-
-        printNavigationErrorMessage(targetFrame, url(), reason);
-        return false;
-    }
-
-    // This is the normal case. A document can navigate its decendant frames,
-    // or, more generally, a document can navigate a frame if the document is
-    // in the same origin as any of that frame's ancestors (in the frame
-    // hierarchy).
-    //
-    // See http://www.adambarth.com/papers/2008/barth-jackson-mitchell.pdf for
-    // historical information about this security check.
-    if (canAccessAncestor(securityOrigin(), targetFrame))
-        return true;
-
-    // Top-level frames are easier to navigate than other frames because they
-    // display their URLs in the address bar (in most browsers). However, there
-    // are still some restrictions on navigation to avoid nuisance attacks.
-    // Specifically, a document can navigate a top-level frame if that frame
-    // opened the document or if the document is the same-origin with any of
-    // the top-level frame's opener's ancestors (in the frame hierarchy).
-    //
-    // In both of these cases, the document performing the navigation is in
-    // some way related to the frame being navigate (e.g., by the "opener"
-    // and/or "parent" relation). Requiring some sort of relation prevents a
-    // document from navigating arbitrary, unrelated top-level frames.
-    if (!targetFrame->tree()->parent()) {
-        if (targetFrame == m_frame->loader()->opener())
-            return true;
-
-        if (canAccessAncestor(securityOrigin(), targetFrame->loader()->opener()))
-            return true;
-    }
-
-    printNavigationErrorMessage(targetFrame, url(), "The frame attempting navigation is neither same-origin with the target, nor is it the target's parent or opener.");
-    return false;
+    return true;
 }
-
-Frame* Document::findUnsafeParentScrollPropagationBoundary()
-{
-    Frame* currentFrame = m_frame;
-    if (!currentFrame)
-        return 0;
-
-    Frame* ancestorFrame = currentFrame->tree()->parent();
-
-    while (ancestorFrame) {
-        if (!ancestorFrame->document()->securityOrigin()->canAccess(securityOrigin()))
-            return currentFrame;
-        currentFrame = ancestorFrame;
-        ancestorFrame = ancestorFrame->tree()->parent();
-    }
-    return 0;
-}
-
 
 void Document::seamlessParentUpdatedStylesheets()
 {
@@ -3633,11 +3504,6 @@ String Document::cookie(ExceptionCode& ec) const
     // INVALID_STATE_ERR exception on getting if the Document has no
     // browsing context.
 
-    if (!securityOrigin()->canAccessCookies()) {
-        ec = SECURITY_ERR;
-        return String();
-    }
-
     KURL cookieURL = this->cookieURL();
     if (cookieURL.isEmpty())
         return String();
@@ -3653,11 +3519,6 @@ void Document::setCookie(const String& value, ExceptionCode& ec)
     // FIXME: The HTML5 DOM spec states that this attribute can raise an
     // INVALID_STATE_ERR exception on setting if the Document has no
     // browsing context.
-
-    if (!securityOrigin()->canAccessCookies()) {
-        ec = SECURITY_ERR;
-        return;
-    }
 
     KURL cookieURL = this->cookieURL();
     if (cookieURL.isEmpty())
@@ -3675,56 +3536,12 @@ String Document::referrer() const
 
 String Document::domain() const
 {
-    return securityOrigin()->domain();
+    return String();
 }
 
 void Document::setDomain(const String& newDomain, ExceptionCode& ec)
 {
-    if (SchemeRegistry::isDomainRelaxationForbiddenForURLScheme(securityOrigin()->protocol())) {
-        ec = SECURITY_ERR;
-        return;
-    }
-
-    // Both NS and IE specify that changing the domain is only allowed when
-    // the new domain is a suffix of the old domain.
-
-    // FIXME: We should add logging indicating why a domain was not allowed.
-
-    // If the new domain is the same as the old domain, still call
-    // securityOrigin()->setDomainForDOM. This will change the
-    // security check behavior. For example, if a page loaded on port 8000
-    // assigns its current domain using document.domain, the page will
-    // allow other pages loaded on different ports in the same domain that
-    // have also assigned to access this page.
-    if (equalIgnoringCase(domain(), newDomain)) {
-        securityOrigin()->setDomainFromDOM(newDomain);
-        return;
-    }
-
-    int oldLength = domain().length();
-    int newLength = newDomain.length();
-    // e.g. newDomain = webkit.org (10) and domain() = www.webkit.org (14)
-    if (newLength >= oldLength) {
-        ec = SECURITY_ERR;
-        return;
-    }
-
-    String test = domain();
-    // Check that it's a subdomain, not e.g. "ebkit.org"
-    if (test[oldLength - newLength - 1] != '.') {
-        ec = SECURITY_ERR;
-        return;
-    }
-
-    // Now test is "webkit.org" from domain()
-    // and we check that it's the same thing as newDomain
-    test.remove(0, oldLength - newLength);
-    if (test != newDomain) {
-        ec = SECURITY_ERR;
-        return;
-    }
-
-    securityOrigin()->setDomainFromDOM(newDomain);
+    return;
 }
 
 // http://www.whatwg.org/specs/web-apps/current-work/#dom-document-lastmodified
@@ -4390,99 +4207,7 @@ static bool isEligibleForSeamless(Document* parent, Document* child)
         return false;
     if (child->isSrcdocDocument())
         return true;
-    if (parent->securityOrigin()->canAccess(child->securityOrigin()))
-        return true;
-    return parent->securityOrigin()->canRequest(child->url());
-}
-
-void Document::initSecurityContext()
-{
-    if (haveInitializedSecurityOrigin()) {
-        ASSERT(securityOrigin());
-        return;
-    }
-
-    if (!m_frame) {
-        // No source for a security context.
-        // This can occur via document.implementation.createDocument().
-        m_cookieURL = KURL(ParsedURLString, emptyString());
-        setSecurityOrigin(SecurityOrigin::createUnique());
-        setContentSecurityPolicy(ContentSecurityPolicy::create(this));
-        return;
-    }
-
-    // In the common case, create the security context from the currently
-    // loading URL with a fresh content security policy.
-    m_cookieURL = m_url;
-    enforceSandboxFlags(m_frame->loader()->effectiveSandboxFlags());
-    setSecurityOrigin(isSandboxed(SandboxOrigin) ? SecurityOrigin::createUnique() : SecurityOrigin::create(m_url));
-    setContentSecurityPolicy(ContentSecurityPolicy::create(this));
-
-    if (Settings* settings = this->settings()) {
-        if (!settings->webSecurityEnabled()) {
-            // Web security is turned off. We should let this document access every other document. This is used primary by testing
-            // harnesses for web sites.
-            securityOrigin()->grantUniversalAccess();
-        } else if (securityOrigin()->isLocal()) {
-            if (settings->allowUniversalAccessFromFileURLs() || m_frame->loader()->client()->shouldForceUniversalAccessFromLocalURL(m_url)) {
-                // Some clients want local URLs to have universal access, but that setting is dangerous for other clients.
-                securityOrigin()->grantUniversalAccess();
-            } else if (!settings->allowFileAccessFromFileURLs()) {
-                // Some clients want local URLs to have even tighter restrictions by default, and not be able to access other local files.
-                // FIXME 81578: The naming of this is confusing. Files with restricted access to other local files
-                // still can have other privileges that can be remembered, thereby not making them unique origins.
-                securityOrigin()->enforceFilePathSeparation();
-            }
-        }
-    }
-
-    Document* parentDocument = ownerElement() ? ownerElement()->document() : 0;
-    if (parentDocument && m_frame->loader()->shouldTreatURLAsSrcdocDocument(url())) {
-        m_isSrcdocDocument = true;
-        setBaseURLOverride(parentDocument->baseURL());
-    }
-
-    // FIXME: What happens if we inherit the security origin? This check may need to be later.
-    // <iframe seamless src="about:blank"> likely won't work as-is.
-    m_mayDisplaySeamlesslyWithParent = isEligibleForSeamless(parentDocument, this);
-
-    if (!shouldInheritSecurityOriginFromOwner(m_url))
-        return;
-
-    // If we do not obtain a meaningful origin from the URL, then we try to
-    // find one via the frame hierarchy.
-
-    Frame* ownerFrame = m_frame->tree()->parent();
-    if (!ownerFrame)
-        ownerFrame = m_frame->loader()->opener();
-
-    if (!ownerFrame) {
-        didFailToInitializeSecurityOrigin();
-        return;
-    }
-
-    if (isSandboxed(SandboxOrigin)) {
-        // If we're supposed to inherit our security origin from our owner,
-        // but we're also sandboxed, the only thing we inherit is the ability
-        // to load local resources. This lets about:blank iframes in file://
-        // URL documents load images and other resources from the file system.
-        if (ownerFrame->document()->securityOrigin()->canLoadLocalResources())
-            securityOrigin()->grantLoadLocalResources();
-        return;
-    }
-
-    m_cookieURL = ownerFrame->document()->cookieURL();
-    // We alias the SecurityOrigins to match Firefox, see Bug 15313
-    // https://bugs.webkit.org/show_bug.cgi?id=15313
-    setSecurityOrigin(ownerFrame->document()->securityOrigin());
-}
-
-void Document::initContentSecurityPolicy()
-{
-    if (!m_frame->tree()->parent() || (!shouldInheritSecurityOriginFromOwner(m_url)))
-        return;
-
-    contentSecurityPolicy()->copyStateFrom(m_frame->tree()->parent()->document()->contentSecurityPolicy());
+    return true;
 }
 
 bool Document::isContextThread() const
@@ -4572,7 +4297,7 @@ void Document::initDNSPrefetch()
     Settings* settings = this->settings();
 
     m_haveExplicitlyDisabledDNSPrefetch = false;
-    m_isDNSPrefetchEnabled = settings && settings->dnsPrefetchingEnabled() && securityOrigin()->protocol() == "http";
+    m_isDNSPrefetchEnabled = settings && settings->dnsPrefetchingEnabled();
 
     // Inherit DNS prefetch opt-out from parent frame    
     if (Document* parent = parentDocument()) {
@@ -4609,11 +4334,6 @@ void Document::addMessage(MessageSource source, MessageLevel level, const String
         postTask(AddConsoleMessageTask::create(source, level, message));
         return;
     }
-}
-
-SecurityOrigin* Document::topOrigin() const
-{
-    return topDocument()->securityOrigin();
 }
 
 struct PerformTaskContext {

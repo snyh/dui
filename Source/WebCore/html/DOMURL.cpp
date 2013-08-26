@@ -38,7 +38,6 @@
 #include "html/PublicURLManager.h"
 #include "platform/network/soup/ResourceRequest.h"
 #include "dom/ScriptExecutionContext.h"
-#include "page/SecurityOrigin.h"
 #include "fileapi/ThreadableBlobRegistry.h"
 #include <wtf/MainThread.h>
 
@@ -63,7 +62,7 @@ String DOMURL::createObjectURL(ScriptExecutionContext* scriptExecutionContext, M
     if (!scriptExecutionContext || !source)
         return String();
 
-    KURL publicURL = BlobURL::createPublicURL(scriptExecutionContext->securityOrigin());
+    KURL publicURL = BlobURL::createPublicURL();
     if (publicURL.isEmpty())
         return String();
 
@@ -80,7 +79,7 @@ String DOMURL::createObjectURL(ScriptExecutionContext* scriptExecutionContext, M
     if (!scriptExecutionContext || !stream)
         return String();
 
-    KURL publicURL = BlobURL::createPublicURL(scriptExecutionContext->securityOrigin());
+    KURL publicURL = BlobURL::createPublicURL();
     if (publicURL.isEmpty())
         return String();
 
@@ -99,11 +98,11 @@ String DOMURL::createObjectURL(ScriptExecutionContext* scriptExecutionContext, B
     if (!scriptExecutionContext || !blob)
         return String();
 
-    KURL publicURL = BlobURL::createPublicURL(scriptExecutionContext->securityOrigin());
+    KURL publicURL = BlobURL::createPublicURL();
     if (publicURL.isEmpty())
         return String();
 
-    ThreadableBlobRegistry::registerBlobURL(scriptExecutionContext->securityOrigin(), publicURL, blob->url());
+    ThreadableBlobRegistry::registerBlobURL(publicURL, blob->url());
     scriptExecutionContext->publicURLManager().blobURLs().add(publicURL.string());
 
     return publicURL.string();

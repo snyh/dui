@@ -36,7 +36,6 @@
 #include "loader/FrameLoaderClient.h"
 #include "html/parser/HTMLParserIdioms.h"
 #include "loader/PingLoader.h"
-#include "page/SecurityOrigin.h"
 #include <wtf/text/StringBuilder.h>
 #include <wtf/text/CString.h>
 

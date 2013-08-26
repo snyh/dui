@@ -42,7 +42,6 @@
 #include "page/PopupOpeningObserver.h"
 #include "rendering/RenderObject.h"
 #include "platform/network/ResourceHandle.h"
-#include "page/SecurityOrigin.h"
 #include "page/Settings.h"
 #include "page/WindowFeatures.h"
 #include <wtf/PassRefPtr.h>

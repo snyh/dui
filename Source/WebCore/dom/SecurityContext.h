@@ -33,7 +33,6 @@
 
 namespace WebCore {
 
-class SecurityOrigin;
 class ContentSecurityPolicy;
 class KURL;
 
@@ -57,7 +56,6 @@ typedef int SandboxFlags;
 
 class SecurityContext {
 public:
-    SecurityOrigin* securityOrigin() const { return m_securityOrigin.get(); }
     SandboxFlags sandboxFlags() const { return m_sandboxFlags; }
     ContentSecurityPolicy* contentSecurityPolicy() { return m_contentSecurityPolicy.get(); }
 
@@ -69,7 +67,7 @@ public:
     // Explicitly override the security origin for this security context.
     // Note: It is dangerous to change the security origin of a script context
     //       that already contains content.
-    void setSecurityOrigin(PassRefPtr<SecurityOrigin>);
+    void setSecurityOrigin();
 
     static SandboxFlags parseSandboxPolicy(const String& policy, String& invalidTokensErrorMessage);
 
@@ -89,7 +87,6 @@ protected:
 private:
     bool m_haveInitializedSecurityOrigin;
     SandboxFlags m_sandboxFlags;
-    RefPtr<SecurityOrigin> m_securityOrigin;
     OwnPtr<ContentSecurityPolicy> m_contentSecurityPolicy;
 };
 

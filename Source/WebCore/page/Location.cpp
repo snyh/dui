@@ -35,7 +35,6 @@
 #include "page/Frame.h"
 #include "loader/FrameLoader.h"
 #include "platform/KURL.h"
-#include "page/SecurityOrigin.h"
 
 namespace WebCore {
 
@@ -119,18 +118,12 @@ String Location::search() const
 
 String Location::origin() const
 {
-    if (!m_frame)
-        return String();
-    return SecurityOrigin::create(url())->toString();
+    return String();
 }
 
 PassRefPtr<DOMStringList> Location::ancestorOrigins() const
 {
     RefPtr<DOMStringList> origins = DOMStringList::create();
-    if (!m_frame)
-        return origins.release();
-    for (Frame* frame = m_frame->tree()->parent(); frame; frame = frame->tree()->parent())
-        origins->append(frame->document()->securityOrigin()->toString());
     return origins.release();
 }
 
@@ -248,14 +241,6 @@ void Location::reload(DOMWindow* activeWindow)
 {
     if (!m_frame)
         return;
-    // FIXME: It's not clear this cross-origin security check is valuable.
-    // We allow one page to change the location of another. Why block attempts to reload?
-    // Other location operations simply block use of JavaScript URLs cross origin.
-    DOMWindow* targetWindow = m_frame->document()->domWindow();
-    if (!activeWindow->document()->securityOrigin()->canAccess(m_frame->document()->securityOrigin())) {
-        targetWindow->printErrorMessage(targetWindow->crossDomainAccessErrorMessage(activeWindow));
-        return;
-    }
     if (protocolIsJavaScript(m_frame->document()->url()))
         return;
 }

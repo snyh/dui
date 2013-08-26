@@ -33,7 +33,6 @@
 
 #if ENABLE(INPUT_SPEECH)
 
-#include "page/SecurityOrigin.h"
 #include "page/SpeechInputClient.h"
 #include "page/SpeechInputListener.h"
 #include <wtf/PassOwnPtr.h>
@@ -99,10 +98,10 @@ void SpeechInput::setRecognitionResult(int listenerId, const SpeechInputResultAr
         m_listeners.get(listenerId)->setRecognitionResult(listenerId, result);
 }
 
-bool SpeechInput::startRecognition(int listenerId, const IntRect& elementRect, const AtomicString& language, const String& grammar, SecurityOrigin* origin)
+bool SpeechInput::startRecognition(int listenerId, const IntRect& elementRect, const AtomicString& language, const String& grammar)
 {
     ASSERT(m_listeners.contains(listenerId));
-    return m_client->startRecognition(listenerId, elementRect, language, grammar, origin);
+    return m_client->startRecognition(listenerId, elementRect, language, grammar);
 }
 
 void SpeechInput::stopRecording(int listenerId)

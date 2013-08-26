@@ -34,7 +34,6 @@
 #include "css/CSSSelectorList.h"
 #include "HTMLNames.h"
 #include "css/MediaQueryEvaluator.h"
-#include "page/SecurityOrigin.h"
 #include "css/SelectorChecker.h"
 #include "css/SelectorCheckerFastPath.h"
 #include "css/SelectorFilter.h"
@@ -162,9 +161,9 @@ static void collectFeaturesFromRuleData(RuleFeatureSet& features, const RuleData
             foundSiblingSelector = true;
     }
     if (foundSiblingSelector)
-        features.siblingRules.append(RuleFeature(ruleData.rule(), ruleData.selectorIndex(), ruleData.hasDocumentSecurityOrigin()));
+        features.siblingRules.append(RuleFeature(ruleData.rule(), ruleData.selectorIndex()));
     if (ruleData.containsUncommonAttributeSelector())
-        features.uncommonAttributeRules.append(RuleFeature(ruleData.rule(), ruleData.selectorIndex(), ruleData.hasDocumentSecurityOrigin()));
+        features.uncommonAttributeRules.append(RuleFeature(ruleData.rule(), ruleData.selectorIndex()));
 }
     
 void RuleSet::addToRuleSet(AtomicStringImpl* key, AtomRuleMap& map, const RuleData& ruleData)
@@ -270,7 +269,7 @@ void RuleSet::addRegionRule(StyleRuleRegion* regionRule, bool hasDocumentSecurit
     m_regionSelectorsAndRuleSets.append(RuleSetSelectorPair(regionRule->selectorList().first(), regionRuleSet.release()));
 }
 
-void RuleSet::addChildRules(const Vector<RefPtr<StyleRuleBase> >& rules, const MediaQueryEvaluator& medium, StyleResolver* resolver, const ContainerNode* scope, bool hasDocumentSecurityOrigin, AddRuleFlags addRuleFlags)
+void RuleSet::addChildRules(const Vector<RefPtr<StyleRuleBase> >& rules, const MediaQueryEvaluator& medium, StyleResolver* resolver, const ContainerNode* scope, AddRuleFlags addRuleFlags)
 {
     for (unsigned i = 0; i < rules.size(); ++i) {
         StyleRuleBase* rule = rules[i].get();
@@ -283,7 +282,7 @@ void RuleSet::addChildRules(const Vector<RefPtr<StyleRuleBase> >& rules, const M
         else if (rule->isMediaRule()) {
             StyleRuleMedia* mediaRule = static_cast<StyleRuleMedia*>(rule);
             if ((!mediaRule->mediaQueries() || medium.eval(mediaRule->mediaQueries(), resolver)))
-                addChildRules(mediaRule->childRules(), medium, resolver, scope, hasDocumentSecurityOrigin, addRuleFlags);
+                addChildRules(mediaRule->childRules(), medium, resolver, scope, addRuleFlags);
         } else if (rule->isFontFaceRule() && resolver) {
             // Add this font face to our set.
             // FIXME(BUG 72461): We don't add @font-face rules of scoped style sheets for the moment.
@@ -320,7 +319,7 @@ void RuleSet::addChildRules(const Vector<RefPtr<StyleRuleBase> >& rules, const M
 #endif
 #if ENABLE(CSS3_CONDITIONAL_RULES)
         else if (rule->isSupportsRule() && static_cast<StyleRuleSupports*>(rule)->conditionIsSupported())
-            addChildRules(static_cast<StyleRuleSupports*>(rule)->childRules(), medium, resolver, scope, hasDocumentSecurityOrigin, addRuleFlags);
+            addChildRules(static_cast<StyleRuleSupports*>(rule)->childRules(), medium, resolver, scope, addRuleFlags);
 #endif
     }
 }
@@ -336,10 +335,9 @@ void RuleSet::addRulesFromSheet(StyleSheetContents* sheet, const MediaQueryEvalu
             addRulesFromSheet(importRule->styleSheet(), medium, resolver, scope);
     }
 
-    bool hasDocumentSecurityOrigin = resolver && resolver->document()->securityOrigin()->canRequest(sheet->baseURL());
-    AddRuleFlags addRuleFlags = static_cast<AddRuleFlags>((hasDocumentSecurityOrigin ? RuleHasDocumentSecurityOrigin : 0) | (!scope ? RuleCanUseFastCheckSelector : 0));
+    AddRuleFlags addRuleFlags = static_cast<AddRuleFlags>(RuleHasDocumentSecurityOrigin | (!scope ? RuleCanUseFastCheckSelector : 0));
 
-    addChildRules(sheet->childRules(), medium, resolver, scope, hasDocumentSecurityOrigin, addRuleFlags);
+    addChildRules(sheet->childRules(), medium, resolver, scope, addRuleFlags);
 
     if (m_autoShrinkToFitEnabled)
         shrinkToFit();

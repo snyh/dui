@@ -29,7 +29,6 @@
 
 #include "page/ContentSecurityPolicy.h"
 #include "html/parser/HTMLParserIdioms.h"
-#include "page/SecurityOrigin.h"
 #include <wtf/text/StringBuilder.h>
 
 namespace WebCore {
@@ -45,10 +44,8 @@ SecurityContext::~SecurityContext()
 {
 }
 
-void SecurityContext::setSecurityOrigin(PassRefPtr<SecurityOrigin> securityOrigin)
+void SecurityContext::setSecurityOrigin()
 {
-    m_securityOrigin = securityOrigin;
-    m_haveInitializedSecurityOrigin = true;
 }
 
 void SecurityContext::setContentSecurityPolicy(PassOwnPtr<ContentSecurityPolicy> contentSecurityPolicy)
@@ -58,23 +55,11 @@ void SecurityContext::setContentSecurityPolicy(PassOwnPtr<ContentSecurityPolicy>
 
 bool SecurityContext::isSecureTransitionTo(const KURL& url) const
 {
-    // If we haven't initialized our security origin by now, this is probably
-    // a new window created via the API (i.e., that lacks an origin and lacks
-    // a place to inherit the origin from).
-    if (!haveInitializedSecurityOrigin())
-        return true;
-
-    RefPtr<SecurityOrigin> other = SecurityOrigin::create(url);
-    return securityOrigin()->canAccess(other.get());
+    return true;
 }
 
 void SecurityContext::enforceSandboxFlags(SandboxFlags mask)
 {
-    m_sandboxFlags |= mask;
-
-    // The SandboxOrigin is stored redundantly in the security origin.
-    if (isSandboxed(SandboxOrigin) && securityOrigin() && !securityOrigin()->isUnique())
-        setSecurityOrigin(SecurityOrigin::createUnique());
 }
 
 SandboxFlags SecurityContext::parseSandboxPolicy(const String& policy, String& invalidTokensErrorMessage)

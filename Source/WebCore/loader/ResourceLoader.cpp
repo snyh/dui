@@ -44,7 +44,6 @@
 #include "platform/network/soup/ResourceError.h"
 #include "platform/network/ResourceHandle.h"
 #include "loader/ResourceLoadScheduler.h"
-#include "page/SecurityOrigin.h"
 #include "page/Settings.h"
 #include "platform/SharedBuffer.h"
 
@@ -108,11 +107,6 @@ bool ResourceLoader::init(const ResourceRequest& r)
     ResourceRequest clientRequest(r);
     
     m_defersLoading = m_frame->page()->defersLoading();
-    if (m_options.securityCheck == DoSecurityCheck && !m_frame->document()->securityOrigin()->canDisplay(clientRequest.url())) {
-        FrameLoader::reportLocalLoadFailed(m_frame.get(), clientRequest.url().string());
-        releaseResources();
-        return false;
-    }
     
     // https://bugs.webkit.org/show_bug.cgi?id=26391
     // The various plug-in implementations call directly to ResourceLoader::load() instead of piping requests

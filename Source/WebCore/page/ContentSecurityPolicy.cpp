@@ -38,8 +38,6 @@
 #include "bindings/dui/RuntimeEnabledFeatures.h"
 #include "platform/SchemeRegistry.h"
 #include "bindings/dui/ScriptState.h"
-#include "page/SecurityOrigin.h"
-#include "dom/SecurityPolicyViolationEvent.h"
 #include "platform/text/TextEncoding.h"
 #include <wtf/HashSet.h>
 #include <wtf/text/TextPosition.h>
@@ -135,13 +133,6 @@ bool isDirectiveName(const String& name)
         || equalIgnoringCase(name, sandbox)
         || equalIgnoringCase(name, scriptSrc)
         || equalIgnoringCase(name, styleSrc)
-#if ENABLE(CSP_NEXT)
-        || equalIgnoringCase(name, baseURI)
-        || equalIgnoringCase(name, formAction)
-        || equalIgnoringCase(name, pluginTypes)
-        || equalIgnoringCase(name, scriptNonce)
-        || equalIgnoringCase(name, reflectedXSS)
-#endif
     );
 }
 
@@ -239,11 +230,7 @@ private:
     bool schemeMatches(const KURL& url) const
     {
         if (m_scheme.isEmpty()) {
-            String protectedResourceScheme(m_policy->securityOrigin()->protocol());
-#if ENABLE(CSP_NEXT)
-            if (equalIgnoringCase("http", protectedResourceScheme))
-                return url.protocolIs("http") || url.protocolIs("https");
-#endif
+            String protectedResourceScheme;
             return equalIgnoringCase(url.protocol(), protectedResourceScheme);
         }
         return equalIgnoringCase(url.protocol(), m_scheme);
@@ -352,17 +339,7 @@ void CSPSourceList::parse(const String& value)
 
 bool CSPSourceList::matches(const KURL& url)
 {
-    if (m_allowStar)
-        return true;
-
-    KURL effectiveURL = SecurityOrigin::shouldUseInnerURL(url) ? SecurityOrigin::extractInnerURL(url) : url;
-
-    for (size_t i = 0; i < m_list.size(); ++i) {
-        if (m_list[i].matches(effectiveURL))
-            return true;
-    }
-
-    return false;
+    return true;
 }
 
 // source-list       = *WSP [ source *( 1*WSP source ) *WSP ]
@@ -633,7 +610,8 @@ bool CSPSourceList::parsePort(const UChar* begin, const UChar* end, int& port, b
 
 void CSPSourceList::addSourceSelf()
 {
-    m_list.append(CSPSource(m_policy, m_policy->securityOrigin()->protocol(), m_policy->securityOrigin()->host(), m_policy->securityOrigin()->port(), String(), false, false));
+    const String dump;
+    m_list.append(CSPSource(m_policy, dump, dump, 0, String(), false, false));
 }
 
 void CSPSourceList::addSourceStar()
@@ -1406,22 +1384,6 @@ void CSPDirectiveList::addDirective(const String& name, const String& value)
         applySandboxPolicy(name, value);
     else if (equalIgnoringCase(name, reportURI))
         parseReportURI(name, value);
-#if ENABLE(CSP_NEXT)
-    else if (m_policy->experimentalFeaturesEnabled()) {
-        if (equalIgnoringCase(name, baseURI))
-            setCSPDirective<SourceListDirective>(name, value, m_baseURI);
-        else if (equalIgnoringCase(name, formAction))
-            setCSPDirective<SourceListDirective>(name, value, m_formAction);
-        else if (equalIgnoringCase(name, pluginTypes))
-            setCSPDirective<MediaListDirective>(name, value, m_pluginTypes);
-        else if (equalIgnoringCase(name, scriptNonce))
-            setCSPDirective<NonceDirective>(name, value, m_scriptNonce);
-        else if (equalIgnoringCase(name, reflectedXSS))
-            parseReflectedXSS(name, value);
-        else
-            m_policy->reportUnsupportedDirective(name);
-    }
-#endif
     else
         m_policy->reportUnsupportedDirective(name);
 }
@@ -1560,9 +1522,7 @@ bool ContentSecurityPolicy::allowInlineScript(const String& contextURL, const WT
 
 bool ContentSecurityPolicy::allowInlineStyle(const String& contextURL, const WTF::OrdinalNumber& contextLine, ContentSecurityPolicy::ReportingStatus reportingStatus) const
 {
-    if (m_overrideInlineStyleAllowed)
-        return true;
-    return isAllowedByAllWithContext<&CSPDirectiveList::allowInlineStyle>(m_policies, contextURL, contextLine, reportingStatus);
+    return true;
 }
 
 bool ContentSecurityPolicy::allowEval(ScriptState* state, ContentSecurityPolicy::ReportingStatus reportingStatus) const
@@ -1664,11 +1624,6 @@ void ContentSecurityPolicy::gatherReportURIs(DOMStringList& list) const
         m_policies[i]->gatherReportURIs(list);
 }
 
-SecurityOrigin* ContentSecurityPolicy::securityOrigin() const
-{
-    return m_scriptExecutionContext->securityOrigin();
-}
-
 const KURL& ContentSecurityPolicy::url() const
 {
     return m_scriptExecutionContext->url();
@@ -1683,33 +1638,6 @@ void ContentSecurityPolicy::enforceSandboxFlags(SandboxFlags mask) const
 {
     m_scriptExecutionContext->enforceSandboxFlags(mask);
 }
-
-static String stripURLForUseInReport(Document* document, const KURL& url)
-{
-    if (!url.isValid())
-        return String();
-    if (!url.isHierarchical() || url.protocolIs("file"))
-        return url.protocol();
-    return document->securityOrigin()->canRequest(url) ? url.strippedForUseAsReferrer() : SecurityOrigin::create(url)->toString();
-}
-
-#if ENABLE(CSP_NEXT)
-static void gatherSecurityPolicyViolationEventData(SecurityPolicyViolationEventInit& init, Document* document, const String& directiveText, const String& effectiveDirective, const KURL& blockedURL, const String& header)
-{
-    init.documentURI = document->url().string();
-    init.referrer = document->referrer();
-    init.blockedURI = stripURLForUseInReport(document, blockedURL);
-    init.violatedDirective = directiveText;
-    init.effectiveDirective = effectiveDirective;
-    init.originalPolicy = header;
-    init.sourceFile = String();
-    init.lineNumber = 0;
-
-    RefPtr<ScriptCallStack> stack = createScriptCallStack(2, false);
-    if (!stack)
-        return;
-}
-#endif
 
 void ContentSecurityPolicy::reportViolation(const String& directiveText, const String& effectiveDirective, const String& consoleMessage, const KURL& blockedURL, const Vector<KURL>& reportURIs, const String& header, const String& contextURL, const WTF::OrdinalNumber& contextLine, ScriptState* state) const
 {
@@ -1813,11 +1741,7 @@ void ContentSecurityPolicy::reportBlockedScriptExecutionToInspector(const String
 
 bool ContentSecurityPolicy::experimentalFeaturesEnabled() const
 {
-#if ENABLE(CSP_NEXT)
-    return RuntimeEnabledFeatures::experimentalContentSecurityPolicyFeaturesEnabled();
-#else
     return false;
-#endif
 }
 
 }

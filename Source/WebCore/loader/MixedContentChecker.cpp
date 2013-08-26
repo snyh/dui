@@ -36,7 +36,6 @@
 #include "loader/FrameLoader.h"
 #include "loader/FrameLoaderClient.h"
 #include "platform/SchemeRegistry.h"
-#include "page/SecurityOrigin.h"
 #include "page/Settings.h"
 #include <wtf/text/CString.h>
 #include <wtf/text/WTFString.h>
@@ -51,46 +50,6 @@ MixedContentChecker::MixedContentChecker(Frame* frame)
 FrameLoaderClient* MixedContentChecker::client() const
 {
     return m_frame->loader()->client();
-}
-
-// static
-bool MixedContentChecker::isMixedContent(SecurityOrigin* securityOrigin, const KURL& url)
-{
-    if (securityOrigin->protocol() != "https")
-        return false; // We only care about HTTPS security origins.
-
-    // We're in a secure context, so |url| is mixed content if it's insecure.
-    return !SecurityOrigin::isSecure(url);
-}
-
-bool MixedContentChecker::canDisplayInsecureContent(SecurityOrigin* securityOrigin, const KURL& url) const
-{
-    if (!isMixedContent(securityOrigin, url))
-        return true;
-
-    Settings* settings = m_frame->settings();
-    bool allowed = client()->allowDisplayingInsecureContent(settings && settings->allowDisplayOfInsecureContent(), securityOrigin, url);
-    logWarning(allowed, "displayed", url);
-
-    if (allowed)
-        client()->didDisplayInsecureContent();
-
-    return allowed;
-}
-
-bool MixedContentChecker::canRunInsecureContent(SecurityOrigin* securityOrigin, const KURL& url) const
-{
-    if (!isMixedContent(securityOrigin, url))
-        return true;
-
-    Settings* settings = m_frame->settings();
-    bool allowed = client()->allowRunningInsecureContent(settings && settings->allowRunningOfInsecureContent(), securityOrigin, url);
-    logWarning(allowed, "ran", url);
-
-    if (allowed)
-        client()->didRunInsecureContent(securityOrigin, url);
-
-    return allowed;
 }
 
 void MixedContentChecker::logWarning(bool allowed, const String& action, const KURL& target) const

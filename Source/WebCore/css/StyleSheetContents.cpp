@@ -29,7 +29,6 @@
 #include "css/MediaList.h"
 #include "dom/Node.h"
 #include "css/RuleSet.h"
-#include "page/SecurityOrigin.h"
 #include "css/StylePropertySet.h"
 #include "css/StyleRule.h"
 #include "css/StyleRuleImport.h"
@@ -282,7 +281,7 @@ const AtomicString& StyleSheetContents::determineNamespace(const AtomicString& p
     return it->value;
 }
 
-void StyleSheetContents::parseAuthorStyleSheet(const CachedCSSStyleSheet* cachedStyleSheet, const SecurityOrigin* securityOrigin)
+void StyleSheetContents::parseAuthorStyleSheet(const CachedCSSStyleSheet* cachedStyleSheet)
 {
     // Check to see if we should enforce the MIME type of the CSS resource in strict mode.
     // Running in iWeb 2 is one example of where we don't want to - <rdar://problem/6099748>

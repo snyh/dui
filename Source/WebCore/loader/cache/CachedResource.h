@@ -48,7 +48,6 @@ class CachedResourceLoader;
 class InspectorResource;
 class PurgeableBuffer;
 class ResourceBuffer;
-class SecurityOrigin;
 class SharedBuffer;
 class SubresourceLoader;
 
@@ -175,8 +174,6 @@ public:
     // Computes the status of an object after loading.  
     // Updates the expire date on the cache entry file
     void finish();
-
-    bool passesAccessControlCheck(SecurityOrigin*);
 
     // Called by the cache if the object has been removed from the cache
     // while still being referenced. This means the object should delete itself

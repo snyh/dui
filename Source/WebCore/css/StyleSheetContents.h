@@ -35,7 +35,6 @@ class CSSStyleSheet;
 class CachedCSSStyleSheet;
 class Document;
 class Node;
-class SecurityOrigin;
 class StyleRuleBase;
 class StyleRuleImport;
 
@@ -60,7 +59,7 @@ public:
 
     const AtomicString& determineNamespace(const AtomicString& prefix);
 
-    void parseAuthorStyleSheet(const CachedCSSStyleSheet*, const SecurityOrigin*);
+    void parseAuthorStyleSheet(const CachedCSSStyleSheet*);
     bool parseString(const String&);
     bool parseStringAtLine(const String&, int startLineNumber, bool);
 

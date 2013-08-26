@@ -62,7 +62,6 @@ class CSSStyleDeclaration;
 class CSSStyleSheet;
 class CachedCSSStyleSheet;
 class CachedResourceLoader;
-class CachedScript;
 class CanvasRenderingContext;
 class CharacterData;
 class Comment;
@@ -127,8 +126,6 @@ class RenderArena;
 class RenderView;
 class RenderFullScreen;
 class ScriptableDocumentParser;
-class ScriptElementData;
-class ScriptRunner;
 class SecurityOrigin;
 class SelectorQueryCache;
 class SerializedScriptValue;
@@ -177,10 +174,6 @@ class MicroDataItemList;
 
 #if ENABLE(TEXT_AUTOSIZING)
 class TextAutosizer;
-#endif
-
-#if ENABLE(CSP_NEXT)
-class DOMSecurityPolicy;
 #endif
 
 #if ENABLE(FONT_LOAD_EVENTS)
@@ -314,9 +307,6 @@ public:
 #if ENABLE(PAGE_VISIBILITY_API)
     DEFINE_ATTRIBUTE_EVENT_LISTENER(visibilitychange);
 #endif
-#if ENABLE(CSP_NEXT)
-    DEFINE_ATTRIBUTE_EVENT_LISTENER(securitypolicyviolation);
-#endif
 
     void setViewportArguments(const ViewportArguments& viewportArguments) { m_viewportArguments = viewportArguments; }
     ViewportArguments viewportArguments() const { return m_viewportArguments; }
@@ -408,10 +398,6 @@ public:
     String visibilityState() const;
     bool hidden() const;
     void dispatchVisibilityStateChangeEvent();
-#endif
-
-#if ENABLE(CSP_NEXT)
-    DOMSecurityPolicy* securityPolicy();
 #endif
 
     PassRefPtr<Node> adoptNode(PassRefPtr<Node> source, ExceptionCode&);
@@ -598,7 +584,6 @@ public:
     virtual void disableEval(const String& errorMessage);
 
     bool canNavigate(Frame* targetFrame);
-    Frame* findUnsafeParentScrollPropagationBoundary();
 
     CSSStyleSheet* elementSheet();
     
@@ -988,9 +973,6 @@ public:
     SVGDocumentExtensions* accessSVGExtensions();
 #endif
 
-    void initSecurityContext();
-    void initContentSecurityPolicy();
-
     void updateURLForPushOrReplaceState(const KURL&);
     void statePopped(PassRefPtr<SerializedScriptValue>);
 
@@ -1171,8 +1153,6 @@ public:
     void didAssociateFormControl(Element*);
 
     virtual void addConsoleMessage(MessageSource, MessageLevel, const String& message, unsigned long requestIdentifier = 0);
-
-    virtual SecurityOrigin* topOrigin() const OVERRIDE;
 
 #if ENABLE(FONT_LOAD_EVENTS)
     PassRefPtr<FontLoader> fontloader();
@@ -1514,10 +1494,6 @@ private:
     Timer<Document> m_visualUpdatesSuppressionTimer;
 
     RefPtr<NamedFlowCollection> m_namedFlows;
-
-#if ENABLE(CSP_NEXT)
-    RefPtr<DOMSecurityPolicy> m_domSecurityPolicy;
-#endif
 
     void sharedObjectPoolClearTimerFired(Timer<Document>*);
     Timer<Document> m_sharedObjectPoolClearTimer;

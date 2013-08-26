@@ -35,8 +35,6 @@
 
 namespace WebCore {
 
-class SecurityOrigin;
-
 // Blob URLs are of the form
 //     blob:%escaped_origin%/%UUID%
 // For public urls, the origin of the host page is encoded in the URL value to
@@ -48,7 +46,7 @@ class SecurityOrigin;
 // be used with ResourceHandle or FileReader.
 class BlobURL {
 public:
-    static KURL createPublicURL(SecurityOrigin*);
+    static KURL createPublicURL();
     static KURL createInternalURL();
     static String getOrigin(const KURL&);
     static String getIdentifier(const KURL&);

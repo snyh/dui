@@ -35,7 +35,6 @@
 namespace WebCore {
 
 class KURL;
-class SecurityOrigin;
 
 class SecurityPolicy {
 public:
@@ -59,12 +58,6 @@ public:
     static bool restrictAccessToLocal();
     static bool allowSubstituteDataAccessToLocal();
 
-    static void addOriginAccessWhitelistEntry(const SecurityOrigin& sourceOrigin, const String& destinationProtocol, const String& destinationDomain, bool allowDestinationSubdomains);
-    static void removeOriginAccessWhitelistEntry(const SecurityOrigin& sourceOrigin, const String& destinationProtocol, const String& destinationDomain, bool allowDestinationSubdomains);
-    static void resetOriginAccessWhitelists();
-
-    static bool isAccessWhiteListed(const SecurityOrigin* activeOrigin, const SecurityOrigin* targetOrigin);
-    static bool isAccessToURLWhiteListed(const SecurityOrigin* activeOrigin, const KURL&);
 };
 
 } // namespace WebCore

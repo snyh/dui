@@ -34,7 +34,6 @@
 #include "page/Frame.h"
 #include "page/GroupSettings.h"
 #include "page/Page.h"
-#include "page/SecurityOrigin.h"
 #include "page/Settings.h"
 
 #if ENABLE(VIDEO_TRACK)

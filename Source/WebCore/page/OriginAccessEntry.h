@@ -35,8 +35,6 @@
 
 namespace WebCore {
 
-class SecurityOrigin;
-
 class OriginAccessEntry {
 public:
     enum SubdomainSetting {
@@ -46,7 +44,6 @@ public:
 
     // If host is empty string and SubdomainSetting is AllowSubdomains, the entry will match all domains in the specified protocol.
     OriginAccessEntry(const String& protocol, const String& host, SubdomainSetting);
-    bool matchesOrigin(const SecurityOrigin&) const;
 
     const String& protocol() const { return m_protocol; }
     const String& host() const { return m_host; }

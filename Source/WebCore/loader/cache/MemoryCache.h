@@ -25,7 +25,6 @@
 #ifndef Cache_h
 #define Cache_h
 
-#include "page/SecurityOriginHash.h"
 #include <wtf/HashMap.h>
 #include <wtf/HashSet.h>
 #include <wtf/Noncopyable.h>
@@ -44,7 +43,6 @@ class ResourceResponse;
 class ScriptExecutionContext;
 class SecurityOrigin;
 struct CrossThreadResourceRequestData;
-struct SecurityOriginHash;
 
 // This cache holds subresources used by Web pages: images, scripts, stylesheets, etc.
 
@@ -167,10 +165,6 @@ public:
     Statistics getStatistics();
     
     void resourceAccessed(CachedResource*);
-
-    typedef HashSet<RefPtr<SecurityOrigin> > SecurityOriginSet;
-    void removeResourcesWithOrigin(SecurityOrigin*);
-    void getOriginsWithCache(SecurityOriginSet& origins);
 
     unsigned minDeadCapacity() const { return m_minDeadCapacity; }
     unsigned maxDeadCapacity() const { return m_maxDeadCapacity; }

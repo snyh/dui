@@ -158,7 +158,7 @@ void StyleElement::createSheet(Element* e, WTF::OrdinalNumber startLineNumber, c
 
     // If type is empty or CSS, this is a CSS style sheet.
     const AtomicString& type = this->type();
-    if (document->contentSecurityPolicy()->allowInlineStyle(e->document()->url(), startLineNumber) && isCSS(e, type)) {
+    if (isCSS(e, type)) {
         RefPtr<MediaQuerySet> mediaQueries;
         if (e->isHTMLElement())
             mediaQueries = MediaQuerySet::createAllowingDescriptionSyntax(media());

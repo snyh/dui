@@ -27,7 +27,6 @@
 #define PageGroup_h
 
 #include "platform/LinkHash.h"
-#include "page/SecurityOriginHash.h"
 #include "platform/Supplementable.h"
 #include "page/UserScript.h"
 #include "page/UserStyleSheet.h"

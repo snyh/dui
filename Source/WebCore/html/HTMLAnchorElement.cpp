@@ -42,7 +42,6 @@
 #include "platform/PlatformMouseEvent.h"
 #include "rendering/RenderImage.h"
 #include "platform/network/soup/ResourceRequest.h"
-#include "page/SecurityOrigin.h"
 #include "page/SecurityPolicy.h"
 #include "page/Settings.h"
 #include <wtf/text/StringBuilder.h>
@@ -481,8 +480,7 @@ String HTMLAnchorElement::search() const
 
 String HTMLAnchorElement::origin() const
 {
-    RefPtr<SecurityOrigin> origin = SecurityOrigin::create(href());
-    return origin->toString();
+    return "";
 }
 
 void HTMLAnchorElement::setSearch(const String& value)

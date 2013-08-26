@@ -27,7 +27,6 @@
 #define FrameLoadRequest_h
 
 #include "platform/network/soup/ResourceRequest.h"
-#include "page/SecurityOrigin.h"
 #include "loader/SubstituteData.h"
 
 namespace WebCore {
@@ -35,24 +34,21 @@ class Frame;
 
 struct FrameLoadRequest {
 public:
-    explicit FrameLoadRequest(SecurityOrigin* requester)
-        : m_requester(requester)
+    explicit FrameLoadRequest()
+        : m_lockHistory(false)
+        , m_shouldCheckNewWindowPolicy(false)
+    {
+    }
+
+    FrameLoadRequest(const ResourceRequest& resourceRequest)
+        : m_resourceRequest(resourceRequest)
         , m_lockHistory(false)
         , m_shouldCheckNewWindowPolicy(false)
     {
     }
 
-    FrameLoadRequest(SecurityOrigin* requester, const ResourceRequest& resourceRequest)
-        : m_requester(requester)
-        , m_resourceRequest(resourceRequest)
-        , m_lockHistory(false)
-        , m_shouldCheckNewWindowPolicy(false)
-    {
-    }
-
-    FrameLoadRequest(SecurityOrigin* requester, const ResourceRequest& resourceRequest, const String& frameName)
-        : m_requester(requester)
-        , m_resourceRequest(resourceRequest)
+    FrameLoadRequest(const ResourceRequest& resourceRequest, const String& frameName)
+        : m_resourceRequest(resourceRequest)
         , m_frameName(frameName)
         , m_lockHistory(false)
         , m_shouldCheckNewWindowPolicy(false)
@@ -62,8 +58,6 @@ public:
     FrameLoadRequest(Frame*, const ResourceRequest&, const SubstituteData& = SubstituteData());
 
     bool isEmpty() const { return m_resourceRequest.isEmpty(); }
-
-    const SecurityOrigin* requester() const { return m_requester.get(); }
 
     ResourceRequest& resourceRequest() { return m_resourceRequest; }
     const ResourceRequest& resourceRequest() const { return m_resourceRequest; }
@@ -82,7 +76,6 @@ public:
     bool hasSubstituteData() { return m_substituteData.isValid(); }
 
 private:
-    RefPtr<SecurityOrigin> m_requester;
     ResourceRequest m_resourceRequest;
     String m_frameName;
     bool m_lockHistory;

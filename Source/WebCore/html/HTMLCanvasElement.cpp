@@ -524,11 +524,6 @@ FloatSize HTMLCanvasElement::convertDeviceToLogical(const FloatSize& deviceSize)
     return FloatSize(width, height);
 }
 
-SecurityOrigin* HTMLCanvasElement::securityOrigin() const
-{
-    return document()->securityOrigin();
-}
-
 bool HTMLCanvasElement::shouldAccelerate(const IntSize& size) const
 {
 #if USE(IOSURFACE_CANVAS_BACKING_STORE)
