@@ -66,7 +66,6 @@
 #include "css/MediaQueryList.h"
 #include "css/MediaQueryMatcher.h"
 #include "dom/MessageEvent.h"
-#include "page/Navigator.h"
 #include "page/Page.h"
 #include "page/PageGroup.h"
 #include "dom/PageTransitionEvent.h"
@@ -74,7 +73,6 @@
 #include "platform/PlatformScreen.h"
 #include "bindings/dui/RuntimeEnabledFeatures.h"
 #include "bindings/dui/ScheduledAction.h"
-#include "page/Screen.h"
 #include "bindings/dui/ScriptController.h"
 #include "bindings/dui/SerializedScriptValue.h"
 #include "page/Settings.h"
@@ -354,8 +352,6 @@ DOMWindow::~DOMWindow()
 {
 #ifndef NDEBUG
     if (!m_suspendedForPageCache) {
-        ASSERT(!m_screen);
-        ASSERT(!m_navigator);
 #if ENABLE(WEB_TIMING)
         ASSERT(!m_performance);
 #endif
@@ -497,8 +493,6 @@ void DOMWindow::resetDOMWindowProperties()
 {
     m_properties.clear();
 
-    m_screen = 0;
-    m_navigator = 0;
 #if ENABLE(WEB_TIMING)
     m_performance = 0;
 #endif
@@ -519,25 +513,6 @@ int DOMWindow::orientation() const
     return m_frame->orientation();
 }
 #endif
-
-Screen* DOMWindow::screen() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    if (!m_screen)
-        m_screen = Screen::create(m_frame);
-    return m_screen.get();
-}
-
-
-Navigator* DOMWindow::navigator() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    if (!m_navigator)
-        m_navigator = Navigator::create(m_frame);
-    return m_navigator.get();
-}
 
 #if ENABLE(WEB_TIMING)
 Performance* DOMWindow::performance() const

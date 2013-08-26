@@ -48,7 +48,6 @@
 #include "html/HTMLElement.h"
 #include "platform/Logging.h"
 #include "page/MediaCanStartListener.h"
-#include "page/Navigator.h"
 #include "platform/network/NetworkStateNotifier.h"
 #include "page/PageActivityAssertionToken.h"
 #include "page/PageGroup.h"

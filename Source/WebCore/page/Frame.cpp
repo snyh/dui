@@ -65,7 +65,6 @@
 #include "platform/Logging.h"
 #include "MathMLNames.h"
 #include "css/MediaFeatureNames.h"
-#include "page/Navigator.h"
 #include "dom/NodeList.h"
 #include "dom/NodeTraversal.h"
 #include "page/Page.h"

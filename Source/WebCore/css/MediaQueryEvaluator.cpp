@@ -49,7 +49,6 @@
 #include "platform/PlatformScreen.h"
 #include "rendering/style/RenderStyle.h"
 #include "rendering/RenderView.h"
-#include "page/Screen.h"
 #include "page/Settings.h"
 #include "css/StyleResolver.h"
 #include <wtf/HashMap.h>

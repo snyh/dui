@@ -57,7 +57,6 @@ namespace WebCore {
     class Page;
     class Performance;
     class ScheduledAction;
-    class Screen;
     class ScriptCallStack;
     class SecurityOrigin;
     class SerializedScriptValue;
@@ -124,8 +123,6 @@ namespace WebCore {
 
         // DOM Level 0
 
-        Screen* screen() const;
-        Crypto* crypto() const;
         Navigator* navigator() const;
         Navigator* clientInformation() const { return navigator(); }
 
@@ -410,8 +407,6 @@ namespace WebCore {
 
         HashSet<DOMWindowProperty*> m_properties;
 
-        mutable RefPtr<Screen> m_screen;
-        mutable RefPtr<Navigator> m_navigator;
         mutable RefPtr<StyleMedia> m_media;
 
         EventTargetData m_eventTargetData;

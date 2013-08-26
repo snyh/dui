@@ -1623,8 +1623,7 @@ bool HTMLInputElement::isSteppable() const
 
 bool HTMLInputElement::isSpeechEnabled() const
 {
-    // FIXME: Add support for RANGE, EMAIL, URL, COLOR and DATE/TIME input types.
-    return m_inputType->shouldRespectSpeechAttribute() && RuntimeEnabledFeatures::speechInputEnabled() && hasAttribute(webkitspeechAttr);
+    return false;
 }
 
 #endif

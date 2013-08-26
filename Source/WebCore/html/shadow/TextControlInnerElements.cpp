@@ -38,8 +38,6 @@
 #include "rendering/RenderTextControl.h"
 #include "rendering/RenderView.h"
 #include "bindings/dui/ScriptController.h"
-#include "page/SpeechInput.h"
-#include "page/SpeechInputEvent.h"
 #include "dom/TextEvent.h"
 #include "dom/TextEventInputType.h"
 
@@ -268,12 +266,6 @@ inline InputFieldSpeechButtonElement::InputFieldSpeechButtonElement(Document* do
 
 InputFieldSpeechButtonElement::~InputFieldSpeechButtonElement()
 {
-    SpeechInput* speech = speechInput();
-    if (speech && m_listenerId)  { // Could be null when page is unloading.
-        if (m_state != Idle)
-            speech->cancelRecognition(m_listenerId);
-        speech->unregisterListener(m_listenerId);
-    }
 }
 
 PassRefPtr<InputFieldSpeechButtonElement> InputFieldSpeechButtonElement::create(Document* document)

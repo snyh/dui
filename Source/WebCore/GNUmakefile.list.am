@@ -296,7 +296,6 @@ dom_binding_idls += \
 	$(WebCore)/html/track/VideoTrackList.idl \
 	$(WebCore)/page/DOMSelection.idl \
 	$(WebCore)/page/DOMWindow.idl \
-	$(WebCore)/page/Navigator.idl \
 	$(WebCore)/page/Performance.idl \
 	$(WebCore)/page/PerformanceEntry.idl \
 	$(WebCore)/page/PerformanceEntryList.idl \
@@ -305,10 +304,6 @@ dom_binding_idls += \
 	$(WebCore)/page/PerformanceNavigation.idl \
 	$(WebCore)/page/PerformanceResourceTiming.idl \
 	$(WebCore)/page/PerformanceTiming.idl \
-	$(WebCore)/page/Screen.idl \
-	$(WebCore)/page/SpeechInputEvent.idl \
-	$(WebCore)/page/SpeechInputResult.idl \
-	$(WebCore)/page/SpeechInputResultList.idl \
 	$(WebCore)/page/WebKitPoint.idl \
 	$(WebCore)/page/WindowTimers.idl \
 	$(WebCore)/svg/SVGAElement.idl \
@@ -1933,12 +1928,6 @@ webcore_sources += \
 	Source/WebCore/page/MediaCanStartListener.h \
 	Source/WebCore/page/MouseEventWithHitTestResults.cpp \
 	Source/WebCore/page/MouseEventWithHitTestResults.h \
-	Source/WebCore/page/Navigator.cpp \
-	Source/WebCore/page/Navigator.h \
-	Source/WebCore/page/NavigatorBase.cpp \
-	Source/WebCore/page/NavigatorBase.h \
-	Source/WebCore/page/OriginAccessEntry.cpp \
-	Source/WebCore/page/OriginAccessEntry.h \
 	Source/WebCore/page/Page.cpp \
 	Source/WebCore/page/Page.h \
 	Source/WebCore/page/PageActivityAssertionToken.h \
@@ -1972,8 +1961,6 @@ webcore_sources += \
 	Source/WebCore/page/PopupOpeningObserver.h \
 	Source/WebCore/page/PrintContext.cpp \
 	Source/WebCore/page/PrintContext.h \
-	Source/WebCore/page/Screen.cpp \
-	Source/WebCore/page/Screen.h \
 	Source/WebCore/page/scrolling/ScrollingConstraints.cpp \
 	Source/WebCore/page/scrolling/ScrollingConstraints.h \
 	Source/WebCore/page/scrolling/ScrollingCoordinator.cpp \
@@ -1990,16 +1977,6 @@ webcore_sources += \
 	Source/WebCore/page/Settings.h \
 	Source/WebCore/page/SpatialNavigation.cpp \
 	Source/WebCore/page/SpatialNavigation.h \
-	Source/WebCore/page/SpeechInputClient.h \
-	Source/WebCore/page/SpeechInputEvent.cpp \
-	Source/WebCore/page/SpeechInputEvent.h \
-	Source/WebCore/page/SpeechInput.cpp \
-	Source/WebCore/page/SpeechInput.h \
-	Source/WebCore/page/SpeechInputListener.h \
-	Source/WebCore/page/SpeechInputResult.cpp \
-	Source/WebCore/page/SpeechInputResult.h \
-	Source/WebCore/page/SpeechInputResultList.cpp \
-	Source/WebCore/page/SpeechInputResultList.h \
 	Source/WebCore/page/SuspendableTimer.cpp \
 	Source/WebCore/page/SuspendableTimer.h \
 	Source/WebCore/page/UserContentTypes.h \

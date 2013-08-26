@@ -162,11 +162,6 @@ public:
     static bool deviceOrientationEventEnabled() { return isDeviceOrientationEnabled; }
     static bool ondeviceorientationEnabled() { return isDeviceOrientationEnabled; }
 
-    static void setSpeechInputEnabled(bool isEnabled) { isSpeechInputEnabled = isEnabled; }
-    static bool speechInputEnabled() { return isSpeechInputEnabled; }
-    static bool webkitSpeechEnabled() { return isSpeechInputEnabled; }
-    static bool webkitGrammarEnabled() { return isSpeechInputEnabled; }
-
 #if ENABLE(SCRIPTED_SPEECH)
     static void setScriptedSpeechEnabled(bool isEnabled) { isScriptedSpeechEnabled = isEnabled; }
     static bool scriptedSpeechEnabled() { return isScriptedSpeechEnabled; }
@@ -304,7 +299,6 @@ private:
     static bool isTouchEnabled;
     static bool isDeviceMotionEnabled;
     static bool isDeviceOrientationEnabled;
-    static bool isSpeechInputEnabled;
     static bool isCanvasPathEnabled;
     static bool isCSSExclusionsEnabled;
     static bool isCSSShapesEnabled;
