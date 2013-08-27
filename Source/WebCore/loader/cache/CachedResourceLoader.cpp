@@ -46,7 +46,6 @@
 #include "loader/LoaderStrategy.h"
 #include "platform/Logging.h"
 #include "loader/cache/MemoryCache.h"
-#include "loader/PingLoader.h"
 #include "loader/ResourceLoadScheduler.h"
 #include "bindings/dui/ScriptController.h"
 #include "page/Settings.h"
@@ -156,9 +155,6 @@ CachedResourceHandle<CachedImage> CachedResourceLoader::requestImage(CachedResou
 {
     if (Frame* f = frame()) {
         if (f->loader()->pageDismissalEventBeingDispatched() != FrameLoader::NoDismissal) {
-            KURL requestURL = request.resourceRequest().url();
-            if (requestURL.isValid() && canRequest(CachedResource::ImageResource, requestURL, request.options(), request.forPreload()))
-                PingLoader::loadImage(f, requestURL);
             return 0;
         }
     }

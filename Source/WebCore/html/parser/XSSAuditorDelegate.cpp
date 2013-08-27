@@ -34,7 +34,6 @@
 #include "loader/FrameLoader.h"
 #include "loader/FrameLoaderClient.h"
 #include "html/parser/HTMLParserIdioms.h"
-#include "loader/PingLoader.h"
 #include <wtf/text/StringBuilder.h>
 #include <wtf/text/CString.h>
 
@@ -89,9 +88,6 @@ void XSSAuditorDelegate::didBlockScript(const XSSInfo& xssInfo)
         m_didSendNotifications = true;
 
         frameLoader->client()->didDetectXSS(m_document->url(), xssInfo.m_didBlockEntirePage);
-
-        if (!m_reportURL.isEmpty())
-            PingLoader::sendViolationReport(m_document->frame(), m_reportURL, generateViolationReport());
     }
 }
 

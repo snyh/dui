@@ -38,7 +38,6 @@
 #include "html/parser/HTMLParserIdioms.h"
 #include "dom/KeyboardEvent.h"
 #include "dom/MouseEvent.h"
-#include "loader/PingLoader.h"
 #include "platform/PlatformMouseEvent.h"
 #include "rendering/RenderImage.h"
 #include "platform/network/soup/ResourceRequest.h"
@@ -507,16 +506,6 @@ bool HTMLAnchorElement::isLiveLink() const
     return isLink() && treatLinkAsLiveForEventType(m_wasShiftKeyDownOnMouseDown ? MouseEventWithShiftKey : MouseEventWithoutShiftKey);
 }
 
-void HTMLAnchorElement::sendPings(const KURL& destinationURL)
-{
-    if (!hasAttribute(pingAttr) || !document()->settings()->hyperlinkAuditingEnabled())
-        return;
-
-    SpaceSplitString pingURLs(getAttribute(pingAttr), false);
-    for (unsigned i = 0; i < pingURLs.size(); i++)
-        PingLoader::sendPing(document()->frame(), document()->completeURL(pingURLs[i]), destinationURL);
-}
-
 void HTMLAnchorElement::handleClick(Event* event)
 {
     event->setDefaultHandled();
@@ -543,8 +532,6 @@ void HTMLAnchorElement::handleClick(Event* event)
     } else
 #endif
         frame->loader()->urlSelected(kurl, target(), event, false, false, hasRel(RelationNoReferrer) ? NeverSendReferrer : MaybeSendReferrer);
-
-    sendPings(kurl);
 }
 
 HTMLAnchorElement::EventType HTMLAnchorElement::eventType(Event* event)
