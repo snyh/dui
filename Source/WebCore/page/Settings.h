@@ -152,26 +152,6 @@ namespace WebCore {
         void setNeedsAdobeFrameReloadingQuirk(bool);
         bool needsAcrobatFrameReloadingQuirk() const { return m_needsAdobeFrameReloadingQuirk; }
 
-        static void setDefaultMinDOMTimerInterval(double); // Interval specified in seconds.
-        static double defaultMinDOMTimerInterval();
-        
-        static void setHiddenPageDOMTimerAlignmentInterval(double); // Interval specified in seconds.
-        static double hiddenPageDOMTimerAlignmentInterval();
-
-        void setMinDOMTimerInterval(double); // Per-page; initialized to default value.
-        double minDOMTimerInterval();
-
-        static void setDefaultDOMTimerAlignmentInterval(double);
-        static double defaultDOMTimerAlignmentInterval();
-
-        void setDOMTimerAlignmentInterval(double);
-        double domTimerAlignmentInterval() const;
-
-#if ENABLE(HIDDEN_PAGE_DOM_TIMER_THROTTLING)
-        bool hiddenPageDOMTimerThrottlingEnabled() const { return m_hiddenPageDOMTimerThrottlingEnabled; }
-        void setHiddenPageDOMTimerThrottlingEnabled(bool);
-#endif
-
         void setUsesPageCache(bool);
         bool usesPageCache() const { return m_usesPageCache; }
         
@@ -307,14 +287,9 @@ namespace WebCore {
         Timer<Settings> m_setImageLoadingSettingsTimer;
         void imageLoadingSettingsTimerFired(Timer<Settings>*);
 
-#if ENABLE(HIDDEN_PAGE_DOM_TIMER_THROTTLING)
-        bool m_hiddenPageDOMTimerThrottlingEnabled : 1;
-#endif
 #if ENABLE(PAGE_VISIBILITY_API)
         bool m_hiddenPageCSSAnimationSuspensionEnabled : 1;
 #endif
-        static double gDefaultMinDOMTimerInterval;
-        static double gDefaultDOMTimerAlignmentInterval;
 
 #if USE(AVFOUNDATION)
         static bool gAVFoundationEnabled;
@@ -334,8 +309,6 @@ namespace WebCore {
         static bool gShouldUseHighResolutionTimers;
 #endif
         static bool gShouldRespectPriorityInCSSAttributeSetters;
-
-        static double gHiddenPageDOMTimerAlignmentInterval;
 
         static bool gLowPowerVideoAudioBufferSizeEnabled;
     };

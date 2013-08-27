@@ -133,7 +133,6 @@ Page::Page(PageClients& pageClients)
     , m_defersLoading(false)
     , m_defersLoadingCallCount(0)
     , m_inLowQualityInterpolationMode(false)
-    , m_cookieEnabled(true)
     , m_areMemoryCacheClientCallsEnabled(true)
     , m_mediaVolume(1)
     , m_pageScaleFactor(1)
@@ -148,8 +147,6 @@ Page::Page(PageClients& pageClients)
 #if ENABLE(VIEW_MODE_CSS_MEDIA)
     , m_viewMode(ViewModeWindowed)
 #endif // ENABLE(VIEW_MODE_CSS_MEDIA)
-    , m_minimumTimerInterval(Settings::defaultMinDOMTimerInterval())
-    , m_timerAlignmentInterval(Settings::defaultDOMTimerAlignmentInterval())
     , m_isEditable(false)
     , m_isOnscreen(true)
     , m_isInWindow(true)
@@ -972,38 +969,6 @@ void Page::setMemoryCacheClientCallsEnabled(bool enabled)
 
     for (RefPtr<Frame> frame = mainFrame(); frame; frame = frame->tree()->traverseNext())
         frame->loader()->tellClientAboutPastMemoryCacheLoads();
-}
-
-void Page::setMinimumTimerInterval(double minimumTimerInterval)
-{
-    double oldTimerInterval = m_minimumTimerInterval;
-    m_minimumTimerInterval = minimumTimerInterval;
-    for (Frame* frame = mainFrame(); frame; frame = frame->tree()->traverseNextWithWrap(false)) {
-        if (frame->document())
-            frame->document()->adjustMinimumTimerInterval(oldTimerInterval);
-    }
-}
-
-double Page::minimumTimerInterval() const
-{
-    return m_minimumTimerInterval;
-}
-
-void Page::setTimerAlignmentInterval(double interval)
-{
-    if (interval == m_timerAlignmentInterval)
-        return;
-
-    m_timerAlignmentInterval = interval;
-    for (Frame* frame = mainFrame(); frame; frame = frame->tree()->traverseNextWithWrap(false)) {
-        if (frame->document())
-            frame->document()->didChangeTimerAlignmentInterval();
-    }
-}
-
-double Page::timerAlignmentInterval() const
-{
-    return m_timerAlignmentInterval;
 }
 
 void Page::dnsPrefetchingStateChanged()

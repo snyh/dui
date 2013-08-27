@@ -459,17 +459,6 @@ CachedResourceLoader::RevalidationPolicy CachedResourceLoader::determineRevalida
         return Reload;
     }
 
-    // If credentials were sent with the previous request and won't be
-    // with this one, or vice versa, re-fetch the resource.
-    //
-    // This helps with the case where the server sends back
-    // "Access-Control-Allow-Origin: *" all the time, but some of the
-    // client's requests are made without CORS and some with.
-    if (existingResource->resourceRequest().allowCookies() != request.allowCookies()) {
-        LOG(ResourceLoading, "CachedResourceLoader::determineRevalidationPolicy reloading due to difference in credentials settings.");
-        return Reload;
-    }
-
     // During the initial load, avoid loading the same resource multiple times for a single document, even if the cache policies would tell us to.
     if (document() && !document()->loadEventFinished() && m_validatedURLs.contains(existingResource->url()))
         return Use;

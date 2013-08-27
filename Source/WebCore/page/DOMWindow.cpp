@@ -36,7 +36,6 @@
 #include "page/DOMSelection.h"
 #include "html/DOMSettableTokenList.h"
 #include "dom/DOMStringList.h"
-#include "page/DOMTimer.h"
 #include "html/DOMTokenList.h"
 #include "html/DOMURL.h"
 #include "css/DOMWindowCSS.h"
@@ -1136,42 +1135,6 @@ void DOMWindow::resizeTo(float width, float height) const
     FloatSize dest = FloatSize(width, height);
     FloatRect update(fr.location(), dest);
     page->chrome().setWindowRect(adjustWindowRect(page, update));
-}
-
-int DOMWindow::setTimeout(PassOwnPtr<ScheduledAction> action, int timeout, ExceptionCode& ec)
-{
-    ScriptExecutionContext* context = scriptExecutionContext();
-    if (!context) {
-        ec = INVALID_ACCESS_ERR;
-        return -1;
-    }
-    return DOMTimer::install(context, action, timeout, true);
-}
-
-void DOMWindow::clearTimeout(int timeoutId)
-{
-    ScriptExecutionContext* context = scriptExecutionContext();
-    if (!context)
-        return;
-    DOMTimer::removeById(context, timeoutId);
-}
-
-int DOMWindow::setInterval(PassOwnPtr<ScheduledAction> action, int timeout, ExceptionCode& ec)
-{
-    ScriptExecutionContext* context = scriptExecutionContext();
-    if (!context) {
-        ec = INVALID_ACCESS_ERR;
-        return -1;
-    }
-    return DOMTimer::install(context, action, timeout, false);
-}
-
-void DOMWindow::clearInterval(int timeoutId)
-{
-    ScriptExecutionContext* context = scriptExecutionContext();
-    if (!context)
-        return;
-    DOMTimer::removeById(context, timeoutId);
 }
 
 #if ENABLE(REQUEST_ANIMATION_FRAME)

@@ -995,8 +995,6 @@ webcore_sources += \
 	Source/WebCore/dom/ScriptedAnimationController.h \
 	Source/WebCore/dom/ScriptExecutionContext.cpp \
 	Source/WebCore/dom/ScriptExecutionContext.h \
-	Source/WebCore/dom/SecurityContext.cpp \
-	Source/WebCore/dom/SecurityContext.h \
 	Source/WebCore/dom/SelectorQuery.cpp \
 	Source/WebCore/dom/SelectorQuery.h \
 	Source/WebCore/dom/ShadowRoot.cpp \
@@ -1778,8 +1776,6 @@ webcore_sources += \
 	Source/WebCore/loader/cache/CachedXSLStyleSheet.h \
 	Source/WebCore/loader/cache/MemoryCache.h \
 	Source/WebCore/loader/cache/CachePolicy.h \
-	Source/WebCore/loader/CookieJar.cpp \
-	Source/WebCore/loader/CookieJar.h \
 	Source/WebCore/loader/TextTrackLoader.cpp \
 	Source/WebCore/loader/TextTrackLoader.h \
 	Source/WebCore/loader/DocumentLoadTiming.cpp \
@@ -1888,8 +1884,6 @@ webcore_sources += \
 	Source/WebCore/page/DiagnosticLoggingKeys.h \
 	Source/WebCore/page/DOMSelection.cpp \
 	Source/WebCore/page/DOMSelection.h \
-	Source/WebCore/page/DOMTimer.cpp \
-	Source/WebCore/page/DOMTimer.h \
 	Source/WebCore/page/DOMWindow.cpp \
 	Source/WebCore/page/DOMWindow.h \
 	Source/WebCore/page/DOMWindowExtension.cpp \
@@ -3043,7 +3037,6 @@ webcore_platform_sources += \
 	Source/WebCore/platform/network/BlobResourceHandle.cpp \
 	Source/WebCore/platform/network/BlobResourceHandle.h \
 	Source/WebCore/platform/network/BlobStorageData.h \
-	Source/WebCore/platform/network/CookieStorage.h \
 	Source/WebCore/platform/network/FormDataBuilder.cpp \
 	Source/WebCore/platform/network/FormDataBuilder.h \
 	Source/WebCore/platform/network/FormData.cpp \
@@ -3054,7 +3047,6 @@ webcore_platform_sources += \
 	Source/WebCore/platform/network/NetworkStateNotifier.cpp \
 	Source/WebCore/platform/network/NetworkStateNotifier.h \
 	Source/WebCore/platform/network/NetworkStorageSession.h \
-	Source/WebCore/platform/network/PlatformCookieJar.h \
 	Source/WebCore/platform/network/ResourceErrorBase.cpp \
 	Source/WebCore/platform/network/ResourceErrorBase.h \
 	Source/WebCore/platform/network/ResourceHandleClient.cpp \
@@ -3077,9 +3069,6 @@ webcore_platform_sources += \
 	Source/WebCore/platform/network/SocketStreamHandleClient.h \
 	Source/WebCore/platform/network/soup/AuthenticationChallenge.h \
 	Source/WebCore/platform/network/soup/AuthenticationChallengeSoup.cpp \
-	Source/WebCore/platform/network/soup/CookieJarSoup.cpp \
-	Source/WebCore/platform/network/soup/CookieJarSoup.h \
-	Source/WebCore/platform/network/soup/CookieStorageSoup.cpp \
 	Source/WebCore/platform/network/soup/CredentialStorageSoup.cpp \
 	Source/WebCore/platform/network/soup/DNSSoup.cpp \
 	Source/WebCore/platform/network/soup/NetworkStorageSessionSoup.cpp \
@@ -3541,8 +3530,6 @@ platform_sources += \
 	Source/WebCore/platform/ContextMenu.h \
 	Source/WebCore/platform/ContextMenuItem.cpp \
 	Source/WebCore/platform/ContextMenuItem.h \
-	Source/WebCore/platform/Cookie.h \
-	Source/WebCore/platform/CookiesStrategy.h \
 	Source/WebCore/platform/Cursor.cpp \
 	Source/WebCore/platform/Cursor.h \
 	Source/WebCore/platform/DateComponents.cpp \

@@ -31,7 +31,6 @@
 #include "dom/ActiveDOMObject.h"
 #include "page/ConsoleTypes.h"
 #include "platform/KURL.h"
-#include "dom/SecurityContext.h"
 #include "platform/Supplementable.h"
 #include <wtf/HashSet.h>
 
@@ -44,7 +43,6 @@ namespace WebCore {
 
 class CachedScript;
 class DatabaseContext;
-class DOMTimer;
 class EventListener;
 class EventQueue;
 class EventTarget;
@@ -56,7 +54,7 @@ class ScriptState;
 class PublicURLManager;
 #endif
 
-class ScriptExecutionContext : public SecurityContext, public Supplementable<ScriptExecutionContext> {
+class ScriptExecutionContext : public Supplementable<ScriptExecutionContext> {
 public:
     ScriptExecutionContext();
     virtual ~ScriptExecutionContext();
@@ -129,18 +127,7 @@ public:
     // Gets the next id in a circular sequence from 1 to 2^31-1.
     int circularSequentialID();
 
-    bool addTimeout(int timeoutId, DOMTimer* timer) { return m_timeouts.add(timeoutId, timer).isNewEntry; }
-    void removeTimeout(int timeoutId) { m_timeouts.remove(timeoutId); }
-    DOMTimer* findTimeout(int timeoutId) { return m_timeouts.get(timeoutId); }
-
     JSC::VM* vm();
-
-    // Interval is in seconds.
-    void adjustMinimumTimerInterval(double oldMinimumTimerInterval);
-    virtual double minimumTimerInterval() const;
-
-    void didChangeTimerAlignmentInterval();
-    virtual double timerAlignmentInterval() const;
 
     virtual EventQueue* eventQueue() const = 0;
 
@@ -190,8 +177,6 @@ private:
     bool m_inDestructor;
 
     int m_circularSequentialID;
-    typedef HashMap<int, DOMTimer*> TimeoutMap;
-    TimeoutMap m_timeouts;
 
     bool m_inDispatchErrorEvent;
 

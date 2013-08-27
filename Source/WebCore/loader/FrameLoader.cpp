@@ -122,11 +122,6 @@ static double storedTimeOfLastCompletedLoad;
 // non-member lets us exclude it from the header file, thus keeping FrameLoader.h's
 // API simpler.
 //
-static bool isDocumentSandboxed(Frame* frame, SandboxFlags mask)
-{
-    return frame->document() && frame->document()->isSandboxed(mask);
-}
-
 class FrameLoader::FrameProgressTracker {
 public:
     static PassOwnPtr<FrameProgressTracker> create(Frame* frame) { return adoptPtr(new FrameProgressTracker(frame)); }
@@ -189,7 +184,6 @@ FrameLoader::FrameLoader(Frame* frame, FrameLoaderClient* client)
     , m_opener(0)
     , m_didPerformFirstNavigation(false)
     , m_suppressOpenerInNewFrame(false)
-    , m_forcedSandboxFlags(SandboxNone)
 {
 }
 
@@ -288,12 +282,6 @@ void FrameLoader::submitForm(PassRefPtr<FormSubmission> submission)
     if (submission->action().isEmpty())
         return;
 
-    if (isDocumentSandboxed(m_frame, SandboxForms)) {
-        // FIXME: This message should be moved off the console once a solution to https://bugs.webkit.org/show_bug.cgi?id=103274 exists.
-        m_frame->document()->addConsoleMessage(SecurityMessageSource, ErrorMessageLevel, "Blocked form submission to '" + submission->action().stringCenterEllipsizedToLength() + "' because the form's frame is sandboxed and the 'allow-forms' permission is not set.");
-        return;
-    }
-
     Frame* targetFrame = findFrameForNavigation(submission->target(), submission->state()->sourceDocument());
     if (!targetFrame) {
         if (!DOMWindow::allowPopUp(m_frame))
@@ -376,8 +364,7 @@ void FrameLoader::stopLoading(UnloadEventPolicy unloadEventPolicy)
         // Dispatching the unload event could have made m_frame->document() null.
         if (m_frame->document() && !m_frame->document()->inPageCache()) {
             // Don't remove event listeners from a transitional empty document (see bug 28716 for more information).
-            bool keepEventListeners = m_stateMachine.isDisplayingInitialEmptyDocument() && m_provisionalDocumentLoader
-                && m_frame->document()->isSecureTransitionTo(m_provisionalDocumentLoader->url());
+            bool keepEventListeners = m_stateMachine.isDisplayingInitialEmptyDocument() && m_provisionalDocumentLoader;
 
             if (!keepEventListeners)
                 m_frame->document()->removeAllEventListeners();
@@ -566,8 +553,6 @@ void FrameLoader::didBeginDocument(bool dispatch)
 
     if (dispatch)
         dispatchDidClearWindowObjectsInAllWorlds();
-
-    updateFirstPartyForCookies();
 
     Settings* settings = m_frame->document()->settings();
     if (settings) {
@@ -785,20 +770,6 @@ void FrameLoader::provisionalLoadStarted()
 void FrameLoader::resetMultipleFormSubmissionProtection()
 {
     m_submittedFormURL = KURL();
-}
-
-void FrameLoader::updateFirstPartyForCookies()
-{
-    if (m_frame->tree()->parent())
-        setFirstPartyForCookies(m_frame->tree()->parent()->document()->firstPartyForCookies());
-    else
-        setFirstPartyForCookies(m_frame->document()->url());
-}
-
-void FrameLoader::setFirstPartyForCookies(const KURL& url)
-{
-    for (Frame* frame = m_frame; frame; frame = frame->tree()->traverseNext(m_frame))
-        frame->document()->setFirstPartyForCookies(url);
 }
 
 // This does the same kind of work that didOpenURL does, except it relies on the fact
@@ -1683,9 +1654,6 @@ void FrameLoader::setOriginalURLForDownloadRequest(ResourceRequest& request)
             hostOnlyURLString = makeString(originalURL.protocol(), "://", originalURL.host(), ":", String::number(port));
         else
             hostOnlyURLString = makeString(originalURL.protocol(), "://", originalURL.host());
-
-        // FIXME: Rename firstPartyForCookies back to mainDocumentURL. It was a mistake to think that it was only used for cookies.
-        request.setFirstPartyForCookies(KURL(KURL(), hostOnlyURLString));
     }
 }
 
@@ -1834,15 +1802,6 @@ void FrameLoader::addExtraFieldsToMainResourceRequest(ResourceRequest& request)
 
 void FrameLoader::addExtraFieldsToRequest(ResourceRequest& request, FrameLoadType loadType, bool mainResource)
 {
-    // Don't set the cookie policy URL if it's already been set.
-    // But make sure to set it on all requests regardless of protocol, as it has significance beyond the cookie policy (<rdar://problem/6616664>).
-    if (request.firstPartyForCookies().isEmpty()) {
-        if (mainResource && isLoadingMainFrame())
-            request.setFirstPartyForCookies(request.url());
-        else if (Document* document = m_frame->document())
-            request.setFirstPartyForCookies(document->firstPartyForCookies());
-    }
-
     // The remaining modifications are only necessary for HTTP and HTTPS.
     if (!request.url().isEmpty() && !request.url().protocolIsInHTTPFamily())
         return;
@@ -1952,9 +1911,6 @@ unsigned long FrameLoader::loadResourceSynchronously(const ResourceRequest& requ
     
     addHTTPOriginIfNeeded(initialRequest, outgoingOrigin());
 
-    if (Page* page = m_frame->page())
-        initialRequest.setFirstPartyForCookies(page->mainFrame()->loader()->documentLoader()->request().url());
-    
     addExtraFieldsToSubresourceRequest(initialRequest);
 
     unsigned long identifier = 0;    
@@ -2363,16 +2319,6 @@ void FrameLoader::dispatchGlobalObjectAvailableInAllWorlds()
 {
 }
 
-SandboxFlags FrameLoader::effectiveSandboxFlags() const
-{
-    SandboxFlags flags = m_forcedSandboxFlags;
-    if (Frame* parentFrame = m_frame->tree()->parent())
-        flags |= parentFrame->document()->sandboxFlags();
-    if (HTMLFrameOwnerElement* ownerElement = m_frame->ownerElement())
-        flags |= ownerElement->sandboxFlags();
-    return flags;
-}
-
 void FrameLoader::didChangeTitle(DocumentLoader* loader)
 {
     m_client->didChangeTitle(loader);
@@ -2465,13 +2411,6 @@ PassRefPtr<Frame> createWindow(Frame* openerFrame, Frame* lookupFrame, const Fra
         }
     }
 
-    // Sandboxed frames cannot open new auxiliary browsing contexts.
-    if (isDocumentSandboxed(openerFrame, SandboxPopups)) {
-        // FIXME: This message should be moved off the console once a solution to https://bugs.webkit.org/show_bug.cgi?id=103274 exists.
-        openerFrame->document()->addConsoleMessage(SecurityMessageSource, ErrorMessageLevel, "Blocked opening '" + request.resourceRequest().url().stringCenterEllipsizedToLength() + "' in a new window because the request was made in a sandboxed frame whose 'allow-popups' permission is not set.");
-        return 0;
-    }
-
     // FIXME: Setting the referrer should be the caller's responsibility.
     FrameLoadRequest requestWithReferrer = request;
     FrameLoader::addHTTPOriginIfNeeded(requestWithReferrer.resourceRequest(), openerFrame->loader()->outgoingOrigin());
@@ -2491,8 +2430,6 @@ PassRefPtr<Frame> createWindow(Frame* openerFrame, Frame* lookupFrame, const Fra
         return 0;
 
     Frame* frame = page->mainFrame();
-
-    frame->loader()->forceSandboxFlags(openerFrame->document()->sandboxFlags());
 
     if (request.frameName() != "_blank")
         frame->tree()->setName(request.frameName());

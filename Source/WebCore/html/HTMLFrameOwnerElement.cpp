@@ -36,7 +36,6 @@ namespace WebCore {
 HTMLFrameOwnerElement::HTMLFrameOwnerElement(const QualifiedName& tagName, Document* document)
     : HTMLElement(tagName, document)
     , m_contentFrame(0)
-    , m_sandboxFlags(SandboxNone)
 {
 }
 
@@ -100,11 +99,6 @@ Document* HTMLFrameOwnerElement::contentDocument() const
 DOMWindow* HTMLFrameOwnerElement::contentWindow() const
 {
     return m_contentFrame ? m_contentFrame->document()->domWindow() : 0;
-}
-
-void HTMLFrameOwnerElement::setSandboxFlags(SandboxFlags flags)
-{
-    m_sandboxFlags = flags;
 }
 
 bool HTMLFrameOwnerElement::isKeyboardFocusable(KeyboardEvent* event) const

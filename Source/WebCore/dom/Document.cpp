@@ -41,7 +41,6 @@
 #include "page/ChromeClient.h"
 #include "dom/Comment.h"
 #include "dom/ContextFeatures.h"
-#include "loader/CookieJar.h"
 #include "dom/CustomElementConstructor.h"
 #include "dom/CustomElementRegistry.h"
 #include "dom/DOMImplementation.h"
@@ -2116,7 +2115,6 @@ void Document::open(Document* ownerDocument)
 {
     if (ownerDocument) {
         setURL(ownerDocument->url());
-        m_cookieURL = ownerDocument->cookieURL();
     }
 
     if (m_frame) {
@@ -2479,22 +2477,6 @@ KURL Document::virtualCompleteURL(const String& url) const
     return completeURL(url);
 }
 
-double Document::minimumTimerInterval() const
-{
-    Page* p = page();
-    if (!p)
-        return ScriptExecutionContext::minimumTimerInterval();
-    return p->settings()->minDOMTimerInterval();
-}
-
-double Document::timerAlignmentInterval() const
-{
-    Page* p = page();
-    if (!p)
-        return ScriptExecutionContext::timerAlignmentInterval();
-    return p->settings()->domTimerAlignmentInterval();
-}
-
 EventTarget* Document::errorEventTarget()
 {
     return domWindow();
@@ -2655,12 +2637,6 @@ void Document::processHttpEquiv(const String& equiv, const String& content)
         m_styleSheetCollection->setSelectedStylesheetSetName(content);
         m_styleSheetCollection->setPreferredStylesheetSetName(content);
         styleResolverChanged(DeferRecalcStyle);
-    } else if (equalIgnoringCase(equiv, "set-cookie")) {
-        // FIXME: make setCookie work on XML documents too; e.g. in case of <html:meta .....>
-        if (isHTMLDocument()) {
-            // Exception (for sandboxed documents) ignored.
-            toHTMLDocument(this)->setCookie(content, IGNORE_EXCEPTION);
-        }
     } else if (equalIgnoringCase(equiv, "content-language"))
         setContentLanguage(content);
 }
@@ -3480,38 +3456,6 @@ HTMLFrameOwnerElement* Document::ownerElement() const
     if (!frame())
         return 0;
     return frame()->ownerElement();
-}
-
-String Document::cookie(ExceptionCode& ec) const
-{
-    if (page() && !page()->settings()->cookieEnabled())
-        return String();
-
-    // FIXME: The HTML5 DOM spec states that this attribute can raise an
-    // INVALID_STATE_ERR exception on getting if the Document has no
-    // browsing context.
-
-    KURL cookieURL = this->cookieURL();
-    if (cookieURL.isEmpty())
-        return String();
-
-    return cookies(this, cookieURL);
-}
-
-void Document::setCookie(const String& value, ExceptionCode& ec)
-{
-    if (page() && !page()->settings()->cookieEnabled())
-        return;
-
-    // FIXME: The HTML5 DOM spec states that this attribute can raise an
-    // INVALID_STATE_ERR exception on setting if the Document has no
-    // browsing context.
-
-    KURL cookieURL = this->cookieURL();
-    if (cookieURL.isEmpty())
-        return;
-
-    setCookies(this, cookieURL, value);
 }
 
 String Document::referrer() const

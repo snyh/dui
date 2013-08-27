@@ -143,8 +143,6 @@
 #endif
     readonly attribute DOMString URL;
 
-    [TreatNullAs=NullString, GetterRaisesException, SetterRaisesException] attribute DOMString cookie;
-
     [SetterRaisesException] attribute HTMLElement body;
 
     readonly attribute HTMLHeadElement head;

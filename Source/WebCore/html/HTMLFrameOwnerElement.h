@@ -57,18 +57,14 @@ public:
 
     virtual ScrollbarMode scrollingMode() const { return ScrollbarAuto; }
 
-    SandboxFlags sandboxFlags() const { return m_sandboxFlags; }
-
 protected:
     HTMLFrameOwnerElement(const QualifiedName& tagName, Document*);
-    void setSandboxFlags(SandboxFlags);
 
 private:
     virtual bool isKeyboardFocusable(KeyboardEvent*) const OVERRIDE;
     virtual bool isFrameOwnerElement() const OVERRIDE { return true; }
 
     Frame* m_contentFrame;
-    SandboxFlags m_sandboxFlags;
 };
 
 inline HTMLFrameOwnerElement* toFrameOwnerElement(Node* node)

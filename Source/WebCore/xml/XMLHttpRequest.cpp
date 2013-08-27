@@ -90,8 +90,6 @@ XMLHttpRequestStaticData::XMLHttpRequestStaticData()
     m_forbiddenRequestHeaders.add("connection");
     m_forbiddenRequestHeaders.add("content-length");
     m_forbiddenRequestHeaders.add("content-transfer-encoding");
-    m_forbiddenRequestHeaders.add("cookie");
-    m_forbiddenRequestHeaders.add("cookie2");
     m_forbiddenRequestHeaders.add("date");
     m_forbiddenRequestHeaders.add("expect");
     m_forbiddenRequestHeaders.add("host");

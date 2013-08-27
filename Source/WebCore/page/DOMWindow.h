@@ -228,12 +228,6 @@ namespace WebCore {
         void resizeBy(float x, float y) const;
         void resizeTo(float width, float height) const;
 
-        // Timers
-        int setTimeout(PassOwnPtr<ScheduledAction>, int timeout, ExceptionCode&);
-        void clearTimeout(int timeoutId);
-        int setInterval(PassOwnPtr<ScheduledAction>, int timeout, ExceptionCode&);
-        void clearInterval(int timeoutId);
-
         // WebKit animation extensions
 #if ENABLE(REQUEST_ANIMATION_FRAME)
         int requestAnimationFrame(PassRefPtr<RequestAnimationFrameCallback>);

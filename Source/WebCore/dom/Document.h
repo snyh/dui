@@ -777,9 +777,6 @@ public:
     void setTitleElement(const StringWithDirection&, Element* titleElement);
     void removeTitle(Element* titleElement);
 
-    String cookie(ExceptionCode&) const;
-    void setCookie(const String&, ExceptionCode&);
-
     String referrer() const;
 
     String domain() const;
@@ -787,32 +784,6 @@ public:
 
     String lastModified() const;
 
-    // The cookieURL is used to query the cookie database for this document's
-    // cookies. For example, if the cookie URL is http://example.com, we'll
-    // use the non-Secure cookies for example.com when computing
-    // document.cookie.
-    //
-    // Q: How is the cookieURL different from the document's URL?
-    // A: The two URLs are the same almost all the time.  However, if one
-    //    document inherits the security context of another document, it
-    //    inherits its cookieURL but not its URL.
-    //
-    const KURL& cookieURL() const { return m_cookieURL; }
-    void setCookieURL(const KURL& url) { m_cookieURL = url; }
-
-    // The firstPartyForCookies is used to compute whether this document
-    // appears in a "third-party" context for the purpose of third-party
-    // cookie blocking.  The document is in a third-party context if the
-    // cookieURL and the firstPartyForCookies are from different hosts.
-    //
-    // Note: Some ports (including possibly Apple's) only consider the
-    //       document in a third-party context if the cookieURL and the
-    //       firstPartyForCookies have a different registry-controlled
-    //       domain.
-    //
-    const KURL& firstPartyForCookies() const { return m_firstPartyForCookies; }
-    void setFirstPartyForCookies(const KURL& url) { m_firstPartyForCookies = url; }
-    
     // The following implements the rule from HTML 4 for what valid names are.
     // To get this right for all the XML cases, we probably have to improve this or move it
     // and make it sensitive to the type of document.
@@ -1193,10 +1164,6 @@ private:
 
     virtual void addMessage(MessageSource, MessageLevel, const String& message, const String& sourceURL, unsigned lineNumber, unsigned columnNumber, PassRefPtr<ScriptCallStack>, ScriptState* = 0, unsigned long requestIdentifier = 0);
 
-    virtual double minimumTimerInterval() const;
-
-    virtual double timerAlignmentInterval() const;
-
     void updateTitle(const StringWithDirection&);
     void updateFocusAppearanceTimerFired(Timer<Document>*);
     void updateBaseURL();
@@ -1269,8 +1236,6 @@ private:
     KURL m_baseURL; // Node.baseURI: The URL to use when resolving relative URLs.
     KURL m_baseURLOverride; // An alternative base URL that takes precedence over m_baseURL (but not m_baseElementURL).
     KURL m_baseElementURL; // The URL set by the <base> element.
-    KURL m_cookieURL; // The URL to use for cookie access.
-    KURL m_firstPartyForCookies; // The policy URL for third-party cookie blocking.
 
     // Document.documentURI:
     // Although URL-like, Document.documentURI can actually be set to any

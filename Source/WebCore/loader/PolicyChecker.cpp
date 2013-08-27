@@ -92,9 +92,6 @@ void PolicyChecker::checkNavigationPolicy(const ResourceRequest& request, Docume
 void PolicyChecker::checkNewWindowPolicy(const NavigationAction& action, NewWindowPolicyDecisionFunction function,
     const ResourceRequest& request, PassRefPtr<FormState> formState, const String& frameName, void* argument)
 {
-    if (m_frame->document() && m_frame->document()->isSandboxed(SandboxPopups))
-        return continueAfterNavigationPolicy(PolicyIgnore);
-
     if (!DOMWindow::allowPopUp(m_frame))
         return continueAfterNavigationPolicy(PolicyIgnore);
 

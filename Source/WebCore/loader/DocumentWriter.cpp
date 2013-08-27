@@ -113,7 +113,7 @@ void DocumentWriter::begin(const KURL& urlReference, bool dispatch, Document* ow
     // inherit an aliased security context.
     RefPtr<Document> document = createDocument(url);
     
-    bool shouldReuseDefaultView = m_frame->loader()->stateMachine()->isDisplayingInitialEmptyDocument() && m_frame->document()->isSecureTransitionTo(url);
+    bool shouldReuseDefaultView = m_frame->loader()->stateMachine()->isDisplayingInitialEmptyDocument();
     if (shouldReuseDefaultView)
         document->takeDOMWindowFrom(m_frame->document());
     else
@@ -127,9 +127,6 @@ void DocumentWriter::begin(const KURL& urlReference, bool dispatch, Document* ow
 
     if (m_decoder)
         document->setDecoder(m_decoder.get());
-    if (ownerDocument) {
-        document->setCookieURL(ownerDocument->cookieURL());
-    }
 
     m_frame->loader()->didBeginDocument(dispatch);
 

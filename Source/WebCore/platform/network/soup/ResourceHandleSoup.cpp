@@ -31,7 +31,6 @@
 
 #include "loader/cache/CachedResourceLoader.h"
 #include "page/ChromeClient.h"
-#include "platform/network/soup/CookieJarSoup.h"
 #include "platform/network/CredentialStorage.h"
 #include "platform/FileSystem.h"
 #include "page/Frame.h"
@@ -268,14 +267,6 @@ static void ensureSessionIsInitialized(SoupSession* session)
     if (g_object_get_data(G_OBJECT(session), "webkit-init"))
         return;
 
-    if (session == ResourceHandle::defaultSession()) {
-        SoupCookieJar* jar = SOUP_COOKIE_JAR(soup_session_get_feature(session, SOUP_TYPE_COOKIE_JAR));
-        if (!jar)
-            soup_session_add_feature(session, SOUP_SESSION_FEATURE(soupCookieJar()));
-        else
-            setSoupCookieJar(jar);
-    }
-
 #if !LOG_DISABLED
     if (!soup_session_get_feature(session, SOUP_TYPE_LOGGER) && LogNetwork.state == WTFLogChannelOn) {
         SoupLogger* logger = soup_logger_new(static_cast<SoupLoggerLogLevel>(SOUP_LOGGER_LOG_BODY), -1);
@@ -469,7 +460,6 @@ static void doRedirect(ResourceHandle* handle)
     KURL newURL = KURL(soupURIToKURL(soup_message_get_uri(message)), location);
     bool crossOrigin = !protocolHostAndPortAreEqual(handle->firstRequest().url(), newURL);
     newRequest.setURL(newURL);
-    newRequest.setFirstPartyForCookies(newURL);
 
     if (newRequest.httpMethod() != "GET") {
         // Change newRequest method to GET if change was made during a previous redirection

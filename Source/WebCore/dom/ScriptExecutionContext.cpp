@@ -29,7 +29,6 @@
 #include "dom/ScriptExecutionContext.h"
 
 #include "loader/cache/CachedScript.h"
-#include "page/DOMTimer.h"
 #include "dom/ErrorEvent.h"
 #include "dom/MessagePort.h"
 #include "html/PublicURLManager.h"
@@ -281,39 +280,6 @@ PublicURLManager& ScriptExecutionContext::publicURLManager()
     return *m_publicURLManager;
 }
 #endif
-
-void ScriptExecutionContext::adjustMinimumTimerInterval(double oldMinimumTimerInterval)
-{
-    if (minimumTimerInterval() != oldMinimumTimerInterval) {
-        for (TimeoutMap::iterator iter = m_timeouts.begin(); iter != m_timeouts.end(); ++iter) {
-            DOMTimer* timer = iter->value;
-            timer->adjustMinimumTimerInterval(oldMinimumTimerInterval);
-        }
-    }
-}
-
-double ScriptExecutionContext::minimumTimerInterval() const
-{
-    // The default implementation returns the DOMTimer's default
-    // minimum timer interval. FIXME: to make it work with dedicated
-    // workers, we will have to override it in the appropriate
-    // subclass, and provide a way to enumerate a Document's dedicated
-    // workers so we can update them all.
-    return Settings::defaultMinDOMTimerInterval();
-}
-
-void ScriptExecutionContext::didChangeTimerAlignmentInterval()
-{
-    for (TimeoutMap::iterator iter = m_timeouts.begin(); iter != m_timeouts.end(); ++iter) {
-        DOMTimer* timer = iter->value;
-        timer->didChangeAlignmentInterval();
-    }
-}
-
-double ScriptExecutionContext::timerAlignmentInterval() const
-{
-    return Settings::defaultDOMTimerAlignmentInterval();
-}
 
 ScriptExecutionContext::Task::~Task()
 {

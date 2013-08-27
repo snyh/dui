@@ -54,7 +54,6 @@
 #include "html/HTMLDocument.h"
 
 #include "CSSPropertyNames.h"
-#include "loader/CookieJar.h"
 #include "loader/DocumentLoader.h"
 #include "dom/DocumentType.h"
 #include "dom/ExceptionCode.h"

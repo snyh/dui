@@ -53,7 +53,6 @@ public:
 #if PLATFORM(MAC) || USE(CFNETWORK)
     // May be null, in which case a Foundation default should be used.
     CFURLStorageSessionRef platformSession() { return m_platformSession.get(); }
-    RetainPtr<CFHTTPCookieStorageRef> cookieStorage() const;
     bool isPrivateBrowsingSession() const { return m_isPrivate; }
 #elif USE(SOUP)
     void setSoupSession(SoupSession* session) { m_session = session; }

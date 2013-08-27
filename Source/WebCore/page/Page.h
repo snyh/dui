@@ -372,12 +372,6 @@ private:
 
     MediaCanStartListener* takeAnyMediaCanStartListener();
 
-    void setMinimumTimerInterval(double);
-    double minimumTimerInterval() const;
-
-    void setTimerAlignmentInterval(double);
-    double timerAlignmentInterval() const;
-
     void throttleTimers();
     void unthrottleTimers();
 
@@ -417,7 +411,6 @@ private:
     unsigned m_defersLoadingCallCount;
 
     bool m_inLowQualityInterpolationMode;
-    bool m_cookieEnabled;
     bool m_areMemoryCacheClientCallsEnabled;
     float m_mediaVolume;
 
@@ -444,10 +437,6 @@ private:
 #if ENABLE(VIEW_MODE_CSS_MEDIA)
     ViewMode m_viewMode;
 #endif // ENABLE(VIEW_MODE_CSS_MEDIA)
-
-    double m_minimumTimerInterval;
-
-    double m_timerAlignmentInterval;
 
     bool m_isEditable;
     bool m_isOnscreen;

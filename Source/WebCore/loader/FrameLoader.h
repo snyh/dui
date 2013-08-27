@@ -39,7 +39,6 @@
 #include "loader/MixedContentChecker.h"
 #include "platform/network/ResourceHandleTypes.h"
 #include "loader/ResourceLoadNotifier.h"
-#include "dom/SecurityContext.h"
 #include "loader/SubframeLoader.h"
 #include "platform/Timer.h"
 #include "platform/KURL.h"
@@ -189,11 +188,6 @@ public:
     void dispatchDidClearWindowObjectsInAllWorlds();
     void dispatchDocumentElementAvailable();
 
-    // The following sandbox flags will be forced, regardless of changes to
-    // the sandbox attribute of any parent frames.
-    void forceSandboxFlags(SandboxFlags flags) { m_forcedSandboxFlags |= flags; }
-    SandboxFlags effectiveSandboxFlags() const;
-
     Frame* opener();
     void setOpener(Frame*);
 
@@ -272,9 +266,6 @@ private:
     bool allChildrenAreComplete() const; // immediate children, not all descendants
 
     void checkTimerFired(Timer<FrameLoader>*);
-    
-    void updateFirstPartyForCookies();
-    void setFirstPartyForCookies(const KURL&);
     
     void addExtraFieldsToRequest(ResourceRequest&, FrameLoadType, bool isMainResource);
 
@@ -404,8 +395,6 @@ private:
 
     bool m_didPerformFirstNavigation;
     bool m_suppressOpenerInNewFrame;
-
-    SandboxFlags m_forcedSandboxFlags;
 
     RefPtr<FrameNetworkingContext> m_networkingContext;
 

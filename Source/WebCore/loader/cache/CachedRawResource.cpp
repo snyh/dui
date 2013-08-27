@@ -225,9 +225,6 @@ bool CachedRawResource::canReuse(const ResourceRequest& newRequest) const
     if (m_resourceRequest.httpBody() != newRequest.httpBody())
         return false;
 
-    if (m_resourceRequest.allowCookies() != newRequest.allowCookies())
-        return false;
-
     // Ensure most headers match the existing headers before continuing.
     // Note that the list of ignored headers includes some headers explicitly related to caching.
     // A more detailed check of caching policy will be performed later, this is simply a list of

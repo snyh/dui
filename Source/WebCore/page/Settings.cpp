@@ -27,8 +27,6 @@
 #include "page/Settings.h"
 
 #include "loader/cache/CachedResourceLoader.h"
-#include "platform/network/CookieStorage.h"
-#include "page/DOMTimer.h"
 #include "dom/Document.h"
 #include "platform/graphics/Font.h"
 #include "platform/graphics/FontGenericFamilies.h"
@@ -59,9 +57,6 @@ static void invalidateAfterGenericFamilyChange(Page* page)
         page->setNeedsRecalcStyleInAllFrames();
 }
 
-double Settings::gDefaultMinDOMTimerInterval = 0.010; // 10 milliseconds
-double Settings::gDefaultDOMTimerAlignmentInterval = 0;
-double Settings::gHiddenPageDOMTimerAlignmentInterval = 1.0;
 
 #if USE(SAFARI_THEME)
 bool Settings::gShouldPaintNativeControls = true;
@@ -156,9 +151,6 @@ Settings::Settings(Page* page)
     , m_aggressiveTileRetentionEnabled(false)
     , m_timeWithoutMouseMovementBeforeHidingControls(3)
     , m_setImageLoadingSettingsTimer(this, &Settings::imageLoadingSettingsTimerFired)
-#if ENABLE(HIDDEN_PAGE_DOM_TIMER_THROTTLING)
-    , m_hiddenPageDOMTimerThrottlingEnabled(false)
-#endif
 #if ENABLE(PAGE_VISIBILITY_API)
     , m_hiddenPageCSSAnimationSuspensionEnabled(false)
 #endif
@@ -180,16 +172,6 @@ PassOwnPtr<Settings> Settings::create(Page* page)
 }
 
 SETTINGS_SETTER_BODIES
-
-void Settings::setHiddenPageDOMTimerAlignmentInterval(double hiddenPageDOMTimerAlignmentinterval)
-{
-    gHiddenPageDOMTimerAlignmentInterval = hiddenPageDOMTimerAlignmentinterval;
-}
-
-double Settings::hiddenPageDOMTimerAlignmentInterval()
-{
-    return gHiddenPageDOMTimerAlignmentInterval;
-}
 
 #if !PLATFORM(MAC) && !PLATFORM(BLACKBERRY)
 void Settings::initializeDefaultFontFamilies()
@@ -403,46 +385,6 @@ void Settings::setNeedsAdobeFrameReloadingQuirk(bool shouldNotReloadIFramesForUn
     m_needsAdobeFrameReloadingQuirk = shouldNotReloadIFramesForUnchangedSRC;
 }
 
-void Settings::setDefaultMinDOMTimerInterval(double interval)
-{
-    gDefaultMinDOMTimerInterval = interval;
-}
-
-double Settings::defaultMinDOMTimerInterval()
-{
-    return gDefaultMinDOMTimerInterval;
-}
-
-void Settings::setMinDOMTimerInterval(double interval)
-{
-    m_page->setMinimumTimerInterval(interval);
-}
-
-double Settings::minDOMTimerInterval()
-{
-    return m_page->minimumTimerInterval();
-}
-
-void Settings::setDefaultDOMTimerAlignmentInterval(double interval)
-{
-    gDefaultDOMTimerAlignmentInterval = interval;
-}
-
-double Settings::defaultDOMTimerAlignmentInterval()
-{
-    return gDefaultDOMTimerAlignmentInterval;
-}
-
-void Settings::setDOMTimerAlignmentInterval(double interval)
-{
-    m_page->setTimerAlignmentInterval(interval);
-}
-
-double Settings::domTimerAlignmentInterval() const
-{
-    return m_page->timerAlignmentInterval();
-}
-
 void Settings::setUsesPageCache(bool usesPageCache)
 {
     if (m_usesPageCache == usesPageCache)
@@ -568,16 +510,6 @@ bool Settings::shouldRespectPriorityInCSSAttributeSetters()
 {
     return gShouldRespectPriorityInCSSAttributeSetters;
 }
-
-#if ENABLE(HIDDEN_PAGE_DOM_TIMER_THROTTLING)
-void Settings::setHiddenPageDOMTimerThrottlingEnabled(bool flag)
-{
-    if (m_hiddenPageDOMTimerThrottlingEnabled == flag)
-        return;
-    m_hiddenPageDOMTimerThrottlingEnabled = flag;
-    m_page->hiddenPageDOMTimerThrottlingStateChanged();
-}
-#endif
 
 #if ENABLE(PAGE_VISIBILITY_API)
 void Settings::setHiddenPageCSSAnimationSuspensionEnabled(bool flag)
