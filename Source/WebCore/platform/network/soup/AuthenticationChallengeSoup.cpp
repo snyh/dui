@@ -37,8 +37,6 @@ static ProtectionSpaceServerType protectionSpaceServerTypeFromURI(SoupURI* uri, 
         return isForProxy ? ProtectionSpaceProxyHTTPS : ProtectionSpaceServerHTTPS;
     if (uri->scheme == SOUP_URI_SCHEME_HTTP)
         return isForProxy ? ProtectionSpaceProxyHTTP : ProtectionSpaceServerHTTP;
-    if (uri->scheme == SOUP_URI_SCHEME_FTP)
-        return isForProxy ? ProtectionSpaceProxyFTP : ProtectionSpaceServerFTP;
     return isForProxy ? ProtectionSpaceProxyHTTP : ProtectionSpaceServerHTTP;
 }
 

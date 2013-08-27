@@ -76,7 +76,6 @@ bool ProtectionSpace::isProxy() const
 {
     return (m_serverType == ProtectionSpaceProxyHTTP ||
             m_serverType == ProtectionSpaceProxyHTTPS ||
-            m_serverType == ProtectionSpaceProxyFTP ||
             m_serverType == ProtectionSpaceProxySOCKS);
 }
 
@@ -97,7 +96,6 @@ bool ProtectionSpace::receivesCredentialSecurely() const
     return cfSpace && CFURLProtectionSpaceReceivesCredentialSecurely(cfSpace.get());
 #else
     return (m_serverType == ProtectionSpaceServerHTTPS || 
-            m_serverType == ProtectionSpaceServerFTPS || 
             m_serverType == ProtectionSpaceProxyHTTPS || 
             m_authenticationScheme == ProtectionSpaceAuthenticationSchemeHTTPDigest); 
 #endif

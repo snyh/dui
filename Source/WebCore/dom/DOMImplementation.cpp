@@ -34,7 +34,6 @@
 #include "page/Frame.h"
 #include "loader/FrameLoader.h"
 #include "loader/FrameLoaderClient.h"
-#include "html/FTPDirectoryDocument.h"
 #include "html/HTMLDocument.h"
 #include "HTMLNames.h"
 #include "html/HTMLViewSourceDocument.h"
@@ -389,12 +388,6 @@ PassRefPtr<Document> DOMImplementation::createDocument(const String& type, Frame
         return HTMLDocument::create(frame, url);
     if (type == "application/xhtml+xml")
         return Document::createXHTML(frame, url);
-
-#if ENABLE(FTPDIR)
-    // Plugins cannot take FTP from us either
-    if (type == "application/x-ftp-directory")
-        return FTPDirectoryDocument::create(frame, url);
-#endif
 
     if (Image::supportsType(type))
         return ImageDocument::create(frame, url);

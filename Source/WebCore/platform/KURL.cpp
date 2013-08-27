@@ -64,8 +64,6 @@ static inline bool isLetterMatchIgnoringCase(UChar character, char lowercaseLett
 }
 
 static const char wsScheme[] = {'w', 's'};
-static const char ftpScheme[] = {'f', 't', 'p'};
-static const char ftpPort[] = {'2', '1'};
 static const char wssScheme[] = {'w', 's', 's'};
 static const char fileScheme[] = {'f', 'i', 'l', 'e'};
 static const char httpScheme[] = {'h', 't', 't', 'p'};
@@ -1013,8 +1011,6 @@ static inline bool isDefaultPortForScheme(const char* port, size_t portLength, c
     case 2:
         return equal(scheme, wsScheme) && equal(port, portLength, httpPort);
     case 3:
-        if (equal(scheme, ftpScheme))
-            return equal(port, portLength, ftpPort);
         if (equal(scheme, wssScheme))
             return equal(port, portLength, httpsPort);
         break;
@@ -1039,7 +1035,7 @@ static bool isNonFileHierarchicalScheme(const char* scheme, size_t schemeLength)
     case 2:
         return equal(scheme, wsScheme);
     case 3:
-        return equal(scheme, ftpScheme) || equal(scheme, wssScheme);
+        return equal(scheme, wssScheme);
     case 4:
         return equal(scheme, httpScheme);
     case 5:
@@ -1056,7 +1052,7 @@ static bool isCanonicalHostnameLowercaseForScheme(const char* scheme, size_t sch
     case 2:
         return equal(scheme, wsScheme);
     case 3:
-        return equal(scheme, ftpScheme) || equal(scheme, wssScheme);
+        return equal(scheme, wssScheme);
     case 4:
         return equal(scheme, httpScheme) || equal(scheme, fileScheme);
     case 5:
@@ -1781,8 +1777,6 @@ bool isDefaultPortForProtocol(unsigned short port, const String& protocol)
     if (defaultPorts.isEmpty()) {
         defaultPorts.set("http", 80);
         defaultPorts.set("https", 443);
-        defaultPorts.set("ftp", 21);
-        defaultPorts.set("ftps", 990);
     }
     return defaultPorts.get(protocol) == port;
 }
@@ -1806,8 +1800,6 @@ bool portAllowed(const KURL& url)
         15,   // netstat
         17,   // qotd
         19,   // chargen
-        20,   // FTP-data
-        21,   // FTP-control
         22,   // SSH
         23,   // telnet
         25,   // SMTP
@@ -1827,7 +1819,6 @@ bool portAllowed(const KURL& url)
         110,  // POP3
         111,  // sunrpc
         113,  // auth
-        115,  // SFTP
         117,  // uucp-path
         119,  // nntp
         123,  // NTP
@@ -1878,10 +1869,6 @@ bool portAllowed(const KURL& url)
 
     // If the port is not in the blocked port list, allow it.
     if (!binary_search(blockedPortList, blockedPortListEnd, port))
-        return true;
-
-    // Allow ports 21 and 22 for FTP URLs, as Mozilla does.
-    if ((port == 21 || port == 22) && url.protocolIs("ftp"))
         return true;
 
     // Allow any port number in a file URL, since the port number is ignored.

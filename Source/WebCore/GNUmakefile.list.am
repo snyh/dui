@@ -1345,8 +1345,6 @@ webcore_sources += \
 	Source/WebCore/html/FormController.h \
 	Source/WebCore/html/FormDataList.cpp \
 	Source/WebCore/html/FormDataList.h \
-	Source/WebCore/html/FTPDirectoryDocument.cpp \
-	Source/WebCore/html/FTPDirectoryDocument.h \
 	Source/WebCore/html/HTMLAllCollection.cpp \
 	Source/WebCore/html/HTMLAllCollection.h \
 	Source/WebCore/html/HTMLAnchorElement.cpp \
@@ -1799,8 +1797,6 @@ webcore_sources += \
 	Source/WebCore/loader/FrameLoaderStateMachine.h \
 	Source/WebCore/loader/FrameLoaderTypes.h \
 	Source/WebCore/loader/FrameNetworkingContext.h \
-	Source/WebCore/loader/FTPDirectoryParser.cpp \
-	Source/WebCore/loader/FTPDirectoryParser.h \
 	Source/WebCore/loader/ImageLoader.cpp \
 	Source/WebCore/loader/ImageLoader.h \
 	Source/WebCore/loader/LinkLoader.h \
@@ -1808,8 +1804,6 @@ webcore_sources += \
 	Source/WebCore/loader/LinkLoaderClient.h \
 	Source/WebCore/loader/NavigationAction.cpp \
 	Source/WebCore/loader/NavigationAction.h \
-	Source/WebCore/loader/PlaceholderDocument.cpp \
-	Source/WebCore/loader/PlaceholderDocument.h \
 	Source/WebCore/loader/PolicyCallback.cpp \
 	Source/WebCore/loader/PolicyCallback.h \
 	Source/WebCore/loader/PolicyChecker.cpp \

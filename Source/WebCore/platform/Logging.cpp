@@ -54,7 +54,6 @@ WTFLogChannel LogResourceLoading =   { 0x00020000, "WebCoreLogLevel", WTFLogChan
 WTFLogChannel LogAnimations =        { 0x00040000, "WebCoreLogLevel", WTFLogChannelOff };
 
 WTFLogChannel LogNetwork =           { 0x00100000, "WebCoreLogLevel", WTFLogChannelOff };
-WTFLogChannel LogFTP =               { 0x00200000, "WebCoreLogLevel", WTFLogChannelOff };
 WTFLogChannel LogThreading =         { 0x00400000, "WebCoreLogLevel", WTFLogChannelOff };
 WTFLogChannel LogStorageAPI =        { 0x00800000, "WebCoreLogLevel", WTFLogChannelOff };
 
@@ -86,9 +85,6 @@ WTFLogChannel* getChannelFromName(const String& channelName)
 
     if (equalIgnoringCase(channelName, String("Frames")))
         return &LogFrames;
-
-    if (equalIgnoringCase(channelName, String("FTP")))
-        return &LogFTP;
 
     if (equalIgnoringCase(channelName, String("History")))
         return &LogHistory;

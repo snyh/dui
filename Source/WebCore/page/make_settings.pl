@@ -225,7 +225,7 @@ sub setterFunctionName($)
     my $settingName = shift;
     my $setterFunctionName = "set" . $settingName;
     substr($setterFunctionName, 3, 1) = uc(substr($setterFunctionName, 3, 1));
-    my @prefixesToUpperCase = ("css", "xss", "ftp", "dom");
+    my @prefixesToUpperCase = ("css", "xss", "dom");
     foreach my $prefix (@prefixesToUpperCase) {
         my $prefixLength = length($prefix);
         if (substr($settingName, 0, $prefixLength) eq $prefix) {

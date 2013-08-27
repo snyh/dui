@@ -36,7 +36,6 @@
 #include "loader/FrameLoaderClient.h"
 #include "loader/FrameLoaderStateMachine.h"
 #include "page/FrameView.h"
-#include "loader/PlaceholderDocument.h"
 #include "dom/RawDataDocumentParser.h"
 #include "bindings/dui/ScriptController.h"
 #include "dom/ScriptableDocumentParser.h"
@@ -96,8 +95,6 @@ void DocumentWriter::begin()
 
 PassRefPtr<Document> DocumentWriter::createDocument(const KURL& url)
 {
-    if (!m_frame->loader()->client()->hasHTMLView())
-        return PlaceholderDocument::create(m_frame, url);
     return DOMImplementation::createDocument(m_mimeType, m_frame, url, m_frame->inViewSourceMode());
 }
 
