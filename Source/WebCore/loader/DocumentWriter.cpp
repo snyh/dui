@@ -42,7 +42,6 @@
 #include "dom/ScriptableDocumentParser.h"
 #include "platform/text/SegmentedString.h"
 #include "page/Settings.h"
-#include "loader/SinkDocument.h"
 #include "loader/TextResourceDecoder.h"
 
 namespace WebCore {

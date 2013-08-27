@@ -1826,8 +1826,6 @@ webcore_sources += \
 	Source/WebCore/loader/ResourceLoadNotifier.h \
 	Source/WebCore/loader/ResourceLoadScheduler.cpp \
 	Source/WebCore/loader/ResourceLoadScheduler.h \
-	Source/WebCore/loader/SinkDocument.cpp \
-	Source/WebCore/loader/SinkDocument.h \
 	Source/WebCore/loader/SubframeLoader.cpp \
 	Source/WebCore/loader/SubframeLoader.h \
 	Source/WebCore/loader/SubresourceLoader.cpp \
