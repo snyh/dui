@@ -52,7 +52,6 @@
 #include "html/HTMLFrameElement.h"
 #include "html/HTMLFrameSetElement.h"
 #include "HTMLNames.h"
-#include "html/HTMLPlugInImageElement.h"
 #include "dom/OverflowEvent.h"
 #include "loader/ProgressTracker.h"
 #include "rendering/RenderArena.h"

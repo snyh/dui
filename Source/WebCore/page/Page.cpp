@@ -52,7 +52,6 @@
 #include "page/PageActivityAssertionToken.h"
 #include "page/PageGroup.h"
 #include "page/PageThrottler.h"
-#include "page/PlugInClient.h"
 #include "page/PointerLockController.h"
 #include "loader/ProgressTracker.h"
 #include "rendering/RenderArena.h"

@@ -36,7 +36,6 @@
 #include "html/HTMLMediaElement.h"
 #include "HTMLNames.h"
 #include "html/parser/HTMLParserIdioms.h"
-#include "html/HTMLPlugInImageElement.h"
 #include "html/HTMLTextAreaElement.h"
 #include "html/HTMLVideoElement.h"
 #include "rendering/HitTestLocation.h"

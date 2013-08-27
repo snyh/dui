@@ -33,7 +33,6 @@
 #include "html/HTMLMediaElement.h"
 #include "HTMLNames.h"
 #include "html/parser/HTMLParserIdioms.h"
-#include "html/HTMLPlugInImageElement.h"
 #include "html/HTMLVideoElement.h"
 #include "rendering/RenderBlock.h"
 #include "rendering/RenderImage.h"

@@ -53,7 +53,6 @@
 #include "html/HTMLOptGroupElement.h"
 #include "html/HTMLOptionElement.h"
 #include "html/HTMLOptionsCollection.h"
-#include "html/HTMLPlugInImageElement.h"
 #include "html/HTMLSelectElement.h"
 #include "html/HTMLTextAreaElement.h"
 #include "html/HTMLTextFormControlElement.h"
