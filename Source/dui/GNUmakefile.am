@@ -59,8 +59,9 @@ libdui_la_LIBADD := \
 	-lxcb-util
 
 bin_PROGRAMS += dui_test
-dui_test_SOURCES= Source/dui/test.cpp
+dui_test_SOURCES= Source/dui/new_test.c
 dui_test_LDADD = \
 	libdui.la \
-	$(GTK_LIBS)
-dui_test_CXXFLAGS = -g -I$(GTK_CFLAGS)
+	-lX11 \
+	$(CAIRO_LIBS)
+dui_test_CFLAGS = -g $(CAIRO_CFLAGS)

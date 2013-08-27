@@ -25,6 +25,11 @@
 
 #include "loader/cache/MemoryCache.h"
 
+extern "C" {
+    void take_snapshot(cairo_t* cr);
+    void test_main(const char* url);
+}
+
 using namespace WebCore;
 RefPtr<Frame> frame = 0;
 void take_snapshot(cairo_t* cr)
