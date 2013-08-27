@@ -1806,10 +1806,6 @@ webcore_sources += \
 	Source/WebCore/loader/LinkLoader.h \
 	Source/WebCore/loader/LinkLoader.cpp \
 	Source/WebCore/loader/LinkLoaderClient.h \
-	Source/WebCore/loader/LoaderStrategy.cpp \
-	Source/WebCore/loader/LoaderStrategy.h \
-	Source/WebCore/loader/MixedContentChecker.cpp \
-	Source/WebCore/loader/MixedContentChecker.h \
 	Source/WebCore/loader/NavigationAction.cpp \
 	Source/WebCore/loader/NavigationAction.h \
 	Source/WebCore/loader/PlaceholderDocument.cpp \

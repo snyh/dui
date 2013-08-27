@@ -29,7 +29,6 @@
 #if ENABLE(BLOB)
 
 #include "platform/network/BlobRegistryImpl.h"
-#include "loader/LoaderStrategy.h"
 #include <wtf/MainThread.h>
 
 namespace WebCore {

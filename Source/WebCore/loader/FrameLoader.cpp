@@ -67,7 +67,6 @@
 #include "HTMLNames.h"
 #include "html/parser/HTMLParserIdioms.h"
 #include "platform/network/HTTPParsers.h"
-#include "loader/LoaderStrategy.h"
 #include "platform/Logging.h"
 #include "platform/MIMETypeRegistry.h"
 #include "loader/cache/MemoryCache.h"
@@ -165,7 +164,6 @@ FrameLoader::FrameLoader(Frame* frame, FrameLoaderClient* client)
     , m_policyChecker(adoptPtr(new PolicyChecker(frame)))
     , m_notifer(frame)
     , m_subframeLoader(frame)
-    , m_mixedContentChecker(frame)
     , m_state(FrameStateProvisional)
     , m_loadType(FrameLoadTypeStandard)
     , m_delegateIsHandlingProvisionalLoadError(false)

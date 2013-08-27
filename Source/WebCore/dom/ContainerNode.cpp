@@ -37,7 +37,6 @@
 #include "HTMLNames.h"
 #include "rendering/InlineTextBox.h"
 #include "html/shadow/InsertionPoint.h"
-#include "loader/LoaderStrategy.h"
 #include "loader/cache/MemoryCache.h"
 #include "dom/MutationEvent.h"
 #include "dom/NodeRenderStyle.h"

@@ -30,7 +30,6 @@
 #include "page/Frame.h"
 #include "loader/FrameLoader.h"
 #include "platform/KURL.h"
-#include "loader/LoaderStrategy.h"
 #include "platform/Logging.h"
 #include "loader/ResourceLoader.h"
 #include "platform/network/soup/ResourceRequest.h"

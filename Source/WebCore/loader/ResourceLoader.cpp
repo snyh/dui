@@ -37,7 +37,6 @@
 #include "page/Frame.h"
 #include "loader/FrameLoader.h"
 #include "loader/FrameLoaderClient.h"
-#include "loader/LoaderStrategy.h"
 #include "page/Page.h"
 #include "loader/ProgressTracker.h"
 #include "loader/ResourceBuffer.h"

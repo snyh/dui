@@ -36,7 +36,6 @@
 #include "loader/FrameLoaderStateMachine.h"
 #include "loader/FrameLoaderTypes.h"
 #include "page/LayoutMilestones.h"
-#include "loader/MixedContentChecker.h"
 #include "platform/network/ResourceHandleTypes.h"
 #include "loader/ResourceLoadNotifier.h"
 #include "loader/SubframeLoader.h"
@@ -84,7 +83,6 @@ public:
     PolicyChecker* policyChecker() const { return m_policyChecker.get(); }
     ResourceLoadNotifier* notifier() const { return &m_notifer; }
     SubframeLoader* subframeLoader() const { return &m_subframeLoader; }
-    MixedContentChecker* mixedContentChecker() const { return &m_mixedContentChecker; }
 
     void setupForReplace();
 
@@ -349,7 +347,6 @@ private:
     mutable ResourceLoadNotifier m_notifer;
     mutable SubframeLoader m_subframeLoader;
     mutable FrameLoaderStateMachine m_stateMachine;
-    mutable MixedContentChecker m_mixedContentChecker;
 
     class FrameProgressTracker;
     OwnPtr<FrameProgressTracker> m_progressTracker;

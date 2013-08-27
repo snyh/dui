@@ -34,7 +34,6 @@
 #include "loader/FrameLoader.h"
 #include "loader/FrameLoaderClient.h"
 #include "platform/KURL.h"
-#include "loader/LoaderStrategy.h"
 #include "platform/Logging.h"
 #include "loader/cache/MemoryCache.h"
 #include "platform/PurgeableBuffer.h"
