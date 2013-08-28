@@ -94,8 +94,6 @@ dom_binding_idls += \
 	$(WebCore)/dom/DOMStringMap.idl \
 	$(WebCore)/dom/DataTransferItem.idl \
 	$(WebCore)/dom/DataTransferItemList.idl \
-	$(WebCore)/dom/DeviceMotionEvent.idl \
-	$(WebCore)/dom/DeviceOrientationEvent.idl \
 	$(WebCore)/dom/Document.idl \
 	$(WebCore)/dom/DocumentFragment.idl \
 	$(WebCore)/dom/DocumentType.idl \
@@ -799,20 +797,6 @@ webcore_sources += \
 	Source/WebCore/dom/DecodedDataDocumentParser.h \
 	Source/WebCore/dom/default/PlatformMessagePortChannel.cpp \
 	Source/WebCore/dom/default/PlatformMessagePortChannel.h \
-	Source/WebCore/dom/DeviceMotionClient.h \
-	Source/WebCore/dom/DeviceMotionController.cpp \
-	Source/WebCore/dom/DeviceMotionController.h \
-	Source/WebCore/dom/DeviceMotionData.cpp \
-	Source/WebCore/dom/DeviceMotionData.h \
-	Source/WebCore/dom/DeviceMotionEvent.cpp \
-	Source/WebCore/dom/DeviceMotionEvent.h \
-	Source/WebCore/dom/DeviceOrientationClient.h \
-	Source/WebCore/dom/DeviceOrientationController.cpp \
-	Source/WebCore/dom/DeviceOrientationController.h \
-	Source/WebCore/dom/DeviceOrientationData.cpp \
-	Source/WebCore/dom/DeviceOrientationData.h \
-	Source/WebCore/dom/DeviceOrientationEvent.cpp \
-	Source/WebCore/dom/DeviceOrientationEvent.h \
 	Source/WebCore/dom/Document.cpp \
 	Source/WebCore/dom/DocumentFragment.cpp \
 	Source/WebCore/dom/DocumentFragment.h \
@@ -1863,9 +1847,6 @@ webcore_sources += \
 	Source/WebCore/page/ContextMenuController.cpp \
 	Source/WebCore/page/ContextMenuController.h \
 	Source/WebCore/page/ContextMenuProvider.h \
-	Source/WebCore/page/DeviceClient.h \
-	Source/WebCore/page/DeviceController.cpp \
-	Source/WebCore/page/DeviceController.h \
 	Source/WebCore/page/DiagnosticLoggingKeys.cpp \
 	Source/WebCore/page/DiagnosticLoggingKeys.h \
 	Source/WebCore/page/DOMSelection.cpp \

@@ -31,8 +31,6 @@
 
 #include "page/ChromeClient.h"
 #include "page/ContextMenuClient.h"
-#include "dom/DeviceMotionClient.h"
-#include "dom/DeviceOrientationClient.h"
 #include "page/DragClient.h"
 #include "page/EditorClient.h"
 #include "platform/text/TextCheckerClient.h"
@@ -543,26 +541,6 @@ public:
     virtual void dragControllerDestroyed() { }
 };
 #endif // ENABLE(DRAG_SUPPORT)
-
-class EmptyDeviceClient : public DeviceClient {
-public:
-    virtual void startUpdating() OVERRIDE { }
-    virtual void stopUpdating() OVERRIDE { }
-};
-
-class EmptyDeviceMotionClient : public DeviceMotionClient {
-public:
-    virtual void setController(DeviceMotionController*) { }
-    virtual DeviceMotionData* lastMotion() const { return 0; }
-    virtual void deviceMotionControllerDestroyed() { }
-};
-
-class EmptyDeviceOrientationClient : public DeviceOrientationClient {
-public:
-    virtual void setController(DeviceOrientationController*) { }
-    virtual DeviceOrientationData* lastOrientation() const { return 0; }
-    virtual void deviceOrientationControllerDestroyed() { }
-};
 
 void fillWithEmptyClients(Page::PageClients&);
 

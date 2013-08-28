@@ -331,22 +331,8 @@ namespace WebCore {
         using RefCounted<DOMWindow>::ref;
         using RefCounted<DOMWindow>::deref;
 
-#if ENABLE(DEVICE_ORIENTATION)
-        DEFINE_ATTRIBUTE_EVENT_LISTENER(devicemotion);
-        DEFINE_ATTRIBUTE_EVENT_LISTENER(deviceorientation);
-#endif
-
 #if ENABLE(PROXIMITY_EVENTS)
         DEFINE_ATTRIBUTE_EVENT_LISTENER(webkitdeviceproximity);
-#endif
-
-#if ENABLE(ORIENTATION_EVENTS)
-        // This is the interface orientation in degrees. Some examples are:
-        //  0 is straight up; -90 is when the device is rotated 90 clockwise;
-        //  90 is when rotated counter clockwise.
-        int orientation() const;
-
-        DEFINE_ATTRIBUTE_EVENT_LISTENER(orientationchange);
 #endif
 
 #if ENABLE(TOUCH_EVENTS)

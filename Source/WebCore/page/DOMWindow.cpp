@@ -40,8 +40,6 @@
 #include "html/DOMURL.h"
 #include "css/DOMWindowCSS.h"
 #include "page/DOMWindowExtension.h"
-#include "dom/DeviceMotionController.h"
-#include "dom/DeviceOrientationController.h"
 #include "dom/Document.h"
 #include "loader/DocumentLoader.h"
 #include "editing/Editor.h"
@@ -502,16 +500,6 @@ bool DOMWindow::isCurrentlyDisplayedInFrame() const
 {
     return m_frame && m_frame->document()->domWindow() == this;
 }
-
-#if ENABLE(ORIENTATION_EVENTS)
-int DOMWindow::orientation() const
-{
-    if (!m_frame)
-        return 0;
-
-    return m_frame->orientation();
-}
-#endif
 
 #if ENABLE(WEB_TIMING)
 Performance* DOMWindow::performance() const
@@ -1187,15 +1175,6 @@ bool DOMWindow::addEventListener(const AtomicString& eventType, PassRefPtr<Event
         addUnloadEventListener(this);
     else if (eventType == eventNames().beforeunloadEvent && allowsBeforeUnloadListeners(this))
         addBeforeUnloadEventListener(this);
-#if ENABLE(DEVICE_ORIENTATION)
-    else if (eventType == eventNames().devicemotionEvent && RuntimeEnabledFeatures::deviceMotionEnabled()) {
-        if (DeviceMotionController* controller = DeviceMotionController::from(page()))
-            controller->addDeviceEventListener(this);
-    } else if (eventType == eventNames().deviceorientationEvent && RuntimeEnabledFeatures::deviceOrientationEnabled()) {
-        if (DeviceOrientationController* controller = DeviceOrientationController::from(page()))
-            controller->addDeviceEventListener(this);
-    }
-#endif
 
 #if ENABLE(PROXIMITY_EVENTS)
     else if (eventType == eventNames().webkitdeviceproximityEvent) {
@@ -1223,15 +1202,6 @@ bool DOMWindow::removeEventListener(const AtomicString& eventType, EventListener
         removeUnloadEventListener(this);
     else if (eventType == eventNames().beforeunloadEvent && allowsBeforeUnloadListeners(this))
         removeBeforeUnloadEventListener(this);
-#if ENABLE(DEVICE_ORIENTATION)
-    else if (eventType == eventNames().devicemotionEvent) {
-        if (DeviceMotionController* controller = DeviceMotionController::from(page()))
-            controller->removeDeviceEventListener(this);
-    } else if (eventType == eventNames().deviceorientationEvent) {
-        if (DeviceOrientationController* controller = DeviceOrientationController::from(page()))
-            controller->removeDeviceEventListener(this);
-    }
-#endif
 
 #if ENABLE(PROXIMITY_EVENTS)
     else if (eventType == eventNames().webkitdeviceproximityEvent) {
@@ -1283,12 +1253,6 @@ void DOMWindow::removeAllEventListeners()
 {
     EventTarget::removeAllEventListeners();
 
-#if ENABLE(DEVICE_ORIENTATION)
-    if (DeviceMotionController* controller = DeviceMotionController::from(page()))
-        controller->removeAllDeviceEventListeners(this);
-    if (DeviceOrientationController* controller = DeviceOrientationController::from(page()))
-        controller->removeAllDeviceEventListeners(this);
-#endif
 #if ENABLE(TOUCH_EVENTS)
     if (Document* document = this->document())
         document->didRemoveEventTargetNode(document);

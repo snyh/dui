@@ -153,9 +153,6 @@ inline Frame::Frame(Page* page, HTMLFrameOwnerElement* ownerElement, FrameLoader
     , m_animationController(adoptPtr(new AnimationController(this)))
     , m_pageZoomFactor(parentPageZoomFactor(this))
     , m_textZoomFactor(parentTextZoomFactor(this))
-#if ENABLE(ORIENTATION_EVENTS)
-    , m_orientation(0)
-#endif
     , m_inViewSourceMode(false)
     , m_activeDOMObjectsAndAnimationsSuspendedCount(0)
 {
@@ -308,15 +305,6 @@ void Frame::setDocument(PassRefPtr<Document> newDoc)
     }
 }
 
-#if ENABLE(ORIENTATION_EVENTS)
-void Frame::sendOrientationChangeEvent(int orientation)
-{
-    m_orientation = orientation;
-    if (Document* doc = document())
-        doc->dispatchWindowEvent(Event::create(eventNames().orientationchangeEvent, false, false));
-}
-#endif // ENABLE(ORIENTATION_EVENTS)
-    
 Settings* Frame::settings() const
 {
     return m_page ? m_page->settings() : 0;
