@@ -33,6 +33,7 @@
 #include "HTMLNames.h"
 #include "html/parser/HTMLParserIdioms.h"
 #include "rendering/RenderImage.h"
+#include <wtf/text/CString.h>
 
 #if ENABLE(SVG)
 #include "rendering/svg/RenderSVGImage.h"
@@ -176,19 +177,10 @@ void ImageLoader::updateFromElement()
     // an empty string.
     CachedResourceHandle<CachedImage> newImage = 0;
     if (!attr.isNull() && !stripLeadingAndTrailingHTMLSpaces(attr).isEmpty()) {
-        CachedResourceRequest request(ResourceRequest(document->completeURL(sourceURI(attr))));
-        request.setInitiator(element());
-
-        if (m_loadManually) {
-            bool autoLoadOtherImages = document->cachedResourceLoader()->autoLoadImages();
-            document->cachedResourceLoader()->setAutoLoadImages(false);
-            newImage = new CachedImage(request.resourceRequest());
-            newImage->setLoading(true);
-            newImage->setOwningCachedResourceLoader(document->cachedResourceLoader());
-            document->cachedResourceLoader()->m_documentResources.set(newImage->url(), newImage.get());
-            document->cachedResourceLoader()->setAutoLoadImages(autoLoadOtherImages);
-        } else
-            newImage = document->cachedResourceLoader()->requestImage(request);
+        //newImage = document->cachedResourceLoader()->requestImage(request);
+        RefPtr<Image> image =  Image::loadImageFromFile(attr.string().utf8());
+        newImage = new CachedImage(image.get());
+        image->setImageObserver(newImage.get());
 
         // If we do not have an image here, it means that a cross-site
         // violation occurred, or that the image was blocked via Content

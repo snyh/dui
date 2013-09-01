@@ -77,16 +77,6 @@ void BitmapImage::invalidatePlatformData()
 {
 }
 
-PassRefPtr<Image> loadImageFromFile(CString fileName)
-{
-    RefPtr<BitmapImage> img = BitmapImage::create();
-    if (!fileName.isNull()) {
-        RefPtr<SharedBuffer> buffer = loadResourceSharedBuffer(fileName);
-        img->setData(buffer.release(), true);
-    }
-    return img.release();
-}
-
 PassRefPtr<Image> Image::loadPlatformResource(const char* name)
 {
     CString fileName;
@@ -99,6 +89,17 @@ PassRefPtr<Image> Image::loadPlatformResource(const char* name)
     }
 
     return loadImageFromFile(fileName);
+}
+
+PassRefPtr<Image> Image::loadImageFromFile(const CString& fileName)
+{
+    LOG(ResourceLoading, "loadImageFromFile %s", fileName.data());
+    RefPtr<BitmapImage> img = BitmapImage::create();
+    if (!fileName.isNull()) {
+        RefPtr<SharedBuffer> buffer = loadResourceSharedBuffer(fileName);
+        img->setData(buffer.release(), true);
+    }
+    return img.release();
 }
 
 PassRefPtr<Image> Image::loadPlatformThemeIcon(const char* name, int size)

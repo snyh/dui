@@ -22,25 +22,26 @@
 #include "loader/SubstituteData.h"
 #include "loader/DocumentLoader.h"
 #include "loader/FrameLoadRequest.h"
+#include "css/StyleResolver.h"
 
 #include "loader/cache/MemoryCache.h"
 
 extern "C" {
     void take_snapshot(cairo_t* cr);
     void test_main(const char* url);
+    GdkWindow* window = NULL;
 }
+
+#define WIDTH 300
+#define HEIGHT 300
 
 using namespace WebCore;
 RefPtr<Frame> frame = 0;
 void take_snapshot(cairo_t* cr)
 {
-    //cairo_surface_t* surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, 300, 300);
-    //RefPtr<cairo_t> cr = adoptRef(cairo_create(surface));
     GraphicsContext gc(cr);
-    gc.clip(IntRect(0, 0, 300, 300));
-    frame->view()->paint(&gc, IntRect(0, 0, 300, 300));
-    printf("1render: %p\n", frame->document()->renderView());
-    //cairo_surface_write_to_png(surface, "/dev/shm/t.png");
+    gc.clip(IntRect(0, 0, WIDTH, HEIGHT));
+    frame->view()->paint(&gc, IntRect(0, 0, WIDTH, HEIGHT));
 }
 
 void load_content(RefPtr<Document> document, const char* path)
@@ -51,6 +52,24 @@ void load_content(RefPtr<Document> document, const char* path)
     g_free(content);
 }
 
+void dumpRuleSet(RuleSet* set)
+{
+}
+
+class DuiChromeClient : public EmptyChromeClient {
+    WTF_MAKE_FAST_ALLOCATED;
+    public:
+    virtual void invalidateRootView(const IntRect& rect, bool immediate) OVERRIDE {
+        invalidateContentsAndRootView(rect, immediate);
+    }
+    virtual void invalidateContentsAndRootView(const IntRect& rect, bool) OVERRIDE {
+        if (window) {
+            GdkRectangle _rect = rect;
+            gdk_window_invalidate_rect(window, &_rect, false);
+        }
+    }
+};
+
 const char my_interp[] __attribute__((section(".interp"))) = "/lib/ld-linux.so.2";
 void test_main(const char* url)
 {
@@ -60,7 +79,7 @@ void test_main(const char* url)
 
     Page::PageClients clients;
     clients.editorClient = new EmptyEditorClient();
-    clients.chromeClient = new EmptyChromeClient();
+    clients.chromeClient = new DuiChromeClient();
     clients.dragClient = new EmptyDragClient();
     clients.contextMenuClient = new EmptyContextMenuClient();
     Page* page = new Page(clients);
@@ -68,7 +87,7 @@ void test_main(const char* url)
     frame = Frame::create(page, 0, new EmptyFrameLoaderClient);
     frame->loader()->init();
 
-    frame->createView(IntSize(300, 300), WebCore::Color::white, false);
+    frame->createView(IntSize(WIDTH, HEIGHT), WebCore::Color::white, false);
 
     KURL _url;
     RefPtr<Document> document = HTMLDocument::create(frame.get(), _url);
@@ -78,9 +97,9 @@ void test_main(const char* url)
 
     document->updateLayout();
     //document->dumpStatistics();
-    Element* _snyh = document->getElementById("snyh");
-    HTMLStyleElement* style = toHTMLStyleElement(document->getElementById("s"));
-    printf("scope: %p\n", style->scopingElement());
+    Element* snyh = document->getElementById("snyh");
+    dumpRuleSet(document->ensureStyleResolver()->ruleSets().authorStyle());
+    dumpRuleSet(document->ensureStyleResolver()->ruleSets().userStyle());
 
     //memoryCache()->dumpStats();
 
