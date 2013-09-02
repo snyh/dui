@@ -38,9 +38,6 @@
 #if ENABLE(SVG)
 #include "rendering/svg/RenderSVGImage.h"
 #endif
-#if ENABLE(VIDEO)
-#include "rendering/RenderVideo.h"
-#endif
 
 #if !ASSERT_DISABLED
 // ImageLoader objects are allocated as members of other objects, so generic pointer check would always fail.
@@ -293,11 +290,6 @@ RenderImageResource* ImageLoader::renderImageResource()
 #if ENABLE(SVG)
     if (renderer->isSVGImage())
         return toRenderSVGImage(renderer)->imageResource();
-#endif
-
-#if ENABLE(VIDEO)
-    if (renderer->isVideo())
-        return toRenderVideo(renderer)->imageResource();
 #endif
 
     return 0;

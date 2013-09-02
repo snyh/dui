@@ -30,14 +30,11 @@
 #include "page/FrameTree.h"
 #include "html/HTMLAnchorElement.h"
 #include "html/HTMLAreaElement.h"
-#include "html/HTMLAudioElement.h"
 #include "html/HTMLImageElement.h"
 #include "html/HTMLInputElement.h"
-#include "html/HTMLMediaElement.h"
 #include "HTMLNames.h"
 #include "html/parser/HTMLParserIdioms.h"
 #include "html/HTMLTextAreaElement.h"
-#include "html/HTMLVideoElement.h"
 #include "rendering/HitTestLocation.h"
 #include "rendering/RenderBlock.h"
 #include "rendering/RenderImage.h"
@@ -336,159 +333,71 @@ KURL HitTestResult::absolutePDFURL() const
 
 KURL HitTestResult::absoluteMediaURL() const
 {
-#if ENABLE(VIDEO)
-    if (HTMLMediaElement* mediaElt = mediaElement())
-        return mediaElt->currentSrc();
     return KURL();
-#else
-    return KURL();
-#endif
 }
 
 bool HitTestResult::mediaSupportsFullscreen() const
 {
-#if ENABLE(VIDEO)
-    HTMLMediaElement* mediaElt(mediaElement());
-    return (mediaElt && mediaElt->hasTagName(HTMLNames::videoTag) && mediaElt->supportsFullscreen());
-#else
     return false;
-#endif
 }
-
-#if ENABLE(VIDEO)
-HTMLMediaElement* HitTestResult::mediaElement() const
-{
-    if (!(m_innerNonSharedNode && m_innerNonSharedNode->document()))
-        return 0;
-
-    if (!(m_innerNonSharedNode->renderer() && m_innerNonSharedNode->renderer()->isMedia()))
-        return 0;
-
-    if (m_innerNonSharedNode->hasTagName(HTMLNames::videoTag) || isHTMLAudioElement(m_innerNonSharedNode.get()))
-        return static_cast<HTMLMediaElement*>(m_innerNonSharedNode.get());
-    return 0;
-}
-#endif
 
 void HitTestResult::toggleMediaControlsDisplay() const
 {
-#if ENABLE(VIDEO)
-    if (HTMLMediaElement* mediaElt = mediaElement())
-        mediaElt->setControls(!mediaElt->controls());
-#endif
 }
 
 void HitTestResult::toggleMediaLoopPlayback() const
 {
-#if ENABLE(VIDEO)
-    if (HTMLMediaElement* mediaElt = mediaElement())
-        mediaElt->setLoop(!mediaElt->loop());
-#endif
 }
 
 bool HitTestResult::mediaIsInFullscreen() const
 {
-#if ENABLE(VIDEO)
-    if (HTMLMediaElement* mediaElement = this->mediaElement())
-        return mediaElement->isVideo() && mediaElement->isFullscreen();
-#endif
     return false;
 }
 
 void HitTestResult::toggleMediaFullscreenState() const
 {
-#if ENABLE(VIDEO)
-    if (HTMLMediaElement* mediaElement = this->mediaElement()) {
-        if (mediaElement->isVideo() && mediaElement->supportsFullscreen()) {
-            UserGestureIndicator indicator(DefinitelyProcessingUserGesture);
-            mediaElement->toggleFullscreenState();
-        }
-    }
-#endif
 }
 
 void HitTestResult::enterFullscreenForVideo() const
 {
-#if ENABLE(VIDEO)
-    HTMLMediaElement* mediaElt(mediaElement());
-    if (mediaElt && mediaElt->hasTagName(HTMLNames::videoTag)) {
-        HTMLVideoElement* videoElt = static_cast<HTMLVideoElement*>(mediaElt);
-        if (!videoElt->isFullscreen() && mediaElt->supportsFullscreen()) {
-            UserGestureIndicator indicator(DefinitelyProcessingUserGesture);
-            videoElt->enterFullscreen();
-        }
-    }
-#endif
 }
 
 bool HitTestResult::mediaControlsEnabled() const
 {
-#if ENABLE(VIDEO)
-    if (HTMLMediaElement* mediaElt = mediaElement())
-        return mediaElt->controls();
-#endif
     return false;
 }
 
 bool HitTestResult::mediaLoopEnabled() const
 {
-#if ENABLE(VIDEO)
-    if (HTMLMediaElement* mediaElt = mediaElement())
-        return mediaElt->loop();
-#endif
     return false;
 }
 
 bool HitTestResult::mediaPlaying() const
 {
-#if ENABLE(VIDEO)
-    if (HTMLMediaElement* mediaElt = mediaElement())
-        return !mediaElt->paused();
-#endif
     return false;
 }
 
 void HitTestResult::toggleMediaPlayState() const
 {
-#if ENABLE(VIDEO)
-    if (HTMLMediaElement* mediaElt = mediaElement())
-        mediaElt->togglePlayState();
-#endif
 }
 
 bool HitTestResult::mediaHasAudio() const
 {
-#if ENABLE(VIDEO)
-    if (HTMLMediaElement* mediaElt = mediaElement())
-        return mediaElt->hasAudio();
-#endif
     return false;
 }
 
 bool HitTestResult::mediaIsVideo() const
 {
-#if ENABLE(VIDEO)
-    if (HTMLMediaElement* mediaElt = mediaElement())
-        return mediaElt->hasTagName(HTMLNames::videoTag);
-#endif
     return false;
 }
 
 bool HitTestResult::mediaMuted() const
 {
-#if ENABLE(VIDEO)
-    if (HTMLMediaElement* mediaElt = mediaElement())
-        return mediaElt->muted();
-#endif
     return false;
 }
 
 void HitTestResult::toggleMediaMuteState() const
 {
-#if ENABLE(VIDEO)
-    if (HTMLMediaElement* mediaElt = mediaElement())
-        mediaElt->setMuted(!mediaElt->muted());
-#endif
 }
 
 KURL HitTestResult::absoluteLinkURL() const

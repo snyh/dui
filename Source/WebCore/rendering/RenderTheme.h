@@ -90,9 +90,6 @@ public:
     virtual String extraDefaultStyleSheet() { return String(); }
     virtual String extraQuirksStyleSheet() { return String(); }
     virtual String extraPlugInsStyleSheet() { return String(); }
-#if ENABLE(VIDEO)
-    virtual String extraMediaControlsStyleSheet() { return String(); }
-#endif
 #if ENABLE(FULLSCREEN_API)
     virtual String extraFullScreenStyleSheet() { return String(); }
 #endif
@@ -189,23 +186,6 @@ public:
     virtual double animationRepeatIntervalForProgressBar(RenderProgress*) const;
     // Returns the duration of the animation for the progress bar.
     virtual double animationDurationForProgressBar(RenderProgress*) const;
-#endif
-
-#if ENABLE(VIDEO)
-    // Media controls
-    virtual bool supportsClosedCaptioning() const { return false; }
-    virtual bool hasOwnDisabledStateHandlingFor(ControlPart) const { return false; }
-    virtual bool usesMediaControlStatusDisplay() { return false; }
-    virtual bool usesMediaControlVolumeSlider() const { return true; }
-    virtual bool usesVerticalVolumeSlider() const { return true; }
-    virtual double mediaControlsFadeInDuration() { return 0.1; }
-    virtual double mediaControlsFadeOutDuration() { return 0.3; }
-    virtual String formatMediaControlsTime(float time) const;
-    virtual String formatMediaControlsCurrentTime(float currentTime, float duration) const;
-    virtual String formatMediaControlsRemainingTime(float currentTime, float duration) const;
-    
-    // Returns the media volume slider container's offset from the mute button.
-    virtual IntPoint volumeSliderOffsetFromMuteButton(RenderBox*, const IntSize&) const;
 #endif
 
 #if ENABLE(METER_ELEMENT)

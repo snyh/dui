@@ -158,7 +158,6 @@ dom_binding_idls += \
 	$(WebCore)/html/HTMLAllCollection.idl \
 	$(WebCore)/html/HTMLAnchorElement.idl \
 	$(WebCore)/html/HTMLAreaElement.idl \
-	$(WebCore)/html/HTMLAudioElement.idl \
 	$(WebCore)/html/HTMLBRElement.idl \
 	$(WebCore)/html/HTMLBaseElement.idl \
 	$(WebCore)/html/HTMLBaseFontElement.idl \
@@ -193,7 +192,6 @@ dom_binding_idls += \
 	$(WebCore)/html/HTMLLinkElement.idl \
 	$(WebCore)/html/HTMLMapElement.idl \
 	$(WebCore)/html/HTMLMarqueeElement.idl \
-	$(WebCore)/html/HTMLMediaElement.idl \
 	$(WebCore)/html/HTMLMenuElement.idl \
 	$(WebCore)/html/HTMLMetaElement.idl \
 	$(WebCore)/html/HTMLMeterElement.idl \
@@ -210,7 +208,6 @@ dom_binding_idls += \
 	$(WebCore)/html/HTMLPropertiesCollection.idl \
 	$(WebCore)/html/HTMLQuoteElement.idl \
 	$(WebCore)/html/HTMLSelectElement.idl \
-	$(WebCore)/html/HTMLSourceElement.idl \
 	$(WebCore)/html/HTMLSpanElement.idl \
 	$(WebCore)/html/HTMLStyleElement.idl \
 	$(WebCore)/html/HTMLTableCaptionElement.idl \
@@ -222,15 +219,9 @@ dom_binding_idls += \
 	$(WebCore)/html/HTMLTemplateElement.idl \
 	$(WebCore)/html/HTMLTextAreaElement.idl \
 	$(WebCore)/html/HTMLTitleElement.idl \
-	$(WebCore)/html/HTMLTrackElement.idl \
 	$(WebCore)/html/HTMLUListElement.idl \
 	$(WebCore)/html/HTMLUnknownElement.idl \
-	$(WebCore)/html/HTMLVideoElement.idl \
 	$(WebCore)/html/ImageData.idl \
-	$(WebCore)/html/MediaController.idl \
-	$(WebCore)/html/MediaError.idl \
-	$(WebCore)/html/MediaKeyError.idl \
-	$(WebCore)/html/MediaKeyEvent.idl \
 	$(WebCore)/html/MicroDataItemValue.idl \
 	$(WebCore)/html/RadioNodeList.idl \
 	$(WebCore)/html/TextMetrics.idl \
@@ -283,15 +274,6 @@ dom_binding_idls += \
 	$(WebCore)/html/canvas/WebGLUniformLocation.idl \
 	$(WebCore)/html/canvas/WebGLVertexArrayObjectOES.idl \
 	$(WebCore)/html/shadow/HTMLContentElement.idl \
-	$(WebCore)/html/track/AudioTrack.idl \
-	$(WebCore)/html/track/AudioTrackList.idl \
-	$(WebCore)/html/track/TextTrack.idl \
-	$(WebCore)/html/track/TextTrackCue.idl \
-	$(WebCore)/html/track/TextTrackCueList.idl \
-	$(WebCore)/html/track/TextTrackList.idl \
-	$(WebCore)/html/track/TrackEvent.idl \
-	$(WebCore)/html/track/VideoTrack.idl \
-	$(WebCore)/html/track/VideoTrackList.idl \
 	$(WebCore)/page/DOMSelection.idl \
 	$(WebCore)/page/DOMWindow.idl \
 	$(WebCore)/page/Performance.idl \
@@ -480,8 +462,6 @@ webcore_sources += \
 	Source/WebCore/accessibility/AccessibilityListBoxOption.h \
 	Source/WebCore/accessibility/AccessibilityList.cpp \
 	Source/WebCore/accessibility/AccessibilityList.h \
-	Source/WebCore/accessibility/AccessibilityMediaControls.cpp \
-	Source/WebCore/accessibility/AccessibilityMediaControls.h \
 	Source/WebCore/accessibility/AccessibilityMenuList.cpp \
 	Source/WebCore/accessibility/AccessibilityMenuList.h \
 	Source/WebCore/accessibility/AccessibilityMenuListOption.cpp \
@@ -1335,8 +1315,6 @@ webcore_sources += \
 	Source/WebCore/html/HTMLAnchorElement.h \
 	Source/WebCore/html/HTMLAreaElement.cpp \
 	Source/WebCore/html/HTMLAreaElement.h \
-	Source/WebCore/html/HTMLAudioElement.cpp \
-	Source/WebCore/html/HTMLAudioElement.h \
 	Source/WebCore/html/HTMLBaseElement.cpp \
 	Source/WebCore/html/HTMLBaseElement.h \
 	Source/WebCore/html/HTMLBaseFontElement.cpp \
@@ -1416,8 +1394,6 @@ webcore_sources += \
 	Source/WebCore/html/HTMLMapElement.h \
 	Source/WebCore/html/HTMLMarqueeElement.cpp \
 	Source/WebCore/html/HTMLMarqueeElement.h \
-	Source/WebCore/html/HTMLMediaElement.cpp \
-	Source/WebCore/html/HTMLMediaElement.h \
 	Source/WebCore/html/HTMLMenuElement.cpp \
 	Source/WebCore/html/HTMLMenuElement.h \
 	Source/WebCore/html/HTMLMetaElement.cpp \
@@ -1455,8 +1431,6 @@ webcore_sources += \
 	Source/WebCore/html/HTMLQuoteElement.h \
 	Source/WebCore/html/HTMLSelectElement.cpp \
 	Source/WebCore/html/HTMLSelectElement.h \
-	Source/WebCore/html/HTMLSourceElement.cpp \
-	Source/WebCore/html/HTMLSourceElement.h \
 	Source/WebCore/html/HTMLSpanElement.cpp \
 	Source/WebCore/html/HTMLSpanElement.h \
 	Source/WebCore/html/HTMLStyleElement.cpp \
@@ -1487,13 +1461,9 @@ webcore_sources += \
 	Source/WebCore/html/HTMLTextFormControlElement.h \
 	Source/WebCore/html/HTMLTitleElement.cpp \
 	Source/WebCore/html/HTMLTitleElement.h \
-	Source/WebCore/html/HTMLTrackElement.cpp \
-	Source/WebCore/html/HTMLTrackElement.h \
 	Source/WebCore/html/HTMLUnknownElement.h \
 	Source/WebCore/html/HTMLUListElement.cpp \
 	Source/WebCore/html/HTMLUListElement.h \
-	Source/WebCore/html/HTMLVideoElement.cpp \
-	Source/WebCore/html/HTMLVideoElement.h \
 	Source/WebCore/html/HTMLViewSourceDocument.cpp \
 	Source/WebCore/html/HTMLViewSourceDocument.h \
 	Source/WebCore/html/HiddenInputType.cpp \
@@ -1514,17 +1484,6 @@ webcore_sources += \
 	Source/WebCore/html/LabelsNodeList.h \
 	Source/WebCore/html/LinkRelAttribute.cpp \
 	Source/WebCore/html/LinkRelAttribute.h \
-	Source/WebCore/html/MediaController.cpp \
-	Source/WebCore/html/MediaController.h \
-	Source/WebCore/html/MediaControllerInterface.h \
-	Source/WebCore/html/MediaDocument.cpp \
-	Source/WebCore/html/MediaDocument.h \
-	Source/WebCore/html/MediaError.h \
-	Source/WebCore/html/MediaKeyError.h \
-	Source/WebCore/html/MediaKeyEvent.cpp \
-	Source/WebCore/html/MediaKeyEvent.h \
-	Source/WebCore/html/MediaFragmentURIParser.cpp \
-	Source/WebCore/html/MediaFragmentURIParser.h \
 	Source/WebCore/html/MicroDataAttributeTokenList.cpp \
 	Source/WebCore/html/MicroDataAttributeTokenList.h \
 	Source/WebCore/html/MicroDataItemValue.cpp \
@@ -1602,14 +1561,6 @@ webcore_sources += \
 	Source/WebCore/html/shadow/HTMLContentElement.h \
 	Source/WebCore/html/shadow/InsertionPoint.cpp \
 	Source/WebCore/html/shadow/InsertionPoint.h \
-	Source/WebCore/html/shadow/MediaControlElements.cpp \
-	Source/WebCore/html/shadow/MediaControlElements.h \
-	Source/WebCore/html/shadow/MediaControlElementTypes.cpp \
-	Source/WebCore/html/shadow/MediaControlElementTypes.h \
-	Source/WebCore/html/shadow/MediaControls.cpp \
-	Source/WebCore/html/shadow/MediaControls.h \
-	Source/WebCore/html/shadow/MediaControlsGtk.cpp \
-	Source/WebCore/html/shadow/MediaControlsGtk.h \
 	Source/WebCore/html/shadow/MeterShadowElement.cpp \
 	Source/WebCore/html/shadow/MeterShadowElement.h \
 	Source/WebCore/html/shadow/ProgressShadowElement.cpp \
@@ -1650,41 +1601,6 @@ webcore_sources += \
 	Source/WebCore/html/TimeInputType.h \
 	Source/WebCore/html/TimeRanges.cpp \
 	Source/WebCore/html/TimeRanges.h \
-	Source/WebCore/html/track/AudioTrack.cpp \
-	Source/WebCore/html/track/AudioTrack.h \
-	Source/WebCore/html/track/AudioTrackList.cpp \
-	Source/WebCore/html/track/AudioTrackList.h \
-	Source/WebCore/html/track/InbandTextTrack.cpp \
-	Source/WebCore/html/track/InbandTextTrack.h \
-	Source/WebCore/html/track/LoadableTextTrack.cpp \
-	Source/WebCore/html/track/LoadableTextTrack.h \
-	Source/WebCore/html/track/TextTrack.cpp \
-	Source/WebCore/html/track/TextTrack.h \
-	Source/WebCore/html/track/TextTrackCue.cpp \
-	Source/WebCore/html/track/TextTrackCue.h \
-	Source/WebCore/html/track/TextTrackCueGeneric.cpp \
-	Source/WebCore/html/track/TextTrackCueGeneric.h \
-	Source/WebCore/html/track/TextTrackCueList.cpp \
-	Source/WebCore/html/track/TextTrackCueList.h \
-	Source/WebCore/html/track/TextTrackList.cpp \
-	Source/WebCore/html/track/TextTrackList.h \
-	Source/WebCore/html/track/TrackBase.cpp \
-	Source/WebCore/html/track/TrackBase.h \
-	Source/WebCore/html/track/TrackEvent.cpp \
-	Source/WebCore/html/track/TrackEvent.h \
-	Source/WebCore/html/track/TrackListBase.cpp \
-	Source/WebCore/html/track/TrackListBase.h \
-	Source/WebCore/html/track/VideoTrack.cpp \
-	Source/WebCore/html/track/VideoTrack.h \
-	Source/WebCore/html/track/VideoTrackList.cpp \
-	Source/WebCore/html/track/VideoTrackList.h \
-	Source/WebCore/html/track/WebVTTElement.cpp \
-	Source/WebCore/html/track/WebVTTElement.h \
-	Source/WebCore/html/track/WebVTTParser.cpp \
-	Source/WebCore/html/track/WebVTTParser.h \
-	Source/WebCore/html/track/WebVTTToken.h \
-	Source/WebCore/html/track/WebVTTTokenizer.h \
-	Source/WebCore/html/track/WebVTTTokenizer.cpp \
 	Source/WebCore/html/TypeAhead.cpp \
 	Source/WebCore/html/TypeAhead.h \
 	Source/WebCore/html/URLInputType.cpp \
@@ -2075,12 +1991,6 @@ webcore_sources += \
 	Source/WebCore/rendering/RenderListMarker.h \
 	Source/WebCore/rendering/RenderMarquee.cpp \
 	Source/WebCore/rendering/RenderMarquee.h \
-	Source/WebCore/rendering/RenderMedia.cpp \
-	Source/WebCore/rendering/RenderMedia.h \
-	Source/WebCore/rendering/RenderMediaControlElements.cpp \
-	Source/WebCore/rendering/RenderMediaControlElements.h \
-	Source/WebCore/rendering/RenderMediaControls.cpp \
-	Source/WebCore/rendering/RenderMediaControls.h \
 	Source/WebCore/rendering/RenderMenuList.cpp \
 	Source/WebCore/rendering/RenderMenuList.h \
 	Source/WebCore/rendering/RenderMeter.cpp \
@@ -2159,8 +2069,6 @@ webcore_sources += \
 	Source/WebCore/rendering/RenderTheme.h \
 	Source/WebCore/rendering/RenderTreeAsText.cpp \
 	Source/WebCore/rendering/RenderTreeAsText.h \
-	Source/WebCore/rendering/RenderVideo.cpp \
-	Source/WebCore/rendering/RenderVideo.h \
 	Source/WebCore/rendering/RenderView.cpp \
 	Source/WebCore/rendering/RenderView.h \
 	Source/WebCore/rendering/RenderWidget.cpp \
@@ -2865,18 +2773,6 @@ webcore_platform_sources += \
 	Source/WebCore/platform/animation/Animation.h \
 	Source/WebCore/platform/animation/AnimationList.cpp \
 	Source/WebCore/platform/animation/AnimationList.h \
-	Source/WebCore/platform/audio/HRTFDatabase.cpp \
-	Source/WebCore/platform/audio/HRTFDatabase.h \
-	Source/WebCore/platform/audio/HRTFDatabaseLoader.cpp \
-	Source/WebCore/platform/audio/HRTFDatabaseLoader.h \
-	Source/WebCore/platform/audio/HRTFElevation.cpp \
-	Source/WebCore/platform/audio/HRTFElevation.h \
-	Source/WebCore/platform/audio/HRTFKernel.cpp \
-	Source/WebCore/platform/audio/HRTFKernel.h \
-	Source/WebCore/platform/audio/HRTFPanner.cpp \
-	Source/WebCore/platform/audio/HRTFPanner.h \
-	Source/WebCore/platform/audio/Panner.cpp \
-	Source/WebCore/platform/audio/Panner.h \
 	Source/WebCore/platform/AsyncFileSystem.cpp \
 	Source/WebCore/platform/AsyncFileSystem.h \
 	Source/WebCore/platform/AsyncFileSystemCallbacks.h \
@@ -2945,12 +2841,7 @@ webcore_platform_sources += \
 	Source/WebCore/platform/graphics/GraphicsLayerFactory.h \
 	Source/WebCore/platform/graphics/GraphicsLayerUpdater.h \
 	Source/WebCore/platform/graphics/GraphicsLayerUpdater.cpp \
-	Source/WebCore/platform/graphics/gstreamer/WebKitWebSourceGStreamer.cpp \
-	Source/WebCore/platform/graphics/gstreamer/WebKitWebSourceGStreamer.h \
 	Source/WebCore/platform/graphics/Latin1TextIterator.h \
-	Source/WebCore/platform/graphics/MediaPlayer.cpp \
-	Source/WebCore/platform/graphics/MediaPlayer.h \
-	Source/WebCore/platform/graphics/MediaPlayerPrivate.h \
 	Source/WebCore/platform/graphics/opengl/GraphicsContext3DOpenGLCommon.cpp \
 	Source/WebCore/platform/graphics/opentype/OpenTypeVerticalData.h \
 	Source/WebCore/platform/graphics/transforms/PerspectiveTransformOperation.cpp \
@@ -2968,31 +2859,6 @@ webcore_platform_sources += \
 	Source/WebCore/platform/MainThreadTask.h \
 	Source/WebCore/platform/MIMETypeRegistry.cpp \
 	Source/WebCore/platform/MIMETypeRegistry.h \
-	Source/WebCore/platform/mediastream/MediaConstraints.h \
-	Source/WebCore/platform/mediastream/MediaStreamCenter.cpp \
-	Source/WebCore/platform/mediastream/MediaStreamCenter.h \
-	Source/WebCore/platform/mediastream/MediaStreamComponent.h \
-	Source/WebCore/platform/mediastream/MediaStreamDescriptor.h \
-	Source/WebCore/platform/mediastream/MediaStreamSource.cpp \
-	Source/WebCore/platform/mediastream/MediaStreamSource.h \
-	Source/WebCore/platform/mediastream/MediaStreamSourcesQueryClient.h \
-	Source/WebCore/platform/mediastream/RTCConfiguration.h \
-	Source/WebCore/platform/mediastream/RTCDTMFSenderHandler.h \
-	Source/WebCore/platform/mediastream/RTCDTMFSenderHandlerClient.h \
-	Source/WebCore/platform/mediastream/RTCDataChannelHandler.h \
-	Source/WebCore/platform/mediastream/RTCDataChannelHandlerClient.h \
-	Source/WebCore/platform/mediastream/RTCIceCandidateDescriptor.cpp \
-	Source/WebCore/platform/mediastream/RTCIceCandidateDescriptor.h \
-	Source/WebCore/platform/mediastream/RTCPeerConnectionHandler.cpp \
-	Source/WebCore/platform/mediastream/RTCPeerConnectionHandler.h \
-	Source/WebCore/platform/mediastream/RTCPeerConnectionHandlerClient.h \
-	Source/WebCore/platform/mediastream/RTCSessionDescriptionRequest.h \
-	Source/WebCore/platform/mediastream/RTCSessionDescriptionDescriptor.cpp \
-	Source/WebCore/platform/mediastream/RTCSessionDescriptionDescriptor.h \
-	Source/WebCore/platform/mediastream/RTCStatsRequest.h \
-	Source/WebCore/platform/mediastream/RTCVoidRequest.h \
-	Source/WebCore/platform/mediastream/gstreamer/MediaStreamCenterGStreamer.cpp \
-	Source/WebCore/platform/mediastream/gstreamer/MediaStreamCenterGStreamer.h \
 	Source/WebCore/platform/mock/ScrollbarThemeMock.cpp \
 	Source/WebCore/platform/mock/ScrollbarThemeMock.h \
 	Source/WebCore/platform/network/BlobData.cpp \
@@ -3069,70 +2935,6 @@ webcore_platform_sources += \
 platform_sources += \
 	Source/WebCore/platform/animation/AnimationUtilities.h \
 	Source/WebCore/platform/animation/TimingFunction.h \
-	Source/WebCore/platform/audio/gstreamer/AudioDestinationGStreamer.cpp \
-	Source/WebCore/platform/audio/gstreamer/AudioDestinationGStreamer.h \
-	Source/WebCore/platform/audio/gstreamer/AudioFileReaderGStreamer.cpp \
-	Source/WebCore/platform/audio/gstreamer/FFTFrameGStreamer.cpp \
-	Source/WebCore/platform/audio/gstreamer/WebKitWebAudioSourceGStreamer.cpp \
-	Source/WebCore/platform/audio/gstreamer/WebKitWebAudioSourceGStreamer.h \
-	Source/WebCore/platform/audio/AudioArray.h \
-	Source/WebCore/platform/audio/AudioBus.cpp \
-	Source/WebCore/platform/audio/AudioBus.h \
-	Source/WebCore/platform/audio/AudioChannel.cpp \
-	Source/WebCore/platform/audio/AudioChannel.h \
-	Source/WebCore/platform/audio/AudioDestination.h \
-	Source/WebCore/platform/audio/AudioDSPKernel.h \
-	Source/WebCore/platform/audio/AudioDSPKernelProcessor.cpp \
-	Source/WebCore/platform/audio/AudioDSPKernelProcessor.h \
-	Source/WebCore/platform/audio/AudioFileReader.h \
-	Source/WebCore/platform/audio/AudioIOCallback.h \
-	Source/WebCore/platform/audio/AudioProcessor.h \
-	Source/WebCore/platform/audio/AudioResampler.cpp \
-	Source/WebCore/platform/audio/AudioResampler.h \
-	Source/WebCore/platform/audio/AudioResamplerKernel.cpp \
-	Source/WebCore/platform/audio/AudioResamplerKernel.h \
-	Source/WebCore/platform/audio/AudioSourceProvider.h \
-	Source/WebCore/platform/audio/AudioSourceProviderClient.h \
-	Source/WebCore/platform/audio/AudioUtilities.cpp \
-	Source/WebCore/platform/audio/AudioUtilities.h \
-	Source/WebCore/platform/audio/Biquad.cpp \
-	Source/WebCore/platform/audio/Biquad.h \
-	Source/WebCore/platform/audio/Cone.cpp \
-	Source/WebCore/platform/audio/Cone.h \
-	Source/WebCore/platform/audio/DenormalDisabler.h \
-	Source/WebCore/platform/audio/DirectConvolver.cpp \
-	Source/WebCore/platform/audio/DirectConvolver.h \
-	Source/WebCore/platform/audio/Distance.cpp \
-	Source/WebCore/platform/audio/Distance.h \
-	Source/WebCore/platform/audio/DynamicsCompressor.h \
-	Source/WebCore/platform/audio/DynamicsCompressorKernel.cpp \
-	Source/WebCore/platform/audio/DynamicsCompressorKernel.h \
-	Source/WebCore/platform/audio/DynamicsCompressor.cpp \
-	Source/WebCore/platform/audio/EqualPowerPanner.cpp \
-	Source/WebCore/platform/audio/EqualPowerPanner.h \
-	Source/WebCore/platform/audio/FFTConvolver.cpp \
-	Source/WebCore/platform/audio/FFTConvolver.h \
-	Source/WebCore/platform/audio/FFTFrame.cpp \
-	Source/WebCore/platform/audio/FFTFrame.h \
-	Source/WebCore/platform/audio/FFTFrameStub.cpp \
-	Source/WebCore/platform/audio/MultiChannelResampler.cpp \
-	Source/WebCore/platform/audio/MultiChannelResampler.h \
-	Source/WebCore/platform/audio/Reverb.cpp \
-	Source/WebCore/platform/audio/Reverb.h \
-	Source/WebCore/platform/audio/ReverbAccumulationBuffer.cpp \
-	Source/WebCore/platform/audio/ReverbAccumulationBuffer.h \
-	Source/WebCore/platform/audio/ReverbConvolver.cpp \
-	Source/WebCore/platform/audio/ReverbConvolver.h \
-	Source/WebCore/platform/audio/ReverbConvolverStage.cpp \
-	Source/WebCore/platform/audio/ReverbConvolverStage.h \
-	Source/WebCore/platform/audio/ReverbInputBuffer.cpp \
-	Source/WebCore/platform/audio/ReverbInputBuffer.h \
-	Source/WebCore/platform/audio/SincResampler.cpp \
-	Source/WebCore/platform/audio/SincResampler.h \
-	Source/WebCore/platform/audio/VectorMath.cpp \
-	Source/WebCore/platform/audio/VectorMath.h \
-	Source/WebCore/platform/audio/ZeroPole.cpp \
-	Source/WebCore/platform/audio/ZeroPole.h \
 	Source/WebCore/platform/graphics/cairo/BitmapImageCairo.cpp \
 	Source/WebCore/platform/graphics/cairo/CairoUtilities.cpp \
 	Source/WebCore/platform/graphics/cairo/CairoUtilities.h \
@@ -3245,7 +3047,6 @@ platform_sources += \
 	Source/WebCore/platform/graphics/transforms/TransformState.h \
 	Source/WebCore/platform/graphics/ANGLEWebKitBridge.cpp \
 	Source/WebCore/platform/graphics/ANGLEWebKitBridge.h \
-	Source/WebCore/platform/graphics/AudioTrackPrivate.h \
 	Source/WebCore/platform/graphics/BitmapImage.cpp \
 	Source/WebCore/platform/graphics/BitmapImage.h \
 	Source/WebCore/platform/graphics/Color.cpp \
@@ -3367,7 +3168,6 @@ platform_sources += \
 	Source/WebCore/platform/graphics/TiledBacking.h \
 	Source/WebCore/platform/graphics/TypesettingFeatures.h \
 	Source/WebCore/platform/graphics/UnitBezier.h \
-	Source/WebCore/platform/graphics/VideoTrackPrivate.h \
 	Source/WebCore/platform/graphics/WidthCache.h \
 	Source/WebCore/platform/graphics/WidthIterator.cpp \
 	Source/WebCore/platform/graphics/WidthIterator.h \
@@ -3630,14 +3430,6 @@ webcoregtk_sources += \
 	Source/WebCore/page/gtk/DragControllerGtk.cpp \
 	Source/WebCore/page/gtk/EventHandlerGtk.cpp \
 	Source/WebCore/platform/cairo/WidgetBackingStore.h \
-	Source/WebCore/platform/graphics/gstreamer/FullscreenVideoControllerGStreamer.cpp \
-	Source/WebCore/platform/graphics/gstreamer/FullscreenVideoControllerGStreamer.h \
-	Source/WebCore/platform/graphics/gstreamer/MediaPlayerPrivateGStreamerBase.cpp \
-	Source/WebCore/platform/graphics/gstreamer/MediaPlayerPrivateGStreamerBase.h \
-	Source/WebCore/platform/graphics/gstreamer/MediaPlayerPrivateGStreamer.cpp \
-	Source/WebCore/platform/graphics/gstreamer/MediaPlayerPrivateGStreamer.h \
-	Source/WebCore/platform/graphics/gtk/FullscreenVideoControllerGtk.cpp \
-	Source/WebCore/platform/graphics/gtk/FullscreenVideoControllerGtk.h \
 	Source/WebCore/platform/graphics/gtk/IconGtk.cpp \
 	Source/WebCore/platform/graphics/gtk/ImageBufferGtk.cpp \
 	Source/WebCore/platform/gtk/AsyncFileSystemGtk.cpp \
@@ -3669,19 +3461,10 @@ webcoregtk_sources += \
 	Source/WebCore/platform/gtk/WidgetRenderingContext.h
 
 platformgtk_sources += \
-	Source/WebCore/platform/audio/gtk/AudioBusGtk.cpp \
 	Source/WebCore/platform/graphics/cairo/GraphicsContextCairo.cpp \
 	Source/WebCore/platform/graphics/cairo/GraphicsContextPlatformPrivateCairo.h \
 	Source/WebCore/platform/graphics/freetype/FontPlatformData.h \
 	Source/WebCore/platform/graphics/freetype/FontPlatformDataFreeType.cpp \
-	Source/WebCore/platform/graphics/gstreamer/GStreamerGWorld.cpp \
-	Source/WebCore/platform/graphics/gstreamer/GStreamerGWorld.h \
-	Source/WebCore/platform/graphics/gstreamer/ImageGStreamerCairo.cpp \
-	Source/WebCore/platform/graphics/gstreamer/ImageGStreamer.h \
-	Source/WebCore/platform/graphics/gstreamer/PlatformVideoWindowGtk.cpp \
-	Source/WebCore/platform/graphics/gstreamer/PlatformVideoWindow.h \
-	Source/WebCore/platform/graphics/gstreamer/VideoSinkGStreamer.cpp \
-	Source/WebCore/platform/graphics/gstreamer/VideoSinkGStreamer.h \
 	Source/WebCore/platform/graphics/gtk/ColorGtk.cpp \
 	Source/WebCore/platform/graphics/gtk/GdkCairoUtilities.cpp \
 	Source/WebCore/platform/graphics/gtk/GdkCairoUtilities.h \
@@ -3783,16 +3566,6 @@ webcore_sources += \
 	Source/WebCore/platform/graphics/OpenGLShims.cpp \
 	Source/WebCore/platform/graphics/OpenGLShims.h
 endif # END USE_GLES2
-
-if USE_GSTREAMER
-platform_sources += \
-	Source/WebCore/platform/graphics/gstreamer/GRefPtrGStreamer.cpp \
-	Source/WebCore/platform/graphics/gstreamer/GRefPtrGStreamer.h \
-	Source/WebCore/platform/graphics/gstreamer/GStreamerUtilities.cpp \
-	Source/WebCore/platform/graphics/gstreamer/GStreamerUtilities.h \
-	Source/WebCore/platform/graphics/gstreamer/GStreamerVersioning.cpp \
-	Source/WebCore/platform/graphics/gstreamer/GStreamerVersioning.h
-endif
 
 # ---
 # Accelerated compositing support

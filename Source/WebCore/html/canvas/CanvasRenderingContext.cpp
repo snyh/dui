@@ -30,7 +30,6 @@
 #include "html/canvas/CanvasPattern.h"
 #include "html/HTMLCanvasElement.h"
 #include "html/HTMLImageElement.h"
-#include "html/HTMLVideoElement.h"
 #include "platform/graphics/Image.h"
 #include "platform/KURL.h"
 
@@ -57,29 +56,6 @@ bool CanvasRenderingContext::wouldTaintOrigin(const HTMLCanvasElement* sourceCan
 
 bool CanvasRenderingContext::wouldTaintOrigin(const HTMLImageElement* image)
 {
-    return false;
-}
-
-bool CanvasRenderingContext::wouldTaintOrigin(const HTMLVideoElement* video)
-{
-#if ENABLE(VIDEO)
-    // FIXME: This check is likely wrong when a redirect is involved. We need
-    // to test the finalURL. Please be careful when fixing this issue not to
-    // make currentSrc be the final URL because then the
-    // HTMLMediaElement.currentSrc DOM API would leak redirect destinations!
-    if (!video || !canvas()->originClean())
-        return false;
-
-    if (!video->hasSingleSecurityOrigin())
-        return true;
-
-    if (!(video->player() && video->player()->didPassCORSAccessCheck()) && wouldTaintOrigin(video->currentSrc()))
-        return true;
-
-#else
-    UNUSED_PARAM(video);
-#endif
-
     return false;
 }
 

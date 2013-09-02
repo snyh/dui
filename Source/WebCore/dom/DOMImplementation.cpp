@@ -39,9 +39,7 @@
 #include "html/HTMLViewSourceDocument.h"
 #include "platform/graphics/Image.h"
 #include "html/ImageDocument.h"
-#include "html/MediaDocument.h"
 #include "css/MediaList.h"
-#include "platform/graphics/MediaPlayer.h"
 #include "platform/MIMETypeRegistry.h"
 #include "page/Page.h"
 #include "page/Settings.h"
@@ -64,24 +62,6 @@ static void addString(FeatureSet& set, const char* string)
 {
     set.add(string);
 }
-
-#if ENABLE(VIDEO)
-class DOMImplementationSupportsTypeClient : public MediaPlayerSupportsTypeClient {
-public:
-    DOMImplementationSupportsTypeClient(bool needsHacks, const String& host)
-        : m_needsHacks(needsHacks)
-        , m_host(host)
-    {
-    }
-
-private:
-    virtual bool mediaPlayerNeedsSiteSpecificHacks() const OVERRIDE { return m_needsHacks; }
-    virtual String mediaPlayerDocumentHost() const OVERRIDE { return m_host; }
-
-    bool m_needsHacks;
-    String m_host;
-};
-#endif
 
 #if ENABLE(SVG)
 
@@ -391,14 +371,6 @@ PassRefPtr<Document> DOMImplementation::createDocument(const String& type, Frame
 
     if (Image::supportsType(type))
         return ImageDocument::create(frame, url);
-
-#if ENABLE(VIDEO)
-     // Check to see if the type can be played by our MediaPlayer, if so create a MediaDocument
-    // Key system is not applicable here.
-    DOMImplementationSupportsTypeClient client(frame && frame->settings() && frame->settings()->needsSiteSpecificQuirks(), url.host());
-    if (MediaPlayer::supportsType(ContentType(type), String(), url, &client))
-         return MediaDocument::create(frame, url);
-#endif
 
     if (isTextMIMEType(type))
         return TextDocument::create(frame, url);

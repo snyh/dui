@@ -31,8 +31,6 @@
 #include "config.h"
 #include "bindings/dui/RuntimeEnabledFeatures.h"
 
-#include "platform/graphics/MediaPlayer.h"
-
 #if ENABLE(FILE_SYSTEM)
 #include "platform/AsyncFileSystem.h"
 #endif
@@ -89,50 +87,6 @@ bool RuntimeEnabledFeatures::javaScriptI18NAPIEnabled()
 {
     return isJavaScriptI18NAPIEnabled;
 }
-#endif
-
-#if ENABLE(VIDEO)
-
-bool RuntimeEnabledFeatures::audioEnabled()
-{
-    return MediaPlayer::isAvailable();
-}
-
-bool RuntimeEnabledFeatures::htmlMediaElementEnabled()
-{
-    return MediaPlayer::isAvailable();
-}
-
-bool RuntimeEnabledFeatures::htmlAudioElementEnabled()
-{
-    return MediaPlayer::isAvailable();
-}
-
-bool RuntimeEnabledFeatures::htmlVideoElementEnabled()
-{
-    return MediaPlayer::isAvailable();
-}
-
-bool RuntimeEnabledFeatures::htmlSourceElementEnabled()
-{
-    return MediaPlayer::isAvailable();
-}
-
-bool RuntimeEnabledFeatures::mediaControllerEnabled()
-{
-    return MediaPlayer::isAvailable();
-}
-
-bool RuntimeEnabledFeatures::mediaErrorEnabled()
-{
-    return MediaPlayer::isAvailable();
-}
-
-bool RuntimeEnabledFeatures::timeRangesEnabled()
-{
-    return MediaPlayer::isAvailable();
-}
-
 #endif
 
 #if ENABLE(SHARED_WORKERS)

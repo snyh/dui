@@ -33,7 +33,6 @@
 #include "dom/EventPathWalker.h"
 #include "dom/EventRetargeter.h"
 #include "page/FrameView.h"
-#include "html/HTMLMediaElement.h"
 #include "html/shadow/InsertionPoint.h"
 #include "dom/MouseEvent.h"
 #include "dom/ScopedEventQueue.h"

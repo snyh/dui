@@ -84,15 +84,6 @@ public:
 
     virtual bool popsMenuBySpaceOrReturn() const OVERRIDE { return true; }
 
-#if ENABLE(VIDEO)
-    virtual String extraMediaControlsStyleSheet();
-    virtual String formatMediaControlsCurrentTime(float currentTime, float duration) const;
-
-#if ENABLE(FULLSCREEN_API)
-    virtual String extraFullScreenStyleSheet();
-#endif
-#endif
-
 #if ENABLE(DATALIST_ELEMENT)
     // Returns size of one slider tick mark for a horizontal track.
     // For vertical tracks we rotate it and use it. i.e. Width is always length along the track.
@@ -158,23 +149,6 @@ protected:
 
     virtual void adjustSliderThumbSize(RenderStyle*, Element*) const;
 
-#if ENABLE(VIDEO)
-    void initMediaColors();
-    void initMediaButtons();
-    virtual bool hasOwnDisabledStateHandlingFor(ControlPart) const;
-    virtual bool paintMediaFullscreenButton(RenderObject*, const PaintInfo&, const IntRect&);
-    virtual bool paintMediaPlayButton(RenderObject*, const PaintInfo&, const IntRect&);
-    virtual bool paintMediaMuteButton(RenderObject*, const PaintInfo&, const IntRect&);
-    virtual bool paintMediaSeekBackButton(RenderObject*, const PaintInfo&, const IntRect&);
-    virtual bool paintMediaSeekForwardButton(RenderObject*, const PaintInfo&, const IntRect&);
-    virtual bool paintMediaSliderTrack(RenderObject*, const PaintInfo&, const IntRect&);
-    virtual bool paintMediaSliderThumb(RenderObject*, const PaintInfo&, const IntRect&);
-    virtual bool paintMediaVolumeSliderContainer(RenderObject*, const PaintInfo&, const IntRect&);
-    virtual bool paintMediaVolumeSliderTrack(RenderObject*, const PaintInfo&, const IntRect&);
-    virtual bool paintMediaVolumeSliderThumb(RenderObject*, const PaintInfo&, const IntRect&);
-    virtual bool paintMediaCurrentTime(RenderObject*, const PaintInfo&, const IntRect&);
-#endif
-
 #if ENABLE(PROGRESS_ELEMENT)
     virtual double animationRepeatIntervalForProgressBar(RenderProgress*) const;
     virtual double animationDurationForProgressBar(RenderProgress*) const;
@@ -193,10 +167,6 @@ private:
     void platformInit();
     static void setTextInputBorders(RenderStyle*);
     static double getScreenDPI();
-
-#if ENABLE(VIDEO)
-    bool paintMediaButton(RenderObject*, GraphicsContext*, const IntRect&, const char* symbolicIconName, const char* fallbackStockIconName);
-#endif
 
 #if ENABLE(PROGRESS_ELEMENT)
     static IntRect calculateProgressRect(RenderObject*, const IntRect&);

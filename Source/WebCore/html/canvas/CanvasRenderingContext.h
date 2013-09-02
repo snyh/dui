@@ -38,7 +38,6 @@ namespace WebCore {
 class CanvasPattern;
 class HTMLCanvasElement;
 class HTMLImageElement;
-class HTMLVideoElement;
 class KURL;
 class WebGLObject;
 
@@ -66,7 +65,6 @@ protected:
     bool wouldTaintOrigin(const CanvasPattern*);
     bool wouldTaintOrigin(const HTMLCanvasElement*);
     bool wouldTaintOrigin(const HTMLImageElement*);
-    bool wouldTaintOrigin(const HTMLVideoElement*);
     bool wouldTaintOrigin(const KURL&);
 
     template<class T> void checkOrigin(const T* arg)

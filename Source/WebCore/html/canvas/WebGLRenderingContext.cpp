@@ -42,7 +42,6 @@
 #include "page/FrameView.h"
 #include "html/HTMLCanvasElement.h"
 #include "html/HTMLImageElement.h"
-#include "html/HTMLVideoElement.h"
 #include "platform/graphics/ImageBuffer.h"
 #include "html/ImageData.h"
 #include "platform/graphics/IntSize.h"
@@ -3861,54 +3860,6 @@ void WebGLRenderingContext::texImage2D(GC3Denum target, GC3Dint level, GC3Denum 
         texImage2DImpl(target, level, internalformat, format, type, canvas->copiedImage(), GraphicsContext3D::HtmlDomCanvas, m_unpackFlipY, m_unpackPremultiplyAlpha, ec);
 }
 
-#if ENABLE(VIDEO)
-PassRefPtr<Image> WebGLRenderingContext::videoFrameToImage(HTMLVideoElement* video, BackingStoreCopy backingStoreCopy, ExceptionCode&)
-{
-    IntSize size(video->videoWidth(), video->videoHeight());
-    ImageBuffer* buf = m_videoCache.imageBuffer(size);
-    if (!buf) {
-        synthesizeGLError(GraphicsContext3D::OUT_OF_MEMORY, "texImage2D", "out of memory");
-        return 0;
-    }
-    IntRect destRect(0, 0, size.width(), size.height());
-    // FIXME: Turn this into a GPU-GPU texture copy instead of CPU readback.
-    video->paintCurrentFrameInContext(buf->context(), destRect);
-    return buf->copyImage(backingStoreCopy);
-}
-
-void WebGLRenderingContext::texImage2D(GC3Denum target, GC3Dint level, GC3Denum internalformat,
-                                       GC3Denum format, GC3Denum type, HTMLVideoElement* video, ExceptionCode& ec)
-{
-    ec = 0;
-    if (isContextLost() || !validateHTMLVideoElement("texImage2D", video, ec)
-        || !validateTexFunc("texImage2D", NotTexSubImage2D, SourceHTMLVideoElement, target, level, internalformat, video->videoWidth(), video->videoHeight(), 0, format, type, 0, 0))
-        return;
-
-    // Go through the fast path doing a GPU-GPU textures copy without a readback to system memory if possible.
-    // Otherwise, it will fall back to the normal SW path.
-    // FIXME: The current restrictions require that format shoud be RGB or RGBA,
-    // type should be UNSIGNED_BYTE and level should be 0. It may be lifted in the future.
-    WebGLTexture* texture = validateTextureBinding("texImage2D", target, true);
-    if (GraphicsContext3D::TEXTURE_2D == target && texture
-        && (format == GraphicsContext3D::RGB || format == GraphicsContext3D::RGBA)
-        && type == GraphicsContext3D::UNSIGNED_BYTE
-        && (texture->getType(target, level) == GraphicsContext3D::UNSIGNED_BYTE || !texture->isValid(target, level))
-        && !level) {
-        if (video->copyVideoTextureToPlatformTexture(m_context.get(), texture->object(), level, type, internalformat, m_unpackPremultiplyAlpha, m_unpackFlipY)) {
-            texture->setLevelInfo(target, level, internalformat, video->videoWidth(), video->videoHeight(), type);
-            cleanupAfterGraphicsCall(false);
-            return;
-        }
-    }
-
-    // Normal pure SW path.
-    RefPtr<Image> image = videoFrameToImage(video, ImageBuffer::fastCopyImageMode(), ec);
-    if (!image)
-        return;
-    texImage2DImpl(target, level, internalformat, format, type, image.get(), GraphicsContext3D::HtmlDomVideo, m_unpackFlipY, m_unpackPremultiplyAlpha, ec);
-}
-#endif
-
 void WebGLRenderingContext::texParameter(GC3Denum target, GC3Denum pname, GC3Dfloat paramf, GC3Dint parami, bool isFloat)
 {
     if (isContextLost())
@@ -4091,22 +4042,6 @@ void WebGLRenderingContext::texSubImage2D(GC3Denum target, GC3Dint level, GC3Din
     else
         texSubImage2DImpl(target, level, xoffset, yoffset, format, type, canvas->copiedImage(), GraphicsContext3D::HtmlDomCanvas, m_unpackFlipY, m_unpackPremultiplyAlpha, ec);
 }
-
-#if ENABLE(VIDEO)
-void WebGLRenderingContext::texSubImage2D(GC3Denum target, GC3Dint level, GC3Dint xoffset, GC3Dint yoffset,
-                                          GC3Denum format, GC3Denum type, HTMLVideoElement* video, ExceptionCode& ec)
-{
-    ec = 0;
-    if (isContextLost() || !validateHTMLVideoElement("texSubImage2D", video, ec)
-        || !validateTexFunc("texSubImage2D", TexSubImage2D, SourceHTMLVideoElement, target, level, format, video->videoWidth(), video->videoHeight(), 0, format, type, xoffset, yoffset))
-        return;
-
-    RefPtr<Image> image = videoFrameToImage(video, ImageBuffer::fastCopyImageMode(), ec);
-    if (!image)
-        return;
-    texSubImage2DImpl(target, level, xoffset, yoffset, format, type, image.get(), GraphicsContext3D::HtmlDomVideo, m_unpackFlipY, m_unpackPremultiplyAlpha, ec);
-}
-#endif
 
 void WebGLRenderingContext::uniform1f(const WebGLUniformLocation* location, GC3Dfloat x, ExceptionCode& ec)
 {
@@ -5598,21 +5533,6 @@ bool WebGLRenderingContext::validateHTMLCanvasElement(const char* functionName, 
     }
     return true;
 }
-
-#if ENABLE(VIDEO)
-bool WebGLRenderingContext::validateHTMLVideoElement(const char* functionName, HTMLVideoElement* video, ExceptionCode& ec)
-{
-    if (!video || !video->videoWidth() || !video->videoHeight()) {
-        synthesizeGLError(GraphicsContext3D::INVALID_VALUE, functionName, "no video");
-        return false;
-    }
-    if (wouldTaintOrigin(video)) {
-        ec = SECURITY_ERR;
-        return false;
-    }
-    return true;
-}
-#endif
 
 void WebGLRenderingContext::vertexAttribfImpl(const char* functionName, GC3Duint index, GC3Dsizei expectedSize, GC3Dfloat v0, GC3Dfloat v1, GC3Dfloat v2, GC3Dfloat v3)
 {

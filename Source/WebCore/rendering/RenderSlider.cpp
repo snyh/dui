@@ -30,7 +30,6 @@
 #include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
 #include "html/parser/HTMLParserIdioms.h"
-#include "html/shadow/MediaControlElements.h"
 #include "dom/MouseEvent.h"
 #include "dom/Node.h"
 #include "rendering/RenderLayer.h"

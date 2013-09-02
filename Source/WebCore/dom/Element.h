@@ -563,10 +563,6 @@ public:
     static bool isMathMLElement() { return false; }
 #endif
 
-#if ENABLE(VIDEO)
-    virtual bool isMediaElement() const { return false; }
-#endif
-
 #if ENABLE(INPUT_SPEECH)
     virtual bool isInputFieldSpeechButtonElement() const { return false; }
 #endif

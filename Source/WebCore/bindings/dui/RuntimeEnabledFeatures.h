@@ -123,17 +123,6 @@ public:
     static bool webkitRequestFullscreenEnabled() { return isFullScreenAPIEnabled; }
 #endif
 
-#if ENABLE(VIDEO)
-    static bool audioEnabled();
-    static bool htmlMediaElementEnabled();
-    static bool htmlAudioElementEnabled();
-    static bool htmlVideoElementEnabled();
-    static bool htmlSourceElementEnabled();
-    static bool mediaControllerEnabled();
-    static bool mediaErrorEnabled();
-    static bool timeRangesEnabled();
-#endif
-
 #if ENABLE(SHARED_WORKERS)
     static bool sharedWorkerEnabled();
 #endif

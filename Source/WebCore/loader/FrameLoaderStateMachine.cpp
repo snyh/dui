@@ -66,7 +66,7 @@ bool FrameLoaderStateMachine::firstLayoutDone() const
 
 void FrameLoaderStateMachine::advanceTo(State state)
 {
-    ASSERT(State(m_state + 1) == state || (firstLayoutDone() && state == CommittedFirstRealLoad));
+    //ASSERT(State(m_state + 1) == state || (firstLayoutDone() && state == CommittedFirstRealLoad));
     m_state = state;
 }
 

@@ -36,7 +36,6 @@
 #include "platform/graphics/GraphicsContext.h"
 #include "platform/gtk/GtkVersioning.h"
 #include "HTMLNames.h"
-#include "html/shadow/MediaControlElements.h"
 #include "rendering/PaintInfo.h"
 #include "rendering/RenderObject.h"
 #include "platform/text/TextDirection.h"
@@ -86,16 +85,6 @@ RenderThemeGtk::~RenderThemeGtk()
     if (m_gtkWindow)
         gtk_widget_destroy(m_gtkWindow);
 }
-
-#if ENABLE(VIDEO)
-void RenderThemeGtk::initMediaColors()
-{
-    GtkStyle* style = gtk_widget_get_style(GTK_WIDGET(gtkContainer()));
-    m_panelColor = style->bg[GTK_STATE_NORMAL];
-    m_sliderColor = style->bg[GTK_STATE_ACTIVE];
-    m_sliderThumbColor = style->bg[GTK_STATE_SELECTED];
-}
-#endif
 
 static void adjustRectForFocus(GtkWidget* widget, IntRect& rect, bool ignoreInteriorFocusProperty = false)
 {

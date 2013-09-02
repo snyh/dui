@@ -35,7 +35,6 @@
 #include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
 #include "platform/LocalizedStrings.h"
-#include "html/shadow/MediaControlElements.h"
 #include "page/Page.h"
 #include "rendering/PaintInfo.h"
 #include "rendering/style/RenderStyle.h"
@@ -490,47 +489,6 @@ bool RenderTheme::paintDecorations(RenderObject* o, const PaintInfo& paintInfo, 
 
     return false;
 }
-
-#if ENABLE(VIDEO)
-
-String RenderTheme::formatMediaControlsTime(float time) const
-{
-    if (!std::isfinite(time))
-        time = 0;
-    int seconds = (int)fabsf(time);
-    int hours = seconds / (60 * 60);
-    int minutes = (seconds / 60) % 60;
-    seconds %= 60;
-    if (hours) {
-        if (hours > 9)
-            return String::format("%s%02d:%02d:%02d", (time < 0 ? "-" : ""), hours, minutes, seconds);
-
-        return String::format("%s%01d:%02d:%02d", (time < 0 ? "-" : ""), hours, minutes, seconds);
-    }
-
-    return String::format("%s%02d:%02d", (time < 0 ? "-" : ""), minutes, seconds);
-}
-
-String RenderTheme::formatMediaControlsCurrentTime(float currentTime, float /*duration*/) const
-{
-    return formatMediaControlsTime(currentTime);
-}
-
-String RenderTheme::formatMediaControlsRemainingTime(float currentTime, float duration) const
-{
-    return formatMediaControlsTime(currentTime - duration);
-}
-
-IntPoint RenderTheme::volumeSliderOffsetFromMuteButton(RenderBox* muteButtonBox, const IntSize& size) const
-{
-    int y = -size.height();
-    FloatPoint absPoint = muteButtonBox->localToAbsolute(FloatPoint(muteButtonBox->pixelSnappedOffsetLeft(), y), IsFixed | UseTransforms);
-    if (absPoint.y() < 0)
-        y = muteButtonBox->height();
-    return IntPoint(0, y);
-}
-
-#endif
 
 Color RenderTheme::activeSelectionBackgroundColor() const
 {

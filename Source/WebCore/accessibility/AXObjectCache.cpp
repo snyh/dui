@@ -39,7 +39,6 @@
 #include "accessibility/AccessibilityList.h"
 #include "accessibility/AccessibilityListBox.h"
 #include "accessibility/AccessibilityListBoxOption.h"
-#include "accessibility/AccessibilityMediaControls.h"
 #include "accessibility/AccessibilityMenuList.h"
 #include "accessibility/AccessibilityMenuListOption.h"
 #include "accessibility/AccessibilityMenuListPopup.h"
@@ -77,10 +76,6 @@
 #include "rendering/RenderView.h"
 #include "platform/ScrollView.h"
 #include <wtf/PassRefPtr.h>
-
-#if ENABLE(VIDEO)
-#include "html/shadow/MediaControlElements.h"
-#endif
 
 namespace WebCore {
 
@@ -264,12 +259,6 @@ static PassRefPtr<AccessibilityObject> createFromRenderer(RenderObject* renderer
         return AccessibilityARIAGridRow::create(renderer);
     if (nodeHasRole(node, "gridcell") || nodeHasRole(node, "columnheader") || nodeHasRole(node, "rowheader"))
         return AccessibilityARIAGridCell::create(renderer);
-
-#if ENABLE(VIDEO)
-    // media controls
-    if (node && node->isMediaControlElement())
-        return AccessibilityMediaControl::create(renderer);
-#endif
 
 #if ENABLE(SVG)
     if (renderer->isSVGRoot())

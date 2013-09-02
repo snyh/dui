@@ -48,8 +48,6 @@
 #include "platform/graphics/GraphicsContext.h"
 #include "html/HTMLCanvasElement.h"
 #include "html/HTMLImageElement.h"
-#include "html/HTMLMediaElement.h"
-#include "html/HTMLVideoElement.h"
 #include "html/ImageData.h"
 #include "platform/graphics/StrokeStyleApplier.h"
 #include "css/StylePropertySet.h"
@@ -1204,15 +1202,6 @@ static LayoutSize size(HTMLImageElement* image)
     return IntSize();
 }
 
-#if ENABLE(VIDEO)
-static IntSize size(HTMLVideoElement* video)
-{
-    if (MediaPlayer* player = video->player())
-        return player->naturalSize();
-    return IntSize();
-}
-#endif
-
 static inline FloatRect normalizeRect(const FloatRect& rect)
 {
     return FloatRect(min(rect.x(), rect.maxX()),
@@ -1394,76 +1383,6 @@ void CanvasRenderingContext2D::drawImage(HTMLCanvasElement* sourceCanvas, const 
         didDraw(dstRect);
     }
 }
-
-#if ENABLE(VIDEO)
-void CanvasRenderingContext2D::drawImage(HTMLVideoElement* video, float x, float y, ExceptionCode& ec)
-{
-    if (!video) {
-        ec = TYPE_MISMATCH_ERR;
-        return;
-    }
-    IntSize s = size(video);
-    drawImage(video, x, y, s.width(), s.height(), ec);
-}
-
-void CanvasRenderingContext2D::drawImage(HTMLVideoElement* video,
-                                         float x, float y, float width, float height, ExceptionCode& ec)
-{
-    if (!video) {
-        ec = TYPE_MISMATCH_ERR;
-        return;
-    }
-    IntSize s = size(video);
-    drawImage(video, FloatRect(0, 0, s.width(), s.height()), FloatRect(x, y, width, height), ec);
-}
-
-void CanvasRenderingContext2D::drawImage(HTMLVideoElement* video,
-    float sx, float sy, float sw, float sh,
-    float dx, float dy, float dw, float dh, ExceptionCode& ec)
-{
-    drawImage(video, FloatRect(sx, sy, sw, sh), FloatRect(dx, dy, dw, dh), ec);
-}
-
-void CanvasRenderingContext2D::drawImage(HTMLVideoElement* video, const FloatRect& srcRect, const FloatRect& dstRect,
-                                         ExceptionCode& ec)
-{
-    if (!video) {
-        ec = TYPE_MISMATCH_ERR;
-        return;
-    }
-
-    ec = 0;
-
-    if (video->readyState() == HTMLMediaElement::HAVE_NOTHING || video->readyState() == HTMLMediaElement::HAVE_METADATA)
-        return;
-
-    FloatRect videoRect = FloatRect(FloatPoint(), size(video));
-    if (!srcRect.width() || !srcRect.height()) {
-        ec = INDEX_SIZE_ERR;
-        return;
-    }
-
-    if (!videoRect.contains(normalizeRect(srcRect)) || !dstRect.width() || !dstRect.height())
-        return;
-
-    GraphicsContext* c = drawingContext();
-    if (!c)
-        return;
-    if (!state().m_invertibleCTM)
-        return;
-
-    checkOrigin(video);
-
-    GraphicsContextStateSaver stateSaver(*c);
-    c->clip(dstRect);
-    c->translate(dstRect.x(), dstRect.y());
-    c->scale(FloatSize(dstRect.width() / srcRect.width(), dstRect.height() / srcRect.height()));
-    c->translate(-srcRect.x(), -srcRect.y());
-    video->paintCurrentFrameInContext(c, IntRect(IntPoint(), size(video)));
-    stateSaver.restore();
-    didDraw(dstRect);
-}
-#endif
 
 void CanvasRenderingContext2D::drawImageFromRect(HTMLImageElement* image,
     float sx, float sy, float sw, float sh,

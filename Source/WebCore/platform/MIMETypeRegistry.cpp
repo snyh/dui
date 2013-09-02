@@ -27,7 +27,6 @@
 #include "config.h"
 #include "platform/MIMETypeRegistry.h"
 
-#include "platform/graphics/MediaPlayer.h"
 #include <wtf/HashMap.h>
 #include <wtf/HashSet.h>
 #include <wtf/MainThread.h>
@@ -459,9 +458,6 @@ Vector<String> MIMETypeRegistry::getMediaMIMETypesForExtension(const String& ext
 static void initializeSupportedMediaMIMETypes()
 {
     supportedMediaMIMETypes = new HashSet<String>;
-#if ENABLE(VIDEO)
-    MediaPlayer::getSupportedTypes(*supportedMediaMIMETypes);
-#endif
 }
 
 static void initializeUnsupportedTextMIMETypes()

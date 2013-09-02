@@ -31,7 +31,6 @@
 #include "platform/graphics/GraphicsContext.h"
 #include "platform/gtk/GtkVersioning.h"
 #include "HTMLNames.h"
-#include "html/shadow/MediaControlElements.h"
 #include "page/Page.h"
 #include "rendering/PaintInfo.h"
 #include "platform/graphics/cairo/PlatformContextCairo.h"
@@ -130,21 +129,6 @@ void RenderThemeGtk::platformInit()
 RenderThemeGtk::~RenderThemeGtk()
 {
 }
-
-#if ENABLE(VIDEO)
-void RenderThemeGtk::initMediaColors()
-{
-    GdkRGBA color;
-    GtkStyleContext* containerContext = getStyleContext(GTK_TYPE_CONTAINER);
-
-    gtk_style_context_get_background_color(containerContext, GTK_STATE_FLAG_NORMAL, &color);
-    m_panelColor = color;
-    gtk_style_context_get_background_color(containerContext, GTK_STATE_FLAG_ACTIVE, &color);
-    m_sliderColor = color;
-    gtk_style_context_get_background_color(containerContext, GTK_STATE_FLAG_SELECTED, &color);
-    m_sliderThumbColor = color;
-}
-#endif
 
 static void adjustRectForFocus(GtkStyleContext* context, IntRect& rect)
 {

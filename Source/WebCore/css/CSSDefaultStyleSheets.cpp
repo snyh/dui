@@ -32,7 +32,6 @@
 #include "page/Chrome.h"
 #include "page/ChromeClient.h"
 #include "html/HTMLAnchorElement.h"
-#include "html/HTMLAudioElement.h"
 #include "css/MediaQueryEvaluator.h"
 #include "page/Page.h"
 #include "rendering/RenderTheme.h"
@@ -178,16 +177,6 @@ void CSSDefaultStyleSheets::ensureDefaultStyleSheetsForElement(Element* element,
         mathMLStyleSheet = parseUASheet(mathmlUserAgentStyleSheet, sizeof(mathmlUserAgentStyleSheet));
         defaultStyle->addRulesFromSheet(mathMLStyleSheet, screenEval());
         defaultPrintStyle->addRulesFromSheet(mathMLStyleSheet, printEval());
-        changedDefaultStyle = true;
-    }
-#endif
-
-#if ENABLE(VIDEO)
-    if (!mediaControlsStyleSheet && (element->hasTagName(videoTag) || isHTMLAudioElement(element))) {
-        String mediaRules = String(mediaControlsUserAgentStyleSheet, sizeof(mediaControlsUserAgentStyleSheet)) + RenderTheme::themeForPage(element->document()->page())->extraMediaControlsStyleSheet();
-        mediaControlsStyleSheet = parseUASheet(mediaRules);
-        defaultStyle->addRulesFromSheet(mediaControlsStyleSheet, screenEval());
-        defaultPrintStyle->addRulesFromSheet(mediaControlsStyleSheet, printEval());
         changedDefaultStyle = true;
     }
 #endif

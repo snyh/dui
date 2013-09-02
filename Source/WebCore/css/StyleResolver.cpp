@@ -166,10 +166,6 @@
 #include "css/DashboardRegion.h"
 #endif
 
-#if ENABLE(PLUGIN_PROXY_FOR_VIDEO)
-#include "html/HTMLAudioElement.h"
-#endif
-
 #if ENABLE(SVG)
 #include "loader/cache/CachedSVGDocument.h"
 #include "loader/cache/CachedSVGDocumentReference.h"

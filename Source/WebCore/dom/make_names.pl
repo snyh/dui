@@ -858,7 +858,7 @@ print F <<END
 #include "dom/CustomElementRegistry.h"
 #endif
 
-#if ENABLE(DASHBOARD_SUPPORT) || ENABLE(VIDEO)
+#if ENABLE(DASHBOARD_SUPPORT)
 #include "dom/Document.h"
 #include "page/Settings.h"
 #endif
@@ -1137,11 +1137,6 @@ sub printWrapperFactoryCppFile
 
 #include "dom/ContextFeatures.h"
 #include "bindings/dui/RuntimeEnabledFeatures.h"
-
-#if ENABLE(VIDEO)
-#include "dom/Document.h"
-#include "page/Settings.h"
-#endif
 
 END
 ;

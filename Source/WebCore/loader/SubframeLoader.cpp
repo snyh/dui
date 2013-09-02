@@ -47,10 +47,6 @@
 #include "rendering/RenderView.h"
 #include "page/Settings.h"
 
-#if ENABLE(PLUGIN_PROXY_FOR_VIDEO)
-#include "html/HTMLMediaElement.h"
-#include "rendering/RenderVideo.h"
-#endif
 
 namespace WebCore {
     
@@ -100,38 +96,6 @@ static String findPluginMIMETypeFromURL(Page* page, const String& url)
     return String();
 }
 
-
-#if ENABLE(PLUGIN_PROXY_FOR_VIDEO)
-PassRefPtr<Widget> SubframeLoader::loadMediaPlayerProxyPlugin(Node* node, const KURL& url,
-    const Vector<String>& paramNames, const Vector<String>& paramValues)
-{
-    ASSERT(node->hasTagName(videoTag) || isHTMLAudioElement(node));
-
-    KURL completedURL;
-    if (!url.isEmpty())
-        completedURL = completeURL(url);
-
-    HTMLMediaElement* mediaElement = static_cast<HTMLMediaElement*>(node);
-    RenderPart* renderer = toRenderPart(node->renderer());
-    IntSize size;
-
-    if (renderer)
-        size = roundedIntSize(LayoutSize(renderer->contentWidth(), renderer->contentHeight()));
-    else if (mediaElement->isVideo())
-        size = RenderVideo::defaultSize();
-
-    RefPtr<Widget> widget = m_frame->loader()->client()->createMediaPlayerProxyPlugin(size, mediaElement, completedURL,
-                                         paramNames, paramValues, "application/x-media-element-proxy-plugin");
-
-    if (widget && renderer) {
-        renderer->setWidget(widget);
-        renderer->node()->setNeedsStyleRecalc(SyntheticStyleChange);
-    }
-    m_containsPlugins = true;
-
-    return widget ? widget.release() : 0;
-}
-#endif // ENABLE(PLUGIN_PROXY_FOR_VIDEO)
 
 Frame* SubframeLoader::loadOrRedirectSubframe(HTMLFrameOwnerElement* ownerElement, const KURL& url, const AtomicString& frameName, bool lockHistory, bool lockBackForwardList)
 {

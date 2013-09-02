@@ -41,14 +41,12 @@
 #include "platform/graphics/GraphicsLayer.h"
 #include "html/HTMLCanvasElement.h"
 #include "html/HTMLIFrameElement.h"
-#include "html/HTMLMediaElement.h"
 #include "HTMLNames.h"
 #include "rendering/style/KeyframeList.h"
 #include "loader/ProgressTracker.h"
 #include "rendering/RenderIFrame.h"
 #include "rendering/RenderImage.h"
 #include "rendering/RenderLayerCompositor.h"
-#include "rendering/RenderVideo.h"
 #include "rendering/RenderView.h"
 #include "page/scrolling/ScrollingCoordinator.h"
 #include "page/Settings.h"
@@ -559,12 +557,6 @@ bool RenderLayerBacking::updateGraphicsLayerConfiguration()
     if (isDirectlyCompositedImage())
         updateImageContents();
 
-#if ENABLE(VIDEO)
-    else if (renderer->isVideo()) {
-        HTMLMediaElement* mediaElement = toMediaElement(renderer->node());
-        m_graphicsLayer->setContentsToMedia(mediaElement->platformLayer());
-    }
-#endif
 #if ENABLE(WEBGL) || ENABLE(ACCELERATED_2D_CANVAS)
     else if (isAcceleratedCanvas(renderer)) {
         HTMLCanvasElement* canvas = static_cast<HTMLCanvasElement*>(renderer->node());
@@ -1645,12 +1637,6 @@ bool RenderLayerBacking::containsPaintedContent(bool isSimpleContainer) const
     if (isDirectlyCompositedImage())
         return false;
 
-    // FIXME: we could optimize cases where the image, video or canvas is known to fill the border box entirely,
-    // and set background color on the layer in that case, instead of allocating backing store and painting.
-#if ENABLE(VIDEO)
-    if (renderer()->isVideo() && toRenderVideo(renderer())->shouldDisplayVideo())
-        return m_owningLayer->hasBoxDecorationsOrBackground();
-#endif
 #if PLATFORM(MAC) && USE(CA) && (PLATFORM(IOS) || __MAC_OS_X_VERSION_MIN_REQUIRED >= 1070)
 #elif ENABLE(WEBGL) || ENABLE(ACCELERATED_2D_CANVAS)
     if (isAcceleratedCanvas(renderer()))
@@ -1774,13 +1760,7 @@ IntRect RenderLayerBacking::contentsBox() const
         return IntRect();
 
     IntRect contentsRect;
-#if ENABLE(VIDEO)
-    if (renderer()->isVideo()) {
-        RenderVideo* videoRenderer = toRenderVideo(renderer());
-        contentsRect = videoRenderer->videoBox();
-    } else
-#endif
-        contentsRect = pixelSnappedIntRect(toRenderBox(renderer())->contentBoxRect());
+    contentsRect = pixelSnappedIntRect(toRenderBox(renderer())->contentBoxRect());
 
     contentsRect.move(contentOffsetInCompostingLayer());
     return contentsRect;

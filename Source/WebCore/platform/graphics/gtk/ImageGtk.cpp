@@ -93,7 +93,6 @@ PassRefPtr<Image> Image::loadPlatformResource(const char* name)
 
 PassRefPtr<Image> Image::loadImageFromFile(const CString& fileName)
 {
-    LOG(ResourceLoading, "loadImageFromFile %s", fileName.data());
     RefPtr<BitmapImage> img = BitmapImage::create();
     if (!fileName.isNull()) {
         RefPtr<SharedBuffer> buffer = loadResourceSharedBuffer(fileName);

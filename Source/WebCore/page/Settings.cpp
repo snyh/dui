@@ -33,7 +33,6 @@
 #include "page/Frame.h"
 #include "page/FrameTree.h"
 #include "page/FrameView.h"
-#include "html/HTMLMediaElement.h"
 #include "page/Page.h"
 #include "rendering/TextAutosizer.h"
 #include <limits>
@@ -453,7 +452,6 @@ void Settings::setAVFoundationEnabled(bool enabled)
         return;
 
     gAVFoundationEnabled = enabled;
-    HTMLMediaElement::resetMediaEngines();
 }
 #endif
 
@@ -464,7 +462,6 @@ void Settings::setQTKitEnabled(bool enabled)
         return;
 
     gQTKitEnabled = enabled;
-    HTMLMediaElement::resetMediaEngines();
 }
 #endif
 
