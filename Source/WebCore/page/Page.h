@@ -113,9 +113,6 @@ public:
 
         AlternativeTextClient* alternativeTextClient;
         ChromeClient* chromeClient;
-#if ENABLE(CONTEXT_MENUS)
-        ContextMenuClient* contextMenuClient;
-#endif
         EditorClient* editorClient;
         DragClient* dragClient;
         ValidationMessageClient* validationMessageClient;
@@ -159,9 +156,6 @@ public:
     DragController* dragController() const { return m_dragController.get(); }
 #endif
     FocusController* focusController() const { return m_focusController.get(); }
-#if ENABLE(CONTEXT_MENUS)
-    ContextMenuController* contextMenuController() const { return m_contextMenuController.get(); }
-#endif
 #if ENABLE(POINTER_LOCK)
     PointerLockController* pointerLockController() const { return m_pointerLockController.get(); }
 #endif
@@ -382,9 +376,6 @@ private:
     OwnPtr<DragController> m_dragController;
 #endif
     OwnPtr<FocusController> m_focusController;
-#if ENABLE(CONTEXT_MENUS)
-    OwnPtr<ContextMenuController> m_contextMenuController;
-#endif
 #if ENABLE(POINTER_LOCK)
     OwnPtr<PointerLockController> m_pointerLockController;
 #endif

@@ -30,7 +30,6 @@
 #define EmptyClients_h
 
 #include "page/ChromeClient.h"
-#include "page/ContextMenuClient.h"
 #include "page/DragClient.h"
 #include "page/EditorClient.h"
 #include "platform/text/TextCheckerClient.h"
@@ -493,39 +492,6 @@ public:
 private:
     EmptyTextCheckerClient m_textCheckerClient;
 };
-
-#if ENABLE(CONTEXT_MENUS)
-class EmptyContextMenuClient : public ContextMenuClient {
-    WTF_MAKE_NONCOPYABLE(EmptyContextMenuClient); WTF_MAKE_FAST_ALLOCATED;
-public:
-    EmptyContextMenuClient() { }
-    virtual ~EmptyContextMenuClient() {  }
-    virtual void contextMenuDestroyed() { }
-
-#if USE(CROSS_PLATFORM_CONTEXT_MENUS)
-    virtual PassOwnPtr<ContextMenu> customizeMenu(PassOwnPtr<ContextMenu>) OVERRIDE;
-#else
-    virtual PlatformMenuDescription getCustomMenuFromDefaultItems(ContextMenu*) { return 0; }
-#endif
-    virtual void contextMenuItemSelected(ContextMenuItem*, const ContextMenu*) { }
-
-    virtual void downloadURL(const KURL&) { }
-    virtual void copyImageToClipboard(const HitTestResult&) { }
-    virtual void searchWithGoogle(const Frame*) { }
-    virtual void lookUpInDictionary(Frame*) { }
-    virtual bool isSpeaking() { return false; }
-    virtual void speak(const String&) { }
-    virtual void stopSpeaking() { }
-
-#if PLATFORM(MAC)
-    virtual void searchWithSpotlight() { }
-#endif
-
-#if USE(ACCESSIBILITY_CONTEXT_MENUS)
-    virtual void showContextMenu() { }
-#endif
-};
-#endif // ENABLE(CONTEXT_MENUS)
 
 #if ENABLE(DRAG_SUPPORT)
 class EmptyDragClient : public DragClient {

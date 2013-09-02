@@ -41,7 +41,6 @@
 #include "dom/ChildNodeList.h"
 #include "dom/ClassNodeList.h"
 #include "dom/ContainerNodeAlgorithms.h"
-#include "page/ContextMenuController.h"
 #include "dom/DOMImplementation.h"
 #include "html/DOMSettableTokenList.h"
 #include "dom/Document.h"
@@ -2310,12 +2309,6 @@ void Node::defaultEventHandler(Event* event)
         int detail = event->isUIEvent() ? static_cast<UIEvent*>(event)->detail() : 0;
         if (dispatchDOMActivateEvent(detail, event))
             event->setDefaultHandled();
-#if ENABLE(CONTEXT_MENUS)
-    } else if (eventType == eventNames().contextmenuEvent) {
-        if (Frame* frame = document()->frame())
-            if (Page* page = frame->page())
-                page->contextMenuController()->handleContextMenuEvent(event);
-#endif
     } else if (eventType == eventNames().textInputEvent) {
         if (event->hasInterface(eventNames().interfaceForTextEvent))
             if (Frame* frame = document()->frame())

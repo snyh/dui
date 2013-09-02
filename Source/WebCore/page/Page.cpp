@@ -25,8 +25,6 @@
 #include "page/Chrome.h"
 #include "page/ChromeClient.h"
 #include "dom/ClientRectList.h"
-#include "page/ContextMenuClient.h"
-#include "page/ContextMenuController.h"
 #include "page/DOMWindow.h"
 #include "dom/DocumentMarkerController.h"
 #include "dom/DocumentStyleSheetCollection.h"
@@ -115,9 +113,6 @@ Page::Page(PageClients& pageClients)
     , m_dragController(DragController::create(this, pageClients.dragClient))
 #endif
     , m_focusController(FocusController::create(this))
-#if ENABLE(CONTEXT_MENUS)
-    , m_contextMenuController(ContextMenuController::create(this, pageClients.contextMenuClient))
-#endif
 #if ENABLE(POINTER_LOCK)
     , m_pointerLockController(PointerLockController::create(this))
 #endif
@@ -1295,9 +1290,6 @@ void Page::captionPreferencesChanged()
 Page::PageClients::PageClients()
     : alternativeTextClient(0)
     , chromeClient(0)
-#if ENABLE(CONTEXT_MENUS)
-    , contextMenuClient(0)
-#endif
     , editorClient(0)
     , dragClient(0)
     , validationMessageClient(0)

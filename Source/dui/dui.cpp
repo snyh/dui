@@ -81,7 +81,6 @@ void test_main(const char* url)
     clients.editorClient = new EmptyEditorClient();
     clients.chromeClient = new DuiChromeClient();
     clients.dragClient = new EmptyDragClient();
-    clients.contextMenuClient = new EmptyContextMenuClient();
     Page* page = new Page(clients);
 
     frame = Frame::create(page, 0, new EmptyFrameLoaderClient);

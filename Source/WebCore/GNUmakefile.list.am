@@ -1759,10 +1759,6 @@ webcore_sources += \
 	Source/WebCore/page/Chrome.h \
 	Source/WebCore/page/ChromeClient.h \
 	Source/WebCore/page/ConsoleTypes.h \
-	Source/WebCore/page/ContextMenuClient.h \
-	Source/WebCore/page/ContextMenuController.cpp \
-	Source/WebCore/page/ContextMenuController.h \
-	Source/WebCore/page/ContextMenuProvider.h \
 	Source/WebCore/page/DiagnosticLoggingKeys.cpp \
 	Source/WebCore/page/DiagnosticLoggingKeys.h \
 	Source/WebCore/page/DOMSelection.cpp \
@@ -2780,8 +2776,6 @@ webcore_platform_sources += \
 	Source/WebCore/platform/CalculationValue.h \
 	Source/WebCore/platform/CrossThreadCopier.cpp \
 	Source/WebCore/platform/CrossThreadCopier.h \
-	Source/WebCore/platform/DatabaseStrategy.cpp \
-	Source/WebCore/platform/DatabaseStrategy.h \
 	Source/WebCore/platform/DragData.cpp \
 	Source/WebCore/platform/DragData.h \
 	Source/WebCore/platform/DragImage.cpp \
@@ -3293,10 +3287,6 @@ platform_sources += \
 	Source/WebCore/platform/ColorChooserClient.h \
 	Source/WebCore/platform/ContentType.cpp \
 	Source/WebCore/platform/ContentType.h \
-	Source/WebCore/platform/ContextMenu.cpp \
-	Source/WebCore/platform/ContextMenu.h \
-	Source/WebCore/platform/ContextMenuItem.cpp \
-	Source/WebCore/platform/ContextMenuItem.h \
 	Source/WebCore/platform/Cursor.cpp \
 	Source/WebCore/platform/Cursor.h \
 	Source/WebCore/platform/DateComponents.cpp \
@@ -3472,8 +3462,6 @@ platformgtk_sources += \
 	Source/WebCore/platform/graphics/gtk/IntPointGtk.cpp \
 	Source/WebCore/platform/graphics/gtk/IntRectGtk.cpp \
 	Source/WebCore/platform/gtk/CompositionResults.h \
-	Source/WebCore/platform/gtk/ContextMenuGtk.cpp \
-	Source/WebCore/platform/gtk/ContextMenuItemGtk.cpp \
 	Source/WebCore/platform/gtk/CursorGtk.cpp \
 	Source/WebCore/platform/gtk/CursorGtk.h \
 	Source/WebCore/platform/gtk/DragIcon.cpp \

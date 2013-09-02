@@ -2653,21 +2653,12 @@ bool EventHandler::handleGestureLongPress(const PlatformGestureEvent& gestureEve
 
 bool EventHandler::handleGestureLongTap(const PlatformGestureEvent& gestureEvent)
 {
-#if ENABLE(CONTEXT_MENUS)
-    if (!m_didLongPressInvokeContextMenu)
-        return sendContextMenuEventForGesture(gestureEvent);
-#endif // ENABLE(CONTEXT_MENUS)
     return false;
 }
 
 bool EventHandler::handleGestureForTextSelectionOrContextMenu(const PlatformGestureEvent& gestureEvent)
 {
-#if ENABLE(CONTEXT_MENUS)
-    m_didLongPressInvokeContextMenu = (gestureEvent.type() == PlatformEvent::GestureLongPress);
-    return sendContextMenuEventForGesture(gestureEvent);
-#else
     return false;
-#endif
 }
 
 bool EventHandler::handleGestureTwoFingerTap(const PlatformGestureEvent& gestureEvent)
@@ -2872,135 +2863,6 @@ bool EventHandler::adjustGesturePosition(const PlatformGestureEvent& gestureEven
     return targetNode;
 }
 #endif
-
-#if ENABLE(CONTEXT_MENUS)
-bool EventHandler::sendContextMenuEvent(const PlatformMouseEvent& event)
-{
-    Document* doc = m_frame->document();
-    FrameView* v = m_frame->view();
-    if (!v)
-        return false;
-    
-    // Clear mouse press state to avoid initiating a drag while context menu is up.
-    m_mousePressed = false;
-    bool swallowEvent;
-    LayoutPoint viewportPos = v->windowToContents(event.position());
-    HitTestRequest request(HitTestRequest::Active | HitTestRequest::DisallowShadowContent);
-    MouseEventWithHitTestResults mev = doc->prepareMouseEvent(request, viewportPos, event);
-
-    if (m_frame->editor().behavior().shouldSelectOnContextualMenuClick()
-        && !m_frame->selection()->contains(viewportPos)
-        && !mev.scrollbar()
-        // FIXME: In the editable case, word selection sometimes selects content that isn't underneath the mouse.
-        // If the selection is non-editable, we do word selection to make it easier to use the contextual menu items
-        // available for text selections.  But only if we're above text.
-        && (m_frame->selection()->isContentEditable() || (mev.targetNode() && mev.targetNode()->isTextNode()))) {
-        m_mouseDownMayStartSelect = true; // context menu events are always allowed to perform a selection
-        selectClosestWordOrLinkFromMouseEvent(mev);
-    }
-
-    swallowEvent = !dispatchMouseEvent(eventNames().contextmenuEvent, mev.targetNode(), true, 0, event, false);
-    
-    return swallowEvent;
-}
-
-bool EventHandler::sendContextMenuEventForKey()
-{
-    FrameView* view = m_frame->view();
-    if (!view)
-        return false;
-
-    Document* doc = m_frame->document();
-    if (!doc)
-        return false;
-
-    // Clear mouse press state to avoid initiating a drag while context menu is up.
-    m_mousePressed = false;
-
-    static const int kContextMenuMargin = 1;
-
-#if OS(WINDOWS) && !OS(WINCE)
-    int rightAligned = ::GetSystemMetrics(SM_MENUDROPALIGNMENT);
-#else
-    int rightAligned = 0;
-#endif
-    IntPoint location;
-
-    Element* focusedElement = doc->focusedElement();
-    FrameSelection* selection = m_frame->selection();
-    Position start = selection->selection().start();
-
-    if (start.deprecatedNode() && (selection->rootEditableElement() || selection->isRange())) {
-        RefPtr<Range> selectionRange = selection->toNormalizedRange();
-        IntRect firstRect = m_frame->editor().firstRectForRange(selectionRange.get());
-
-        int x = rightAligned ? firstRect.maxX() : firstRect.x();
-        // In a multiline edit, firstRect.maxY() would endup on the next line, so -1.
-        int y = firstRect.maxY() ? firstRect.maxY() - 1 : 0;
-        location = IntPoint(x, y);
-    } else if (focusedElement) {
-        RenderBoxModelObject* box = focusedElement->renderBoxModelObject();
-        if (!box)
-            return false;
-        IntRect clippedRect = box->pixelSnappedAbsoluteClippedOverflowRect();
-        location = IntPoint(clippedRect.x(), clippedRect.maxY() - 1);
-    } else {
-        location = IntPoint(
-            rightAligned ? view->contentsWidth() - kContextMenuMargin : kContextMenuMargin,
-            kContextMenuMargin);
-    }
-
-    m_frame->view()->setCursor(pointerCursor());
-
-    IntPoint position = view->contentsToRootView(location);
-    IntPoint globalPosition = view->hostWindow()->rootViewToScreen(IntRect(position, IntSize())).location();
-
-    Node* targetNode = doc->focusedElement();
-    if (!targetNode)
-        targetNode = doc;
-
-    // Use the focused node as the target for hover and active.
-    HitTestResult result(position);
-    result.setInnerNode(targetNode);
-    doc->updateHoverActiveState(HitTestRequest::Active | HitTestRequest::DisallowShadowContent, result.innerElement());
-
-    // The contextmenu event is a mouse event even when invoked using the keyboard.
-    // This is required for web compatibility.
-
-#if OS(WINDOWS)
-    PlatformEvent::Type eventType = PlatformEvent::MouseReleased;
-#else
-    PlatformEvent::Type eventType = PlatformEvent::MousePressed;
-#endif
-
-    PlatformMouseEvent mouseEvent(position, globalPosition, RightButton, eventType, 1, false, false, false, false, WTF::currentTime());
-
-    return !dispatchMouseEvent(eventNames().contextmenuEvent, targetNode, true, 0, mouseEvent, false);
-}
-
-#if ENABLE(GESTURE_EVENTS)
-bool EventHandler::sendContextMenuEventForGesture(const PlatformGestureEvent& event)
-{
-#if OS(WINDOWS)
-    PlatformEvent::Type eventType = PlatformEvent::MouseReleased;
-#else
-    PlatformEvent::Type eventType = PlatformEvent::MousePressed;
-#endif
-
-    IntPoint adjustedPoint = event.position();
-#if ENABLE(TOUCH_ADJUSTMENT)
-    adjustGesturePosition(event, adjustedPoint);
-#endif
-    PlatformMouseEvent mouseEvent(adjustedPoint, event.globalPosition(), RightButton, eventType, 1, false, false, false, false, WTF::currentTime());
-    // To simulate right-click behavior, we send a right mouse down and then
-    // context menu event.
-    handleMousePressEvent(mouseEvent);
-    return sendContextMenuEvent(mouseEvent);
-    // We do not need to send a corresponding mouse release because in case of
-    // right-click, the context menu takes capture and consumes all events.
-}
-#endif // ENABLE(GESTURE_EVENTS)
-#endif // ENABLE(CONTEXT_MENUS)
 
 void EventHandler::scheduleHoverStateUpdate()
 {

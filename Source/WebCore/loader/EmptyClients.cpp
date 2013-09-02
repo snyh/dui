@@ -47,11 +47,6 @@ void fillWithEmptyClients(Page::PageClients& pageClients)
     static ChromeClient* dummyChromeClient = adoptPtr(new EmptyChromeClient).leakPtr();
     pageClients.chromeClient = dummyChromeClient;
 
-#if ENABLE(CONTEXT_MENUS)
-    static ContextMenuClient* dummyContextMenuClient = adoptPtr(new EmptyContextMenuClient).leakPtr();
-    pageClients.contextMenuClient = dummyContextMenuClient;
-#endif
-
 #if ENABLE(DRAG_SUPPORT)
     static DragClient* dummyDragClient = adoptPtr(new EmptyDragClient).leakPtr();
     pageClients.dragClient = dummyDragClient;
@@ -171,14 +166,5 @@ void EmptyEditorClient::registerUndoStep(PassRefPtr<UndoStep>)
 void EmptyEditorClient::registerRedoStep(PassRefPtr<UndoStep>)
 {
 }
-
-#if ENABLE(CONTEXT_MENUS)
-#if USE(CROSS_PLATFORM_CONTEXT_MENUS)
-PassOwnPtr<ContextMenu> EmptyContextMenuClient::customizeMenu(PassOwnPtr<ContextMenu>)
-{
-    return nullptr;
-}
-#endif
-#endif
 
 }
