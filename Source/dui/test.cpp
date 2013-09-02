@@ -1,10 +1,7 @@
 #include <gtk/gtk.h>
+#include "dui.h"
 
-extern "C" {
-void test_main(const char*);
-void take_snapshot(cairo_t* cr);
-    extern GdkWindow* window = NULL;
-}
+extern GdkWindow* window = NULL;
 gboolean draw_view(GtkWidget* w, cairo_t* cr)
 {
     take_snapshot(cr);

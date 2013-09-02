@@ -25,12 +25,12 @@
 #include "css/StyleResolver.h"
 
 #include "loader/cache/MemoryCache.h"
+#include "dui.h"
 
-extern "C" {
-    void take_snapshot(cairo_t* cr);
-    void test_main(const char* url);
-    GdkWindow* window = NULL;
-}
+GdkWindow* window = NULL;
+
+struct _DWindow {
+};
 
 #define WIDTH 300
 #define HEIGHT 300
@@ -85,7 +85,7 @@ void test_main(const char* url)
     Page* page = new Page(clients);
 
     frame = Frame::create(page, 0, new EmptyFrameLoaderClient);
-    frame->loader()->init();
+    //frame->loader()->init();
 
     frame->createView(IntSize(WIDTH, HEIGHT), WebCore::Color::white, false);
 
