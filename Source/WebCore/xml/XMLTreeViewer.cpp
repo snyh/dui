@@ -70,7 +70,6 @@ bool XMLTreeViewer::hasNoStyleInformation() const
 
 void XMLTreeViewer::transformDocumentToTreeView()
 {
-    m_document->setIsViewSource(true);
     String noStyleMessage("This XML file does not appear to have any style information associated with it. The document tree is shown below.");
 }
 

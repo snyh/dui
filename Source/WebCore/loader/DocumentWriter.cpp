@@ -95,7 +95,7 @@ void DocumentWriter::begin()
 
 PassRefPtr<Document> DocumentWriter::createDocument(const KURL& url)
 {
-    return DOMImplementation::createDocument(m_mimeType, m_frame, url, m_frame->inViewSourceMode());
+    return DOMImplementation::createDocument(m_mimeType, m_frame, url);
 }
 
 void DocumentWriter::begin(const KURL& urlReference, bool dispatch, Document* ownerDocument)

@@ -1000,7 +1000,7 @@ PassRefPtr<RenderStyle> StyleResolver::styleForElement(Element* element, RenderS
     bool needsCollection = false;
     CSSDefaultStyleSheets::ensureDefaultStyleSheetsForElement(element, needsCollection);
     if (needsCollection)
-        m_ruleSets.collectFeatures(document()->isViewSource(), m_scopeResolver.get());
+        m_ruleSets.collectFeatures(m_scopeResolver.get());
 
     ElementRuleCollector collector(this, state);
     collector.setRegionForStyling(regionForStyling);

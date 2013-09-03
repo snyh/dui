@@ -83,7 +83,7 @@ void DocumentRuleSets::resetAuthorStyle()
     m_authorStyle->disableAutoShrinkToFit();
 }
 
-void DocumentRuleSets::collectFeatures(bool isViewSource, StyleScopeResolver* scopeResolver)
+void DocumentRuleSets::collectFeatures(StyleScopeResolver* scopeResolver)
 {
     m_features.clear();
     // Collect all ids and rules using sibling selectors (:first-child and similar)
@@ -93,8 +93,6 @@ void DocumentRuleSets::collectFeatures(bool isViewSource, StyleScopeResolver* sc
         m_features.add(CSSDefaultStyleSheets::defaultStyle->features());
     if (m_authorStyle)
         m_features.add(m_authorStyle->features());
-    if (isViewSource)
-        m_features.add(CSSDefaultStyleSheets::viewSourceStyle()->features());
 
     if (scopeResolver)
         scopeResolver->collectFeaturesTo(m_features);

@@ -44,10 +44,6 @@ bool ScriptController::canExecuteScripts(ReasonForCallingCanExecuteScripts reaso
         return false;
     }
 
-    if (m_frame->document() && m_frame->document()->isViewSource()) {
-        return true;
-    }
-
     Settings* settings = m_frame->settings();
     const bool allowed = m_frame->loader()->client()->allowScript(settings && settings->isScriptEnabled());
     if (!allowed && reason == AboutToExecuteScript)

@@ -36,7 +36,6 @@
 #include "loader/FrameLoaderClient.h"
 #include "html/HTMLDocument.h"
 #include "HTMLNames.h"
-#include "html/HTMLViewSourceDocument.h"
 #include "platform/graphics/Image.h"
 #include "html/ImageDocument.h"
 #include "css/MediaList.h"
@@ -359,11 +358,8 @@ PassRefPtr<HTMLDocument> DOMImplementation::createHTMLDocument(const String& tit
     return d.release();
 }
 
-PassRefPtr<Document> DOMImplementation::createDocument(const String& type, Frame* frame, const KURL& url, bool inViewSourceMode)
+PassRefPtr<Document> DOMImplementation::createDocument(const String& type, Frame* frame, const KURL& url)
 {
-    if (inViewSourceMode)
-        return HTMLViewSourceDocument::create(frame, url, type);
-
     if (type == "text/html")
         return HTMLDocument::create(frame, url);
     if (type == "application/xhtml+xml")

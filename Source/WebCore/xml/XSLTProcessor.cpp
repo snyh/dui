@@ -77,7 +77,7 @@ PassRefPtr<Document> XSLTProcessor::createDocumentFromSource(const String& sourc
         result = Document::create(frame, sourceIsDocument ? ownerDocument->url() : KURL());
         transformTextStringToXHTMLDocumentString(documentSource);
     } else
-        result = DOMImplementation::createDocument(sourceMIMEType, frame, sourceIsDocument ? ownerDocument->url() : KURL(), false);
+        result = DOMImplementation::createDocument(sourceMIMEType, frame, sourceIsDocument ? ownerDocument->url() : KURL());
 
     // Before parsing, we need to save & detach the old document and get the new document
     // in place. We have to do this only if we're rendering the result document.

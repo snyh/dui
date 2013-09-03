@@ -326,10 +326,6 @@ void ElementRuleCollector::matchUARules()
     // In quirks mode, we match rules from the quirks user agent sheet.
     if (document()->inQuirksMode())
         matchUARules(CSSDefaultStyleSheets::defaultQuirksStyle);
-
-    // If document uses view source styles (in view source mode or in xml viewer mode), then we match rules from the view source style sheet.
-    if (document()->isViewSource())
-        matchUARules(CSSDefaultStyleSheets::viewSourceStyle());
 }
 
 void ElementRuleCollector::matchUARules(RuleSet* rules)

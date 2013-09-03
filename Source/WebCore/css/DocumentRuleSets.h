@@ -54,7 +54,7 @@ public:
     void initUserStyle(DocumentStyleSheetCollection*, const MediaQueryEvaluator&, StyleResolver&);
     void resetAuthorStyle();
 
-    void collectFeatures(bool isViewSource, StyleScopeResolver*);
+    void collectFeatures(StyleScopeResolver*);
 
 private:
     void collectRulesFromUserStyleSheets(const Vector<RefPtr<CSSStyleSheet> >&, RuleSet& userStyle, const MediaQueryEvaluator&, StyleResolver&);

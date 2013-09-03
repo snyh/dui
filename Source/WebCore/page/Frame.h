@@ -140,9 +140,6 @@ namespace WebCore {
         bool shouldUsePrintingLayout() const;
         FloatSize resizePageRectsKeepingRatio(const FloatSize& originalSize, const FloatSize& expectedSize);
 
-        bool inViewSourceMode() const;
-        void setInViewSourceMode(bool = true);
-
         void setDocument(PassRefPtr<Document>);
 
         void setPageZoomFactor(float factor);
@@ -208,8 +205,6 @@ namespace WebCore {
         float m_pageZoomFactor;
         float m_textZoomFactor;
 
-        bool m_inViewSourceMode;
-
 #if USE(TILED_BACKING_STORE)
     // FIXME: The tiled backing store belongs in FrameView, not Frame.
 
@@ -270,16 +265,6 @@ namespace WebCore {
     inline HTMLFrameOwnerElement* Frame::ownerElement() const
     {
         return m_ownerElement;
-    }
-
-    inline bool Frame::inViewSourceMode() const
-    {
-        return m_inViewSourceMode;
-    }
-
-    inline void Frame::setInViewSourceMode(bool mode)
-    {
-        m_inViewSourceMode = mode;
     }
 
     inline FrameTree* Frame::tree() const
