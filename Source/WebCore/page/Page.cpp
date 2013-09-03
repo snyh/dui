@@ -45,7 +45,6 @@
 #include "page/FrameView.h"
 #include "html/HTMLElement.h"
 #include "platform/Logging.h"
-#include "page/MediaCanStartListener.h"
 #include "platform/network/NetworkStateNotifier.h"
 #include "page/PageActivityAssertionToken.h"
 #include "page/PageGroup.h"
@@ -371,31 +370,6 @@ void Page::setNeedsRecalcStyleInAllFrames()
     for (Frame* frame = mainFrame(); frame; frame = frame->tree()->traverseNext())
         frame->document()->styleResolverChanged(DeferRecalcStyle);
 }
-
-inline MediaCanStartListener* Page::takeAnyMediaCanStartListener()
-{
-    for (Frame* frame = mainFrame(); frame; frame = frame->tree()->traverseNext()) {
-        if (MediaCanStartListener* listener = frame->document()->takeAnyMediaCanStartListener())
-            return listener;
-    }
-    return 0;
-}
-
-void Page::setCanStartMedia(bool canStartMedia)
-{
-    if (m_canStartMedia == canStartMedia)
-        return;
-
-    m_canStartMedia = canStartMedia;
-
-    while (m_canStartMedia) {
-        MediaCanStartListener* listener = takeAnyMediaCanStartListener();
-        if (!listener)
-            break;
-        listener->mediaCanStart();
-    }
-}
-
 static Frame* incrementFrame(Frame* curr, bool forward, bool wrapFlag)
 {
     return forward

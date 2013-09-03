@@ -64,7 +64,6 @@ class FocusController;
 class Frame;
 class FrameSelection;
 class HaltablePlugin;
-class MediaCanStartListener;
 class Node;
 class PageActivityAssertionToken;
 class PageGroup;
@@ -363,8 +362,6 @@ private:
     enum ShouldMarkMatches { DoNotMarkMatches, MarkMatches };
 
     unsigned findMatchesForText(const String&, FindOptions, unsigned maxMatchCount, ShouldHighlightMatches, ShouldMarkMatches);
-
-    MediaCanStartListener* takeAnyMediaCanStartListener();
 
     void throttleTimers();
     void unthrottleTimers();

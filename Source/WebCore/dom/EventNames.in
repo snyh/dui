@@ -4,15 +4,12 @@ Event
 Events interfaceName=Event
 HTMLEvents interfaceName=Event
 BeforeLoadEvent
-CloseEvent conditional=WEB_SOCKETS
 CompositionEvent
 CustomEvent
 ErrorEvent
 FocusEvent
-HashChangeEvent
 KeyboardEvent
 KeyboardEvents interfaceName=KeyboardEvent
-MessageEvent
 MouseEvent
 MouseEvents interfaceName=MouseEvent
 MutationEvent
@@ -29,13 +26,6 @@ WebKitAnimationEvent
 WebKitTransitionEvent
 WheelEvent
 XMLHttpRequestProgressEvent path=xml
-AudioProcessingEvent conditional=WEB_AUDIO
-OfflineAudioCompletionEvent conditional=WEB_AUDIO
-MediaStreamEvent conditional=MEDIA_STREAM
-MediaStreamTrackEvent conditional=MEDIA_STREAM
-RTCIceCandidateEvent conditional=MEDIA_STREAM
-RTCDataChannelEvent conditional=MEDIA_STREAM
-RTCDTMFToneChangeEvent conditional=MEDIA_STREAM
 SpeechInputEvent conditional=INPUT_SPEECH, path=page
 SpeechRecognitionError conditional=SCRIPTED_SPEECH
 SpeechRecognitionEvent conditional=SCRIPTED_SPEECH
@@ -44,17 +34,8 @@ WebGLContextEvent conditional=WEBGL
 SVGEvents interfaceName=Event, conditional=SVG, path=svg
 SVGZoomEvent conditional=SVG, path=svg
 SVGZoomEvents interfaceName=SVGZoomEvent, conditional=SVG, path=svg
-IDBVersionChangeEvent conditional=INDEXED_DATABASE
 TouchEvent conditional=TOUCH_EVENTS, runtimeConditional=touchEnabled
-DeviceMotionEvent conditional=DEVICE_ORIENTATION
-DeviceOrientationEvent conditional=DEVICE_ORIENTATION
 DeviceProximityEvent conditional=PROXIMITY_EVENTS
-OrientationEvent interfaceName=Event, conditional=ORIENTATION_EVENTS
-MediaKeyEvent conditional=ENCRYPTED_MEDIA, path=html
-MediaKeyMessageEvent conditional=ENCRYPTED_MEDIA_V2, path=html
-MediaKeyNeededEvent conditional=ENCRYPTED_MEDIA_V2, path=html
-TrackEvent conditional=VIDEO_TRACK
 CSSFontFaceLoadEvent conditional=FONT_LOAD_EVENTS, path=css
-SecurityPolicyViolationEvent conditional=CSP_NEXT
 UIRequestEvent conditional=INDIE_UI
 

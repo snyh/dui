@@ -71,7 +71,6 @@
 #include "loader/FrameLoader.h"
 #include "loader/FrameLoaderClient.h"
 #include "page/FrameView.h"
-#include "dom/HashChangeEvent.h"
 #include "platform/HistogramSupport.h"
 #include "html/HTMLAllCollection.h"
 #include "html/HTMLAnchorElement.h"
@@ -95,7 +94,6 @@
 #include "loader/ImageLoader.h"
 #include "platform/Language.h"
 #include "platform/Logging.h"
-#include "page/MediaCanStartListener.h"
 #include "css/MediaQueryList.h"
 #include "css/MediaQueryMatcher.h"
 #include "page/MouseEventWithHitTestResults.h"
@@ -151,10 +149,6 @@
 
 #if USE(ACCELERATED_COMPOSITING)
 #include "rendering/RenderLayerCompositor.h"
-#endif
-
-#if ENABLE(SHARED_WORKERS)
-#include "workers/SharedWorkerRepository.h"
 #endif
 
 #if ENABLE(XSLT)
@@ -1975,10 +1969,6 @@ void Document::detach(const AttachContext& context)
     RenderObject* render = renderer();
 
     documentWillBecomeInactive();
-
-#if ENABLE(SHARED_WORKERS)
-    SharedWorkerRepository::documentDetached(this);
-#endif
 
     if (m_frame) {
         FrameView* view = m_frame->view();
@@ -4395,33 +4385,6 @@ void Document::enqueuePageshowEvent(PageshowEventPersistence persisted)
 {
     // FIXME: https://bugs.webkit.org/show_bug.cgi?id=36334 Pageshow event needs to fire asynchronously.
     dispatchWindowEvent(PageTransitionEvent::create(eventNames().pageshowEvent, persisted), this);
-}
-
-void Document::enqueueHashchangeEvent(const String& oldURL, const String& newURL)
-{
-    enqueueWindowEvent(HashChangeEvent::create(oldURL, newURL));
-}
-
-void Document::addMediaCanStartListener(MediaCanStartListener* listener)
-{
-    ASSERT(!m_mediaCanStartListeners.contains(listener));
-    m_mediaCanStartListeners.add(listener);
-}
-
-void Document::removeMediaCanStartListener(MediaCanStartListener* listener)
-{
-    ASSERT(m_mediaCanStartListeners.contains(listener));
-    m_mediaCanStartListeners.remove(listener);
-}
-
-MediaCanStartListener* Document::takeAnyMediaCanStartListener()
-{
-    HashSet<MediaCanStartListener*>::iterator slot = m_mediaCanStartListeners.begin();
-    if (slot == m_mediaCanStartListeners.end())
-        return 0;
-    MediaCanStartListener* listener = *slot;
-    m_mediaCanStartListeners.remove(slot);
-    return listener;
 }
 
 #if ENABLE(FULLSCREEN_API)

@@ -45,7 +45,6 @@ class FileChooser;
 class FileIconLoader;
 class FloatRect;
 class Frame;
-class Geolocation;
 class HitTestResult;
 class IntRect;
 class NavigationAction;

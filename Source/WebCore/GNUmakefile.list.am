@@ -105,11 +105,7 @@ dom_binding_idls += \
 	$(WebCore)/dom/EventTarget.idl \
 	$(WebCore)/dom/EventException.idl \
 	$(WebCore)/dom/FocusEvent.idl \
-	$(WebCore)/dom/HashChangeEvent.idl \
 	$(WebCore)/dom/KeyboardEvent.idl \
-	$(WebCore)/dom/MessageChannel.idl \
-	$(WebCore)/dom/MessageEvent.idl \
-	$(WebCore)/dom/MessagePort.idl \
 	$(WebCore)/dom/MouseEvent.idl \
 	$(WebCore)/dom/MutationEvent.idl \
 	$(WebCore)/dom/MutationObserver.idl \
@@ -276,14 +272,6 @@ dom_binding_idls += \
 	$(WebCore)/html/shadow/HTMLContentElement.idl \
 	$(WebCore)/page/DOMSelection.idl \
 	$(WebCore)/page/DOMWindow.idl \
-	$(WebCore)/page/Performance.idl \
-	$(WebCore)/page/PerformanceEntry.idl \
-	$(WebCore)/page/PerformanceEntryList.idl \
-	$(WebCore)/page/PerformanceMark.idl \
-	$(WebCore)/page/PerformanceMeasure.idl \
-	$(WebCore)/page/PerformanceNavigation.idl \
-	$(WebCore)/page/PerformanceResourceTiming.idl \
-	$(WebCore)/page/PerformanceTiming.idl \
 	$(WebCore)/page/WebKitPoint.idl \
 	$(WebCore)/page/WindowTimers.idl \
 	$(WebCore)/svg/SVGAElement.idl \
@@ -775,8 +763,6 @@ webcore_sources += \
 	Source/WebCore/dom/DataTransferItemList.h \
 	Source/WebCore/dom/DecodedDataDocumentParser.cpp \
 	Source/WebCore/dom/DecodedDataDocumentParser.h \
-	Source/WebCore/dom/default/PlatformMessagePortChannel.cpp \
-	Source/WebCore/dom/default/PlatformMessagePortChannel.h \
 	Source/WebCore/dom/Document.cpp \
 	Source/WebCore/dom/DocumentFragment.cpp \
 	Source/WebCore/dom/DocumentFragment.h \
@@ -866,17 +852,8 @@ webcore_sources += \
 	Source/WebCore/dom/IdTargetObserverRegistry.h \
 	Source/WebCore/dom/LiveNodeList.cpp \
 	Source/WebCore/dom/LiveNodeList.h \
-	Source/WebCore/dom/HashChangeEvent.h \
 	Source/WebCore/dom/KeyboardEvent.cpp \
 	Source/WebCore/dom/KeyboardEvent.h \
-	Source/WebCore/dom/MessageChannel.cpp \
-	Source/WebCore/dom/MessageChannel.h \
-	Source/WebCore/dom/MessageEvent.cpp \
-	Source/WebCore/dom/MessageEvent.h \
-	Source/WebCore/dom/MessagePortChannel.cpp \
-	Source/WebCore/dom/MessagePortChannel.h \
-	Source/WebCore/dom/MessagePort.cpp \
-	Source/WebCore/dom/MessagePort.h \
 	Source/WebCore/dom/MicroDataItemList.cpp \
 	Source/WebCore/dom/MicroDataItemList.h \
 	Source/WebCore/dom/MouseEvent.cpp \
@@ -1798,7 +1775,6 @@ webcore_sources += \
 	Source/WebCore/page/GroupSettings.cpp \
 	Source/WebCore/page/GroupSettings.h \
 	Source/WebCore/page/LayoutMilestones.h \
-	Source/WebCore/page/MediaCanStartListener.h \
 	Source/WebCore/page/MouseEventWithHitTestResults.cpp \
 	Source/WebCore/page/MouseEventWithHitTestResults.h \
 	Source/WebCore/page/Page.cpp \
@@ -1813,22 +1789,6 @@ webcore_sources += \
 	Source/WebCore/page/PageThrottler.h \
 	Source/WebCore/page/PageVisibilityState.cpp \
 	Source/WebCore/page/PageVisibilityState.h \
-	Source/WebCore/page/Performance.cpp \
-	Source/WebCore/page/Performance.h \
-	Source/WebCore/page/PerformanceEntry.cpp \
-	Source/WebCore/page/PerformanceEntry.h \
-	Source/WebCore/page/PerformanceEntryList.cpp \
-	Source/WebCore/page/PerformanceEntryList.h \
-	Source/WebCore/page/PerformanceMark.h \
-	Source/WebCore/page/PerformanceMeasure.h \
-	Source/WebCore/page/PerformanceNavigation.cpp \
-	Source/WebCore/page/PerformanceNavigation.h \
-	Source/WebCore/page/PerformanceResourceTiming.cpp \
-	Source/WebCore/page/PerformanceResourceTiming.h \
-	Source/WebCore/page/PerformanceTiming.cpp \
-	Source/WebCore/page/PerformanceTiming.h \
-	Source/WebCore/page/PerformanceUserTiming.cpp \
-	Source/WebCore/page/PerformanceUserTiming.h \
 	Source/WebCore/page/PointerLockController.cpp \
 	Source/WebCore/page/PointerLockController.h \
 	Source/WebCore/page/PopupOpeningObserver.h \

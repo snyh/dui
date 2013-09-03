@@ -56,9 +56,6 @@ public:
     static void setDataTransferItemsEnabled(bool isEnabled) { isDataTransferItemsEnabled = isEnabled; }
     static bool dataTransferItemsEnabled() { return isDataTransferItemsEnabled; }
 
-    static void setGeolocationEnabled(bool isEnabled) { isGeolocationEnabled = isEnabled; }
-    static bool geolocationEnabled() { return isGeolocationEnabled; }
-
     static void setWebkitIndexedDBEnabled(bool isEnabled) { isIndexedDBEnabled = isEnabled; }
     static bool webkitIndexedDBEnabled() { return isIndexedDBEnabled; }
     static bool indexedDBEnabled() { return isIndexedDBEnabled; }
@@ -123,19 +120,6 @@ public:
     static bool webkitRequestFullscreenEnabled() { return isFullScreenAPIEnabled; }
 #endif
 
-#if ENABLE(SHARED_WORKERS)
-    static bool sharedWorkerEnabled();
-#endif
-
-#if ENABLE(WEB_SOCKETS)
-    static bool webSocketEnabled();
-#endif
-
-#if ENABLE(SQL_DATABASE)
-    static bool openDatabaseEnabled();
-    static bool openDatabaseSyncEnabled();
-#endif
-
 #if ENABLE(TOUCH_EVENTS)
     static bool touchEnabled() { return isTouchEnabled; }
     static void setTouchEnabled(bool isEnabled) { isTouchEnabled = isEnabled; }
@@ -166,50 +150,9 @@ public:
     static void setFileSystemEnabled(bool isEnabled) { isFileSystemEnabled = isEnabled; }
 #endif
 
-#if ENABLE(JAVASCRIPT_I18N_API)
-    static bool javaScriptI18NAPIEnabled();
-    static void setJavaScriptI18NAPIEnabled(bool isEnabled) { isJavaScriptI18NAPIEnabled = isEnabled; }
-#endif
-
-#if ENABLE(MEDIA_STREAM)
-    static bool mediaStreamEnabled() { return isMediaStreamEnabled; }
-    static void setMediaStreamEnabled(bool isEnabled) { isMediaStreamEnabled = isEnabled; }
-    static bool webkitGetUserMediaEnabled() { return isMediaStreamEnabled; }
-    static bool webkitMediaStreamEnabled() { return isMediaStreamEnabled; }
-
-    static bool peerConnectionEnabled() { return isMediaStreamEnabled && isPeerConnectionEnabled; }
-    static void setPeerConnectionEnabled(bool isEnabled) { isPeerConnectionEnabled = isEnabled; }
-    static bool webkitRTCPeerConnectionEnabled() { return peerConnectionEnabled(); }
-#endif
-
 #if ENABLE(LEGACY_CSS_VENDOR_PREFIXES)
     static void setLegacyCSSVendorPrefixesEnabled(bool isEnabled) { isLegacyCSSVendorPrefixesEnabled = isEnabled; }
     static bool legacyCSSVendorPrefixesEnabled() { return isLegacyCSSVendorPrefixesEnabled; }
-#endif
-
-#if ENABLE(GAMEPAD)
-    static void setWebkitGetGamepadsEnabled(bool isEnabled) { isGamepadEnabled = isEnabled; }
-    static bool webkitGetGamepadsEnabled() { return isGamepadEnabled; }
-#endif
-
-#if ENABLE(QUOTA)
-    static bool quotaEnabled() { return isQuotaEnabled; }
-    static void setQuotaEnabled(bool isEnabled) { isQuotaEnabled = isEnabled; }
-#endif
-
-#if ENABLE(MEDIA_SOURCE)
-    static bool mediaSourceEnabled() { return isMediaSourceEnabled; }
-    static void setMediaSourceEnabled(bool isEnabled) { isMediaSourceEnabled = isEnabled; }
-#endif
-
-#if ENABLE(ENCRYPTED_MEDIA)
-    static bool encryptedMediaEnabled() { return isEncryptedMediaEnabled; }
-    static void setEncryptedMediaEnabled(bool isEnabled) { isEncryptedMediaEnabled = isEnabled; }
-#endif
-
-#if ENABLE(VIDEO_TRACK)
-    static bool webkitVideoTrackEnabled() { return isVideoTrackEnabled; }
-    static void setWebkitVideoTrackEnabled(bool isEnabled) { isVideoTrackEnabled = isEnabled; }
 #endif
 
 #if ENABLE(SHADOW_DOM)
@@ -283,7 +226,6 @@ private:
     static bool isWebkitNotificationsEnabled;
     static bool isApplicationCacheEnabled;
     static bool isDataTransferItemsEnabled;
-    static bool isGeolocationEnabled;
     static bool isIndexedDBEnabled;
     static bool isTouchEnabled;
     static bool isDeviceMotionEnabled;
@@ -301,19 +243,6 @@ private:
     static bool isFileSystemEnabled;
 #endif
 
-#if ENABLE(JAVASCRIPT_I18N_API)
-    static bool isJavaScriptI18NAPIEnabled;
-#endif
-
-#if ENABLE(MEDIA_STREAM)
-    static bool isMediaStreamEnabled;
-    static bool isPeerConnectionEnabled;
-#endif
-
-#if ENABLE(GAMEPAD)
-    static bool isGamepadEnabled;
-#endif
-
 #if ENABLE(LEGACY_CSS_VENDOR_PREFIXES)
     static bool isLegacyCSSVendorPrefixesEnabled;
 #endif
@@ -324,18 +253,6 @@ private:
 
 #if ENABLE(FULLSCREEN_API)
     static bool isFullScreenAPIEnabled;
-#endif
-
-#if ENABLE(MEDIA_SOURCE)
-    static bool isMediaSourceEnabled;
-#endif
-
-#if ENABLE(ENCRYPTED_MEDIA)
-    static bool isEncryptedMediaEnabled;
-#endif
-
-#if ENABLE(VIDEO_TRACK)
-    static bool isVideoTrackEnabled;
 #endif
 
 #if ENABLE(SHADOW_DOM)

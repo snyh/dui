@@ -90,10 +90,6 @@
 #include <wtf/text/CString.h>
 #include <wtf/text/WTFString.h>
 
-#if ENABLE(SHARED_WORKERS)
-#include "workers/SharedWorkerRepository.h"
-#endif
-
 #if ENABLE(SVG)
 #include "svg/SVGDocument.h"
 #include "svg/SVGLocatable.h"
@@ -825,7 +821,6 @@ void FrameLoader::loadInSameDocument(const KURL& url, PassRefPtr<SerializedScrip
     m_client->dispatchDidPopStateWithinPage();
     
     if (hashChange) {
-        m_frame->document()->enqueueHashchangeEvent(oldURL, url);
         m_client->dispatchDidChangeLocationWithinPage();
     }
     

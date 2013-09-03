@@ -28,28 +28,15 @@
 #include "config.h"
 #include "dom/ScriptExecutionContext.h"
 
+#include "dom/EventTarget.h"
 #include "loader/cache/CachedScript.h"
 #include "dom/ErrorEvent.h"
-#include "dom/MessagePort.h"
 #include "html/PublicURLManager.h"
 #include "page/Settings.h"
 #include "bindings/dui/ScriptState.h"
 #include <wtf/MainThread.h>
 
 namespace WebCore {
-
-class ProcessMessagesSoonTask : public ScriptExecutionContext::Task {
-public:
-    static PassOwnPtr<ProcessMessagesSoonTask> create()
-    {
-        return adoptPtr(new ProcessMessagesSoonTask);
-    }
-
-    virtual void performTask(ScriptExecutionContext* context)
-    {
-        context->dispatchMessagePortEvents();
-    }
-};
 
 void ScriptExecutionContext::AddConsoleMessageTask::performTask(ScriptExecutionContext* context)
 {
@@ -76,52 +63,10 @@ ScriptExecutionContext::~ScriptExecutionContext()
         observer->contextDestroyed();
     }
 
-    HashSet<MessagePort*>::iterator messagePortsEnd = m_messagePorts.end();
-    for (HashSet<MessagePort*>::iterator iter = m_messagePorts.begin(); iter != messagePortsEnd; ++iter) {
-        ASSERT((*iter)->scriptExecutionContext() == this);
-        (*iter)->contextDestroyed();
-    }
 #if ENABLE(BLOB)
     if (m_publicURLManager)
         m_publicURLManager->contextDestroyed();
 #endif
-}
-
-void ScriptExecutionContext::processMessagePortMessagesSoon()
-{
-    postTask(ProcessMessagesSoonTask::create());
-}
-
-void ScriptExecutionContext::dispatchMessagePortEvents()
-{
-    RefPtr<ScriptExecutionContext> protect(this);
-
-    // Make a frozen copy.
-    Vector<MessagePort*> ports;
-    copyToVector(m_messagePorts, ports);
-
-    unsigned portCount = ports.size();
-    for (unsigned i = 0; i < portCount; ++i) {
-        MessagePort* port = ports[i];
-        // The port may be destroyed, and another one created at the same address, but this is safe, as the worst that can happen
-        // as a result is that dispatchMessages() will be called needlessly.
-        if (m_messagePorts.contains(port) && port->started())
-            port->dispatchMessages();
-    }
-}
-
-void ScriptExecutionContext::createdMessagePort(MessagePort* port)
-{
-    ASSERT(port);
-
-    m_messagePorts.add(port);
-}
-
-void ScriptExecutionContext::destroyedMessagePort(MessagePort* port)
-{
-    ASSERT(port);
-
-    m_messagePorts.remove(port);
 }
 
 bool ScriptExecutionContext::canSuspendActiveDOMObjects()
@@ -187,9 +132,6 @@ void ScriptExecutionContext::stopActiveDOMObjects()
         (*iter)->stop();
     }
     m_iteratingActiveDOMObjects = false;
-
-    // Also close MessagePorts. If they were ActiveDOMObjects (they could be) then they could be stopped instead.
-    closeMessagePorts();
 }
 
 void ScriptExecutionContext::suspendActiveDOMObjectIfNeeded(ActiveDOMObject* object)
@@ -230,14 +172,6 @@ void ScriptExecutionContext::willDestroyDestructionObserver(ContextDestructionOb
 {
     ASSERT(observer);
     m_destructionObservers.remove(observer);
-}
-
-void ScriptExecutionContext::closeMessagePorts() {
-    HashSet<MessagePort*>::iterator messagePortsEnd = m_messagePorts.end();
-    for (HashSet<MessagePort*>::iterator iter = m_messagePorts.begin(); iter != messagePortsEnd; ++iter) {
-        ASSERT((*iter)->scriptExecutionContext() == this);
-        (*iter)->close();
-    }
 }
 
 bool ScriptExecutionContext::sanitizeScriptError(String& errorMessage, int& lineNumber, String& sourceURL, CachedScript* cachedScript)

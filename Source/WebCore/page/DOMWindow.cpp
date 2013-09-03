@@ -62,11 +62,9 @@
 #include "platform/KURL.h"
 #include "css/MediaQueryList.h"
 #include "css/MediaQueryMatcher.h"
-#include "dom/MessageEvent.h"
 #include "page/Page.h"
 #include "page/PageGroup.h"
 #include "dom/PageTransitionEvent.h"
-#include "page/Performance.h"
 #include "platform/PlatformScreen.h"
 #include "bindings/dui/RuntimeEnabledFeatures.h"
 #include "bindings/dui/ScheduledAction.h"
@@ -349,9 +347,6 @@ DOMWindow::~DOMWindow()
 {
 #ifndef NDEBUG
     if (!m_suspendedForPageCache) {
-#if ENABLE(WEB_TIMING)
-        ASSERT(!m_performance);
-#endif
         ASSERT(!m_media);
     }
 #endif
@@ -490,9 +485,6 @@ void DOMWindow::resetDOMWindowProperties()
 {
     m_properties.clear();
 
-#if ENABLE(WEB_TIMING)
-    m_performance = 0;
-#endif
     m_media = 0;
 }
 
@@ -500,17 +492,6 @@ bool DOMWindow::isCurrentlyDisplayedInFrame() const
 {
     return m_frame && m_frame->document()->domWindow() == this;
 }
-
-#if ENABLE(WEB_TIMING)
-Performance* DOMWindow::performance() const
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    if (!m_performance)
-        m_performance = Performance::create(m_frame);
-    return m_performance.get();
-}
-#endif
 
 DOMSelection* DOMWindow::getSelection()
 {

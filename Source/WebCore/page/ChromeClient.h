@@ -54,7 +54,6 @@ class Element;
 class FileChooser;
 class FloatRect;
 class Frame;
-class Geolocation;
 class GraphicsContext3D;
 class GraphicsLayer;
 class GraphicsLayerFactory;

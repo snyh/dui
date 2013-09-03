@@ -42,7 +42,6 @@ bool RuntimeEnabledFeatures::isSessionStorageEnabled = true;
 bool RuntimeEnabledFeatures::isWebkitNotificationsEnabled = false;
 bool RuntimeEnabledFeatures::isApplicationCacheEnabled = true;
 bool RuntimeEnabledFeatures::isDataTransferItemsEnabled = true;
-bool RuntimeEnabledFeatures::isGeolocationEnabled = true;
 bool RuntimeEnabledFeatures::isIndexedDBEnabled = false;
 bool RuntimeEnabledFeatures::isTouchEnabled = true;
 bool RuntimeEnabledFeatures::isDeviceMotionEnabled = true;
@@ -58,17 +57,8 @@ bool RuntimeEnabledFeatures::isLangAttributeAwareFormControlUIEnabled = false;
 bool RuntimeEnabledFeatures::isScriptedSpeechEnabled = false;
 #endif
 
-#if ENABLE(MEDIA_STREAM)
-bool RuntimeEnabledFeatures::isMediaStreamEnabled = true;
-bool RuntimeEnabledFeatures::isPeerConnectionEnabled = true;
-#endif
-
 #if ENABLE(LEGACY_CSS_VENDOR_PREFIXES)
 bool RuntimeEnabledFeatures::isLegacyCSSVendorPrefixesEnabled = false;
-#endif
-
-#if ENABLE(GAMEPAD)
-bool RuntimeEnabledFeatures::isGamepadEnabled = false;
 #endif
 
 #if ENABLE(FILE_SYSTEM)
@@ -80,63 +70,9 @@ bool RuntimeEnabledFeatures::fileSystemEnabled()
 }
 #endif
 
-#if ENABLE(JAVASCRIPT_I18N_API)
-bool RuntimeEnabledFeatures::isJavaScriptI18NAPIEnabled = false;
-
-bool RuntimeEnabledFeatures::javaScriptI18NAPIEnabled()
-{
-    return isJavaScriptI18NAPIEnabled;
-}
-#endif
-
-#if ENABLE(SHARED_WORKERS)
-bool RuntimeEnabledFeatures::sharedWorkerEnabled()
-{
-    return SharedWorkerRepository::isAvailable();
-}
-#endif
-
-#if ENABLE(WEB_SOCKETS)
-bool RuntimeEnabledFeatures::webSocketEnabled()
-{
-    return WebSocket::isAvailable();
-}
-#endif
-
-#if ENABLE(SQL_DATABASE)
-bool RuntimeEnabledFeatures::openDatabaseEnabled()
-{
-    return DatabaseManager::manager().isAvailable();
-}
-
-bool RuntimeEnabledFeatures::openDatabaseSyncEnabled()
-{
-    return DatabaseManager::manager().isAvailable();
-}
-#endif
-
-#if ENABLE(QUOTA)
-bool RuntimeEnabledFeatures::isQuotaEnabled = false;
-#endif
 
 #if ENABLE(FULLSCREEN_API)
 bool RuntimeEnabledFeatures::isFullScreenAPIEnabled = true;
-#endif
-
-#if ENABLE(MEDIA_SOURCE)
-bool RuntimeEnabledFeatures::isMediaSourceEnabled = false;
-#endif
-
-#if ENABLE(VIDEO_TRACK)
-#if PLATFORM(MAC) || PLATFORM(GTK) || PLATFORM(EFL) || PLATFORM(BLACKBERRY) || PLATFORM(WIN) || PLATFORM(QT)
-    bool RuntimeEnabledFeatures::isVideoTrackEnabled = true;
-#else
-    bool RuntimeEnabledFeatures::isVideoTrackEnabled = false;
-#endif
-#endif
-
-#if ENABLE(ENCRYPTED_MEDIA)
-bool RuntimeEnabledFeatures::isEncryptedMediaEnabled = false;
 #endif
 
 #if ENABLE(SHADOW_DOM)

@@ -227,10 +227,6 @@ static void cleanupSoupRequestOperation(ResourceHandle*, bool isDestroying = fal
 static void sendRequestCallback(GObject*, GAsyncResult*, gpointer);
 static void readCallback(GObject*, GAsyncResult*, gpointer);
 static gboolean requestTimeoutCallback(void*);
-#if ENABLE(WEB_TIMING)
-static int  milisecondsSinceRequest(double requestTime);
-#endif
-
 static bool gIgnoreSSLErrors = false;
 
 static HashSet<String>& allowsAnyHTTPSCertificateHosts()
@@ -328,11 +324,6 @@ static void gotHeadersCallback(SoupMessage* message, gpointer data)
 
     ResourceHandleInternal* d = handle->getInternal();
 
-#if ENABLE(WEB_TIMING)
-    if (d->m_response.resourceLoadTiming())
-        d->m_response.resourceLoadTiming()->receiveHeadersEnd = milisecondsSinceRequest(d->m_response.resourceLoadTiming()->requestTime);
-#endif
-
 #if PLATFORM(GTK)
     // We are a bit more conservative with the persistent credential storage than the session store,
     // since we are waiting until we know that this authentication succeeded before actually storing.
@@ -395,13 +386,6 @@ static void restartedCallback(SoupMessage*, gpointer data)
     ResourceHandle* handle = static_cast<ResourceHandle*>(data);
     if (!handle || handle->cancelledOrClientless())
         return;
-
-#if ENABLE(WEB_TIMING)
-    ResourceHandleInternal* d = handle->getInternal();
-    ResourceResponse& redirectResponse = d->m_response;
-    redirectResponse.setResourceLoadTiming(ResourceLoadTiming::create());
-    redirectResponse.resourceLoadTiming()->requestTime = monotonicallyIncreasingTime();
-#endif
 }
 
 static bool shouldRedirect(ResourceHandle* handle)
@@ -816,102 +800,6 @@ static bool addFormElementsToSoupMessage(SoupMessage* message, const char*, Form
     return true;
 }
 
-#if ENABLE(WEB_TIMING)
-static int milisecondsSinceRequest(double requestTime)
-{
-    return static_cast<int>((monotonicallyIncreasingTime() - requestTime) * 1000.0);
-}
-
-static void wroteBodyCallback(SoupMessage*, gpointer data)
-{
-    RefPtr<ResourceHandle> handle = static_cast<ResourceHandle*>(data);
-    if (!handle)
-        return;
-
-    ResourceHandleInternal* d = handle->getInternal();
-    if (!d->m_response.resourceLoadTiming())
-        return;
-
-    d->m_response.resourceLoadTiming()->sendEnd = milisecondsSinceRequest(d->m_response.resourceLoadTiming()->requestTime);
-}
-
-static void requestStartedCallback(SoupSession*, SoupMessage* soupMessage, SoupSocket*, gpointer)
-{
-    RefPtr<ResourceHandle> handle = static_cast<ResourceHandle*>(g_object_get_data(G_OBJECT(soupMessage), "handle"));
-    if (!handle)
-        return;
-
-    ResourceHandleInternal* d = handle->getInternal();
-    if (!d->m_response.resourceLoadTiming())
-        return;
-
-    d->m_response.resourceLoadTiming()->sendStart = milisecondsSinceRequest(d->m_response.resourceLoadTiming()->requestTime);
-    if (d->m_response.resourceLoadTiming()->sslStart != -1) {
-        // WebCore/inspector/front-end/RequestTimingView.js assumes
-        // that SSL time is included in connection time so must
-        // substract here the SSL delta that will be added later (see
-        // WebInspector.RequestTimingView.createTimingTable in the
-        // file above for more details).
-        d->m_response.resourceLoadTiming()->sendStart -=
-            d->m_response.resourceLoadTiming()->sslEnd - d->m_response.resourceLoadTiming()->sslStart;
-    }
-}
-
-static void networkEventCallback(SoupMessage*, GSocketClientEvent event, GIOStream*, gpointer data)
-{
-    ResourceHandle* handle = static_cast<ResourceHandle*>(data);
-    if (!handle)
-        return;
-
-    if (handle->cancelledOrClientless())
-        return;
-
-    ResourceHandleInternal* d = handle->getInternal();
-    int deltaTime = milisecondsSinceRequest(d->m_response.resourceLoadTiming()->requestTime);
-    switch (event) {
-    case G_SOCKET_CLIENT_RESOLVING:
-        d->m_response.resourceLoadTiming()->dnsStart = deltaTime;
-        break;
-    case G_SOCKET_CLIENT_RESOLVED:
-        d->m_response.resourceLoadTiming()->dnsEnd = deltaTime;
-        break;
-    case G_SOCKET_CLIENT_CONNECTING:
-        d->m_response.resourceLoadTiming()->connectStart = deltaTime;
-        if (d->m_response.resourceLoadTiming()->dnsStart != -1)
-            // WebCore/inspector/front-end/RequestTimingView.js assumes
-            // that DNS time is included in connection time so must
-            // substract here the DNS delta that will be added later (see
-            // WebInspector.RequestTimingView.createTimingTable in the
-            // file above for more details).
-            d->m_response.resourceLoadTiming()->connectStart -=
-                d->m_response.resourceLoadTiming()->dnsEnd - d->m_response.resourceLoadTiming()->dnsStart;
-        break;
-    case G_SOCKET_CLIENT_CONNECTED:
-        // Web Timing considers that connection time involves dns, proxy & TLS negotiation...
-        // so we better pick G_SOCKET_CLIENT_COMPLETE for connectEnd
-        break;
-    case G_SOCKET_CLIENT_PROXY_NEGOTIATING:
-        d->m_response.resourceLoadTiming()->proxyStart = deltaTime;
-        break;
-    case G_SOCKET_CLIENT_PROXY_NEGOTIATED:
-        d->m_response.resourceLoadTiming()->proxyEnd = deltaTime;
-        break;
-    case G_SOCKET_CLIENT_TLS_HANDSHAKING:
-        d->m_response.resourceLoadTiming()->sslStart = deltaTime;
-        break;
-    case G_SOCKET_CLIENT_TLS_HANDSHAKED:
-        d->m_response.resourceLoadTiming()->sslEnd = deltaTime;
-        break;
-    case G_SOCKET_CLIENT_COMPLETE:
-        d->m_response.resourceLoadTiming()->connectEnd = deltaTime;
-        break;
-    default:
-        ASSERT_NOT_REACHED();
-        break;
-    }
-}
-#endif
-
 static const char* gSoupRequestInitiatingPageIDKey = "wk-soup-request-initiating-page-id";
 
 static void setSoupRequestInitiatingPageIDFromNetworkingContext(SoupRequest* request, NetworkingContext* context)
@@ -968,12 +856,6 @@ static bool createSoupMessageForHandleAndRequest(ResourceHandle* handle, const R
     g_signal_connect(d->m_soupMessage.get(), "wrote-body-data", G_CALLBACK(wroteBodyDataCallback), handle);
 
     soup_message_set_flags(d->m_soupMessage.get(), static_cast<SoupMessageFlags>(soup_message_get_flags(d->m_soupMessage.get()) | SOUP_MESSAGE_NO_REDIRECT));
-
-#if ENABLE(WEB_TIMING)
-    d->m_response.setResourceLoadTiming(ResourceLoadTiming::create());
-    g_signal_connect(d->m_soupMessage.get(), "network-event", G_CALLBACK(networkEventCallback), handle);
-    g_signal_connect(d->m_soupMessage.get(), "wrote-body", G_CALLBACK(wroteBodyCallback), handle);
-#endif
 
 #if SOUP_CHECK_VERSION(2, 43, 1)
     soup_message_set_priority(d->m_soupMessage.get(), toSoupMessagePriority(request.priority()));
@@ -1045,11 +927,6 @@ bool ResourceHandle::start()
 
 void ResourceHandle::sendPendingRequest()
 {
-#if ENABLE(WEB_TIMING)
-    if (d->m_response.resourceLoadTiming())
-        d->m_response.resourceLoadTiming()->requestTime = monotonicallyIncreasingTime();
-#endif
-
     if (d->m_firstRequest.timeoutInterval() > 0) {
         // soup_add_timeout returns a GSource* whose only reference is owned by
         // the context. We need to have our own reference to it, hence not using adoptRef.
@@ -1382,9 +1259,6 @@ SoupSession* ResourceHandle::defaultSession()
                      NULL);
         g_signal_connect(session, "authenticate", G_CALLBACK(authenticateCallback), 0);
 
-#if ENABLE(WEB_TIMING)
-        g_signal_connect(session, "request-started", G_CALLBACK(requestStartedCallback), 0);
-#endif
     }
 
     return session;

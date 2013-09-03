@@ -59,10 +59,6 @@
 #include "loader/cache/CachedShader.h"
 #endif
 
-#if ENABLE(RESOURCE_TIMING)
-#include "page/Performance.h"
-#endif
-
 #define PRELOAD_DEBUG 0
 
 namespace WebCore {
@@ -367,11 +363,7 @@ CachedResourceHandle<CachedResource> CachedResourceLoader::revalidateResource(co
     
     memoryCache()->remove(resource);
     memoryCache()->add(newResource.get());
-#if ENABLE(RESOURCE_TIMING)
-    storeResourceTimingInitiatorInformation(resource, request);
-#else
     UNUSED_PARAM(request);
-#endif
     return newResource;
 }
 
@@ -385,27 +377,9 @@ CachedResourceHandle<CachedResource> CachedResourceLoader::loadResource(CachedRe
 
     if (!memoryCache()->add(resource.get()))
         resource->setOwningCachedResourceLoader(this);
-#if ENABLE(RESOURCE_TIMING)
-    storeResourceTimingInitiatorInformation(resource, request);
-#endif
     return resource;
 }
 
-#if ENABLE(RESOURCE_TIMING)
-void CachedResourceLoader::storeResourceTimingInitiatorInformation(const CachedResourceHandle<CachedResource>& resource, const CachedResourceRequest& request)
-{
-    if (resource->type() == CachedResource::MainResource) {
-        // <iframe>s should report the initial navigation requested by the parent document, but not subsequent navigations.
-        if (frame()->ownerElement() && m_documentLoader->frameLoader()->stateMachine()->committingFirstRealLoad()) {
-            InitiatorInfo info = { frame()->ownerElement()->localName(), monotonicallyIncreasingTime() };
-            m_initiatorMap.add(resource.get(), info);
-        }
-    } else {
-        InitiatorInfo info = { request.initiatorName(), monotonicallyIncreasingTime() };
-        m_initiatorMap.add(resource.get(), info);
-    }
-}
-#endif // ENABLE(RESOURCE_TIMING)
 
 CachedResourceLoader::RevalidationPolicy CachedResourceLoader::determineRevalidationPolicy(CachedResource::Type type, ResourceRequest& request, bool forPreload, CachedResource* existingResource, CachedResourceRequest::DeferOption defer) const
 {
@@ -579,23 +553,7 @@ void CachedResourceLoader::loadDone(CachedResource* resource)
     RefPtr<DocumentLoader> protectDocumentLoader(m_documentLoader);
     RefPtr<Document> protectDocument(m_document);
 
-#if ENABLE(RESOURCE_TIMING)
-    if (resource && resource->response().isHTTP() && ((!resource->errorOccurred() && !resource->wasCanceled()) || resource->response().httpStatusCode() == 304)) {
-        HashMap<CachedResource*, InitiatorInfo>::iterator initiatorIt = m_initiatorMap.find(resource);
-        if (initiatorIt != m_initiatorMap.end()) {
-            ASSERT(document());
-            Document* initiatorDocument = document();
-            if (resource->type() == CachedResource::MainResource)
-                initiatorDocument = document()->parentDocument();
-            ASSERT(initiatorDocument);
-            const InitiatorInfo& info = initiatorIt->value;
-            initiatorDocument->domWindow()->performance()->addResourceTiming(info.name, initiatorDocument, resource->resourceRequest(), resource->response(), info.startTime, resource->loadFinishTime());
-            m_initiatorMap.remove(initiatorIt);
-        }
-    }
-#else
     UNUSED_PARAM(resource);
-#endif // ENABLE(RESOURCE_TIMING)
 
     if (frame())
         frame()->loader()->loadDone();

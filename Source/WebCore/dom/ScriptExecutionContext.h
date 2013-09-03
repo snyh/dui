@@ -46,7 +46,6 @@ class DatabaseContext;
 class EventListener;
 class EventQueue;
 class EventTarget;
-class MessagePort;
 class ScriptCallStack;
 class ScriptState;
 
@@ -100,13 +99,6 @@ public:
 
     void didCreateDestructionObserver(ContextDestructionObserver*);
     void willDestroyDestructionObserver(ContextDestructionObserver*);
-
-    // MessagePort is conceptually a kind of ActiveDOMObject, but it needs to be tracked separately for message dispatch.
-    void processMessagePortMessagesSoon();
-    void dispatchMessagePortEvents();
-    void createdMessagePort(MessagePort*);
-    void destroyedMessagePort(MessagePort*);
-    const HashSet<MessagePort*>& messagePorts() const { return m_messagePorts; }
 
     void ref() { refScriptExecutionContext(); }
     void deref() { derefScriptExecutionContext(); }
@@ -165,12 +157,9 @@ private:
     virtual EventTarget* errorEventTarget() = 0;
     bool dispatchErrorEvent(const String& errorMessage, int lineNumber, const String& sourceURL, CachedScript*);
 
-    void closeMessagePorts();
-
     virtual void refScriptExecutionContext() = 0;
     virtual void derefScriptExecutionContext() = 0;
 
-    HashSet<MessagePort*> m_messagePorts;
     HashSet<ContextDestructionObserver*> m_destructionObservers;
     ActiveDOMObjectsSet m_activeDOMObjects;
     bool m_iteratingActiveDOMObjects;
