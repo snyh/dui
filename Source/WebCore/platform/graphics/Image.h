@@ -162,11 +162,7 @@ public:
     virtual bool getHBITMAPOfSize(HBITMAP, LPSIZE) { return false; }
 #endif
 
-#if PLATFORM(GTK)
-    virtual GdkPixbuf* getGdkPixbuf() { return 0; }
-    static PassRefPtr<Image> loadPlatformThemeIcon(const char* name, int size);
-    static PassRefPtr<Image> loadImageFromFile(const CString& filename);
-#endif
+    static PassRefPtr<Image> loadImageFromFile(const String& filename);
 
 #if PLATFORM(QT)
     static void setPlatformResource(const char* name, const QPixmap&);

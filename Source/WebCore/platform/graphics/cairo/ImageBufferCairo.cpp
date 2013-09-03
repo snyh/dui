@@ -358,7 +358,6 @@ void ImageBuffer::putByteArray(Multiply multiplied, Uint8ClampedArray* source, c
     unmapSurfaceFromImage(m_data.m_surface.get(), imageSurface, IntRect(destx, desty, numColumns, numRows));
 }
 
-#if !PLATFORM(GTK)
 static cairo_status_t writeFunction(void* output, const unsigned char* data, unsigned int length)
 {
     if (!reinterpret_cast<Vector<unsigned char>*>(output)->tryAppend(data, length))
@@ -388,7 +387,6 @@ String ImageBuffer::toDataURL(const String& mimeType, const double*, CoordinateS
 
     return "data:" + mimeType + ";base64," + base64Data;
 }
-#endif
 
 #if ENABLE(ACCELERATED_2D_CANVAS)
 void ImageBufferData::paintToTextureMapper(TextureMapper* textureMapper, const FloatRect& targetRect, const TransformationMatrix& matrix, float opacity)

@@ -153,10 +153,6 @@ public:
     virtual bool getHBITMAPOfSize(HBITMAP, LPSIZE);
 #endif
 
-#if PLATFORM(GTK)
-    virtual GdkPixbuf* getGdkPixbuf();
-#endif
-
 #if PLATFORM(EFL)
     virtual Evas_Object* getEvasObject(Evas*);
 #endif

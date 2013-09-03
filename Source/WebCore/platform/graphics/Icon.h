@@ -44,11 +44,11 @@ class IntRect;
     
 class Icon : public RefCounted<Icon> {
 public:
-    static PassRefPtr<Icon> createIconForFiles(const Vector<String>& filenames);
+    static PassRefPtr<Icon> createIconForFiles(const Vector<String>& filenames) { return 0;};
 
-    ~Icon();
+    ~Icon() {};
 
-    void paint(GraphicsContext*, const IntRect&);
+    void paint(GraphicsContext*, const IntRect&) {};
 
 #if PLATFORM(WIN)
     static PassRefPtr<Icon> create(HICON hIcon) { return adoptRef(new Icon(hIcon)); }

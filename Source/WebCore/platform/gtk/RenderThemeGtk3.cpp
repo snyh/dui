@@ -910,60 +910,66 @@ GRefPtr<GdkPixbuf> getStockSymbolicIconForWidgetType(GType widgetType, const cha
     return adoptGRef(icon);
 }
 
+inline 
+Color _hack(const GdkRGBA& v)
+{
+    return Color(float(v.red), float(v.green), float(v.blue), float(v.alpha));
+}
+
 Color RenderThemeGtk::platformActiveSelectionBackgroundColor() const
 {
     GdkRGBA gdkRGBAColor;
     gtk_style_context_get_background_color(getStyleContext(GTK_TYPE_ENTRY), GTK_STATE_FLAG_SELECTED, &gdkRGBAColor);
-    return gdkRGBAColor;
+    return _hack(gdkRGBAColor);
 }
 
 Color RenderThemeGtk::platformInactiveSelectionBackgroundColor() const
 {
     GdkRGBA gdkRGBAColor;
     gtk_style_context_get_background_color(getStyleContext(GTK_TYPE_ENTRY), GTK_STATE_FLAG_ACTIVE, &gdkRGBAColor);
-    return gdkRGBAColor;
+    return _hack(gdkRGBAColor);
 }
 
 Color RenderThemeGtk::platformActiveSelectionForegroundColor() const
 {
     GdkRGBA gdkRGBAColor;
     gtk_style_context_get_color(getStyleContext(GTK_TYPE_ENTRY), GTK_STATE_FLAG_SELECTED, &gdkRGBAColor);
-    return gdkRGBAColor;
+    return _hack(gdkRGBAColor);
 }
 
 Color RenderThemeGtk::platformInactiveSelectionForegroundColor() const
 {
     GdkRGBA gdkRGBAColor;
     gtk_style_context_get_color(getStyleContext(GTK_TYPE_ENTRY), GTK_STATE_FLAG_ACTIVE, &gdkRGBAColor);
-    return gdkRGBAColor;
+    return _hack(gdkRGBAColor);
 }
 
 Color RenderThemeGtk::activeListBoxSelectionBackgroundColor() const
 {
     GdkRGBA gdkRGBAColor;
     gtk_style_context_get_background_color(getStyleContext(GTK_TYPE_TREE_VIEW), GTK_STATE_FLAG_SELECTED, &gdkRGBAColor);
-    return gdkRGBAColor;
+    return _hack(gdkRGBAColor);
 }
 
 Color RenderThemeGtk::inactiveListBoxSelectionBackgroundColor() const
 {
     GdkRGBA gdkRGBAColor;
     gtk_style_context_get_background_color(getStyleContext(GTK_TYPE_TREE_VIEW), GTK_STATE_FLAG_ACTIVE, &gdkRGBAColor);
-    return gdkRGBAColor;
+    return _hack(gdkRGBAColor);
 }
 
 Color RenderThemeGtk::activeListBoxSelectionForegroundColor() const
 {
     GdkRGBA gdkRGBAColor;
     gtk_style_context_get_color(getStyleContext(GTK_TYPE_TREE_VIEW), GTK_STATE_FLAG_SELECTED, &gdkRGBAColor);
-    return gdkRGBAColor;
+    return _hack(gdkRGBAColor);
 }
 
 Color RenderThemeGtk::inactiveListBoxSelectionForegroundColor() const
 {
     GdkRGBA gdkRGBAColor;
     gtk_style_context_get_color(getStyleContext(GTK_TYPE_TREE_VIEW), GTK_STATE_FLAG_ACTIVE, &gdkRGBAColor);
-    return gdkRGBAColor;
+    return _hack(gdkRGBAColor);
 }
 
 Color RenderThemeGtk::systemColor(CSSValueID cssValueId) const
@@ -973,10 +979,10 @@ Color RenderThemeGtk::systemColor(CSSValueID cssValueId) const
     switch (cssValueId) {
     case CSSValueButtontext:
         gtk_style_context_get_color(getStyleContext(GTK_TYPE_BUTTON), static_cast<GtkStateFlags>(0), &gdkRGBAColor);
-        return gdkRGBAColor;
+        return _hack(gdkRGBAColor);
     case CSSValueCaptiontext:
         gtk_style_context_get_color(getStyleContext(GTK_TYPE_ENTRY), static_cast<GtkStateFlags>(0), &gdkRGBAColor);
-        return gdkRGBAColor;
+        return _hack(gdkRGBAColor);
     default:
         return RenderTheme::systemColor(cssValueId);
     }

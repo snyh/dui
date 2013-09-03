@@ -175,7 +175,7 @@ void ImageLoader::updateFromElement()
     CachedResourceHandle<CachedImage> newImage = 0;
     if (!attr.isNull() && !stripLeadingAndTrailingHTMLSpaces(attr).isEmpty()) {
         //newImage = document->cachedResourceLoader()->requestImage(request);
-        RefPtr<Image> image =  Image::loadImageFromFile(attr.string().utf8());
+        RefPtr<Image> image =  Image::loadImageFromFile(attr.string());
         newImage = new CachedImage(image.get());
         image->setImageObserver(newImage.get());
 

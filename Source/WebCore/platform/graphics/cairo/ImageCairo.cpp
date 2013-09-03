@@ -36,6 +36,9 @@
 #include "platform/graphics/GraphicsContext.h"
 #include "platform/graphics/ImageObserver.h"
 #include "platform/graphics/cairo/PlatformContextCairo.h"
+#include "platform/graphics/BitmapImage.h"
+#include "platform/SharedBuffer.h"
+#include <wtf/text/CString.h>
 #include <cairo.h>
 #include <math.h>
 
@@ -53,6 +56,25 @@ void Image::drawPattern(GraphicsContext* context, const FloatRect& tileRect, con
 
     if (imageObserver())
         imageObserver()->didDraw(this);
+}
+
+PassRefPtr<Image> Image::loadImageFromFile(const String& fileName)
+{
+    RefPtr<BitmapImage> img = BitmapImage::create();
+    if (!fileName.isNull()) {
+        RefPtr<SharedBuffer> buffer = SharedBuffer::createWithContentsOfFile(fileName);
+        img->setData(buffer.release(), true);
+    }
+    return img.release();
+}
+
+void BitmapImage::invalidatePlatformData()
+{
+}
+
+PassRefPtr<Image> Image::loadPlatformResource(const char* name)
+{
+    return 0;
 }
 
 }

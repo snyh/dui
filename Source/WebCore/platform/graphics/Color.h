@@ -134,15 +134,6 @@ public:
     operator QColor() const;
 #endif
 
-#if PLATFORM(GTK)
-    Color(const GdkColor&);
-    // We can't sensibly go back to GdkColor without losing the alpha value
-#ifndef GTK_API_VERSION_2
-    Color(const GdkRGBA&);
-    operator GdkRGBA() const;
-#endif
-#endif
-
 #if USE(CG)
     Color(CGColorRef);
 #endif

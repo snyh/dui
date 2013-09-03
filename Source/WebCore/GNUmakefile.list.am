@@ -3420,8 +3420,6 @@ webcoregtk_sources += \
 	Source/WebCore/page/gtk/DragControllerGtk.cpp \
 	Source/WebCore/page/gtk/EventHandlerGtk.cpp \
 	Source/WebCore/platform/cairo/WidgetBackingStore.h \
-	Source/WebCore/platform/graphics/gtk/IconGtk.cpp \
-	Source/WebCore/platform/graphics/gtk/ImageBufferGtk.cpp \
 	Source/WebCore/platform/gtk/AsyncFileSystemGtk.cpp \
 	Source/WebCore/platform/gtk/AsyncFileSystemGtk.h \
 	Source/WebCore/platform/gtk/ClipboardGtk.cpp \
@@ -3455,12 +3453,6 @@ platformgtk_sources += \
 	Source/WebCore/platform/graphics/cairo/GraphicsContextPlatformPrivateCairo.h \
 	Source/WebCore/platform/graphics/freetype/FontPlatformData.h \
 	Source/WebCore/platform/graphics/freetype/FontPlatformDataFreeType.cpp \
-	Source/WebCore/platform/graphics/gtk/ColorGtk.cpp \
-	Source/WebCore/platform/graphics/gtk/GdkCairoUtilities.cpp \
-	Source/WebCore/platform/graphics/gtk/GdkCairoUtilities.h \
-	Source/WebCore/platform/graphics/gtk/ImageGtk.cpp \
-	Source/WebCore/platform/graphics/gtk/IntPointGtk.cpp \
-	Source/WebCore/platform/graphics/gtk/IntRectGtk.cpp \
 	Source/WebCore/platform/gtk/CompositionResults.h \
 	Source/WebCore/platform/gtk/CursorGtk.cpp \
 	Source/WebCore/platform/gtk/CursorGtk.h \

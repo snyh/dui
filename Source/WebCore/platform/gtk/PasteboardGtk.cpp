@@ -232,7 +232,10 @@ void Pasteboard::writeImage(Node* node, const KURL&, const String& title)
         m_dataObject->setMarkup(createMarkup(toElement(node), IncludeNode, 0, ResolveAllURLs));
     }
 
-    GRefPtr<GdkPixbuf> pixbuf = adoptGRef(image->getGdkPixbuf());
+    cairo_surface_t* surface = image->nativeImageForCurrentFrame().get();
+    GRefPtr<GdkPixbuf> pixbuf = adoptGRef(gdk_pixbuf_get_from_surface(surface, 0, 0,
+                                       cairo_image_surface_get_width(surface),
+                                       cairo_image_surface_get_height(surface)));
     m_dataObject->setImage(pixbuf.get());
 
     if (m_gtkClipboard)
