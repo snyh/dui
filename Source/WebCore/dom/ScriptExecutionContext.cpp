@@ -224,12 +224,4 @@ JSC::VM* ScriptExecutionContext::vm()
     return 0;
 }
 
-#if ENABLE(SQL_DATABASE)
-void ScriptExecutionContext::setDatabaseContext(DatabaseContext* databaseContext)
-{
-    ASSERT(!m_databaseContext);
-    m_databaseContext = databaseContext;
-}
-#endif
-
 } // namespace WebCore

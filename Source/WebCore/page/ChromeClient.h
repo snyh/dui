@@ -37,10 +37,6 @@
 #include <wtf/PassOwnPtr.h>
 #include <wtf/Vector.h>
 
-#if ENABLE(SQL_DATABASE)
-#include "DatabaseDetails.h"
-#endif
-
 OBJC_CLASS NSResponder;
 
 namespace WebCore {
@@ -166,10 +162,6 @@ public:
 
     virtual Color underlayColor() const { return Color(); }
 
-#if ENABLE(SQL_DATABASE)
-    virtual void exceededDatabaseQuota(Frame*, const String& databaseName, DatabaseDetails) = 0;
-#endif
-
     // Callback invoked when the application cache fails to save a cache object
     // because storing it would grow the database file past its defined maximum
     // size or past the amount of free space on the device. 
@@ -187,7 +179,7 @@ public:
     // the new cache.
     virtual void reachedApplicationCacheOriginQuota(SecurityOrigin*, int64_t totalSpaceNeeded) = 0;
 
-#if ENABLE(DASHBOARD_SUPPORT) || ENABLE(DRAGGABLE_REGION)
+#if ENABLE(DRAGGABLE_REGION)
     virtual void annotatedRegionsChanged();
 #endif
 

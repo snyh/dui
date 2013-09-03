@@ -858,11 +858,6 @@ print F <<END
 #include "dom/CustomElementRegistry.h"
 #endif
 
-#if ENABLE(DASHBOARD_SUPPORT)
-#include "dom/Document.h"
-#include "page/Settings.h"
-#endif
-
 namespace WebCore {
 
 using namespace $parameters{namespace}Names;
@@ -917,18 +912,6 @@ print F <<END
 
 END
 ;
-
-if ($parameters{namespace} ne "HTML" and $parameters{namespace} ne "SVG") {
-print F <<END
-#if ENABLE(DASHBOARD_SUPPORT)
-    Settings* settings = document->settings();
-    if (settings && settings->usesDashboardBackwardCompatibilityMode())
-        return 0;
-#endif
-END
-;
-
-}
 
 print F <<END
 #if ENABLE(CUSTOM_ELEMENTS)

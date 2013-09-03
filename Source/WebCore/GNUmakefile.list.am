@@ -605,7 +605,6 @@ webcore_sources += \
 	Source/WebCore/css/CSSVariableValue.h \
 	Source/WebCore/css/DOMWindowCSS.cpp \
 	Source/WebCore/css/DOMWindowCSS.h \
-	Source/WebCore/css/DashboardRegion.h \
 	Source/WebCore/css/DeprecatedStyleBuilder.cpp \
 	Source/WebCore/css/DeprecatedStyleBuilder.h \
 	Source/WebCore/css/DocumentRuleSets.cpp \
@@ -2119,7 +2118,6 @@ webcore_sources += \
 	Source/WebCore/rendering/style/StyleCustomFilterProgram.h \
 	Source/WebCore/rendering/style/StyleCustomFilterProgramCache.cpp \
 	Source/WebCore/rendering/style/StyleCustomFilterProgramCache.h \
-	Source/WebCore/rendering/style/StyleDashboardRegion.h \
 	Source/WebCore/rendering/style/StyleDeprecatedFlexibleBoxData.cpp \
 	Source/WebCore/rendering/style/StyleDeprecatedFlexibleBoxData.h \
 	Source/WebCore/rendering/style/StyleFilterData.cpp \

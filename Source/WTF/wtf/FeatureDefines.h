@@ -121,10 +121,6 @@
 #define ENABLE_CSS_IMAGE_SET 1
 #endif
 
-#if !defined(ENABLE_DASHBOARD_SUPPORT)
-#define ENABLE_DASHBOARD_SUPPORT 1
-#endif
-
 #if !defined(ENABLE_DELETION_UI)
 #define ENABLE_DELETION_UI 1
 #endif
@@ -380,10 +376,6 @@
 
 #if !defined(ENABLE_CUSTOM_SCHEME_HANDLER)
 #define ENABLE_CUSTOM_SCHEME_HANDLER 0
-#endif
-
-#if !defined(ENABLE_DASHBOARD_SUPPORT)
-#define ENABLE_DASHBOARD_SUPPORT 0
 #endif
 
 #if !defined(ENABLE_DATALIST_ELEMENT)
@@ -712,10 +704,6 @@
 
 #if !defined(ENABLE_SPELLCHECK)
 #define ENABLE_SPELLCHECK 0
-#endif
-
-#if !defined(ENABLE_SQL_DATABASE)
-#define ENABLE_SQL_DATABASE 1
 #endif
 
 #if !defined(ENABLE_STYLE_SCOPED)

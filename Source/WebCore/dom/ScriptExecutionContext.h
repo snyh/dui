@@ -123,10 +123,6 @@ public:
 
     virtual EventQueue* eventQueue() const = 0;
 
-#if ENABLE(SQL_DATABASE)
-    void setDatabaseContext(DatabaseContext*);
-#endif
-
 protected:
     class AddConsoleMessageTask : public Task {
     public:
@@ -177,9 +173,6 @@ private:
     OwnPtr<PublicURLManager> m_publicURLManager;
 #endif
 
-#if ENABLE(SQL_DATABASE)
-    RefPtr<DatabaseContext> m_databaseContext;
-#endif
 };
 
 } // namespace WebCore

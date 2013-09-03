@@ -51,18 +51,11 @@ namespace WebCore {
 
         void addColorStop(float value, const String& color, ExceptionCode&);
 
-#if ENABLE(DASHBOARD_SUPPORT)
-        void setDashboardCompatibilityMode() { m_dashbardCompatibilityMode = true; }
-#endif
-
     private:
         CanvasGradient(const FloatPoint& p0, const FloatPoint& p1);
         CanvasGradient(const FloatPoint& p0, float r0, const FloatPoint& p1, float r1);
         
         RefPtr<Gradient> m_gradient;
-#if ENABLE(DASHBOARD_SUPPORT)
-        bool m_dashbardCompatibilityMode;
-#endif
     };
 
 } //namespace

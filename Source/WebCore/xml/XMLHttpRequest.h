@@ -157,10 +157,6 @@ private:
 
     Document* document() const;
 
-#if ENABLE(DASHBOARD_SUPPORT)
-    bool usesDashboardBackwardCompatibilityMode() const;
-#endif
-
     virtual void didSendData(unsigned long long bytesSent, unsigned long long totalBytesToBeSent);
     virtual void didReceiveResponse(unsigned long identifier, const ResourceResponse&);
     virtual void didReceiveData(const char* data, int dataLength);

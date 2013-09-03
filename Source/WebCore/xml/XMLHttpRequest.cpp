@@ -195,16 +195,6 @@ Document* XMLHttpRequest::document() const
     return static_cast<Document*>(scriptExecutionContext());
 }
 
-#if ENABLE(DASHBOARD_SUPPORT)
-bool XMLHttpRequest::usesDashboardBackwardCompatibilityMode() const
-{
-    if (scriptExecutionContext()->isWorkerGlobalScope())
-        return false;
-    Settings* settings = document()->settings();
-    return settings && settings->usesDashboardBackwardCompatibilityMode();
-}
-#endif
-
 XMLHttpRequest::State XMLHttpRequest::readyState() const
 {
     return m_state;
@@ -552,13 +542,8 @@ void XMLHttpRequest::send(Document* document, ExceptionCode& ec)
     if (m_method != "GET" && m_method != "HEAD" && m_url.protocolIsInHTTPFamily()) {
         String contentType = getRequestHeader("Content-Type");
         if (contentType.isEmpty()) {
-#if ENABLE(DASHBOARD_SUPPORT)
-            if (usesDashboardBackwardCompatibilityMode())
-                setRequestHeaderInternal("Content-Type", "application/x-www-form-urlencoded");
-            else
-#endif
-                // FIXME: this should include the charset used for encoding.
-                setRequestHeaderInternal("Content-Type", "application/xml");
+            // FIXME: this should include the charset used for encoding.
+            setRequestHeaderInternal("Content-Type", "application/xml");
         }
 
         // FIXME: According to XMLHttpRequest Level 2, this should use the Document.innerHTML algorithm
@@ -583,12 +568,7 @@ void XMLHttpRequest::send(const String& body, ExceptionCode& ec)
     if (!body.isNull() && m_method != "GET" && m_method != "HEAD" && m_url.protocolIsInHTTPFamily()) {
         String contentType = getRequestHeader("Content-Type");
         if (contentType.isEmpty()) {
-#if ENABLE(DASHBOARD_SUPPORT)
-            if (usesDashboardBackwardCompatibilityMode())
-                setRequestHeaderInternal("Content-Type", "application/x-www-form-urlencoded");
-            else
-#endif
-                setRequestHeaderInternal("Content-Type", "application/xml");
+            setRequestHeaderInternal("Content-Type", "application/xml");
         } else {
             replaceCharsetInMediaType(contentType, "UTF-8");
             m_requestHeaders.set("Content-Type", contentType);
@@ -854,11 +834,6 @@ void XMLHttpRequest::overrideMimeType(const String& override)
 void XMLHttpRequest::setRequestHeader(const AtomicString& name, const String& value, ExceptionCode& ec)
 {
     if (m_state != OPENED) {
-#if ENABLE(DASHBOARD_SUPPORT)
-        if (usesDashboardBackwardCompatibilityMode())
-            return;
-#endif
-
         ec = INVALID_STATE_ERR;
         return;
     }

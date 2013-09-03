@@ -102,9 +102,6 @@ public:
         CSS_DPI = 31,
         CSS_DPCM = 32,
         CSS_PAIR = 100, // We envision this being exposed as a means of getting computed style values for pairs (border-spacing/radius, background-position, etc.)
-#if ENABLE(DASHBOARD_SUPPORT)
-        CSS_DASHBOARD_REGION = 101, // FIXME: Dashboard region should not be a primitive value.
-#endif
         CSS_UNICODE_RANGE = 102,
 
         // These next types are just used internally to allow us to translate back and forth from CSSPrimitiveValues to CSSParserValues.
@@ -304,10 +301,6 @@ public:
 
     Pair* getPairValue(ExceptionCode&) const;
     Pair* getPairValue() const { return m_primitiveUnitType != CSS_PAIR ? 0 : m_value.pair; }
-
-#if ENABLE(DASHBOARD_SUPPORT)
-    DashboardRegion* getDashboardRegionValue() const { return m_primitiveUnitType != CSS_DASHBOARD_REGION ? 0 : m_value.region; }
-#endif
 
     CSSBasicShape* getShapeValue() const { return m_primitiveUnitType != CSS_SHAPE ? 0 : m_value.shape; }
     

@@ -297,10 +297,6 @@ private:
 
     const Font& accessFont();
 
-#if ENABLE(DASHBOARD_SUPPORT)
-    void clearPathForDashboardBackwardCompatibilityMode();
-#endif
-
     void clearCanvas();
     Path transformAreaToDevice(const Path&) const;
     Path transformAreaToDevice(const FloatRect&) const;
@@ -332,9 +328,6 @@ private:
     Vector<State, 1> m_stateStack;
     unsigned m_unrealizedSaveCount;
     bool m_usesCSSCompatibilityParseMode;
-#if ENABLE(DASHBOARD_SUPPORT)
-    bool m_usesDashboardCompatibilityMode;
-#endif
 };
 
 } // namespace WebCore

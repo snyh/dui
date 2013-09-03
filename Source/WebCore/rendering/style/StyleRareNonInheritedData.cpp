@@ -184,9 +184,6 @@ bool StyleRareNonInheritedData::operator==(const StyleRareNonInheritedData& o) c
         && m_perspectiveOriginX == o.m_perspectiveOriginX
         && m_perspectiveOriginY == o.m_perspectiveOriginY
         && lineClamp == o.lineClamp
-#if ENABLE(DASHBOARD_SUPPORT)
-        && m_dashboardRegions == o.m_dashboardRegions
-#endif
 #if ENABLE(DRAGGABLE_REGION)
         && m_draggableRegionMode == o.m_draggableRegionMode
 #endif
