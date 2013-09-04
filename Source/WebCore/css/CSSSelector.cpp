@@ -236,11 +236,6 @@ PseudoId CSSSelector::pseudoId(PseudoType type)
     case PseudoOutOfRange:
     case PseudoUserAgentCustomElement:
     case PseudoWebKitCustomElement:
-#if ENABLE(VIDEO_TRACK)
-    case PseudoCue:
-    case PseudoFutureCue:
-    case PseudoPastCue:
-#endif
 #if ENABLE(IFRAME_SEAMLESS)
     case PseudoSeamlessDocument:
 #endif
@@ -326,11 +321,6 @@ static HashMap<AtomicStringImpl*, CSSSelector::PseudoType>* nameToPseudoTypeMap(
     DEFINE_STATIC_LOCAL(AtomicString, fullScreenAncestor, ("-webkit-full-screen-ancestor", AtomicString::ConstructFromLiteral));
     DEFINE_STATIC_LOCAL(AtomicString, animatingFullScreenTransition, ("-webkit-animating-full-screen-transition", AtomicString::ConstructFromLiteral));
 #endif
-#if ENABLE(VIDEO_TRACK)
-    DEFINE_STATIC_LOCAL(AtomicString, cue, ("cue(", AtomicString::ConstructFromLiteral));
-    DEFINE_STATIC_LOCAL(AtomicString, futureCue, ("future", AtomicString::ConstructFromLiteral));
-    DEFINE_STATIC_LOCAL(AtomicString, pastCue, ("past", AtomicString::ConstructFromLiteral));
-#endif
 #if ENABLE(IFRAME_SEAMLESS)
     DEFINE_STATIC_LOCAL(AtomicString, seamlessDocument, ("-webkit-seamless-document", AtomicString::ConstructFromLiteral));
 #endif
@@ -411,11 +401,6 @@ static HashMap<AtomicStringImpl*, CSSSelector::PseudoType>* nameToPseudoTypeMap(
         nameToPseudoType->set(fullScreenAncestor.impl(), CSSSelector::PseudoFullScreenAncestor);
         nameToPseudoType->set(animatingFullScreenTransition.impl(), CSSSelector::PseudoAnimatingFullScreenTransition);
 #endif
-#if ENABLE(VIDEO_TRACK)
-        nameToPseudoType->set(cue.impl(), CSSSelector::PseudoCue);
-        nameToPseudoType->set(futureCue.impl(), CSSSelector::PseudoFutureCue);
-        nameToPseudoType->set(pastCue.impl(), CSSSelector::PseudoPastCue);
-#endif
 #if ENABLE(IFRAME_SEAMLESS)
         nameToPseudoType->set(seamlessDocument.impl(), CSSSelector::PseudoSeamlessDocument);
 #endif
@@ -457,9 +442,6 @@ void CSSSelector::extractPseudoType() const
     switch (m_pseudoType) {
     case PseudoAfter:
     case PseudoBefore:
-#if ENABLE(VIDEO_TRACK)
-    case PseudoCue:
-#endif
     case PseudoFirstLetter:
     case PseudoFirstLine:
         compat = true;
@@ -541,10 +523,6 @@ void CSSSelector::extractPseudoType() const
 #endif
     case PseudoInRange:
     case PseudoOutOfRange:
-#if ENABLE(VIDEO_TRACK)
-    case PseudoFutureCue:
-    case PseudoPastCue:
-#endif
         break;
     case PseudoFirstPage:
     case PseudoLeftPage:

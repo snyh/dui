@@ -51,10 +51,6 @@
 #include <wtf/text/CString.h>
 #include <wtf/text/WTFString.h>
 
-#if ENABLE(VIDEO_TRACK)
-#include "loader/cache/CachedTextTrack.h"
-#endif
-
 #if ENABLE(CSS_SHADERS)
 #include "loader/cache/CachedShader.h"
 #endif
@@ -90,10 +86,6 @@ static CachedResource* createResource(CachedResource::Type type, ResourceRequest
         return new CachedResource(request, CachedResource::LinkPrefetch);
     case CachedResource::LinkSubresource:
         return new CachedResource(request, CachedResource::LinkSubresource);
-#endif
-#if ENABLE(VIDEO_TRACK)
-    case CachedResource::TextTrackResource:
-        return new CachedTextTrack(request);
 #endif
 #if ENABLE(CSS_SHADERS)
     case CachedResource::ShaderResource:
@@ -161,13 +153,6 @@ CachedResourceHandle<CachedFont> CachedResourceLoader::requestFont(CachedResourc
 {
     return static_cast<CachedFont*>(requestResource(CachedResource::FontResource, request).get());
 }
-
-#if ENABLE(VIDEO_TRACK)
-CachedResourceHandle<CachedTextTrack> CachedResourceLoader::requestTextTrack(CachedResourceRequest& request)
-{
-    return static_cast<CachedTextTrack*>(requestResource(CachedResource::TextTrackResource, request).get());
-}
-#endif
 
 #if ENABLE(CSS_SHADERS)
 CachedResourceHandle<CachedShader> CachedResourceLoader::requestShader(CachedResourceRequest& request)

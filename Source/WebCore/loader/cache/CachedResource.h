@@ -77,9 +77,6 @@ public:
         , LinkPrefetch
         , LinkSubresource
 #endif
-#if ENABLE(VIDEO_TRACK)
-        , TextTrackResource
-#endif
 #if ENABLE(CSS_SHADERS)
         , ShaderResource
 #endif

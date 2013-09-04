@@ -1638,14 +1638,10 @@ webcore_sources += \
 	Source/WebCore/loader/cache/CachedShader.cpp \
 	Source/WebCore/loader/cache/CachedShader.h \
 	Source/WebCore/loader/cache/CachedStyleSheetClient.h \
-	Source/WebCore/loader/cache/CachedTextTrack.cpp \
-	Source/WebCore/loader/cache/CachedTextTrack.h \
 	Source/WebCore/loader/cache/CachedXSLStyleSheet.cpp \
 	Source/WebCore/loader/cache/CachedXSLStyleSheet.h \
 	Source/WebCore/loader/cache/MemoryCache.h \
 	Source/WebCore/loader/cache/CachePolicy.h \
-	Source/WebCore/loader/TextTrackLoader.cpp \
-	Source/WebCore/loader/TextTrackLoader.h \
 	Source/WebCore/loader/DocumentLoadTiming.cpp \
 	Source/WebCore/loader/DocumentLoadTiming.h \
 	Source/WebCore/loader/DocumentLoader.cpp \
@@ -1723,8 +1719,6 @@ webcore_sources += \
 	Source/WebCore/page/AlternativeTextClient.h \
 	Source/WebCore/page/AutoscrollController.cpp \
 	Source/WebCore/page/AutoscrollController.h \
-	Source/WebCore/page/CaptionUserPreferences.cpp \
-	Source/WebCore/page/CaptionUserPreferences.h \
 	Source/WebCore/page/Chrome.cpp \
 	Source/WebCore/page/Chrome.h \
 	Source/WebCore/page/ChromeClient.h \
@@ -2001,8 +1995,6 @@ webcore_sources += \
 	Source/WebCore/rendering/RenderTextControlSingleLine.cpp \
 	Source/WebCore/rendering/RenderTextControlSingleLine.h \
 	Source/WebCore/rendering/RenderText.cpp \
-	Source/WebCore/rendering/RenderTextTrackCue.cpp \
-	Source/WebCore/rendering/RenderTextTrackCue.h \
 	Source/WebCore/rendering/RenderTextFragment.cpp \
 	Source/WebCore/rendering/RenderTextFragment.h \
 	Source/WebCore/rendering/RenderText.h \
@@ -3060,8 +3052,6 @@ platform_sources += \
 	Source/WebCore/platform/graphics/ImageOrientation.h \
 	Source/WebCore/platform/graphics/ImageSource.cpp \
 	Source/WebCore/platform/graphics/ImageSource.h \
-	Source/WebCore/platform/graphics/InbandTextTrackPrivate.h \
-	Source/WebCore/platform/graphics/InbandTextTrackPrivateClient.h \
 	Source/WebCore/platform/graphics/IntPoint.h \
 	Source/WebCore/platform/graphics/IntPointHash.h \
 	Source/WebCore/platform/graphics/IntRect.cpp \
@@ -3101,8 +3091,6 @@ platform_sources += \
 	Source/WebCore/platform/graphics/TextRenderingMode.h \
 	Source/WebCore/platform/graphics/TextRun.cpp \
 	Source/WebCore/platform/graphics/TextRun.h \
-	Source/WebCore/platform/graphics/TextTrackRepresentation.cpp \
-	Source/WebCore/platform/graphics/TextTrackRepresentation.h \
 	Source/WebCore/platform/graphics/TiledBacking.h \
 	Source/WebCore/platform/graphics/TypesettingFeatures.h \
 	Source/WebCore/platform/graphics/UnitBezier.h \

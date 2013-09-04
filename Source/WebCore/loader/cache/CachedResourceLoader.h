@@ -47,7 +47,6 @@ class CachedImage;
 class CachedRawResource;
 class CachedScript;
 class CachedShader;
-class CachedTextTrack;
 class CachedXSLStyleSheet;
 class Document;
 class DocumentLoader;
@@ -88,9 +87,6 @@ public:
 #endif
 #if ENABLE(LINK_PREFETCH)
     CachedResourceHandle<CachedResource> requestLinkResource(CachedResource::Type, CachedResourceRequest&);
-#endif
-#if ENABLE(VIDEO_TRACK)
-    CachedResourceHandle<CachedTextTrack> requestTextTrack(CachedResourceRequest&);
 #endif
 #if ENABLE(CSS_SHADERS)
     CachedResourceHandle<CachedShader> requestShader(CachedResourceRequest&);

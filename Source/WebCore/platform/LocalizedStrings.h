@@ -137,20 +137,6 @@ namespace WebCore {
 
     String clickToExitFullScreenText();
 
-#if ENABLE(VIDEO_TRACK)
-    String textTrackSubtitlesText();
-    String textTrackOffMenuItemText();
-    String textTrackAutomaticMenuItemText();
-    String textTrackNoLabelText();
-#if PLATFORM(MAC) || PLATFORM(WIN)
-    String textTrackCountryAndLanguageMenuItemText(const String& title, const String& country, const String& language);
-    String textTrackLanguageMenuItemText(const String& title, const String& language);
-    String closedCaptionTrackMenuItemText(const String&);
-    String sdhTrackMenuItemText(const String&);
-    String easyReaderTrackMenuItemText(const String&);
-#endif
-#endif
-
     String snapshottedPlugInLabelTitle();
     String snapshottedPlugInLabelSubtitle();
 

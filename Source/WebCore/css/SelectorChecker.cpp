@@ -55,10 +55,6 @@
 #include "dom/StyledElement.h"
 #include "dom/Text.h"
 
-#if ENABLE(VIDEO_TRACK)
-#include "html/track/WebVTTElement.h"
-#endif
-
 namespace WebCore {
 
 using namespace HTMLNames;
@@ -703,12 +699,7 @@ bool SelectorChecker::checkOne(const SelectorCheckingContext& context) const
         case CSSSelector::PseudoLang:
             {
                 AtomicString value;
-#if ENABLE(VIDEO_TRACK)
-                if (element->isWebVTTElement())
-                    value = toWebVTTElement(element)->language();
-                else
-#endif
-                    value = element->computeInheritedLanguage();
+                value = element->computeInheritedLanguage();
                 const AtomicString& argument = selector->argument();
                 if (value.isEmpty() || !value.startsWith(argument, false))
                     break;
@@ -752,13 +743,6 @@ bool SelectorChecker::checkOne(const SelectorCheckingContext& context) const
         case CSSSelector::PseudoOutOfRange:
             element->document()->setContainsValidityStyleRules();
             return element->isOutOfRange();
-#if ENABLE(VIDEO_TRACK)
-        case CSSSelector::PseudoFutureCue:
-            return (element->isWebVTTElement() && !toWebVTTElement(element)->isPastNode());
-        case CSSSelector::PseudoPastCue:
-            return (element->isWebVTTElement() && toWebVTTElement(element)->isPastNode());
-#endif
-
         case CSSSelector::PseudoScope:
             {
                 const Node* contextualReferenceNode = !context.scope || context.behaviorAtBoundary == CrossesBoundary ? element->document()->documentElement() : context.scope;
@@ -787,20 +771,6 @@ bool SelectorChecker::checkOne(const SelectorCheckingContext& context) const
         }
         return false;
     }
-#if ENABLE(VIDEO_TRACK)
-    else if (selector->m_match == CSSSelector::PseudoElement && selector->pseudoType() == CSSSelector::PseudoCue) {
-        SelectorCheckingContext subContext(context);
-        subContext.isSubSelector = true;
-
-        PseudoId ignoreDynamicPseudo = NOPSEUDO;
-        const CSSSelector* const & selector = context.selector;
-        for (subContext.selector = selector->selectorList()->first(); subContext.selector; subContext.selector = CSSSelectorList::next(subContext.selector)) {
-            if (match(subContext, ignoreDynamicPseudo) == SelectorMatches)
-                return true;
-        }
-        return false;
-    }
-#endif
     // ### add the rest of the checks...
     return true;
 }

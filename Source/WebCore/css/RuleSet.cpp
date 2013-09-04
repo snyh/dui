@@ -43,10 +43,6 @@
 #include "css/StyleSheetContents.h"
 #include "css/WebKitCSSKeyframesRule.h"
 
-#if ENABLE(VIDEO_TRACK)
-#include "html/track/TextTrackCue.h"
-#endif
-
 namespace WebCore {
 
 using namespace HTMLNames;
@@ -116,14 +112,7 @@ static inline PropertyWhitelistType determinePropertyWhitelistType(const AddRule
 {
     if (addRuleFlags & RuleIsInRegionRule)
         return PropertyWhitelistRegion;
-#if ENABLE(VIDEO_TRACK)
-    for (const CSSSelector* component = selector; component; component = component->tagHistory()) {
-        if (component->pseudoType() == CSSSelector::PseudoCue || (component->m_match == CSSSelector::PseudoElement && component->value() == TextTrackCue::cueShadowPseudoId()))
-            return PropertyWhitelistCue;
-    }
-#else
     UNUSED_PARAM(selector);
-#endif
     return PropertyWhitelistNone;
 }
 
@@ -190,12 +179,6 @@ bool RuleSet::findBestRuleSetAndAdd(const CSSSelector* component, RuleData& rule
         addToRuleSet(component->value().impl(), m_shadowPseudoElementRules, ruleData);
         return true;
     }
-#if ENABLE(VIDEO_TRACK)
-    if (component->pseudoType() == CSSSelector::PseudoCue) {
-        m_cuePseudoRules.append(ruleData);
-        return true;
-    }
-#endif
     if (SelectorChecker::isCommonPseudoClassSelector(component)) {
         switch (component->pseudoType()) {
         case CSSSelector::PseudoLink:
@@ -363,9 +346,6 @@ void RuleSet::shrinkToFit()
     shrinkMapVectorsToFit(m_tagRules);
     shrinkMapVectorsToFit(m_shadowPseudoElementRules);
     m_linkPseudoClassRules.shrinkToFit();
-#if ENABLE(VIDEO_TRACK)
-    m_cuePseudoRules.shrinkToFit();
-#endif
     m_focusPseudoClassRules.shrinkToFit();
     m_universalRules.shrinkToFit();
     m_pageRules.shrinkToFit();

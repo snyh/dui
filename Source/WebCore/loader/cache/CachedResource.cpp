@@ -122,10 +122,6 @@ static ResourceLoadPriority defaultPriorityForResourceType(CachedResource::Type 
     case CachedResource::LinkSubresource:
         return ResourceLoadPriorityVeryLow;
 #endif
-#if ENABLE(VIDEO_TRACK)
-    case CachedResource::TextTrackResource:
-        return ResourceLoadPriorityLow;
-#endif
 #if ENABLE(CSS_SHADERS)
     case CachedResource::ShaderResource:
         return ResourceLoadPriorityMedium;
@@ -162,10 +158,6 @@ static ResourceRequest::TargetType cachedResourceTypeToTargetType(CachedResource
         return ResourceRequest::TargetIsPrefetch;
     case CachedResource::LinkSubresource:
         return ResourceRequest::TargetIsSubresource;
-#endif
-#if ENABLE(VIDEO_TRACK)
-    case CachedResource::TextTrackResource:
-        return ResourceRequest::TargetIsTextTrack;
 #endif
 #if ENABLE(SVG)
     case CachedResource::SVGDocumentResource:
