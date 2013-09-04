@@ -1759,8 +1759,6 @@ webcore_sources += \
 	Source/WebCore/page/FrameView.h \
 	Source/WebCore/page/GestureTapHighlighter.cpp \
 	Source/WebCore/page/GestureTapHighlighter.h \
-	Source/WebCore/page/GroupSettings.cpp \
-	Source/WebCore/page/GroupSettings.h \
 	Source/WebCore/page/LayoutMilestones.h \
 	Source/WebCore/page/MouseEventWithHitTestResults.cpp \
 	Source/WebCore/page/MouseEventWithHitTestResults.h \

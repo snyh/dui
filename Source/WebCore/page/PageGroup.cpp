@@ -32,7 +32,6 @@
 #include "dom/Document.h"
 #include "dom/DocumentStyleSheetCollection.h"
 #include "page/Frame.h"
-#include "page/GroupSettings.h"
 #include "page/Page.h"
 #include "page/Settings.h"
 
@@ -52,14 +51,12 @@ PageGroup::PageGroup(const String& name)
     : m_name(name)
     , m_visitedLinksPopulated(false)
     , m_identifier(getUniqueIdentifier())
-    , m_groupSettings(GroupSettings::create())
 {
 }
 
 PageGroup::PageGroup(Page* page)
     : m_visitedLinksPopulated(false)
     , m_identifier(getUniqueIdentifier())
-    , m_groupSettings(GroupSettings::create())
 {
     ASSERT(page);
     addPage(page);

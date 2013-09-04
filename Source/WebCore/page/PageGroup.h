@@ -36,7 +36,6 @@
 namespace WebCore {
 
     class KURL;
-    class GroupSettings;
     class IDBFactoryBackendInterface;
     class Page;
 
@@ -89,8 +88,6 @@ namespace WebCore {
         const UserScriptMap* userScripts() const { return m_userScripts.get(); }
         const UserStyleSheetMap* userStyleSheets() const { return m_userStyleSheets.get(); }
 
-        GroupSettings* groupSettings() const { return m_groupSettings.get(); }
-
     private:
         PageGroup(Page*);
 
@@ -108,9 +105,6 @@ namespace WebCore {
 
         OwnPtr<UserScriptMap> m_userScripts;
         OwnPtr<UserStyleSheetMap> m_userStyleSheets;
-
-        OwnPtr<GroupSettings> m_groupSettings;
-
     };
 
 } // namespace WebCore
