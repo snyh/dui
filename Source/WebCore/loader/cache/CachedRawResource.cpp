@@ -185,12 +185,6 @@ void CachedRawResource::switchClientsToRevalidatedResource()
     CachedResource::switchClientsToRevalidatedResource();
 }
 
-void CachedRawResource::setDefersLoading(bool defers)
-{
-    if (m_loader)
-        m_loader->setDefersLoading(defers);
-}
-
 void CachedRawResource::setDataBufferingPolicy(DataBufferingPolicy dataBufferingPolicy)
 {
     m_options.dataBufferingPolicy = dataBufferingPolicy;

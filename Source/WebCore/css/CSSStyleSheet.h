@@ -39,7 +39,6 @@ class CSSStyleSheet;
 class CachedCSSStyleSheet;
 class Document;
 class MediaQuerySet;
-class SecurityOrigin;
 class StyleSheetContents;
 
 typedef int ExceptionCode;

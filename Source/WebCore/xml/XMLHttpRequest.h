@@ -41,7 +41,6 @@ class Blob;
 class Document;
 class DOMFormData;
 class ResourceRequest;
-class SecurityOrigin;
 class SharedBuffer;
 class TextResourceDecoder;
 

@@ -75,18 +75,8 @@ static void cancelAll(const ResourceLoaderSet& loaders)
         loadersCopy[i]->cancel();
 }
 
-static void setAllDefersLoading(const ResourceLoaderSet& loaders, bool defers)
-{
-    Vector<RefPtr<ResourceLoader> > loadersCopy;
-    copyToVector(loaders, loadersCopy);
-    size_t size = loadersCopy.size();
-    for (size_t i = 0; i < size; ++i)
-        loadersCopy[i]->setDefersLoading(defers);
-}
-
 DocumentLoader::DocumentLoader(const ResourceRequest& req, const SubstituteData& substituteData)
-    : m_deferMainResourceDataLoad(true)
-    , m_frame(0)
+    : m_frame(0)
     , m_cachedResourceLoader(CachedResourceLoader::create(this))
     , m_writer(m_frame)
     , m_originalRequest(req)
@@ -212,12 +202,6 @@ void DocumentLoader::mainReceivedError(const ResourceError& error)
         frameLoader()->client()->dispatchDidFailLoading(this, m_identifierForLoadWithoutResourceLoader, error);
     }
 
-    // There is a bug in CFNetwork where callbacks can be dispatched even when loads are deferred.
-    // See <rdar://problem/6304600> for more details.
-#if !USE(CF)
-    ASSERT(!mainResourceLoader() || !mainResourceLoader()->defersLoading());
-#endif
-
 
     if (!frameLoader())
         return;
@@ -327,12 +311,6 @@ void DocumentLoader::notifyFinished(CachedResource* resource)
 
 void DocumentLoader::finishedLoading(double finishTime)
 {
-    // There is a bug in CFNetwork where callbacks can be dispatched even when loads are deferred.
-    // See <rdar://problem/6304600> for more details.
-#if !USE(CF)
-    ASSERT(!m_frame->page()->defersLoading());
-#endif
-
     RefPtr<DocumentLoader> protect(this);
 
     if (m_identifierForLoadWithoutResourceLoader) {
@@ -420,10 +398,7 @@ void DocumentLoader::startDataLoadTimer()
 
 void DocumentLoader::handleSubstituteDataLoadSoon()
 {
-    if (m_deferMainResourceDataLoad)
-        startDataLoadTimer();
-    else
-        handleSubstituteDataLoadNow(0);
+    handleSubstituteDataLoadNow(0);
 }
 
 void DocumentLoader::redirectReceived(CachedResource* resource, ResourceRequest& request, const ResourceResponse& redirectResponse)
@@ -522,11 +497,6 @@ void DocumentLoader::responseReceived(CachedResource* resource, const ResourceRe
         }
     }
 
-    // There is a bug in CFNetwork where callbacks can be dispatched even when loads are deferred.
-    // See <rdar://problem/6304600> for more details.
-#if !USE(CF)
-    ASSERT(!mainResourceLoader() || !mainResourceLoader()->defersLoading());
-#endif
 
     if (m_isLoadingMultipartContent) {
         setupForReplace();
@@ -707,12 +677,6 @@ void DocumentLoader::dataReceived(CachedResource* resource, const char* data, in
         m_response = ResourceResponse(KURL(), "text/html", 0, String(), String());
 #endif
 
-    // There is a bug in CFNetwork where callbacks can be dispatched even when loads are deferred.
-    // See <rdar://problem/6304600> for more details.
-#if !USE(CF)
-    ASSERT(!mainResourceLoader() || !mainResourceLoader()->defersLoading());
-#endif
-
 #if USE(CONTENT_FILTERING)
     bool loadWasBlockedBeforeFinishing = false;
     if (m_contentFilter && m_contentFilter->needsMoreData()) {
@@ -769,7 +733,6 @@ void DocumentLoader::checkLoadComplete()
     // See https://bugs.webkit.org/show_bug.cgi?id=110937
     ASSERT(this == frameLoader()->activeDocumentLoader());
 #endif
-    m_frame->document()->domWindow()->finishedLoading();
 }
 
 void DocumentLoader::setFrame(Frame* frame)
@@ -840,8 +803,6 @@ void DocumentLoader::deliverSubstituteResourcesAfterDelay()
     if (m_pendingSubstituteResources.isEmpty())
         return;
     ASSERT(m_frame && m_frame->page());
-    if (m_frame->page()->defersLoading())
-        return;
     if (!m_substituteResourceDeliveryTimer.isActive())
         m_substituteResourceDeliveryTimer.startOneShot(0);
 }
@@ -851,8 +812,6 @@ void DocumentLoader::substituteResourceDeliveryTimerFired(Timer<DocumentLoader>*
     if (m_pendingSubstituteResources.isEmpty())
         return;
     ASSERT(m_frame && m_frame->page());
-    if (m_frame->page()->defersLoading())
-        return;
 
     SubstituteResourceMap copy;
     copy.swap(m_pendingSubstituteResources);
@@ -975,20 +934,6 @@ const String& DocumentLoader::responseMIMEType() const
 const KURL& DocumentLoader::unreachableURL() const
 {
     return m_substituteData.failingURL();
-}
-
-void DocumentLoader::setDefersLoading(bool defers)
-{
-    // Multiple frames may be loading the same main resource simultaneously. If deferral state changes,
-    // each frame's DocumentLoader will try to send a setDefersLoading() to the same underlying ResourceLoader. Ensure only
-    // the "owning" DocumentLoader does so, as setDefersLoading() is not resilient to setting the same value repeatedly.
-    if (mainResourceLoader() && mainResourceLoader()->documentLoader() == this)
-        mainResourceLoader()->setDefersLoading(defers);
-
-    setAllDefersLoading(m_subresourceLoaders, defers);
-    setAllDefersLoading(m_plugInStreamLoaders, defers);
-    if (!defers)
-        deliverSubstituteResourcesAfterDelay();
 }
 
 void DocumentLoader::setMainResourceDataBufferingPolicy(DataBufferingPolicy dataBufferingPolicy)

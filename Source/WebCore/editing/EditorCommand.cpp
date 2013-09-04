@@ -952,15 +952,6 @@ static bool executePasteAsPlainText(Frame* frame, Event*, EditorCommandSource so
     return true;
 }
 
-static bool executePrint(Frame* frame, Event*, EditorCommandSource, const String&)
-{
-    Page* page = frame->page();
-    if (!page)
-        return false;
-    page->chrome().print(frame);
-    return true;
-}
-
 static bool executeRedo(Frame* frame, Event*, EditorCommandSource, const String&)
 {
     frame->editor().redo();
@@ -1562,7 +1553,6 @@ static const CommandMap& createCommandMap()
         { "PasteAndMatchStyle", { executePasteAndMatchStyle, supportedPaste, enabledPaste, stateNone, valueNull, notTextInsertion, allowExecutionWhenDisabled } },
         { "PasteAsPlainText", { executePasteAsPlainText, supportedPaste, enabledPaste, stateNone, valueNull, notTextInsertion, allowExecutionWhenDisabled } },
         { "PasteGlobalSelection", { executePasteGlobalSelection, supportedFromMenuOrKeyBinding, enabledPaste, stateNone, valueNull, notTextInsertion, allowExecutionWhenDisabled } },
-        { "Print", { executePrint, supported, enabled, stateNone, valueNull, notTextInsertion, doNotAllowExecutionWhenDisabled } },
         { "Redo", { executeRedo, supported, enabledRedo, stateNone, valueNull, notTextInsertion, doNotAllowExecutionWhenDisabled } },
         { "RemoveFormat", { executeRemoveFormat, supported, enabledRangeInEditableText, stateNone, valueNull, notTextInsertion, doNotAllowExecutionWhenDisabled } },
         { "ScrollPageBackward", { executeScrollPageBackward, supportedFromMenuOrKeyBinding, enabled, stateNone, valueNull, notTextInsertion, doNotAllowExecutionWhenDisabled } },

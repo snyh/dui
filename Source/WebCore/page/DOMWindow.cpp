@@ -69,7 +69,6 @@
 #include "bindings/dui/RuntimeEnabledFeatures.h"
 #include "bindings/dui/ScheduledAction.h"
 #include "bindings/dui/ScriptController.h"
-#include "bindings/dui/SerializedScriptValue.h"
 #include "page/Settings.h"
 #include "css/StyleMedia.h"
 #include "css/StyleResolver.h"
@@ -292,46 +291,9 @@ FloatRect DOMWindow::adjustWindowRect(Page* page, const FloatRect& pendingChange
     return window;
 }
 
-bool DOMWindow::allowPopUp(Frame* firstFrame)
-{
-    ASSERT(firstFrame);
-
-    if (ScriptController::processingUserGesture())
-        return true;
-
-    Settings* settings = firstFrame->settings();
-    return settings && settings->javaScriptCanOpenWindowsAutomatically();
-}
-
-bool DOMWindow::allowPopUp()
-{
-    return m_frame && allowPopUp(m_frame);
-}
-
-bool DOMWindow::canShowModalDialog(const Frame* frame)
-{
-    if (!frame)
-        return false;
-    Page* page = frame->page();
-    if (!page)
-        return false;
-    return page->chrome().canRunModal();
-}
-
-bool DOMWindow::canShowModalDialogNow(const Frame* frame)
-{
-    if (!frame)
-        return false;
-    Page* page = frame->page();
-    if (!page)
-        return false;
-    return page->chrome().canRunModalNow();
-}
-
 DOMWindow::DOMWindow(Document* document)
     : ContextDestructionObserver(document)
     , FrameDestructionObserver(document->frame())
-    , m_shouldPrintWhenFinishedLoading(false)
     , m_suspendedForPageCache(false)
 {
     ASSERT(frame());
@@ -590,23 +552,6 @@ void DOMWindow::close(ScriptExecutionContext* context)
     page->chrome().closeWindowSoon();
 }
 
-void DOMWindow::print()
-{
-    if (!m_frame)
-        return;
-
-    Page* page = m_frame->page();
-    if (!page)
-        return;
-
-    if (m_frame->loader()->activeDocumentLoader()->isLoading()) {
-        m_shouldPrintWhenFinishedLoading = true;
-        return;
-    }
-    m_shouldPrintWhenFinishedLoading = false;
-    page->chrome().print(m_frame);
-}
-
 void DOMWindow::stop()
 {
     if (!m_frame)
@@ -615,52 +560,6 @@ void DOMWindow::stop()
     // We must check whether the load is complete asynchronously, because we might still be parsing
     // the document until the callstack unwinds.
     m_frame->loader()->stopForUserCancel(true);
-}
-
-void DOMWindow::alert(const String& message)
-{
-    if (!m_frame)
-        return;
-
-    m_frame->document()->updateStyleIfNeeded();
-
-    Page* page = m_frame->page();
-    if (!page)
-        return;
-
-    page->chrome().runJavaScriptAlert(m_frame, message);
-}
-
-bool DOMWindow::confirm(const String& message)
-{
-    if (!m_frame)
-        return false;
-
-    m_frame->document()->updateStyleIfNeeded();
-
-    Page* page = m_frame->page();
-    if (!page)
-        return false;
-
-    return page->chrome().runJavaScriptConfirm(m_frame, message);
-}
-
-String DOMWindow::prompt(const String& message, const String& defaultValue)
-{
-    if (!m_frame)
-        return String();
-
-    m_frame->document()->updateStyleIfNeeded();
-
-    Page* page = m_frame->page();
-    if (!page)
-        return String();
-
-    String returnValue;
-    if (page->chrome().runJavaScriptPrompt(m_frame, message, defaultValue, returnValue))
-        return returnValue;
-
-    return String();
 }
 
 String DOMWindow::btoa(const String& stringToEncode, ExceptionCode& ec)
@@ -841,36 +740,6 @@ void DOMWindow::setName(const String& string)
 
     m_frame->tree()->setName(string);
     m_frame->loader()->client()->didChangeName(string);
-}
-
-void DOMWindow::setStatus(const String& string) 
-{
-    m_status = string;
-
-    if (!m_frame)
-        return;
-
-    Page* page = m_frame->page();
-    if (!page)
-        return;
-
-    ASSERT(m_frame->document()); // Client calls shouldn't be made when the frame is in inconsistent state.
-    page->chrome().setStatusbarText(m_frame, m_status);
-} 
-    
-void DOMWindow::setDefaultStatus(const String& string) 
-{
-    m_defaultStatus = string;
-
-    if (!m_frame)
-        return;
-
-    Page* page = m_frame->page();
-    if (!page)
-        return;
-
-    ASSERT(m_frame->document()); // Client calls shouldn't be made when the frame is in inconsistent state.
-    page->chrome().setStatusbarText(m_frame, m_defaultStatus);
 }
 
 DOMWindow* DOMWindow::self() const
@@ -1258,14 +1127,6 @@ void DOMWindow::releaseEvents()
     // Not implemented.
 }
 
-void DOMWindow::finishedLoading()
-{
-    if (m_shouldPrintWhenFinishedLoading) {
-        m_shouldPrintWhenFinishedLoading = false;
-        print();
-    }
-}
-
 EventTargetData* DOMWindow::eventTargetData()
 {
     return &m_eventTargetData;
@@ -1274,133 +1135,6 @@ EventTargetData* DOMWindow::eventTargetData()
 EventTargetData* DOMWindow::ensureEventTargetData()
 {
     return &m_eventTargetData;
-}
-
-void DOMWindow::printErrorMessage(const String& message)
-{
-}
-
-bool DOMWindow::isInsecureScriptAccess(DOMWindow* activeWindow, const String& urlString)
-{
-    return true;
-}
-
-PassRefPtr<Frame> DOMWindow::createWindow(const String& urlString, const AtomicString& frameName, const WindowFeatures& windowFeatures,
-    DOMWindow* activeWindow, Frame* firstFrame, Frame* openerFrame, PrepareDialogFunction function, void* functionContext)
-{
-    Frame* activeFrame = activeWindow->frame();
-
-    KURL completedURL = urlString.isEmpty() ? KURL(ParsedURLString, emptyString()) : firstFrame->document()->completeURL(urlString);
-    if (!completedURL.isEmpty() && !completedURL.isValid()) {
-        // Don't expose client code to invalid URLs.
-        activeWindow->printErrorMessage("Unable to open a window with invalid URL '" + completedURL.string() + "'.\n");
-        return 0;
-    }
-
-    // For whatever reason, Firefox uses the first frame to determine the outgoingReferrer. We replicate that behavior here.
-    String referrer = String();
-
-    ResourceRequest request(completedURL, referrer);
-    FrameLoader::addHTTPOriginIfNeeded(request, firstFrame->loader()->outgoingOrigin());
-    FrameLoadRequest frameRequest(request, frameName);
-
-    // We pass the opener frame for the lookupFrame in case the active frame is different from
-    // the opener frame, and the name references a frame relative to the opener frame.
-    bool created;
-    RefPtr<Frame> newFrame = WebCore::createWindow(activeFrame, openerFrame, frameRequest, windowFeatures, created);
-    if (!newFrame)
-        return 0;
-
-    newFrame->loader()->setOpener(openerFrame);
-    newFrame->page()->setOpenedByDOM();
-
-    if (newFrame->document()->domWindow()->isInsecureScriptAccess(activeWindow, completedURL))
-        return newFrame.release();
-
-    if (function)
-        function(newFrame->document()->domWindow(), functionContext);
-
-    if (created)
-        newFrame->loader()->changeLocation(completedURL, referrer, false, false);
-
-    // Navigating the new frame could result in it being detached from its page by a navigation policy delegate.
-    if (!newFrame->page())
-        return 0;
-
-    return newFrame.release();
-}
-
-PassRefPtr<DOMWindow> DOMWindow::open(const String& urlString, const AtomicString& frameName, const String& windowFeaturesString,
-    DOMWindow* activeWindow, DOMWindow* firstWindow)
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return 0;
-    Document* activeDocument = activeWindow->document();
-    if (!activeDocument)
-        return 0;
-    Frame* firstFrame = firstWindow->frame();
-    if (!firstFrame)
-        return 0;
-
-    if (!firstWindow->allowPopUp()) {
-        // Because FrameTree::find() returns true for empty strings, we must check for empty frame names.
-        // Otherwise, illegitimate window.open() calls with no name will pass right through the popup blocker.
-        if (frameName.isEmpty() || !m_frame->tree()->find(frameName))
-            return 0;
-    }
-
-    // Get the target frame for the special cases of _top and _parent.
-    // In those cases, we schedule a location change right now and return early.
-    Frame* targetFrame = 0;
-    if (frameName == "_top")
-        targetFrame = m_frame->tree()->top();
-    else if (frameName == "_parent") {
-        if (Frame* parent = m_frame->tree()->parent())
-            targetFrame = parent;
-        else
-            targetFrame = m_frame;
-    }
-    if (targetFrame) {
-        if (!activeDocument->canNavigate(targetFrame))
-            return 0;
-
-        KURL completedURL = firstFrame->document()->completeURL(urlString);
-
-        if (targetFrame->document()->domWindow()->isInsecureScriptAccess(activeWindow, completedURL))
-            return targetFrame->document()->domWindow();
-
-        if (urlString.isEmpty())
-            return targetFrame->document()->domWindow();
-
-        return targetFrame->document()->domWindow();
-    }
-
-    WindowFeatures windowFeatures(windowFeaturesString);
-    RefPtr<Frame> result = createWindow(urlString, frameName, windowFeatures, activeWindow, firstFrame, m_frame);
-    return result ? result->document()->domWindow() : 0;
-}
-
-void DOMWindow::showModalDialog(const String& urlString, const String& dialogFeaturesString,
-    DOMWindow* activeWindow, DOMWindow* firstWindow, PrepareDialogFunction function, void* functionContext)
-{
-    if (!isCurrentlyDisplayedInFrame())
-        return;
-    Frame* activeFrame = activeWindow->frame();
-    if (!activeFrame)
-        return;
-    Frame* firstFrame = firstWindow->frame();
-    if (!firstFrame)
-        return;
-
-    if (!canShowModalDialogNow(m_frame) || !firstWindow->allowPopUp())
-        return;
-
-    WindowFeatures windowFeatures(dialogFeaturesString, screenAvailableRect(m_frame->view()));
-    RefPtr<Frame> dialogFrame = createWindow(urlString, emptyAtom, windowFeatures,
-        activeWindow, firstFrame, m_frame, function, functionContext);
-    if (!dialogFrame)
-        return;
-    dialogFrame->page()->chrome().runModal();
 }
 
 void DOMWindow::enableSuddenTermination()

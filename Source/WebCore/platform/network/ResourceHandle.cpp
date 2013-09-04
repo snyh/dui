@@ -65,8 +65,8 @@ void ResourceHandle::registerBuiltinSynchronousLoader(const AtomicString& protoc
     builtinResourceHandleSynchronousLoaderMap().add(protocol, loader);
 }
 
-ResourceHandle::ResourceHandle(NetworkingContext* context, const ResourceRequest& request, ResourceHandleClient* client, bool defersLoading, bool shouldContentSniff)
-    : d(adoptPtr(new ResourceHandleInternal(this, context, request, client, defersLoading, shouldContentSniff && shouldContentSniffURL(request.url()))))
+ResourceHandle::ResourceHandle(NetworkingContext* context, const ResourceRequest& request, ResourceHandleClient* client, bool shouldContentSniff)
+    : d(adoptPtr(new ResourceHandleInternal(this, context, request, client, shouldContentSniff && shouldContentSniffURL(request.url()))))
 {
     if (!request.url().isValid()) {
         scheduleFailure(InvalidURLFailure);
@@ -79,14 +79,14 @@ ResourceHandle::ResourceHandle(NetworkingContext* context, const ResourceRequest
     }
 }
 
-PassRefPtr<ResourceHandle> ResourceHandle::create(NetworkingContext* context, const ResourceRequest& request, ResourceHandleClient* client, bool defersLoading, bool shouldContentSniff)
+PassRefPtr<ResourceHandle> ResourceHandle::create(NetworkingContext* context, const ResourceRequest& request, ResourceHandleClient* client, bool shouldContentSniff)
 {
     BuiltinResourceHandleConstructorMap::iterator protocolMapItem = builtinResourceHandleConstructorMap().find(request.url().protocol());
 
     if (protocolMapItem != builtinResourceHandleConstructorMap().end())
         return protocolMapItem->value(request, client);
 
-    RefPtr<ResourceHandle> newHandle(adoptRef(new ResourceHandle(context, request, client, defersLoading, shouldContentSniff)));
+    RefPtr<ResourceHandle> newHandle(adoptRef(new ResourceHandle(context, request, client, shouldContentSniff)));
 
     if (newHandle->d->m_scheduledFailureType != NoFailure)
         return newHandle.release();

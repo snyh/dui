@@ -109,45 +109,15 @@ public:
     void focusedNodeChanged(Node*) const;
     void focusedFrameChanged(Frame*) const;
 
-    Page* createWindow(Frame*, const FrameLoadRequest&, const WindowFeatures&, const NavigationAction&) const;
     void show() const;
 
-    bool canRunModal() const;
-    bool canRunModalNow() const;
-    void runModal() const;
-
-    void setToolbarsVisible(bool) const;
-    bool toolbarsVisible() const;
-
-    void setStatusbarVisible(bool) const;
-    bool statusbarVisible() const;
-
-    void setScrollbarsVisible(bool) const;
-    bool scrollbarsVisible() const;
-
-    void setMenubarVisible(bool) const;
-    bool menubarVisible() const;
-
-    void setResizable(bool) const;
-
-    bool canRunBeforeUnloadConfirmPanel();
-    bool runBeforeUnloadConfirmPanel(const String& message, Frame*);
-
     void closeWindowSoon();
-
-    void runJavaScriptAlert(Frame*, const String&);
-    bool runJavaScriptConfirm(Frame*, const String&);
-    bool runJavaScriptPrompt(Frame*, const String& message, const String& defaultValue, String& result);
-    void setStatusbarText(Frame*, const String&);
-    bool shouldInterruptJavaScript();
 
     IntRect windowResizerRect() const;
 
     void mouseDidMoveOverElement(const HitTestResult&, unsigned modifierFlags);
 
     void setToolTip(const HitTestResult&);
-
-    void print(Frame*);
 
     void enableSuddenTermination();
     void disableSuddenTermination();
@@ -174,7 +144,6 @@ public:
 
     bool selectItemWritingDirectionIsNatural();
     bool selectItemAlignmentFollowsMenuWritingDirection();
-    bool hasOpenedPopup() const;
     PassRefPtr<PopupMenu> createPopupMenu(PopupMenuClient*) const;
     PassRefPtr<SearchPopupMenu> createSearchPopupMenu(PopupMenuClient*) const;
 

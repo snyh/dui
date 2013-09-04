@@ -55,7 +55,6 @@ ResourceLoader::ResourceLoader(Frame* frame, ResourceLoaderOptions options)
     , m_reachedTerminalState(false)
     , m_notifiedLoadComplete(false)
     , m_cancellationStatus(NotCancelled)
-    , m_defersLoading(frame->page()->defersLoading())
     , m_options(options)
 {
 }
@@ -93,19 +92,15 @@ void ResourceLoader::releaseResources()
     }
 
     m_resourceData = 0;
-    m_deferredRequest = ResourceRequest();
 }
 
 bool ResourceLoader::init(const ResourceRequest& r)
 {
     ASSERT(!m_handle);
     ASSERT(m_request.isNull());
-    ASSERT(m_deferredRequest.isNull());
     ASSERT(!m_documentLoader->isSubstituteLoadPending(this));
     
     ResourceRequest clientRequest(r);
-    
-    m_defersLoading = m_frame->page()->defersLoading();
     
     willSendRequest(clientRequest, ResourceResponse());
     if (clientRequest.isNull()) {
@@ -121,27 +116,9 @@ void ResourceLoader::start()
 {
     ASSERT(!m_handle);
     ASSERT(!m_request.isNull());
-    ASSERT(m_deferredRequest.isNull());
-
-    if (m_defersLoading) {
-        m_deferredRequest = m_request;
-        return;
-    }
 
     if (!m_reachedTerminalState)
-        m_handle = ResourceHandle::create(m_frame->loader()->networkingContext(), m_request, this, m_defersLoading, m_options.sniffContent == SniffContent);
-}
-
-void ResourceLoader::setDefersLoading(bool defers)
-{
-    m_defersLoading = defers;
-    if (m_handle)
-        m_handle->setDefersLoading(defers);
-    if (!defers && !m_deferredRequest.isNull()) {
-        m_request = m_deferredRequest;
-        m_deferredRequest = ResourceRequest();
-        start();
-    }
+        m_handle = ResourceHandle::create(m_frame->loader()->networkingContext(), m_request, this, m_options.sniffContent == SniffContent);
 }
 
 FrameLoader* ResourceLoader::frameLoader() const

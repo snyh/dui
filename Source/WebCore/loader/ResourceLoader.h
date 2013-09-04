@@ -64,9 +64,6 @@ public:
     ResourceError cancelledError();
     ResourceError blockedError();
     ResourceError cannotShowURLError();
-    
-    virtual void setDefersLoading(bool);
-    bool defersLoading() const { return m_defersLoading; }
 
     unsigned long identifier() const { return m_identifier; }
 
@@ -190,8 +187,6 @@ private:
     };
     CancellationStatus m_cancellationStatus;
 
-    bool m_defersLoading;
-    ResourceRequest m_deferredRequest;
     ResourceLoaderOptions m_options;
 };
 

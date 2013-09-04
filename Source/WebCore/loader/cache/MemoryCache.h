@@ -41,7 +41,6 @@ class KURL;
 class ResourceRequest;
 class ResourceResponse;
 class ScriptExecutionContext;
-class SecurityOrigin;
 struct CrossThreadResourceRequestData;
 
 // This cache holds subresources used by Web pages: images, scripts, stylesheets, etc.

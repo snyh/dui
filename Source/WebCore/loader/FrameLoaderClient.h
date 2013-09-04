@@ -88,7 +88,6 @@ namespace WebCore {
 #if ENABLE(MEDIA_STREAM)
     class RTCPeerConnectionHandler;
 #endif
-    class SecurityOrigin;
     class SharedBuffer;
     class SocketStreamHandle;
     class StringWithDirection;
@@ -207,12 +206,6 @@ namespace WebCore {
         // insecure source.  Inactive content cannot spread to other frames.
         virtual void didDisplayInsecureContent() = 0;
 
-        // The indicated security origin has run active content (such as a
-        // script) from an insecure source.  Note that the insecure content can
-        // spread to other frames in the same origin.
-        virtual void didRunInsecureContent(SecurityOrigin*, const KURL&) = 0;
-        virtual void didDetectXSS(const KURL&, bool didBlockEntirePage) = 0;
-
         virtual ResourceError cancelledError(const ResourceRequest&) = 0;
         virtual ResourceError blockedError(const ResourceRequest&) = 0;
         virtual ResourceError cannotShowURLError(const ResourceRequest&) = 0;
@@ -292,12 +285,9 @@ namespace WebCore {
 
         virtual void didChangeScrollOffset() { }
 
-        virtual bool allowScript(bool enabledPerSettings) { return enabledPerSettings; }
         virtual bool allowScriptFromSource(bool enabledPerSettings, const KURL&) { return enabledPerSettings; }
         virtual bool allowPlugins(bool enabledPerSettings) { return enabledPerSettings; }
         virtual bool allowImage(bool enabledPerSettings, const KURL&) { return enabledPerSettings; }
-        virtual bool allowDisplayingInsecureContent(bool enabledPerSettings, SecurityOrigin*, const KURL&) { return enabledPerSettings; }
-        virtual bool allowRunningInsecureContent(bool enabledPerSettings, SecurityOrigin*, const KURL&) { return enabledPerSettings; }
 
         // This callback notifies the client that the frame was about to run
         // JavaScript but did not because allowScript returned false. We

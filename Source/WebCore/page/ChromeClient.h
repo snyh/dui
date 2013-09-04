@@ -60,7 +60,6 @@ class NavigationAction;
 class Node;
 class Page;
 class PopupMenuClient;
-class SecurityOrigin;
 class Widget;
 
 struct DateTimeChooserParameters;
@@ -87,42 +86,10 @@ public:
     virtual void focusedNodeChanged(Node*) = 0;
     virtual void focusedFrameChanged(Frame*) = 0;
 
-    // The Frame pointer provides the ChromeClient with context about which
-    // Frame wants to create the new Page. Also, the newly created window
-    // should not be shown to the user until the ChromeClient of the newly
-    // created Page has its show method called.
-    // The FrameLoadRequest parameter is only for ChromeClient to check if the
-    // request could be fulfilled. The ChromeClient should not load the request.
-    virtual Page* createWindow(Frame*, const FrameLoadRequest&, const WindowFeatures&, const NavigationAction&) = 0;
     virtual void show() = 0;
-
-    virtual bool canRunModal() = 0;
-    virtual void runModal() = 0;
-
-    virtual void setToolbarsVisible(bool) = 0;
-    virtual bool toolbarsVisible() = 0;
-
-    virtual void setStatusbarVisible(bool) = 0;
-    virtual bool statusbarVisible() = 0;
-
-    virtual void setScrollbarsVisible(bool) = 0;
-    virtual bool scrollbarsVisible() = 0;
-
-    virtual void setMenubarVisible(bool) = 0;
-    virtual bool menubarVisible() = 0;
-
-    virtual void setResizable(bool) = 0;
-
-    virtual bool canRunBeforeUnloadConfirmPanel() = 0;
-    virtual bool runBeforeUnloadConfirmPanel(const String& message, Frame*) = 0;
 
     virtual void closeWindowSoon() = 0;
 
-    virtual void runJavaScriptAlert(Frame*, const String&) = 0;
-    virtual bool runJavaScriptConfirm(Frame*, const String&) = 0;
-    virtual bool runJavaScriptPrompt(Frame*, const String& message, const String& defaultValue, String& result) = 0;
-    virtual void setStatusbarText(const String&) = 0;
-    virtual bool shouldInterruptJavaScript() = 0;
     virtual KeyboardUIMode keyboardUIMode() = 0;
 
     virtual IntRect windowResizerRect() const = 0;
@@ -161,23 +128,6 @@ public:
     virtual bool shouldRubberBandInDirection(ScrollDirection) const = 0;
 
     virtual Color underlayColor() const { return Color(); }
-
-    // Callback invoked when the application cache fails to save a cache object
-    // because storing it would grow the database file past its defined maximum
-    // size or past the amount of free space on the device. 
-    // The chrome client would need to take some action such as evicting some
-    // old caches.
-    virtual void reachedMaxAppCacheSize(int64_t spaceNeeded) = 0;
-
-    // Callback invoked when the application cache origin quota is reached. This
-    // means that the resources attempting to be cached via the manifest are
-    // more than allowed on this origin. This callback allows the chrome client
-    // to take action, such as prompting the user to ask to increase the quota
-    // for this origin. The totalSpaceNeeded parameter is the total amount of
-    // storage, in bytes, needed to store the new cache along with all of the
-    // other existing caches for the origin that would not be replaced by
-    // the new cache.
-    virtual void reachedApplicationCacheOriginQuota(SecurityOrigin*, int64_t totalSpaceNeeded) = 0;
 
 #if ENABLE(DRAGGABLE_REGION)
     virtual void annotatedRegionsChanged();

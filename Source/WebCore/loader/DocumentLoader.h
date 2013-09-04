@@ -167,7 +167,6 @@ namespace WebCore {
         bool didCreateGlobalHistoryEntry() const { return m_didCreateGlobalHistoryEntry; }
         void setDidCreateGlobalHistoryEntry(bool didCreateGlobalHistoryEntry) { m_didCreateGlobalHistoryEntry = didCreateGlobalHistoryEntry; }
         
-        void setDefersLoading(bool);
         void setMainResourceDataBufferingPolicy(DataBufferingPolicy);
 
         void startLoadingMainResource();
@@ -186,8 +185,6 @@ namespace WebCore {
 
         void subresourceLoaderFinishedLoadingOnePart(ResourceLoader*);
 
-        void setDeferMainResourceDataLoad(bool defer) { m_deferMainResourceDataLoad = defer; }
-        
         void didTellClientAboutLoad(const String& url)
         { 
 #if !PLATFORM(MAC)
@@ -214,8 +211,6 @@ namespace WebCore {
 
     protected:
         DocumentLoader(const ResourceRequest&, const SubstituteData&);
-
-        bool m_deferMainResourceDataLoad;
 
     private:
 

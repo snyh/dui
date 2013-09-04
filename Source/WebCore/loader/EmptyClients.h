@@ -141,9 +141,6 @@ public:
 
     virtual void print(Frame*) { }
 
-    virtual void reachedMaxAppCacheSize(int64_t) { }
-    virtual void reachedApplicationCacheOriginQuota(SecurityOrigin*, int64_t) { }
-
 #if ENABLE(DIRECTORY_UPLOAD)
     virtual void enumerateChosenDirectory(FileChooser*) { }
 #endif
@@ -325,8 +322,6 @@ public:
     virtual void saveViewStateToItem(HistoryItem*) { }
     virtual bool canCachePage() const { return false; }
     virtual void didDisplayInsecureContent() { }
-    virtual void didRunInsecureContent(SecurityOrigin*, const KURL&) { }
-    virtual void didDetectXSS(const KURL&, bool) { }
     virtual PassRefPtr<Frame> createFrame(const KURL&, const String&, HTMLFrameOwnerElement*, const String&, bool, int, int) OVERRIDE;
     virtual PassRefPtr<Widget> createPlugin(const IntSize&, HTMLPlugInElement*, const KURL&, const Vector<String>&, const Vector<String>&, const String&, bool) OVERRIDE;
     virtual void recreatePlugin(Widget*) OVERRIDE;

@@ -38,8 +38,6 @@
 #include "accessibility/AXObjectCache.h"
 #include "dom/BeforeUnloadEvent.h"
 #include "loader/cache/CachedResourceLoader.h"
-#include "page/Chrome.h"
-#include "page/ChromeClient.h"
 #include "dom/DOMImplementation.h"
 #include "page/DOMWindow.h"
 #include "dom/Document.h"
@@ -216,20 +214,6 @@ void FrameLoader::init()
     printf("8\n");
 }
 
-void FrameLoader::setDefersLoading(bool defers)
-{
-    if (m_documentLoader)
-        m_documentLoader->setDefersLoading(defers);
-    if (m_provisionalDocumentLoader)
-        m_provisionalDocumentLoader->setDefersLoading(defers);
-    if (m_policyDocumentLoader)
-        m_policyDocumentLoader->setDefersLoading(defers);
-
-    if (!defers) {
-        startCheckCompleteTimer();
-    }
-}
-
 void FrameLoader::changeLocation(const KURL& url, const String& referrer, bool lockHistory, bool lockBackForwardList, bool refresh)
 {
     urlSelected(FrameLoadRequest(ResourceRequest(url, referrer, refresh ? ReloadIgnoringCacheData : UseProtocolCachePolicy), "_self"),
@@ -278,9 +262,6 @@ void FrameLoader::submitForm(PassRefPtr<FormSubmission> submission)
 
     Frame* targetFrame = findFrameForNavigation(submission->target(), submission->state()->sourceDocument());
     if (!targetFrame) {
-        if (!DOMWindow::allowPopUp(m_frame))
-            return;
-
         targetFrame = m_frame;
     } else
         submission->clearTarget();
@@ -421,15 +402,6 @@ bool FrameLoader::didOpenURL()
 
     m_isComplete = false;
     m_didCallImplicitClose = false;
-
-    // If we are still in the process of initializing an empty document then
-    // its frame is not in a consistent state for rendering, so avoid setJSStatusBarText
-    // since it may cause clients to attempt to render the frame.
-    if (!m_stateMachine.creatingInitialEmptyDocument()) {
-        DOMWindow* window = m_frame->document()->domWindow();
-        window->setStatus(String());
-        window->setDefaultStatus(String());
-    }
 
     started();
 
@@ -652,10 +624,6 @@ void FrameLoader::checkTimerFired(Timer<FrameLoader>*)
 {
     RefPtr<Frame> protect(m_frame);
 
-    if (Page* page = m_frame->page()) {
-        if (page->defersLoading())
-            return;
-    }
     if (m_shouldCallCheckCompleted)
         checkCompleted();
     if (m_shouldCallCheckLoadComplete)
@@ -2006,61 +1974,7 @@ void FrameLoader::callContinueLoadAfterNavigationPolicy(void* argument,
 
 bool FrameLoader::shouldClose()
 {
-    Page* page = m_frame->page();
-    if (!page)
-        return true;
-    if (!page->chrome().canRunBeforeUnloadConfirmPanel())
-        return true;
-
-    // Store all references to each subframe in advance since beforeunload's event handler may modify frame
-    Vector<RefPtr<Frame> > targetFrames;
-    targetFrames.append(m_frame);
-    for (Frame* child = m_frame->tree()->firstChild(); child; child = child->tree()->traverseNext(m_frame))
-        targetFrames.append(child);
-
-    bool shouldClose = false;
-    {
-        size_t i;
-
-        for (i = 0; i < targetFrames.size(); i++) {
-            if (!targetFrames[i]->tree()->isDescendantOf(m_frame))
-                continue;
-            if (!targetFrames[i]->loader()->fireBeforeUnloadEvent(page->chrome()))
-                break;
-        }
-
-        if (i == targetFrames.size())
-            shouldClose = true;
-    }
-
-    if (!shouldClose)
-        m_submittedFormURL = KURL();
-
-    return shouldClose;
-}
-
-bool FrameLoader::fireBeforeUnloadEvent(Chrome& chrome)
-{
-    DOMWindow* domWindow = m_frame->document()->domWindow();
-    if (!domWindow)
-        return true;
-
-    RefPtr<Document> document = m_frame->document();
-    if (!document->body())
-        return true;
-
-    RefPtr<BeforeUnloadEvent> beforeUnloadEvent = BeforeUnloadEvent::create();
-    m_pageDismissalEventBeingDispatched = BeforeUnloadDismissal;
-    domWindow->dispatchEvent(beforeUnloadEvent.get(), domWindow->document());
-    m_pageDismissalEventBeingDispatched = NoDismissal;
-
-    if (!beforeUnloadEvent->defaultPrevented())
-        document->defaultEventHandler(beforeUnloadEvent.get());
-    if (beforeUnloadEvent->result().isNull())
-        return true;
-
-    String text = document->displayStringModifiedByEncoding(beforeUnloadEvent->result());
-    return chrome.runBeforeUnloadConfirmPanel(text, m_frame);
+    return true;
 }
 
 void FrameLoader::continueLoadAfterNavigationPolicy(const ResourceRequest&, PassRefPtr<FormState> formState, bool shouldContinue)
@@ -2381,76 +2295,6 @@ void FrameLoader::forcePageTransitionIfNeeded()
 bool FrameLoaderClient::hasHTMLView() const
 {
     return true;
-}
-
-PassRefPtr<Frame> createWindow(Frame* openerFrame, Frame* lookupFrame, const FrameLoadRequest& request, const WindowFeatures& features, bool& created)
-{
-    ASSERT(!features.dialog || request.frameName().isEmpty());
-
-    if (!request.frameName().isEmpty() && request.frameName() != "_blank") {
-        if (Frame* frame = lookupFrame->loader()->findFrameForNavigation(request.frameName(), openerFrame->document())) {
-            if (request.frameName() != "_self") {
-                if (Page* page = frame->page())
-                    page->chrome().focus();
-            }
-            created = false;
-            return frame;
-        }
-    }
-
-    // FIXME: Setting the referrer should be the caller's responsibility.
-    FrameLoadRequest requestWithReferrer = request;
-    FrameLoader::addHTTPOriginIfNeeded(requestWithReferrer.resourceRequest(), openerFrame->loader()->outgoingOrigin());
-
-    if (openerFrame->settings() && !openerFrame->settings()->supportsMultipleWindows()) {
-        created = false;
-        return openerFrame;
-    }
-
-    Page* oldPage = openerFrame->page();
-    if (!oldPage)
-        return 0;
-
-    NavigationAction action(requestWithReferrer.resourceRequest());
-    Page* page = oldPage->chrome().createWindow(openerFrame, requestWithReferrer, features, action);
-    if (!page)
-        return 0;
-
-    Frame* frame = page->mainFrame();
-
-    if (request.frameName() != "_blank")
-        frame->tree()->setName(request.frameName());
-
-    page->chrome().setToolbarsVisible(features.toolBarVisible || features.locationBarVisible);
-    page->chrome().setStatusbarVisible(features.statusBarVisible);
-    page->chrome().setScrollbarsVisible(features.scrollbarsVisible);
-    page->chrome().setMenubarVisible(features.menuBarVisible);
-    page->chrome().setResizable(features.resizable);
-
-    // 'x' and 'y' specify the location of the window, while 'width' and 'height'
-    // specify the size of the viewport. We can only resize the window, so adjust
-    // for the difference between the window size and the viewport size.
-
-    FloatRect windowRect = page->chrome().windowRect();
-    FloatSize viewportSize = page->chrome().pageRect().size();
-
-    if (features.xSet)
-        windowRect.setX(features.x);
-    if (features.ySet)
-        windowRect.setY(features.y);
-    if (features.widthSet)
-        windowRect.setWidth(features.width + (windowRect.width() - viewportSize.width()));
-    if (features.heightSet)
-        windowRect.setHeight(features.height + (windowRect.height() - viewportSize.height()));
-
-    // Ensure non-NaN values, minimum size as well as being within valid screen area.
-    FloatRect newWindowRect = DOMWindow::adjustWindowRect(page, windowRect);
-
-    page->chrome().setWindowRect(newWindowRect);
-    page->chrome().show();
-
-    created = true;
-    return frame;
 }
 
 } // namespace WebCore

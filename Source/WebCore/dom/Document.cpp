@@ -307,14 +307,6 @@ static bool acceptsEditingFocus(Node* node)
     return frame->editor().shouldBeginEditing(rangeOfContents(root).get());
 }
 
-static void printNavigationErrorMessage(Frame* frame, const KURL& activeURL, const char* reason)
-{
-    String message = "Unsafe JavaScript attempt to initiate navigation for frame with URL '" + frame->document()->url().string() + "' from frame with URL '" + activeURL.string() + "'. " + reason + "\n";
-
-    // FIXME: should we print to the console of the document performing the navigation instead?
-    frame->document()->domWindow()->printErrorMessage(message);
-}
-
 static HashSet<Document*>* documentsThatNeedStyleRecalc = 0;
 
 uint64_t Document::s_globalTreeVersion = 0;
@@ -2607,8 +2599,6 @@ void Document::processHttpEquiv(const String& equiv, const String& content)
 {
     ASSERT(!equiv.isNull() && !content.isNull());
 
-    Frame* frame = this->frame();
-
     if (equalIgnoringCase(equiv, "default-style")) {
         // The preferred style set has been overridden as per section 
         // 14.3.2 of the HTML4.0 specification.  We need to update the
@@ -4255,7 +4245,7 @@ void Document::didReceiveTask(void* untypedContext)
         return;
 
     Page* page = document->page();
-    if ((page && page->defersLoading()) || !document->m_pendingTasks.isEmpty()) {
+    if (!document->m_pendingTasks.isEmpty()) {
         document->m_pendingTasks.append(context->task.release());
         return;
     }

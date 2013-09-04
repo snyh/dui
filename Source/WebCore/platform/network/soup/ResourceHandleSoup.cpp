@@ -1153,7 +1153,7 @@ void ResourceHandle::platformLoadResourceSynchronously(NetworkingContext* contex
         return;                    // we want to avoid accidentally going into an infinite loop of requests.
 
     WebCoreSynchronousLoader syncLoader(error, response, sessionFromContext(context), data);
-    RefPtr<ResourceHandle> handle = create(context, request, &syncLoader, false /*defersLoading*/, false /*shouldContentSniff*/);
+    RefPtr<ResourceHandle> handle = create(context, request, &syncLoader, false /*shouldContentSniff*/);
     if (!handle)
         return;
 

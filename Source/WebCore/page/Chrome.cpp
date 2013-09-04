@@ -38,7 +38,6 @@
 #include "rendering/HitTestResult.h"
 #include "platform/graphics/Icon.h"
 #include "page/Page.h"
-#include "page/PageGroupLoadDeferrer.h"
 #include "page/PopupOpeningObserver.h"
 #include "rendering/RenderObject.h"
 #include "platform/network/ResourceHandle.h"
@@ -183,23 +182,9 @@ void Chrome::focusedFrameChanged(Frame* frame) const
     m_client->focusedFrameChanged(frame);
 }
 
-Page* Chrome::createWindow(Frame* frame, const FrameLoadRequest& request, const WindowFeatures& features, const NavigationAction& action) const
-{
-    Page* newPage = m_client->createWindow(frame, request, features, action);
-    if (!newPage)
-        return 0;
-
-    return newPage;
-}
-
 void Chrome::show() const
 {
     m_client->show();
-}
-
-bool Chrome::canRunModal() const
-{
-    return m_client->canRunModal();
 }
 
 static bool canRunModalIfDuringPageDismissal(Page* page, ChromeClient::DialogType dialog, const String& message)
@@ -212,156 +197,9 @@ static bool canRunModalIfDuringPageDismissal(Page* page, ChromeClient::DialogTyp
     return true;
 }
 
-bool Chrome::canRunModalNow() const
-{
-    // If loads are blocked, we can't run modal because the contents
-    // of the modal dialog will never show up!
-    return canRunModal() && !ResourceHandle::loadsBlocked()
-           && canRunModalIfDuringPageDismissal(m_page, ChromeClient::HTMLDialog, String());
-}
-
-void Chrome::runModal() const
-{
-    // Defer callbacks in all the other pages in this group, so we don't try to run JavaScript
-    // in a way that could interact with this view.
-    PageGroupLoadDeferrer deferrer(m_page, false);
-
-    TimerBase::fireTimersInNestedEventLoop();
-    m_client->runModal();
-}
-
-void Chrome::setToolbarsVisible(bool b) const
-{
-    m_client->setToolbarsVisible(b);
-}
-
-bool Chrome::toolbarsVisible() const
-{
-    return m_client->toolbarsVisible();
-}
-
-void Chrome::setStatusbarVisible(bool b) const
-{
-    m_client->setStatusbarVisible(b);
-}
-
-bool Chrome::statusbarVisible() const
-{
-    return m_client->statusbarVisible();
-}
-
-void Chrome::setScrollbarsVisible(bool b) const
-{
-    m_client->setScrollbarsVisible(b);
-}
-
-bool Chrome::scrollbarsVisible() const
-{
-    return m_client->scrollbarsVisible();
-}
-
-void Chrome::setMenubarVisible(bool b) const
-{
-    m_client->setMenubarVisible(b);
-}
-
-bool Chrome::menubarVisible() const
-{
-    return m_client->menubarVisible();
-}
-
-void Chrome::setResizable(bool b) const
-{
-    m_client->setResizable(b);
-}
-
-bool Chrome::canRunBeforeUnloadConfirmPanel()
-{
-    return m_client->canRunBeforeUnloadConfirmPanel();
-}
-
-bool Chrome::runBeforeUnloadConfirmPanel(const String& message, Frame* frame)
-{
-    // Defer loads in case the client method runs a new event loop that would
-    // otherwise cause the load to continue while we're in the middle of executing JavaScript.
-    PageGroupLoadDeferrer deferrer(m_page, true);
-
-    bool ok = m_client->runBeforeUnloadConfirmPanel(message, frame);
-    return ok;
-}
-
 void Chrome::closeWindowSoon()
 {
     m_client->closeWindowSoon();
-}
-
-void Chrome::runJavaScriptAlert(Frame* frame, const String& message)
-{
-    if (!canRunModalIfDuringPageDismissal(m_page, ChromeClient::AlertDialog, message))
-        return;
-
-    // Defer loads in case the client method runs a new event loop that would
-    // otherwise cause the load to continue while we're in the middle of executing JavaScript.
-    PageGroupLoadDeferrer deferrer(m_page, true);
-
-    ASSERT(frame);
-    notifyPopupOpeningObservers();
-    String displayMessage = frame->displayStringModifiedByEncoding(message);
-
-    m_client->runJavaScriptAlert(frame, displayMessage);
-}
-
-bool Chrome::runJavaScriptConfirm(Frame* frame, const String& message)
-{
-    if (!canRunModalIfDuringPageDismissal(m_page, ChromeClient::ConfirmDialog, message))
-        return false;
-
-    // Defer loads in case the client method runs a new event loop that would
-    // otherwise cause the load to continue while we're in the middle of executing JavaScript.
-    PageGroupLoadDeferrer deferrer(m_page, true);
-
-    ASSERT(frame);
-    notifyPopupOpeningObservers();
-    String displayMessage = frame->displayStringModifiedByEncoding(message);
-
-    bool ok = m_client->runJavaScriptConfirm(frame, displayMessage);
-    return ok;
-}
-
-bool Chrome::runJavaScriptPrompt(Frame* frame, const String& prompt, const String& defaultValue, String& result)
-{
-    if (!canRunModalIfDuringPageDismissal(m_page, ChromeClient::PromptDialog, prompt))
-        return false;
-
-    // Defer loads in case the client method runs a new event loop that would
-    // otherwise cause the load to continue while we're in the middle of executing JavaScript.
-    PageGroupLoadDeferrer deferrer(m_page, true);
-
-    ASSERT(frame);
-    notifyPopupOpeningObservers();
-    String displayPrompt = frame->displayStringModifiedByEncoding(prompt);
-
-    bool ok = m_client->runJavaScriptPrompt(frame, displayPrompt, frame->displayStringModifiedByEncoding(defaultValue), result);
-
-    if (ok)
-        result = frame->displayStringModifiedByEncoding(result);
-
-    return ok;
-}
-
-void Chrome::setStatusbarText(Frame* frame, const String& status)
-{
-    ASSERT(frame);
-    m_client->setStatusbarText(frame->displayStringModifiedByEncoding(status));
-}
-
-bool Chrome::shouldInterruptJavaScript()
-{
-    // Defer loads in case the client method runs a new event loop that would
-    // otherwise cause the load to continue while we're in the middle of executing JavaScript.
-    PageGroupLoadDeferrer deferrer(m_page, true);
-
-    return m_client->shouldInterruptJavaScript();
 }
 
 IntRect Chrome::windowResizerRect() const
@@ -436,12 +274,6 @@ void Chrome::setToolTip(const HitTestResult& result)
     }
 
     m_client->setToolTip(toolTip, toolTipDirection);
-}
-
-void Chrome::print(Frame* frame)
-{
-    // FIXME: This should have PageGroupLoadDeferrer, like runModal() or runJavaScriptAlert(), becasue it's no different from those.
-    m_client->print(frame);
 }
 
 void Chrome::enableSuddenTermination()
@@ -568,11 +400,6 @@ bool Chrome::selectItemWritingDirectionIsNatural()
 bool Chrome::selectItemAlignmentFollowsMenuWritingDirection()
 {
     return m_client->selectItemAlignmentFollowsMenuWritingDirection();
-}
-
-bool Chrome::hasOpenedPopup() const
-{
-    return m_client->hasOpenedPopup();
 }
 
 PassRefPtr<PopupMenu> Chrome::createPopupMenu(PopupMenuClient* client) const

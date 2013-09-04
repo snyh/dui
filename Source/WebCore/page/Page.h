@@ -53,8 +53,6 @@ class AlternativeTextClient;
 class Chrome;
 class ChromeClient;
 class ClientRectList;
-class ContextMenuClient;
-class ContextMenuController;
 class Document;
 class DragCaretController;
 class DragClient;
@@ -127,9 +125,6 @@ public:
     RenderTheme* theme() const { return m_theme.get(); }
 
     ViewportArguments viewportArguments() const;
-
-    void setCanStartMedia(bool);
-    bool canStartMedia() const { return m_canStartMedia; }
 
     EditorClient* editorClient() const { return m_editorClient; }
 
@@ -216,9 +211,6 @@ public:
 #endif
 
     const VisibleSelection& selection() const;
-
-    void setDefersLoading(bool);
-    bool defersLoading() const { return m_defersLoading; }
 
     void clearUndoRedoOperations();
 
@@ -395,8 +387,6 @@ private:
     bool m_openedByDOM;
 
     bool m_tabKeyCyclesThroughElements;
-    bool m_defersLoading;
-    unsigned m_defersLoadingCallCount;
 
     bool m_inLowQualityInterpolationMode;
     bool m_areMemoryCacheClientCallsEnabled;

@@ -47,7 +47,6 @@
 namespace WebCore {
 
 class CachedResource;
-class Chrome;
 class DOMWrapperWorld;
 class DocumentLoader;
 class Event;
@@ -170,8 +169,6 @@ public:
 
     FrameLoaderClient* client() const { return m_client; }
 
-    void setDefersLoading(bool);
-
     void didExplicitOpen();
 
     // Callbacks from DocumentWriter
@@ -276,8 +273,6 @@ private:
     static void callContinueLoadAfterNewWindowPolicy(void*, const ResourceRequest&, PassRefPtr<FormState>, const String& frameName, const NavigationAction&, bool shouldContinue);
     static void callContinueFragmentScrollAfterNavigationPolicy(void*, const ResourceRequest&, PassRefPtr<FormState>, bool shouldContinue);
     
-    bool fireBeforeUnloadEvent(Chrome&);
-
     void continueLoadAfterNavigationPolicy(const ResourceRequest&, PassRefPtr<FormState>, bool shouldContinue);
     void continueLoadAfterNewWindowPolicy(const ResourceRequest&, PassRefPtr<FormState>, const String& frameName, const NavigationAction&, bool shouldContinue);
     void continueFragmentScrollAfterNavigationPolicy(const ResourceRequest&, bool shouldContinue);
@@ -398,15 +393,6 @@ private:
     KURL m_previousURL;
     OwnPtr<PageActivityAssertionToken> m_activityAssertion;
 };
-
-// This function is called by createWindow() in JSDOMWindowBase.cpp, for example, for
-// modal dialog creation.  The lookupFrame is for looking up the frame name in case
-// the frame name references a frame different from the openerFrame, e.g. when it is
-// "_self" or "_parent".
-//
-// FIXME: Consider making this function part of an appropriate class (not FrameLoader)
-// and moving it to a more appropriate location.
-PassRefPtr<Frame> createWindow(Frame* openerFrame, Frame* lookupFrame, const FrameLoadRequest&, const WindowFeatures&, bool& created);
 
 } // namespace WebCore
 

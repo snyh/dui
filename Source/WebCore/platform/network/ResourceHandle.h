@@ -100,7 +100,7 @@ class ResourceHandle : public RefCounted<ResourceHandle>
 #endif
     {
 public:
-    static PassRefPtr<ResourceHandle> create(NetworkingContext*, const ResourceRequest&, ResourceHandleClient*, bool defersLoading, bool shouldContentSniff);
+    static PassRefPtr<ResourceHandle> create(NetworkingContext*, const ResourceRequest&, ResourceHandleClient*, bool shouldContentSniff);
     static void loadResourceSynchronously(NetworkingContext*, const ResourceRequest&, StoredCredentials, ResourceError&, ResourceResponse&, Vector<char>& data);
 
     virtual ~ResourceHandle();
@@ -238,7 +238,7 @@ public:
     static void registerBuiltinSynchronousLoader(const AtomicString& protocol, BuiltinSynchronousLoader);
 
 protected:
-    ResourceHandle(NetworkingContext*, const ResourceRequest&, ResourceHandleClient*, bool defersLoading, bool shouldContentSniff);
+    ResourceHandle(NetworkingContext*, const ResourceRequest&, ResourceHandleClient*, bool shouldContentSniff);
 
 private:
     enum FailureType {

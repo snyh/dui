@@ -37,28 +37,19 @@ namespace WebCore {
 
     class CSSRuleList;
     class CSSStyleDeclaration;
-    class Crypto;
-    class DOMApplicationCache;
     class DOMSelection;
     class DOMURL;
     class DOMWindowProperty;
-    class Database;
-    class DatabaseCallback;
     class Document;
     class Element;
     class EventListener;
     class FloatRect;
     class Frame;
-    class IDBFactory;
     class MediaQueryList;
     class Navigator;
     class Node;
     class Page;
-    class Performance;
     class ScheduledAction;
-    class ScriptCallStack;
-    class SecurityOrigin;
-    class SerializedScriptValue;
     class StyleMedia;
     class WebKitPoint;
     class DOMWindowCSS;
@@ -113,18 +104,7 @@ namespace WebCore {
 
         static FloatRect adjustWindowRect(Page*, const FloatRect& pendingChanges);
 
-        bool allowPopUp(); // Call on first window, not target window.
-        static bool allowPopUp(Frame* firstFrame);
-        static bool canShowModalDialog(const Frame*);
-        static bool canShowModalDialogNow(const Frame*);
-
         // DOM Level 0
-
-        Navigator* navigator() const;
-        Navigator* clientInformation() const { return navigator(); }
-
-        void setLocation(const String& location, DOMWindow* activeWindow, DOMWindow* firstWindow,
-            SetLocationLocking = LockHistoryBasedOnGestureState);
 
         DOMSelection* getSelection();
 
@@ -133,19 +113,8 @@ namespace WebCore {
         void focus(ScriptExecutionContext* = 0);
         void blur();
         void close(ScriptExecutionContext* = 0);
-        void print();
         void stop();
 
-        PassRefPtr<DOMWindow> open(const String& urlString, const AtomicString& frameName, const String& windowFeaturesString,
-            DOMWindow* activeWindow, DOMWindow* firstWindow);
-
-        typedef void (*PrepareDialogFunction)(DOMWindow*, void* context);
-        void showModalDialog(const String& urlString, const String& dialogFeaturesString,
-            DOMWindow* activeWindow, DOMWindow* firstWindow, PrepareDialogFunction, void* functionContext);
-
-        void alert(const String& message);
-        bool confirm(const String& message);
-        String prompt(const String& message, const String& defaultValue);
         String btoa(const String& stringToEncode, ExceptionCode&);
         String atob(const String& encodedString, ExceptionCode&);
 
@@ -172,15 +141,6 @@ namespace WebCore {
 
         String name() const;
         void setName(const String&);
-
-        String status() const;
-        void setStatus(const String&);
-        String defaultStatus() const;
-        void setDefaultStatus(const String&);
-
-        // This attribute is an alias of defaultStatus and is necessary for legacy uses.
-        String defaultstatus() const { return defaultStatus(); }
-        void setDefaultstatus(const String& status) { setDefaultStatus(status); }
 
         // Self-referential attributes
 
@@ -211,9 +171,6 @@ namespace WebCore {
 
         PassRefPtr<WebKitPoint> webkitConvertPointFromPageToNode(Node*, const WebKitPoint*) const;
         PassRefPtr<WebKitPoint> webkitConvertPointFromNodeToPage(Node*, const WebKitPoint*) const;        
-
-        void printErrorMessage(const String&);
-        String crossDomainAccessErrorMessage(DOMWindow* activeWindow);
 
         void scrollBy(int x, int y) const;
         void scrollTo(int x, int y) const;
@@ -323,8 +280,6 @@ namespace WebCore {
         void captureEvents();
         void releaseEvents();
 
-        void finishedLoading();
-
         using RefCounted<DOMWindow>::ref;
         using RefCounted<DOMWindow>::deref;
 
@@ -365,17 +320,11 @@ namespace WebCore {
         virtual EventTargetData* eventTargetData();
         virtual EventTargetData* ensureEventTargetData();
 
-        static PassRefPtr<Frame> createWindow(const String& urlString, const AtomicString& frameName, const WindowFeatures&,
-            DOMWindow* activeWindow, Frame* firstFrame, Frame* openerFrame,
-            PrepareDialogFunction = 0, void* functionContext = 0);
-        bool isInsecureScriptAccess(DOMWindow* activeWindow, const String& urlString);
-
         void resetDOMWindowProperties();
         void disconnectDOMWindowProperties();
         void reconnectDOMWindowProperties();
         void willDestroyDocumentInFrame();
 
-        bool m_shouldPrintWhenFinishedLoading;
         bool m_suspendedForPageCache;
 
         HashSet<DOMWindowProperty*> m_properties;
@@ -384,23 +333,10 @@ namespace WebCore {
 
         EventTargetData m_eventTargetData;
 
-        String m_status;
-        String m_defaultStatus;
-
 #if ENABLE(CSS3_CONDITIONAL_RULES)
         mutable RefPtr<DOMWindowCSS> m_css;
 #endif
     };
-
-    inline String DOMWindow::status() const
-    {
-        return m_status;
-    }
-
-    inline String DOMWindow::defaultStatus() const
-    {
-        return m_defaultStatus;
-    } 
 
 } // namespace WebCore
 

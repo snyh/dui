@@ -81,13 +81,13 @@ namespace WebCore {
     class ResourceHandleInternal {
         WTF_MAKE_NONCOPYABLE(ResourceHandleInternal); WTF_MAKE_FAST_ALLOCATED;
     public:
-        ResourceHandleInternal(ResourceHandle* loader, NetworkingContext* context, const ResourceRequest& request, ResourceHandleClient* client, bool defersLoading, bool shouldContentSniff)
+        ResourceHandleInternal(ResourceHandle* loader, NetworkingContext* context, const ResourceRequest& request, ResourceHandleClient* client, bool shouldContentSniff)
             : m_context(context)
             , m_client(client)
             , m_firstRequest(request)
             , m_lastHTTPMethod(request.httpMethod())
             , status(0)
-            , m_defersLoading(defersLoading)
+            , m_defersLoading(false)
             , m_shouldContentSniff(shouldContentSniff)
 #if USE(CFNETWORK)
             , m_connection(0)

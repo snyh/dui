@@ -86,8 +86,6 @@ void XSSAuditorDelegate::didBlockScript(const XSSInfo& xssInfo)
 
     if (!m_didSendNotifications) {
         m_didSendNotifications = true;
-
-        frameLoader->client()->didDetectXSS(m_document->url(), xssInfo.m_didBlockEntirePage);
     }
 }
 

@@ -39,7 +39,6 @@ class HTMLDocument;
 class Frame;
 class ScriptSourceCode;
 class ScriptValue;
-class SecurityOrigin;
 class DOMWindow;
 class Widget;
 struct JSDOMWindowShell {
