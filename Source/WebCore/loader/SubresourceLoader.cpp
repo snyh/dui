@@ -37,7 +37,6 @@
 #include "platform/Logging.h"
 #include "loader/cache/MemoryCache.h"
 #include "page/Page.h"
-#include "page/PageActivityAssertionToken.h"
 #include "loader/ResourceBuffer.h"
 #include <wtf/RefCountedLeakCounter.h>
 #include <wtf/StdLibExtras.h>
@@ -108,8 +107,6 @@ bool SubresourceLoader::init(const ResourceRequest& request)
 
     ASSERT(!reachedTerminalState());
     m_state = Initialized;
-    if (m_frame && m_frame->page() && !m_activityAssertion)
-        m_activityAssertion = m_frame->page()->createActivityToken();
     m_documentLoader->addSubresourceLoader(this);
     return true;
 }
@@ -259,7 +256,6 @@ bool SubresourceLoader::checkForHTTPStatusCodeError()
         return false;
 
     m_state = Finishing;
-    m_activityAssertion.clear();
     m_resource->error(CachedResource::LoadError);
     cancel();
     return true;
@@ -277,7 +273,6 @@ void SubresourceLoader::didFinishLoading(double finishTime)
     RefPtr<SubresourceLoader> protect(this);
     CachedResourceHandle<CachedResource> protectResource(m_resource);
     m_state = Finishing;
-    m_activityAssertion.clear();
     m_resource->setLoadFinishTime(finishTime);
     m_resource->finishLoading(resourceData());
 
@@ -302,7 +297,6 @@ void SubresourceLoader::didFail(const ResourceError& error)
     RefPtr<SubresourceLoader> protect(this);
     CachedResourceHandle<CachedResource> protectResource(m_resource);
     m_state = Finishing;
-    m_activityAssertion.clear();
     if (m_resource->resourceToRevalidate())
         memoryCache()->revalidationFailed(m_resource);
     m_resource->setResourceError(error);
@@ -325,7 +319,6 @@ void SubresourceLoader::willCancel(const ResourceError& error)
 
     RefPtr<SubresourceLoader> protect(this);
     m_state = Finishing;
-    m_activityAssertion.clear();
     if (m_resource->resourceToRevalidate())
         memoryCache()->revalidationFailed(m_resource);
     m_resource->setResourceError(error);

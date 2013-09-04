@@ -57,7 +57,6 @@ class FrameNetworkingContext;
 class NavigationAction;
 class NetworkingContext;
 class Page;
-class PageActivityAssertionToken;
 class PolicyChecker;
 class ResourceError;
 class ResourceRequest;
@@ -391,7 +390,6 @@ private:
     RefPtr<FrameNetworkingContext> m_networkingContext;
 
     KURL m_previousURL;
-    OwnPtr<PageActivityAssertionToken> m_activityAssertion;
 };
 
 } // namespace WebCore

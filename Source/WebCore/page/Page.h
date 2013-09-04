@@ -26,7 +26,6 @@
 #include "loader/FrameLoaderTypes.h"
 #include "page/LayoutMilestones.h"
 #include "platform/graphics/LayoutRect.h"
-#include "page/PageVisibilityState.h"
 #include "rendering/Pagination.h"
 #include "platform/PlatformScreen.h"
 #include "platform/graphics/Region.h"
@@ -63,9 +62,7 @@ class Frame;
 class FrameSelection;
 class HaltablePlugin;
 class Node;
-class PageActivityAssertionToken;
 class PageGroup;
-class PageThrottler;
 class PointerLockController;
 class ProgressTracker;
 class Range;
@@ -96,7 +93,6 @@ struct ArenaSize {
 class Page : public Supplementable<Page> {
     WTF_MAKE_NONCOPYABLE(Page);
     friend class Settings;
-    friend class PageThrottler;
 
 public:
     static void updateStyleForAllPagesAfterGlobalChangeInEnvironment();
@@ -288,13 +284,6 @@ public:
     void setEditable(bool isEditable) { m_isEditable = isEditable; }
     bool isEditable() { return m_isEditable; }
 
-#if ENABLE(PAGE_VISIBILITY_API)
-    PageVisibilityState visibilityState() const;
-#endif
-#if ENABLE(PAGE_VISIBILITY_API) || ENABLE(HIDDEN_PAGE_DOM_TIMER_THROTTLING)
-    void setVisibilityState(PageVisibilityState, bool);
-#endif
-
     void addLayoutMilestones(LayoutMilestones);
     void removeLayoutMilestones(LayoutMilestones);
     LayoutMilestones requestedLayoutMilestones() const { return m_requestedLayoutMilestones; }
@@ -326,20 +315,6 @@ public:
     bool hasSeenAnyMediaEngine() const;
     void sawMediaEngine(const String& engineName);
     void resetSeenMediaEngines();
-
-    PageThrottler* pageThrottler() { return m_pageThrottler.get(); }
-    PassOwnPtr<PageActivityAssertionToken> createActivityToken();
-
-#if ENABLE(HIDDEN_PAGE_DOM_TIMER_THROTTLING)
-    void hiddenPageDOMTimerThrottlingStateChanged();
-#endif
-#if ENABLE(PAGE_VISIBILITY_API)
-    void hiddenPageCSSAnimationSuspensionStateChanged();
-#endif
-
-#if ENABLE(VIDEO_TRACK)
-    void captionPreferencesChanged();
-#endif
 
 private:
     void initGroup();
@@ -420,10 +395,6 @@ private:
     bool m_isOnscreen;
     bool m_isInWindow;
 
-#if ENABLE(PAGE_VISIBILITY_API)
-    PageVisibilityState m_visibilityState;
-#endif
-
     LayoutMilestones m_requestedLayoutMilestones;
 
     int m_headerHeight;
@@ -440,7 +411,6 @@ private:
     AlternativeTextClient* m_alternativeTextClient;
 
     bool m_scriptedAnimationsSuspended;
-    OwnPtr<PageThrottler> m_pageThrottler;
 
     HashSet<String> m_seenPlugins;
     HashSet<String> m_seenMediaEngines;

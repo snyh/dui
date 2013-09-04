@@ -36,7 +36,6 @@
 #include "page/FocusDirection.h"
 #include "rendering/HitTestRequest.h"
 #include "dom/MutationObserver.h"
-#include "page/PageVisibilityState.h"
 #include "platform/PlatformScreen.h"
 #include "dom/QualifiedName.h"
 #include "platform/ReferrerPolicy.h"
@@ -299,10 +298,6 @@ public:
     DEFINE_ATTRIBUTE_EVENT_LISTENER(webkitpointerlockchange);
     DEFINE_ATTRIBUTE_EVENT_LISTENER(webkitpointerlockerror);
 #endif
-#if ENABLE(PAGE_VISIBILITY_API)
-    DEFINE_ATTRIBUTE_EVENT_LISTENER(visibilitychange);
-#endif
-
     void setViewportArguments(const ViewportArguments& viewportArguments) { m_viewportArguments = viewportArguments; }
     ViewportArguments viewportArguments() const { return m_viewportArguments; }
 #ifndef NDEBUG
@@ -388,12 +383,6 @@ public:
     void setDocumentURI(const String&);
 
     virtual KURL baseURI() const;
-
-#if ENABLE(PAGE_VISIBILITY_API)
-    String visibilityState() const;
-    bool hidden() const;
-    void dispatchVisibilityStateChangeEvent();
-#endif
 
     PassRefPtr<Node> adoptNode(PassRefPtr<Node> source, ExceptionCode&);
 
@@ -1169,10 +1158,6 @@ private:
     
     template <typename CharacterType>
     void displayBufferModifiedByEncodingInternal(CharacterType*, unsigned) const;
-
-#if ENABLE(PAGE_VISIBILITY_API)
-    PageVisibilityState pageVisibilityState() const;
-#endif
 
     PassRefPtr<HTMLCollection> ensureCachedCollection(CollectionType);
 

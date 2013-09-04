@@ -35,10 +35,6 @@
 
 namespace WebCore {
 
-#if ENABLE(VIDEO_TRACK)
-    class CaptionPreferencesChangedListener;
-    class CaptionUserPreferences;
-#endif
     class KURL;
     class GroupSettings;
     class IDBFactoryBackendInterface;

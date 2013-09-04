@@ -229,11 +229,6 @@ namespace WebCore {
         void setTimeWithoutMouseMovementBeforeHidingControls(double time) { m_timeWithoutMouseMovementBeforeHidingControls = time; }
         double timeWithoutMouseMovementBeforeHidingControls() const { return m_timeWithoutMouseMovementBeforeHidingControls; }
 
-#if ENABLE(PAGE_VISIBILITY_API)
-        bool hiddenPageCSSAnimationSuspensionEnabled() const { return m_hiddenPageCSSAnimationSuspensionEnabled; }
-        void setHiddenPageCSSAnimationSuspensionEnabled(bool);
-#endif
-
         static bool lowPowerVideoAudioBufferSizeEnabled() { return gLowPowerVideoAudioBufferSizeEnabled; }
         static void setLowPowerVideoAudioBufferSizeEnabled(bool);
 
@@ -286,10 +281,6 @@ namespace WebCore {
 
         Timer<Settings> m_setImageLoadingSettingsTimer;
         void imageLoadingSettingsTimerFired(Timer<Settings>*);
-
-#if ENABLE(PAGE_VISIBILITY_API)
-        bool m_hiddenPageCSSAnimationSuspensionEnabled : 1;
-#endif
 
 #if USE(AVFOUNDATION)
         static bool gAVFoundationEnabled;

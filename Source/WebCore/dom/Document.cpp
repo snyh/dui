@@ -1489,34 +1489,6 @@ void Document::removeTitle(Element* titleElement)
         updateTitle(StringWithDirection());
 }
 
-#if ENABLE(PAGE_VISIBILITY_API)
-PageVisibilityState Document::pageVisibilityState() const
-{
-    // The visibility of the document is inherited from the visibility of the
-    // page. If there is no page associated with the document, we will assume
-    // that the page is hidden, as specified by the spec:
-    // http://dvcs.w3.org/hg/webperf/raw-file/tip/specs/PageVisibility/Overview.html#dom-document-hidden
-    if (!m_frame || !m_frame->page())
-        return PageVisibilityStateHidden;
-    return m_frame->page()->visibilityState();
-}
-
-String Document::visibilityState() const
-{
-    return pageVisibilityStateString(pageVisibilityState());
-}
-
-bool Document::hidden() const
-{
-    return pageVisibilityState() != PageVisibilityStateVisible;
-}
-
-void Document::dispatchVisibilityStateChangeEvent()
-{
-    dispatchEvent(Event::create(eventNames().visibilitychangeEvent, false, false));
-}
-#endif
-
 String Document::nodeName() const
 {
     return "#document";

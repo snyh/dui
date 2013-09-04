@@ -1772,14 +1772,8 @@ webcore_sources += \
 	Source/WebCore/page/MouseEventWithHitTestResults.h \
 	Source/WebCore/page/Page.cpp \
 	Source/WebCore/page/Page.h \
-	Source/WebCore/page/PageActivityAssertionToken.h \
-	Source/WebCore/page/PageActivityAssertionToken.cpp \
 	Source/WebCore/page/PageGroup.cpp \
 	Source/WebCore/page/PageGroup.h \
-	Source/WebCore/page/PageThrottler.cpp \
-	Source/WebCore/page/PageThrottler.h \
-	Source/WebCore/page/PageVisibilityState.cpp \
-	Source/WebCore/page/PageVisibilityState.h \
 	Source/WebCore/page/PointerLockController.cpp \
 	Source/WebCore/page/PointerLockController.h \
 	Source/WebCore/page/PopupOpeningObserver.h \

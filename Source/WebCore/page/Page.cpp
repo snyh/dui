@@ -46,9 +46,7 @@
 #include "html/HTMLElement.h"
 #include "platform/Logging.h"
 #include "platform/network/NetworkStateNotifier.h"
-#include "page/PageActivityAssertionToken.h"
 #include "page/PageGroup.h"
-#include "page/PageThrottler.h"
 #include "page/PointerLockController.h"
 #include "loader/ProgressTracker.h"
 #include "rendering/RenderArena.h"
@@ -141,9 +139,6 @@ Page::Page(PageClients& pageClients)
     , m_isEditable(false)
     , m_isOnscreen(true)
     , m_isInWindow(true)
-#if ENABLE(PAGE_VISIBILITY_API)
-    , m_visibilityState(PageVisibilityStateVisible)
-#endif
     , m_requestedLayoutMilestones(0)
     , m_headerHeight(0)
     , m_footerHeight(0)
@@ -153,7 +148,6 @@ Page::Page(PageClients& pageClients)
 #endif
     , m_alternativeTextClient(pageClients.alternativeTextClient)
     , m_scriptedAnimationsSuspended(false)
-    , m_pageThrottler(PageThrottler::create(this))
 {
     ASSERT(m_editorClient);
 
@@ -192,8 +186,6 @@ Page::~Page()
 #ifndef NDEBUG
     pageCounter.decrement();
 #endif
-
-    m_pageThrottler.clear();
 }
 
 ArenaSize Page::renderTreeSize() const
@@ -759,11 +751,6 @@ void Page::resumeScriptedAnimations()
     }
 }
 
-void Page::setThrottled(bool throttled)
-{
-    m_pageThrottler->setThrottled(throttled);
-}
-
 void Page::userStyleSheetLocationChanged()
 {
     // FIXME: Eventually we will move to a model of just being handed the sheet
@@ -939,59 +926,6 @@ void Page::checkSubframeCountConsistency() const
         ++subframeCount;
 
     ASSERT(m_subframeCount + 1 == subframeCount);
-}
-#endif
-
-void Page::throttleTimers()
-{
-#if ENABLE(HIDDEN_PAGE_DOM_TIMER_THROTTLING)
-    if (m_settings->hiddenPageDOMTimerThrottlingEnabled())
-        setTimerAlignmentInterval(Settings::hiddenPageDOMTimerAlignmentInterval());
-#endif
-}
-
-void Page::unthrottleTimers()
-{
-#if ENABLE(HIDDEN_PAGE_DOM_TIMER_THROTTLING)
-    if (m_settings->hiddenPageDOMTimerThrottlingEnabled())
-        setTimerAlignmentInterval(Settings::defaultDOMTimerAlignmentInterval());
-#endif
-}
-
-#if ENABLE(PAGE_VISIBILITY_API) || ENABLE(HIDDEN_PAGE_DOM_TIMER_THROTTLING)
-void Page::setVisibilityState(PageVisibilityState visibilityState, bool isInitialState)
-{
-    // FIXME: the visibility state needs to be stored on the top-level document
-    // https://bugs.webkit.org/show_bug.cgi?id=116769
-#if ENABLE(PAGE_VISIBILITY_API)
-    if (m_visibilityState == visibilityState)
-        return;
-    m_visibilityState = visibilityState;
-
-    if (!isInitialState && m_mainFrame)
-        m_mainFrame->dispatchVisibilityStateChangeEvent();
-#endif
-
-    if (visibilityState == WebCore::PageVisibilityStateHidden) {
-        if (m_pageThrottler->shouldThrottleTimers())
-            throttleTimers();
-        if (m_settings->hiddenPageCSSAnimationSuspensionEnabled())
-            mainFrame()->animation()->suspendAnimations();
-    } else {
-        unthrottleTimers();
-        if (m_settings->hiddenPageCSSAnimationSuspensionEnabled())
-            mainFrame()->animation()->resumeAnimations();
-    }
-#if !ENABLE(PAGE_VISIBILITY_API)
-    UNUSED_PARAM(isInitialState);
-#endif
-}
-#endif // ENABLE(PAGE_VISIBILITY_API) || ENABLE(HIDDEN_PAGE_DOM_TIMER_THROTTLING)
-
-#if ENABLE(PAGE_VISIBILITY_API)
-PageVisibilityState Page::visibilityState() const
-{
-    return m_visibilityState;
 }
 #endif
 
@@ -1198,44 +1132,6 @@ void Page::resetSeenMediaEngines()
 {
     m_seenMediaEngines.clear();
 }
-
-PassOwnPtr<PageActivityAssertionToken> Page::createActivityToken()
-{
-    return adoptPtr(new PageActivityAssertionToken(m_pageThrottler.get()));
-}
-
-#if ENABLE(HIDDEN_PAGE_DOM_TIMER_THROTTLING)
-void Page::hiddenPageDOMTimerThrottlingStateChanged()
-{
-    if (m_settings->hiddenPageDOMTimerThrottlingEnabled()) {
-#if ENABLE(PAGE_VISIBILITY_API)
-        if (m_pageThrottler->shouldThrottleTimers())
-            setTimerAlignmentInterval(Settings::hiddenPageDOMTimerAlignmentInterval());
-#endif
-    } else
-        setTimerAlignmentInterval(Settings::defaultDOMTimerAlignmentInterval());
-}
-#endif
-
-#if (ENABLE_PAGE_VISIBILITY_API)
-void Page::hiddenPageCSSAnimationSuspensionStateChanged()
-{
-    if (m_visibilityState == WebCore::PageVisibilityStateHidden) {
-        if (m_settings->hiddenPageCSSAnimationSuspensionEnabled())
-            mainFrame()->animation()->suspendAnimations();
-        else
-            mainFrame()->animation()->resumeAnimations();
-    }
-}
-#endif
-
-#if ENABLE(VIDEO_TRACK)
-void Page::captionPreferencesChanged()
-{
-    for (Frame* frame = mainFrame(); frame; frame = frame->tree()->traverseNext())
-        frame->document()->captionPreferencesChanged();
-}
-#endif
 
 Page::PageClients::PageClients()
     : alternativeTextClient(0)
