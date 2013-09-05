@@ -46,7 +46,6 @@
 #include "editing/FrameSelection.h"
 #include "page/FrameView.h"
 #include "html/HTMLCollection.h"
-#include "html/HTMLDataListElement.h"
 #include "html/HTMLFormElement.h"
 #include "html/HTMLImageLoader.h"
 #include "HTMLNames.h"
@@ -84,20 +83,6 @@ namespace WebCore {
 
 using namespace HTMLNames;
 
-#if ENABLE(DATALIST_ELEMENT)
-class ListAttributeTargetObserver : IdTargetObserver {
-    WTF_MAKE_FAST_ALLOCATED;
-public:
-    static PassOwnPtr<ListAttributeTargetObserver> create(const AtomicString& id, HTMLInputElement*);
-    virtual void idTargetChanged() OVERRIDE;
-
-private:
-    ListAttributeTargetObserver(const AtomicString& id, HTMLInputElement*);
-
-    HTMLInputElement* m_element;
-};
-#endif
-
 // FIXME: According to HTML4, the length attribute's value can be arbitrarily
 // large. However, due to https://bugs.webkit.org/show_bug.cgi?id=14536 things
 // get rather sluggish when a text field has a larger number of characters than
@@ -118,9 +103,6 @@ HTMLInputElement::HTMLInputElement(const QualifiedName& tagName, Document* docum
     , m_isActivatedSubmit(false)
     , m_autocomplete(Uninitialized)
     , m_isAutofilled(false)
-#if ENABLE(DATALIST_ELEMENT)
-    , m_hasNonEmptyList(false)
-#endif
     , m_stateRestored(false)
     , m_parsingInProgress(createdByParser)
     , m_valueAttributeWasUpdatedAfterParsing(false)
@@ -336,13 +318,6 @@ StepRange HTMLInputElement::createStepRange(AnyStepHandling anyStepHandling) con
 {
     return m_inputType->createStepRange(anyStepHandling);
 }
-
-#if ENABLE(DATALIST_ELEMENT)
-Decimal HTMLInputElement::findClosestTickMarkValue(const Decimal& value)
-{
-    return m_inputType->findClosestTickMarkValue(value);
-}
-#endif
 
 void HTMLInputElement::stepUp(int n, ExceptionCode& ec)
 {
@@ -721,16 +696,6 @@ void HTMLInputElement::parseAttribute(const QualifiedName& name, const AtomicStr
         HTMLTextFormControlElement::parseAttribute(name, value);
         m_inputType->readonlyAttributeChanged();
     }
-#if ENABLE(DATALIST_ELEMENT)
-    else if (name == listAttr) {
-        m_hasNonEmptyList = !value.isEmpty();
-        if (m_hasNonEmptyList) {
-            resetListAttributeTargetObserver();
-            listAttributeTargetChanged();
-        }
-        FeatureObserver::observe(document(), FeatureObserver::ListAttribute);
-    }
-#endif
     else
         HTMLTextFormControlElement::parseAttribute(name, value);
     m_inputType->attributeChanged();
@@ -1457,9 +1422,6 @@ Node::InsertionNotificationRequest HTMLInputElement::insertedInto(ContainerNode*
     HTMLTextFormControlElement::insertedInto(insertionPoint);
     if (insertionPoint->inDocument() && !form())
         addToRadioButtonGroup();
-#if ENABLE(DATALIST_ELEMENT)
-    resetListAttributeTargetObserver();
-#endif
     return InsertionDone;
 }
 
@@ -1469,9 +1431,6 @@ void HTMLInputElement::removedFrom(ContainerNode* insertionPoint)
         removeFromRadioButtonGroup();
     HTMLTextFormControlElement::removedFrom(insertionPoint);
     ASSERT(!inDocument());
-#if ENABLE(DATALIST_ELEMENT)
-    resetListAttributeTargetObserver();
-#endif
 }
 
 void HTMLInputElement::didMoveToNewDocument(Document* oldDocument)
@@ -1532,43 +1491,6 @@ void HTMLInputElement::selectColorInColorChooser(const Color& color)
 }
 #endif
     
-#if ENABLE(DATALIST_ELEMENT)
-HTMLElement* HTMLInputElement::list() const
-{
-    return dataList();
-}
-
-HTMLDataListElement* HTMLInputElement::dataList() const
-{
-    if (!m_hasNonEmptyList)
-        return 0;
-
-    if (!m_inputType->shouldRespectListAttribute())
-        return 0;
-
-    Element* element = treeScope()->getElementById(fastGetAttribute(listAttr));
-    if (!element)
-        return 0;
-    if (!element->hasTagName(datalistTag))
-        return 0;
-
-    return static_cast<HTMLDataListElement*>(element);
-}
-
-void HTMLInputElement::resetListAttributeTargetObserver()
-{
-    if (inDocument())
-        m_listAttributeTargetObserver = ListAttributeTargetObserver::create(fastGetAttribute(listAttr), this);
-    else
-        m_listAttributeTargetObserver = nullptr;
-}
-
-void HTMLInputElement::listAttributeTargetChanged()
-{
-    m_inputType->listAttributeTargetChanged();
-}
-#endif // ENABLE(DATALIST_ELEMENT)
-
 bool HTMLInputElement::isSteppable() const
 {
     return m_inputType->isSteppable();
@@ -1802,24 +1724,6 @@ void HTMLInputElement::setWidth(unsigned width)
     setAttribute(widthAttr, String::number(width));
 }
 
-#if ENABLE(DATALIST_ELEMENT)
-PassOwnPtr<ListAttributeTargetObserver> ListAttributeTargetObserver::create(const AtomicString& id, HTMLInputElement* element)
-{
-    return adoptPtr(new ListAttributeTargetObserver(id, element));
-}
-
-ListAttributeTargetObserver::ListAttributeTargetObserver(const AtomicString& id, HTMLInputElement* element)
-    : IdTargetObserver(element->treeScope()->idTargetObserverRegistry(), id)
-    , m_element(element)
-{
-}
-
-void ListAttributeTargetObserver::idTargetChanged()
-{
-    m_element->listAttributeTargetChanged();
-}
-#endif
-
 void HTMLInputElement::setRangeText(const String& replacement, ExceptionCode& ec)
 {
     if (!m_inputType->supportsSelectionAPI()) {
@@ -1869,18 +1773,6 @@ bool HTMLInputElement::setupDateTimeChooserParameters(DateTimeChooserParameters&
     parameters.anchorRectInRootView = document()->view()->contentsToRootView(pixelSnappedBoundingBox());
     parameters.currentValue = value();
     parameters.isAnchorElementRTL = computedStyle()->direction() == RTL;
-#if ENABLE(DATALIST_ELEMENT)
-    if (HTMLDataListElement* dataList = this->dataList()) {
-        RefPtr<HTMLCollection> options = dataList->options();
-        for (unsigned i = 0; HTMLOptionElement* option = toHTMLOptionElement(options->item(i)); ++i) {
-            if (!isValidValue(option->value()))
-                continue;
-            parameters.suggestionValues.append(sanitizeValue(option->value()));
-            parameters.localizedSuggestionValues.append(localizeValue(option->value()));
-            parameters.suggestionLabels.append(option->value() == option->label() ? String() : option->label());
-        }
-    }
-#endif
     return true;
 }
 #endif

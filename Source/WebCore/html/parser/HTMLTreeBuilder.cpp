@@ -676,7 +676,6 @@ void HTMLTreeBuilder::processStartTagForInBody(AtomicHTMLToken* token)
         || token->name() == asideTag
         || token->name() == blockquoteTag
         || token->name() == centerTag
-        || token->name() == detailsTag
         || token->name() == dirTag
         || token->name() == divTag
         || token->name() == dlTag
@@ -692,7 +691,6 @@ void HTMLTreeBuilder::processStartTagForInBody(AtomicHTMLToken* token)
         || token->name() == olTag
         || token->name() == pTag
         || token->name() == sectionTag
-        || token->name() == summaryTag
         || token->name() == ulTag) {
         processFakePEndTagIfPInButtonScope();
         m_tree.insertHTMLElement(token);
@@ -1680,7 +1678,6 @@ void HTMLTreeBuilder::processEndTagForInBody(AtomicHTMLToken* token)
         || token->name() == blockquoteTag
         || token->name() == buttonTag
         || token->name() == centerTag
-        || token->name() == detailsTag
         || token->name() == dirTag
         || token->name() == divTag
         || token->name() == dlTag
@@ -1697,7 +1694,6 @@ void HTMLTreeBuilder::processEndTagForInBody(AtomicHTMLToken* token)
         || token->name() == olTag
         || token->name() == preTag
         || token->name() == sectionTag
-        || token->name() == summaryTag
         || token->name() == ulTag) {
         if (!m_tree.openElements()->inScope(token->name())) {
             parseError(token);

@@ -66,11 +66,6 @@ public:
     RegionOversetState regionOversetState() const { return m_regionOversetState; }
     void setRegionOversetState(RegionOversetState state) { m_regionOversetState = state; }
 
-#if ENABLE(DIALOG_ELEMENT)
-    bool isInTopLayer() const { return m_isInTopLayer; }
-    void setIsInTopLayer(bool value) { m_isInTopLayer = value; }
-#endif
-
     bool childrenAffectedByHover() const { return m_childrenAffectedByHover; }
     void setChildrenAffectedByHover(bool value) { m_childrenAffectedByHover = value; }
     bool childrenAffectedByActive() const { return m_childrenAffectedByActive; }
@@ -136,9 +131,6 @@ private:
     unsigned m_needsFocusAppearanceUpdateSoonAfterAttach : 1;
     unsigned m_styleAffectedByEmpty : 1;
     unsigned m_isInCanvasSubtree : 1;
-#if ENABLE(DIALOG_ELEMENT)
-    unsigned m_isInTopLayer : 1;
-#endif
 #if ENABLE(SVG)
     unsigned m_hasPendingResources : 1;
 #endif
@@ -186,9 +178,6 @@ inline ElementRareData::ElementRareData(RenderObject* renderer)
     , m_needsFocusAppearanceUpdateSoonAfterAttach(false)
     , m_styleAffectedByEmpty(false)
     , m_isInCanvasSubtree(false)
-#if ENABLE(DIALOG_ELEMENT)
-    , m_isInTopLayer(false)
-#endif
 #if ENABLE(SVG)
     , m_hasPendingResources(false)
 #endif

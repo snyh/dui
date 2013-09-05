@@ -324,10 +324,6 @@
 #define ENABLE_CSS_VARIABLES 0
 #endif
 
-#if !defined(ENABLE_DATALIST_ELEMENT)
-#define ENABLE_DATALIST_ELEMENT 0
-#endif
-
 #if !defined(ENABLE_DATA_TRANSFER_ITEMS)
 #define ENABLE_DATA_TRANSFER_ITEMS 0
 #endif
@@ -336,16 +332,8 @@
 #define ENABLE_DELETION_UI 0
 #endif
 
-#if !defined(ENABLE_DETAILS_ELEMENT)
-#define ENABLE_DETAILS_ELEMENT 1
-#endif
-
 #if !defined(ENABLE_DEVICE_ORIENTATION)
 #define ENABLE_DEVICE_ORIENTATION 0
-#endif
-
-#if !defined(ENABLE_DIALOG_ELEMENT)
-#define ENABLE_DIALOG_ELEMENT 0
 #endif
 
 #if !defined(ENABLE_DRAGGABLE_REGION)

@@ -1030,13 +1030,6 @@ public:
     // Return a Locale for the default locale if the argument is null or empty.
     Locale& getCachedLocale(const AtomicString& locale = nullAtom);
 
-#if ENABLE(DIALOG_ELEMENT)
-    void addToTopLayer(Element*);
-    void removeFromTopLayer(Element*);
-    const Vector<RefPtr<Element> >& topLayerElements() const { return m_topLayerElements; }
-    Element* activeModalDialog() const { return !m_topLayerElements.isEmpty() ? m_topLayerElements.last().get() : 0; }
-#endif
-
     void didAssociateFormControl(Element*);
 
     virtual void addConsoleMessage(MessageSource, MessageLevel, const String& message, unsigned long requestIdentifier = 0);
@@ -1296,10 +1289,6 @@ private:
     WeakPtrFactory<Document> m_weakFactory;
 
     QualifiedName m_idAttributeName;
-
-#if ENABLE(DIALOG_ELEMENT)
-    Vector<RefPtr<Element> > m_topLayerElements;
-#endif
 
     int m_loadEventDelayCount;
     Timer<Document> m_loadEventDelayTimer;

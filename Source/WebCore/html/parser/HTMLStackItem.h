@@ -150,7 +150,6 @@ public:
             || tagName == HTMLNames::colgroupTag
             || tagName == HTMLNames::commandTag
             || tagName == HTMLNames::ddTag
-            || tagName == HTMLNames::detailsTag
             || tagName == HTMLNames::dirTag
             || tagName == HTMLNames::divTag
             || tagName == HTMLNames::dlTag
@@ -191,7 +190,6 @@ public:
             || tagName == HTMLNames::sectionTag
             || tagName == HTMLNames::selectTag
             || tagName == HTMLNames::styleTag
-            || tagName == HTMLNames::summaryTag
             || tagName == HTMLNames::tableTag
             || isTableBodyContextElement()
             || tagName == HTMLNames::tdTag

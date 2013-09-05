@@ -36,7 +36,6 @@
 #include "page/Chrome.h"
 #include "platform/graphics/Color.h"
 #include "dom/ElementShadow.h"
-#include "html/HTMLDataListElement.h"
 #include "html/HTMLDivElement.h"
 #include "html/HTMLInputElement.h"
 #include "html/HTMLOptionElement.h"
@@ -219,30 +218,12 @@ Color ColorInputType::currentColor()
 
 bool ColorInputType::shouldShowSuggestions() const
 {
-#if ENABLE(DATALIST_ELEMENT)
-    return element()->fastHasAttribute(listAttr);
-#else
     return false;
-#endif
 }
 
 Vector<Color> ColorInputType::suggestions() const
 {
     Vector<Color> suggestions;
-#if ENABLE(DATALIST_ELEMENT)
-    HTMLDataListElement* dataList = element()->dataList();
-    if (dataList) {
-        RefPtr<HTMLCollection> options = dataList->options();
-        for (unsigned i = 0; HTMLOptionElement* option = toHTMLOptionElement(options->item(i)); i++) {
-            if (!element()->isValidValue(option->value()))
-                continue;
-            Color color(option->value());
-            if (!color.isValid())
-                continue;
-            suggestions.append(color);
-        }
-    }
-#endif
     return suggestions;
 }
 

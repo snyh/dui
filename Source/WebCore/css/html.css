@@ -140,19 +140,6 @@ map {
     display: inline
 }
 
-#if defined(ENABLE_DIALOG_ELEMENT) && ENABLE_DIALOG_ELEMENT
-dialog:not([open]) { display: none; }
-dialog {
-    position: absolute;
-    left: 0; right: 0;
-    margin: auto;
-    border: solid;
-    padding: 1em;
-    background: white;
-    color: black;
-}
-#endif
-
 /* heading elements */
 
 h1 {
@@ -486,12 +473,6 @@ input[type="search"]::-webkit-search-results-button {
     -webkit-user-modify: read-only !important;
 }
 
-#if defined(ENABLE_DATALIST_ELEMENT) && ENABLE_DATALIST_ELEMENT
-datalist {
-    display: none;
-}
-#endif
-
 #if defined(ENABLE_INPUT_TYPE_DATE) && ENABLE_INPUT_TYPE_DATE
 input[type="date"] {
     -webkit-align-items: center;
@@ -741,25 +722,6 @@ input[type="color"]::-webkit-color-swatch {
     -webkit-flex: 1;
     -webkit-user-modify: read-only !important;
 }
-
-#if defined(ENABLE_DATALIST_ELEMENT) && ENABLE_DATALIST_ELEMENT
-
-input[type="color"][list] {
-    -webkit-appearance: menulist;
-    width: 88px;
-    height: 23px;
-}
-
-input[type="color"][list]::-webkit-color-swatch-wrapper {
-    padding-left: 8px;
-    padding-right: 24px;
-}
-
-input[type="color"][list]::-webkit-color-swatch {
-    border-color: #000000;
-}
-
-#endif // defined(ENABLE_DATALIST_ELEMENT) && ENABLE_DATALIST_ELEMENT
 
 #endif // defined(ENABLE_INPUT_TYPE_COLOR) && ENABLE_INPUT_TYPE_COLOR
 

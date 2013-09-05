@@ -49,14 +49,6 @@
 #include "rendering/RenderMeter.h"
 #endif
 
-#if ENABLE(DATALIST_ELEMENT)
-#include "dom/ElementShadow.h"
-#include "html/HTMLCollection.h"
-#include "html/HTMLDataListElement.h"
-#include "html/HTMLOptionElement.h"
-#include "html/parser/HTMLParserIdioms.h"
-#endif
-
 // The methods in this file are shared by all themes on every platform.
 
 namespace WebCore {
@@ -887,95 +879,6 @@ bool RenderTheme::paintMeter(RenderObject*, const PaintInfo&, const IntRect&)
     return true;
 }
 
-#endif
-
-#if ENABLE(DATALIST_ELEMENT)
-LayoutUnit RenderTheme::sliderTickSnappingThreshold() const
-{
-    return 0;
-}
-
-void RenderTheme::paintSliderTicks(RenderObject* o, const PaintInfo& paintInfo, const IntRect& rect)
-{
-    Node* node = o->node();
-    if (!node)
-        return;
-
-    HTMLInputElement* input = node->toInputElement();
-    if (!input)
-        return;
-
-    HTMLDataListElement* dataList = static_cast<HTMLDataListElement*>(input->list());
-    if (!dataList)
-        return;
-
-    double min = input->minimum();
-    double max = input->maximum();
-    ControlPart part = o->style()->appearance();
-    // We don't support ticks on alternate sliders like MediaVolumeSliders.
-    if (part !=  SliderHorizontalPart && part != SliderVerticalPart)
-        return;
-    bool isHorizontal = part ==  SliderHorizontalPart;
-
-    IntSize thumbSize;
-    RenderObject* thumbRenderer = input->sliderThumbElement()->renderer();
-    if (thumbRenderer) {
-        RenderStyle* thumbStyle = thumbRenderer->style();
-        int thumbWidth = thumbStyle->width().intValue();
-        int thumbHeight = thumbStyle->height().intValue();
-        thumbSize.setWidth(isHorizontal ? thumbWidth : thumbHeight);
-        thumbSize.setHeight(isHorizontal ? thumbHeight : thumbWidth);
-    }
-
-    IntSize tickSize = sliderTickSize();
-    float zoomFactor = o->style()->effectiveZoom();
-    FloatRect tickRect;
-    int tickRegionSideMargin = 0;
-    int tickRegionWidth = 0;
-    IntRect trackBounds;
-    RenderObject* trackRenderer = input->sliderTrackElement()->renderer();
-    // We can ignoring transforms because transform is handled by the graphics context.
-    if (trackRenderer)
-        trackBounds = trackRenderer->absoluteBoundingBoxRectIgnoringTransforms();
-    IntRect sliderBounds = o->absoluteBoundingBoxRectIgnoringTransforms();
-
-    // Make position relative to the transformed ancestor element.
-    trackBounds.setX(trackBounds.x() - sliderBounds.x() + rect.x());
-    trackBounds.setY(trackBounds.y() - sliderBounds.y() + rect.y());
-
-    if (isHorizontal) {
-        tickRect.setWidth(floor(tickSize.width() * zoomFactor));
-        tickRect.setHeight(floor(tickSize.height() * zoomFactor));
-        tickRect.setY(floor(rect.y() + rect.height() / 2.0 + sliderTickOffsetFromTrackCenter() * zoomFactor));
-        tickRegionSideMargin = trackBounds.x() + (thumbSize.width() - tickSize.width() * zoomFactor) / 2.0;
-        tickRegionWidth = trackBounds.width() - thumbSize.width();
-    } else {
-        tickRect.setWidth(floor(tickSize.height() * zoomFactor));
-        tickRect.setHeight(floor(tickSize.width() * zoomFactor));
-        tickRect.setX(floor(rect.x() + rect.width() / 2.0 + sliderTickOffsetFromTrackCenter() * zoomFactor));
-        tickRegionSideMargin = trackBounds.y() + (thumbSize.width() - tickSize.width() * zoomFactor) / 2.0;
-        tickRegionWidth = trackBounds.height() - thumbSize.width();
-    }
-    RefPtr<HTMLCollection> options = dataList->options();
-    GraphicsContextStateSaver stateSaver(*paintInfo.context);
-    paintInfo.context->setFillColor(o->style()->visitedDependentColor(CSSPropertyColor), ColorSpaceDeviceRGB);
-    for (unsigned i = 0; Node* node = options->item(i); i++) {
-        ASSERT(isHTMLOptionElement(node));
-        HTMLOptionElement* optionElement = toHTMLOptionElement(node);
-        String value = optionElement->value();
-        if (!input->isValidValue(value))
-            continue;
-        double parsedValue = parseToDoubleForNumberType(input->sanitizeValue(value));
-        double tickFraction = (parsedValue - min) / (max - min);
-        double tickRatio = isHorizontal && o->style()->isLeftToRightDirection() ? tickFraction : 1.0 - tickFraction;
-        double tickPosition = round(tickRegionSideMargin + tickRegionWidth * tickRatio);
-        if (isHorizontal)
-            tickRect.setX(tickPosition);
-        else
-            tickRect.setY(tickPosition);
-        paintInfo.context->fillRect(tickRect);
-    }
-}
 #endif
 
 #if ENABLE(PROGRESS_ELEMENT)

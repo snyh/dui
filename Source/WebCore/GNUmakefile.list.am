@@ -155,8 +155,6 @@ dom_binding_idls += \
 	$(WebCore)/html/HTMLCanvasElement.idl \
 	$(WebCore)/html/HTMLCollection.idl \
 	$(WebCore)/html/HTMLDListElement.idl \
-	$(WebCore)/html/HTMLDataListElement.idl \
-	$(WebCore)/html/HTMLDetailsElement.idl \
 	$(WebCore)/html/HTMLDirectoryElement.idl \
 	$(WebCore)/html/HTMLDivElement.idl \
 	$(WebCore)/html/HTMLDocument.idl \
@@ -1270,10 +1268,6 @@ webcore_sources += \
 	Source/WebCore/html/HTMLCanvasElement.h \
 	Source/WebCore/html/HTMLCollection.cpp \
 	Source/WebCore/html/HTMLCollection.h \
-	Source/WebCore/html/HTMLDataListElement.cpp \
-	Source/WebCore/html/HTMLDataListElement.h \
-	Source/WebCore/html/HTMLDetailsElement.cpp \
-	Source/WebCore/html/HTMLDetailsElement.h \
 	Source/WebCore/html/HTMLDirectoryElement.cpp \
 	Source/WebCore/html/HTMLDirectoryElement.h \
 	Source/WebCore/html/HTMLDivElement.cpp \
@@ -1373,8 +1367,6 @@ webcore_sources += \
 	Source/WebCore/html/HTMLSpanElement.h \
 	Source/WebCore/html/HTMLStyleElement.cpp \
 	Source/WebCore/html/HTMLStyleElement.h \
-	Source/WebCore/html/HTMLSummaryElement.cpp \
-	Source/WebCore/html/HTMLSummaryElement.h \
 	Source/WebCore/html/HTMLTableCaptionElement.cpp \
 	Source/WebCore/html/HTMLTableCaptionElement.h \
 	Source/WebCore/html/HTMLTableCellElement.cpp \
@@ -1469,8 +1461,6 @@ webcore_sources += \
 	Source/WebCore/html/parser/XSSAuditorDelegate.h \
 -	Source/WebCore/html/shadow/ContentDistributor.cpp \
 -	Source/WebCore/html/shadow/ContentDistributor.h \
--	Source/WebCore/html/shadow/DetailsMarkerControl.cpp \
--	Source/WebCore/html/shadow/DetailsMarkerControl.h \
 -	Source/WebCore/html/shadow/InsertionPoint.cpp \
 -	Source/WebCore/html/shadow/InsertionPoint.h \
 -	Source/WebCore/html/shadow/MeterShadowElement.cpp \
@@ -1809,9 +1799,6 @@ webcore_sources += \
 	Source/WebCore/rendering/RenderCounter.h \
 	Source/WebCore/rendering/RenderDeprecatedFlexibleBox.cpp \
 	Source/WebCore/rendering/RenderDeprecatedFlexibleBox.h \
-	Source/WebCore/rendering/RenderDetailsMarker.cpp \
-	Source/WebCore/rendering/RenderDetailsMarker.h \
-	Source/WebCore/rendering/RenderDialog.h \
 	Source/WebCore/rendering/RenderFieldset.cpp \
 	Source/WebCore/rendering/RenderFieldset.h \
 	Source/WebCore/rendering/RenderFileUploadControl.cpp \

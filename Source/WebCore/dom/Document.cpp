@@ -4266,27 +4266,6 @@ void Document::enqueuePageshowEvent(PageshowEventPersistence persisted)
     dispatchWindowEvent(PageTransitionEvent::create(eventNames().pageshowEvent, persisted), this);
 }
 
-#if ENABLE(DIALOG_ELEMENT)
-void Document::addToTopLayer(Element* element)
-{
-    if (element->isInTopLayer())
-        return;
-    ASSERT(!m_topLayerElements.contains(element));
-    m_topLayerElements.append(element);
-    element->setIsInTopLayer(true);
-}
-
-void Document::removeFromTopLayer(Element* element)
-{
-    if (!element->isInTopLayer())
-        return;
-    size_t position = m_topLayerElements.find(element);
-    ASSERT(position != notFound);
-    m_topLayerElements.remove(position);
-    element->setIsInTopLayer(false);
-}
-#endif
-
 #if ENABLE(POINTER_LOCK)
 void Document::webkitExitPointerLock()
 {

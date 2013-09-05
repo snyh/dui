@@ -153,11 +153,6 @@ public:
     static void setInputTypeWeekEnabled(bool isEnabled) { isInputTypeWeekEnabled = isEnabled; }
 #endif
 
-#if ENABLE(DIALOG_ELEMENT)
-    static bool dialogElementEnabled() { return isDialogElementEnabled; }
-    static void setDialogElementEnabled(bool isEnabled) { isDialogElementEnabled = isEnabled; }
-#endif
-
     static bool langAttributeAwareFormControlUIEnabled() { return isLangAttributeAwareFormControlUIEnabled; }
     // The lang attribute support is incomplete and should only be turned on for tests.
     static void setLangAttributeAwareFormControlUIEnabled(bool isEnabled) { isLangAttributeAwareFormControlUIEnabled = isEnabled; }
@@ -207,10 +202,6 @@ private:
 
 #if ENABLE(INPUT_TYPE_WEEK)
     static bool isInputTypeWeekEnabled;
-#endif
-
-#if ENABLE(DIALOG_ELEMENT)
-    static bool isDialogElementEnabled;
 #endif
 
 #if ENABLE(FONT_LOAD_EVENTS)

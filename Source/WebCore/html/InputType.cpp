@@ -911,18 +911,6 @@ String InputType::defaultToolTip() const
     return String();
 }
 
-#if ENABLE(DATALIST_ELEMENT)
-void InputType::listAttributeTargetChanged()
-{
-}
-
-Decimal InputType::findClosestTickMarkValue(const Decimal&)
-{
-    ASSERT_NOT_REACHED();
-    return Decimal::nan();
-}
-#endif
-
 void InputType::updateClearButtonVisibility()
 {
 }

@@ -819,11 +819,6 @@ public:
 
     Node* enclosingElement() const;
 
-#if ENABLE(DIALOG_ELEMENT)
-    bool isInTopLayer() const;
-    bool isInTopLayerSubtree() const;
-#endif
-
 #if USE(ACCELERATED_COMPOSITING)
     enum ViewportConstrainedNotCompositedReason {
         NoNotCompositedReason,

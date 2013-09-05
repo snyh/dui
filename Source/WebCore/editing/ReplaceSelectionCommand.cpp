@@ -572,7 +572,6 @@ static bool isProhibitedParagraphChild(const AtomicString& name)
         elements.add(colTag.localName());
         elements.add(colgroupTag.localName());
         elements.add(ddTag.localName());
-        elements.add(detailsTag.localName());
         elements.add(dirTag.localName());
         elements.add(divTag.localName());
         elements.add(dlTag.localName());
@@ -601,7 +600,6 @@ static bool isProhibitedParagraphChild(const AtomicString& name)
         elements.add(plaintextTag.localName());
         elements.add(preTag.localName());
         elements.add(sectionTag.localName());
-        elements.add(summaryTag.localName());
         elements.add(tableTag.localName());
         elements.add(tbodyTag.localName());
         elements.add(tdTag.localName());
