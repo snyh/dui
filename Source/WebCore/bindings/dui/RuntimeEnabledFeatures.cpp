@@ -31,10 +31,6 @@
 #include "config.h"
 #include "bindings/dui/RuntimeEnabledFeatures.h"
 
-#if ENABLE(FILE_SYSTEM)
-#include "platform/AsyncFileSystem.h"
-#endif
-
 namespace WebCore {
 
 bool RuntimeEnabledFeatures::isLocalStorageEnabled = true;
@@ -53,36 +49,8 @@ bool RuntimeEnabledFeatures::isCSSRegionsEnabled = false;
 bool RuntimeEnabledFeatures::isCSSCompositingEnabled = false;
 bool RuntimeEnabledFeatures::isLangAttributeAwareFormControlUIEnabled = false;
 
-#if ENABLE(SCRIPTED_SPEECH)
-bool RuntimeEnabledFeatures::isScriptedSpeechEnabled = false;
-#endif
-
-#if ENABLE(LEGACY_CSS_VENDOR_PREFIXES)
-bool RuntimeEnabledFeatures::isLegacyCSSVendorPrefixesEnabled = false;
-#endif
-
-#if ENABLE(FILE_SYSTEM)
-bool RuntimeEnabledFeatures::isFileSystemEnabled = false;
-
-bool RuntimeEnabledFeatures::fileSystemEnabled()
-{
-    return isFileSystemEnabled && AsyncFileSystem::isAvailable();
-}
-#endif
-
-
-#if ENABLE(SHADOW_DOM)
-bool RuntimeEnabledFeatures::isShadowDOMEnabled = false;
-
-bool RuntimeEnabledFeatures::isAuthorShadowDOMForAnyElementEnabled = false;
-#endif
-
 #if ENABLE(CUSTOM_ELEMENTS)
 bool RuntimeEnabledFeatures::isCustomDOMElementsEnabled = false;
-#endif
-
-#if ENABLE(STYLE_SCOPED)
-bool RuntimeEnabledFeatures::isStyleScopedEnabled = false;
 #endif
 
 #if ENABLE(INPUT_TYPE_DATE)
@@ -111,10 +79,6 @@ bool RuntimeEnabledFeatures::isInputTypeWeekEnabled = true;
 
 #if ENABLE(DIALOG_ELEMENT)
 bool RuntimeEnabledFeatures::isDialogElementEnabled = false;
-#endif
-
-#if ENABLE(IFRAME_SEAMLESS)
-bool RuntimeEnabledFeatures::areSeamlessIFramesEnabled = false;
 #endif
 
 #if ENABLE(FONT_LOAD_EVENTS)

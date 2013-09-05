@@ -38,7 +38,6 @@ class DocumentStyleSheetCollection;
 class MatchRequest;
 class MediaQueryEvaluator;
 class RuleSet;
-class StyleScopeResolver;
 
 class DocumentRuleSets {
 public:
@@ -53,8 +52,6 @@ public:
 
     void initUserStyle(DocumentStyleSheetCollection*, const MediaQueryEvaluator&, StyleResolver&);
     void resetAuthorStyle();
-
-    void collectFeatures(StyleScopeResolver*);
 
 private:
     void collectRulesFromUserStyleSheets(const Vector<RefPtr<CSSStyleSheet> >&, RuleSet& userStyle, const MediaQueryEvaluator&, StyleResolver&);

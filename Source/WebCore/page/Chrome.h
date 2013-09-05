@@ -130,10 +130,6 @@ public:
 #endif
 
     void runOpenPanel(Frame*, PassRefPtr<FileChooser>);
-#if ENABLE(DIRECTORY_UPLOAD)
-    void enumerateChosenDirectory(FileChooser*);
-#endif
-
     void dispatchViewportPropertiesDidChange(const ViewportArguments&) const;
 
     bool requiresFullscreenForVideoPlayback();

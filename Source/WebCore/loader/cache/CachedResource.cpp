@@ -116,12 +116,6 @@ static ResourceLoadPriority defaultPriorityForResourceType(CachedResource::Type 
     case CachedResource::SVGDocumentResource:
         return ResourceLoadPriorityLow;
 #endif
-#if ENABLE(LINK_PREFETCH)
-    case CachedResource::LinkPrefetch:
-        return ResourceLoadPriorityVeryLow;
-    case CachedResource::LinkSubresource:
-        return ResourceLoadPriorityVeryLow;
-#endif
 #if ENABLE(CSS_SHADERS)
     case CachedResource::ShaderResource:
         return ResourceLoadPriorityMedium;
@@ -153,12 +147,6 @@ static ResourceRequest::TargetType cachedResourceTypeToTargetType(CachedResource
 #endif
     case CachedResource::RawResource:
         return ResourceRequest::TargetIsSubresource;    
-#if ENABLE(LINK_PREFETCH)
-    case CachedResource::LinkPrefetch:
-        return ResourceRequest::TargetIsPrefetch;
-    case CachedResource::LinkSubresource:
-        return ResourceRequest::TargetIsSubresource;
-#endif
 #if ENABLE(SVG)
     case CachedResource::SVGDocumentResource:
         return ResourceRequest::TargetIsImage;
@@ -291,10 +279,6 @@ void CachedResource::load(CachedResourceLoader* cachedResourceLoader, const Reso
         }
     }
 
-#if ENABLE(LINK_PREFETCH)
-    if (type() == CachedResource::LinkPrefetch || type() == CachedResource::LinkSubresource)
-        m_resourceRequest.setHTTPHeaderField("Purpose", "prefetch");
-#endif
     m_resourceRequest.setPriority(loadPriority());
 
     // FIXME: It's unfortunate that the cache layer and below get to know anything about fragment identifiers.

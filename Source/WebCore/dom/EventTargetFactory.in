@@ -3,11 +3,8 @@ namespace="EventTarget"
 DOMApplicationCache
 DOMWindow
 EventSource
-FileWriter conditional=FILE_SYSTEM
 FontLoader conditional=FONT_LOAD_EVENTS
-NetworkInfoConnection conditional=NETWORK_INFO
 Node
-SpeechRecognition conditional=SCRIPTED_SPEECH
 SpeechSynthesisUtterance conditional=SPEECH_SYNTHESIS
 SVGElementInstance conditional=SVG
 WebKitNamedFlow

@@ -1037,13 +1037,6 @@ public:
     Element* activeModalDialog() const { return !m_topLayerElements.isEmpty() ? m_topLayerElements.last().get() : 0; }
 #endif
 
-#if ENABLE(TEMPLATE_ELEMENT)
-    const Document* templateDocument() const;
-    Document* ensureTemplateDocument();
-    void setTemplateDocumentHost(Document* templateDocumentHost) { m_templateDocumentHost = templateDocumentHost; }
-    Document* templateDocumentHost() { return m_templateDocumentHost; }
-#endif
-
     void didAssociateFormControl(Element*);
 
     virtual void addConsoleMessage(MessageSource, MessageLevel, const String& message, unsigned long requestIdentifier = 0);
@@ -1365,11 +1358,6 @@ private:
     typedef HashMap<AtomicString, OwnPtr<Locale> > LocaleIdentifierToLocaleMap;
     LocaleIdentifierToLocaleMap m_localeCache;
 
-#if ENABLE(TEMPLATE_ELEMENT)
-    RefPtr<Document> m_templateDocument;
-    Document* m_templateDocumentHost; // Manually managed weakref (backpointer from m_templateDocument).
-#endif
-
 #if ENABLE(FONT_LOAD_EVENTS)
     RefPtr<FontLoader> m_fontloader;
 #endif
@@ -1383,17 +1371,6 @@ inline void Document::notifyRemovePendingSheetIfNeeded()
     if (m_needsNotifyRemoveAllPendingStylesheet)
         didRemoveAllPendingStylesheet();
 }
-
-#if ENABLE(TEMPLATE_ELEMENT)
-inline const Document* Document::templateDocument() const
-{
-    // If DOCUMENT does not have a browsing context, Let TEMPLATE CONTENTS OWNER be DOCUMENT and abort these steps.
-    if (!m_frame)
-        return this;
-
-    return m_templateDocument.get();
-}
-#endif
 
 inline Document* toDocument(ScriptExecutionContext* scriptExecutionContext)
 {

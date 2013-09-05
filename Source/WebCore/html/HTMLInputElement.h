@@ -220,10 +220,6 @@ public:
     // Returns true if the given DragData has more than one dropped files.
     bool receiveDroppedFiles(const DragData*);
 
-#if ENABLE(FILE_SYSTEM)
-    String droppedFileSystemId();
-#endif
-
     Icon* icon() const;
     // These functions are used for rendering the input active during a
     // drag-and-drop operation.
@@ -261,11 +257,6 @@ public:
 #endif
 
     String defaultToolTip() const;
-
-#if ENABLE(MEDIA_CAPTURE)
-    String capture() const;
-    void setCapture(const String& value);
-#endif
 
     static const int maximumLength;
 

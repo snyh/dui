@@ -30,7 +30,6 @@
 #include "html/shadow/ContentDistributor.h"
 #include "dom/ElementShadow.h"
 #include "rendering/FlowThreadController.h"
-#include "html/shadow/HTMLContentElement.h"
 #include "html/HTMLInputElement.h"
 #include "HTMLNames.h"
 #include "dom/Node.h"
@@ -237,7 +236,7 @@ void NodeRenderingContext::moveToFlowThreadIfNeeded()
 
 bool NodeRenderingContext::isOnEncapsulationBoundary() const
 {
-    return isOnUpperEncapsulationBoundary() || isLowerEncapsulationBoundary(m_parentDetails.insertionPoint()) || isLowerEncapsulationBoundary(m_node->parentNode());
+    return isOnUpperEncapsulationBoundary();
 }
 
 bool NodeRenderingContext::isOnUpperEncapsulationBoundary() const

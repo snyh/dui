@@ -45,7 +45,6 @@
 #include "html/HTMLFormElement.h"
 #include "HTMLNames.h"
 #include "html/parser/HTMLParserIdioms.h"
-#include "html/HTMLTemplateElement.h"
 #include "html/HTMLTextFormControlElement.h"
 #include "dom/NodeTraversal.h"
 #include "rendering/RenderWordBreak.h"
@@ -321,10 +320,6 @@ void HTMLElement::setInnerHTML(const String& html, ExceptionCode& ec)
 {
     if (RefPtr<DocumentFragment> fragment = createFragmentForInnerOuterHTML(html, this, AllowScriptingContent, ec)) {
         ContainerNode* container = this;
-#if ENABLE(TEMPLATE_ELEMENT)
-        if (hasLocalName(templateTag))
-            container = toHTMLTemplateElement(this)->content();
-#endif
         replaceChildrenWithFragment(container, fragment.release(), ec);
     }
 }

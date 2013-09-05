@@ -43,7 +43,6 @@
 #include "html/HTMLLinkElement.h"
 #include "HTMLNames.h"
 #include "html/HTMLStyleElement.h"
-#include "html/HTMLTemplateElement.h"
 #include "dom/ProcessingInstruction.h"
 #include "platform/network/soup/ResourceError.h"
 #include "platform/network/soup/ResourceRequest.h"
@@ -807,14 +806,7 @@ void XMLDocumentParser::startElementNs(const xmlChar* xmlLocalName, const xmlCha
     m_currentNode->parserAppendChild(newElement.get());
 
     const ContainerNode* currentNode = m_currentNode;
-#if ENABLE(TEMPLATE_ELEMENT)
-    if (newElement->hasTagName(HTMLNames::templateTag))
-        pushCurrentNode(toHTMLTemplateElement(newElement.get())->content());
-    else
-        pushCurrentNode(newElement.get());
-#else
     pushCurrentNode(newElement.get());
-#endif
 
     if (m_view && currentNode->attached() && !newElement->attached())
         newElement->attach();

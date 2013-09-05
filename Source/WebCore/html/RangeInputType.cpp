@@ -161,10 +161,6 @@ void RangeInputType::handleMouseDownEvent(MouseEvent* event)
     ASSERT(element()->shadow());
     if (targetNode != element() && !targetNode->isDescendantOf(element()->userAgentShadowRoot()))
         return;
-    SliderThumbElement* thumb = sliderThumbElementOf(element());
-    if (targetNode == thumb)
-        return;
-    thumb->dragFrom(event->absoluteLocation());
 }
 
 #if ENABLE(TOUCH_EVENTS)
@@ -256,15 +252,6 @@ void RangeInputType::handleKeydownEvent(KeyboardEvent* event)
 
 void RangeInputType::createShadowSubtree()
 {
-    ASSERT(element()->shadow());
-
-    Document* document = element()->document();
-    RefPtr<HTMLDivElement> track = HTMLDivElement::create(document);
-    track->setPseudo(AtomicString("-webkit-slider-runnable-track", AtomicString::ConstructFromLiteral));
-    track->appendChild(SliderThumbElement::create(document), IGNORE_EXCEPTION);
-    RefPtr<HTMLElement> container = SliderContainerElement::create(document);
-    container->appendChild(track.release(), IGNORE_EXCEPTION);
-    element()->userAgentShadowRoot()->appendChild(container.release(), IGNORE_EXCEPTION);
 }
 
 RenderObject* RangeInputType::createRenderer(RenderArena* arena, RenderStyle*) const

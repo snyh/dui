@@ -55,27 +55,6 @@ public:
         return adoptRef(new File(path, srcURL, type));
     }
 
-#if ENABLE(DIRECTORY_UPLOAD)
-    static PassRefPtr<File> createWithRelativePath(const String& path, const String& relativePath);
-#endif
-
-#if ENABLE(FILE_SYSTEM)
-    // If filesystem files live in the remote filesystem, the port might pass the valid metadata (whose length field is non-negative) and cache in the File object.
-    //
-    // Otherwise calling size(), lastModifiedTime() and slice() will synchronously query the file metadata.
-    static PassRefPtr<File> createForFileSystemFile(const String& name, const FileMetadata& metadata)
-    {
-        return adoptRef(new File(name, metadata));
-    }
-
-    static PassRefPtr<File> createForFileSystemFile(const KURL& url, const FileMetadata& metadata)
-    {
-        return adoptRef(new File(url, metadata));
-    }
-
-    KURL fileSystemURL() const { return m_fileSystemURL; }
-#endif
-
     // Create a file with a name exposed to the author (via File.name and associated DOM properties) that differs from the one provided in the path.
     static PassRefPtr<File> createWithName(const String& path, const String& name, ContentTypeLookupPolicy policy = WellKnownContentTypes)
     {
@@ -93,11 +72,6 @@ public:
     // This returns the current date and time if the file's last modifiecation date is not known (per spec: http://www.w3.org/TR/FileAPI/#dfn-lastModifiedDate).
     double lastModifiedDate() const;
 
-#if ENABLE(DIRECTORY_UPLOAD)
-    // Returns the relative path of this file in the context of a directory selection.
-    const String& webkitRelativePath() const { return m_relativePath; }
-#endif
-
     // Note that this involves synchronous file operation. Think twice before calling this function.
     void captureSnapshot(long long& snapshotSize, double& snapshotModificationTime) const;
 
@@ -108,29 +82,9 @@ private:
     File(const String& path, const KURL& srcURL, const String& type);
     File(const String& path, const String& name, ContentTypeLookupPolicy);
 
-# if ENABLE(FILE_SYSTEM)
-    File(const String& name, const FileMetadata&);
-    File(const KURL& fileSystemURL, const FileMetadata&);
-
-    // Returns true if this has a valid snapshot metadata (i.e. m_snapshotSize >= 0).
-    bool hasValidSnapshotMetadata() const { return m_snapshotSize >= 0; }
-#endif
-
     String m_path;
     String m_name;
 
-#if ENABLE(FILE_SYSTEM)
-    KURL m_fileSystemURL;
-
-    // If m_snapshotSize is negative (initialized to -1 by default), the snapshot metadata is invalid and we retrieve the latest metadata synchronously in size(), lastModifiedTime() and slice().
-    // Otherwise, the snapshot metadata are used directly in those methods.
-    const long long m_snapshotSize;
-    const double m_snapshotModificationTime;
-#endif
-
-#if ENABLE(DIRECTORY_UPLOAD)
-    String m_relativePath;
-#endif
 };
 
 inline File* toFile(Blob* blob)

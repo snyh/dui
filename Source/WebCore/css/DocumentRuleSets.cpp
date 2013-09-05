@@ -35,6 +35,7 @@
 #include "css/MediaQueryEvaluator.h"
 #include "css/StyleResolver.h"
 #include "css/StyleSheetContents.h"
+#include "css/StyleResolver.h"
 
 namespace WebCore {
 
@@ -81,26 +82,6 @@ void DocumentRuleSets::resetAuthorStyle()
 {
     m_authorStyle = RuleSet::create();
     m_authorStyle->disableAutoShrinkToFit();
-}
-
-void DocumentRuleSets::collectFeatures(StyleScopeResolver* scopeResolver)
-{
-    m_features.clear();
-    // Collect all ids and rules using sibling selectors (:first-child and similar)
-    // in the current set of stylesheets. Style sharing code uses this information to reject
-    // sharing candidates.
-    if (CSSDefaultStyleSheets::defaultStyle)
-        m_features.add(CSSDefaultStyleSheets::defaultStyle->features());
-    if (m_authorStyle)
-        m_features.add(m_authorStyle->features());
-
-    if (scopeResolver)
-        scopeResolver->collectFeaturesTo(m_features);
-    if (m_userStyle)
-        m_features.add(m_userStyle->features());
-
-    m_siblingRuleSet = makeRuleSet(m_features.siblingRules);
-    m_uncommonAttributeRuleSet = makeRuleSet(m_features.uncommonAttributeRules);
 }
 
 } // namespace WebCore

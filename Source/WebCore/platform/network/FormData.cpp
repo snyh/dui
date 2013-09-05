@@ -138,11 +138,6 @@ PassRefPtr<FormData> FormData::deepCopy() const
         case FormDataElement::encodedFile:
             formData->m_elements.uncheckedAppend(FormDataElement(e.m_filename, e.m_shouldGenerateFile));
             break;
-#if ENABLE(FILE_SYSTEM)
-        case FormDataElement::encodedURL:
-            formData->m_elements.uncheckedAppend(FormDataElement(e.m_url, e.m_fileStart, e.m_fileLength, e.m_expectedFileModificationTime));
-            break;
-#endif
         }
     }
     return formData.release();
@@ -163,17 +158,6 @@ void FormData::appendFile(const String& filename, bool shouldGenerateFile)
     m_elements.append(FormDataElement(filename, shouldGenerateFile));
 }
 
-#if ENABLE(FILE_SYSTEM)
-void FormData::appendURL(const KURL& url)
-{
-    m_elements.append(FormDataElement(url, 0, BlobDataItem::toEndOfFile, invalidFileTime()));
-}
-
-void FormData::appendURLRange(const KURL& url, long long start, long long length, double expectedModificationTime)
-{
-    m_elements.append(FormDataElement(url, start, length, expectedModificationTime));
-}
-#endif
 
 void FormData::appendKeyValuePairItems(const FormDataList& list, const TextEncoding& encoding, bool isMultiPartForm, Document* document, EncodingType encodingType)
 {
@@ -200,11 +184,7 @@ void FormData::appendKeyValuePairItems(const FormDataList& list, const TextEncod
                 if (value.blob()->isFile()) {
                     File* file = toFile(value.blob());
                     // For file blob, use the filename (or relative path if it is present) as the name.
-#if ENABLE(DIRECTORY_UPLOAD)
-                    name = file->webkitRelativePath().isEmpty() ? file->name() : file->webkitRelativePath();
-#else
                     name = file->name();
-#endif
                     // Let the application specify a filename if it's going to generate a replacement file for the upload.
                     const String& path = file->path();
                     if (!path.isEmpty()) {
@@ -248,10 +228,6 @@ void FormData::appendKeyValuePairItems(const FormDataList& list, const TextEncod
                     // Do not add the file if the path is empty.
                     if (!file->path().isEmpty())
                         appendFile(file->path(), shouldGenerateFile);
-#if ENABLE(FILE_SYSTEM)
-                    if (!file->fileSystemURL().isEmpty())
-                        appendURL(file->fileSystemURL());
-#endif
                 }
             } else
                 appendData(value.data().data(), value.data().length());
@@ -350,14 +326,6 @@ static void encodeElement(Encoder& encoder, const FormDataElement& element)
         encoder.encodeDouble(invalidFileTime());
         return;
 
-#if ENABLE(FILE_SYSTEM)
-    case FormDataElement::encodedURL:
-        encoder.encodeString(element.m_url.string());
-        encoder.encodeInt64(element.m_fileStart);
-        encoder.encodeInt64(element.m_fileLength);
-        encoder.encodeDouble(element.m_expectedFileModificationTime);
-        return;
-#endif
     }
 
     ASSERT_NOT_REACHED();
@@ -382,9 +350,6 @@ static bool decodeElement(Decoder& decoder, FormDataElement& element)
     }
 
     case FormDataElement::encodedFile:
-#if ENABLE(FILE_SYSTEM)
-    case FormDataElement::encodedURL:
-#endif
     {
         element.m_type = static_cast<FormDataElement::Type>(type);
         String filenameOrURL;
@@ -410,11 +375,6 @@ static bool decodeElement(Decoder& decoder, FormDataElement& element)
         if (!decoder.decodeDouble(expectedFileModificationTime))
             return false;
 
-#if ENABLE(FILE_SYSTEM)
-        if (type == FormDataElement::encodedURL)
-            element.m_url = KURL(KURL(), filenameOrURL);
-        else
-#endif
         element.m_filename = filenameOrURL;
 
         return true;

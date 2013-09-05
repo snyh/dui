@@ -379,9 +379,6 @@ Document::Document(Frame* frame, const KURL& url, unsigned documentClasses)
 #ifndef NDEBUG
     , m_didDispatchViewportPropertiesChanged(false)
 #endif
-#if ENABLE(TEMPLATE_ELEMENT)
-    , m_templateDocumentHost(0)
-#endif
 #if ENABLE(FONT_LOAD_EVENTS)
     , m_fontloader(0)
 #endif
@@ -439,11 +436,6 @@ Document::~Document()
     ASSERT(!m_styleRecalcTimer.isActive());
     ASSERT(!m_parentTreeScope);
     ASSERT(!hasGuardRefCount());
-
-#if ENABLE(TEMPLATE_ELEMENT)
-    if (m_templateDocument)
-        m_templateDocument->setTemplateDocumentHost(0); // balanced in templateDocument().
-#endif
 
 #if ENABLE(TOUCH_EVENT_TRACKING)
     if (Document* ownerDocument = this->ownerDocument())
@@ -4508,16 +4500,7 @@ HTMLIFrameElement* Document::seamlessParentIFrame() const
 
 bool Document::shouldDisplaySeamlesslyWithParent() const
 {
-#if ENABLE(IFRAME_SEAMLESS)
-    if (!RuntimeEnabledFeatures::seamlessIFramesEnabled())
-        return false;
-    HTMLFrameOwnerElement* ownerElement = this->ownerElement();
-    if (!ownerElement)
-        return false;
-    return m_mayDisplaySeamlesslyWithParent && ownerElement->hasTagName(iframeTag) && ownerElement->fastHasAttribute(seamlessAttr);
-#else
     return false;
-#endif
 }
 
 DocumentLoader* Document::loader() const
@@ -4797,23 +4780,6 @@ Locale& Document::getCachedLocale(const AtomicString& locale)
         result.iterator->value = Locale::create(localeKey);
     return *(result.iterator->value);
 }
-
-#if ENABLE(TEMPLATE_ELEMENT)
-Document* Document::ensureTemplateDocument()
-{
-    if (const Document* document = templateDocument())
-        return const_cast<Document*>(document);
-
-    if (isHTMLDocument())
-        m_templateDocument = HTMLDocument::create(0, blankURL());
-    else
-        m_templateDocument = Document::create(0, blankURL());
-
-    m_templateDocument->setTemplateDocumentHost(this); // balanced in dtor.
-
-    return m_templateDocument.get();
-}
-#endif
 
 #if ENABLE(FONT_LOAD_EVENTS)
 PassRefPtr<FontLoader> Document::fontloader()

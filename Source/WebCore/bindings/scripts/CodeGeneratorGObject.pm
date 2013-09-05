@@ -170,7 +170,6 @@ sub ClassNameToGObjectType {
     # WebKitDOMCSS and similar names right, so we have to fix it
     # manually.
     $CLASS_NAME =~ s/DOMCSS/DOM_CSS/;
-    $CLASS_NAME =~ s/DOMHTML/DOM_HTML/;
     $CLASS_NAME =~ s/DOMDOM/DOM_DOM/;
     $CLASS_NAME =~ s/DOMCDATA/DOM_CDATA/;
     $CLASS_NAME =~ s/DOMX_PATH/DOM_XPATH/;

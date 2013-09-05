@@ -85,9 +85,6 @@ public:
 #if ENABLE(XSLT)
     CachedResourceHandle<CachedXSLStyleSheet> requestXSLStyleSheet(CachedResourceRequest&);
 #endif
-#if ENABLE(LINK_PREFETCH)
-    CachedResourceHandle<CachedResource> requestLinkResource(CachedResource::Type, CachedResourceRequest&);
-#endif
 #if ENABLE(CSS_SHADERS)
     CachedResourceHandle<CachedShader> requestShader(CachedResourceRequest&);
 #endif

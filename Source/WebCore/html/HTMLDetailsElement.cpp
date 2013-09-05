@@ -22,7 +22,6 @@
 #include "html/HTMLDetailsElement.h"
 
 #if ENABLE(DETAILS_ELEMENT)
-#include "html/shadow/HTMLContentElement.h"
 #include "HTMLNames.h"
 #include "html/HTMLSummaryElement.h"
 #include "platform/LocalizedStrings.h"

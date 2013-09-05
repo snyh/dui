@@ -264,10 +264,6 @@
 #define ENABLE_CANVAS_PROXY 0
 #endif
 
-#if !defined(ENABLE_CHANNEL_MESSAGING)
-#define ENABLE_CHANNEL_MESSAGING 1
-#endif
-
 #if !defined(ENABLE_CONTEXT_MENUS)
 #define ENABLE_CONTEXT_MENUS 1
 #endif
@@ -328,10 +324,6 @@
 #define ENABLE_CSS_VARIABLES 0
 #endif
 
-#if !defined(ENABLE_CUSTOM_SCHEME_HANDLER)
-#define ENABLE_CUSTOM_SCHEME_HANDLER 0
-#endif
-
 #if !defined(ENABLE_DATALIST_ELEMENT)
 #define ENABLE_DATALIST_ELEMENT 0
 #endif
@@ -356,14 +348,6 @@
 #define ENABLE_DIALOG_ELEMENT 0
 #endif
 
-#if !defined(ENABLE_DIRECTORY_UPLOAD)
-#define ENABLE_DIRECTORY_UPLOAD 0
-#endif
-
-#if !defined(ENABLE_DOWNLOAD_ATTRIBUTE)
-#define ENABLE_DOWNLOAD_ATTRIBUTE 0
-#endif
-
 #if !defined(ENABLE_DRAGGABLE_REGION)
 #define ENABLE_DRAGGABLE_REGION 0
 #endif
@@ -382,10 +366,6 @@
 
 #if !defined(ENABLE_FAST_MOBILE_SCROLLING)
 #define ENABLE_FAST_MOBILE_SCROLLING 0
-#endif
-
-#if !defined(ENABLE_FILE_SYSTEM)
-#define ENABLE_FILE_SYSTEM 0
 #endif
 
 #if !defined(ENABLE_FILTERS)
@@ -422,10 +402,6 @@
 
 #if !defined(ENABLE_HIGH_DPI_CANVAS)
 #define ENABLE_HIGH_DPI_CANVAS 0
-#endif
-
-#if !defined(ENABLE_IFRAME_SEAMLESS)
-#define ENABLE_IFRAME_SEAMLESS 1
 #endif
 
 #if !defined(ENABLE_IMAGE_DECODER_DOWN_SAMPLING)
@@ -466,56 +442,20 @@
 #endif
 #endif
 
-#if !defined(ENABLE_LEGACY_CSS_VENDOR_PREFIXES)
-#define ENABLE_LEGACY_CSS_VENDOR_PREFIXES 0
-#endif
-
-#if !defined(ENABLE_LEGACY_VENDOR_PREFIXES)
-#define ENABLE_LEGACY_VENDOR_PREFIXES 0
-#endif
-
 #if !defined(ENABLE_LEGACY_VIEWPORT_ADAPTION)
 #define ENABLE_LEGACY_VIEWPORT_ADAPTION 0
-#endif
-
-#if !defined(ENABLE_LINK_PREFETCH)
-#define ENABLE_LINK_PREFETCH 0
 #endif
 
 #if !defined(ENABLE_MATHML)
 #define ENABLE_MATHML 1
 #endif
 
-#if !defined(ENABLE_MEDIA_CAPTURE)
-#define ENABLE_MEDIA_CAPTURE 0
-#endif
-
-#if !defined(ENABLE_MEDIA_SOURCE)
-#define ENABLE_MEDIA_SOURCE 0
-#endif
-
-#if !defined(ENABLE_MEDIA_STATISTICS)
-#define ENABLE_MEDIA_STATISTICS 0
-#endif
-
-#if !defined(ENABLE_MEDIA_STREAM)
-#define ENABLE_MEDIA_STREAM 0
-#endif
-
 #if !defined(ENABLE_METER_ELEMENT)
 #define ENABLE_METER_ELEMENT 1
 #endif
 
-#if !defined(ENABLE_MHTML)
-#define ENABLE_MHTML 0
-#endif
-
 #if !defined(ENABLE_MOUSE_CURSOR_SCALE)
 #define ENABLE_MOUSE_CURSOR_SCALE 0
-#endif
-
-#if !defined(ENABLE_NAVIGATOR_CONTENT_UTILS)
-#define ENABLE_NAVIGATOR_CONTENT_UTILS 0
 #endif
 
 #if !defined(ENABLE_NETSCAPE_PLUGIN_METADATA_CACHE)
@@ -556,10 +496,6 @@
 #define ENABLE_PROXIMITY_EVENTS 0
 #endif
 
-#if !defined(ENABLE_QUOTA)
-#define ENABLE_QUOTA 0
-#endif
-
 #if !defined(ENABLE_REPAINT_THROTTLING)
 #define ENABLE_REPAINT_THROTTLING 0
 #endif
@@ -576,14 +512,6 @@
 #define ENABLE_SATURATED_LAYOUT_ARITHMETIC 0
 #endif
 
-#if !defined(ENABLE_SCRIPTED_SPEECH)
-#define ENABLE_SCRIPTED_SPEECH 0
-#endif
-
-#if !defined(ENABLE_SHADOW_DOM)
-#define ENABLE_SHADOW_DOM 0
-#endif
-
 #if !defined(ENABLE_SMOOTH_SCROLLING)
 #define ENABLE_SMOOTH_SCROLLING 0
 #endif
@@ -594,10 +522,6 @@
 
 #if !defined(ENABLE_SPELLCHECK)
 #define ENABLE_SPELLCHECK 0
-#endif
-
-#if !defined(ENABLE_STYLE_SCOPED)
-#define ENABLE_STYLE_SCOPED 0
 #endif
 
 #if !defined(ENABLE_SUBPIXEL_LAYOUT)
@@ -612,10 +536,6 @@
 #if !defined(ENABLE_SVG_FONTS)
 #define ENABLE_SVG_FONTS 1
 #endif
-#endif
-
-#if !defined(ENABLE_TEMPLATE_ELEMENT)
-#define ENABLE_TEMPLATE_ELEMENT 0
 #endif
 
 #if !defined(ENABLE_TEXT_AUTOSIZING)
@@ -636,10 +556,6 @@
 
 #if !defined(ENABLE_TOUCH_ICON_LOADING)
 #define ENABLE_TOUCH_ICON_LOADING 0
-#endif
-
-#if !defined(ENABLE_VIBRATION)
-#define ENABLE_VIBRATION 0
 #endif
 
 #if !defined(ENABLE_VIEWPORT)

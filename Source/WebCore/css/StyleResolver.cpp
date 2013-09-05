@@ -296,10 +296,6 @@ void StyleResolver::pushParentElement(Element* parent)
         m_selectorFilter.setupParentStack(parent);
     else
         m_selectorFilter.pushParent(parent);
-
-    // Note: We mustn't skip ShadowRoot nodes for the scope stack.
-    if (m_scopeResolver)
-        m_scopeResolver->push(parent, parent->parentOrShadowHostNode());
 }
 
 void StyleResolver::popParentElement(Element* parent)
@@ -308,22 +304,16 @@ void StyleResolver::popParentElement(Element* parent)
     // Pause maintaining the stack in this case.
     if (m_selectorFilter.parentStackIsConsistent(parent))
         m_selectorFilter.popParent();
-    if (m_scopeResolver)
-        m_scopeResolver->pop(parent);
 }
 
 void StyleResolver::pushParentShadowRoot(const ShadowRoot* shadowRoot)
 {
     ASSERT(shadowRoot->host());
-    if (m_scopeResolver)
-        m_scopeResolver->push(shadowRoot, shadowRoot->host());
 }
 
 void StyleResolver::popParentShadowRoot(const ShadowRoot* shadowRoot)
 {
     ASSERT(shadowRoot->host());
-    if (m_scopeResolver)
-        m_scopeResolver->pop(shadowRoot);
 }
 
 // This is a simplified style setting function for keyframe styles
@@ -367,11 +357,7 @@ void StyleResolver::sweepMatchedPropertiesCache(Timer<StyleResolver>*)
 
 inline bool StyleResolver::styleSharingCandidateMatchesHostRules()
 {
-#if ENABLE(SHADOW_DOM)
-    return m_scopeResolver && m_scopeResolver->styleSharingCandidateMatchesHostRules(m_state.element());
-#else
     return false;
-#endif
 }
 
 bool StyleResolver::classNamesAffectedByRules(const SpaceSplitString& classNames) const
@@ -468,9 +454,6 @@ Node* StyleResolver::locateCousinList(Element* parent, unsigned& visitedNodeCoun
             ++subcount;
             if (currentNode->renderStyle() == parentStyle && currentNode->lastChild()
                 && currentNode->isElementNode() && !parentElementPreventsSharing(toElement(currentNode))
-#if ENABLE(SHADOW_DOM)
-                && !toElement(currentNode)->shadow()
-#endif
                 ) {
                 // Adjust for unused reserved tries.
                 visitedNodeCount -= cStyleSearchThreshold - subcount;
@@ -978,8 +961,6 @@ PassRefPtr<RenderStyle> StyleResolver::styleForElement(Element* element, RenderS
 
     bool needsCollection = false;
     CSSDefaultStyleSheets::ensureDefaultStyleSheetsForElement(element, needsCollection);
-    if (needsCollection)
-        m_ruleSets.collectFeatures(m_scopeResolver.get());
 
     ElementRuleCollector collector(this, state);
     collector.setRegionForStyling(regionForStyling);

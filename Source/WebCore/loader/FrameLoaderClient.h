@@ -82,9 +82,6 @@ namespace WebCore {
     class ResourceHandle;
     class ResourceRequest;
     class ResourceResponse;
-#if ENABLE(MEDIA_STREAM)
-    class RTCPeerConnectionHandler;
-#endif
     class SharedBuffer;
     class SocketStreamHandle;
     class StringWithDirection;
@@ -304,10 +301,6 @@ namespace WebCore {
         virtual void dispatchWillDisconnectDOMWindowExtensionFromGlobalObject(DOMWindowExtension*) { }
         virtual void dispatchDidReconnectDOMWindowExtensionToGlobalObject(DOMWindowExtension*) { }
         virtual void dispatchWillDestroyGlobalObjectForDOMWindowExtension(DOMWindowExtension*) { }
-
-#if ENABLE(MEDIA_STREAM)
-        virtual void dispatchWillStartUsingPeerConnectionHandler(RTCPeerConnectionHandler*) { }
-#endif
 
 #if ENABLE(WEBGL)
         virtual bool allowWebGL(bool enabledPerSettings) { return enabledPerSettings; }

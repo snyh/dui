@@ -270,8 +270,6 @@ typedef enum UProperty {
         Code points that are explicitly defined as illegal
         for the encoding of characters. @stable ICU 2.1 */
     UCHAR_NONCHARACTER_CODE_POINT=24,
-    /** Binary property Quotation_Mark. @stable ICU 2.1 */
-    UCHAR_QUOTATION_MARK=25,
     /** Binary property Radical (new in Unicode 3.2).
         For programmatic determination of
         Ideographic Description Sequences. @stable ICU 2.1 */
@@ -1665,7 +1663,6 @@ typedef enum ULineBreak {
     U_LB_OPEN_PUNCTUATION = 20,  /*[OP]*/
     U_LB_POSTFIX_NUMERIC = 21,   /*[PO]*/
     U_LB_PREFIX_NUMERIC = 22,    /*[PR]*/
-    U_LB_QUOTATION = 23,         /*[QU]*/
     U_LB_COMPLEX_CONTEXT = 24,   /*[SA]*/
     U_LB_SURROGATE = 25,         /*[SG]*/
     U_LB_SPACE = 26,             /*[SP]*/

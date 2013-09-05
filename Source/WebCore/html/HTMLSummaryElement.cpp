@@ -23,7 +23,6 @@
 
 #if ENABLE(DETAILS_ELEMENT)
 #include "html/shadow/DetailsMarkerControl.h"
-#include "html/shadow/HTMLContentElement.h"
 #include "html/HTMLDetailsElement.h"
 #include "HTMLNames.h"
 #include "dom/KeyboardEvent.h"

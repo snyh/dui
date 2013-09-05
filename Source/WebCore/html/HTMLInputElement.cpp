@@ -731,12 +731,6 @@ void HTMLInputElement::parseAttribute(const QualifiedName& name, const AtomicStr
         FeatureObserver::observe(document(), FeatureObserver::ListAttribute);
     }
 #endif
-#if ENABLE(DIRECTORY_UPLOAD)
-    else if (name == webkitdirectoryAttr) {
-        HTMLTextFormControlElement::parseAttribute(name, value);
-        FeatureObserver::observe(document(), FeatureObserver::PrefixedDirectoryAttribute);
-    }
-#endif
     else
         HTMLTextFormControlElement::parseAttribute(name, value);
     m_inputType->attributeChanged();
@@ -1332,13 +1326,6 @@ bool HTMLInputElement::receiveDroppedFiles(const DragData* dragData)
     return m_inputType->receiveDroppedFiles(dragData);
 }
 
-#if ENABLE(FILE_SYSTEM)
-String HTMLInputElement::droppedFileSystemId()
-{
-    return m_inputType->droppedFileSystemId();
-}
-#endif
-
 Icon* HTMLInputElement::icon() const
 {
     return m_inputType->icon();
@@ -1756,29 +1743,6 @@ bool HTMLInputElement::shouldAppearIndeterminate() const
 {
     return m_inputType->supportsIndeterminateAppearance() && indeterminate();
 }
-
-#if ENABLE(MEDIA_CAPTURE)
-String HTMLInputElement::capture() const
-{
-    if (!isFileUpload())
-        return String();
-
-    String capture = fastGetAttribute(captureAttr).lower();
-    if (capture == "camera"
-        || capture == "camcorder"
-        || capture == "microphone"
-        || capture == "filesystem")
-        return capture;
-
-    return "filesystem";
-}
-
-void HTMLInputElement::setCapture(const String& value)
-{
-    setAttribute(captureAttr, value);
-}
-
-#endif
 
 bool HTMLInputElement::isInRequiredRadioButtonGroup()
 {

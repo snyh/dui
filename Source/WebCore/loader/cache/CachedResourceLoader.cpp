@@ -81,12 +81,6 @@ static CachedResource* createResource(CachedResource::Type type, ResourceRequest
     case CachedResource::XSLStyleSheet:
         return new CachedXSLStyleSheet(request);
 #endif
-#if ENABLE(LINK_PREFETCH)
-    case CachedResource::LinkPrefetch:
-        return new CachedResource(request, CachedResource::LinkPrefetch);
-    case CachedResource::LinkSubresource:
-        return new CachedResource(request, CachedResource::LinkSubresource);
-#endif
 #if ENABLE(CSS_SHADERS)
     case CachedResource::ShaderResource:
         return new CachedShader(request);
@@ -208,15 +202,6 @@ CachedResourceHandle<CachedXSLStyleSheet> CachedResourceLoader::requestXSLStyleS
 CachedResourceHandle<CachedSVGDocument> CachedResourceLoader::requestSVGDocument(CachedResourceRequest& request)
 {
     return static_cast<CachedSVGDocument*>(requestResource(CachedResource::SVGDocumentResource, request).get());
-}
-#endif
-
-#if ENABLE(LINK_PREFETCH)
-CachedResourceHandle<CachedResource> CachedResourceLoader::requestLinkResource(CachedResource::Type type, CachedResourceRequest& request)
-{
-    ASSERT(frame());
-    ASSERT(type == CachedResource::LinkPrefetch || type == CachedResource::LinkSubresource);
-    return requestResource(type, request);
 }
 #endif
 

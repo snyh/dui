@@ -331,9 +331,6 @@ public:
     void markSupportsRuleHeaderEnd();
     PassRefPtr<CSSRuleSourceData> popSupportsRuleData();
 #endif
-#if ENABLE(SHADOW_DOM)
-    StyleRuleBase* createHostRule(RuleList* rules);
-#endif
 #if ENABLE(CSS_SHADERS)
     StyleRuleBase* createFilterRule(const CSSParserString&);
 #endif

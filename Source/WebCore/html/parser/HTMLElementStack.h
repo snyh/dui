@@ -152,9 +152,6 @@ public:
 
     bool hasOnlyOneElement() const;
     bool secondElementIsHTMLBodyElement() const;
-#if ENABLE(TEMPLATE_ELEMENT)
-    bool hasTemplateInHTMLScope() const;
-#endif
     Element* htmlElement() const;
     Element* headElement() const;
     Element* bodyElement() const;

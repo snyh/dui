@@ -141,10 +141,6 @@ public:
 
     virtual void print(Frame*) { }
 
-#if ENABLE(DIRECTORY_UPLOAD)
-    virtual void enumerateChosenDirectory(FileChooser*) { }
-#endif
-
 #if ENABLE(INPUT_TYPE_COLOR)
     virtual PassOwnPtr<ColorChooser> createColorChooser(ColorChooserClient*, const Color&) OVERRIDE;
 #endif

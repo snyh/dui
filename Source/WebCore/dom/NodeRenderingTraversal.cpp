@@ -38,7 +38,7 @@ void ParentDetails::didTraverseInsertionPoint(InsertionPoint* insertionPoint)
 {
     if (!m_insertionPoint) {
         m_insertionPoint = insertionPoint;
-        m_resetStyleInheritance  = m_resetStyleInheritance || insertionPoint->resetStyleInheritance();
+        m_resetStyleInheritance  = m_resetStyleInheritance;
     }
 }
 

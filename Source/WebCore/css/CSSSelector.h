@@ -152,9 +152,6 @@ namespace WebCore {
             PseudoOutOfRange,
             PseudoUserAgentCustomElement,
             PseudoWebKitCustomElement,
-#if ENABLE(IFRAME_SEAMLESS)
-            PseudoSeamlessDocument,
-#endif
         };
 
         enum MarginBoxType {

@@ -10440,10 +10440,6 @@ inline void CSSParser::detectDashToken(int length)
 #endif
     } else if (length == 12 && isEqualToCSSIdentifier(name + 1, "webkit-calc"))
         m_token = CALCFUNCTION;
-#if ENABLE(SHADOW_DOM)
-    else if (length == 19 && isEqualToCSSIdentifier(name + 1, "webkit-distributed"))
-        m_token = DISTRIBUTEDFUNCTION;
-#endif
 }
 
 template <typename CharacterType>
@@ -10496,13 +10492,6 @@ inline void CSSParser::detectAtToken(int length, bool hasEscape)
         if (length == 10 && isEqualToCSSIdentifier(name + 2, "ont-face"))
             m_token = FONT_FACE_SYM;
         return;
-
-#if ENABLE(SHADOW_DOM)
-    case 'h':
-        if (length == 5 && isEqualToCSSIdentifier(name + 2, "ost"))
-            m_token = HOST_SYM;
-        return;
-#endif
 
     case 'i':
         if (length == 7 && isEqualToCSSIdentifier(name + 2, "mport")) {
@@ -11469,24 +11458,6 @@ StyleRuleBase* CSSParser::createFontFaceRule()
     return result;
 }
 
-#if ENABLE(SHADOW_DOM)
-StyleRuleBase* CSSParser::createHostRule(RuleList* rules)
-{
-    m_allowImportRules = m_allowNamespaceDeclarations = false;
-    RefPtr<StyleRuleHost> rule;
-    if (rules)
-        rule = StyleRuleHost::create(*rules);
-    else {
-        RuleList emptyRules;
-        rule = StyleRuleHost::create(emptyRules);
-    }
-    StyleRuleHost* result = rule.get();
-    m_parsedRules.append(rule.release());
-    processAndAddNewRuleToSourceTreeIfNeeded();
-    return result;
-}
-#endif
-
 void CSSParser::addNamespace(const AtomicString& prefix, const AtomicString& uri)
 {
     if (!m_styleSheet || !m_allowNamespaceDeclarations)
@@ -11995,16 +11966,6 @@ static CSSPropertyID cssPropertyID(const CharacterType* propertyName, unsigned l
 
     const char* name = buffer;
     if (buffer[0] == '-') {
-#if ENABLE(LEGACY_CSS_VENDOR_PREFIXES)
-        // If the prefix is -apple- or -khtml-, change it to -webkit-.
-        // This makes the string one character longer.
-        if (RuntimeEnabledFeatures::legacyCSSVendorPrefixesEnabled()
-            && (hasPrefix(buffer, length, "-apple-") || hasPrefix(buffer, length, "-khtml-"))) {
-            memmove(buffer + 7, buffer + 6, length + 1 - 6);
-            memcpy(buffer, "-webkit", 7);
-            ++length;
-        }
-#endif
 #if PLATFORM(IOS)
         cssPropertyNameIOSAliasing(buffer, name, length);
 #endif

@@ -59,12 +59,6 @@ body {
     margin: 8px
 }
 
-#if defined(ENABLE_IFRAME_SEAMLESS) && ENABLE_IFRAME_SEAMLESS
-body:-webkit-seamless-document {
-    margin: 0px;
-}
-#endif
-
 p {
     display: block;
     -webkit-margin-before: 1__qem;
@@ -1123,12 +1117,6 @@ summary::-webkit-details-marker {
     height: 0.66em;
     margin-right: 0.4em;
 }
-
-#if defined(ENABLE_TEMPLATE_ELEMENT) && ENABLE_TEMPLATE_ELEMENT
-template {
-    display: none
-}
-#endif
 
 bdi, output {
     unicode-bidi: -webkit-isolate;

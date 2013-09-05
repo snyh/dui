@@ -102,30 +102,6 @@ bool LinkLoader::loadLink(const LinkRelAttribute& relAttribute, const String& ty
             prefetchDNS(href.host());
     }
 
-#if ENABLE(LINK_PREFETCH)
-    if ((relAttribute.m_isLinkPrefetch || relAttribute.m_isLinkSubresource) && href.isValid() && document->frame()) {
-        if (!m_client->shouldLoadLink())
-            return false;
-        ResourceLoadPriority priority = ResourceLoadPriorityUnresolved;
-        CachedResource::Type type = CachedResource::LinkPrefetch;
-        // We only make one request to the cachedresourcelodaer if multiple rel types are
-        // specified, 
-        if (relAttribute.m_isLinkSubresource) {
-            priority = ResourceLoadPriorityLow;
-            type = CachedResource::LinkSubresource;
-        }
-        CachedResourceRequest linkRequest(ResourceRequest(document->completeURL(href)), priority);
-        
-        if (m_cachedLinkResource) {
-            m_cachedLinkResource->removeClient(this);
-            m_cachedLinkResource = 0;
-        }
-        m_cachedLinkResource = document->cachedResourceLoader()->requestLinkResource(type, linkRequest);
-        if (m_cachedLinkResource)
-            m_cachedLinkResource->addClient(this);
-    }
-#endif
-
     return true;
 }
 

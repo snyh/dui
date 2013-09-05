@@ -31,7 +31,6 @@
 #include "html/shadow/ContentDistributor.h"
 #include "dom/Element.h"
 #include "dom/ElementShadow.h"
-#include "html/shadow/HTMLContentElement.h"
 #include "html/shadow/InsertionPoint.h"
 #include "dom/PseudoElement.h"
 
@@ -126,9 +125,6 @@ Node* ComposedShadowTreeWalker::traverseNode(const Node* node, TraversalDirectio
     ASSERT(node);
     if (!isActiveInsertionPoint(node))
         return const_cast<Node*>(node);
-    const InsertionPoint* insertionPoint = toInsertionPoint(node);
-    if (Node* found = traverseDistributedNodes(direction == TraversalDirectionForward ? insertionPoint->firstDistributed() : insertionPoint->lastDistributed(), insertionPoint, direction))
-        return found;
     return traverseLightChildren(node, direction);
 }
 
@@ -190,11 +186,7 @@ inline Node* ComposedShadowTreeWalker::escapeFallbackContentElement(const Node* 
 inline Node* ComposedShadowTreeWalker::traverseNodeEscapingFallbackContents(const Node* node, ParentTraversalDetails* details) const
 {
     ASSERT(node);
-    if (!node->isInsertionPoint())
-        return const_cast<Node*>(node);
-    const InsertionPoint* insertionPoint = toInsertionPoint(node);
-    return insertionPoint->hasDistribution() ? 0 :
-        insertionPoint->isActive() ? traverseParent(node, details) : const_cast<Node*>(node);
+    return const_cast<Node*>(node);
 }
 
 void ComposedShadowTreeWalker::parent()

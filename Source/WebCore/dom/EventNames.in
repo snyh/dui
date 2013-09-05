@@ -27,8 +27,6 @@ WebKitTransitionEvent
 WheelEvent
 XMLHttpRequestProgressEvent path=xml
 SpeechInputEvent conditional=INPUT_SPEECH, path=page
-SpeechRecognitionError conditional=SCRIPTED_SPEECH
-SpeechRecognitionEvent conditional=SCRIPTED_SPEECH
 SpeechSynthesisEvent conditional=SPEECH_SYNTHESIS
 WebGLContextEvent conditional=WEBGL
 SVGEvents interfaceName=Event, conditional=SVG, path=svg

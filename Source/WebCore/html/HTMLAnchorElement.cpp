@@ -519,19 +519,7 @@ void HTMLAnchorElement::handleClick(Event* event)
     appendServerMapMousePosition(url, event);
     KURL kurl = document()->completeURL(url.toString());
 
-#if ENABLE(DOWNLOAD_ATTRIBUTE)
-    if (hasAttribute(downloadAttr)) {
-        ResourceRequest request(kurl);
-
-        // FIXME: Why are we not calling addExtraFieldsToMainResourceRequest() if this check fails? It sets many important header fields.
-        if (!hasRel(RelationNoReferrer)) {
-            frame->loader()->addExtraFieldsToMainResourceRequest(request);
-        }
-
-        frame->loader()->client()->startDownload(request, fastGetAttribute(downloadAttr));
-    } else
-#endif
-        frame->loader()->urlSelected(kurl, target(), event, false, false, hasRel(RelationNoReferrer) ? NeverSendReferrer : MaybeSendReferrer);
+    frame->loader()->urlSelected(kurl, target(), event, false, false, hasRel(RelationNoReferrer) ? NeverSendReferrer : MaybeSendReferrer);
 }
 
 HTMLAnchorElement::EventType HTMLAnchorElement::eventType(Event* event)

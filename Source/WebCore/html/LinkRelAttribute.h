@@ -41,11 +41,6 @@ public:
     bool m_isStyleSheet;
     bool m_isAlternate;
     bool m_isDNSPrefetch;
-#if ENABLE(LINK_PREFETCH)
-    bool m_isLinkPrefetch;
-    bool m_isLinkSubresource;
-#endif
-
     LinkRelAttribute();
     explicit LinkRelAttribute(const String&);
 };

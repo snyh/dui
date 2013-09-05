@@ -27,7 +27,6 @@ namespace WebCore {
 
 class HTMLInputElement;
 class MouseEvent;
-class SliderThumbElement;
 
 class RenderSlider : public RenderFlexibleBox {
 public:

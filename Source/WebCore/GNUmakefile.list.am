@@ -44,7 +44,6 @@ dom_binding_idls += \
 	$(WebCore)/css/CSSCharsetRule.idl \
 	$(WebCore)/css/CSSFontFaceLoadEvent.idl \
 	$(WebCore)/css/CSSFontFaceRule.idl \
-	$(WebCore)/css/CSSHostRule.idl \
 	$(WebCore)/css/CSSImportRule.idl \
 	$(WebCore)/css/CSSMediaRule.idl \
 	$(WebCore)/css/CSSPageRule.idl \
@@ -125,7 +124,6 @@ dom_binding_idls += \
 	$(WebCore)/dom/Range.idl \
 	$(WebCore)/dom/RangeException.idl \
 	$(WebCore)/dom/RequestAnimationFrameCallback.idl \
-	$(WebCore)/dom/ShadowRoot.idl \
 	$(WebCore)/dom/StringCallback.idl \
 	$(WebCore)/dom/Text.idl \
 	$(WebCore)/dom/TextEvent.idl \
@@ -206,7 +204,6 @@ dom_binding_idls += \
 	$(WebCore)/html/HTMLTableElement.idl \
 	$(WebCore)/html/HTMLTableRowElement.idl \
 	$(WebCore)/html/HTMLTableSectionElement.idl \
-	$(WebCore)/html/HTMLTemplateElement.idl \
 	$(WebCore)/html/HTMLTextAreaElement.idl \
 	$(WebCore)/html/HTMLTitleElement.idl \
 	$(WebCore)/html/HTMLUListElement.idl \
@@ -262,7 +259,6 @@ dom_binding_idls += \
 	$(WebCore)/html/canvas/WebGLTexture.idl \
 	$(WebCore)/html/canvas/WebGLUniformLocation.idl \
 	$(WebCore)/html/canvas/WebGLVertexArrayObjectOES.idl \
-	$(WebCore)/html/shadow/HTMLContentElement.idl \
 	$(WebCore)/page/DOMSelection.idl \
 	$(WebCore)/page/DOMWindow.idl \
 	$(WebCore)/page/WebKitPoint.idl \
@@ -528,8 +524,6 @@ webcore_sources += \
 	Source/WebCore/css/CSSGroupingRule.cpp \
 	Source/WebCore/css/CSSGroupingRule.h \
 	Source/WebCore/css/CSSHelper.h \
-	Source/WebCore/css/CSSHostRule.cpp \
-	Source/WebCore/css/CSSHostRule.h \
 	Source/WebCore/css/CSSImageGeneratorValue.cpp \
 	Source/WebCore/css/CSSImageGeneratorValue.h \
 	Source/WebCore/css/CSSImageSetValue.cpp \
@@ -662,8 +656,6 @@ webcore_sources += \
 	Source/WebCore/css/StyleRule.h \
 	Source/WebCore/css/StyleRuleImport.cpp \
 	Source/WebCore/css/StyleRuleImport.h \
-	Source/WebCore/css/StyleScopeResolver.cpp \
-	Source/WebCore/css/StyleScopeResolver.h \
 	Source/WebCore/css/StyleSheet.cpp \
 	Source/WebCore/css/StyleSheet.h \
 	Source/WebCore/css/StyleSheetContents.cpp \
@@ -941,7 +933,6 @@ webcore_sources += \
 	Source/WebCore/dom/StyleElement.h \
 	Source/WebCore/dom/TagNodeList.cpp \
 	Source/WebCore/dom/TagNodeList.h \
-	Source/WebCore/dom/TemplateContentDocumentFragment.h \
 	Source/WebCore/dom/Text.cpp \
 	Source/WebCore/dom/TextEvent.cpp \
 	Source/WebCore/dom/TextEvent.h \
@@ -1400,8 +1391,6 @@ webcore_sources += \
 	Source/WebCore/html/HTMLTableRowsCollection.h \
 	Source/WebCore/html/HTMLTableSectionElement.cpp \
 	Source/WebCore/html/HTMLTableSectionElement.h \
-	Source/WebCore/html/HTMLTemplateElement.cpp \
-	Source/WebCore/html/HTMLTemplateElement.h \
 	Source/WebCore/html/HTMLTextAreaElement.cpp \
 	Source/WebCore/html/HTMLTextAreaElement.h \
 	Source/WebCore/html/HTMLTextFormControlElement.cpp \
@@ -1478,24 +1467,22 @@ webcore_sources += \
 	Source/WebCore/html/parser/XSSAuditor.h \
 	Source/WebCore/html/parser/XSSAuditorDelegate.cpp \
 	Source/WebCore/html/parser/XSSAuditorDelegate.h \
-	Source/WebCore/html/shadow/ContentDistributor.cpp \
-	Source/WebCore/html/shadow/ContentDistributor.h \
-	Source/WebCore/html/shadow/DetailsMarkerControl.cpp \
-	Source/WebCore/html/shadow/DetailsMarkerControl.h \
-	Source/WebCore/html/shadow/HTMLContentElement.cpp \
-	Source/WebCore/html/shadow/HTMLContentElement.h \
-	Source/WebCore/html/shadow/InsertionPoint.cpp \
-	Source/WebCore/html/shadow/InsertionPoint.h \
-	Source/WebCore/html/shadow/MeterShadowElement.cpp \
-	Source/WebCore/html/shadow/MeterShadowElement.h \
-	Source/WebCore/html/shadow/ProgressShadowElement.cpp \
-	Source/WebCore/html/shadow/ProgressShadowElement.h \
-	Source/WebCore/html/shadow/SliderThumbElement.cpp \
-	Source/WebCore/html/shadow/SliderThumbElement.h \
-	Source/WebCore/html/shadow/SpinButtonElement.cpp \
-	Source/WebCore/html/shadow/SpinButtonElement.h \
-	Source/WebCore/html/shadow/TextControlInnerElements.cpp \
-	Source/WebCore/html/shadow/TextControlInnerElements.h \
+-	Source/WebCore/html/shadow/ContentDistributor.cpp \
+-	Source/WebCore/html/shadow/ContentDistributor.h \
+-	Source/WebCore/html/shadow/DetailsMarkerControl.cpp \
+-	Source/WebCore/html/shadow/DetailsMarkerControl.h \
+-	Source/WebCore/html/shadow/InsertionPoint.cpp \
+-	Source/WebCore/html/shadow/InsertionPoint.h \
+-	Source/WebCore/html/shadow/MeterShadowElement.cpp \
+-	Source/WebCore/html/shadow/MeterShadowElement.h \
+-	Source/WebCore/html/shadow/ProgressShadowElement.cpp \
+-	Source/WebCore/html/shadow/ProgressShadowElement.h \
+-	Source/WebCore/html/shadow/SliderThumbElement.cpp \
+-	Source/WebCore/html/shadow/SliderThumbElement.h \
+-	Source/WebCore/html/shadow/SpinButtonElement.cpp \
+-	Source/WebCore/html/shadow/SpinButtonElement.h \
+-	Source/WebCore/html/shadow/TextControlInnerElements.cpp \
+-	Source/WebCore/html/shadow/TextControlInnerElements.h \
 	Source/WebCore/html/PasswordInputType.cpp \
 	Source/WebCore/html/PasswordInputType.h \
 	Source/WebCore/html/RadioInputType.cpp \
@@ -2655,9 +2642,6 @@ webcore_platform_sources += \
 	Source/WebCore/platform/animation/Animation.h \
 	Source/WebCore/platform/animation/AnimationList.cpp \
 	Source/WebCore/platform/animation/AnimationList.h \
-	Source/WebCore/platform/AsyncFileSystem.cpp \
-	Source/WebCore/platform/AsyncFileSystem.h \
-	Source/WebCore/platform/AsyncFileSystemCallbacks.h \
 	Source/WebCore/platform/CalculationValue.cpp \
 	Source/WebCore/platform/CalculationValue.h \
 	Source/WebCore/platform/CrossThreadCopier.cpp \
@@ -3293,8 +3277,6 @@ webcoregtk_sources += \
 	Source/WebCore/page/gtk/DragControllerGtk.cpp \
 	Source/WebCore/page/gtk/EventHandlerGtk.cpp \
 	Source/WebCore/platform/cairo/WidgetBackingStore.h \
-	Source/WebCore/platform/gtk/AsyncFileSystemGtk.cpp \
-	Source/WebCore/platform/gtk/AsyncFileSystemGtk.h \
 	Source/WebCore/platform/gtk/ClipboardGtk.cpp \
 	Source/WebCore/platform/gtk/ClipboardUtilitiesGtk.cpp \
 	Source/WebCore/platform/gtk/ClipboardUtilitiesGtk.h \

@@ -55,10 +55,6 @@
 #include <wtf/StdLibExtras.h>
 #include <wtf/text/CString.h>
 
-#if ENABLE(RESOURCE_TIMING)
-#include "loader/cache/CachedResourceRequestInitiators.h"
-#endif
-
 namespace WebCore {
 
 DEFINE_DEBUG_ONLY_GLOBAL(WTF::RefCountedLeakCounter, xmlHttpRequestCounter, ("XMLHttpRequest"));

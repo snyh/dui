@@ -1664,11 +1664,6 @@ PassRefPtr<ShadowRoot> Element::createShadowRoot(ExceptionCode& ec)
     if (alwaysCreateUserAgentShadowRoot())
         ensureUserAgentShadowRoot();
 
-#if ENABLE(SHADOW_DOM)
-    if (RuntimeEnabledFeatures::authorShadowDOMForAnyElementEnabled())
-        return ensureShadow()->addShadowRoot(this, ShadowRoot::AuthorShadowRoot);
-#endif
-
     // Since some elements recreates shadow root dynamically, multiple shadow
     // subtrees won't work well in that element. Until they are fixed, we disable
     // adding author shadow root for them.

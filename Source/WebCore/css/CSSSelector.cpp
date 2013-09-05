@@ -226,9 +226,6 @@ PseudoId CSSSelector::pseudoId(PseudoType type)
     case PseudoOutOfRange:
     case PseudoUserAgentCustomElement:
     case PseudoWebKitCustomElement:
-#if ENABLE(IFRAME_SEAMLESS)
-    case PseudoSeamlessDocument:
-#endif
         return NOPSEUDO;
     case PseudoNotParsed:
         ASSERT_NOT_REACHED();
@@ -305,9 +302,6 @@ static HashMap<AtomicStringImpl*, CSSSelector::PseudoType>* nameToPseudoTypeMap(
     DEFINE_STATIC_LOCAL(AtomicString, firstPage, ("first", AtomicString::ConstructFromLiteral));
     DEFINE_STATIC_LOCAL(AtomicString, leftPage, ("left", AtomicString::ConstructFromLiteral));
     DEFINE_STATIC_LOCAL(AtomicString, rightPage, ("right", AtomicString::ConstructFromLiteral));
-#if ENABLE(IFRAME_SEAMLESS)
-    DEFINE_STATIC_LOCAL(AtomicString, seamlessDocument, ("-webkit-seamless-document", AtomicString::ConstructFromLiteral));
-#endif
     DEFINE_STATIC_LOCAL(AtomicString, inRange, ("in-range", AtomicString::ConstructFromLiteral));
     DEFINE_STATIC_LOCAL(AtomicString, outOfRange, ("out-of-range", AtomicString::ConstructFromLiteral));
     DEFINE_STATIC_LOCAL(AtomicString, scope, ("scope", AtomicString::ConstructFromLiteral));
@@ -379,9 +373,6 @@ static HashMap<AtomicStringImpl*, CSSSelector::PseudoType>* nameToPseudoTypeMap(
         nameToPseudoType->set(firstPage.impl(), CSSSelector::PseudoFirstPage);
         nameToPseudoType->set(leftPage.impl(), CSSSelector::PseudoLeftPage);
         nameToPseudoType->set(rightPage.impl(), CSSSelector::PseudoRightPage);
-#if ENABLE(IFRAME_SEAMLESS)
-        nameToPseudoType->set(seamlessDocument.impl(), CSSSelector::PseudoSeamlessDocument);
-#endif
         nameToPseudoType->set(inRange.impl(), CSSSelector::PseudoInRange);
         nameToPseudoType->set(outOfRange.impl(), CSSSelector::PseudoOutOfRange);
     }
@@ -423,9 +414,6 @@ void CSSSelector::extractPseudoType() const
     case PseudoFirstLetter:
     case PseudoFirstLine:
         compat = true;
-#if ENABLE(SHADOW_DOM)
-    case PseudoDistributed:
-#endif
     case PseudoResizer:
     case PseudoScrollbar:
     case PseudoScrollbarCorner:
@@ -490,9 +478,6 @@ void CSSSelector::extractPseudoType() const
     case PseudoSingleButton:
     case PseudoNoButton:
     case PseudoNotParsed:
-#if ENABLE(IFRAME_SEAMLESS)
-    case PseudoSeamlessDocument:
-#endif
     case PseudoInRange:
     case PseudoOutOfRange:
         break;

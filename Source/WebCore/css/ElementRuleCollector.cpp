@@ -213,64 +213,12 @@ void ElementRuleCollector::sortAndTransferMatchedRules()
 
 void ElementRuleCollector::matchScopedAuthorRules(bool includeEmptyRules)
 {
-#if ENABLE(STYLE_SCOPED) || ENABLE(SHADOW_DOM)
-    if (!m_scopeResolver)
-        return;
-
-    // Match scoped author rules by traversing the scoped element stack (rebuild it if it got inconsistent).
-    if (m_scopeResolver->hasScopedStyles() && m_scopeResolver->ensureStackConsistency(m_state.element())) {
-        bool applyAuthorStyles = m_state.element()->treeScope()->applyAuthorStyles();
-        bool documentScope = true;
-        unsigned scopeSize = m_scopeResolver->stackSize();
-        for (unsigned i = 0; i < scopeSize; ++i) {
-            clearMatchedRules();
-            m_result.ranges.lastAuthorRule = m_result.matchedProperties.size() - 1;
-
-            const StyleScopeResolver::StackFrame& frame = m_scopeResolver->stackFrameAt(i);
-            documentScope = documentScope && !frame.m_scope->isInShadowTree();
-            if (documentScope) {
-                if (!applyAuthorStyles)
-                    continue;
-            } else {
-                if (!m_scopeResolver->matchesStyleBounds(frame))
-                    continue;
-            }
-
-            MatchRequest matchRequest(frame.m_ruleSet, includeEmptyRules, frame.m_scope);
-            StyleResolver::RuleRange ruleRange = m_result.ranges.authorRuleRange();
-            collectMatchingRules(matchRequest, ruleRange);
-            collectMatchingRulesForRegion(matchRequest, ruleRange);
-            sortAndTransferMatchedRules();
-        }
-    }
-
-    matchHostRules(includeEmptyRules);
-#else
     UNUSED_PARAM(includeEmptyRules);
-#endif
 }
 
 void ElementRuleCollector::matchHostRules(bool includeEmptyRules)
 {
-#if ENABLE(SHADOW_DOM)
-    ASSERT(m_scopeResolver);
-
-    clearMatchedRules();
-    m_result.ranges.lastAuthorRule = m_result.matchedProperties.size() - 1;
-
-    Vector<RuleSet*> matchedRules;
-    m_scopeResolver->matchHostRules(m_state.element(), matchedRules);
-    if (matchedRules.isEmpty())
-        return;
-
-    for (unsigned i = matchedRules.size(); i > 0; --i) {
-        StyleResolver::RuleRange ruleRange = m_result.ranges.authorRuleRange();
-        collectMatchingRules(MatchRequest(matchedRules.at(i-1), includeEmptyRules, m_state.element()), ruleRange);
-    }
-    sortAndTransferMatchedRules();
-#else
     UNUSED_PARAM(includeEmptyRules);
-#endif
 }
 
 void ElementRuleCollector::matchAuthorRules(bool includeEmptyRules)

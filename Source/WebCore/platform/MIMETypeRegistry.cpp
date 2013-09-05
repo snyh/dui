@@ -44,10 +44,6 @@
 #include <QImageWriter>
 #endif
 
-#if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-#include "loader/archive/ArchiveFactory.h"
-#endif
-
 namespace WebCore {
 
 namespace {
@@ -389,9 +385,6 @@ static void initializeSupportedNonImageMimeTypes()
     for (size_t i = 0; i < WTF_ARRAY_LENGTH(types); ++i)
         supportedNonImageMIMETypes->add(types[i]);
 
-#if ENABLE(WEB_ARCHIVE) || ENABLE(MHTML)
-    ArchiveFactory::registerKnownArchiveMIMETypes();
-#endif
 }
 
 static MediaMIMETypeMap& mediaMIMETypeMap()

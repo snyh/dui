@@ -118,42 +118,9 @@ public:
     static bool deviceOrientationEventEnabled() { return isDeviceOrientationEnabled; }
     static bool ondeviceorientationEnabled() { return isDeviceOrientationEnabled; }
 
-#if ENABLE(SCRIPTED_SPEECH)
-    static void setScriptedSpeechEnabled(bool isEnabled) { isScriptedSpeechEnabled = isEnabled; }
-    static bool scriptedSpeechEnabled() { return isScriptedSpeechEnabled; }
-    static bool webkitSpeechRecognitionEnabled() { return isScriptedSpeechEnabled; }
-    static bool webkitSpeechRecognitionErrorEnabled() { return isScriptedSpeechEnabled; }
-    static bool webkitSpeechRecognitionEventEnabled() { return isScriptedSpeechEnabled; }
-    static bool webkitSpeechGrammarEnabled() { return isScriptedSpeechEnabled; }
-    static bool webkitSpeechGrammarListEnabled() { return isScriptedSpeechEnabled; }
-#endif
-
-#if ENABLE(FILE_SYSTEM)
-    static bool fileSystemEnabled();
-    static void setFileSystemEnabled(bool isEnabled) { isFileSystemEnabled = isEnabled; }
-#endif
-
-#if ENABLE(LEGACY_CSS_VENDOR_PREFIXES)
-    static void setLegacyCSSVendorPrefixesEnabled(bool isEnabled) { isLegacyCSSVendorPrefixesEnabled = isEnabled; }
-    static bool legacyCSSVendorPrefixesEnabled() { return isLegacyCSSVendorPrefixesEnabled; }
-#endif
-
-#if ENABLE(SHADOW_DOM)
-    static bool shadowDOMEnabled() { return isShadowDOMEnabled; }
-    static void setShadowDOMEnabled(bool isEnabled) { isShadowDOMEnabled = isEnabled; }
-
-    static bool authorShadowDOMForAnyElementEnabled() { return isAuthorShadowDOMForAnyElementEnabled; }
-    static void setAuthorShadowDOMForAnyElementEnabled(bool isEnabled) { isAuthorShadowDOMForAnyElementEnabled = isEnabled; }
-#endif
-
 #if ENABLE(CUSTOM_ELEMENTS)
     static bool customDOMElementsEnabled() { return isCustomDOMElementsEnabled; }
     static void setCustomDOMElements(bool isEnabled) { isCustomDOMElementsEnabled = isEnabled; }
-#endif
-
-#if ENABLE(STYLE_SCOPED)
-    static bool styleScopedEnabled() { return isStyleScopedEnabled; }
-    static void setStyleScopedEnabled(bool isEnabled) { isStyleScopedEnabled = isEnabled; }
 #endif
 
 #if ENABLE(INPUT_TYPE_DATE)
@@ -191,11 +158,6 @@ public:
     static void setDialogElementEnabled(bool isEnabled) { isDialogElementEnabled = isEnabled; }
 #endif
 
-#if ENABLE(IFRAME_SEAMLESS)
-    static bool seamlessIFramesEnabled() { return areSeamlessIFramesEnabled; }
-    static void setSeamlessIFramesEnabled(bool isEnabled) { areSeamlessIFramesEnabled = isEnabled; }
-#endif
-
     static bool langAttributeAwareFormControlUIEnabled() { return isLangAttributeAwareFormControlUIEnabled; }
     // The lang attribute support is incomplete and should only be turned on for tests.
     static void setLangAttributeAwareFormControlUIEnabled(bool isEnabled) { isLangAttributeAwareFormControlUIEnabled = isEnabled; }
@@ -219,33 +181,8 @@ private:
     static bool isCSSRegionsEnabled;
     static bool isCSSCompositingEnabled;
     WEBCORE_TESTING static bool isLangAttributeAwareFormControlUIEnabled;
-#if ENABLE(SCRIPTED_SPEECH)
-    static bool isScriptedSpeechEnabled;
-#endif
-#if ENABLE(FILE_SYSTEM)
-    static bool isFileSystemEnabled;
-#endif
-
-#if ENABLE(LEGACY_CSS_VENDOR_PREFIXES)
-    static bool isLegacyCSSVendorPrefixesEnabled;
-#endif
-
-#if ENABLE(QUOTA)
-    static bool isQuotaEnabled;
-#endif
-
-#if ENABLE(SHADOW_DOM)
-    static bool isShadowDOMEnabled;
-
-    static bool isAuthorShadowDOMForAnyElementEnabled;
-#endif
-
 #if ENABLE(CUSTOM_ELEMENTS)
     static bool isCustomDOMElementsEnabled;
-#endif
-
-#if ENABLE(STYLE_SCOPED)
-    static bool isStyleScopedEnabled;
 #endif
 
 #if ENABLE(INPUT_TYPE_DATE)
@@ -274,10 +211,6 @@ private:
 
 #if ENABLE(DIALOG_ELEMENT)
     static bool isDialogElementEnabled;
-#endif
-
-#if ENABLE(IFRAME_SEAMLESS)
-    static bool areSeamlessIFramesEnabled;
 #endif
 
 #if ENABLE(FONT_LOAD_EVENTS)

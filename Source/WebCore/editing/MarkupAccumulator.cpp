@@ -34,7 +34,6 @@
 #include "editing/Editor.h"
 #include "html/HTMLElement.h"
 #include "HTMLNames.h"
-#include "html/HTMLTemplateElement.h"
 #include "platform/KURL.h"
 #include "dom/ProcessingInstruction.h"
 #include "XLinkNames.h"
@@ -142,11 +141,7 @@ void MarkupAccumulator::serializeNodesWithNamespaces(Node* targetNode, Node* nod
         appendStartTag(targetNode, &namespaceHash);
 
     if (!(targetNode->document()->isHTMLDocument() && elementCannotHaveEndTag(targetNode))) {
-#if ENABLE(TEMPLATE_ELEMENT)
-        Node* current = targetNode->hasTagName(templateTag) ? toHTMLTemplateElement(targetNode)->content()->firstChild() : targetNode->firstChild();
-#else
         Node* current = targetNode->firstChild();
-#endif
         for ( ; current; current = current->nextSibling())
             serializeNodesWithNamespaces(current, nodeToSkip, IncludeNode, &namespaceHash, tagNamesToSkip);
     }

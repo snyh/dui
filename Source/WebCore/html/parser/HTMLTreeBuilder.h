@@ -70,12 +70,7 @@ public:
     const HTMLElementStack* openElements() const { return m_tree.openElements(); }
 
     bool isParsingFragment() const { return !!m_fragmentContext.fragment(); }
-#if ENABLE(TEMPLATE_ELEMENT)
-    bool isParsingTemplateContents() const { return m_tree.openElements()->hasTemplateInHTMLScope(); }
-    bool isParsingFragmentOrTemplateContents() const { return isParsingFragment() || isParsingTemplateContents(); }
-#else
     bool isParsingFragmentOrTemplateContents() const { return isParsingFragment(); }
-#endif
 
     void detach();
 
@@ -192,12 +187,6 @@ private:
 
     void resetInsertionModeAppropriately();
 
-#if ENABLE(TEMPLATE_ELEMENT)
-    void processTemplateStartTag(AtomicHTMLToken*);
-    bool processTemplateEndTag(AtomicHTMLToken*);
-    bool processEndOfFileForInTemplateContents(AtomicHTMLToken*);
-#endif
-
     class FragmentParsingContext {
         WTF_MAKE_NONCOPYABLE(FragmentParsingContext);
     public:
@@ -225,10 +214,6 @@ private:
 
     // http://www.whatwg.org/specs/web-apps/current-work/multipage/parsing.html#original-insertion-mode
     InsertionMode m_originalInsertionMode;
-
-#if ENABLE(TEMPLATE_ELEMENT)
-    Vector<InsertionMode> m_templateInsertionModes;
-#endif
 
     // http://www.whatwg.org/specs/web-apps/current-work/multipage/tokenization.html#pending-table-character-tokens
     StringBuilder m_pendingTableCharacters;

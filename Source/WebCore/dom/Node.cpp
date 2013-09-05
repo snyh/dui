@@ -97,7 +97,6 @@
 #include "dom/StaticNodeList.h"
 #include "css/StyleResolver.h"
 #include "dom/TagNodeList.h"
-#include "dom/TemplateContentDocumentFragment.h"
 #include "dom/Text.h"
 #include "dom/TextEvent.h"
 #include "dom/TouchEvent.h"
@@ -935,19 +934,7 @@ bool Node::containsIncludingShadowDOM(const Node* node) const
 
 bool Node::containsIncludingHostElements(const Node* node) const
 {
-#if ENABLE(TEMPLATE_ELEMENT)
-    while (node) {
-        if (node == this)
-            return true;
-        if (node->isDocumentFragment() && static_cast<const DocumentFragment*>(node)->isTemplateContent())
-            node = static_cast<const TemplateContentDocumentFragment*>(node)->host();
-        else
-            node = node->parentOrShadowHostNode();
-    }
-    return false;
-#else
     return containsIncludingShadowDOM(node);
-#endif
 }
 
 void Node::attach(const AttachContext&)
