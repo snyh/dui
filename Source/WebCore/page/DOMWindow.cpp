@@ -37,7 +37,6 @@
 #include "html/DOMSettableTokenList.h"
 #include "dom/DOMStringList.h"
 #include "html/DOMTokenList.h"
-#include "html/DOMURL.h"
 #include "css/DOMWindowCSS.h"
 #include "page/DOMWindowExtension.h"
 #include "dom/Document.h"

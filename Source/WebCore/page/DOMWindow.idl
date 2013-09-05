@@ -308,7 +308,6 @@
     // Mozilla has a separate XMLDocument object for XML documents.
     // We just use Document for this.
     attribute DocumentConstructor XMLDocument;
-    [Conditional=BLOB] attribute DOMURLConstructor webkitURL; // FIXME: deprecate this.
     attribute MutationObserverConstructor WebKitMutationObserver; // FIXME: Add metrics to determine when we can remove this.
     [Conditional=INDEXED_DATABASE] attribute IDBCursorConstructor webkitIDBCursor;
     [Conditional=INDEXED_DATABASE] attribute IDBDatabaseConstructor webkitIDBDatabase;

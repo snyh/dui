@@ -31,7 +31,6 @@
 #include "dom/EventTarget.h"
 #include "loader/cache/CachedScript.h"
 #include "dom/ErrorEvent.h"
-#include "html/PublicURLManager.h"
 #include "page/Settings.h"
 #include "bindings/dui/ScriptState.h"
 #include <wtf/MainThread.h>
@@ -63,10 +62,6 @@ ScriptExecutionContext::~ScriptExecutionContext()
         observer->contextDestroyed();
     }
 
-#if ENABLE(BLOB)
-    if (m_publicURLManager)
-        m_publicURLManager->contextDestroyed();
-#endif
 }
 
 bool ScriptExecutionContext::canSuspendActiveDOMObjects()
@@ -205,15 +200,6 @@ int ScriptExecutionContext::circularSequentialID()
         m_circularSequentialID = 1;
     return m_circularSequentialID;
 }
-
-#if ENABLE(BLOB)
-PublicURLManager& ScriptExecutionContext::publicURLManager()
-{
-    if (!m_publicURLManager)
-        m_publicURLManager = PublicURLManager::create();
-    return *m_publicURLManager;
-}
-#endif
 
 ScriptExecutionContext::Task::~Task()
 {

@@ -33,7 +33,6 @@
 #include "fileapi/ThreadableBlobRegistry.h"
 
 #include "platform/network/BlobData.h"
-#include "platform/network/BlobRegistry.h"
 #include "fileapi/BlobURL.h"
 #include <wtf/HashMap.h>
 #include <wtf/MainThread.h>
@@ -71,34 +70,6 @@ public:
     OwnPtr<BlobData> blobData;
 };
 
-#if ENABLE(BLOB)
-
-static void registerBlobURLTask(void* context)
-{
-}
-
-void ThreadableBlobRegistry::registerBlobURL(const KURL& url, PassOwnPtr<BlobData> blobData)
-{
-}
-
-static void registerBlobURLFromTask(void* context)
-{
-}
-
-void ThreadableBlobRegistry::registerBlobURL(const KURL& url, const KURL& srcURL)
-{
-}
-
-static void unregisterBlobURLTask(void* context)
-{
-}
-
-void ThreadableBlobRegistry::unregisterBlobURL(const KURL& url)
-{
-}
-
-#else
-
 void ThreadableBlobRegistry::registerBlobURL(const KURL&, PassOwnPtr<BlobData>)
 {
 }
@@ -110,7 +81,5 @@ void ThreadableBlobRegistry::registerBlobURL(const KURL&, const KURL&)
 void ThreadableBlobRegistry::unregisterBlobURL(const KURL&)
 {
 }
-
-#endif // ENABL(BLOB)
 
 } // namespace WebCore

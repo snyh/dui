@@ -86,28 +86,6 @@ void BlobBuilder::append(const String& text, const String& endingType)
     m_size += buffer.size() - oldSize;
 }
 
-#if ENABLE(BLOB)
-void BlobBuilder::append(ArrayBuffer* arrayBuffer)
-{
-    HistogramSupport::histogramEnumeration("WebCore.Blob.constructor.ArrayBufferOrView", BlobConstructorArrayBuffer, BlobConstructorArrayBufferOrViewMax);
-
-    if (!arrayBuffer)
-        return;
-
-    appendBytesData(arrayBuffer->data(), arrayBuffer->byteLength());
-}
-
-void BlobBuilder::append(ArrayBufferView* arrayBufferView)
-{
-    HistogramSupport::histogramEnumeration("WebCore.Blob.constructor.ArrayBufferOrView", BlobConstructorArrayBufferView, BlobConstructorArrayBufferOrViewMax);
-
-    if (!arrayBufferView)
-        return;
-
-    appendBytesData(arrayBufferView->baseAddress(), arrayBufferView->byteLength());
-}
-#endif
-
 void BlobBuilder::append(Blob* blob)
 {
     if (!blob)

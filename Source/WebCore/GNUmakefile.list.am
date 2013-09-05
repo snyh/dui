@@ -143,14 +143,10 @@ dom_binding_idls += \
 	$(WebCore)/fileapi/Blob.idl \
 	$(WebCore)/fileapi/File.idl \
 	$(WebCore)/fileapi/FileError.idl \
-	$(WebCore)/fileapi/FileException.idl \
 	$(WebCore)/fileapi/FileList.idl \
-	$(WebCore)/fileapi/FileReader.idl \
-	$(WebCore)/fileapi/FileReaderSync.idl \
 	$(WebCore)/html/DOMFormData.idl \
 	$(WebCore)/html/DOMSettableTokenList.idl \
 	$(WebCore)/html/DOMTokenList.idl \
-	$(WebCore)/html/DOMURL.idl \
 	$(WebCore)/html/HTMLAllCollection.idl \
 	$(WebCore)/html/HTMLAnchorElement.idl \
 	$(WebCore)/html/HTMLAreaElement.idl \
@@ -1125,29 +1121,15 @@ webcore_sources += \
 	Source/WebCore/editing/WrapContentsInDummySpanCommand.cpp \
 	Source/WebCore/editing/WrapContentsInDummySpanCommand.h \
 	Source/WebCore/editing/WritingDirection.h \
-	Source/WebCore/fileapi/AsyncFileStream.cpp \
-	Source/WebCore/fileapi/AsyncFileStream.h \
 	Source/WebCore/fileapi/Blob.cpp \
 	Source/WebCore/fileapi/Blob.h \
 	Source/WebCore/fileapi/BlobURL.cpp \
 	Source/WebCore/fileapi/BlobURL.h \
 	Source/WebCore/fileapi/File.cpp \
 	Source/WebCore/fileapi/FileError.h \
-	Source/WebCore/fileapi/FileException.h \
 	Source/WebCore/fileapi/File.h \
-	Source/WebCore/fileapi/FileException.cpp \
-	Source/WebCore/fileapi/FileException.h \
 	Source/WebCore/fileapi/FileList.cpp \
 	Source/WebCore/fileapi/FileList.h \
-	Source/WebCore/fileapi/FileReader.cpp \
-	Source/WebCore/fileapi/FileReader.h \
-	Source/WebCore/fileapi/FileReaderLoader.cpp \
-	Source/WebCore/fileapi/FileReaderLoader.h \
-	Source/WebCore/fileapi/FileReaderLoaderClient.h \
-	Source/WebCore/fileapi/FileReaderSync.cpp \
-	Source/WebCore/fileapi/FileReaderSync.h \
-	Source/WebCore/fileapi/FileThread.cpp \
-	Source/WebCore/fileapi/FileThread.h \
 	Source/WebCore/fileapi/FileThreadTask.h \
 	Source/WebCore/fileapi/ThreadableBlobRegistry.cpp \
 	Source/WebCore/fileapi/ThreadableBlobRegistry.h \
@@ -1273,8 +1255,6 @@ webcore_sources += \
 	Source/WebCore/html/DateTimeLocalInputType.h \
 	Source/WebCore/html/DOMFormData.cpp \
 	Source/WebCore/html/DOMFormData.h \
-	Source/WebCore/html/DOMURL.cpp \
-	Source/WebCore/html/DOMURL.h \
 	Source/WebCore/html/EmailInputType.cpp \
 	Source/WebCore/html/EmailInputType.h \
 	Source/WebCore/html/FileInputType.cpp \
@@ -1543,7 +1523,6 @@ webcore_sources += \
 	Source/WebCore/html/shadow/TextControlInnerElements.h \
 	Source/WebCore/html/PasswordInputType.cpp \
 	Source/WebCore/html/PasswordInputType.h \
-	Source/WebCore/html/PublicURLManager.h \
 	Source/WebCore/html/RadioInputType.cpp \
 	Source/WebCore/html/RadioInputType.h \
 	Source/WebCore/html/RangeInputType.cpp \
@@ -2791,12 +2770,6 @@ webcore_platform_sources += \
 	Source/WebCore/platform/mock/ScrollbarThemeMock.h \
 	Source/WebCore/platform/network/BlobData.cpp \
 	Source/WebCore/platform/network/BlobData.h \
-	Source/WebCore/platform/network/BlobRegistry.h \
-	Source/WebCore/platform/network/BlobRegistry.cpp \
-	Source/WebCore/platform/network/BlobRegistryImpl.cpp \
-	Source/WebCore/platform/network/BlobRegistryImpl.h \
-	Source/WebCore/platform/network/BlobResourceHandle.cpp \
-	Source/WebCore/platform/network/BlobResourceHandle.h \
 	Source/WebCore/platform/network/BlobStorageData.h \
 	Source/WebCore/platform/network/FormDataBuilder.cpp \
 	Source/WebCore/platform/network/FormDataBuilder.h \
@@ -3228,9 +3201,6 @@ platform_sources += \
     Source/WebCore/platform/FileChooser.cpp \
     Source/WebCore/platform/FileChooser.h \
     Source/WebCore/platform/FileMetadata.h \
-	Source/WebCore/platform/FileStreamClient.h \
-	Source/WebCore/platform/FileStream.cpp \
-	Source/WebCore/platform/FileStream.h \
 	Source/WebCore/platform/FileSystem.cpp \
 	Source/WebCore/platform/FileSystem.h \
 	Source/WebCore/platform/FloatConversion.h \

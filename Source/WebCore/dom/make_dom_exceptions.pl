@@ -154,7 +154,6 @@ sub generateImplementation()
     print F "#include \"dom/EventException.h\"\n";
     print F "#include \"dom/DOMCoreException.h\"\n";
     print F "#include \"svg/SVGException.h\"\n";
-    print F "#include \"fileapi/FileException.h\"\n";
     print F "#include \"xml/XMLHttpRequestException.h\"\n";
     print F "#include \"xml/XPathException.h\"\n";
 

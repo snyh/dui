@@ -49,10 +49,6 @@ class EventTarget;
 class ScriptCallStack;
 class ScriptState;
 
-#if ENABLE(BLOB)
-class PublicURLManager;
-#endif
-
 class ScriptExecutionContext : public Supplementable<ScriptExecutionContext> {
 public:
     ScriptExecutionContext();
@@ -73,9 +69,6 @@ public:
 
     bool sanitizeScriptError(String& errorMessage, int& lineNumber, String& sourceURL, CachedScript* = 0);
 
-#if ENABLE(BLOB)
-    PublicURLManager& publicURLManager();
-#endif
     // Active objects are not garbage collected even if inaccessible, e.g. because their activity may result in callbacks being invoked.
     bool canSuspendActiveDOMObjects();
     // Active objects can be asked to suspend even if canSuspendActiveDOMObjects() returns 'false' -
@@ -168,10 +161,6 @@ private:
     bool m_activeDOMObjectsAreSuspended;
     ActiveDOMObject::ReasonForSuspension m_reasonForSuspendingActiveDOMObjects;
     bool m_activeDOMObjectsAreStopped;
-
-#if ENABLE(BLOB)
-    OwnPtr<PublicURLManager> m_publicURLManager;
-#endif
 
 };
 

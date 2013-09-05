@@ -100,15 +100,6 @@ static URLSchemesMap& canDisplayOnlyIfCanRequestSchemes()
 {
     DEFINE_STATIC_LOCAL(URLSchemesMap, canDisplayOnlyIfCanRequestSchemes, ());
 
-#if ENABLE(BLOB)
-    if (canDisplayOnlyIfCanRequestSchemes.isEmpty()) {
-        canDisplayOnlyIfCanRequestSchemes.add("blob");
-#if ENABLE(FILE_SYSTEM)
-        canDisplayOnlyIfCanRequestSchemes.add("filesystem");
-#endif
-    }
-#endif // ENABLE(BLOB)
-
     return canDisplayOnlyIfCanRequestSchemes;
 }
 

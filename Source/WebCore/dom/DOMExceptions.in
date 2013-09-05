@@ -2,7 +2,6 @@ namespace=Exception
 
 DOMCoreException
 EventException
-FileException conditional=BLOB
 RangeException
 SVGException conditional=SVG
 XMLHttpRequestException

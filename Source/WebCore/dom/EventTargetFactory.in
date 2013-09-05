@@ -3,7 +3,6 @@ namespace="EventTarget"
 DOMApplicationCache
 DOMWindow
 EventSource
-FileReader conditional=BLOB
 FileWriter conditional=FILE_SYSTEM
 FontLoader conditional=FONT_LOAD_EVENTS
 NetworkInfoConnection conditional=NETWORK_INFO

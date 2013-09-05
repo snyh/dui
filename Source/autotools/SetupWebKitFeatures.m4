@@ -11,12 +11,6 @@ AH_BOTTOM([
 
 CONFIGURABLE_FEATURE_DEFINES=
 
-if test "$enable_spellcheck" = "yes"; then
-    CONFIGURABLE_FEATURE_DEFINES="$CONFIGURABLE_FEATURE_DEFINES ENABLE_SPELLCHECK=0"
-else
-    CONFIGURABLE_FEATURE_DEFINES="$CONFIGURABLE_FEATURE_DEFINES ENABLE_SPELLCHECK=0"
-fi
-
 if test "$enable_css_shaders" = "yes"; then
     CONFIGURABLE_FEATURE_DEFINES="$CONFIGURABLE_FEATURE_DEFINES ENABLE_CSS_SHADERS=0"
 else
@@ -64,7 +58,6 @@ fi
 # this command now rather than use AC_CONFIG_COMMANDS because automake rules depend
 # on the output file (WebKitFeatures.txt).
 $srcdir/Tools/gtk/generate-feature-defines-files $CONFIGURABLE_FEATURE_DEFINES \
-    ENABLE_BLOB=0 \
     ENABLE_CANVAS_PATH=0 \
     ENABLE_CANVAS_PROXY=0 \
     ENABLE_CHANNEL_MESSAGING=0 \

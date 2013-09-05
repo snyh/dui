@@ -24,7 +24,6 @@
 #include "platform/network/FormData.h"
 
 #include "platform/network/BlobData.h"
-#include "platform/network/BlobRegistryImpl.h"
 #include "fileapi/BlobURL.h"
 #include "page/Chrome.h"
 #include "page/ChromeClient.h"
@@ -137,17 +136,8 @@ PassRefPtr<FormData> FormData::deepCopy() const
             formData->m_elements.uncheckedAppend(FormDataElement(e.m_data));
             break;
         case FormDataElement::encodedFile:
-#if ENABLE(BLOB)
-            formData->m_elements.uncheckedAppend(FormDataElement(e.m_filename, e.m_fileStart, e.m_fileLength, e.m_expectedFileModificationTime, e.m_shouldGenerateFile));
-#else
             formData->m_elements.uncheckedAppend(FormDataElement(e.m_filename, e.m_shouldGenerateFile));
-#endif
             break;
-#if ENABLE(BLOB)
-        case FormDataElement::encodedBlob:
-            formData->m_elements.uncheckedAppend(FormDataElement(e.m_url));
-            break;
-#endif
 #if ENABLE(FILE_SYSTEM)
         case FormDataElement::encodedURL:
             formData->m_elements.uncheckedAppend(FormDataElement(e.m_url, e.m_fileStart, e.m_fileLength, e.m_expectedFileModificationTime));
@@ -170,24 +160,9 @@ void FormData::appendData(const void* data, size_t size)
 
 void FormData::appendFile(const String& filename, bool shouldGenerateFile)
 {
-#if ENABLE(BLOB)
-    m_elements.append(FormDataElement(filename, 0, BlobDataItem::toEndOfFile, invalidFileTime(), shouldGenerateFile));
-#else
     m_elements.append(FormDataElement(filename, shouldGenerateFile));
-#endif
 }
 
-#if ENABLE(BLOB)
-void FormData::appendFileRange(const String& filename, long long start, long long length, double expectedModificationTime, bool shouldGenerateFile)
-{
-    m_elements.append(FormDataElement(filename, start, length, expectedModificationTime, shouldGenerateFile));
-}
-
-void FormData::appendBlob(const KURL& blobURL)
-{
-    m_elements.append(FormDataElement(blobURL));
-}
-#endif
 #if ENABLE(FILE_SYSTEM)
 void FormData::appendURL(const KURL& url)
 {
@@ -278,10 +253,6 @@ void FormData::appendKeyValuePairItems(const FormDataList& list, const TextEncod
                         appendURL(file->fileSystemURL());
 #endif
                 }
-#if ENABLE(BLOB)
-                else
-                    appendBlob(value.blob()->url());
-#endif
             } else
                 appendData(value.data().data(), value.data().length());
             appendData("\r\n", 2);
@@ -319,70 +290,6 @@ String FormData::flattenToString() const
     flatten(bytes);
     return Latin1Encoding().decode(reinterpret_cast<const char*>(bytes.data()), bytes.size());
 }
-
-#if ENABLE(BLOB)
-static void appendBlobResolved(FormData* formData, const KURL& url)
-{
-    if (!blobRegistry().isBlobRegistryImpl()) {
-        LOG_ERROR("Tried to resolve a blob without a usable registry");
-        return;
-    }
-    BlobStorageData* blobData = static_cast<BlobRegistryImpl&>(blobRegistry()).getBlobDataFromURL(KURL(ParsedURLString, url));
-    if (!blobData) {
-        LOG_ERROR("Could not get blob data from a registry");
-        return;
-    }
-
-    BlobDataItemList::const_iterator it = blobData->items().begin();
-    const BlobDataItemList::const_iterator itend = blobData->items().end();
-    for (; it != itend; ++it) {
-        const BlobDataItem& blobItem = *it;
-        if (blobItem.type == BlobDataItem::Data)
-            formData->appendData(blobItem.data->data() + static_cast<int>(blobItem.offset), static_cast<int>(blobItem.length));
-        else if (blobItem.type == BlobDataItem::File)
-            formData->appendFileRange(blobItem.path, blobItem.offset, blobItem.length, blobItem.expectedModificationTime);
-        else if (blobItem.type == BlobDataItem::Blob)
-            appendBlobResolved(formData, blobItem.url);
-        else
-            ASSERT_NOT_REACHED();
-    }
-}
-
-PassRefPtr<FormData> FormData::resolveBlobReferences()
-{
-    // First check if any blobs needs to be resolved, or we can take the fast path.
-    bool hasBlob = false;
-    Vector<FormDataElement>::const_iterator it = elements().begin();
-    const Vector<FormDataElement>::const_iterator itend = elements().end();
-    for (; it != itend; ++it) {
-        if (it->m_type == FormDataElement::encodedBlob) {
-            hasBlob = true;
-            break;
-        }
-    }
-
-    if (!hasBlob)
-        return this;
-
-    // Create a copy to append the result into.
-    RefPtr<FormData> newFormData = FormData::create();
-    newFormData->setAlwaysStream(alwaysStream());
-    newFormData->setIdentifier(identifier());
-    it = elements().begin();
-    for (; it != itend; ++it) {
-        const FormDataElement& element = *it;
-        if (element.m_type == FormDataElement::data)
-            newFormData->appendData(element.m_data.data(), element.m_data.size());
-        else if (element.m_type == FormDataElement::encodedFile)
-            newFormData->appendFileRange(element.m_filename, element.m_fileStart, element.m_fileLength, element.m_expectedFileModificationTime, element.m_shouldGenerateFile);
-        else if (element.m_type == FormDataElement::encodedBlob)
-            appendBlobResolved(newFormData.get(), element.m_url);
-        else
-            ASSERT_NOT_REACHED();
-    }
-    return newFormData.release();
-}
-#endif
 
 void FormData::generateFiles(Document* document)
 {
@@ -438,22 +345,10 @@ static void encodeElement(Encoder& encoder, const FormDataElement& element)
         encoder.encodeString(element.m_filename);
         encoder.encodeString(element.m_generatedFilename);
         encoder.encodeBool(element.m_shouldGenerateFile);
-#if ENABLE(BLOB)
-        encoder.encodeInt64(element.m_fileStart);
-        encoder.encodeInt64(element.m_fileLength);
-        encoder.encodeDouble(element.m_expectedFileModificationTime);
-#else
         encoder.encodeInt64(0);
         encoder.encodeInt64(0);
         encoder.encodeDouble(invalidFileTime());
-#endif
         return;
-
-#if ENABLE(BLOB)
-    case FormDataElement::encodedBlob:
-        encoder.encodeString(element.m_url.string());
-        return;
-#endif
 
 #if ENABLE(FILE_SYSTEM)
     case FormDataElement::encodedURL:
@@ -522,23 +417,8 @@ static bool decodeElement(Decoder& decoder, FormDataElement& element)
 #endif
         element.m_filename = filenameOrURL;
 
-#if ENABLE(BLOB)
-        element.m_fileStart = fileStart;
-        element.m_fileLength = fileLength;
-        element.m_expectedFileModificationTime = expectedFileModificationTime;
-#endif
         return true;
     }
-
-#if ENABLE(BLOB)
-    case FormDataElement::encodedBlob:
-        element.m_type = FormDataElement::encodedBlob;
-        String blobURLString;
-        if (!decoder.decodeString(blobURLString))
-            return false;
-        element.m_url = KURL(KURL(), blobURLString);
-        return true;
-#endif
 
     }
 
