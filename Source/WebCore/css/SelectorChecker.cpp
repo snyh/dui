@@ -707,30 +707,6 @@ bool SelectorChecker::checkOne(const SelectorCheckingContext& context) const
                     break;
                 return true;
             }
-#if ENABLE(FULLSCREEN_API)
-        case CSSSelector::PseudoFullScreen:
-            // While a Document is in the fullscreen state, and the document's current fullscreen
-            // element is an element in the document, the 'full-screen' pseudoclass applies to
-            // that element. Also, an <iframe>, <object> or <embed> element whose child browsing
-            // context's Document is in the fullscreen state has the 'full-screen' pseudoclass applied.
-            if (element->isFrameElementBase() && element->containsFullScreenElement())
-                return true;
-            if (!element->document()->webkitIsFullScreen())
-                return false;
-            return element == element->document()->webkitCurrentFullScreenElement();
-        case CSSSelector::PseudoAnimatingFullScreenTransition:
-            if (element != element->document()->webkitCurrentFullScreenElement())
-                return false;
-            return element->document()->isAnimatingFullScreen();
-        case CSSSelector::PseudoFullScreenAncestor:
-            return element->containsFullScreenElement();
-        case CSSSelector::PseudoFullScreenDocument:
-            // While a Document is in the fullscreen state, the 'full-screen-document' pseudoclass applies
-            // to all elements of that Document.
-            if (!element->document()->webkitIsFullScreen())
-                return false;
-            return true;
-#endif
 #if ENABLE(IFRAME_SEAMLESS)
         case CSSSelector::PseudoSeamlessDocument:
             // While a document is rendered in a seamless iframe, the 'seamless-document' pseudoclass applies

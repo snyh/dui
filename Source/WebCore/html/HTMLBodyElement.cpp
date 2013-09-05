@@ -134,10 +134,6 @@ void HTMLBodyElement::parseAttribute(const QualifiedName& name, const AtomicStri
         document()->setWindowAttributeEventListener(eventNames().blurEvent, createAttributeEventListener(document()->frame(), name, value));
     else if (name == onfocusAttr)
         document()->setWindowAttributeEventListener(eventNames().focusEvent, createAttributeEventListener(document()->frame(), name, value));
-#if ENABLE(ORIENTATION_EVENTS)
-    else if (name == onorientationchangeAttr)
-        document()->setWindowAttributeEventListener(eventNames().orientationchangeEvent, createAttributeEventListener(document()->frame(), name, value));
-#endif
     else if (name == onhashchangeAttr)
         document()->setWindowAttributeEventListener(eventNames().hashchangeEvent, createAttributeEventListener(document()->frame(), name, value));
     else if (name == onresizeAttr)

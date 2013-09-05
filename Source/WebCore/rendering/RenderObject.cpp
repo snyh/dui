@@ -2045,11 +2045,6 @@ void RenderObject::propagateStyleToAnonymousChildren(bool blockChildrenOnly)
         if (blockChildrenOnly && !child->isRenderBlock())
             continue;
 
-#if ENABLE(FULLSCREEN_API)
-        if (child->isRenderFullScreen() || child->isRenderFullScreenPlaceholder())
-            continue;
-#endif
-
         RefPtr<RenderStyle> newStyle = RenderStyle::createAnonymousStyleWithDisplay(style(), child->style()->display());
         if (style()->specifiesColumns()) {
             if (child->style()->specifiesColumns())

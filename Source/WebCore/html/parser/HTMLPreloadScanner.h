@@ -28,7 +28,6 @@
 #define HTMLPreloadScanner_h
 
 #include "html/parser/CSSPreloadScanner.h"
-#include "html/parser/CompactHTMLToken.h"
 #include "html/parser/HTMLToken.h"
 #include "platform/text/SegmentedString.h"
 #include <wtf/Vector.h>
@@ -48,10 +47,6 @@ public:
     ~TokenPreloadScanner();
 
     void scan(const HTMLToken&, PreloadRequestStream& requests);
-#if ENABLE(THREADED_HTML_PARSER)
-    void scan(const CompactHTMLToken&, PreloadRequestStream& requests);
-#endif
-
     void setPredictedBaseElementURL(const KURL& url) { m_predictedBaseElementURL = url; }
 
     // A TokenPreloadScannerCheckpoint is valid until the next call to rewindTo,

@@ -658,10 +658,6 @@ bool StyleResolver::canShareStyleWithElement(StyledElement* element) const
     // Turn off style sharing for elements that can gain layers for reasons outside of the style system.
     // See comments in RenderObject::setStyle().
     if (element->hasTagName(iframeTag) || element->hasTagName(frameTag) || element->hasTagName(canvasTag)
-#if ENABLE(PLUGIN_PROXY_FOR_VIDEO)
-        // With proxying, the media elements are backed by a RenderEmbeddedObject.
-        || element->hasTagName(videoTag) || isHTMLAudioElement(element)
-#endif
         )
         return false;
 #endif
@@ -672,10 +668,6 @@ bool StyleResolver::canShareStyleWithElement(StyledElement* element) const
     if (element->isLink() && state.elementLinkState() != style->insideLink())
         return false;
 
-#if ENABLE(FULLSCREEN_API)
-    if (element == element->document()->webkitCurrentFullScreenElement() || state.element() == state.document()->webkitCurrentFullScreenElement())
-        return false;
-#endif
     return true;
 }
 

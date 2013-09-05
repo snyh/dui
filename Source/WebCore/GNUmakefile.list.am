@@ -122,7 +122,6 @@ dom_binding_idls += \
 	$(WebCore)/dom/PopStateEvent.idl \
 	$(WebCore)/dom/ProcessingInstruction.idl \
 	$(WebCore)/dom/ProgressEvent.idl \
-	$(WebCore)/dom/PropertyNodeList.idl \
 	$(WebCore)/dom/Range.idl \
 	$(WebCore)/dom/RangeException.idl \
 	$(WebCore)/dom/RequestAnimationFrameCallback.idl \
@@ -197,7 +196,6 @@ dom_binding_idls += \
 	$(WebCore)/html/HTMLParamElement.idl \
 	$(WebCore)/html/HTMLPreElement.idl \
 	$(WebCore)/html/HTMLProgressElement.idl \
-	$(WebCore)/html/HTMLPropertiesCollection.idl \
 	$(WebCore)/html/HTMLQuoteElement.idl \
 	$(WebCore)/html/HTMLSelectElement.idl \
 	$(WebCore)/html/HTMLSpanElement.idl \
@@ -214,7 +212,6 @@ dom_binding_idls += \
 	$(WebCore)/html/HTMLUListElement.idl \
 	$(WebCore)/html/HTMLUnknownElement.idl \
 	$(WebCore)/html/ImageData.idl \
-	$(WebCore)/html/MicroDataItemValue.idl \
 	$(WebCore)/html/RadioNodeList.idl \
 	$(WebCore)/html/TextMetrics.idl \
 	$(WebCore)/html/TimeRanges.idl \
@@ -849,8 +846,6 @@ webcore_sources += \
 	Source/WebCore/dom/LiveNodeList.h \
 	Source/WebCore/dom/KeyboardEvent.cpp \
 	Source/WebCore/dom/KeyboardEvent.h \
-	Source/WebCore/dom/MicroDataItemList.cpp \
-	Source/WebCore/dom/MicroDataItemList.h \
 	Source/WebCore/dom/MouseEvent.cpp \
 	Source/WebCore/dom/MouseEvent.h \
 	Source/WebCore/dom/MouseRelatedEvent.cpp \
@@ -907,8 +902,6 @@ webcore_sources += \
 	Source/WebCore/dom/ProcessingInstruction.h \
 	Source/WebCore/dom/ProgressEvent.cpp \
 	Source/WebCore/dom/ProgressEvent.h \
-	Source/WebCore/dom/PropertyNodeList.cpp \
-	Source/WebCore/dom/PropertyNodeList.h \
 	Source/WebCore/dom/PseudoElement.cpp \
 	Source/WebCore/dom/PseudoElement.h \
 	Source/WebCore/dom/QualifiedName.cpp \
@@ -1381,8 +1374,6 @@ webcore_sources += \
 	Source/WebCore/html/HTMLPreElement.h \
 	Source/WebCore/html/HTMLProgressElement.cpp \
 	Source/WebCore/html/HTMLProgressElement.h \
-	Source/WebCore/html/HTMLPropertiesCollection.cpp \
-	Source/WebCore/html/HTMLPropertiesCollection.h \
 	Source/WebCore/html/HTMLQuoteElement.cpp \
 	Source/WebCore/html/HTMLQuoteElement.h \
 	Source/WebCore/html/HTMLSelectElement.cpp \
@@ -1438,23 +1429,13 @@ webcore_sources += \
 	Source/WebCore/html/LabelsNodeList.h \
 	Source/WebCore/html/LinkRelAttribute.cpp \
 	Source/WebCore/html/LinkRelAttribute.h \
-	Source/WebCore/html/MicroDataAttributeTokenList.cpp \
-	Source/WebCore/html/MicroDataAttributeTokenList.h \
-	Source/WebCore/html/MicroDataItemValue.cpp \
-	Source/WebCore/html/MicroDataItemValue.h \
 	Source/WebCore/html/MonthInputType.cpp \
 	Source/WebCore/html/MonthInputType.h \
 	Source/WebCore/html/NumberInputType.cpp \
 	Source/WebCore/html/NumberInputType.h \
 	Source/WebCore/html/parser/AtomicHTMLToken.h \
-	Source/WebCore/html/parser/BackgroundHTMLInputStream.cpp \
-	Source/WebCore/html/parser/BackgroundHTMLInputStream.h \
-	Source/WebCore/html/parser/BackgroundHTMLParser.cpp \
-	Source/WebCore/html/parser/BackgroundHTMLParser.h \
 	Source/WebCore/html/parser/CSSPreloadScanner.cpp \
 	Source/WebCore/html/parser/CSSPreloadScanner.h \
-	Source/WebCore/html/parser/CompactHTMLToken.cpp \
-	Source/WebCore/html/parser/CompactHTMLToken.h \
 	Source/WebCore/html/parser/HTMLConstructionSite.cpp \
 	Source/WebCore/html/parser/HTMLConstructionSite.h \
 	Source/WebCore/html/parser/HTMLDocumentParser.cpp \
@@ -1468,8 +1449,6 @@ webcore_sources += \
 	Source/WebCore/html/parser/HTMLEntityTable.h \
 	Source/WebCore/html/parser/HTMLFormattingElementList.cpp \
 	Source/WebCore/html/parser/HTMLFormattingElementList.h \
-	Source/WebCore/html/parser/HTMLIdentifier.cpp \
-	Source/WebCore/html/parser/HTMLIdentifier.h \
 	Source/WebCore/html/parser/HTMLInputStream.h \
 	Source/WebCore/html/parser/HTMLMetaCharsetParser.cpp \
 	Source/WebCore/html/parser/HTMLMetaCharsetParser.h \
@@ -1479,8 +1458,6 @@ webcore_sources += \
 	Source/WebCore/html/parser/HTMLParserOptions.h \
 	Source/WebCore/html/parser/HTMLParserScheduler.cpp \
 	Source/WebCore/html/parser/HTMLParserScheduler.h \
-	Source/WebCore/html/parser/HTMLParserThread.cpp \
-	Source/WebCore/html/parser/HTMLParserThread.h \
 	Source/WebCore/html/parser/HTMLPreloadScanner.cpp \
 	Source/WebCore/html/parser/HTMLPreloadScanner.h \
 	Source/WebCore/html/parser/HTMLResourcePreloader.cpp \
@@ -1493,8 +1470,6 @@ webcore_sources += \
 	Source/WebCore/html/parser/HTMLTokenizer.h \
 	Source/WebCore/html/parser/HTMLTreeBuilder.cpp \
 	Source/WebCore/html/parser/HTMLTreeBuilder.h \
-	Source/WebCore/html/parser/HTMLTreeBuilderSimulator.cpp \
-	Source/WebCore/html/parser/HTMLTreeBuilderSimulator.h \
 	Source/WebCore/html/parser/InputStreamPreprocessor.h \
 	Source/WebCore/html/parser/NestingLevelIncrementer.h \
 	Source/WebCore/html/parser/TextDocumentParser.cpp \
@@ -1864,8 +1839,6 @@ webcore_sources += \
 	Source/WebCore/rendering/RenderFrame.h \
 	Source/WebCore/rendering/RenderFrameSet.cpp \
 	Source/WebCore/rendering/RenderFrameSet.h \
-	Source/WebCore/rendering/RenderFullScreen.cpp \
-	Source/WebCore/rendering/RenderFullScreen.h \
 	Source/WebCore/rendering/RenderGrid.cpp \
 	Source/WebCore/rendering/RenderGrid.h \
 	Source/WebCore/rendering/RenderGeometryMap.cpp \

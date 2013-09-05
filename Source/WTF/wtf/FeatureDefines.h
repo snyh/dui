@@ -76,18 +76,6 @@
 #define ENABLE_GEOLOCATION 1
 #endif
 
-#if !defined(ENABLE_ICONDATABASE)
-#define ENABLE_ICONDATABASE 0
-#endif
-
-#if !defined(ENABLE_NETSCAPE_PLUGIN_API)
-#define ENABLE_NETSCAPE_PLUGIN_API 0
-#endif
-
-#if !defined(ENABLE_ORIENTATION_EVENTS)
-#define ENABLE_ORIENTATION_EVENTS 1 
-#endif
-
 #if !defined(ENABLE_REPAINT_THROTTLING)
 #define ENABLE_REPAINT_THROTTLING 1 
 #endif
@@ -98,10 +86,6 @@
 
 #if !defined(ENABLE_WEB_ARCHIVE)
 #define ENABLE_WEB_ARCHIVE 1
-#endif
-
-#if !defined(ENABLE_VIEW_MODE_CSS_MEDIA)
-#define ENABLE_VIEW_MODE_CSS_MEDIA 0
 #endif
 
 #if !defined(ENABLE_WEBGL)
@@ -134,10 +118,6 @@
 #endif
 #endif
 
-#if !defined(ENABLE_FULLSCREEN_API)
-#define ENABLE_FULLSCREEN_API 1
-#endif
-
 #if __MAC_OS_X_VERSION_MIN_REQUIRED >= 1070
 #if !defined(ENABLE_GESTURE_EVENTS)
 #define ENABLE_GESTURE_EVENTS 1
@@ -160,16 +140,6 @@
 #endif
 #endif
 
-#if ENABLE(VIDEO)
-#if !defined(ENABLE_VIDEO_TRACK)
-#define ENABLE_VIDEO_TRACK 1
-#endif
-#endif
-
-#if !defined(ENABLE_VIEW_MODE_CSS_MEDIA)
-#define ENABLE_VIEW_MODE_CSS_MEDIA 0
-#endif
-
 #if !defined(ENABLE_WEB_ARCHIVE)
 #define ENABLE_WEB_ARCHIVE 1
 #endif
@@ -186,10 +156,6 @@
 
 /* --------- Apple Windows port --------- */
 #if PLATFORM(WIN) && !OS(WINCE) && !PLATFORM(WIN_CAIRO)
-
-#if !defined(ENABLE_FULLSCREEN_API)
-#define ENABLE_FULLSCREEN_API 1
-#endif
 
 #if !defined(ENABLE_WEB_ARCHIVE)
 #define ENABLE_WEB_ARCHIVE 1
@@ -210,10 +176,6 @@
 #define ENABLE_FTPDIR 0
 #endif
 
-#if !defined(ENABLE_INSPECTOR)
-#define ENABLE_INSPECTOR 0
-#endif
-
 #endif /* PLATFORM(WIN) && OS(WINCE) */
 
 /* --------- Windows CAIRO port --------- */
@@ -223,10 +185,6 @@
 
 #if !defined(ENABLE_WEB_ARCHIVE)
 #define ENABLE_WEB_ARCHIVE 1
-#endif
-
-#if !defined(ENABLE_VIEW_MODE_CSS_MEDIA)
-#define ENABLE_VIEW_MODE_CSS_MEDIA 0
 #endif
 
 #endif /* PLATFORM(WIN_CAIRO) */
@@ -442,10 +400,6 @@
 #define ENABLE_FTPDIR 1
 #endif
 
-#if !defined(ENABLE_FULLSCREEN_API)
-#define ENABLE_FULLSCREEN_API 0
-#endif
-
 #if !defined(ENABLE_GAMEPAD)
 #define ENABLE_GAMEPAD 0
 #endif
@@ -470,24 +424,12 @@
 #define ENABLE_HIGH_DPI_CANVAS 0
 #endif
 
-#if !defined(ENABLE_ICONDATABASE)
-#define ENABLE_ICONDATABASE 1
-#endif
-
 #if !defined(ENABLE_IFRAME_SEAMLESS)
 #define ENABLE_IFRAME_SEAMLESS 1
 #endif
 
 #if !defined(ENABLE_IMAGE_DECODER_DOWN_SAMPLING)
 #define ENABLE_IMAGE_DECODER_DOWN_SAMPLING 0
-#endif
-
-#if !defined(ENABLE_INDEXED_DATABASE)
-#define ENABLE_INDEXED_DATABASE 0
-#endif
-
-#if !defined(ENABLE_INPUT_SPEECH)
-#define ENABLE_INPUT_SPEECH 0
 #endif
 
 #if !defined(ENABLE_INPUT_TYPE_COLOR)
@@ -524,24 +466,8 @@
 #endif
 #endif
 
-#if !defined(ENABLE_INSPECTOR)
-#define ENABLE_INSPECTOR 1
-#endif
-
-#if !defined(ENABLE_JAVASCRIPT_DEBUGGER)
-#define ENABLE_JAVASCRIPT_DEBUGGER 1
-#endif
-
-#if !defined(ENABLE_JAVASCRIPT_I18N_API)
-#define ENABLE_JAVASCRIPT_I18N_API 0
-#endif
-
 #if !defined(ENABLE_LEGACY_CSS_VENDOR_PREFIXES)
 #define ENABLE_LEGACY_CSS_VENDOR_PREFIXES 0
-#endif
-
-#if !defined(ENABLE_LEGACY_NOTIFICATIONS)
-#define ENABLE_LEGACY_NOTIFICATIONS 0
 #endif
 
 #if !defined(ENABLE_LEGACY_VENDOR_PREFIXES)
@@ -584,10 +510,6 @@
 #define ENABLE_MHTML 0
 #endif
 
-#if !defined(ENABLE_MICRODATA)
-#define ENABLE_MICRODATA 0
-#endif
-
 #if !defined(ENABLE_MOUSE_CURSOR_SCALE)
 #define ENABLE_MOUSE_CURSOR_SCALE 0
 #endif
@@ -596,20 +518,8 @@
 #define ENABLE_NAVIGATOR_CONTENT_UTILS 0
 #endif
 
-#if !defined(ENABLE_NETSCAPE_PLUGIN_API)
-#define ENABLE_NETSCAPE_PLUGIN_API 1
-#endif
-
 #if !defined(ENABLE_NETSCAPE_PLUGIN_METADATA_CACHE)
 #define ENABLE_NETSCAPE_PLUGIN_METADATA_CACHE 0
-#endif
-
-#if !defined(ENABLE_NETWORK_INFO)
-#define ENABLE_NETWORK_INFO 0
-#endif
-
-#if !defined(ENABLE_NOTIFICATIONS)
-#define ENABLE_NOTIFICATIONS 0
 #endif
 
 #if !defined(ENABLE_OBJECT_MARK_LOGGING)
@@ -624,14 +534,6 @@
 #define ENABLE_OPENTYPE_VERTICAL 0
 #endif
 
-#if !defined(ENABLE_ORIENTATION_EVENTS)
-#define ENABLE_ORIENTATION_EVENTS 0
-#endif
-
-#if !defined(ENABLE_PAGE_VISIBILITY_API)
-#define ENABLE_PAGE_VISIBILITY_API 0
-#endif
-
 #if OS(WINDOWS)
 #if !defined(ENABLE_PAN_SCROLLING)
 #define ENABLE_PAN_SCROLLING 1
@@ -640,10 +542,6 @@
 
 #if !defined(ENABLE_PLUGIN_PACKAGE_SIMPLE_HASH)
 #define ENABLE_PLUGIN_PACKAGE_SIMPLE_HASH 0
-#endif
-
-#if !defined(ENABLE_PLUGIN_PROXY_FOR_VIDEO)
-#define ENABLE_PLUGIN_PROXY_FOR_VIDEO 0
 #endif
 
 #if !defined(ENABLE_POINTER_LOCK)
@@ -684,10 +582,6 @@
 
 #if !defined(ENABLE_SHADOW_DOM)
 #define ENABLE_SHADOW_DOM 0
-#endif
-
-#if !defined(ENABLE_SHARED_WORKERS)
-#define ENABLE_SHARED_WORKERS 0
 #endif
 
 #if !defined(ENABLE_SMOOTH_SCROLLING)
@@ -732,10 +626,6 @@
 #define ENABLE_TEXT_CARET 1
 #endif
 
-#if !defined(ENABLE_THREADED_HTML_PARSER)
-#define ENABLE_THREADED_HTML_PARSER 0
-#endif
-
 #if !defined(ENABLE_THREADED_SCROLLING)
 #define ENABLE_THREADED_SCROLLING 0
 #endif
@@ -752,24 +642,12 @@
 #define ENABLE_VIBRATION 0
 #endif
 
-#if !defined(ENABLE_VIDEO)
-#define ENABLE_VIDEO 0
-#endif
-
-#if !defined(ENABLE_VIDEO_TRACK)
-#define ENABLE_VIDEO_TRACK 0
-#endif
-
 #if !defined(ENABLE_VIEWPORT)
 #define ENABLE_VIEWPORT 0
 #endif
 
 #if !defined(ENABLE_VIEWSOURCE_ATTRIBUTE)
 #define ENABLE_VIEWSOURCE_ATTRIBUTE 1
-#endif
-
-#if !defined(ENABLE_VIEW_MODE_CSS_MEDIA)
-#define ENABLE_VIEW_MODE_CSS_MEDIA 1
 #endif
 
 #if !defined(ENABLE_WEBGL)
@@ -784,22 +662,6 @@
 #define ENABLE_WEB_AUDIO 0
 #endif
 
-#if !defined(ENABLE_WEB_SOCKETS)
-#define ENABLE_WEB_SOCKETS 1
-#endif
-
-#if !defined(ENABLE_WEB_TIMING)
-#define ENABLE_WEB_TIMING 0
-#endif
-
-#if !defined(ENABLE_WORKERS)
-#define ENABLE_WORKERS 0
-#endif
-
-#if !defined(ENABLE_XHR_TIMEOUT)
-#define ENABLE_XHR_TIMEOUT 0
-#endif
-
 #if !defined(ENABLE_XSLT)
 #define ENABLE_XSLT 1
 #endif
@@ -812,10 +674,6 @@
 
 #if ENABLE(SVG_FONTS) && !ENABLE(SVG)
 #error "ENABLE(SVG_FONTS) requires ENABLE(SVG)"
-#endif
-
-#if ENABLE(VIDEO_TRACK) && !ENABLE(VIDEO)
-#error "ENABLE(VIDEO_TRACK) requires ENABLE(VIDEO)"
 #endif
 
 #endif /* WTF_FeatureDefines_h */

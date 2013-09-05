@@ -133,9 +133,6 @@ Page::Page(PageClients& pageClients)
     , m_customHTMLTokenizerTimeDelay(-1)
     , m_customHTMLTokenizerChunkSize(-1)
     , m_canStartMedia(true)
-#if ENABLE(VIEW_MODE_CSS_MEDIA)
-    , m_viewMode(ViewModeWindowed)
-#endif // ENABLE(VIEW_MODE_CSS_MEDIA)
     , m_isEditable(false)
     , m_isOnscreen(true)
     , m_isInWindow(true)
@@ -251,47 +248,6 @@ PassRefPtr<ClientRectList> Page::nonFastScrollableRects(const Frame* frame)
         quads[i] = FloatRect(rects[i]);
     return ClientRectList::create(quads);
 }
-
-#if ENABLE(VIEW_MODE_CSS_MEDIA)
-struct ViewModeInfo {
-    const char* name;
-    Page::ViewMode type;
-};
-static const int viewModeMapSize = 5;
-static ViewModeInfo viewModeMap[viewModeMapSize] = {
-    {"windowed", Page::ViewModeWindowed},
-    {"floating", Page::ViewModeFloating},
-    {"fullscreen", Page::ViewModeFullscreen},
-    {"maximized", Page::ViewModeMaximized},
-    {"minimized", Page::ViewModeMinimized}
-};
-
-Page::ViewMode Page::stringToViewMode(const String& text)
-{
-    for (int i = 0; i < viewModeMapSize; ++i) {
-        if (text == viewModeMap[i].name)
-            return viewModeMap[i].type;
-    }
-    return Page::ViewModeInvalid;
-}
-
-void Page::setViewMode(ViewMode viewMode)
-{
-    if (viewMode == m_viewMode || viewMode == ViewModeInvalid)
-        return;
-
-    m_viewMode = viewMode;
-
-    if (!m_mainFrame)
-        return;
-
-    if (m_mainFrame->view())
-        m_mainFrame->view()->forceLayout();
-
-    if (m_mainFrame->document())
-        m_mainFrame->document()->styleResolverChanged(RecalcStyleImmediately);
-}
-#endif // ENABLE(VIEW_MODE_CSS_MEDIA)
 
 void Page::setMainFrame(PassRefPtr<Frame> mainFrame)
 {

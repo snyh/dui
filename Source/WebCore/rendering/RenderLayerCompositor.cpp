@@ -43,7 +43,6 @@
 #include "platform/Logging.h"
 #include "dom/NodeList.h"
 #include "page/Page.h"
-#include "rendering/RenderFullScreen.h"
 #include "rendering/RenderGeometryMap.h"
 #include "rendering/RenderIFrame.h"
 #include "rendering/RenderLayerBacking.h"

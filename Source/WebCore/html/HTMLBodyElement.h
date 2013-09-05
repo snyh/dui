@@ -63,10 +63,6 @@ public:
     DEFINE_WINDOW_ATTRIBUTE_EVENT_LISTENER(storage);
     DEFINE_WINDOW_ATTRIBUTE_EVENT_LISTENER(unload);
 
-#if ENABLE(ORIENTATION_EVENTS)
-    DEFINE_WINDOW_ATTRIBUTE_EVENT_LISTENER(orientationchange);
-#endif
-
 private:
     HTMLBodyElement(const QualifiedName&, Document*);
 

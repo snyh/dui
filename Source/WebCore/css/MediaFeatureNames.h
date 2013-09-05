@@ -25,11 +25,7 @@
 namespace WebCore {
     namespace MediaFeatureNames {
 
-#if ENABLE(VIEW_MODE_CSS_MEDIA)
-#define CSS_MEDIAQUERY_VIEW_MODE(macro) macro(view_mode, "-webkit-view-mode")
-#else
 #define CSS_MEDIAQUERY_VIEW_MODE(macro)
-#endif
 
 #define CSS_MEDIAQUERY_NAMES_FOR_EACH_MEDIAFEATURE(macro) \
     macro(color, "color") \

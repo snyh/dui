@@ -121,19 +121,12 @@ public:
     bool isTimeField() const;
     bool isWeekField() const;
 
-#if ENABLE(INPUT_SPEECH)
-    bool isSpeechEnabled() const;
-#endif
-
     HTMLElement* containerElement() const;
     virtual HTMLElement* innerTextElement() const;
     HTMLElement* innerBlockElement() const;
     HTMLElement* innerSpinButtonElement() const;
     HTMLElement* resultsButtonElement() const;
     HTMLElement* cancelButtonElement() const;
-#if ENABLE(INPUT_SPEECH)
-    HTMLElement* speechButtonElement() const;
-#endif
     HTMLElement* sliderThumbElement() const;
     HTMLElement* sliderTrackElement() const;
     virtual HTMLElement* placeholderElement() const;

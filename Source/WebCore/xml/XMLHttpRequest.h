@@ -68,9 +68,6 @@ public:
     };
 
     virtual void contextDestroyed();
-#if ENABLE(XHR_TIMEOUT)
-    virtual void didTimeout();
-#endif
     virtual bool canSuspend() const;
     virtual void suspend(ReasonForSuspension);
     virtual void resume();
@@ -106,11 +103,6 @@ public:
     Document* optionalResponseXML() const { return m_responseDocument.get(); }
     Blob* responseBlob(ExceptionCode&);
     Blob* optionalResponseBlob() const { return m_responseBlob.get(); }
-#if ENABLE(XHR_TIMEOUT)
-    unsigned long timeout() const { return m_timeoutMilliseconds; }
-    void setTimeout(unsigned long timeout, ExceptionCode&);
-#endif
-
     void sendFromInspector(PassRefPtr<FormData>, ExceptionCode&);
 
     // Expose HTTP validation methods for other untrusted requests.
@@ -139,10 +131,6 @@ public:
     DEFINE_ATTRIBUTE_EVENT_LISTENER(loadend);
     DEFINE_ATTRIBUTE_EVENT_LISTENER(loadstart);
     DEFINE_ATTRIBUTE_EVENT_LISTENER(progress);
-#if ENABLE(XHR_TIMEOUT)
-    DEFINE_ATTRIBUTE_EVENT_LISTENER(timeout);
-#endif
-
     using RefCounted<XMLHttpRequest>::ref;
     using RefCounted<XMLHttpRequest>::deref;
 
@@ -195,9 +183,6 @@ private:
     String m_mimeTypeOverride;
     bool m_async;
     bool m_includeCredentials;
-#if ENABLE(XHR_TIMEOUT)
-    unsigned long m_timeoutMilliseconds;
-#endif
     RefPtr<Blob> m_responseBlob;
 
     State m_state;

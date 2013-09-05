@@ -60,11 +60,6 @@
 #include <wtf/StdLibExtras.h>
 #include <wtf/text/CString.h>
 
-#if ENABLE(MICRODATA)
-#include "html/HTMLPropertiesCollection.h"
-#include "html/MicroDataItemValue.h"
-#endif
-
 namespace WebCore {
 
 using namespace HTMLNames;
@@ -260,10 +255,6 @@ AtomicString HTMLElement::eventNameForAttributeName(const QualifiedName& attrNam
         attributeNameToEventNameMap.set(ontouchmoveAttr.localName(), eventNames().touchmoveEvent);
         attributeNameToEventNameMap.set(ontouchendAttr.localName(), eventNames().touchendEvent);
         attributeNameToEventNameMap.set(ontouchcancelAttr.localName(), eventNames().touchcancelEvent);
-#if ENABLE(FULLSCREEN_API)
-        attributeNameToEventNameMap.set(onwebkitfullscreenchangeAttr.localName(), eventNames().webkitfullscreenchangeEvent);
-        attributeNameToEventNameMap.set(onwebkitfullscreenerrorAttr.localName(), eventNames().webkitfullscreenerrorEvent);
-#endif
         attributeNameToEventNameMap.set(onabortAttr.localName(), eventNames().abortEvent);
         attributeNameToEventNameMap.set(oncanplayAttr.localName(), eventNames().canplayEvent);
         attributeNameToEventNameMap.set(oncanplaythroughAttr.localName(), eventNames().canplaythroughEvent);
@@ -309,14 +300,6 @@ void HTMLElement::parseAttribute(const QualifiedName& name, const AtomicString& 
             // Clamp tabindex to the range of 'short' to match Firefox's behavior.
             setTabIndexExplicitly(max(static_cast<int>(std::numeric_limits<short>::min()), min(tabindex, static_cast<int>(std::numeric_limits<short>::max()))));
         }
-#if ENABLE(MICRODATA)
-    } else if (name == itempropAttr) {
-        setItemProp(value);
-    } else if (name == itemrefAttr) {
-        setItemRef(value);
-    } else if (name == itemtypeAttr) {
-        setItemType(value);
-#endif
     } else {
         AtomicString eventName = eventNameForAttributeName(name);
         if (!eventName.isNull())
@@ -944,91 +927,8 @@ void HTMLElement::adjustDirectionalityIfNeededAfterChildrenChanged(Node* beforeC
 
 bool HTMLElement::isURLAttribute(const Attribute& attribute) const
 {
-#if ENABLE(MICRODATA)
-    if (attribute.name() == itemidAttr)
-        return true;
-#endif
     return StyledElement::isURLAttribute(attribute);
 }
-
-#if ENABLE(MICRODATA)
-void HTMLElement::setItemValue(const String& value, ExceptionCode& ec)
-{
-    if (!hasAttribute(itempropAttr) || hasAttribute(itemscopeAttr)) {
-        ec = INVALID_ACCESS_ERR;
-        return;
-    }
-
-    setItemValueText(value, ec);
-}
-
-PassRefPtr<MicroDataItemValue> HTMLElement::itemValue() const
-{
-    if (!hasAttribute(itempropAttr))
-        return 0;
-
-    if (hasAttribute(itemscopeAttr))
-        return MicroDataItemValue::createFromNode(const_cast<HTMLElement* const>(this));
-
-    return MicroDataItemValue::createFromString(itemValueText());
-}
-
-String HTMLElement::itemValueText() const
-{
-    return textContent(true);
-}
-
-void HTMLElement::setItemValueText(const String& value, ExceptionCode& ec)
-{
-    setTextContent(value, ec);
-}
-
-PassRefPtr<HTMLPropertiesCollection> HTMLElement::properties()
-{
-    return static_cast<HTMLPropertiesCollection*>(ensureCachedHTMLCollection(ItemProperties).get());
-}
-
-void HTMLElement::getItemRefElements(Vector<HTMLElement*>& itemRefElements)
-{
-    if (!fastHasAttribute(itemscopeAttr))
-        return;
-
-    if (!fastHasAttribute(itemrefAttr) || !itemRef()->length()) {
-        itemRefElements.append(this);
-        return;
-    }
-
-    DOMSettableTokenList* itemRefs = itemRef();
-    RefPtr<DOMSettableTokenList> processedItemRef = DOMSettableTokenList::create();
-
-    Node* rootNode;
-    if (inDocument())
-        rootNode = document();
-    else {
-        rootNode = this;
-        while (Node* parent = rootNode->parentNode())
-            rootNode = parent;
-    }
-
-    for (Node* current = rootNode; current; current = NodeTraversal::next(current, rootNode)) {
-        if (!current->isHTMLElement())
-            continue;
-        HTMLElement* element = toHTMLElement(current);
-
-        if (element == this) {
-            itemRefElements.append(element);
-            continue;
-        }
-
-        const AtomicString& id = element->getIdAttribute();
-        if (!processedItemRef->tokens().contains(id) && itemRefs->tokens().contains(id)) {
-            processedItemRef->setValue(id);
-            if (!element->isDescendantOf(this))
-                itemRefElements.append(element);
-        }
-    }
-}
-#endif
 
 void HTMLElement::addHTMLLengthToStyle(MutableStylePropertySet* style, CSSPropertyID propertyID, const String& value)
 {

@@ -128,10 +128,6 @@ void HTMLFrameSetElement::parseAttribute(const QualifiedName& name, const Atomic
         document()->setWindowAttributeEventListener(eventNames().focusinEvent, createAttributeEventListener(document()->frame(), name, value));
     else if (name == onfocusoutAttr)
         document()->setWindowAttributeEventListener(eventNames().focusoutEvent, createAttributeEventListener(document()->frame(), name, value));
-#if ENABLE(ORIENTATION_EVENTS)
-    else if (name == onorientationchangeAttr)
-        document()->setWindowAttributeEventListener(eventNames().orientationchangeEvent, createAttributeEventListener(document()->frame(), name, value));
-#endif
     else if (name == onhashchangeAttr)
         document()->setWindowAttributeEventListener(eventNames().hashchangeEvent, createAttributeEventListener(document()->frame(), name, value));
     else if (name == onresizeAttr)

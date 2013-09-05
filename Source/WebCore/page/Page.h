@@ -162,21 +162,6 @@ public:
 
     FeatureObserver* featureObserver() { return &m_featureObserver; }
 
-#if ENABLE(VIEW_MODE_CSS_MEDIA)
-    enum ViewMode {
-        ViewModeInvalid,
-        ViewModeWindowed,
-        ViewModeFloating,
-        ViewModeFullscreen,
-        ViewModeMaximized,
-        ViewModeMinimized
-    };
-    static ViewMode stringToViewMode(const String&);
-
-    ViewMode viewMode() const { return m_viewMode; }
-    void setViewMode(ViewMode);
-#endif // ENABLE(VIEW_MODE_CSS_MEDIA)
-
     void setTabKeyCyclesThroughElements(bool b) { m_tabKeyCyclesThroughElements = b; }
     bool tabKeyCyclesThroughElements() const { return m_tabKeyCyclesThroughElements; }
 
@@ -386,10 +371,6 @@ private:
     int m_customHTMLTokenizerChunkSize;
 
     bool m_canStartMedia;
-
-#if ENABLE(VIEW_MODE_CSS_MEDIA)
-    ViewMode m_viewMode;
-#endif // ENABLE(VIEW_MODE_CSS_MEDIA)
 
     bool m_isEditable;
     bool m_isOnscreen;

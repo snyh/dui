@@ -370,10 +370,6 @@ private:
     PlatformMouseEvent currentPlatformMouseEvent() const;
 #endif
 
-#if ENABLE(FULLSCREEN_API)
-    bool isKeyEventAllowedInFullScreen(const PlatformKeyboardEvent&) const;
-#endif
-
 #if ENABLE(GESTURE_EVENTS)
     bool handleGestureTapDown();
     bool handleGestureForTextSelectionOrContextMenu(const PlatformGestureEvent&);

@@ -168,16 +168,6 @@ PseudoId CSSSelector::pseudoId(PseudoType type)
         return SCROLLBAR_TRACK_PIECE;
     case PseudoResizer:
         return RESIZER;
-#if ENABLE(FULLSCREEN_API)
-    case PseudoFullScreen:
-        return FULL_SCREEN;
-    case PseudoFullScreenDocument:
-        return FULL_SCREEN_DOCUMENT;
-    case PseudoFullScreenAncestor:
-        return FULL_SCREEN_ANCESTOR;
-    case PseudoAnimatingFullScreenTransition:
-        return ANIMATING_FULL_SCREEN_TRANSITION;
-#endif
     case PseudoUnknown:
     case PseudoEmpty:
     case PseudoFirstChild:
@@ -315,12 +305,6 @@ static HashMap<AtomicStringImpl*, CSSSelector::PseudoType>* nameToPseudoTypeMap(
     DEFINE_STATIC_LOCAL(AtomicString, firstPage, ("first", AtomicString::ConstructFromLiteral));
     DEFINE_STATIC_LOCAL(AtomicString, leftPage, ("left", AtomicString::ConstructFromLiteral));
     DEFINE_STATIC_LOCAL(AtomicString, rightPage, ("right", AtomicString::ConstructFromLiteral));
-#if ENABLE(FULLSCREEN_API)
-    DEFINE_STATIC_LOCAL(AtomicString, fullScreen, ("-webkit-full-screen", AtomicString::ConstructFromLiteral));
-    DEFINE_STATIC_LOCAL(AtomicString, fullScreenDocument, ("-webkit-full-screen-document", AtomicString::ConstructFromLiteral));
-    DEFINE_STATIC_LOCAL(AtomicString, fullScreenAncestor, ("-webkit-full-screen-ancestor", AtomicString::ConstructFromLiteral));
-    DEFINE_STATIC_LOCAL(AtomicString, animatingFullScreenTransition, ("-webkit-animating-full-screen-transition", AtomicString::ConstructFromLiteral));
-#endif
 #if ENABLE(IFRAME_SEAMLESS)
     DEFINE_STATIC_LOCAL(AtomicString, seamlessDocument, ("-webkit-seamless-document", AtomicString::ConstructFromLiteral));
 #endif
@@ -395,12 +379,6 @@ static HashMap<AtomicStringImpl*, CSSSelector::PseudoType>* nameToPseudoTypeMap(
         nameToPseudoType->set(firstPage.impl(), CSSSelector::PseudoFirstPage);
         nameToPseudoType->set(leftPage.impl(), CSSSelector::PseudoLeftPage);
         nameToPseudoType->set(rightPage.impl(), CSSSelector::PseudoRightPage);
-#if ENABLE(FULLSCREEN_API)
-        nameToPseudoType->set(fullScreen.impl(), CSSSelector::PseudoFullScreen);
-        nameToPseudoType->set(fullScreenDocument.impl(), CSSSelector::PseudoFullScreenDocument);
-        nameToPseudoType->set(fullScreenAncestor.impl(), CSSSelector::PseudoFullScreenAncestor);
-        nameToPseudoType->set(animatingFullScreenTransition.impl(), CSSSelector::PseudoAnimatingFullScreenTransition);
-#endif
 #if ENABLE(IFRAME_SEAMLESS)
         nameToPseudoType->set(seamlessDocument.impl(), CSSSelector::PseudoSeamlessDocument);
 #endif
@@ -512,12 +490,6 @@ void CSSSelector::extractPseudoType() const
     case PseudoSingleButton:
     case PseudoNoButton:
     case PseudoNotParsed:
-#if ENABLE(FULLSCREEN_API)
-    case PseudoFullScreen:
-    case PseudoFullScreenDocument:
-    case PseudoFullScreenAncestor:
-    case PseudoAnimatingFullScreenTransition:
-#endif
 #if ENABLE(IFRAME_SEAMLESS)
     case PseudoSeamlessDocument:
 #endif

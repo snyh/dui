@@ -1311,11 +1311,6 @@ Node::InsertionNotificationRequest Element::insertedInto(ContainerNode* insertio
     ContainerNode::insertedInto(insertionPoint);
     ASSERT(!wasInDocument || inDocument());
 
-#if ENABLE(FULLSCREEN_API)
-    if (containsFullScreenElement() && parentElement() && !parentElement()->containsFullScreenElement())
-        setContainsFullScreenElementOnAncestorsCrossingFrameBoundaries(true);
-#endif
-
     if (Element* before = pseudoElement(BEFORE))
         before->insertedInto(insertionPoint);
 
@@ -1371,10 +1366,6 @@ void Element::removedFrom(ContainerNode* insertionPoint)
 
 #if ENABLE(DIALOG_ELEMENT)
     document()->removeFromTopLayer(this);
-#endif
-#if ENABLE(FULLSCREEN_API)
-    if (containsFullScreenElement())
-        setContainsFullScreenElementOnAncestorsCrossingFrameBoundaries(false);
 #endif
 #if ENABLE(POINTER_LOCK)
     if (document()->page())
@@ -2690,42 +2681,6 @@ bool Element::childShouldCreateRenderer(const NodeRenderingContext& childContext
 }
 #endif
 
-#if ENABLE(FULLSCREEN_API)
-void Element::webkitRequestFullscreen()
-{
-    document()->requestFullScreenForElement(this, ALLOW_KEYBOARD_INPUT, Document::EnforceIFrameAllowFullScreenRequirement);
-}
-
-void Element::webkitRequestFullScreen(unsigned short flags)
-{
-    document()->requestFullScreenForElement(this, (flags | LEGACY_MOZILLA_REQUEST), Document::EnforceIFrameAllowFullScreenRequirement);
-}
-
-bool Element::containsFullScreenElement() const
-{
-    return hasRareData() && elementRareData()->containsFullScreenElement();
-}
-
-void Element::setContainsFullScreenElement(bool flag)
-{
-    ensureElementRareData()->setContainsFullScreenElement(flag);
-    setNeedsStyleRecalc(SyntheticStyleChange);
-}
-
-static Element* parentCrossingFrameBoundaries(Element* element)
-{
-    ASSERT(element);
-    return element->parentElement() ? element->parentElement() : element->document()->ownerElement();
-}
-
-void Element::setContainsFullScreenElementOnAncestorsCrossingFrameBoundaries(bool flag)
-{
-    Element* element = this;
-    while ((element = parentCrossingFrameBoundaries(element)))
-        element->setContainsFullScreenElement(flag);
-}
-#endif    
-
 #if ENABLE(DIALOG_ELEMENT)
 bool Element::isInTopLayer() const
 {
@@ -2794,11 +2749,6 @@ RenderRegion* Element::renderRegion() const
 bool Element::shouldMoveToFlowThread(RenderStyle* styleToUse) const
 {
     ASSERT(styleToUse);
-
-#if ENABLE(FULLSCREEN_API)
-    if (document()->webkitIsFullScreen() && document()->webkitCurrentFullScreenElement() == this)
-        return false;
-#endif
 
     if (isInShadowTree())
         return false;
@@ -3049,10 +2999,6 @@ PassRefPtr<HTMLCollection> Element::ensureCachedHTMLCollection(CollectionType ty
     } else if (type == FormControls) {
         ASSERT(hasTagName(formTag) || hasTagName(fieldsetTag));
         return ensureRareData()->ensureNodeLists()->addCacheWithAtomicName<HTMLFormControlsCollection>(this, type);
-#if ENABLE(MICRODATA)
-    } else if (type == ItemProperties) {
-        return ensureRareData()->ensureNodeLists()->addCacheWithAtomicName<HTMLPropertiesCollection>(this, type);
-#endif
     }
     return ensureRareData()->ensureNodeLists()->addCacheWithAtomicName<HTMLCollection>(this, type);
 }

@@ -593,41 +593,6 @@ static bool transform_3dMediaFeatureEval(CSSValue* value, RenderStyle*, Frame* f
     return returnValueIfNoParameter;
 }
 
-#if ENABLE(VIEW_MODE_CSS_MEDIA)
-static bool view_modeMediaFeatureEval(CSSValue* value, RenderStyle*, Frame* frame, MediaFeaturePrefix op)
-{
-    UNUSED_PARAM(op);
-    if (!value)
-        return true;
-
-    const int viewModeCSSKeywordID = static_cast<CSSPrimitiveValue*>(value)->getValueID();
-    const Page::ViewMode viewMode = frame->page()->viewMode();
-    bool result = false;
-    switch (viewMode) {
-    case Page::ViewModeWindowed:
-        result = viewModeCSSKeywordID == CSSValueWindowed;
-        break;
-    case Page::ViewModeFloating:
-        result = viewModeCSSKeywordID == CSSValueFloating;
-        break;
-    case Page::ViewModeFullscreen:
-        result = viewModeCSSKeywordID == CSSValueFullscreen;
-        break;
-    case Page::ViewModeMaximized:
-        result = viewModeCSSKeywordID == CSSValueMaximized;
-        break;
-    case Page::ViewModeMinimized:
-        result = viewModeCSSKeywordID == CSSValueMinimized;
-        break;
-    default:
-        result = false;
-        break;
-    }
-
-    return result;
-}
-#endif // ENABLE(VIEW_MODE_CSS_MEDIA)
-
 enum PointerDeviceType { TouchPointer, MousePointer, NoPointer, UnknownPointer };
 
 static PointerDeviceType leastCapablePrimaryPointerDeviceType(Frame* frame)

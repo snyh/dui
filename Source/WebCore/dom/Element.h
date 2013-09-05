@@ -238,11 +238,6 @@ public:
     DEFINE_ATTRIBUTE_EVENT_LISTENER(touchend);
     DEFINE_ATTRIBUTE_EVENT_LISTENER(touchcancel);
 #endif
-#if ENABLE(FULLSCREEN_API)
-    DEFINE_ATTRIBUTE_EVENT_LISTENER(webkitfullscreenchange);
-    DEFINE_ATTRIBUTE_EVENT_LISTENER(webkitfullscreenerror);
-#endif
-
     bool hasAttribute(const QualifiedName&) const;
     const AtomicString& getAttribute(const QualifiedName&) const;
     void setAttribute(const QualifiedName&, const AtomicString& value);
@@ -559,10 +554,6 @@ public:
     static bool isMathMLElement() { return false; }
 #endif
 
-#if ENABLE(INPUT_SPEECH)
-    virtual bool isInputFieldSpeechButtonElement() const { return false; }
-#endif
-
     virtual bool isFormControlElement() const { return false; }
     virtual bool isSpinButtonElement() const { return false; }
     virtual bool isTextFormControl() const { return false; }
@@ -591,21 +582,6 @@ public:
     void setHasPendingResources();
     void clearHasPendingResources();
     virtual void buildPendingResource() { };
-#endif
-
-#if ENABLE(FULLSCREEN_API)
-    enum {
-        ALLOW_KEYBOARD_INPUT = 1 << 0,
-        LEGACY_MOZILLA_REQUEST = 1 << 1,
-    };
-    
-    void webkitRequestFullScreen(unsigned short flags);
-    bool containsFullScreenElement() const;
-    void setContainsFullScreenElement(bool);
-    void setContainsFullScreenElementOnAncestorsCrossingFrameBoundaries(bool);
-
-    // W3C API
-    void webkitRequestFullscreen();
 #endif
 
 #if ENABLE(DIALOG_ELEMENT)

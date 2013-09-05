@@ -74,10 +74,6 @@
 #include "html/ColorInputType.h"
 #endif
 
-#if ENABLE(INPUT_SPEECH)
-#include "bindings/dui/RuntimeEnabledFeatures.h"
-#endif
-
 #if ENABLE(TOUCH_EVENTS)
 #include "dom/TouchEvent.h"
 #endif
@@ -214,13 +210,6 @@ HTMLElement* HTMLInputElement::cancelButtonElement() const
 {
     return m_inputType->cancelButtonElement();
 }
-
-#if ENABLE(INPUT_SPEECH)
-HTMLElement* HTMLInputElement::speechButtonElement() const
-{
-    return m_inputType->speechButtonElement();
-}
-#endif
 
 HTMLElement* HTMLInputElement::sliderThumbElement() const
 {
@@ -741,27 +730,6 @@ void HTMLInputElement::parseAttribute(const QualifiedName& name, const AtomicStr
         }
         FeatureObserver::observe(document(), FeatureObserver::ListAttribute);
     }
-#endif
-#if ENABLE(INPUT_SPEECH)
-    else if (name == webkitspeechAttr) {
-        if (renderer()) {
-            // This renderer and its children have quite different layouts and styles depending on
-            // whether the speech button is visible or not. So we reset the whole thing and recreate
-            // to get the right styles and layout.
-            detach();
-            m_inputType->destroyShadowSubtree();
-            m_inputType->createShadowSubtree();
-            if (!attached())
-                attach();
-        } else {
-            m_inputType->destroyShadowSubtree();
-            m_inputType->createShadowSubtree();
-        }
-        setFormControlValueMatchesRenderer(false);
-        setNeedsStyleRecalc();
-        FeatureObserver::observe(document(), FeatureObserver::PrefixedSpeechAttribute);
-    } else if (name == onwebkitspeechchangeAttr)
-        setAttributeEventListener(eventNames().webkitspeechchangeEvent, createAttributeEventListener(this, name, value));
 #endif
 #if ENABLE(DIRECTORY_UPLOAD)
     else if (name == webkitdirectoryAttr) {
@@ -1618,15 +1586,6 @@ bool HTMLInputElement::isSteppable() const
 {
     return m_inputType->isSteppable();
 }
-
-#if ENABLE(INPUT_SPEECH)
-
-bool HTMLInputElement::isSpeechEnabled() const
-{
-    return false;
-}
-
-#endif
 
 bool HTMLInputElement::isTextButton() const
 {

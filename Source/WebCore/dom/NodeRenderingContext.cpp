@@ -35,7 +35,6 @@
 #include "HTMLNames.h"
 #include "dom/Node.h"
 #include "dom/PseudoElement.h"
-#include "rendering/RenderFullScreen.h"
 #include "rendering/RenderNamedFlowThread.h"
 #include "rendering/RenderObject.h"
 #include "rendering/RenderText.h"
@@ -285,13 +284,6 @@ void NodeRenderingContext::createRendererForElementIfNeeded()
     element->setRenderer(newRenderer);
     newRenderer->setAnimatableStyle(m_style.release()); // setAnimatableStyle() can depend on renderer() already being set.
 
-#if ENABLE(FULLSCREEN_API)
-    if (document->webkitIsFullScreen() && document->webkitCurrentFullScreenElement() == element) {
-        newRenderer = RenderFullScreen::wrapRenderer(newRenderer, parentRenderer, document);
-        if (!newRenderer)
-            return;
-    }
-#endif
     // Note: Adding newRenderer instead of renderer(). renderer() may be a child of newRenderer.
     parentRenderer->addChild(newRenderer, nextRenderer);
 }

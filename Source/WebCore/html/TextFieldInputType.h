@@ -52,9 +52,6 @@ protected:
     virtual HTMLElement* innerBlockElement() const OVERRIDE;
     virtual HTMLElement* innerTextElement() const OVERRIDE;
     virtual HTMLElement* innerSpinButtonElement() const OVERRIDE;
-#if ENABLE(INPUT_SPEECH)
-    virtual HTMLElement* speechButtonElement() const OVERRIDE;
-#endif
 
 protected:
     virtual void attach() OVERRIDE;
@@ -106,9 +103,6 @@ private:
     RefPtr<HTMLElement> m_innerText;
     RefPtr<HTMLElement> m_placeholder;
     RefPtr<SpinButtonElement> m_innerSpinButton;
-#if ENABLE(INPUT_SPEECH)
-    RefPtr<HTMLElement> m_speechButton;
-#endif
 };
 
 } // namespace WebCore

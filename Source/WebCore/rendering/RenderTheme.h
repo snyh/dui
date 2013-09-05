@@ -90,9 +90,6 @@ public:
     virtual String extraDefaultStyleSheet() { return String(); }
     virtual String extraQuirksStyleSheet() { return String(); }
     virtual String extraPlugInsStyleSheet() { return String(); }
-#if ENABLE(FULLSCREEN_API)
-    virtual String extraFullScreenStyleSheet() { return String(); }
-#endif
 
     // A method to obtain the baseline position for a "leaf" control.  This will only be used if a baseline
     // position cannot be determined by examining child content. Checkboxes and radio buttons are examples of
@@ -270,11 +267,6 @@ protected:
 #if ENABLE(PROGRESS_ELEMENT)
     virtual void adjustProgressBarStyle(StyleResolver*, RenderStyle*, Element*) const;
     virtual bool paintProgressBar(RenderObject*, const PaintInfo&, const IntRect&) { return true; }
-#endif
-
-#if ENABLE(INPUT_SPEECH)
-    virtual void adjustInputFieldSpeechButtonStyle(StyleResolver*, RenderStyle*, Element*) const;
-    virtual bool paintInputFieldSpeechButton(RenderObject*, const PaintInfo&, const IntRect&);
 #endif
 
     virtual void adjustSliderTrackStyle(StyleResolver*, RenderStyle*, Element*) const;

@@ -170,16 +170,6 @@ void CSSDefaultStyleSheets::ensureDefaultStyleSheetsForElement(Element* element,
     }
 #endif
 
-#if ENABLE(FULLSCREEN_API)
-    if (!fullscreenStyleSheet && element->document()->webkitIsFullScreen()) {
-        String fullscreenRules = String(fullscreenUserAgentStyleSheet, sizeof(fullscreenUserAgentStyleSheet)) + RenderTheme::defaultTheme()->extraFullScreenStyleSheet();
-        fullscreenStyleSheet = parseUASheet(fullscreenRules);
-        defaultStyle->addRulesFromSheet(fullscreenStyleSheet, screenEval());
-        defaultQuirksStyle->addRulesFromSheet(fullscreenStyleSheet, screenEval());
-        changedDefaultStyle = true;
-    }
-#endif
-
     ASSERT(defaultStyle->features().idsInRules.isEmpty());
     ASSERT(mathMLStyleSheet || defaultStyle->features().siblingRules.isEmpty());
 }

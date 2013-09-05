@@ -93,11 +93,6 @@ class UIRequestEvent;
 class TouchEvent;
 #endif
 
-#if ENABLE(MICRODATA)
-class HTMLPropertiesCollection;
-class PropertyNodeList;
-#endif
-
 typedef int ExceptionCode;
 
 const int nodeStyleChangeShift = 15;
@@ -613,13 +608,6 @@ public:
     virtual EventTargetData* eventTargetData();
     virtual EventTargetData* ensureEventTargetData();
 
-#if ENABLE(MICRODATA)
-    DOMSettableTokenList* itemProp();
-    DOMSettableTokenList* itemRef();
-    DOMSettableTokenList* itemType();
-    PassRefPtr<PropertyNodeList> propertyNodeList(const String&);
-#endif
-
     void getRegisteredMutationObserversOfType(HashMap<MutationObserver*, MutationRecordDeliveryOptions>&, MutationObserver::MutationType, const QualifiedName* attributeName);
     void registerMutationObserver(MutationObserver*, MutationObserverOptions, const HashSet<AtomicString>& attributeFilter);
     void unregisterMutationObserver(MutationObserverRegistration*);
@@ -778,11 +766,6 @@ protected:
     void clearHasSVGRareData() { clearFlag(HasSVGRareDataFlag); }
 #endif
 
-#if ENABLE(MICRODATA)
-    void setItemProp(const String&);
-    void setItemRef(const String&);
-    void setItemType(const String&);
-#endif
 };
 
 // Used in Node::addSubresourceAttributeURLs() and in addSubresourceStyleURLs()

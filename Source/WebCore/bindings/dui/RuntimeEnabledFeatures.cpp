@@ -71,10 +71,6 @@ bool RuntimeEnabledFeatures::fileSystemEnabled()
 #endif
 
 
-#if ENABLE(FULLSCREEN_API)
-bool RuntimeEnabledFeatures::isFullScreenAPIEnabled = true;
-#endif
-
 #if ENABLE(SHADOW_DOM)
 bool RuntimeEnabledFeatures::isShadowDOMEnabled = false;
 

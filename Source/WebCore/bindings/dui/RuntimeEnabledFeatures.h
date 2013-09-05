@@ -103,23 +103,6 @@ public:
     static bool fontLoadEventsEnabled() { return false; }
 #endif
 
-#if ENABLE(FULLSCREEN_API)
-    // Mozilla version
-    static bool webkitFullScreenAPIEnabled() { return isFullScreenAPIEnabled; }
-    static void setWebkitFullScreenAPIEnabled(bool isEnabled) { isFullScreenAPIEnabled = isEnabled; }
-    static bool webkitRequestFullScreenEnabled() { return isFullScreenAPIEnabled; }
-    static bool webkitIsFullScreenEnabled() { return isFullScreenAPIEnabled; }
-    static bool webkitFullScreenKeyboardInputAllowedEnabled() { return isFullScreenAPIEnabled; }
-    static bool webkitCurrentFullScreenElementEnabled() { return isFullScreenAPIEnabled; }
-    static bool webkitCancelFullScreenEnabled() { return isFullScreenAPIEnabled; }
-
-    // W3C version
-    static bool webkitFullscreenEnabledEnabled() { return isFullScreenAPIEnabled; }
-    static bool webkitFullscreenElementEnabled() { return isFullScreenAPIEnabled; }
-    static bool webkitExitFullscreenEnabled() { return isFullScreenAPIEnabled; }
-    static bool webkitRequestFullscreenEnabled() { return isFullScreenAPIEnabled; }
-#endif
-
 #if ENABLE(TOUCH_EVENTS)
     static bool touchEnabled() { return isTouchEnabled; }
     static void setTouchEnabled(bool isEnabled) { isTouchEnabled = isEnabled; }
@@ -249,10 +232,6 @@ private:
 
 #if ENABLE(QUOTA)
     static bool isQuotaEnabled;
-#endif
-
-#if ENABLE(FULLSCREEN_API)
-    static bool isFullScreenAPIEnabled;
 #endif
 
 #if ENABLE(SHADOW_DOM)

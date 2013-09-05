@@ -162,10 +162,6 @@ class RequestAnimationFrameCallback;
 class ScriptedAnimationController;
 #endif
 
-#if ENABLE(MICRODATA)
-class MicroDataItemList;
-#endif
-
 #if ENABLE(TEXT_AUTOSIZING)
 class TextAutosizer;
 #endif
@@ -289,10 +285,6 @@ public:
     DEFINE_ATTRIBUTE_EVENT_LISTENER(touchmove);
     DEFINE_ATTRIBUTE_EVENT_LISTENER(touchend);
     DEFINE_ATTRIBUTE_EVENT_LISTENER(touchcancel);
-#endif
-#if ENABLE(FULLSCREEN_API)
-    DEFINE_ATTRIBUTE_EVENT_LISTENER(webkitfullscreenchange);
-    DEFINE_ATTRIBUTE_EVENT_LISTENER(webkitfullscreenerror);
 #endif
 #if ENABLE(POINTER_LOCK)
     DEFINE_ATTRIBUTE_EVENT_LISTENER(webkitpointerlockchange);
@@ -938,41 +930,6 @@ public:
 
     const QualifiedName& idAttributeName() const { return m_idAttributeName; }
     
-#if ENABLE(FULLSCREEN_API)
-    bool webkitIsFullScreen() const { return m_fullScreenElement.get(); }
-    bool webkitFullScreenKeyboardInputAllowed() const { return m_fullScreenElement.get() && m_areKeysEnabledInFullScreen; }
-    Element* webkitCurrentFullScreenElement() const { return m_fullScreenElement.get(); }
-    
-    enum FullScreenCheckType {
-        EnforceIFrameAllowFullScreenRequirement,
-        ExemptIFrameAllowFullScreenRequirement,
-    };
-
-    void requestFullScreenForElement(Element*, unsigned short flags, FullScreenCheckType);
-    void webkitCancelFullScreen();
-    
-    void webkitWillEnterFullScreenForElement(Element*);
-    void webkitDidEnterFullScreenForElement(Element*);
-    void webkitWillExitFullScreenForElement(Element*);
-    void webkitDidExitFullScreenForElement(Element*);
-    
-    void setFullScreenRenderer(RenderFullScreen*);
-    RenderFullScreen* fullScreenRenderer() const { return m_fullScreenRenderer; }
-    void fullScreenRendererDestroyed();
-    
-    void fullScreenChangeDelayTimerFired(Timer<Document>*);
-    bool fullScreenIsAllowedForElement(Element*) const;
-    void fullScreenElementRemoved();
-    void removeFullScreenElementOfSubtree(Node*, bool amongChildrenOnly = false);
-    bool isAnimatingFullScreen() const;
-    void setAnimatingFullScreen(bool);
-
-    // W3C API
-    bool webkitFullscreenEnabled() const;
-    Element* webkitFullscreenElement() const { return !m_fullScreenElementStack.isEmpty() ? m_fullScreenElementStack.last().get() : 0; }
-    void webkitExitFullscreen();
-#endif
-
 #if ENABLE(POINTER_LOCK)
     void webkitExitPointerLock();
     Element* webkitPointerLockElement() const;
@@ -1026,10 +983,6 @@ public:
 #endif
 
     bool visualUpdatesAllowed() const { return m_visualUpdatesAllowed; }
-
-#if ENABLE(MICRODATA)
-    PassRefPtr<NodeList> getItems(const String& typeNames);
-#endif
 
     bool isInDocumentWrite() { return m_writeRecursionDepth > 0; }
 
@@ -1154,13 +1107,6 @@ private:
     void displayBufferModifiedByEncodingInternal(CharacterType*, unsigned) const;
 
     PassRefPtr<HTMLCollection> ensureCachedCollection(CollectionType);
-
-#if ENABLE(FULLSCREEN_API)
-    void clearFullscreenElementStack();
-    void popFullscreenElementStack();
-    void pushFullscreenElementStack(Element*);
-    void addDocumentToFullScreenChangeEventQueue(Document*);
-#endif
 
     void setVisualUpdatesAllowed(ReadyState);
     void setVisualUpdatesAllowed(bool);
@@ -1357,19 +1303,6 @@ private:
     WeakPtrFactory<Document> m_weakFactory;
 
     QualifiedName m_idAttributeName;
-
-#if ENABLE(FULLSCREEN_API)
-    bool m_areKeysEnabledInFullScreen;
-    RefPtr<Element> m_fullScreenElement;
-    Vector<RefPtr<Element> > m_fullScreenElementStack;
-    RenderFullScreen* m_fullScreenRenderer;
-    Timer<Document> m_fullScreenChangeDelayTimer;
-    Deque<RefPtr<Node> > m_fullScreenChangeEventTargetQueue;
-    Deque<RefPtr<Node> > m_fullScreenErrorEventTargetQueue;
-    bool m_isAnimatingFullScreen;
-    LayoutRect m_savedPlaceholderFrameRect;
-    RefPtr<RenderStyle> m_savedPlaceholderRenderStyle;
-#endif
 
 #if ENABLE(DIALOG_ELEMENT)
     Vector<RefPtr<Element> > m_topLayerElements;
