@@ -35,7 +35,6 @@
 #include "dom/NodeTraversal.h"
 #include "page/Page.h"
 #include "page/PageGroup.h"
-#include "platform/VisitedLinkStrategy.h"
 
 namespace WebCore {
 

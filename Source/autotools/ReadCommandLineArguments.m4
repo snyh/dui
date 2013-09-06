@@ -89,20 +89,6 @@ AC_ARG_ENABLE(gamepad,
     [enable_gamepad="no"])
 AC_MSG_RESULT([$enable_gamepad])
 
-AC_MSG_CHECKING([whether to enable HTML5 video support])
-AC_ARG_ENABLE(video, 
-    AC_HELP_STRING([--enable-video], [enable HTML5 video support [default=yes]]),
-    [],
-    [enable_video="yes"])
-AC_MSG_RESULT([$enable_video])
-
-AC_MSG_CHECKING([whether to enable geolocation support])
-AC_ARG_ENABLE(geolocation, 
-    AC_HELP_STRING([--enable-geolocation], [enable support for geolocation [default=yes]]),
-    [],
-    [enable_geolocation="yes"])
-AC_MSG_RESULT([$enable_geolocation])
-
 AC_MSG_CHECKING([whether to enable SVG support])
 AC_ARG_ENABLE(svg, 
     AC_HELP_STRING([--enable-svg], [enable support for SVG [default=yes]]),

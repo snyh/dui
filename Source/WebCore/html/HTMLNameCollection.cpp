@@ -57,7 +57,7 @@ bool WindowNameCollection::nodeMatchesIfNameAttributeMatch(Element* element)
 
 bool WindowNameCollection::nodeMatches(Element* element, const AtomicString& name)
 {
-    // Find only images, forms, applets, embeds and objects by name, but anything by id
+    // Find only images, forms, and objects by name, but anything by id
     if (nodeMatchesIfNameAttributeMatch(element) && element->getNameAttribute() == name)
         return true;
     return element->getIdAttribute() == name;
@@ -76,7 +76,7 @@ bool DocumentNameCollection::nodeMatchesIfNameAttributeMatch(Element* element)
 
 bool DocumentNameCollection::nodeMatches(Element* element, const AtomicString& name)
 {
-    // Find images, forms, applets, embeds, objects and iframes by name, applets and object by id, and images by id
+    // Find images, forms, objects and iframes by name, applets and object by id, and images by id
     // but only if they have a name attribute (this very strange rule matches IE)
     if (isHTMLFormElement(element) || element->hasTagName(iframeTag))
         return element->getNameAttribute() == name;

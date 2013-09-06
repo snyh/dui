@@ -20,8 +20,6 @@ Features:
  Battery API support                                      : $enable_battery_status
  Gamepad support                                          : $enable_gamepad
  Geolocation support                                      : $enable_geolocation
- HTML5 video element support                              : $enable_video
- JIT compilation                                          : $enable_jit
  Opcode stats                                             : $enable_opcode_stats
  SVG fonts support                                        : $enable_svg_fonts
  SVG support                                              : $enable_svg

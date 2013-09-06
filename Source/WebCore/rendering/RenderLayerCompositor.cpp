@@ -1872,9 +1872,7 @@ const char* RenderLayerCompositor::logReasonsForCompositing(const RenderLayer* l
     if (reasons & CompositingReason3DTransform)
         return "3D transform";
 
-    if (reasons & CompositingReasonVideo)
-        return "video";
-    else if (reasons & CompositingReasonCanvas)
+    if (reasons & CompositingReasonCanvas)
         return "canvas";
     else if (reasons & CompositingReasonPlugin)
         return "plugin";

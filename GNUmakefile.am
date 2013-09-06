@@ -109,13 +109,6 @@ DISTCLEANFILES :=
 MAINTAINERCLEANFILES :=
 pkgconfig_DATA :=
 
-if ENABLE_INTROSPECTION
-gir_DATA :=
-typelibs_DATA :=
-girdir := $(datadir)/gir-1.0
-typelibsdir := $(libdir)/girepository-1.0
-endif
-
 # We do not care at all about this implicit built-in make rules,
 # disable them to save some build time
 %: %.c
@@ -138,12 +131,6 @@ global_cppflags += \
 	-Wno-unused-parameter -Wno-parentheses -fno-exceptions \
 	-DBUILDING_CAIRO__ \
 	-DBUILDING_GTK__
-
-if ENABLE_WEBKIT2
-global_cppflags += \
-	-DBUILDING_WEBKIT2__
-
-endif
 
 global_cxxflags += \
 	-fno-rtti

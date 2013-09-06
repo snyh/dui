@@ -105,7 +105,6 @@ bool HTMLElement::ieForbidsInsertHTML() const
         || hasLocalName(linkTag)
         || hasLocalName(metaTag)
         || hasLocalName(paramTag)
-        || hasLocalName(sourceTag)
         || hasLocalName(wbrTag))
         return true;
     // FIXME: I'm not sure why dashboard mode would want to change the

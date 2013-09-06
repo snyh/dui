@@ -10,7 +10,6 @@ address interfaceName=HTMLElement
 area
 article interfaceName=HTMLElement
 aside interfaceName=HTMLElement
-audio wrapperOnlyIfMediaIsAvailable, conditional=VIDEO, constructorNeedsCreatedByParser
 b interfaceName=HTMLElement
 base
 basefont interfaceName=HTMLBaseFontElement
@@ -103,7 +102,6 @@ samp interfaceName=HTMLElement
 section interfaceName=HTMLElement
 select constructorNeedsFormElement
 small interfaceName=HTMLElement
-source wrapperOnlyIfMediaIsAvailable, conditional=VIDEO
 span
 strike interfaceName=HTMLElement
 strong interfaceName=HTMLElement
@@ -119,12 +117,10 @@ th interfaceName=HTMLTableCellElement
 thead interfaceName=HTMLTableSectionElement
 title
 tr interfaceName=HTMLTableRowElement
-track wrapperOnlyIfMediaIsAvailable, conditional=VIDEO_TRACK
 tt interfaceName=HTMLElement
 u interfaceName=HTMLElement
 ul interfaceName=HTMLUListElement
 var interfaceName=HTMLElement
-video wrapperOnlyIfMediaIsAvailable, conditional=VIDEO, constructorNeedsCreatedByParser
 wbr interfaceName=HTMLElement
 xmp interfaceName=HTMLPreElement
 noscript interfaceName=HTMLElement

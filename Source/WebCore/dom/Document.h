@@ -379,8 +379,6 @@ public:
     PassRefPtr<Node> adoptNode(PassRefPtr<Node> source, ExceptionCode&);
 
     PassRefPtr<HTMLCollection> images();
-    PassRefPtr<HTMLCollection> embeds();
-    PassRefPtr<HTMLCollection> plugins(); // an alias for embeds() required for the JS DOM bindings.
     PassRefPtr<HTMLCollection> applets();
     PassRefPtr<HTMLCollection> links();
     PassRefPtr<HTMLCollection> forms();

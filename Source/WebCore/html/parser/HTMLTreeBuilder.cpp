@@ -815,9 +815,7 @@ void HTMLTreeBuilder::processStartTagForInBody(AtomicHTMLToken* token)
             m_framesetOk = false;
         return;
     }
-    if (token->name() == paramTag
-        || token->name() == sourceTag
-        || token->name() == trackTag) {
+    if (token->name() == paramTag) {
         m_tree.insertSelfClosingHTMLElement(token);
         return;
     }

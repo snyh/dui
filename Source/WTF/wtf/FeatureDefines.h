@@ -144,10 +144,6 @@
 #define ENABLE_WEB_ARCHIVE 1
 #endif
 
-#if !defined(ENABLE_WEB_AUDIO)
-#define ENABLE_WEB_AUDIO 1
-#endif
-
 #if !defined(ENABLE_CURSOR_VISIBILITY)
 #define ENABLE_CURSOR_VISIBILITY 1
 #endif
@@ -560,10 +556,6 @@
 
 #if !defined(ENABLE_WEB_ARCHIVE)
 #define ENABLE_WEB_ARCHIVE 0
-#endif
-
-#if !defined(ENABLE_WEB_AUDIO)
-#define ENABLE_WEB_AUDIO 0
 #endif
 
 #if !defined(ENABLE_XSLT)

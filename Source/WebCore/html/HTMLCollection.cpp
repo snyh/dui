@@ -42,7 +42,6 @@ static bool shouldOnlyIncludeDirectChildren(CollectionType type)
     switch (type) {
     case DocAll:
     case DocAnchors:
-    case DocApplets:
     case DocEmbeds:
     case DocForms:
     case DocImages:
@@ -81,7 +80,6 @@ static NodeListRootType rootTypeFromCollectionType(CollectionType type)
 {
     switch (type) {
     case DocImages:
-    case DocApplets:
     case DocEmbeds:
     case DocForms:
     case DocLinks:
@@ -133,7 +131,6 @@ static NodeListInvalidationType invalidationTypeExcludingIdAndNameAttributes(Col
     case SelectOptions:
     case MapAreas:
         return DoNotInvalidateOnAttributeChanges;
-    case DocApplets:
     case SelectedOptions:
     case DataListOptions:
         // FIXME: We can do better some day.

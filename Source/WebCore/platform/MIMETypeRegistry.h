@@ -71,9 +71,6 @@ public:
     // document in a frame. Only valid for mime types begining with "text/".
     static bool isUnsupportedTextMIMEType(const String& mimeType);
 
-    // Check to see if a mime type is a valid Java applet mime type
-    static bool isJavaAppletMIMEType(const String& mimeType);
-
     // Check to see if a mime type is a plugin implemented by the
     // browser (e.g. a Qt Plugin).
     static bool isApplicationPluginMIMEType(const String& mimeType);

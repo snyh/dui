@@ -31,17 +31,6 @@ if test "$enable_opcode_stats" = "yes"; then
     AC_DEFINE([ENABLE_OPCODE_STATS], [1], [Define to enable Opcode statistics])
 fi
 
-if test "$enable_video" = "yes" || test "$enable_web_audio" = "yes"; then
-    AC_DEFINE([WTF_USE_GSTREAMER], [1], [ ])
-    if test "$enable_debug" = "yes"; then
-        AC_DEFINE([GST_DISABLE_DEPRECATED], [1], [ ])
-    fi
-fi
-
-if test "$enable_web_audio" = "yes"; then
-    AC_DEFINE([WTF_USE_WEBAUDIO_GSTREAMER], [1], [1])
-fi
-
 if test "$enable_accelerated_compositing" = "yes"; then
     AC_DEFINE([WTF_USE_ACCELERATED_COMPOSITING], [1], [ ])
     AC_DEFINE([WTF_USE_TEXTURE_MAPPER], [1], [ ])

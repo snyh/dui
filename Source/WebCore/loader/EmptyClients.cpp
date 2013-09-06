@@ -129,20 +129,6 @@ PassRefPtr<Frame> EmptyFrameLoaderClient::createFrame(const KURL&, const String&
     return 0;
 }
 
-PassRefPtr<Widget> EmptyFrameLoaderClient::createPlugin(const IntSize&, HTMLPlugInElement*, const KURL&, const Vector<String>&, const Vector<String>&, const String&, bool)
-{
-    return 0;
-}
-
-void EmptyFrameLoaderClient::recreatePlugin(Widget*)
-{
-}
-
-PassRefPtr<Widget> EmptyFrameLoaderClient::createJavaAppletWidget(const IntSize&, HTMLAppletElement*, const KURL&, const Vector<String>&, const Vector<String>&)
-{
-    return 0;
-}
-
 PassRefPtr<FrameNetworkingContext> EmptyFrameLoaderClient::createNetworkingContext()
 {
     return PassRefPtr<FrameNetworkingContext>();

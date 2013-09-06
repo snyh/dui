@@ -26,7 +26,6 @@
     [Custom] void write([Default=Undefined] optional DOMString text);
     [Custom] void writeln([Default=Undefined] optional DOMString text);
 
-    readonly attribute HTMLCollection embeds;
     readonly attribute HTMLCollection plugins;
     readonly attribute HTMLCollection scripts;
 

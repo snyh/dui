@@ -409,20 +409,6 @@ if test "$with_target" = "x11"; then
     AC_SUBST([XRENDER_LIBS])
 fi
 
-if test "$enable_video" = "yes" || test "$enable_web_audio" = "yes"; then
-    PKG_CHECK_MODULES([GSTREAMER], [
-        gstreamer-1.0 >= gstreamer_required_version
-        gstreamer-plugins-base-1.0 >= gstreamer_plugins_base_required_version
-        gstreamer-app-1.0
-        gstreamer-audio-1.0,
-        gstreamer-fft-1.0,
-        gstreamer-base-1.0,
-        gstreamer-pbutils-1.0,
-        gstreamer-video-1.0])
-    AC_SUBST([GSTREAMER_CFLAGS])
-    AC_SUBST([GSTREAMER_LIBS])
-fi
-
 acceleration_description=
 if test "$found_opengl" = "yes"; then
     acceleration_description="OpenGL"

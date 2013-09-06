@@ -28,7 +28,6 @@ namespace WebCore {
 enum CollectionType {
     // Unnamed HTMLCollection types cached in the document.
     DocImages,    // all <img> elements in the document
-    DocApplets,   // all <object> and <applet> elements
     DocEmbeds,    // all <embed> elements
     DocForms,     // all <form> elements
     DocLinks,     // all <a> _and_ <area> elements with a value for href

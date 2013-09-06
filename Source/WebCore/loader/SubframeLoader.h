@@ -43,7 +43,6 @@ namespace WebCore {
 class Document;
 class Frame;
 class FrameLoaderClient;
-class HTMLAppletElement;
 class HTMLFrameOwnerElement;
 class HTMLPlugInImageElement;
 class IntSize;

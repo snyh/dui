@@ -3867,22 +3867,6 @@ PassRefPtr<HTMLCollection> Document::images()
     return ensureCachedCollection(DocImages);
 }
 
-PassRefPtr<HTMLCollection> Document::applets()
-{
-    return ensureCachedCollection(DocApplets);
-}
-
-PassRefPtr<HTMLCollection> Document::embeds()
-{
-    return ensureCachedCollection(DocEmbeds);
-}
-
-PassRefPtr<HTMLCollection> Document::plugins()
-{
-    // This is an alias for embeds() required for the JS DOM bindings.
-    return ensureCachedCollection(DocEmbeds);
-}
-
 PassRefPtr<HTMLCollection> Document::scripts()
 {
     return ensureCachedCollection(DocScripts);

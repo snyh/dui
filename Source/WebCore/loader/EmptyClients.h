@@ -319,9 +319,6 @@ public:
     virtual bool canCachePage() const { return false; }
     virtual void didDisplayInsecureContent() { }
     virtual PassRefPtr<Frame> createFrame(const KURL&, const String&, HTMLFrameOwnerElement*, const String&, bool, int, int) OVERRIDE;
-    virtual PassRefPtr<Widget> createPlugin(const IntSize&, HTMLPlugInElement*, const KURL&, const Vector<String>&, const Vector<String>&, const String&, bool) OVERRIDE;
-    virtual void recreatePlugin(Widget*) OVERRIDE;
-    virtual PassRefPtr<Widget> createJavaAppletWidget(const IntSize&, HTMLAppletElement*, const KURL&, const Vector<String>&, const Vector<String>&) OVERRIDE;
 
     virtual ObjectContentType objectContentType(const KURL&, const String&, bool) { return ObjectContentType(); }
     virtual String overrideMediaType() const { return String(); }
