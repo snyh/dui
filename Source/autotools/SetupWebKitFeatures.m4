@@ -57,7 +57,7 @@ fi
 # adding a new or unstable feature, you should mark it disabled here. We need to run
 # this command now rather than use AC_CONFIG_COMMANDS because automake rules depend
 # on the output file (WebKitFeatures.txt).
-$srcdir/Tools/gtk/generate-feature-defines-files $CONFIGURABLE_FEATURE_DEFINES \
+$srcdir/Source/autotools/generate-feature-defines-files $CONFIGURABLE_FEATURE_DEFINES \
     ENABLE_CANVAS_PATH=0 \
     ENABLE_CANVAS_PROXY=0 \
     ENABLE_CSS3_TEXT=0 \
