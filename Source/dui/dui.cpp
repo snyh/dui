@@ -23,34 +23,17 @@
 #include "loader/DocumentLoader.h"
 #include "loader/FrameLoadRequest.h"
 #include "css/StyleResolver.h"
+#include "page/EventHandler.h"
 
 #include "loader/cache/MemoryCache.h"
 #include "dui.h"
 
 GdkWindow* window = NULL;
 
-struct _DWindow {
-};
-
 #define WIDTH 300
 #define HEIGHT 300
 
 using namespace WebCore;
-RefPtr<Frame> frame = 0;
-void take_snapshot(cairo_t* cr)
-{
-    GraphicsContext gc(cr);
-    gc.clip(IntRect(0, 0, WIDTH, HEIGHT));
-    frame->view()->paint(&gc, IntRect(0, 0, WIDTH, HEIGHT));
-}
-
-void load_content(RefPtr<Document> document, const char* path)
-{
-    char* content = NULL;
-    g_file_get_contents(path, &content, NULL, NULL);
-    document->setContent(content);
-    g_free(content);
-}
 
 void dumpRuleSet(RuleSet* set)
 {
@@ -71,36 +54,90 @@ class DuiChromeClient : public EmptyChromeClient {
 };
 
 const char my_interp[] __attribute__((section(".interp"))) = "/lib/ld-linux.so.2";
-void test_main(const char* url)
+
+void d_init()
 {
     WTF::double_conversion::initialize();
     WTF::initializeThreading();
     WTF::initializeMainThread();
+
+    gtk_init(NULL, NULL);
+}
+void d_main()
+{
+    gtk_main();
+}
+
+void d_frame_load_content(DFrame* frame, const char* content)
+{
+    ((Frame*)(frame->core))->document()->setContent(content);
+}
+
+bool translate_event(GtkWidget* w, GdkEvent* event, DFrame* dframe)
+{
+    EventHandler* handler = ((Frame*)(dframe->core))->eventHandler();
+    switch(event->type) {
+        case GDK_KEY_PRESS:
+        case GDK_KEY_RELEASE:
+            return false;
+        case GDK_MOTION_NOTIFY:
+            handler->mouseMoved(PlatformMouseEvent((GdkEventMotion*)event));
+            return true;
+        case GDK_BUTTON_PRESS:
+            {
+                PlatformMouseEvent platformEvent((GdkEventButton*)event);
+                return handler->handleMousePressEvent(platformEvent);
+            }
+        case GDK_BUTTON_RELEASE:
+            {
+                PlatformMouseEvent platformEvent((GdkEventButton*)event);
+                handler->handleMouseReleaseEvent(platformEvent);
+                return false;
+            }
+        case GDK_DELETE:
+            gtk_main_quit();
+            return true;
+    }
+    return false;
+}
+
+void draw_frame(GtkWidget* widget, cairo_t* cr, DFrame* dframe)
+{
+    GraphicsContext gc(cr);
+    gc.clip(IntRect(0, 0, WIDTH, HEIGHT));
+    ((Frame*)(dframe->core))->view()->paint(&gc, IntRect(0, 0, WIDTH, HEIGHT));
+}
+
+gboolean let_we_draw(gpointer w)
+{
+    gdk_window_invalidate_rect(gtk_widget_get_window(GTK_WIDGET(w)), NULL, false);
+    return true;
+}
+
+DFrame* d_frame_new(int width, int height)
+{
+    DFrame* dframe = g_new0(DFrame, 1);
+    GtkWidget* win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_widget_set_size_request(win, width, height);
+    gtk_widget_realize(win);
+    g_signal_connect(win, "event", G_CALLBACK(translate_event), dframe);
+    g_signal_connect(win, "draw", G_CALLBACK(draw_frame), dframe);
+    g_timeout_add(50, let_we_draw, (gpointer)win);
 
     Page::PageClients clients;
     clients.editorClient = new EmptyEditorClient();
     clients.chromeClient = new DuiChromeClient();
     clients.dragClient = new EmptyDragClient();
     Page* page = new Page(clients);
-
-    frame = Frame::create(page, 0, new EmptyFrameLoaderClient);
-    //frame->loader()->init();
-
-    frame->createView(IntSize(WIDTH, HEIGHT), WebCore::Color::white, false);
-
+    RefPtr<Frame> frame = Frame::create(page, 0, new EmptyFrameLoaderClient);
+    frame->createView(IntSize(width, height), WebCore::Color::white, false);
     KURL _url;
     RefPtr<Document> document = HTMLDocument::create(frame.get(), _url);
     document->createDOMWindow();
     frame->setDocument(document);
-    load_content(document, url);
 
-    document->updateLayout();
-    //document->dumpStatistics();
-    Element* snyh = document->getElementById("snyh");
-    dumpRuleSet(document->ensureStyleResolver()->ruleSets().authorStyle());
-    dumpRuleSet(document->ensureStyleResolver()->ruleSets().userStyle());
-
-    //memoryCache()->dumpStats();
-
-    DOMWindow* window = document->defaultView();
+    gtk_widget_show(win);
+    dframe->core = frame.get();
+    dframe->native = win;
+    return dframe;
 }
