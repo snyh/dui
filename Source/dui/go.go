@@ -4,6 +4,7 @@ package main
 // #cgo LDFLAGS: -ldui
 // #include "dui.h"
 import "C"
+import "fmt"
 import "io/ioutil"
 
 func main() {
@@ -12,7 +13,11 @@ func main() {
     content, _ := ioutil.ReadFile("/dev/shm/dui/Source/dui/test.htm")
     C.d_frame_load_content(f, C.CString(string(content)))
 
-    /*e := d_frame_get_element(C.CString("snyh"))*/
+    e := C.d_frame_get_element(f, C.CString("snyh"))
+    s := C.d_element_get_content(e)
+    fmt.Print(C.GoString(s))
+
+    C.d_element_set_content(e, C.CString("one two three"))
 
     C.d_main()
 }

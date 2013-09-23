@@ -142,3 +142,19 @@ DFrame* d_frame_new(int width, int height)
     dframe->native = win;
     return dframe;
 }
+
+DElement* d_frame_get_element(DFrame* dframe, const char* id)
+{
+    Frame* frame = (Frame*)dframe->core;
+    return frame->document()->getElementById(id);
+}
+const char* d_element_get_content(DElement* element)
+{
+    Element* e = (Element*)element;
+    return e->textContent().utf8().data();
+}
+const char* d_element_set_content(DElement* element, const char* content)
+{
+    Element* e = (Element*)element;
+    e->setTextContent(content, IGNORE_EXCEPTION);
+}
