@@ -1,2 +1,0 @@
-#!/bin/bash
-LIBRARY_PATH=/dev/shm/dui/build/.libs go run go.go
