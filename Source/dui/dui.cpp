@@ -118,6 +118,7 @@ DFrame* d_frame_new(int width, int height)
 {
     DFrame* dframe = g_new0(DFrame, 1);
     GtkWidget* win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_widget_set_events(win, GDK_ALL_EVENTS_MASK);
     gtk_widget_set_size_request(win, width, height);
     gtk_widget_realize(win);
     g_signal_connect(win, "event", G_CALLBACK(translate_event), dframe);
