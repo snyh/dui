@@ -37,7 +37,6 @@
 #include "html/HTMLDocument.h"
 #include "HTMLNames.h"
 #include "platform/graphics/Image.h"
-#include "html/ImageDocument.h"
 #include "css/MediaList.h"
 #include "platform/MIMETypeRegistry.h"
 #include "page/Page.h"
@@ -364,9 +363,6 @@ PassRefPtr<Document> DOMImplementation::createDocument(const String& type, Frame
         return HTMLDocument::create(frame, url);
     if (type == "application/xhtml+xml")
         return Document::createXHTML(frame, url);
-
-    if (Image::supportsType(type))
-        return ImageDocument::create(frame, url);
 
     if (isTextMIMEType(type))
         return TextDocument::create(frame, url);

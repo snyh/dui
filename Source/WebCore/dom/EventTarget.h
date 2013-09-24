@@ -40,9 +40,6 @@
 
 namespace WebCore {
 
-    class AudioNode;
-    class AudioContext;
-    class AudioTrackList;
     class DedicatedWorkerGlobalScope;
     class DOMWindow;
     class Event;
@@ -50,27 +47,15 @@ namespace WebCore {
     class EventSource;
     class FileReader;
     class FileWriter;
-    class IDBDatabase;
-    class IDBRequest;
-    class IDBTransaction;
     class ScriptProcessorNode;
-    class LocalMediaStream;
-    class MediaController;
-    class MediaSource;
-    class MediaStream;
     class Node;
     class Notification;
     class SVGElementInstance;
     class ScriptExecutionContext;
-    class SharedWorker;
-    class SharedWorkerGlobalScope;
     class SourceBufferList;
     class TextTrack;
     class TextTrackCue;
-    class VideoTrackList;
-    class WebSocket;
     class WebKitNamedFlow;
-    class Worker;
     class XMLHttpRequest;
     class XMLHttpRequestUpload;
 
@@ -131,9 +116,6 @@ namespace WebCore {
         bool fireEventListeners(Event*);
         bool isFiringEventListeners();
 
-        void visitJSEventListeners(JSC::SlotVisitor&);
-        void invalidateJSEventListeners(JSC::JSObject*);
-
     protected:
         virtual ~EventTarget();
         
@@ -178,13 +160,6 @@ namespace WebCore {
     #define DEFINE_FORWARDING_ATTRIBUTE_EVENT_LISTENER(type, recipient, attribute) \
         EventListener* type::on##attribute() { return recipient ? recipient->getAttributeEventListener(eventNames().attribute##Event) : 0; } \
         void type::setOn##attribute(PassRefPtr<EventListener> listener) { if (recipient) recipient->setAttributeEventListener(eventNames().attribute##Event, listener); }
-
-    inline void EventTarget::visitJSEventListeners(JSC::SlotVisitor& visitor)
-    {
-        EventListenerIterator iterator(this);
-        while (EventListener* listener = iterator.nextListener())
-            listener->visitJSFunction(visitor);
-    }
 
     inline bool EventTarget::isFiringEventListeners()
     {
