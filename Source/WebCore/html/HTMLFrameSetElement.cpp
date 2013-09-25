@@ -37,7 +37,7 @@
 #include "dom/MouseEvent.h"
 #include "dom/NodeRenderingContext.h"
 #include "rendering/RenderFrameSet.h"
-#include "bindings/dui/ScriptEventListener.h"
+#include "bindings/dui/DEventListener.h"
 #include "dom/Text.h"
 
 namespace WebCore {

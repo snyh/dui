@@ -477,6 +477,8 @@ webcore_sources += \
 	Source/WebCore/accessibility/AXObjectCache.h \
 	Source/WebCore/bindings/dui/RuntimeEnabledFeatures.h \
 	Source/WebCore/bindings/dui/RuntimeEnabledFeatures.cpp \
+	Source/WebCore/bindings/dui/DEventListener.h \
+	Source/WebCore/bindings/dui/DEventListener.cpp \
 	Source/WebCore/config.h \
 	Source/WebCore/css/BasicShapeFunctions.cpp \
 	Source/WebCore/css/BasicShapeFunctions.h \

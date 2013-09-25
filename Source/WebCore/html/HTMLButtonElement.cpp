@@ -33,7 +33,7 @@
 #include "HTMLNames.h"
 #include "dom/KeyboardEvent.h"
 #include "rendering/RenderButton.h"
-#include "bindings/dui/ScriptEventListener.h"
+#include "bindings/dui/DEventListener.h"
 #include <wtf/StdLibExtras.h>
 
 namespace WebCore {

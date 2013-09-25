@@ -24,15 +24,10 @@
 #include "loader/FrameLoadRequest.h"
 #include "css/StyleResolver.h"
 #include "page/EventHandler.h"
+#include "bindings/dui/DEventListener.h"
 
 #include "loader/cache/MemoryCache.h"
-#include "dui/dui.h"
-#include "dui/DEventListener.h"
-
-GdkWindow* window = NULL;
-
-#define WIDTH 300
-#define HEIGHT 300
+#include "dui.h"
 
 using namespace WebCore;
 
@@ -47,14 +42,12 @@ class DuiChromeClient : public EmptyChromeClient {
         invalidateContentsAndRootView(rect, immediate);
     }
     virtual void invalidateContentsAndRootView(const IntRect& rect, bool) OVERRIDE {
-        if (window) {
-            GdkRectangle _rect = rect;
-            gdk_window_invalidate_rect(window, &_rect, false);
-        }
+        //if (window) {
+            //GdkRectangle _rect = rect;
+            //gdk_window_invalidate_rect(window, &_rect, false);
+        //}
     }
 };
-
-const char my_interp[] __attribute__((section(".interp"))) = "/lib/ld-linux.so.2";
 
 void d_init()
 {
@@ -104,9 +97,12 @@ bool translate_event(GtkWidget* w, GdkEvent* event, DFrame* dframe)
 
 void draw_frame(GtkWidget* widget, cairo_t* cr, DFrame* dframe)
 {
+    GdkWindow* w = gtk_widget_get_window(widget);
+    int width = gdk_window_get_width(w);
+    int height = gdk_window_get_height(w);
     GraphicsContext gc(cr);
-    gc.clip(IntRect(0, 0, WIDTH, HEIGHT));
-    ((Frame*)(dframe->core))->view()->paint(&gc, IntRect(0, 0, WIDTH, HEIGHT));
+    gc.clip(IntRect(0, 0, width, height));
+    ((Frame*)(dframe->core))->view()->paint(&gc, IntRect(0, 0, width, height));
 }
 
 gboolean let_we_draw(gpointer w)
@@ -161,9 +157,14 @@ const char* d_element_set_content(DElement* element, const char* content)
     e->setTextContent(content, IGNORE_EXCEPTION);
 }
 
-bool d_signal_connect(DElement* element, const char* type, DCallBack* cb)
+ListenerInfo* d_element_add_listener(DElement* element, const char* type, int id)
 {
     Element* e = (Element*)element;
-    DEventListener* listener = cb;
+    ListenerInfo* info = g_new(ListenerInfo, 1);
+    DEventListener* listener = new DEventListener(info);
     e->addEventListener(type, listener, false);
+
+    info->func_id = id;
+    info->listener = listener;
+    return info;
 }

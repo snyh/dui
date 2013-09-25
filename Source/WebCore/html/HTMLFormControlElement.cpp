@@ -39,7 +39,7 @@
 #include "html/HTMLTextAreaElement.h"
 #include "rendering/RenderBox.h"
 #include "rendering/RenderTheme.h"
-#include "bindings/dui/ScriptEventListener.h"
+#include "bindings/dui/DEventListener.h"
 #include "html/ValidationMessage.h"
 #include "html/ValidityState.h"
 #include <wtf/Vector.h>

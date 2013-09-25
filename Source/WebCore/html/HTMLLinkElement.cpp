@@ -44,7 +44,7 @@
 #include "css/MediaList.h"
 #include "css/MediaQueryEvaluator.h"
 #include "page/Page.h"
-#include "bindings/dui/ScriptEventListener.h"
+#include "bindings/dui/DEventListener.h"
 #include "page/Settings.h"
 #include "css/StyleResolver.h"
 #include "css/StyleSheetContents.h"

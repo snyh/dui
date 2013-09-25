@@ -43,7 +43,7 @@
 #include "rendering/RenderBox.h"
 #include "rendering/RenderTextControl.h"
 #include "rendering/RenderTheme.h"
-#include "bindings/dui/ScriptEventListener.h"
+#include "bindings/dui/DEventListener.h"
 #include "dom/Text.h"
 #include "editing/TextIterator.h"
 #include <wtf/text/StringBuilder.h>

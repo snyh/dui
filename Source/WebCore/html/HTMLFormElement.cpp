@@ -45,7 +45,7 @@
 #include "page/Page.h"
 #include "rendering/RenderTextControl.h"
 #include "bindings/dui/ScriptController.h"
-#include "bindings/dui/ScriptEventListener.h"
+#include "bindings/dui/DEventListener.h"
 #include "page/Settings.h"
 #include <limits>
 

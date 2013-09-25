@@ -31,7 +31,7 @@
 #include "dom/EventSender.h"
 #include "HTMLNames.h"
 #include "css/MediaList.h"
-#include "bindings/dui/ScriptEventListener.h"
+#include "bindings/dui/DEventListener.h"
 #include "dom/ScriptableDocumentParser.h"
 #include "dom/ShadowRoot.h"
 #include "css/StyleSheetContents.h"

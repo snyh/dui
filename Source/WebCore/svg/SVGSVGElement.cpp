@@ -55,7 +55,7 @@
 #include "svg/SVGViewElement.h"
 #include "svg/SVGViewSpec.h"
 #include "svg/SVGZoomEvent.h"
-#include "bindings/dui/ScriptEventListener.h"
+#include "bindings/dui/DEventListener.h"
 #include "dom/StaticNodeList.h"
 #include <wtf/StdLibExtras.h>
 

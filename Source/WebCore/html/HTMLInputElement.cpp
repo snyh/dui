@@ -65,7 +65,7 @@
 #include "dom/ScopedEventQueue.h"
 #include "html/SearchInputType.h"
 #include "dom/ShadowRoot.h"
-#include "bindings/dui/ScriptEventListener.h"
+#include "bindings/dui/DEventListener.h"
 #include "css/StyleResolver.h"
 #include <wtf/MathExtras.h>
 

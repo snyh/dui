@@ -35,7 +35,7 @@
 #include "HTMLNames.h"
 #include "html/parser/HTMLParserIdioms.h"
 #include "page/Page.h"
-#include "bindings/dui/ScriptEventListener.h"
+#include "bindings/dui/DEventListener.h"
 #include "css/StylePropertySet.h"
 
 namespace WebCore {

@@ -49,7 +49,7 @@
 #include "dom/NodeTraversal.h"
 #include "rendering/RenderWordBreak.h"
 #include "bindings/dui/ScriptController.h"
-#include "bindings/dui/ScriptEventListener.h"
+#include "bindings/dui/DEventListener.h"
 #include "page/Settings.h"
 #include "css/StylePropertySet.h"
 #include "dom/Text.h"

@@ -34,7 +34,7 @@
 #include "HTMLNames.h"
 #include "html/parser/HTMLParserIdioms.h"
 #include "rendering/RenderImage.h"
-#include "bindings/dui/ScriptEventListener.h"
+#include "bindings/dui/DEventListener.h"
 
 using namespace std;
 

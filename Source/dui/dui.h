@@ -8,10 +8,7 @@ extern "C" {
         void* core;
     } DFrame;
 
-    typedef struct _DElement {
-        void* native;
-        void* core;
-    } DElement;
+    typedef void DElement;
 
     DFrame* d_frame_new(int width, int height);
     void d_frame_load_content(DFrame* frame, const char* content);
@@ -22,6 +19,15 @@ extern "C" {
     const char* d_element_get_content(DElement*);
     const char* d_element_set_content(DElement*, const char*);
 
+
+    typedef struct _ListenerInfo {
+        int func_id;
+        void* listener;
+    } ListenerInfo;
+    typedef void (*DListenerHandler)(ListenerInfo*);
+    void set_dui_listener_handle(DListenerHandler);
+
+    ListenerInfo* d_element_add_listener(DElement* element, const char* type, int id);
 
 #ifdef __cplusplus
 }
