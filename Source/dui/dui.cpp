@@ -26,7 +26,8 @@
 #include "page/EventHandler.h"
 
 #include "loader/cache/MemoryCache.h"
-#include "dui.h"
+#include "dui/dui.h"
+#include "dui/DEventListener.h"
 
 GdkWindow* window = NULL;
 
@@ -143,6 +144,7 @@ DFrame* d_frame_new(int width, int height)
     return dframe;
 }
 
+
 DElement* d_frame_get_element(DFrame* dframe, const char* id)
 {
     Frame* frame = (Frame*)dframe->core;
@@ -157,4 +159,11 @@ const char* d_element_set_content(DElement* element, const char* content)
 {
     Element* e = (Element*)element;
     e->setTextContent(content, IGNORE_EXCEPTION);
+}
+
+bool d_signal_connect(DElement* element, const char* type, DCallBack* cb)
+{
+    Element* e = (Element*)element;
+    DEventListener* listener = cb;
+    e->addEventListener(type, listener, false);
 }

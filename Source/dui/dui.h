@@ -8,7 +8,10 @@ extern "C" {
         void* core;
     } DFrame;
 
-    typedef void DElement;
+    typedef struct _DElement {
+        void* native;
+        void* core;
+    } DElement;
 
     DFrame* d_frame_new(int width, int height);
     void d_frame_load_content(DFrame* frame, const char* content);
