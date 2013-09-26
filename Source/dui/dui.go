@@ -6,7 +6,6 @@ package dui
 // #include <stdio.h>
 // static void _setup_handler() {
 //      void _dui_listener_handler(ListenerInfo*);
-//     printf("handler:%p\n", _dui_listener_handler);
 //      set_dui_listener_handle(_dui_listener_handler);
 // }
 import "C"
@@ -54,7 +53,7 @@ type ListenerContext struct {
 }
 var element_listeners []*ListenerContext
 
-func (e *Element) SignalConnect(name string, f interface{}, datas ...interface{}) {
+func (e *Element) Connect(name string, f interface{}, datas ...interface{}) {
     var data interface{}
     if len(datas) > 0 {
         data = datas[0]
