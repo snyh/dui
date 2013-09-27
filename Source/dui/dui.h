@@ -15,9 +15,11 @@ extern "C" {
     void d_main();
     void d_init();
 
+    DElement* d_element_new(DFrame* frame, const char* type);
     DElement* d_frame_get_element(DFrame* frame, const char* id);
     const char* d_element_get_content(DElement*);
     const char* d_element_set_content(DElement*, const char*);
+
 
 
     typedef struct _ListenerInfo {

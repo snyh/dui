@@ -60,5 +60,5 @@ libdui_la_LIBADD := \
 
 bin_PROGRAMS += dui_gtk
 dui_gtk_SOURCES = Source/dui/test.cpp
-dui_gtk_LDADD = libdui.la -lX11 $(GTK_LIBS)
+dui_gtk_LDADD = libdui.la -lX11 $(GTK_LIBS) -lstdc++
 dui_gtk_CXXFLAGS = -g $(CAIRO_CFLAGS) $(GTK_CFLAGS)

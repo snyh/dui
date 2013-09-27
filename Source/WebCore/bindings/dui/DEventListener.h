@@ -23,17 +23,21 @@ namespace WebCore {
         public:
             virtual bool operator==(const EventListener&);
             virtual void handleEvent(ScriptExecutionContext*, Event*);
-            DEventListener();
-            DEventListener(ListenerInfo*);
+        static PassRefPtr<DEventListener> create(ListenerInfo* info)
+        {
+            return adoptRef(new DEventListener(info));
+        }
+
         private:
+            DEventListener(ListenerInfo*);
             ListenerInfo* m_info;
     };
 
     inline PassRefPtr<DEventListener> createAttributeEventListener(Node*, const QualifiedName&, const AtomicString& value) {
-        return adoptRef(new DEventListener());
+        return DEventListener::create(0);
     }
     inline PassRefPtr<DEventListener> createAttributeEventListener(Frame*, const QualifiedName&, const AtomicString& value) {
-        return adoptRef(new DEventListener());
+        return DEventListener::create(0);
     }
 } // namespace WebCore
 

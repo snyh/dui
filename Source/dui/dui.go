@@ -39,6 +39,9 @@ func (f *Frame) Ele(id string) *Element {
 type Element struct {
     Core unsafe.Pointer
 }
+func (f *Frame) NewElement(ele_type string) *Element {
+    return &Element{C.d_element_new(f.Core, C.CString(ele_type))}
+}
 func (e *Element) Content() string {
     return C.GoString(C.d_element_get_content(e.Core))
 }

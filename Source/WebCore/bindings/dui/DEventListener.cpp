@@ -3,11 +3,6 @@
 
 static DListenerHandler _handler = 0;
 namespace WebCore {
-    DEventListener::DEventListener()
-        : EventListener(EventListener::CPPEventListenerType)
-    {
-    }
-
     DEventListener::DEventListener(ListenerInfo* info)
         : EventListener(EventListener::CPPEventListenerType),
           m_info(info)

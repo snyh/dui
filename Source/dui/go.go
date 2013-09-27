@@ -20,13 +20,18 @@ func main() {
     e := f.Ele("snyh")
     println(e.Content())
 
+    /*m := f.NewElement("div")*/
+    /*m.SetContent("AAAAAAAAAAAAAAAAAAA")*/
+
     var flag bool
     f.Ele("button").Connect("click", func() {
         flag = !flag
         if flag {
             e.SetContent("one two three")
+            println(e.Content())
         } else {
             e.SetContent("three two one")
+            println(e.Content())
         }
     })
 

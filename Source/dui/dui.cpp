@@ -95,14 +95,17 @@ bool translate_event(GtkWidget* w, GdkEvent* event, DFrame* dframe)
     return false;
 }
 
-void draw_frame(GtkWidget* widget, cairo_t* cr, DFrame* dframe)
+bool draw_frame(GtkWidget* widget, cairo_t* cr, DFrame* dframe)
 {
+    Frame* frame = (Frame*)dframe->core;
+    frame->view()->updateLayoutAndStyleIfNeededRecursive();
     GdkWindow* w = gtk_widget_get_window(widget);
     int width = gdk_window_get_width(w);
     int height = gdk_window_get_height(w);
     GraphicsContext gc(cr);
     gc.clip(IntRect(0, 0, width, height));
-    ((Frame*)(dframe->core))->view()->paint(&gc, IntRect(0, 0, width, height));
+    frame->view()->paint(&gc, IntRect(0, 0, width, height));
+    return true;
 }
 
 gboolean let_we_draw(gpointer w)
@@ -140,6 +143,11 @@ DFrame* d_frame_new(int width, int height)
     return dframe;
 }
 
+DElement* d_element_new(DFrame* dframe, const char* type)
+{
+    Frame* frame = (Frame*)dframe->core;
+    return frame->document()->createElement(type, IGNORE_EXCEPTION).get();
+}
 
 DElement* d_frame_get_element(DFrame* dframe, const char* id)
 {
@@ -161,10 +169,9 @@ ListenerInfo* d_element_add_listener(DElement* element, const char* type, int id
 {
     Element* e = (Element*)element;
     ListenerInfo* info = g_new(ListenerInfo, 1);
-    DEventListener* listener = new DEventListener(info);
+    PassRefPtr<DEventListener> listener = DEventListener::create(info);
     e->addEventListener(type, listener, false);
 
     info->func_id = id;
-    info->listener = listener;
     return info;
 }
