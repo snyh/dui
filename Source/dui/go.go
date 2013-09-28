@@ -4,52 +4,48 @@ import "dui"
 import "runtime"
 
 func main() {
-    content := `
-    <input id="button" type=button value="hello"/>
-    1234
-    <div style="-webkit-transform: rotate(-20deg);">
-    <div id="snyh" style="text-shadow: 2px 2px 2px red; font-size: 18px; -webkit-transition: all 10s ease-in;"> DUI Test </div>
-    </div>
-    <img style="border: 1px solid blue" height="300" src="/dev/shm/dui/Source/dui/test.gif" />
-    <input id="quit" type=button value="exit"/>
-    `
-
     dui.Init()
 
-    f := dui.NewFrame(350, 400)
-    f.LoadContent(content)
+    f := dui.NewFrame(350, 500)
 
-    e := f.Ele("snyh")
-    println(e.Content())
+    img := f.NewElement("img")
+    img.Set("style", "border: 1px solid blue")
+    img.Set("height", "300")
+    img.Set("src", "/dev/shm/dui/Source/dui/test.gif")
+    f.Add(img)
+    print("imgWidth:", img.Get("height"), "\n")
 
-    m := f.NewElement("div")
-    m.SetContent("AAAAAAAAAAAAAAAAAAA")
+
+    txt := f.NewElement("div")
+    txt.Set("style", "text-shadow: 2px 2px 2px red; font-size: 18px; -webkit-transform: rotate(-20deg);")
+    txt.SetContent("DUI Test")
+    f.Add(txt)
+
+    quit := f.NewElement("input")
+    quit.Set("type", "button")
+    quit.Set("value", "exit")
+    quit.Set("id", "quit")
+    f.Add(quit)
+    f.Ele("quit").Connect("click", dui.Quit)
+
+    hello := f.NewElement("input")
+    hello.Set("type", "button")
+    hello.Set("value", "hello")
+    hello.Set("id", "hello")
+    f.Add(hello)
 
     var flag bool
-    f.Ele("button").Connect("click", func() {
+    hello.Connect("click", func() {
         flag = !flag
         if flag {
-            e.SetContent("one two three")
-            println(e.Content())
+            txt.SetContent("one two three")
+            println(txt.Content())
         } else {
-            e.SetContent("three two one")
-            println(e.Content())
+            txt.SetContent("three two one")
+            println(txt.Content())
         }
         runtime.GC()
     })
-
-    /*f.Ele("quit").Connect("click", dui.Quit)*/
-    f.Ele("quit").Connect("click", func() {
-        for i:=0; i<100000; i++{
-            ee := f.NewElement("div")
-            /*ee.SetContent("AAAAAAAAAAAAAAAAAAA")*/
-            /*print(ee.Content())*/
-            ee = ee
-            runtime.GC()
-        }
-        runtime.GC()
-    })
-    runtime.GC()
 
     dui.Run()
 }

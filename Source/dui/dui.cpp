@@ -147,6 +147,11 @@ DFrame* d_frame_new(int width, int height)
     return dframe;
 }
 
+void d_element_add(DElement* self, DElement* child)
+{
+    ((Element*)self)->appendChild((Element*)child);
+}
+
 DElement* d_element_new(DFrame* dframe, const char* type)
 {
     Frame* frame = (Frame*)dframe->core;
@@ -164,6 +169,19 @@ void d_element_free(DElement* element)
     callOnMainThread(_element_free, element);
 }
 
+
+void d_frame_add(DFrame* dframe, DElement* ele)
+{
+    Frame* frame = (Frame*)dframe->core;
+    HTMLElement* body = frame->document()->body();
+    if (body == 0) {
+        frame->document()->setContent("");
+        body = frame->document()->body();
+    }
+    //TODO: check ele's parent and refcount
+    body->appendChild(adoptRef((Element*)ele));
+}
+
 DElement* d_frame_get_element(DFrame* dframe, const char* id)
 {
     Frame* frame = (Frame*)dframe->core;
@@ -178,6 +196,16 @@ const char* d_element_set_content(DElement* element, const char* content)
 {
     Element* e = (Element*)element;
     e->setTextContent(content, IGNORE_EXCEPTION);
+}
+void d_element_set_attribute(DElement* element, const char* key, const char* value)
+{
+    Element* e = (Element*)element;
+    e->setAttribute(key, value, IGNORE_EXCEPTION);
+}
+const char* d_element_get_attribute(DElement* element, const char* key)
+{
+    Element* e = (Element*)element;
+    return e->getAttribute(key).string().utf8().data();
 }
 
 ListenerInfo* d_element_add_listener(DElement* element, const char* type, int id)
