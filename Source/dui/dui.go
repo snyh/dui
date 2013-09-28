@@ -2,6 +2,7 @@ package dui
 
 // #cgo CFLAGS: -L/dev/shm/dui/build/.libs
 // #cgo LDFLAGS: -ldui
+// #include <stdlib.h>
 // #include "dui.h"
 // #include <stdio.h>
 // static void _setup_handler() {
@@ -11,6 +12,7 @@ package dui
 import "C"
 import "unsafe"
 import "reflect"
+import "runtime"
 
 func Init() {
     C.d_init()
@@ -18,6 +20,9 @@ func Init() {
 }
 func Run() {
     C.d_main()
+}
+func Quit() {
+    C.d_main_quit()
 }
 
 
@@ -28,10 +33,15 @@ func NewFrame(width, height int) *Frame {
     return &Frame{C.d_frame_new(C.int(width), C.int(height))}
 }
 func (f *Frame) LoadContent(content string) {
-    C.d_frame_load_content(f.Core, C.CString(string(content)))
+    cs := C.CString(content)
+    C.d_frame_load_content(f.Core, cs)
+    C.free(unsafe.Pointer(cs))
 }
 func (f *Frame) Ele(id string) *Element {
-    return  &Element{C.d_frame_get_element(f.Core, C.CString(id))}
+    cs := C.CString(id)
+    r := &Element{C.d_frame_get_element(f.Core, cs)}
+    C.free(unsafe.Pointer(cs))
+    return r
 }
 
 
@@ -40,13 +50,19 @@ type Element struct {
     Core unsafe.Pointer
 }
 func (f *Frame) NewElement(ele_type string) *Element {
-    return &Element{C.d_element_new(f.Core, C.CString(ele_type))}
+    cs := C.CString(ele_type)
+    el := Element{C.d_element_new(f.Core, cs)}
+    C.free(unsafe.Pointer(cs))
+    runtime.SetFinalizer(&el, func(el *Element) { C.d_element_free(el.Core) })
+    return &el
 }
 func (e *Element) Content() string {
     return C.GoString(C.d_element_get_content(e.Core))
 }
 func (e *Element) SetContent(content string) {
-    C.d_element_set_content(e.Core, C.CString(content))
+    cs := C.CString(content)
+    C.d_element_set_content(e.Core, cs)
+    C.free(unsafe.Pointer(cs))
 }
 
 type ListenerContext struct {
@@ -62,7 +78,9 @@ func (e *Element) Connect(name string, f interface{}, datas ...interface{}) {
         data = datas[0]
     }
     ctx := &ListenerContext{f, nil, reflect.ValueOf(data)}
-    ctx.info = unsafe.Pointer(C.d_element_add_listener(e.Core, C.CString(name), C.int(len(element_listeners))))
+    cs_name := C.CString(name)
+    ctx.info = unsafe.Pointer(C.d_element_add_listener(e.Core, cs_name, C.int(len(element_listeners))))
+    C.free(unsafe.Pointer(cs_name))
     element_listeners = append(element_listeners, ctx)
 }
 

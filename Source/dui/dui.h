@@ -13,9 +13,11 @@ extern "C" {
     DFrame* d_frame_new(int width, int height);
     void d_frame_load_content(DFrame* frame, const char* content);
     void d_main();
+    void d_main_quit();
     void d_init();
 
     DElement* d_element_new(DFrame* frame, const char* type);
+    void d_element_free(DElement* element);
     DElement* d_frame_get_element(DFrame* frame, const char* id);
     const char* d_element_get_content(DElement*);
     const char* d_element_set_content(DElement*, const char*);

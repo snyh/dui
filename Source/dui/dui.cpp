@@ -61,6 +61,10 @@ void d_main()
 {
     gtk_main();
 }
+void d_main_quit()
+{
+    gtk_main_quit();
+}
 
 void d_frame_load_content(DFrame* frame, const char* content)
 {
@@ -146,7 +150,18 @@ DFrame* d_frame_new(int width, int height)
 DElement* d_element_new(DFrame* dframe, const char* type)
 {
     Frame* frame = (Frame*)dframe->core;
-    return frame->document()->createElement(type, IGNORE_EXCEPTION).get();
+    RefPtr<Element> el = frame->document()->createElement(type, IGNORE_EXCEPTION);
+    return (DElement*)el.release().leakRef();
+}
+
+void _element_free(void* element)
+{
+    ((Element*)element)->deref();
+}
+void d_element_free(DElement* element)
+{
+    g_assert(element != 0);
+    callOnMainThread(_element_free, element);
 }
 
 DElement* d_frame_get_element(DFrame* dframe, const char* id)
