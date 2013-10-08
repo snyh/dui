@@ -40,7 +40,8 @@ func main() {
     f.Add(hello)
 
     var flag bool
-    hello.Connect("click", func(e bool) {
+    hello.Connect("click", func(e dui.MouseEvent) {
+        fmt.Printf("x:%d, y:%d\n", e.X, e.Y)
         flag = !flag
         if flag {
             txt.SetContent("one two three")

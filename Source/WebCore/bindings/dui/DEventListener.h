@@ -6,8 +6,9 @@
 #include <wtf/text/AtomicString.h>
 
 extern "C" {
+        // must sync with dui/api/event.h
     typedef struct _ListenerInfo ListenerInfo;
-    typedef void (*DListenerHandler)(ListenerInfo*);
+    typedef void (*DListenerHandler)(ListenerInfo*, void* event);
     void set_dui_listener_handle(DListenerHandler);
 }
 

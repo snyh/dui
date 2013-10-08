@@ -16,7 +16,7 @@ namespace WebCore {
     void DEventListener::handleEvent(ScriptExecutionContext*, Event* e)
     {
         ASSERT(_handler != 0);
-        _handler(m_info);
+        _handler(m_info, e);
     }
 }
 

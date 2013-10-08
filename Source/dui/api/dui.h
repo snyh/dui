@@ -1,7 +1,6 @@
 #ifndef __DUI_H__
 #define __DUI_H__
 
-#include "event.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -35,19 +34,10 @@ extern "C" {
     const char* d_element_set_content(DElement*, const char*);
 
 
-
-    typedef struct _ListenerInfo {
-        int func_id;
-        void* listener;
-    } ListenerInfo;
-    typedef void (*DListenerHandler)(ListenerInfo*);
-    void set_dui_listener_handle(DListenerHandler);
-
-    ListenerInfo* d_element_add_listener(DElement* element, const char* type, int id);
-
 #ifdef __cplusplus
 }
 #endif
 
+#include "event.h"
 
 #endif

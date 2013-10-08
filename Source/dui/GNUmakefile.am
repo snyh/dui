@@ -1,7 +1,9 @@
 lib_LTLIBRARIES += \
 	libdui.la
 
-libdui_la_SOURCES = Source/dui/dui.cpp
+libdui_la_SOURCES = \
+	Source/dui/dui.cpp \
+	Source/dui/event.cpp
 
 libdui_la_CXXFLAGS= \
 	-Wl,-e_Z9test_mainiPPc -g \

@@ -5,7 +5,7 @@ package dui
 
 #include "dui.go.h"
 static void _setup_handler() {
-    void _dui_listener_handler(ListenerInfo*);
+    void _dui_listener_handler(ListenerInfo*, void*);
     set_dui_listener_handle(_dui_listener_handler);
 }
 
@@ -13,6 +13,12 @@ static void _setup_handler() {
 import "C"
 import "unsafe"
 import "reflect"
+
+type MouseEvent struct {
+    X, Y int
+}
+type KeyboardEvent struct {
+}
 
 type ListenerContext struct {
     f interface{}
@@ -33,12 +39,18 @@ func (e *Element) Connect(name string, f interface{}, datas ...interface{}) {
     element_listeners = append(element_listeners, ctx)
 }
 
+func NewEvent(p unsafe.Pointer) reflect.Value {
+    e := C.d_event_new(p)
+    /*fmt.Print("NewEVent: ", e)*/
+    return reflect.ValueOf(MouseEvent{int(e.x), int(e.y)})
+}
+
+
 //export _dui_listener_handler
-func _dui_listener_handler(info *C.ListenerInfo) {
+func _dui_listener_handler(info *C.ListenerInfo, e unsafe.Pointer) {
     ctx := element_listeners[int(info.func_id)]
     rf := reflect.ValueOf(ctx.f)
-    /*e := NewEvent(info.event)*/
-    rf.Call(nil)
+    rf.Call([]reflect.Value{NewEvent(e)})
 }
 func event_handler_init() {
     C._setup_handler()
