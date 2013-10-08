@@ -1,4 +1,4 @@
-#include "dui.h"
+#include "api/dui.h"
 #include <glib.h>
 
 

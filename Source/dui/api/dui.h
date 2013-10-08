@@ -1,5 +1,8 @@
 #ifndef __DUI_H__
 #define __DUI_H__
+
+#include "event.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif

@@ -1,7 +1,6 @@
 package dui
 /*
-#include "dui.h"
-#include <stdlib.h>
+#include "dui.go.h"
 */
 import "C"
 import "unsafe"

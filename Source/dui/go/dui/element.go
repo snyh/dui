@@ -1,7 +1,6 @@
 package dui
 /*
-#include "dui.h"
-#include <stdlib.h>
+#include "dui.go.h"
 */
 import "C"
 import "unsafe"
@@ -45,4 +44,3 @@ func (e *Element) SetContent(content string) {
     C.d_element_set_content(e.Core, cs)
     C.free(unsafe.Pointer(cs))
 }
-

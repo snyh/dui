@@ -3,9 +3,7 @@ package dui
 #cgo CFLAGS: -L/dev/shm/dui/build/.libs
 #cgo LDFLAGS: -ldui
 
-#include <stdlib.h>
-#include "dui.h"
-#include <stdio.h>
+#include "dui.go.h"
 static void _setup_handler() {
     void _dui_listener_handler(ListenerInfo*);
     set_dui_listener_handle(_dui_listener_handler);

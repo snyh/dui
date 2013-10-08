@@ -27,7 +27,7 @@
 #include "bindings/dui/DEventListener.h"
 
 #include "loader/cache/MemoryCache.h"
-#include "dui.h"
+#include "api/dui.h"
 
 using namespace WebCore;
 

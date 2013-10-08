@@ -1,7 +1,7 @@
 package dui
 
 /*
-#include "dui.h"
+#include "dui.go.h"
 */
 import "C"
 
