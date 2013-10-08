@@ -1,7 +1,9 @@
 package main
 
-import "dui"
+import "./dui"
 import "runtime"
+import "reflect"
+import "fmt"
 
 func main() {
     dui.Init()
@@ -15,6 +17,9 @@ func main() {
     f.Add(img)
     print("imgWidth:", img.Get("height"), "\n")
 
+    var a dui.Frame
+    t := reflect.ValueOf(a)
+    fmt.Print(t)
 
     txt := f.NewElement("div")
     txt.Set("style", "text-shadow: 2px 2px 2px red; font-size: 18px; -webkit-transform: rotate(-20deg);")
@@ -35,7 +40,7 @@ func main() {
     f.Add(hello)
 
     var flag bool
-    hello.Connect("click", func() {
+    hello.Connect("click", func(e bool) {
         flag = !flag
         if flag {
             txt.SetContent("one two three")
