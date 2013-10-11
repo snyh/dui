@@ -3,10 +3,10 @@ lib_LTLIBRARIES += \
 
 libdui_la_SOURCES = \
 	Source/dui/dui.cpp \
-	Source/dui/event.cpp
+	Source/dui/event.cpp \
+	Source/dui/element.cpp
 
 libdui_la_CXXFLAGS= \
-	-Wl,-e_Z9test_mainiPPc -g \
 	$(webcore_cppflags) \
 	-DBUILDING_WebCore \
 	-I$(srcdir)/Source/JavaScriptCore \

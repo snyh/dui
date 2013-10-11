@@ -19,4 +19,3 @@ DEvent d_event_new(void* _e)
     }
     return r;
 }
-

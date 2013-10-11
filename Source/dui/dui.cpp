@@ -1,53 +1,25 @@
 #include "config.h"
+
 #include "page/Page.h"
 #include "page/Frame.h"
 #include "page/FrameView.h"
-#include "page/DOMWindow.h"
 #include "html/HTMLDocument.h"
-#include "html/HTMLStyleElement.h"
 #include "html/HTMLElement.h"
 #include "dom/Document.h"
-#include "dom/DocumentParser.h"
-#include "dom/Element.h"
-#include "rendering/RenderView.h"
-#include "rendering/style/RenderStyle.h"
-#include "rendering/style/StyleInheritedData.h"
-#include <wtf/MainThread.h>
-#include <wtf/dtoa/cached-powers.h>
-#include <wtf/text/CString.h>
-#include <glib.h>
-#include "loader/EmptyClients.h"
-#include <gtk/gtk.h>
-#include "platform/network/soup/ResourceRequest.h"
-#include "loader/SubstituteData.h"
-#include "loader/DocumentLoader.h"
-#include "loader/FrameLoadRequest.h"
-#include "css/StyleResolver.h"
-#include "page/EventHandler.h"
-#include "bindings/dui/DEventListener.h"
 
-#include "loader/cache/MemoryCache.h"
+
+#include "loader/EmptyClients.h"
+#include "page/EventHandler.h"
+
+#include <wtf/dtoa/cached-powers.h>
+#include <wtf/MainThread.h>
+
+#include <glib.h>
+#include <gtk/gtk.h>
+
 #include "api/dui.h"
 
 using namespace WebCore;
-
-void dumpRuleSet(RuleSet* set)
-{
-}
-
-class DuiChromeClient : public EmptyChromeClient {
-    WTF_MAKE_FAST_ALLOCATED;
-    public:
-    virtual void invalidateRootView(const IntRect& rect, bool immediate) OVERRIDE {
-        invalidateContentsAndRootView(rect, immediate);
-    }
-    virtual void invalidateContentsAndRootView(const IntRect& rect, bool) OVERRIDE {
-        //if (window) {
-            //GdkRectangle _rect = rect;
-            //gdk_window_invalidate_rect(window, &_rect, false);
-        //}
-    }
-};
 
 void d_init()
 {
@@ -118,6 +90,22 @@ gboolean let_we_draw(gpointer w)
     return true;
 }
 
+
+class DuiChromeClient : public EmptyChromeClient {
+    WTF_MAKE_FAST_ALLOCATED;
+    public:
+    virtual void invalidateRootView(const IntRect& rect, bool immediate) OVERRIDE {
+        invalidateContentsAndRootView(rect, immediate);
+    }
+    virtual void invalidateContentsAndRootView(const IntRect& rect, bool) OVERRIDE {
+        //if (window) {
+            //GdkRectangle _rect = rect;
+            //gdk_window_invalidate_rect(window, &_rect, false);
+        //}
+    }
+};
+
+
 DFrame* d_frame_new(int width, int height)
 {
     DFrame* dframe = g_new0(DFrame, 1);
@@ -147,29 +135,6 @@ DFrame* d_frame_new(int width, int height)
     return dframe;
 }
 
-void d_element_add(DElement* self, DElement* child)
-{
-    ((Element*)self)->appendChild((Element*)child);
-}
-
-DElement* d_element_new(DFrame* dframe, const char* type)
-{
-    Frame* frame = (Frame*)dframe->core;
-    RefPtr<Element> el = frame->document()->createElement(type, IGNORE_EXCEPTION);
-    return (DElement*)el.release().leakRef();
-}
-
-void _element_free(void* element)
-{
-    ((Element*)element)->deref();
-}
-void d_element_free(DElement* element)
-{
-    g_assert(element != 0);
-    callOnMainThread(_element_free, element);
-}
-
-
 void d_frame_add(DFrame* dframe, DElement* ele)
 {
     Frame* frame = (Frame*)dframe->core;
@@ -186,35 +151,4 @@ DElement* d_frame_get_element(DFrame* dframe, const char* id)
 {
     Frame* frame = (Frame*)dframe->core;
     return frame->document()->getElementById(id);
-}
-const char* d_element_get_content(DElement* element)
-{
-    Element* e = (Element*)element;
-    return e->textContent().utf8().data();
-}
-const char* d_element_set_content(DElement* element, const char* content)
-{
-    Element* e = (Element*)element;
-    e->setTextContent(content, IGNORE_EXCEPTION);
-}
-void d_element_set_attribute(DElement* element, const char* key, const char* value)
-{
-    Element* e = (Element*)element;
-    e->setAttribute(key, value, IGNORE_EXCEPTION);
-}
-const char* d_element_get_attribute(DElement* element, const char* key)
-{
-    Element* e = (Element*)element;
-    return e->getAttribute(key).string().utf8().data();
-}
-
-ListenerInfo* d_element_add_listener(DElement* element, const char* type, int id)
-{
-    Element* e = (Element*)element;
-    ListenerInfo* info = g_new(ListenerInfo, 1);
-    PassRefPtr<DEventListener> listener = DEventListener::create(info);
-    e->addEventListener(type, listener, false);
-
-    info->func_id = id;
-    return info;
 }

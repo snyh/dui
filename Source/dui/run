@@ -1,0 +1,1 @@
+env LIBRARY_PATH=/dev/shm/dui/build/.libs go build /dev/shm/dui/Source/dui/go/test_dui.go && ./test_dui

@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=DUI Test
-Exec=env LIBRARY_PATH=/dev/shm/dui/build/.libs go run /dev/shm/dui/Source/dui/go.go
-Icon=/usr/share/pixmaps/adt-bundle.png
-Terminal=false
-Type=Application
-Categories=Development;
-StartupNotify=true
