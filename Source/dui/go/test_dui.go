@@ -1,6 +1,7 @@
 package main
 
-import "./dui"
+import "dui"
+import "dui/css"
 import "runtime"
 import "reflect"
 import "fmt"
@@ -11,7 +12,7 @@ func main() {
     f := dui.NewFrame(350, 500)
 
     img := f.NewElement("img")
-    img.Set("style", "border: 1px solid blue")
+    img.SetStyle(css.Border, "1px solid blue")
     img.Set("height", "300")
     img.Set("src", "/dev/shm/dui/Source/dui/test.gif")
     f.Add(img)
@@ -22,8 +23,10 @@ func main() {
     fmt.Print(t)
 
     txt := f.NewElement("div")
-    txt.Set("style", "text-shadow: 2px 2px 2px red; font-size: 18px; -webkit-transform: rotate(-20deg);")
     txt.SetContent("DUI Test")
+    txt.SetStyle(css.TextShadow, "2px 2px 2px red")
+    txt.SetStyle(css.FontSize, "18px")
+    txt.SetStyle(css.Transform, "rotate(-20deg)")
     f.Add(txt)
 
     quit := f.NewElement("input")

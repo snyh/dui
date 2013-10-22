@@ -15,6 +15,7 @@ void d_element_set_attribute(DElement*, const char* key, const char* value);
 const char* d_element_get_attribute(DElement*, const char* key);
 const char* d_element_get_content(DElement*);
 const char* d_element_set_content(DElement*, const char*);
+void d_element_set_style(DElement* element, int property, const char* value);
 
 #ifdef __cplusplus
 }

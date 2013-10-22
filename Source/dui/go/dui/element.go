@@ -44,3 +44,10 @@ func (e *Element) SetContent(content string) {
     C.d_element_set_content(e.Core, cs)
     C.free(unsafe.Pointer(cs))
 }
+
+func (e *Element) SetStyle(id int, value string) {
+    cs := C.CString(value)
+    defer C.free(unsafe.Pointer(cs))
+
+    C.d_element_set_style(e.Core, C.int(id), cs)
+}

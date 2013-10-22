@@ -1,6 +1,5 @@
 package dui
 /*
-#cgo CFLAGS: -L/dev/shm/dui/build/.libs
 #cgo LDFLAGS: -ldui
 
 #include "dui.go.h"

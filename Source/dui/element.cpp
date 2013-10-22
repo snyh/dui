@@ -1,5 +1,6 @@
 #include "config.h"
 #include "dom/Element.h"
+#include "dom/StyledElement.h"
 #include "page/Frame.h"
 #include <wtf/text/CString.h>
 
@@ -47,6 +48,11 @@ void d_element_set_attribute(DElement* element, const char* key, const char* val
 {
     Element* e = (Element*)element;
     e->setAttribute(key, value, IGNORE_EXCEPTION);
+}
+void d_element_set_style(DElement* element, int property, const char* value)
+{
+    StyledElement* e = (StyledElement*)element;
+    e->setInlineStyleProperty(CSSPropertyID(property), value, false);
 }
 const char* d_element_get_attribute(DElement* element, const char* key)
 {
