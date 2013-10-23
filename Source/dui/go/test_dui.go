@@ -7,8 +7,6 @@ import "reflect"
 import "fmt"
 
 func main() {
-    dui.Init()
-
     f := dui.NewFrame(350, 500)
 
     img := f.NewElement("img")
@@ -23,7 +21,7 @@ func main() {
     fmt.Print(t)
 
     txt := f.NewElement("div")
-    txt.SetContent("DUI Test")
+    txt.SetContent("DUI Test测试")
     txt.SetStyle(css.TextShadow, "2px 2px 2px red")
     txt.SetStyle(css.FontSize, "18px")
     txt.SetStyle(css.Transform, "rotate(-20deg)")
